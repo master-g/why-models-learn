@@ -24,9 +24,10 @@
 - [2026-07-27] 骨架落地:拷 algebrica-zh、拆翻译管线、改单 collection、45/45 测试绿、构建 6 页、探针词条全链路验证(sync/渲染/链接降级/自动清理)后清理。加 LICENSE(CC BY-NC-SA 4.0)、README、docs/handoff.md 归档。
 - [2026-07-27] grilling 定案大纲/格式/存放后全部落地:sections.yaml 修订、sync-from-vault.mjs、vault 飞地 + _README.md、CLAUDE.md、bootstrap 上下文文件。
 - [2026-07-27] 停在:站点 0 词条、27 个 TODO 待写,尚未 git init。
+- [2026-07-27] git init 完成并推送 github.com/master-g/nn-to-llm(root-commit b961a90,57 文件);README/BaseLayout 里的仓库地址假设已证实正确。
 
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
 - [2026-07-27] 写第一个里程碑词条:`mnist-mlp-training-loop`(PyTorch 手写 MLP 训练 MNIST,完整训练循环,代码自包含可跑,贴运行输出)。在 vault 飞地写,status 先 active,完成翻 complete 后 sync + 移出 known_absent。
 - [2026-07-27] 之后按大纲顺序写四件套:what-is-a-neuron / activation-functions / loss-functions / gradient-descent / backpropagation。
-- [2026-07-27] 用户待办:`git init` + 关联 GitHub 仓库(README/BaseLayout 暂写 github.com/master-g/nn-to-llm,名字不同改这两处);攒够 10 个词条再部署 Pages。
+- [2026-07-27] 仓库 github.com/master-g/nn-to-llm 已建已推;攒够 10 个词条再部署 Pages。
