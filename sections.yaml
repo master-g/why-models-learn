@@ -1,0 +1,89 @@
+# 空词条即 TODO:写过的词条从 known_absent 移除。
+known_absent:
+  - what-is-a-neuron
+  - activation-functions
+  - loss-functions
+  - gradient-descent
+  - backpropagation
+  - weight-initialization
+  - optimizers
+  - overfitting-and-regularization
+  - mnist-mlp-training-loop
+  - cnn
+  - rnn
+  - lstm
+  - why-attention
+  - tokenization-bpe
+  - embeddings
+  - self-attention
+  - multi-head-attention
+  - positional-encoding
+  - layernorm-residuals
+  - feedforward
+  - full-transformer
+  - decoder-only
+  - pretraining
+  - inference
+  - sft
+  - rlhf-dpo
+  - llama2-from-scratch
+
+sections:
+  - dir: neural-network-basics
+    name_en: "Neural Network Basics"
+    name_zh: 神经网络基础
+    order: 1
+    entries:
+      - what-is-a-neuron
+      - activation-functions
+      - loss-functions
+      - gradient-descent
+      - backpropagation
+      - weight-initialization
+      - optimizers
+      - overfitting-and-regularization
+      - mnist-mlp-training-loop
+    description_zh: |
+      神经元、激活函数、损失函数、梯度下降、反向传播、初始化、优化器与正则化,以 MNIST + MLP 手写训练循环收尾。
+
+  - dir: classic-architectures
+    name_en: "Classic Architectures"
+    name_zh: 经典架构
+    order: 2
+    entries:
+      - cnn
+      - rnn
+      - lstm
+      - why-attention
+    description_zh: |
+      CNN/RNN/LSTM 概念支线:零代码,只写概念与数学推导,终点是“为什么需要注意力”。
+
+  - dir: transformer
+    name_en: "Transformer"
+    name_zh: Transformer
+    order: 3
+    entries:
+      - tokenization-bpe
+      - embeddings
+      - self-attention
+      - multi-head-attention
+      - positional-encoding
+      - layernorm-residuals
+      - feedforward
+      - full-transformer
+    description_zh: |
+      从分词到完整 Transformer:BPE、词嵌入、自注意力、多头与 GQA、位置编码、归一化与残差、FFN。
+
+  - dir: modern-llm
+    name_en: "GPT and Modern LLMs"
+    name_zh: GPT 与现代 LLM
+    order: 4
+    entries:
+      - decoder-only
+      - pretraining
+      - inference
+      - sft
+      - rlhf-dpo
+      - llama2-from-scratch
+    description_zh: |
+      Decoder-only 架构、预训练、推理(KV cache/采样)、指令微调与 RLHF/DPO,以复现 LLaMA2 收尾。

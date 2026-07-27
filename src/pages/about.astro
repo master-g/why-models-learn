@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="关于 | 从神经网络到大语言模型">
+  <div class="post-header">
+    <nav class="post-header-breadcrumb" aria-label="Breadcrumb">关于</nav>
+    <div class="post-header-section-title">
+      <h1 class="post-header-title">关于本站</h1>
+    </div>
+  </div>
+
+  <div class="post-content">
+    <section class="post-section">
+      <h2>这是什么</h2>
+      <p class="post-paragraph"><span class="post-paragraph-content">「从神经网络到大语言模型」是一个写给未来的自己的结构化学习库。路线:从一个神经元的加权和开始,经过反向传播、CNN/RNN/LSTM 支线、手写完整个 Transformer,最终复现一个 LLaMA2 规模的模型。</span></p>
+      <p class="post-paragraph"><span class="post-paragraph-content">词条是学习成果的正式沉淀:一个概念写成词条才算学完。骨架先行——sections.yaml 先定义全部章节与词条,空词条以 TODO 状态光明正大地空着(known_absent 模式),随学习进度逐个填充。</span></p>
+    </section>
+
+    <section class="post-section">
+      <h2>词条验收标准</h2>
+      <ul>
+        <li>概念讲透,能过写给自己的费曼检验;</li>
+        <li>交叉链接到相关词条;</li>
+        <li>实战类词条代码自包含、可运行。</li>
+      </ul>
+    </section>
+
+    <section class="post-section">
+      <h2>许可</h2>
+      <p class="post-paragraph"><span class="post-paragraph-content">全部原创内容以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可发布。</span></p>
+    </section>
+
+    <section class="post-section">
+      <h2>致谢</h2>
+      <p class="post-paragraph"><span class="post-paragraph-content">站点骨架与视觉主题移植自 <a href="https://algebrica.org" target="_blank" rel="noopener noreferrer">Algebrica</a> 的中文镜像项目 algebrica-zh(个人非商业用途);数学公式由 MathJax 渲染。</span></p>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSections } from '../lib/sections.mjs';
+import { getEntries } from './_entries.mjs';
+
+const sections = getSections();
+const entries = await getEntries();
+const bySlug = new Map(entries.map((e) => [e.id.split('/')[1], e]));
+---
+
+<BaseLayout title="从神经网络到大语言模型">
+  <div class="ui-new-home-wrapper">
+    <div class="video-home-wrap">
+      <div class="video-home-headline">从神经网络到大语言模型</div>
+      <div class="video-home-desc">
+        一个写给未来的自己的结构化学习库:从一个神经元开始,到手写 Transformer,再到复现 LLaMA2。
+      </div>
+    </div>
+
+    <div class="ui-new-home-heros">
+      <div class="ui-new-home-spacer"></div>
+      <div class="ui-new-home-cols">
+        <div class="ui-new-home-col">
+          <div style="text-align: center;">
+            词条是学习成果的正式沉淀:一个概念写成词条才算学完。骨架先行,空词条即 TODO。
+          </div>
+        </div>
+        <div class="ui-new-home-col no-mobile">
+          <div style="text-align: center;">
+            全部内容以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可发布于
+            <a href="https://github.com/master-g/nn-to-llm" target="_blank" rel="noopener noreferrer">GitHub</a>。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module-index">
+      {
+        sections.map((section) => (
+          <div class="module-index-section">
+            <div class="module-index-section-header">
+              <div class="module-index-heading">
+                <span class="module-index-number">{section.order}.</span>
+                <span class="module-index-heading__title">
+                  <a href={`/category/${section.dir}/`}>{section.name_zh}</a>
+                </span>
+              </div>
+            </div>
+            <div class="module-index-posts">
+              {section.entries.map((slug, idx) => {
+                const entry = bySlug.get(slug);
+                const number = `${section.order}.${idx + 1}`;
+                return (
+                  <div class="module-index-post">
+                    <span class="module-index-number module-index-post__number">{number}</span>
+                    <div class="module-index-post__title">
+                      {entry ? (
+                        <a href={`/${slug}/`}>{entry.data.title}</a>
+                      ) : (
+                        <span class="entry-todo">{slug}<span class="badge-untranslated">TODO</span></span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { render } from 'astro:content';
+import { getSection } from '../lib/sections.mjs';
+import { getEntries } from './_entries.mjs';
+
+export async function getStaticPaths() {
+  const entries = await getEntries();
+  return entries.map((entry) => {
+    const [section, slug] = entry.id.split('/');
+    return {
+      params: { slug },
+      props: { entry, section },
+    };
+  });
+}
+
+const { entry, section } = Astro.props;
+const { Content } = await render(entry);
+
+const sectionMeta = getSection(section);
+const pageTitle = `${entry.data.title} | 从神经网络到大语言模型`;
+---
+
+<BaseLayout title={pageTitle}>
+  <article class="post" lang="zh-CN">
+    <div class="post-header">
+      <nav class="post-header-breadcrumb" aria-label="Breadcrumb">
+        <a href={`/category/${section}/`}>{sectionMeta?.name_zh || section}</a>
+      </nav>
+      <div class="post-header-section-title">
+        <h1 class="post-header-title">{entry.data.title}</h1>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <Content />
+    </div>
+
+    <footer class="post-footer-attribution">
+      <p>
+        本文以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可发布。
+      </p>
+    </footer>
+  </article>
+</BaseLayout>
