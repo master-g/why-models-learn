@@ -18,12 +18,15 @@
 
 ## 常用命令
 
+`make`(无参数)列出全部命令,均为 npm 脚本的薄封装:
+
 ```bash
-npm run sync    # vault → content-zh 单向同步
-npm install     # 安装依赖
-npm run dev     # 本地预览
-npm run build   # 构建到 dist/
-npm test        # 单元测试 + 视觉契约
+make install       # 安装依赖
+make sync          # vault → content-zh 单向同步
+make dev           # 本地预览
+make build         # 构建到 dist/
+make test          # 单元测试 + 视觉契约
+make check-search  # 搜索冒烟(需先 build;词条未写齐时 FAIL 属预期)
 ```
 
 ## 结构

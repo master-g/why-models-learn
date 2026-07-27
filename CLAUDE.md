@@ -37,8 +37,8 @@ npm run build   # 构建 dist/
 - 测试:node:test + assert/strict(`node --test`),无测试框架
 
 ## 命令
-- `npm run sync` — vault → content-zh 单向同步(写词条后必跑)
-- `npm run dev` / `npm run build` / `npm test`(45 个测试,含视觉契约)
+- `make`(无参数)列出全部命令——npm 脚本的薄封装:`make sync / dev / build / test / preview / check-search / install`
+- `make sync` 写词条后必跑;`make test` 45 个测试(含视觉契约)须全绿
 
 ## 代码风格
 - 管线文件注释用中文;内部插件文件名沿用 algebrica 命名(历史遗留,勿改)
