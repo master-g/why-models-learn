@@ -1,4 +1,4 @@
-# 项目记忆 — nn-to-llm
+# 项目记忆 — why-models-learn
 
 > 跨会话的持久信息。完成任务后回写,约定见 [CLAUDE.md](./CLAUDE.md)。
 > 长度上限约 400 行。超长时:**保留**「已验证的事实」与「下次运行」,**淘汰**最旧的「失败尝试」「上次会话」条目。
@@ -6,7 +6,7 @@
 
 ## 已验证的事实
 <!-- 确认过的技术决策和约束。长期保留,不随压缩淘汰。 -->
-- [2026-07-27] 架构:vault 是词条唯一事实源(`~/Documents/ObsidianVaults/Main/03 - AREAS/learning/nn-to-llm/<slug>.md`,feynman 卡片格式),repo 是渲染器;`content-zh/` 是 sync 纯产物,永不手改。
+- [2026-07-27] 架构:vault 是词条唯一事实源(`~/Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn/<slug>.md`,feynman 卡片格式),repo 是渲染器;`content-zh/` 是 sync 纯产物,永不手改。
 - [2026-07-27] 发布闸门:vault frontmatter `status: complete | reference` 才被同步;`active` 草稿不出 vault。毕业 = status 翻转 + sections.yaml 的 known_absent 移除 slug。
 - [2026-07-27] 大纲定案 4 章 27 词条:评估并入 `overfitting-and-regularization`;GQA 并入 `multi-head-attention`;`modern-components` 已删;softmax 讲在 `loss-functions`;BPE 保持第 3 章首位(数据流顺序)。
 - [2026-07-27] 词条格式三条硬规则:①开头一句话定义 ②`##` 分节 ③结尾 `## 相关词条`;实战类加 `## 运行方法`,代码全内嵌且贴运行输出当证据。
@@ -49,8 +49,11 @@
 - [2026-07-28] **lint 门控升级落地**:skill 核对 vectors → 抓 4 处违规(3 处 alt 半角 + 1 处枚举)→ 升级中发现全文 153 处半角(上轮核对误判,记失败尝试)→ 三项升级(auto-fix 报告化、LINT-ERROR 硬错误 exit 1、重复标点 report)+ 修复器两盲区补丁($,其中 / 数字,中文)+ vault 全量规范化 149 处。验证链:注入 4 类违规 sync 正确触发(3 警告+1 硬错误 exit 1 不写产物)、硬错误时警告不再被吞、51/51 测试绿、sync 恢复零警告、build 双闸过。未提交,与插图机制改动一起等用户指示。
 - [2026-07-28] **vectors 术语修订 + 词汇表页落地**(已提交 6e1295c):①用户认可 5 处术语调整(Hadamard 积(阿达马积)/one-hot(独热)/隐藏状态(hidden state)或表示(representation)/损失(loss)/「逐元素」统一为「逐分量」),vault 改后 sync 零警告。②新建 /glossary/ 页:仿 playground 模式——repo 手维护 `glossary/glossary.md` + content.config.ts 加 glossary collection + src/pages/glossary.astro,不进 sections.yaml/首页/搜索;about 页加入口链接。首批 16 条(线代 7/ML 7/保留不译 2)。验证:3 表格渲染、链接改写 /vectors/ 生效、search.json 隔离、51/51 测试绿。**维护约定:写词条遇术语决策随手加一行**。
 - [2026-07-28] **项目改名 nn-to-llm → why-models-learn「模型为什么会学习」**:大纲起点已前移到数学地基(Part 0 87/301),旧名掩盖近三成内容。命名方向由用户定为 Why Machines Learn 式根本追问(Ananthaswamy 2024 撞书避让,主语换「模型」,隐含 Models Learn ≈ ML 双关)。落地:仓库内 sed 批量替换(排除 PROJECT_MEMORY/docs 历史文档与 content-zh 产物)+ index/README/about 三处路线描述手工改为「从向量开始」;vault 飞地目录与 repo 本地目录 mv 改名;remote set-url 新地址(GitHub 网页端 rename 由用户操作)。坑:Edit 工具连续两次匹配失败——不是显示层问题,是我凭记忆写的标点与文件不符(「支线、」记成「支线,」),改 python 锚点替换成功。验证:sync 走新 vault 路径、tags 同步、51/51 测试绿、build 双闸过、dist 标题生效。
+- [2026-07-28] **改名跨会话复核(用户要求)**:remote 可达、package.json/sync 脚本/首页/README 全为新名、vault 飞地及全 vault 无 `nn-to-llm` 残留、sync 实跑(1 词条+3 插图)、51/51 测试绿。漏网一条:vault `_README.md` 第 3 行旧中文名「从神经网络到大语言模型」(sed 只换了英文名)→ 已改「模型为什么会学习」。顺带修正本文件标题、第 9 行 vault 路径、Pages 行的仓库 URL(docs/handoff.md 旧名属历史文档,有意保留)。
+- [2026-07-28] **`matrices` 毕业(2/301)**:三视角(表格/向量堆叠/线性映射)呼应 vectors 结构,加法数乘+转置+对称+特殊结构(零/单位/对角/三角)+NN 三角色+失效模式四条;乘法全程只预告不定义(地盘留给 matrix-multiplication)。2 张 SVG:列堆叠(复用 u=(3,1)、v=(1,2) 承上启下)、剪切 S=[[1,1],[0,1]] 双 panel 斜格,点题「第 j 列 = 基向量 e_j 的去向」。坑:**lint auto-fix 有盲区**——冒号/分号后接 `**`、「、拉丁字母(如 alt 内 `堆叠:u`、`;「`),以及行尾 `$A^T$:`(被英文枚举签名豁免),7 处不转换也不报告,手工全角化后零警告;写词条时中文后直接用全角可避免整条返工链。dist 页面是扁平 slug(`dist/matrices/`)非章节嵌套。验证:sync 零警告、51/51 测试绿、build 双闸过、209 mjx 容器零错误、2 图入页、vectors 反链生效、SVG 缩略图目测通过。未提交。
+- [2026-07-28] **vectors.1.svg 标注修复(用户捉虫)**:同一坐标 (5,5) 曾有两处文字——虚线中段的「位置 (5, 5)」(标注线)与点旁的小字「(5, 5)」(标注点),前者离所指的点 130px,易误读为两个点。修法:删虚线标签,点旁标签改全名并挪到点的右下方 (200,82)(避开虚线路径)。**插图标注约定:一个对象一个标签,标签紧贴所标对象**;辅助线不单独配文字,靠所连对象的名号自明。sync/测试/构建全绿。
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
-- [2026-07-28] 沿 linear-algebra 章顺序推进:`vectors` ✅ → 下一篇 `matrices`。穿插 Part 2 保持手感。跑代码一律 `uv run --with <pkg>` 临时环境;解读按真实输出写,先跑后写。
+- [2026-07-28] 沿 linear-algebra 章顺序推进:`vectors` ✅ → `matrices` ✅ → 下一篇 `matrix-multiplication`(伏笔回收:Av = 列的线性组合、(AB)^T = A^T B^T 顺序反转、形状内维相等、行/列向量成型)。穿插 Part 2 保持手感。跑代码一律 `uv run --with <pkg>` 临时环境;解读按真实输出写,先跑后写。
 - [2026-07-28] MNIST 词条退役回炉(用户决定「不保留,按新架构重规划」):vault 翻回 active、slug 回 known_absent,sync 自动清产物(退役链路验证通过)。重写时机 = Part 2 收尾,届时改为纯实战篇、数学全引用;其失效模式真跑素材(去 ReLU ~90%+过拟合裂口、lr=10 锁死 ln10)分流到 `saturation-and-vanishing`/`gradient-descent` 等对应词条。站点回到 0 成品 301 TODO。
-- [2026-07-27] 仓库 github.com/master-g/nn-to-llm 已建已推;攒够 10 个词条再部署 Pages。
+- [2026-07-27] 仓库 github.com/master-g/why-models-learn 已建已推;攒够 10 个词条再部署 Pages。

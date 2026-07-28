@@ -1,0 +1,40 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+    </marker>
+    <marker id="a-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+    </marker>
+    <marker id="a-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+    </marker>
+  </defs>
+
+  <!-- 左:矩阵本体,两列分别高亮 -->
+  <rect x="60" y="68" width="32" height="110" fill="#cc785c" opacity="0.10"/>
+  <rect x="94" y="68" width="32" height="110" fill="#312f2f" opacity="0.07"/>
+  <path d="M56,66 L46,66 L46,182 L56,182" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <path d="M130,66 L140,66 L140,182 L130,182" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <text x="76" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#cc785c" text-anchor="middle">3</text>
+  <text x="110" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#312f2f" text-anchor="middle">1</text>
+  <text x="76" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#cc785c" text-anchor="middle">1</text>
+  <text x="110" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#312f2f" text-anchor="middle">2</text>
+  <text x="76" y="208" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#cc785c" text-anchor="middle">第 1 列</text>
+  <text x="110" y="208" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#312f2f" text-anchor="middle">第 2 列</text>
+
+  <!-- 等号 -->
+  <text x="164" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#312f2f" text-anchor="middle">=</text>
+
+  <!-- 右:平面上的两个列向量 -->
+  <line x1="220" y1="190" x2="375" y2="190" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <line x1="220" y1="190" x2="220" y2="45" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <text x="381" y="194" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">x</text>
+  <text x="212" y="38" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">y</text>
+  <circle cx="220" cy="190" r="2.6" fill="#312f2f"/>
+
+  <line x1="220" y1="190" x2="346" y2="148" stroke="#cc785c" stroke-width="1.8" marker-end="url(#a-coral)"/>
+  <line x1="220" y1="190" x2="262" y2="106" stroke="#312f2f" stroke-width="1.8" marker-end="url(#a-ink)"/>
+  <text x="300" y="132" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#cc785c" text-anchor="middle">u = (3, 1)</text>
+  <text x="270" y="98" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">v = (1, 2)</text>
+</svg>
