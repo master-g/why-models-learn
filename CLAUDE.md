@@ -22,6 +22,7 @@ npm run build   # 构建 dist/
 - **大纲**(2026-07-28 重设计,书目驱动):**6 部分 25 章 301 词条**见 `sections.yaml`,结构为 parts > sections > entries 三级。数学地基(Part 0,87 词条)先行——用户编程资深、数学偏弱,**词条写法向数学原理与推导侧重**。GQA 独立为 `gqa-and-mqa`;softmax 独立;评估拆为总览 `overfitting-and-regularization` + 细节篇;进阶理论(Part 6)为参考轨,长期 TODO 合法。
 - **词条格式**:三条硬规则——①开头定义+定位段(无 TLDR callout)②`##` 分节 ③结尾 `## 相关词条`;实战类加 `## 运行方法`。**体裁是 algebrica 长文**(概念揉碎展开、推导不跳步、数字实例、失效模式一节),不是费曼卡片;参照 `mnist-mlp-training-loop`。
 - **代码**:ML/实战类词条内嵌,写作时本地真跑,输出贴进词条当证据;**Part 0 数学词条不引代码**(2026-07-28 用户反馈,vectors 重写时定)。大代码(LLaMA2)在 happy-llm。
+- **插图**(2026-07-28 vectors 补图时定):手绘 SVG 存 vault `svg/<slug>.<n>.svg`(点号分隔,防 slug 前缀歧义),正文 `![中文 alt](svg/x.svg)`;sync 校验归属/存在性(缺失=硬错误)→ 拷 `public/assets/<section>/svg/` 并改写绝对路径,与词条同生命周期。SVG 用系统字体栈(img 内用不了 webfont),配色从纸墨主题。禁 `![[embed]]`。
 - **草稿**:vault 内 `status: active`,不出 vault;演算纸笔记是消耗品。
 - **支线**:CNN/RNN/LSTM 零代码,概念+数学推导。
 - **部署**:攒够 10 个词条再上 GitHub Pages。
@@ -54,7 +55,7 @@ npm run build   # 构建 dist/
 
 ## 审查规则
 - 词条验收:概念讲透(费曼)+ 结尾 `## 相关词条` 交叉链接 + 实战类代码内嵌可跑且贴运行输出
-- 自动闸(移植自 algebrica 验收体系):`npm run sync` 对每个同步词条跑 copywriting-lint(LINT-ERROR 是数学/标点硬伤,须修);`npm run build` 的 postbuild 扫 dist 全站 `mjx-error`,有即构建失败
+- 自动闸(移植自 algebrica 验收体系,2026-07-28 升级):`npm run sync` 对每个同步词条跑 copywriting-lint——LINT 是警告(盘古空格/半角标点/直引号/全角数字/重复标点,回 vault 修),LINT-ERROR 是硬错误(数学区残留标点等,sync exit 1 不写产物);`npm run build` 的 postbuild 双闸:dist 全站 `mjx-error` + 插图 404,有即构建失败
 - `npm test` 必须全绿;视觉契约(visual-contracts)约束 BaseLayout/index/[slug] 的类名结构,改页面时同步改测试
 - sections.yaml 的 slug 与 vault 文件名一一对应;新词条先进 sections.yaml + known_absent
 

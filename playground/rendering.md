@@ -95,6 +95,12 @@ weights = np.random.randn(784, 128) * np.sqrt(2.0 / 784)  # He 初始化:方差 
 
 指向已毕业词条的站内链接:[向量](../linear-algebra/vectors/)。指向未毕业词条(known_absent)的链接渲染为纯文本:[矩阵](../linear-algebra/matrices/)。
 
+## 插图
+
+词条插图走 vault `svg/` 同步机制;本页不在 content-zh 章节布局内,rewrite 插件推断不出章节,故直接引用绝对路径。测试点:居中(`p > img:only-child`)、alt 经 sanitize 保留、SVG 内中文与数学斜体标签:
+
+![测试插图:细灰轴线、墨色箭头与中文标签](/assets/playground/svg/test-1.svg)
+
 ## 引用块
 
 sync 会把 Obsidian callout 标记剥成普通 blockquote:

@@ -128,6 +128,8 @@ function makeMathSchema(base) {
       stop: ['offset', 'stopColor'],
       symbol: ['id'],
       a: ['href', 'title', 'target', 'rel', 'class'],
+      // 词条插图(SVG):defaultSchema 只放行 src/aria,alt 会被剥掉。
+      img: [...(base.attributes?.img || []), 'alt', 'title', 'width', 'height'],
       section: ['dataFootnotes', ['className', 'footnotes', 'post-section']],
       // shiki 的着色全靠 span/pre 的 inline style;remark 不开 raw HTML,
       // 元素均为管线产物(shiki/MathJax),放行 style 无注入面。

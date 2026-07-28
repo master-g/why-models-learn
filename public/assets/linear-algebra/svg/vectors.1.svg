@@ -1,0 +1,36 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+    </marker>
+    <marker id="a-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+    </marker>
+    <marker id="a-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+    </marker>
+  </defs>
+
+  <!-- 坐标轴 -->
+  <line x1="48" y1="205" x2="368" y2="205" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <line x1="48" y1="205" x2="48" y2="28" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <text x="374" y="209" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">x</text>
+  <text x="40" y="20" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">y</text>
+  <text x="35" y="222" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">O</text>
+
+  <!-- 位置 (5,5):辅助虚线 -->
+  <line x1="48" y1="205" x2="188" y2="65" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="58" y="124" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">位置 (5, 5)</text>
+
+  <!-- 位移 (3,1):从原点出发 -->
+  <line x1="48" y1="205" x2="130" y2="178" stroke="#312f2f" stroke-width="1.8" marker-end="url(#a-ink)"/>
+  <circle cx="48" cy="205" r="2.6" fill="#312f2f"/>
+  <text x="142" y="183" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#312f2f">位移 (3, 1)</text>
+
+  <!-- 同一向量:平移到 (5,5) 出发,到达 (8,6) -->
+  <line x1="188" y1="65" x2="270" y2="38" stroke="#cc785c" stroke-width="1.8" marker-end="url(#a-coral)"/>
+  <circle cx="188" cy="65" r="2.6" fill="#cc785c"/>
+  <text x="200" y="30" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#312f2f">同一向量 (3, 1)</text>
+  <text x="152" y="86" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11.5" fill="#6c6a64">(5, 5)</text>
+  <text x="280" y="44" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11.5" fill="#6c6a64">(8, 6)</text>
+</svg>

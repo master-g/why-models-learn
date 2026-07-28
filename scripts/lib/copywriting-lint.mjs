@@ -1,7 +1,8 @@
 /**
  * Chinese copywriting lint.
  *
- * Auto-fixes:
+ * Auto-fixes (each fix is also surfaced as a report — sync discards the
+ * fixed text, so without a report these violations would be invisible):
  *  - CJK ↔ latin/digit spacing (盘古空格)
  *  - half-width prose punctuation → full-width, dropping the following space
  *    (full-width punctuation never takes one). Punctuation immediately after
@@ -19,6 +20,7 @@
  * Reports (not auto-fixed):
  *  - straight quotes instead of 「」
  *  - full-width digits
+ *  - repeated sentence punctuation (!!,??,。。)
  */
 
 const CJK_CHAR = '[\\u4e00-\\u9fff\\u3040-\\u309f\\u30a0-\\u30ff]';
@@ -49,10 +51,23 @@ export function lintChineseCopywriting(text) {
       return before + ' '.repeat(url.length) + after;
     });
 
-  const punctuationFixedText = fixHalfWidthPunctuation(text, blanked);
+  const { text: punctuationFixedText, fixes: punctuationFixes } = fixHalfWidthPunctuation(
+    text,
+    blanked,
+  );
   const fixed = fixSpacing(blanked);
   const reports = [];
   const errors = [];
+
+  // auto-fix 的修复必须报告:sync 丢弃修复后文本(vault 是事实源),
+  // 不报告 = 违规对作者不可见(2026-07-28 vectors alt 半角标点就是这么漏的)。
+  for (const fix of punctuationFixes) {
+    reports.push({
+      line: lineOf(text, fix.index),
+      message: `半角标点「${fix.from}」应为全角「${fix.value}」`,
+    });
+  }
+  reports.push(...collectSpacingReports(blanked, text));
 
   let m;
 
@@ -110,6 +125,16 @@ export function lintChineseCopywriting(text) {
     }
   }
 
+  // Repeated sentence punctuation (!!,??,。。)。破折号 —— 与省略号 ……
+  // 本就是重复字符构成的合法标点,不在集合内。
+  const repeatedPunct = /[。,;:!?、]{2,}/g;
+  while ((m = repeatedPunct.exec(fixed)) !== null) {
+    reports.push({
+      line: lineOf(text, m.index),
+      message: `标点重复使用:「${m[0]}」`,
+    });
+  }
+
   // Straight quotes in Chinese text.
   const straightQuotes = /"([^"]+)"|'([^']+)'/g;
   while ((m = straightQuotes.exec(fixed)) !== null) {
@@ -133,7 +158,9 @@ export function lintChineseCopywriting(text) {
 
 function fixHalfWidthPunctuation(text, lintMask) {
   const replacements = [];
-  const punctuation = /(?<![\w.])([,.;:!?](?=\s|$|[一-鿿]))/g;
+  // 数字不进 lookbehind 黑名单:散文「走 1,到达」与坐标「(3, 1)」都是数字
+  // 开头,靠后面的「逗号后是否 CJK」细分;字母与点仍挡(英文单词/版本号)。
+  const punctuation = /(?<![A-Za-z_.])([,.;:!?](?=\s|$|[一-鿿]))/g;
   const fullWidth = {
     ',': '，',
     '.': '。',
@@ -157,10 +184,16 @@ function fixHalfWidthPunctuation(text, lintMask) {
     ) {
       continue;
     }
-    // Skip punctuation right after a closing math span ("$A$, ..."): an
-    // English sentence mark leaked out of the math, which a blind conversion
-    // would cement into broken prose. Surfaced as an error instead.
-    if (text[match.index - 1] === '$') continue;
+    // 逗号/标点前是数字:坐标与枚举((3, 1)、(1, 2, 3)、12:30)跳过——
+    // 逗号后是空格/数字/行尾;散文(走 1,到达)逗号后是中文,照转全角。
+    if (/\d/.test(lintMask[match.index - 1] || '')) {
+      if (!/[一-鿿]/.test(text[match.index + 1] || '')) continue;
+    }
+    // Skip punctuation right after a closing math span ONLY when it has the
+    // English-enumeration signature ("$A$, $B$" / "$A$,$B$"): those are leaked
+    // sentence marks, surfaced as errors. "$…$,其中" is Chinese prose missing
+    // a full-width comma — convert it.
+    if (text[match.index - 1] === '$' && /[\s$]/.test(text[match.index + 1] || '')) continue;
     // Consume horizontal spaces after the mark (a full-width mark never takes
     // a following space), unless they are trailing whitespace ending the line.
     let end = match.index + 1;
@@ -168,17 +201,22 @@ function fixHalfWidthPunctuation(text, lintMask) {
     const next = text[end];
     const deleteCount =
       next === undefined || next === '\n' || next === '\r' ? 1 : end - match.index;
-    replacements.push({ index: match.index, deleteCount, value: fullWidth[match[0]] });
+    replacements.push({
+      index: match.index,
+      deleteCount,
+      from: match[0],
+      value: fullWidth[match[0]],
+    });
   }
 
   let fixed = text;
-  for (const replacement of replacements.reverse()) {
+  for (const replacement of [...replacements].reverse()) {
     fixed =
       fixed.slice(0, replacement.index) +
       replacement.value +
       fixed.slice(replacement.index + replacement.deleteCount);
   }
-  return fixed;
+  return { text: fixed, fixes: replacements };
 }
 
 function fixSpacing(text) {
@@ -191,6 +229,22 @@ function fixSpacing(text) {
     .replace(cjkAfter, '$1 $2')
     .replace(/([^\s])\n/g, '$1\n') // keep line breaks
     .replace(/\n{3,}/g, '\n\n'); // collapse excessive blank lines
+}
+
+// 盘古空格:报告与修复分两趟。报告在 mask 上扫描——mask 与原文等长
+// (遮蔽区填空格),index 可直接换算行号;prose 区逐字保留,命中位置与
+// 最终文本的修复位置一致。修复由 fixSpacing 在输出文本上独立完成。
+function collectSpacingReports(mask, text) {
+  const reports = [];
+  const adjacent = new RegExp(`${CJK_CHAR}${LATIN_DIGIT}|${LATIN_DIGIT}${CJK_CHAR}`, 'g');
+  let m;
+  while ((m = adjacent.exec(mask)) !== null) {
+    reports.push({
+      line: lineOf(text, m.index),
+      message: `中文与英文/数字之间缺空格:「${m[0]}」`,
+    });
+  }
+  return reports;
 }
 
 function lineOf(text, index) {

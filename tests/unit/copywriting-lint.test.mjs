@@ -3,23 +3,24 @@ import assert from 'node:assert/strict';
 import { lintChineseCopywriting } from '../../scripts/lib/copywriting-lint.mjs';
 
 describe('lintChineseCopywriting', () => {
-  it('auto-fixes CJK↔latin spacing', () => {
+  it('auto-fixes CJK↔latin spacing and reports it', () => {
     const { text, reports } = lintChineseCopywriting('中文ABC中文');
     assert.equal(text, '中文 ABC 中文');
-    assert.equal(reports.length, 0);
+    const spacing = reports.filter((r) => /缺空格/.test(r.message));
+    assert.equal(spacing.length, 2); // 文A 与 C中 两处
   });
 
-  it('auto-fixes CJK↔digit spacing', () => {
+  it('auto-fixes CJK↔digit spacing and reports it', () => {
     const { text, reports } = lintChineseCopywriting('中文123');
     assert.equal(text, '中文 123');
-    assert.equal(reports.length, 0);
+    assert.ok(reports.some((r) => /缺空格/.test(r.message)));
   });
 
-  it('auto-fixes half-width punctuation in Chinese prose and drops the trailing space', () => {
+  it('auto-fixes half-width punctuation in Chinese prose, drops the trailing space, and reports it', () => {
     const input = '你好, 世界';
     const { text, reports, errors } = lintChineseCopywriting(input);
     assert.equal(text, '你好，世界');
-    assert.ok(!reports.some((r) => /半角标点/.test(r.message)));
+    assert.ok(reports.some((r) => /半角标点/.test(r.message)));
     assert.equal(errors.length, 0);
   });
 
@@ -171,5 +172,41 @@ describe('lintChineseCopywriting', () => {
     const quoteReports = reports.filter((r) => /建议改用/.test(r.message));
     assert.equal(quoteReports.length, 1);
     assert.equal(quoteReports[0].line, 5);
+  });
+
+  it('reports repeated sentence punctuation but not dashes or ellipses', () => {
+    const { reports } = lintChineseCopywriting('太强了!!真的??破折号——与省略号……合法。');
+    const repeated = reports.filter((r) => /标点重复/.test(r.message));
+    assert.equal(repeated.length, 2);
+  });
+
+  it('reports spacing violations with their line numbers', () => {
+    const input = '第一行干净。\n第二行A缺空格。';
+    const { reports } = lintChineseCopywriting(input);
+    const spacing = reports.filter((r) => /缺空格/.test(r.message));
+
+    assert.equal(spacing.length, 1);
+    assert.equal(spacing[0].line, 2);
+  });
+
+  it('converts a half-width comma between math and Chinese prose ($…$,其中)', () => {
+    const input = '取 $x_n$,其中每个分量是实数。';
+    const { text, reports, errors } = lintChineseCopywriting(input);
+    assert.equal(text, '取 $x_n$，其中每个分量是实数。');
+    assert.ok(reports.some((r) => /半角标点/.test(r.message)));
+    assert.equal(errors.length, 0);
+  });
+
+  it('still errors on English enumeration after math ($A$, $B$)', () => {
+    const { errors } = lintChineseCopywriting('用大写字母 $A$, $B$ 表示。');
+    assert.equal(errors.length, 1);
+  });
+
+  it('converts a comma after a prose digit (走 1,到达) but leaves coordinates alone', () => {
+    const prose = lintChineseCopywriting('向上走 1,到达终点');
+    assert.equal(prose.text, '向上走 1，到达终点');
+    const coord = lintChineseCopywriting('坐标 (3, 1) 与枚举 (1, 2, 3) 不动');
+    assert.equal(coord.text, '坐标 (3, 1) 与枚举 (1, 2, 3) 不动');
+    assert.ok(!coord.reports.some((r) => /半角标点/.test(r.message)));
   });
 });

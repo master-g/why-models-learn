@@ -10,10 +10,13 @@
  *   - 指向飞地外笔记或未知 slug 的 wikilink → 降级为纯文本并警告
  *   - Obsidian callout 标记 `> [!tldr]` 剥掉,内容保留为 blockquote
  *   - frontmatter 只透传 title(必填)与 tags(可选),vault-only 字段不透传
+ *   - 插图:vault `svg/<slug>.<n>.svg` 拷贝到 `public/assets/<section>/svg/`,
+ *     与词条同生命周期(退役即清);引用缺失/归属错误/`![[embed]]` 是硬错误
  *
- * content-zh/ 是纯同步产物,不手改;不在目标集里的旧文件会被清除。
+ * content-zh/ 与 public/assets/ 是纯同步产物,不手改;不在目标集里的旧文件会被清除。
+ * (public/assets/playground/ 是 repo 手维护 fixture,不在 sections.yaml 章节内,不参与同步。)
  */
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 import yaml from 'js-yaml';
@@ -21,7 +24,9 @@ import { parseFrontmatter, splitFrontmatter } from './lib/frontmatter.mjs';
 import { lintChineseCopywriting } from './lib/copywriting-lint.mjs';
 
 const VAULT_DIR = join(homedir(), 'Documents/ObsidianVaults/Main/03 - AREAS/learning/nn-to-llm');
+const VAULT_SVG_DIR = join(VAULT_DIR, 'svg');
 const OUT_ROOT = 'content-zh';
+const ASSETS_ROOT = 'public/assets';
 const SYNCABLE_STATUS = new Set(['complete', 'reference']);
 
 function loadSlugSections() {
@@ -95,6 +100,23 @@ function stripCallouts(body) {
   );
 }
 
+// 插图文件名约定:<slug>.<n>.svg。用点号不用连字符:slug 互相包含前缀时
+// (如 vector / vector-spaces)连字符归属有歧义,slug 不含点,点号解析无歧义。
+function parseSvgOwner(filename, slugSections) {
+  if (!filename.endsWith('.svg')) return null;
+  const base = filename.slice(0, -4);
+  const dot = base.lastIndexOf('.');
+  if (dot < 0 || !/^\d+$/.test(base.slice(dot + 1))) return null;
+  const slug = base.slice(0, dot);
+  return slugSections.has(slug) ? slug : null;
+}
+
+function lineOf(text, index) {
+  let line = 1;
+  for (let i = 0; i < index; i++) if (text[i] === '\n') line++;
+  return line;
+}
+
 function main() {
   if (!existsSync(VAULT_DIR)) {
     console.log(`[sync] vault 飞地不存在: ${VAULT_DIR}(尚未创建,无词条可同步)`);
@@ -102,7 +124,9 @@ function main() {
   }
 
   const slugSections = loadSlugSections();
+  const sectionDirs = new Set(slugSections.values());
   const warnings = [];
+  const errors = []; // 硬错误:收集完统一报,sync 以 exit 1 失败(显式失败,不写半个产物)
   const warn = (msg) => warnings.push(msg);
   const targets = new Map(); // 'section/slug' -> file content
   const statusMap = new Map(); // slug -> vault status(供 _index.md)
@@ -136,15 +160,51 @@ function main() {
     }
     outFrontmatter.push('---');
 
+    // ![[embed]] 必须先于 wikilink 改写拦截:否则 [[...]] 被降级成纯文本,留下 `!foo` 残渣。
+    const embedRe = /!\[\[[^\]]+\]\]/g;
+    let m;
+    while ((m = embedRe.exec(body)) !== null) {
+      errors.push(`${slug}:${lineOf(body, m.index)} 禁用 Obsidian 嵌入语法: ${m[0]}`);
+    }
+
     const outBody = stripCallouts(rewriteWikilinks(body, slugSections, warn));
     const outContent = `${outFrontmatter.join('\n')}\n${outBody}`;
 
-    // 文案 lint(沿用 algebrica 规则):只警告不改写,vault 是事实源,由作者在 vault 侧修。
+    // 文案 lint(沿用 algebrica 规则):reports 警告(LINT),errors 进硬错误数组
+    // (LINT-ERROR,exit 1 不写产物——名实相符,2026-07-28 升级)。修复一律在
+    // vault 侧做,sync 永不改写正文。
     const lint = lintChineseCopywriting(outContent);
     for (const r of lint.reports) warn(`${slug}:${r.line} LINT ${r.message}`);
-    for (const e of lint.errors) warn(`${slug}:${e.line} LINT-ERROR ${e.message}`);
+    for (const e of lint.errors) errors.push(`${slug}:${e.line} LINT-ERROR ${e.message}`);
 
-    targets.set(`${section}/${slug}`, outContent);
+    // 插图引用校验:必须归属本词条、文件存在于 vault svg/。
+    const svgRefRe = /!\[[^\]]*\]\(svg\/([^)\s]+)\)/g;
+    while ((m = svgRefRe.exec(outContent)) !== null) {
+      const filename = m[1];
+      const line = lineOf(outContent, m.index);
+      const owner = parseSvgOwner(filename, slugSections);
+      if (!owner) errors.push(`${slug}:${line} 插图文件名非法(约定 <slug>.<n>.svg): svg/${filename}`);
+      else if (owner !== slug) errors.push(`${slug}:${line} 插图归属错误: svg/${filename} 属于 ${owner}`);
+      else if (!existsSync(join(VAULT_SVG_DIR, filename))) errors.push(`${slug}:${line} 插图缺失: svg/${filename}`);
+    }
+
+    // 插图路径改写:相对 svg/x.svg → 站点绝对路径 /assets/<section>/svg/x.svg。
+    // Astro content-assets 会把 markdown 相对图片当本地资产解析(构建期 ImageNotFound 报错),
+    // 绝对 /assets 路径走 public 目录,Astro 不碰——与 algebrica translate.mjs 的改写一致。
+    const finalContent = outContent.replace(
+      /(!\[[^\]]*\]\()svg\/([^)\s]+)\)/g,
+      `$1/assets/${section}/svg/$2)`,
+    );
+
+    targets.set(`${section}/${slug}`, finalContent);
+  }
+
+  // 硬错误闸:有则连警告一起全报(只报 ERROR 会吞掉同文件的其他违规),
+  // 失败且不写任何产物。
+  if (errors.length) {
+    for (const msg of warnings) console.warn(`[sync] ${msg}`);
+    for (const msg of errors) console.error(`[sync] ERROR ${msg}`);
+    process.exit(1);
   }
 
   // 清除不在目标集里的旧词条(保留 .gitkeep)。
@@ -162,6 +222,45 @@ function main() {
     }
   }
 
+  // 插图同步:vault svg/ → public/assets/<section>/svg/,与词条同生命周期。
+  const expectedSvgs = new Map(); // section -> Set(filename)
+  if (existsSync(VAULT_SVG_DIR)) {
+    for (const file of readdirSync(VAULT_SVG_DIR)) {
+      if (!file.endsWith('.svg')) continue;
+      const owner = parseSvgOwner(file, slugSections);
+      if (!owner) {
+        warn(`svg/${file}: 文件名不符约定 <slug>.<n>.svg 或 slug 未知,跳过`);
+        continue;
+      }
+      if (!SYNCABLE_STATUS.has(statusMap.get(owner))) continue; // 未写/草稿/退役不同步
+      const ownerSection = slugSections.get(owner);
+      if (!expectedSvgs.has(ownerSection)) expectedSvgs.set(ownerSection, new Set());
+      expectedSvgs.get(ownerSection).add(file);
+    }
+    for (const [section, files] of expectedSvgs) {
+      const dir = join(ASSETS_ROOT, section, 'svg');
+      mkdirSync(dir, { recursive: true });
+      for (const file of files) copyFileSync(join(VAULT_SVG_DIR, file), join(dir, file));
+    }
+  }
+
+  // 清除不在期望集里的旧插图(退役词条的图随之消失),空目录回收。
+  // 只扫 sections.yaml 章节目录:playground 等 repo 手维护资产不参与。
+  if (existsSync(ASSETS_ROOT)) {
+    for (const dir of readdirSync(ASSETS_ROOT, { withFileTypes: true })) {
+      if (!dir.isDirectory() || !sectionDirs.has(dir.name)) continue;
+      const svgDir = join(ASSETS_ROOT, dir.name, 'svg');
+      if (!existsSync(svgDir)) continue;
+      const expected = expectedSvgs.get(dir.name) || new Set();
+      for (const file of readdirSync(svgDir)) {
+        if (!file.endsWith('.svg') || expected.has(file)) continue;
+        rmSync(join(svgDir, file));
+        console.log(`[sync] 清除过期插图: ${dir.name}/svg/${file}`);
+      }
+      if (readdirSync(svgDir).length === 0) rmSync(svgDir, { recursive: true });
+    }
+  }
+
   for (const [key, content] of targets) {
     const outPath = join(OUT_ROOT, `${key}.md`);
     mkdirSync(join(OUT_ROOT, key.split('/')[0]), { recursive: true });
@@ -170,7 +269,8 @@ function main() {
 
   for (const msg of warnings) console.warn(`[sync] ${msg}`);
   writeVaultIndex(statusMap);
-  console.log(`[sync] 同步 ${targets.size} 个词条(${VAULT_DIR} → ${OUT_ROOT}/),已刷新 _index.md`);
+  const svgCount = [...expectedSvgs.values()].reduce((n, s) => n + s.size, 0);
+  console.log(`[sync] 同步 ${targets.size} 个词条、${svgCount} 张插图(${VAULT_DIR} → ${OUT_ROOT}/),已刷新 _index.md`);
 }
 
 main();
