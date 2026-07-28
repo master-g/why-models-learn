@@ -33,8 +33,10 @@ export function lintChineseCopywriting(text) {
 
   // Blank out math spans and URLs with spaces so that line indices stay valid
   // in the original text while we lint only the prose.
+  // 围栏代码块最先遮蔽:代码不是文案(algebrica 原版无此条——原文语料不含代码)。
   const blanked = lintableText
-    .replace(/\$\$[\s\S]*?\$\$/g, (m) => ' '.repeat(m.length))
+    .replace(/^`{3,}[\s\S]*?^`{3,}[ \t]*$/gm, (m) => m.replace(/[^\r\n]/g, ' '))
+    .replace(/\$\$[\s\S]*?\$\$/g, (m) => m.replace(/[^\r\n]/g, ' '))
     .replace(/\$[^$\n]+\$/g, (m) => ' '.repeat(m.length))
     .replace(/https?:\/\/[^\s)]+/g, (m) => ' '.repeat(m.length))
     .replace(/\[\/?(?:shortcode|class)(?:=[^\]\r\n]+)?\]/g, (m) => ' '.repeat(m.length))

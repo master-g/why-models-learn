@@ -14,4 +14,16 @@ const entries = defineCollection({
   }),
 });
 
-export const collections = { entries };
+// 渲染试验田:repo 内手维护的 fixture,与 sync 产物 content-zh/ 无关;
+// 不进 sections.yaml,首页/搜索/vault 索引均不可见,只挂 /playground/ 路由。
+const playground = defineCollection({
+  loader: glob({
+    base: './playground',
+    pattern: ['*.md'],
+  }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
+export const collections = { entries, playground };

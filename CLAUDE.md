@@ -21,7 +21,7 @@ npm run build   # 构建 dist/
 
 - **大纲**(2026-07-28 重设计,书目驱动):**6 部分 25 章 301 词条**见 `sections.yaml`,结构为 parts > sections > entries 三级。数学地基(Part 0,87 词条)先行——用户编程资深、数学偏弱,**词条写法向数学原理与推导侧重**。GQA 独立为 `gqa-and-mqa`;softmax 独立;评估拆为总览 `overfitting-and-regularization` + 细节篇;进阶理论(Part 6)为参考轨,长期 TODO 合法。
 - **词条格式**:三条硬规则——①开头定义+定位段(无 TLDR callout)②`##` 分节 ③结尾 `## 相关词条`;实战类加 `## 运行方法`。**体裁是 algebrica 长文**(概念揉碎展开、推导不跳步、数字实例、失效模式一节),不是费曼卡片;参照 `mnist-mlp-training-loop`。
-- **代码**:全部内嵌词条,写作时本地真跑,输出贴进词条当证据。大代码(LLaMA2)在 happy-llm。
+- **代码**:ML/实战类词条内嵌,写作时本地真跑,输出贴进词条当证据;**Part 0 数学词条不引代码**(2026-07-28 用户反馈,vectors 重写时定)。大代码(LLaMA2)在 happy-llm。
 - **草稿**:vault 内 `status: active`,不出 vault;演算纸笔记是消耗品。
 - **支线**:CNN/RNN/LSTM 零代码,概念+数学推导。
 - **部署**:攒够 10 个词条再上 GitHub Pages。
@@ -29,6 +29,8 @@ npm run build   # 构建 dist/
 ## 骨架
 
 移植自 algebrica-zh(MathJax SVG 渲染、sectionize 主题、搜索、中文写作 lint)。原始上下文见 `docs/handoff.md`。
+
+**渲染试验田**:repo 根 `playground/rendering.md`(手维护 fixture,独立 collection)→ `/playground/` 页,与词条同管线同版式;改管线/样式后肉眼回归用。不进 vault/大纲/首页/搜索。
 
 ## 技术栈
 - Astro ~7.1.0(静态站点,"type": "module",纯 ESM .mjs;无框架组件,仅 .astro)

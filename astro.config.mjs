@@ -97,6 +97,11 @@ function makeMathSchema(base) {
       symbol: ['id'],
       a: ['href', 'title', 'target', 'rel', 'class'],
       section: ['dataFootnotes', ['className', 'footnotes', 'post-section']],
+      // shiki 的着色全靠 span/pre 的 inline style;remark 不开 raw HTML,
+      // 元素均为管线产物(shiki/MathJax),放行 style 无注入面。
+      pre: ['class', 'style', 'tabIndex'],
+      code: ['class', 'style'],
+      span: ['class', 'style'],
       '*': [...(base.attributes?.['*'] || []), 'className', 'class'],
     },
   };
@@ -109,6 +114,7 @@ export default defineConfig({
     format: 'directory',
   },
   markdown: {
+    shikiConfig: { theme: 'min-light' },
     processor: unified({
       remarkPlugins: [remarkMath],
       rehypePlugins: [

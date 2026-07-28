@@ -158,4 +158,18 @@ describe('lintChineseCopywriting', () => {
     );
     assert.ok(!reports.some((r) => /建议改用/.test(r.message)));
   });
+
+  it('skips fenced code blocks and preserves line numbers after them', () => {
+    const input = [
+      '正文。',
+      '```python',
+      'print("a + b =", a + b)',
+      '```',
+      '这是 "引号" 行。',
+    ].join('\n');
+    const { reports } = lintChineseCopywriting(input);
+    const quoteReports = reports.filter((r) => /建议改用/.test(r.message));
+    assert.equal(quoteReports.length, 1);
+    assert.equal(quoteReports[0].line, 5);
+  });
 });

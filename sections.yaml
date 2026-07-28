@@ -46,18 +46,23 @@ parts:
 
 known_absent:
   # Part 0 数学地基
-  - vectors
   - matrices
   - matrix-multiplication
   - linear-systems
   - gaussian-elimination
   - vector-spaces
+  - subspaces
   - linear-combinations-and-span
   - linear-independence
-  - basis-and-dimension
-  - rank
-  - linear-maps
+  - basis
+  - dimension
+  - coordinates
   - change-of-basis
+  - linear-maps
+  - kernel-and-image
+  - rank
+  - rank-nullity
+  - matrix-inverse
   - affine-spaces-and-maps
   - norms
   - inner-products
@@ -69,6 +74,7 @@ known_absent:
   - determinant
   - trace
   - eigenvalues-and-eigenvectors
+  - characteristic-polynomial
   - eigendecomposition
   - spectral-theorem
   - quadratic-forms
@@ -368,12 +374,18 @@ sections:
       - linear-systems
       - gaussian-elimination
       - vector-spaces
+      - subspaces
       - linear-combinations-and-span
       - linear-independence
-      - basis-and-dimension
-      - rank
-      - linear-maps
+      - basis
+      - dimension
+      - coordinates
       - change-of-basis
+      - linear-maps
+      - kernel-and-image
+      - rank
+      - rank-nullity
+      - matrix-inverse
       - affine-spaces-and-maps
       - norms
       - inner-products
@@ -385,6 +397,7 @@ sections:
       - determinant
       - trace
       - eigenvalues-and-eigenvectors
+      - characteristic-polynomial
       - eigendecomposition
       - spectral-theorem
       - quadratic-forms
