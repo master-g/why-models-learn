@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getSections } from '../lib/sections.mjs';
+import { getParts, getSections } from '../lib/sections.mjs';
 import { getEntries } from './_entries.mjs';
 
+const parts = getParts();
 const sections = getSections();
 const entries = await getEntries();
 const bySlug = new Map(entries.map((e) => [e.id.split('/')[1], e]));
+// 部分 > 章 > 词条:按 part 字段分组(无 part 的旧数据归入未分组)
+const sectionsByPart = new Map();
+for (const s of sections) {
+  const key = s.part ?? '';
+  if (!sectionsByPart.has(key)) sectionsByPart.set(key, []);
+  sectionsByPart.get(key).push(s);
+}
 ---
 
 <BaseLayout title="从神经网络到大语言模型">
@@ -36,34 +44,42 @@ const bySlug = new Map(entries.map((e) => [e.id.split('/')[1], e]));
 
     <div class="module-index">
       {
-        sections.map((section) => (
-          <div class="module-index-section">
-            <div class="module-index-section-header">
-              <div class="module-index-heading">
-                <span class="module-index-number">{section.order}.</span>
-                <span class="module-index-heading__title">
-                  <a href={`/category/${section.dir}/`}>{section.name_zh}</a>
-                </span>
-              </div>
+        parts.map((part) => (
+          <div class="module-index-part">
+            <div class="module-index-part__header">
+              <span class="module-index-part__title">{part.name_zh}</span>
+              <span class="module-index-part__desc">{part.description_zh.trim()}</span>
             </div>
-            <div class="module-index-posts">
-              {section.entries.map((slug, idx) => {
-                const entry = bySlug.get(slug);
-                const number = `${section.order}.${idx + 1}`;
-                return (
-                  <div class="module-index-post">
-                    <span class="module-index-number module-index-post__number">{number}</span>
-                    <div class="module-index-post__title">
-                      {entry ? (
-                        <a href={`/${slug}/`}>{entry.data.title}</a>
-                      ) : (
-                        <span class="entry-todo">{slug}<span class="badge-untranslated">TODO</span></span>
-                      )}
-                    </div>
+            {(sectionsByPart.get(part.id) || []).map((section) => (
+              <div class="module-index-section">
+                <div class="module-index-section-header">
+                  <div class="module-index-heading">
+                    <span class="module-index-number">{section.order}.</span>
+                    <span class="module-index-heading__title">
+                      <a href={`/category/${section.dir}/`}>{section.name_zh}</a>
+                    </span>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+                <div class="module-index-posts">
+                  {section.entries.map((slug, idx) => {
+                    const entry = bySlug.get(slug);
+                    const number = `${section.order}.${idx + 1}`;
+                    return (
+                      <div class="module-index-post">
+                        <span class="module-index-number module-index-post__number">{number}</span>
+                        <div class="module-index-post__title">
+                          {entry ? (
+                            <a href={`/${slug}/`}>{entry.data.title}</a>
+                          ) : (
+                            <span class="entry-todo">{slug}<span class="badge-untranslated">TODO</span></span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         ))
       }

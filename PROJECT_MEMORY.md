@@ -13,6 +13,10 @@
 - [2026-07-27] vault 飞地约定:文件名 = slug(kebab-case),`[[slug]]` wikilink 写交叉链接,sync 按 sections.yaml 映射改写;禁用 embeds 与 Obsidian 附件图片。约定全文在飞地 `_README.md`。
 - [2026-07-27] 骨架移植自 algebrica-zh,翻译管线(translate/glossary/英文源 collection/上游文章图谱)已整体拆除;`scripts/check-search.mjs` 的断言指向未写词条,FAIL 是预期 TODO 信号。
 - [2026-07-27] obsidian-vault skill 的 vault 路径已从 `/mnt/d/...` 修正为 `/Users/mg/Documents/ObsidianVaults/Main/`(Windows 时代遗留)。
+- [2026-07-28] 链接方案经首个真实词条验证:路由平铺 `/<slug>/`;sync 把 wikilink 改写为 `../<section>/<slug>/`,构建期 rehype-rewrite-algebrica 再规范化为 `/<slug>/`(已写)或降级纯文本(known_absent)——两层配合,作者只写 wikilink。
+- [2026-07-28] **体裁定案(用户反馈修订 07-27 决策)**:词条要 algebrica 长文,不是费曼卡片——概念按内在结构揉碎展开、推导不跳步、抽象必配具体数字、关键论断贴真实运行输出、结尾前有失效模式/反例一节;开头是定义+定位段,不要 TLDR callout。模板 = `mnist-mlp-training-loop`。约定已同步进 vault `_README.md` 与 CLAUDE.md。
+- [2026-07-28] **用户画像(影响一切写法)**:十多年编程经验,数学偏弱 → 词条向数学原理/推导侧重,代码细节可提速;数学预备单独立词条,后续词条直接引用不重复讲。
+- [2026-07-28] **大纲 v2(书目驱动重设计)**:5 组代理并行抽取 12 本书目录(MML/Parr&Howard/Chaudhury/Fleuret/Petersen&Zech/Ananthaswamy/Smets/Nelson/Amidi/Xiao&Zhu/Prince/Goodfellow),按数学依赖链重排为 **6 部分 25 章 301 词条**(Part 0 数学地基 87 词先行;Part 6 进阶理论参考轨长期 TODO 合法)。schema 升为三级:sections.yaml 加 `parts` 列表 + 每章 `part` 字段,首页按部分分组渲染。原有 27 slug 全保留(多数降为章总览篇);`derivatives-and-chain-rule`/`probability-and-information` 溶解为原子词条。素材原件:书库 `/Users/mg/Documents/wps/Documents/books/AI-ML/`。注意 `Mathematical Theory of Deep Learning (Fang et al, 2024).pdf` 实为 Petersen & Zech 所著,文件名标错。
 
 ## 失败尝试
 <!-- 踩过的坑、走不通的路径、被否决的方案及原因。超长时最旧条目优先淘汰。 -->
@@ -25,9 +29,11 @@
 - [2026-07-27] grilling 定案大纲/格式/存放后全部落地:sections.yaml 修订、sync-from-vault.mjs、vault 飞地 + _README.md、CLAUDE.md、bootstrap 上下文文件。
 - [2026-07-27] 停在:站点 0 词条、27 个 TODO 待写,尚未 git init。
 - [2026-07-27] git init 完成并推送 github.com/master-g/nn-to-llm(root-commit b961a90,57 文件);README/BaseLayout 里的仓库地址假设已证实正确。
+- [2026-07-28] 首个词条 `mnist-mlp-training-loop` 全链路走通:vault 写入 → status complete → sync → 移出 known_absent → 45/45 测试 → 构建 7 页。代码用 `uv run --with torch --with torchvision` 真跑,5 epoch 输出 test_acc=0.9774 已贴进词条。check-search FAIL 仍为预期 TODO 信号。流程无框架性问题,未提交 git。
+- [2026-07-28] 用户反馈首版是费曼卡片非所求,按 algebrica 长文体重写:补经验风险形式化、交叉熵手算例、参数量/batch 数量账、评估循环语义;新增「失效模式」节并真跑两个变体——去 ReLU(线性坍缩 ~90%,且后段 train/test 裂口=过拟合征兆)、lr=10(首 epoch 损失 27 万,坍缩到 ≈ln10 均匀分布锁死 10%)。教训:解读段落必须按真实数字写,先跑后写,别先拟稿套数字。
 
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
-- [2026-07-27] 写第一个里程碑词条:`mnist-mlp-training-loop`(PyTorch 手写 MLP 训练 MNIST,完整训练循环,代码自包含可跑,贴运行输出)。在 vault 飞地写,status 先 active,完成翻 complete 后 sync + 移出 known_absent。
-- [2026-07-27] 之后按大纲顺序写四件套:what-is-a-neuron / activation-functions / loss-functions / gradient-descent / backpropagation。
+- [2026-07-28] 按新大纲从 Part 0 数学地基开写:`vectors` 起步,沿 linear-algebra 章顺序推进,穿插 Part 2 保持手感。跑代码一律 `uv run --with <pkg>` 临时环境。
+- [2026-07-28] MNIST 词条退役回炉(用户决定「不保留,按新架构重规划」):vault 翻回 active、slug 回 known_absent,sync 自动清产物(退役链路验证通过)。重写时机 = Part 2 收尾,届时改为纯实战篇、数学全引用;其失效模式真跑素材(去 ReLU ~90%+过拟合裂口、lr=10 锁死 ln10)分流到 `saturation-and-vanishing`/`gradient-descent` 等对应词条。站点回到 0 成品 301 TODO。
 - [2026-07-27] 仓库 github.com/master-g/nn-to-llm 已建已推;攒够 10 个词条再部署 Pages。

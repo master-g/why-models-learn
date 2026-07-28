@@ -5,7 +5,15 @@ import yaml from 'js-yaml';
 const SECTIONS_YAML = join(process.cwd(), 'sections.yaml');
 
 let cache = null;
+let partsCache = null;
 let knownAbsentCache = null;
+
+export function getParts() {
+  if (partsCache) return partsCache;
+  const data = yaml.load(readFileSync(SECTIONS_YAML, 'utf8'));
+  partsCache = (data.parts || []).slice().sort((a, b) => a.order - b.order);
+  return partsCache;
+}
 
 export function getSections() {
   if (cache) return cache;

@@ -1,89 +1,889 @@
 # 空词条即 TODO:写过的词条从 known_absent 移除。
+# 结构:parts(部分)> sections(章)> entries(词条)。词条顺序 = 数学依赖顺序。
+parts:
+  - id: math-foundations
+    name_zh: 数学地基
+    name_en: "Math Foundations"
+    order: 0
+    description_zh: |
+      一切的地基:线性代数、微积分、概率论、信息论与优化理论。每个概念从零推起,后续章节直接引用,不重复讲。
+  - id: ml-foundations
+    name_zh: 机器学习基础
+    name_en: "ML Foundations"
+    order: 1
+    description_zh: |
+      学习问题的形式化:经验风险、泛化、偏差-方差,以及为理解神经网络所必需的经典线性模型。
+  - id: neural-networks
+    name_zh: 神经网络
+    name_en: "Neural Networks"
+    order: 2
+    description_zh: |
+      从神经元到完整训练流程:激活、反向传播、损失、优化与初始化,以 MNIST 实战收尾。
+  - id: classic-architectures
+    name_zh: 经典架构
+    name_en: "Classic Architectures"
+    order: 3
+    description_zh: |
+      CNN 与 RNN/LSTM 支线:概念与数学推导为主,终点是「为什么需要注意力」。
+  - id: transformer
+    name_zh: Transformer
+    name_en: "Transformer"
+    order: 4
+    description_zh: |
+      从分词到完整 Transformer:表示、注意力、组件与架构变体。
+  - id: modern-llm
+    name_zh: GPT 与现代 LLM
+    name_en: "GPT and Modern LLMs"
+    order: 5
+    description_zh: |
+      Decoder-only、预训练、推理、微调与对齐,以复现 LLaMA2 压轴。
+  - id: advanced-theory
+    name_zh: 进阶理论(参考轨)
+    name_en: "Advanced Theory"
+    order: 6
+    description_zh: |
+      逼近论、训练理论、泛化理论与生成模型。数学最硬的一部分,长期 TODO 合法,按兴趣回填。
+
 known_absent:
+  # Part 0 数学地基
+  - vectors
+  - matrices
+  - matrix-multiplication
+  - linear-systems
+  - gaussian-elimination
+  - vector-spaces
+  - linear-combinations-and-span
+  - linear-independence
+  - basis-and-dimension
+  - rank
+  - linear-maps
+  - change-of-basis
+  - affine-spaces-and-maps
+  - norms
+  - inner-products
+  - lengths-and-distances
+  - angles-and-orthogonality
+  - orthonormal-basis
+  - orthogonal-projections
+  - orthogonal-matrices-and-rotations
+  - determinant
+  - trace
+  - eigenvalues-and-eigenvectors
+  - eigendecomposition
+  - spectral-theorem
+  - quadratic-forms
+  - svd
+  - low-rank-approximation
+  - pseudoinverse
+  - matrix-norms
+  - derivatives
+  - differentiation-rules
+  - chain-rule
+  - partial-derivatives
+  - gradient
+  - total-derivative
+  - jacobian
+  - vector-chain-rule
+  - hessian
+  - taylor-series
+  - elementwise-derivatives
+  - broadcast-and-reduction-derivatives
+  - matrix-calculus-identities
+  - numerical-differentiation
+  - automatic-differentiation
+  - probability-spaces
+  - random-variables
+  - discrete-distributions
+  - continuous-distributions
+  - gaussian-distribution
+  - joint-distributions
+  - marginal-and-conditional
+  - bayes-theorem
+  - independence
+  - expectation
+  - variance-and-covariance
+  - covariance-matrix
+  - law-of-large-numbers
+  - central-limit-theorem
+  - sampling
+  - change-of-variables
+  - maximum-likelihood
+  - maximum-a-posteriori
+  - exponential-family
+  - concentration-inequalities
+  - information-and-surprise
+  - entropy
+  - cross-entropy
+  - kl-divergence
+  - conditional-entropy
+  - mutual-information
+  - perplexity
+  - optimization-problems
+  - convex-sets-and-functions
+  - local-and-global-minima
+  - first-order-optimality
+  - second-order-optimality
+  - gradient-descent-theory
+  - stochastic-gradient-descent-theory
+  - momentum-theory
+  - adaptive-learning-rates
+  - second-order-methods
+  - constrained-optimization
+  - duality
+  - saddle-points
+  - loss-landscapes
+  - curvature-and-conditioning
+  # Part 1 机器学习基础
+  - what-is-learning
+  - supervised-learning
+  - unsupervised-learning
+  - reinforcement-learning-overview
+  - hypothesis-spaces
+  - empirical-risk-minimization
+  - train-validation-test
+  - overfitting-and-regularization
+  - overfitting-and-underfitting
+  - bias-variance-tradeoff
+  - model-capacity
+  - no-free-lunch
+  - double-descent
+  - linear-regression
+  - least-squares-as-projection
+  - ridge-and-lasso
+  - logistic-regression
+  - softmax-regression
+  - perceptron-classic
+  - margins-and-svm
+  - kernel-trick
+  - pca
+  - gmm-and-em
+  - classification-metrics
+  - regression-metrics
+  - cross-validation
+  - hyperparameter-tuning
+  - early-stopping
+  - data-augmentation
+  - implicit-regularization
+  - distribution-shift
+  - generalization-intuition
+  - model-selection
+  # Part 2 神经网络
   - what-is-a-neuron
   - activation-functions
-  - loss-functions
-  - gradient-descent
+  - why-non-linearity
+  - heaviside-and-sigmoid
+  - tanh
+  - relu
+  - dead-relu-and-leaky
+  - gelu
+  - swish-and-swiglu
+  - saturation-and-vanishing
+  - choosing-activations
+  - softmax
+  - universal-approximation
   - backpropagation
-  - weight-initialization
+  - computational-graphs
+  - forward-pass
+  - chain-rule-on-graphs
+  - backprop-single-neuron
+  - backprop-two-layer
+  - vectorized-backprop
+  - gradient-checking
+  - vanishing-and-exploding
+  - autodiff-in-pytorch
+  - loss-functions
+  - regression-losses
+  - classification-losses
+  - gradient-descent
+  - minibatch-sgd
+  - momentum-and-nesterov
   - optimizers
-  - overfitting-and-regularization
+  - adam
+  - learning-rate-schedules
+  - weight-initialization
+  - gradient-clipping
+  - batch-normalization
+  - dropout
+  - label-smoothing
+  - mixed-precision
+  - debugging-training
   - mnist-mlp-training-loop
+  # Part 3 经典架构
   - cnn
+  - why-convolution
+  - discrete-convolution
+  - cross-correlation-vs-convolution
+  - convolution-2d
+  - stride-padding-dilation
+  - output-size-arithmetic
+  - pooling
+  - invariance-and-equivariance
+  - convolution-as-toeplitz
+  - lenet-to-vgg
+  - residual-connections
+  - resnet-and-beyond
+  - sequence-modeling
   - rnn
+  - rnn-unrolling
+  - bptt
+  - rnn-vanishing-gradient
   - lstm
+  - gru
+  - seq2seq
+  - teacher-forcing
+  - bidirectional-rnn
+  - bahdanau-attention
   - why-attention
+  # Part 4 Transformer
+  - tokenization
   - tokenization-bpe
+  - wordpiece-and-sentencepiece
+  - one-hot-and-distributed
   - embeddings
+  - embedding-geometry
+  - cosine-similarity
+  - vocabulary-size-tradeoffs
+  - attention-as-retrieval
   - self-attention
+  - scaled-dot-product
+  - attention-matrix
   - multi-head-attention
+  - gqa-and-mqa
+  - causal-masking
+  - cross-attention
+  - attention-complexity
+  - sparse-attention
+  - linear-attention
+  - flash-attention
   - positional-encoding
+  - rope
+  - alibi
   - layernorm-residuals
+  - layernorm
+  - rmsnorm
+  - pre-norm-vs-post-norm
+  - residual-streams
   - feedforward
+  - swiglu-ffn
+  - parameter-count
   - full-transformer
+  - encoder-only
   - decoder-only
+  - encoder-decoder
+  - masked-language-modeling
+  - causal-language-modeling
+  - mixture-of-experts
+  - vit
+  # Part 5 现代 LLM
   - pretraining
+  - next-token-as-mle
+  - training-data
+  - scaling-laws
+  - compute-optimal
+  - lr-schedules-at-scale
+  - distributed-training
+  - training-stability
+  - evaluation-perplexity
+  - emergent-abilities
   - inference
+  - kv-cache
+  - greedy-decoding
+  - beam-search
+  - temperature-sampling
+  - top-k-top-p
+  - repetition-penalty
+  - speculative-decoding
+  - inference-math
+  - quantization
+  - long-context
+  - context-extension
   - sft
+  - instruction-data
+  - full-vs-peft
+  - lora
+  - qlora
+  - prompt-tuning
+  - catastrophic-forgetting
+  - distillation
+  - alignment-problem
+  - rl-basics
+  - policy-gradient
+  - reward-model
+  - bradley-terry
   - rlhf-dpo
+  - ppo
+  - dpo
+  - reward-hacking
+  - constitutional-and-rlaif
+  - rejection-sampling
+  - process-reward
   - llama2-from-scratch
+  # Part 6 进阶理论(参考轨)
+  - universal-approximation-formal
+  - piecewise-linear-relu
+  - affine-piece-counting
+  - depth-separation
+  - kolmogorov-superposition
+  - curse-of-dimensionality
+  - barron-spaces
+  - spline-connection
+  - interpolation-theory
+  - approximation-rates
+  - lazy-training
+  - ntk
+  - mean-field-view
+  - loss-landscape-theory
+  - saddle-point-theory
+  - gd-trajectory
+  - wide-networks
+  - feature-learning-vs-kernel
+  - pac-learning
+  - vc-dimension
+  - covering-numbers
+  - rademacher
+  - norm-based-bounds
+  - overparameterized-generalization
+  - double-descent-theory
+  - benign-overfitting
+  - generative-modeling
+  - autoencoders
+  - vae
+  - elbo
+  - reparameterization-trick
+  - gan
+  - normalizing-flows
+  - diffusion-models
 
 sections:
-  - dir: neural-network-basics
-    name_en: "Neural Network Basics"
-    name_zh: 神经网络基础
+  # ===== Part 0 数学地基 =====
+  - dir: linear-algebra
+    part: math-foundations
+    name_en: "Linear Algebra"
+    name_zh: 线性代数
     order: 1
     entries:
-      - what-is-a-neuron
-      - activation-functions
-      - loss-functions
-      - gradient-descent
-      - backpropagation
-      - weight-initialization
-      - optimizers
-      - overfitting-and-regularization
-      - mnist-mlp-training-loop
+      - vectors
+      - matrices
+      - matrix-multiplication
+      - linear-systems
+      - gaussian-elimination
+      - vector-spaces
+      - linear-combinations-and-span
+      - linear-independence
+      - basis-and-dimension
+      - rank
+      - linear-maps
+      - change-of-basis
+      - affine-spaces-and-maps
+      - norms
+      - inner-products
+      - lengths-and-distances
+      - angles-and-orthogonality
+      - orthonormal-basis
+      - orthogonal-projections
+      - orthogonal-matrices-and-rotations
+      - determinant
+      - trace
+      - eigenvalues-and-eigenvectors
+      - eigendecomposition
+      - spectral-theorem
+      - quadratic-forms
+      - svd
+      - low-rank-approximation
+      - pseudoinverse
+      - matrix-norms
     description_zh: |
-      神经元、激活函数、损失函数、梯度下降、反向传播、初始化、优化器与正则化,以 MNIST + MLP 手写训练循环收尾。
+      向量、矩阵与线性映射;内积、正交与投影;特征值、谱定理与 SVD。全部以 ML 语义收尾:超平面是分类器,特征值是 PCA,伪逆是最小二乘。
 
-  - dir: classic-architectures
-    name_en: "Classic Architectures"
-    name_zh: 经典架构
+  - dir: calculus
+    part: math-foundations
+    name_en: "Calculus & Matrix Calculus"
+    name_zh: 微积分与矩阵微积分
     order: 2
     entries:
-      - cnn
-      - rnn
-      - lstm
-      - why-attention
+      - derivatives
+      - differentiation-rules
+      - chain-rule
+      - partial-derivatives
+      - gradient
+      - total-derivative
+      - jacobian
+      - vector-chain-rule
+      - hessian
+      - taylor-series
+      - elementwise-derivatives
+      - broadcast-and-reduction-derivatives
+      - matrix-calculus-identities
+      - numerical-differentiation
+      - automatic-differentiation
     description_zh: |
-      CNN/RNN/LSTM 概念支线:零代码,只写概念与数学推导,终点是“为什么需要注意力”。
+      从一元导数到向量链式法则,以 Parr & Howard 的矩阵微积分为终点:逐元素、广播、归约的求导规则是反向传播的数学前置。
 
-  - dir: transformer
-    name_en: "Transformer"
-    name_zh: Transformer
+  - dir: probability
+    part: math-foundations
+    name_en: "Probability"
+    name_zh: 概率论
     order: 3
     entries:
-      - tokenization-bpe
-      - embeddings
-      - self-attention
-      - multi-head-attention
-      - positional-encoding
-      - layernorm-residuals
-      - feedforward
-      - full-transformer
+      - probability-spaces
+      - random-variables
+      - discrete-distributions
+      - continuous-distributions
+      - gaussian-distribution
+      - joint-distributions
+      - marginal-and-conditional
+      - bayes-theorem
+      - independence
+      - expectation
+      - variance-and-covariance
+      - covariance-matrix
+      - law-of-large-numbers
+      - central-limit-theorem
+      - sampling
+      - change-of-variables
+      - maximum-likelihood
+      - maximum-a-posteriori
+      - exponential-family
+      - concentration-inequalities
     description_zh: |
-      从分词到完整 Transformer:BPE、词嵌入、自注意力、多头与 GQA、位置编码、归一化与残差、FFN。
+      概率空间到 MLE/MAP:期望、方差、常见分布、大数定律与中心极限,终点是极大似然——所有损失函数的娘家。
 
-  - dir: modern-llm
-    name_en: "GPT and Modern LLMs"
-    name_zh: GPT 与现代 LLM
+  - dir: information-theory
+    part: math-foundations
+    name_en: "Information Theory"
+    name_zh: 信息论
     order: 4
     entries:
+      - information-and-surprise
+      - entropy
+      - cross-entropy
+      - kl-divergence
+      - conditional-entropy
+      - mutual-information
+      - perplexity
+    description_zh: |
+      信息量、熵、交叉熵与 KL 散度:交叉熵损失的编码视角,perplexity 是 LLM 的通用标尺。
+
+  - dir: optimization-theory
+    part: math-foundations
+    name_en: "Optimization Theory"
+    name_zh: 优化理论
+    order: 5
+    entries:
+      - optimization-problems
+      - convex-sets-and-functions
+      - local-and-global-minima
+      - first-order-optimality
+      - second-order-optimality
+      - gradient-descent-theory
+      - stochastic-gradient-descent-theory
+      - momentum-theory
+      - adaptive-learning-rates
+      - second-order-methods
+      - constrained-optimization
+      - duality
+      - saddle-points
+      - loss-landscapes
+      - curvature-and-conditioning
+    description_zh: |
+      凸性、最优性条件、GD/SGD 的收敛理论、动量与自适应方法的原理,以及高维优化的真面目:鞍点与损失景观。
+
+  # ===== Part 1 机器学习基础 =====
+  - dir: learning-framework
+    part: ml-foundations
+    name_en: "The Learning Framework"
+    name_zh: 学习框架
+    order: 6
+    entries:
+      - what-is-learning
+      - supervised-learning
+      - unsupervised-learning
+      - reinforcement-learning-overview
+      - hypothesis-spaces
+      - empirical-risk-minimization
+      - train-validation-test
+      - overfitting-and-regularization
+      - overfitting-and-underfitting
+      - bias-variance-tradeoff
+      - model-capacity
+      - no-free-lunch
+      - double-descent
+    description_zh: |
+      学习问题的形式化:假设空间、经验风险最小化、数据划分、过拟合与偏差-方差权衡。
+
+  - dir: linear-models
+    part: ml-foundations
+    name_en: "Linear Models"
+    name_zh: 线性模型
+    order: 7
+    entries:
+      - linear-regression
+      - least-squares-as-projection
+      - ridge-and-lasso
+      - logistic-regression
+      - softmax-regression
+      - perceptron-classic
+      - margins-and-svm
+      - kernel-trick
+      - pca
+      - gmm-and-em
+    description_zh: |
+      为理解神经网络所必需的经典模型:线性回归是投影,logistic/softmax 回归是单层网络,PCA 是特征值的应用。
+
+  - dir: evaluation-and-generalization
+    part: ml-foundations
+    name_en: "Evaluation & Generalization"
+    name_zh: 评估与泛化
+    order: 8
+    entries:
+      - classification-metrics
+      - regression-metrics
+      - cross-validation
+      - hyperparameter-tuning
+      - early-stopping
+      - data-augmentation
+      - implicit-regularization
+      - distribution-shift
+      - generalization-intuition
+      - model-selection
+    description_zh: |
+      指标、交叉验证与泛化的直觉:为什么训练误差加复杂度项,隐式正则化偏爱什么解。
+
+  # ===== Part 2 神经网络 =====
+  - dir: neurons-and-activations
+    part: neural-networks
+    name_en: "Neurons & Activations"
+    name_zh: 神经元与激活
+    order: 9
+    entries:
+      - what-is-a-neuron
+      - why-non-linearity
+      - activation-functions
+      - heaviside-and-sigmoid
+      - tanh
+      - relu
+      - dead-relu-and-leaky
+      - gelu
+      - swish-and-swiglu
+      - saturation-and-vanishing
+      - choosing-activations
+      - softmax
+      - universal-approximation
+    description_zh: |
+      神经元的仿射单元结构,非线性的必要性证明,各激活函数的导数推导与选取原则,softmax 与通用逼近。
+
+  - dir: backpropagation
+    part: neural-networks
+    name_en: "Backpropagation"
+    name_zh: 反向传播
+    order: 10
+    entries:
+      - backpropagation
+      - computational-graphs
+      - forward-pass
+      - chain-rule-on-graphs
+      - backprop-single-neuron
+      - backprop-two-layer
+      - vectorized-backprop
+      - gradient-checking
+      - vanishing-and-exploding
+      - autodiff-in-pytorch
+    description_zh: |
+      计算图上的链式法则:从单神经元手推到向量化矩阵形式,梯度消失/爆炸的连乘视角,PyTorch 自动微分语义。
+
+  - dir: training-nn
+    part: neural-networks
+    name_en: "Training Neural Networks"
+    name_zh: 训练神经网络
+    order: 11
+    entries:
+      - loss-functions
+      - regression-losses
+      - classification-losses
+      - gradient-descent
+      - minibatch-sgd
+      - momentum-and-nesterov
+      - optimizers
+      - adam
+      - learning-rate-schedules
+      - weight-initialization
+      - gradient-clipping
+      - batch-normalization
+      - dropout
+      - label-smoothing
+      - mixed-precision
+      - debugging-training
+      - mnist-mlp-training-loop
+    description_zh: |
+      损失的 MLE 推导、SGD 家族与 Adam、初始化、正则化实践,以 MNIST + MLP 手写训练循环收尾。
+
+  # ===== Part 3 经典架构 =====
+  - dir: cnn
+    part: classic-architectures
+    name_en: "Convolutional Networks"
+    name_zh: 卷积网络
+    order: 12
+    entries:
+      - cnn
+      - why-convolution
+      - discrete-convolution
+      - cross-correlation-vs-convolution
+      - convolution-2d
+      - stride-padding-dilation
+      - output-size-arithmetic
+      - pooling
+      - invariance-and-equivariance
+      - convolution-as-toeplitz
+      - lenet-to-vgg
+      - residual-connections
+      - resnet-and-beyond
+    description_zh: |
+      卷积的数学(局部性、权值共享、等变性)、尺寸算术、池化,从 LeNet 到 ResNet:残差连接为什么有效。
+
+  - dir: rnn-lstm
+    part: classic-architectures
+    name_en: "Recurrent Networks"
+    name_zh: 循环网络
+    order: 13
+    entries:
+      - sequence-modeling
+      - rnn
+      - rnn-unrolling
+      - bptt
+      - rnn-vanishing-gradient
+      - lstm
+      - gru
+      - seq2seq
+      - teacher-forcing
+      - bidirectional-rnn
+      - bahdanau-attention
+      - why-attention
+    description_zh: |
+      序列建模、BPTT 与梯度消失的数学,LSTM/GRU 的门控机制,终点是 Bahdanau 注意力与「为什么需要注意力」。
+
+  # ===== Part 4 Transformer =====
+  - dir: text-representation
+    part: transformer
+    name_en: "Text Representation"
+    name_zh: 文本表示
+    order: 14
+    entries:
+      - tokenization
+      - tokenization-bpe
+      - wordpiece-and-sentencepiece
+      - one-hot-and-distributed
+      - embeddings
+      - embedding-geometry
+      - cosine-similarity
+      - vocabulary-size-tradeoffs
+    description_zh: |
+      分词(BPE/WordPiece)、one-hot 到分布式表示、嵌入几何与余弦相似度。
+
+  - dir: attention
+    part: transformer
+    name_en: "Attention"
+    name_zh: 注意力机制
+    order: 15
+    entries:
+      - attention-as-retrieval
+      - self-attention
+      - scaled-dot-product
+      - attention-matrix
+      - multi-head-attention
+      - gqa-and-mqa
+      - causal-masking
+      - cross-attention
+      - attention-complexity
+      - sparse-attention
+      - linear-attention
+      - flash-attention
+    description_zh: |
+      注意力=软检索:QKV 全推导、√d 缩放的数学、多头与 GQA、因果掩码、复杂度与加速。
+
+  - dir: transformer-components
+    part: transformer
+    name_en: "Transformer Components"
+    name_zh: Transformer 组件
+    order: 16
+    entries:
+      - positional-encoding
+      - rope
+      - alibi
+      - layernorm-residuals
+      - layernorm
+      - rmsnorm
+      - pre-norm-vs-post-norm
+      - residual-streams
+      - feedforward
+      - swiglu-ffn
+      - parameter-count
+    description_zh: |
+      位置编码(正弦/RoPE/ALiBi)、归一化(LayerNorm/RMSNorm、Pre/Post-LN)、残差流与 FFN,附参数量总账。
+
+  - dir: transformer-architectures
+    part: transformer
+    name_en: "Transformer Architectures"
+    name_zh: Transformer 架构
+    order: 17
+    entries:
+      - full-transformer
+      - encoder-only
       - decoder-only
+      - encoder-decoder
+      - masked-language-modeling
+      - causal-language-modeling
+      - mixture-of-experts
+      - vit
+    description_zh: |
+      组装完整 Transformer;编码器/解码器/编码器-解码器三种架构与各自的训练目标;MoE 与 ViT。
+
+  # ===== Part 5 现代 LLM =====
+  - dir: pretraining
+    part: modern-llm
+    name_en: "Pretraining"
+    name_zh: 预训练
+    order: 18
+    entries:
       - pretraining
+      - next-token-as-mle
+      - training-data
+      - scaling-laws
+      - compute-optimal
+      - lr-schedules-at-scale
+      - distributed-training
+      - training-stability
+      - evaluation-perplexity
+      - emergent-abilities
+    description_zh: |
+      下一词预测=MLE、数据配比、缩放定律与计算最优、分布式训练概念、训练稳定性与涌现。
+
+  - dir: inference
+    part: modern-llm
+    name_en: "Inference & Decoding"
+    name_zh: 推理与解码
+    order: 19
+    entries:
       - inference
+      - kv-cache
+      - greedy-decoding
+      - beam-search
+      - temperature-sampling
+      - top-k-top-p
+      - repetition-penalty
+      - speculative-decoding
+      - inference-math
+      - quantization
+      - long-context
+      - context-extension
+    description_zh: |
+      prefill/decode 两阶段、KV cache 的数学、贪心/束搜索/温度/top-k/top-p 采样、推理算力账、量化与长上下文。
+
+  - dir: finetuning
+    part: modern-llm
+    name_en: "Finetuning"
+    name_zh: 微调
+    order: 20
+    entries:
       - sft
+      - instruction-data
+      - full-vs-peft
+      - lora
+      - qlora
+      - prompt-tuning
+      - catastrophic-forgetting
+      - distillation
+    description_zh: |
+      指令微调与数据构成、全量 vs 参数高效、LoRA 的低秩数学、灾难性遗忘与知识蒸馏。
+
+  - dir: alignment
+    part: modern-llm
+    name_en: "Alignment"
+    name_zh: 对齐
+    order: 21
+    entries:
+      - alignment-problem
+      - rl-basics
+      - policy-gradient
+      - reward-model
+      - bradley-terry
       - rlhf-dpo
+      - ppo
+      - dpo
+      - reward-hacking
+      - constitutional-and-rlaif
+      - rejection-sampling
+      - process-reward
       - llama2-from-scratch
     description_zh: |
-      Decoder-only 架构、预训练、推理(KV cache/采样)、指令微调与 RLHF/DPO,以复现 LLaMA2 收尾。
+      RL 基础与策略梯度、Bradley-Terry 偏好模型、PPO 的 KL 惩罚、DPO 闭式损失推导,以复现 LLaMA2 压轴。
+
+  # ===== Part 6 进阶理论(参考轨) =====
+  - dir: approximation-theory
+    part: advanced-theory
+    name_en: "Approximation Theory"
+    name_zh: 逼近论
+    order: 22
+    entries:
+      - universal-approximation-formal
+      - piecewise-linear-relu
+      - affine-piece-counting
+      - depth-separation
+      - kolmogorov-superposition
+      - curse-of-dimensionality
+      - barron-spaces
+      - spline-connection
+      - interpolation-theory
+      - approximation-rates
+    description_zh: |
+      通用逼近的严格表述、ReLU 网络=分段线性、深度分离定理、维度灾难与 Barron 空间。
+
+  - dir: training-theory
+    part: advanced-theory
+    name_en: "Training Theory"
+    name_zh: 训练理论
+    order: 23
+    entries:
+      - lazy-training
+      - ntk
+      - mean-field-view
+      - loss-landscape-theory
+      - saddle-point-theory
+      - gd-trajectory
+      - wide-networks
+      - feature-learning-vs-kernel
+    description_zh: |
+      宽网络与神经正切核、惰性训练、损失景观与鞍点理论、特征学习与核机制之争。
+
+  - dir: generalization-theory
+    part: advanced-theory
+    name_en: "Generalization Theory"
+    name_zh: 泛化理论
+    order: 24
+    entries:
+      - pac-learning
+      - vc-dimension
+      - covering-numbers
+      - rademacher
+      - norm-based-bounds
+      - overparameterized-generalization
+      - double-descent-theory
+      - benign-overfitting
+    description_zh: |
+      PAC 学习与 VC 维、覆盖数与 Rademacher 复杂度、过参数化泛化与双下降的理论解释。
+
+  - dir: generative-models
+    part: advanced-theory
+    name_en: "Generative Models"
+    name_zh: 生成模型
+    order: 25
+    entries:
+      - generative-modeling
+      - autoencoders
+      - vae
+      - elbo
+      - reparameterization-trick
+      - gan
+      - normalizing-flows
+      - diffusion-models
+    description_zh: |
+      显式/隐式密度建模、VAE 与 ELBO 推导、重参数化技巧、GAN、标准化流与扩散模型。

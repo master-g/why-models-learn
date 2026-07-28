@@ -19,8 +19,8 @@ npm run build   # 构建 dist/
 
 ## 已决策事项(2026-07-27 grilling,勿重开)
 
-- **大纲**:4 章 27 词条见 `sections.yaml`。评估并入 `overfitting-and-regularization`;GQA 并入 `multi-head-attention`;`modern-components` 已删;softmax 讲在 `loss-functions` 里。
-- **词条格式**:三条硬规则——①开头一句话定义 ②`##` 分节 ③结尾 `## 相关词条`;实战类加 `## 运行方法`。
+- **大纲**(2026-07-28 重设计,书目驱动):**6 部分 25 章 301 词条**见 `sections.yaml`,结构为 parts > sections > entries 三级。数学地基(Part 0,87 词条)先行——用户编程资深、数学偏弱,**词条写法向数学原理与推导侧重**。GQA 独立为 `gqa-and-mqa`;softmax 独立;评估拆为总览 `overfitting-and-regularization` + 细节篇;进阶理论(Part 6)为参考轨,长期 TODO 合法。
+- **词条格式**:三条硬规则——①开头定义+定位段(无 TLDR callout)②`##` 分节 ③结尾 `## 相关词条`;实战类加 `## 运行方法`。**体裁是 algebrica 长文**(概念揉碎展开、推导不跳步、数字实例、失效模式一节),不是费曼卡片;参照 `mnist-mlp-training-loop`。
 - **代码**:全部内嵌词条,写作时本地真跑,输出贴进词条当证据。大代码(LLaMA2)在 happy-llm。
 - **草稿**:vault 内 `status: active`,不出 vault;演算纸笔记是消耗品。
 - **支线**:CNN/RNN/LSTM 零代码,概念+数学推导。
