@@ -47,6 +47,7 @@
 - [2026-07-28] **代码块视觉层三轮迭代 + 插图机制落地(提交 7e1815e 及后续)**:①shiki 主题改传打补丁对象,按 claude.design token 三族重映射(用户两轮反馈:注释太淡→muted #6c6a64;函数 teal 太淡→primary-active #a9583e,字符串绿违三族→哑蓝);②代码字体栈 MonoLisa 系优先(族名经 system_profiler 核实);③插图机制:vault `svg/<slug>.<n>.svg` 手绘 3 张(位移/加法/数乘)插入 vectors,sync 扩拷贝+校验+清理,绝对路径改写(Astro content-assets 会把相对图片当本地资产报 ImageNotFound——方案外的实踩坑),sanitize 放行 img alt,postbuild 加 check-svg-assets 闸。全链路验证:退役链路(词条+图同消失同恢复)、sync 硬错误 exit 1、404 闸 exit 1、46/46 测试绿、三图截图居中切题。文档:vault _README 规则 6、CLAUDE.md、PROJECT_MEMORY 已回写。
 
 - [2026-07-28] **lint 门控升级落地**:skill 核对 vectors → 抓 4 处违规(3 处 alt 半角 + 1 处枚举)→ 升级中发现全文 153 处半角(上轮核对误判,记失败尝试)→ 三项升级(auto-fix 报告化、LINT-ERROR 硬错误 exit 1、重复标点 report)+ 修复器两盲区补丁($,其中 / 数字,中文)+ vault 全量规范化 149 处。验证链:注入 4 类违规 sync 正确触发(3 警告+1 硬错误 exit 1 不写产物)、硬错误时警告不再被吞、51/51 测试绿、sync 恢复零警告、build 双闸过。未提交,与插图机制改动一起等用户指示。
+- [2026-07-28] **vectors 术语修订 + 词汇表页落地**:①用户认可 5 处术语调整(Hadamard 积(阿达马积)/one-hot(独热)/隐藏状态(hidden state)或表示(representation)/损失(loss)/「逐元素」统一为「逐分量」),vault 改后 sync 零警告。②新建 /glossary/ 页:仿 playground 模式——repo 手维护 `glossary/glossary.md` + content.config.ts 加 glossary collection + src/pages/glossary.astro,不进 sections.yaml/首页/搜索;about 页加入口链接。首批 16 条(线代 7/ML 7/保留不译 2)。验证:3 表格渲染、链接改写 /vectors/ 生效、search.json 隔离、51/51 测试绿。**维护约定:写词条遇术语决策随手加一行**。未提交。
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
 - [2026-07-28] 沿 linear-algebra 章顺序推进:`vectors` ✅ → 下一篇 `matrices`。穿插 Part 2 保持手感。跑代码一律 `uv run --with <pkg>` 临时环境;解读按真实输出写,先跑后写。

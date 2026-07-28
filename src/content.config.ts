@@ -26,4 +26,16 @@ const playground = defineCollection({
   }),
 });
 
-export const collections = { entries, playground };
+// 词汇表:repo 内手维护的术语译法约定,与 playground 同模式;
+// 不进 sections.yaml,首页/搜索/vault 索引均不可见,只挂 /glossary/ 路由。
+const glossary = defineCollection({
+  loader: glob({
+    base: './glossary',
+    pattern: ['*.md'],
+  }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
+export const collections = { entries, playground, glossary };

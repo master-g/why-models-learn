@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// 词汇表:用与词条完全相同的管线和版式渲染 glossary/ 下的手维护文件。
+// 不进首页与搜索;URL 直达 /glossary/。
+const docs = await getCollection('glossary');
+docs.sort((a, b) => a.id.localeCompare(b.id));
+const rendered = await Promise.all(
+  docs.map(async (doc) => ({ doc, Content: (await render(doc)).Content })),
+);
+---
+
+<BaseLayout title="词汇表 | 从神经网络到大语言模型">
+  {
+    rendered.map(({ doc, Content }) => (
+      <article class="post" lang="zh-CN">
+        <div class="post-header">
+          <nav class="post-header-breadcrumb" aria-label="Breadcrumb">
+            <span>glossary</span>
+          </nav>
+          <div class="post-header-section-title">
+            <h1 class="post-header-title">{doc.data.title}</h1>
+          </div>
+        </div>
+        <div class="post-content">
+          <Content />
+        </div>
+      </article>
+    ))
+  }
+</BaseLayout>
