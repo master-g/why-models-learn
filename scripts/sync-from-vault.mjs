@@ -2,7 +2,7 @@
 /**
  * 单向同步:Obsidian vault 飞地 → content-zh/。
  *
- * 事实源:vault 的 `03 - AREAS/learning/nn-to-llm/<slug>.md`(feynman 卡片)。
+ * 事实源:vault 的 `03 - AREAS/learning/why-models-learn/<slug>.md`(feynman 卡片)。
  * 只同步 `status: complete | reference`;`active` 草稿不出 vault。
  *
  * 适配规则(写作无感,脚本负责):
@@ -23,7 +23,7 @@ import yaml from 'js-yaml';
 import { parseFrontmatter, splitFrontmatter } from './lib/frontmatter.mjs';
 import { lintChineseCopywriting } from './lib/copywriting-lint.mjs';
 
-const VAULT_DIR = join(homedir(), 'Documents/ObsidianVaults/Main/03 - AREAS/learning/nn-to-llm');
+const VAULT_DIR = join(homedir(), 'Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn');
 const VAULT_SVG_DIR = join(VAULT_DIR, 'svg');
 const OUT_ROOT = 'content-zh';
 const ASSETS_ROOT = 'public/assets';
@@ -53,7 +53,7 @@ function writeVaultIndex(statusMap) {
 
   const MARK = { complete: '✅', reference: '📚', active: '📝' };
   const lines = [
-    '# nn-to-llm 索引',
+    '# why-models-learn 索引',
     '',
     '> 生成物(`npm run sync` 顺带生成),勿手改。✅=已毕业 📝=草稿 ⬜=未写;点 ⬜ 的链接可直接创建笔记。',
     '',

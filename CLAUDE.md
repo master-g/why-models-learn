@@ -1,10 +1,10 @@
-# CLAUDE.md — nn-to-llm
+# CLAUDE.md — why-models-learn
 
-「从神经网络到大语言模型」:写给未来的自己的结构化学习库。**词条是学习成果的正式沉淀:一个概念写成词条才算学完。**
+「模型为什么会学习」:写给未来的自己的结构化学习库。**词条是学习成果的正式沉淀:一个概念写成词条才算学完。**
 
 ## 架构:vault 是事实源,repo 是渲染器
 
-- **词条唯一事实源**:Obsidian vault 飞地 `~/Documents/ObsidianVaults/Main/03 - AREAS/learning/nn-to-llm/<slug>.md`(feynman 卡片格式,约定见该目录 `_README.md`)。
+- **词条唯一事实源**:Obsidian vault 飞地 `~/Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn/<slug>.md`(feynman 卡片格式,约定见该目录 `_README.md`)。
 - `content-zh/` 是 `npm run sync` 的**纯产物,永不手改**。同步只拷 `status: complete | reference`;wikilink 改写为站内链接;callout 标记剥掉;frontmatter 只透传 `title`/`tags`。
 - 毕业信号:词条写完 → vault 里 `status` 翻为 `complete` → repo `sections.yaml` 的 `known_absent` 移除该 slug。指向未毕业词条的链接自动渲染为纯文本。
 
