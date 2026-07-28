@@ -52,6 +52,7 @@ npm run build   # 构建 dist/
 
 ## 审查规则
 - 词条验收:概念讲透(费曼)+ 结尾 `## 相关词条` 交叉链接 + 实战类代码内嵌可跑且贴运行输出
+- 自动闸(移植自 algebrica 验收体系):`npm run sync` 对每个同步词条跑 copywriting-lint(LINT-ERROR 是数学/标点硬伤,须修);`npm run build` 的 postbuild 扫 dist 全站 `mjx-error`,有即构建失败
 - `npm test` 必须全绿;视觉契约(visual-contracts)约束 BaseLayout/index/[slug] 的类名结构,改页面时同步改测试
 - sections.yaml 的 slug 与 vault 文件名一一对应;新词条先进 sections.yaml + known_absent
 

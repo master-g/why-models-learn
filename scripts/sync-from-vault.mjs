@@ -18,6 +18,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import yaml from 'js-yaml';
 import { parseFrontmatter, splitFrontmatter } from './lib/frontmatter.mjs';
+import { lintChineseCopywriting } from './lib/copywriting-lint.mjs';
 
 const VAULT_DIR = join(homedir(), 'Documents/ObsidianVaults/Main/03 - AREAS/learning/nn-to-llm');
 const OUT_ROOT = 'content-zh';
@@ -30,6 +31,48 @@ function loadSlugSections() {
     for (const slug of sec.entries || []) map.set(slug, sec.dir);
   }
   return map;
+}
+
+// 生成 vault 内的导航索引 _index.md(下划线前缀,不参与同步;生成物,勿手改)。
+// statusMap: slug → vault 内的 status(无文件 = 未写)。
+function writeVaultIndex(statusMap) {
+  const data = yaml.load(readFileSync('sections.yaml', 'utf8'));
+  const parts = (data.parts || []).slice().sort((a, b) => a.order - b.order);
+  const sections = (data.sections || []).slice().sort((a, b) => a.order - b.order);
+  const byPart = new Map();
+  for (const sec of sections) {
+    const key = sec.part ?? '';
+    if (!byPart.has(key)) byPart.set(key, []);
+    byPart.get(key).push(sec);
+  }
+
+  const MARK = { complete: '✅', reference: '📚', active: '📝' };
+  const lines = [
+    '# nn-to-llm 索引',
+    '',
+    '> 生成物(`npm run sync` 顺带生成),勿手改。✅=已毕业 📝=草稿 ⬜=未写;点 ⬜ 的链接可直接创建笔记。',
+    '',
+  ];
+  let total = 0, done = 0, draft = 0;
+  for (const part of parts) {
+    lines.push(`## ${part.name_zh}`);
+    lines.push('');
+    for (const sec of byPart.get(part.id) || []) {
+      lines.push(`### ${sec.order}. ${sec.name_zh}`);
+      for (const slug of sec.entries || []) {
+        const st = statusMap.get(slug);
+        total++;
+        if (st === 'complete' || st === 'reference') done++;
+        else if (st) draft++;
+        lines.push(`- ${MARK[st] ?? '⬜'} [[${slug}]]`);
+      }
+      lines.push('');
+    }
+  }
+  lines.push(`---`);
+  lines.push(`进度:${done}/${total} 已毕业,${draft} 篇草稿`);
+  lines.push('');
+  writeFileSync(join(VAULT_DIR, '_index.md'), lines.join('\n'));
 }
 
 function rewriteWikilinks(body, slugSections, warn) {
@@ -62,6 +105,7 @@ function main() {
   const warnings = [];
   const warn = (msg) => warnings.push(msg);
   const targets = new Map(); // 'section/slug' -> file content
+  const statusMap = new Map(); // slug -> vault status(供 _index.md)
 
   for (const file of readdirSync(VAULT_DIR)) {
     if (!file.endsWith('.md') || file.startsWith('_')) continue;
@@ -75,6 +119,7 @@ function main() {
     const raw = readFileSync(join(VAULT_DIR, file), 'utf8');
     const { frontmatter, body } = splitFrontmatter(raw);
     const data = parseFrontmatter(frontmatter) || {};
+    statusMap.set(slug, SYNCABLE_STATUS.has(data.status) ? data.status : 'active');
 
     if (!SYNCABLE_STATUS.has(data.status)) {
       console.log(`[sync] 跳过(status: ${data.status ?? 'missing'}): ${slug}`);
@@ -92,7 +137,14 @@ function main() {
     outFrontmatter.push('---');
 
     const outBody = stripCallouts(rewriteWikilinks(body, slugSections, warn));
-    targets.set(`${section}/${slug}`, `${outFrontmatter.join('\n')}\n${outBody}`);
+    const outContent = `${outFrontmatter.join('\n')}\n${outBody}`;
+
+    // 文案 lint(沿用 algebrica 规则):只警告不改写,vault 是事实源,由作者在 vault 侧修。
+    const lint = lintChineseCopywriting(outContent);
+    for (const r of lint.reports) warn(`${slug}:${r.line} LINT ${r.message}`);
+    for (const e of lint.errors) warn(`${slug}:${e.line} LINT-ERROR ${e.message}`);
+
+    targets.set(`${section}/${slug}`, outContent);
   }
 
   // 清除不在目标集里的旧词条(保留 .gitkeep)。
@@ -117,7 +169,8 @@ function main() {
   }
 
   for (const msg of warnings) console.warn(`[sync] ${msg}`);
-  console.log(`[sync] 同步 ${targets.size} 个词条(${VAULT_DIR} → ${OUT_ROOT}/)`);
+  writeVaultIndex(statusMap);
+  console.log(`[sync] 同步 ${targets.size} 个词条(${VAULT_DIR} → ${OUT_ROOT}/),已刷新 _index.md`);
 }
 
 main();

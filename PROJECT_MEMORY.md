@@ -17,6 +17,7 @@
 - [2026-07-28] **体裁定案(用户反馈修订 07-27 决策)**:词条要 algebrica 长文,不是费曼卡片——概念按内在结构揉碎展开、推导不跳步、抽象必配具体数字、关键论断贴真实运行输出、结尾前有失效模式/反例一节;开头是定义+定位段,不要 TLDR callout。模板 = `mnist-mlp-training-loop`。约定已同步进 vault `_README.md` 与 CLAUDE.md。
 - [2026-07-28] **用户画像(影响一切写法)**:十多年编程经验,数学偏弱 → 词条向数学原理/推导侧重,代码细节可提速;数学预备单独立词条,后续词条直接引用不重复讲。
 - [2026-07-28] **大纲 v2(书目驱动重设计)**:5 组代理并行抽取 12 本书目录(MML/Parr&Howard/Chaudhury/Fleuret/Petersen&Zech/Ananthaswamy/Smets/Nelson/Amidi/Xiao&Zhu/Prince/Goodfellow),按数学依赖链重排为 **6 部分 25 章 301 词条**(Part 0 数学地基 87 词先行;Part 6 进阶理论参考轨长期 TODO 合法)。schema 升为三级:sections.yaml 加 `parts` 列表 + 每章 `part` 字段,首页按部分分组渲染。原有 27 slug 全保留(多数降为章总览篇);`derivatives-and-chain-rule`/`probability-and-information` 溶解为原子词条。素材原件:书库 `/Users/mg/Documents/wps/Documents/books/AI-ML/`。注意 `Mathematical Theory of Deep Learning (Fang et al, 2024).pdf` 实为 Petersen & Zech 所著,文件名标错。
+- [2026-07-28] **自动闸两道(移植 algebrica 验收体系,用户批准)**:①`npm run sync` 对每个同步词条跑 copywriting-lint,reports/errors 以 `[sync] slug:line LINT[-ERROR]` 警告输出(只警告不改写,vault 是事实源);②`postbuild` 挂 `scripts/check-mjx-errors.mjs`,扫 dist 全部 html 的 `mjx-error`,有即构建失败。不移植项:torture 文件制度、validate-translation 四件套、双闸流程(均翻译项目专属)。
 
 ## 失败尝试
 <!-- 踩过的坑、走不通的路径、被否决的方案及原因。超长时最旧条目优先淘汰。 -->
@@ -31,6 +32,7 @@
 - [2026-07-27] git init 完成并推送 github.com/master-g/nn-to-llm(root-commit b961a90,57 文件);README/BaseLayout 里的仓库地址假设已证实正确。
 - [2026-07-28] 首个词条 `mnist-mlp-training-loop` 全链路走通:vault 写入 → status complete → sync → 移出 known_absent → 45/45 测试 → 构建 7 页。代码用 `uv run --with torch --with torchvision` 真跑,5 epoch 输出 test_acc=0.9774 已贴进词条。check-search FAIL 仍为预期 TODO 信号。流程无框架性问题,未提交 git。
 - [2026-07-28] 用户反馈首版是费曼卡片非所求,按 algebrica 长文体重写:补经验风险形式化、交叉熵手算例、参数量/batch 数量账、评估循环语义;新增「失效模式」节并真跑两个变体——去 ReLU(线性坍缩 ~90%,且后段 train/test 裂口=过拟合征兆)、lr=10(首 epoch 损失 27 万,坍缩到 ≈ln10 均匀分布锁死 10%)。教训:解读段落必须按真实数字写,先跑后写,别先拟稿套数字。
+- [2026-07-28] 写 `vectors` 前先做验收闸分析(algebrica 移植评估)并落地两道自动闸:sync 挂 copywriting-lint 警告(用临时 vectors.md 注入半角标点验证 LINT-ERROR 触发)、postbuild 挂 check-mjx-errors.mjs(失败/通过路径均验证)。坑:块注释里写 `dist/**/*.html`,其中的 `*/` 提前闭合注释导致 SyntaxError。45/45 测试绿,构建+postbuild 通过。改动未提交:sync-from-vault.mjs(lint 接线)、check-mjx-errors.mjs(新)、package.json(postbuild)、CLAUDE.md、PROJECT_MEMORY.md。
 
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
