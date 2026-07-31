@@ -23,6 +23,11 @@ title: 词汇表:术语译法与约定
 | rank-nullity theorem | 秩零定理 | 译 | [rank](../linear-algebra/rank/) |
 | kernel | 核 | 译,正式处理见「核与像」 | [rank](../linear-algebra/rank/) |
 | numerical rank | 数值秩 | 译,首次出现括注英文 | [rank](../linear-algebra/rank/) |
+| vector space | 向量空间 | 译 | [vector-spaces](../linear-algebra/vector-spaces/) |
+| group / Abelian group | 群 / Abel 群 | 译,Abel 音译不翻 | [vector-spaces](../linear-algebra/vector-spaces/) |
+| closure | 封闭性 | 译 | [vector-spaces](../linear-algebra/vector-spaces/) |
+| scalar multiplication | 数乘 | 译(与 vectors 篇一致) | [vector-spaces](../linear-algebra/vector-spaces/) |
+| affine set | 仿射集 | 译,正式处理见「仿射空间与映射」 | [vector-spaces](../linear-algebra/vector-spaces/) |
 
 ## 机器学习
 

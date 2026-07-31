@@ -120,8 +120,11 @@ function makeMathSchema(base) {
       ellipse: ['cx', 'cy', 'rx', 'ry'],
       polygon: ['points'],
       polyline: ['points'],
-      text: ['x', 'y', 'dx', 'dy', 'fontSize', 'fontFamily', 'textAnchor'],
-      tspan: ['x', 'y', 'dx', 'dy'],
+      // MathJax 把 \text{中文} 等未知字形渲成 <text> 元素,定位靠 transform(translate+scale),
+      // 字号靠 font-size="884px"(MathJax 内部坐标系约定);被剥则中文公式集体隐形。
+      // font-size/font-family 必须写 kebab-case——camelCase 键匹配不上 hast 属性(实测)。
+      text: ['x', 'y', 'dx', 'dy', 'textAnchor', 'transform', 'dataVariant', 'font-size', 'font-family'],
+      tspan: ['x', 'y', 'dx', 'dy', 'transform', 'font-size', 'font-family'],
       clipPath: ['id'],
       linearGradient: ['id', 'x1', 'y1', 'x2', 'y2'],
       radialGradient: ['id', 'cx', 'cy', 'r'],
