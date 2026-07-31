@@ -46,7 +46,6 @@ parts:
 
 known_absent:
   # Part 0 数学地基
-  - subspaces
   - linear-combinations-and-span
   - linear-independence
   - basis

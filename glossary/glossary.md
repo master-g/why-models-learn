@@ -24,6 +24,11 @@ title: 词汇表:术语译法与约定
 | kernel | 核 | 译,正式处理见「核与像」 | [rank](../linear-algebra/rank/) |
 | numerical rank | 数值秩 | 译,首次出现括注英文 | [rank](../linear-algebra/rank/) |
 | vector space | 向量空间 | 译 | [vector-spaces](../linear-algebra/vector-spaces/) |
+| subspace | 子空间 | 译(子集配继承的运算),判别三条:含零、加封闭、数乘封闭 | [subspaces](../linear-algebra/subspaces/) |
+| zero space / kernel | 零空间/核 | 两译并用,正式处理见「核与像」 | [subspaces](../linear-algebra/subspaces/) |
+| span | 张成(集) | 译,正式处理见「线性组合与张成」 | [subspaces](../linear-algebra/subspaces/) |
+| trivial subspace | 平凡子空间 | 译({0} 与全空间自身) | [subspaces](../linear-algebra/subspaces/) |
+| model soup | 模型汤 | 半译,权重平均技巧 | [subspaces](../linear-algebra/subspaces/) |
 | group / Abelian group | 群 / Abel 群 | 译,Abel 音译不翻 | [vector-spaces](../linear-algebra/vector-spaces/) |
 | closure | 封闭性 | 译 | [vector-spaces](../linear-algebra/vector-spaces/) |
 | scalar multiplication | 数乘 | 译(与 vectors 篇一致) | [vector-spaces](../linear-algebra/vector-spaces/) |
