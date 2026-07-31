@@ -56,7 +56,6 @@ known_absent:
   - change-of-basis
   - linear-maps
   - kernel-and-image
-  - rank
   - rank-nullity
   - matrix-inverse
   - affine-spaces-and-maps

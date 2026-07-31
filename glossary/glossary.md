@@ -15,6 +15,14 @@ title: 词汇表:术语译法与约定
 | span | 张成 | 译 | [vectors](../linear-algebra/vectors/) |
 | broadcasting | 广播 | 译 | [vectors](../linear-algebra/vectors/) |
 | residual connection | 残差连接 | 译 | [vectors](../linear-algebra/vectors/) |
+| rank | 秩 | 译 | [rank](../linear-algebra/rank/) |
+| column rank / row rank | 列秩 / 行秩 | 译,首次出现括注英文 | [rank](../linear-algebra/rank/) |
+| full rank | 满秩 | 译 | [rank](../linear-algebra/rank/) |
+| rank deficient | 秩亏 | 译 | [rank](../linear-algebra/rank/) |
+| column space | 列空间 | 译(列张成的空间),正式处理见「核与像」 | [rank](../linear-algebra/rank/) |
+| rank-nullity theorem | 秩零定理 | 译 | [rank](../linear-algebra/rank/) |
+| kernel | 核 | 译,正式处理见「核与像」 | [rank](../linear-algebra/rank/) |
+| numerical rank | 数值秩 | 译,首次出现括注英文 | [rank](../linear-algebra/rank/) |
 
 ## 机器学习
 
@@ -34,3 +42,4 @@ title: 词汇表:术语译法与约定
 | --- | --- | --- |
 | MNIST | 数据集名 | [vectors](../linear-algebra/vectors/) |
 | Transformer | 架构名 | [vectors](../linear-algebra/vectors/) |
+| LoRA | 微调方法名(Low-Rank Adaptation) | [rank](../linear-algebra/rank/) |
