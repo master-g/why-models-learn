@@ -173,7 +173,6 @@ known_absent:
   - model-selection
   # Part 2 神经网络
   - activation-functions
-  - why-non-linearity
   - heaviside-and-sigmoid
   - tanh
   - relu

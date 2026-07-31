@@ -57,8 +57,10 @@
 
 - [2026-07-31] **`what-is-a-neuron` 毕业(4/308,Part 2 开篇,首次跨部写作)**:四件构件解剖(w·x+b→f)/历史一节(McCulloch-Pitts 1943、Rosenblatt 1958,感知机细节留 perceptron-classic)/「一个=点积,一层=矩阵乘法」与 nn.Linear 代码对照(逐位一致)/非线性必然性(结合律坍缩 W2W1,真跑两层=一层)。数字实跑:z=-0.8、sigmoid 0.310、参数量 785/100480(接上前篇 100352)。SVG 1 张:神经元解剖图(x_i→Σ→f→y,偏置虚线从下方入)。**跨部引用链验证**:Part 2 → Part 0 的 vectors/matrix-multiplication 反链生效,inner-products 未毕业按设计纯文本。坑两枚:①写作混打半角标点 115 处靠 lint auto-fix 规范化(写作时该直接打全角);②历史节标题凭印象写「征用三十年」实为 1943 年(80 余年),数字必须算过再写。验证:sync 零警告、51/51 测试、build 双闸、145 mjx 零错误、首页生效。未提交。
 
+- [2026-07-31] **`why-non-linearity` 毕业(5/308),别名机制首次完整闭环**:结构=XOR 天花板(四不等式反证:1 类相加 >2t、0 类相加 ≤2t,矛盾)→ 手工构造两层 ReLU(h1=relu(x1+x2-0.5)、h2=relu(x1+x2-1.5)、y=h1-3h2,四点全中,**关键观察:(0,1)与(1,0)在隐藏空间合并为同一点**)→ 空间折叠几何本质(表示学习=学一组让任务线性可分的坐标系)→ 对照实验(带 ReLU loss 0.81→0.0002;无激活锁死 **0.6931=ln2**,输出全 0.5——「模型认输签名:损失 ln2」)。SVG 双 panel:输入空间不可分 vs 隐藏空间一线可分(双圈标记合并点)。**别名约定闭环验证**:what-is-a-neuron 里 2 处指向本篇的引用随毕业自动从纯文本升级为中文链接,零回改。坑:写作又混打半角 106 处(lint auto-fix 兜底);截图肉眼捉到衍字「是可能是」与繁体「歷史」——**文字核对也要过一遍肉眼/码点,lint 不查这两类**。验证:sync 零警告、51/51 测试、build 双闸、79 mjx 零错误、互链双向生效。未提交。
+
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
-- [2026-07-31] 进度 4/308:vectors ✅ → matrices ✅ → matrix-multiplication ✅ → what-is-a-neuron ✅(Part 2 穿插首次)。下一篇二选一:回 Part 0 写 `linear-systems`(矩阵乘法篇 NN 语境节点名提及),或续写 Part 2 的 `why-non-linearity`(承接神经元篇的「展开在 why-non-linearity」伏笔,两篇互链)。跑代码一律 `uv run --with <pkg>` 临时环境;解读按真实输出写,先跑后写;数字算过再写(「征用三十年」教训)。
+- [2026-07-31] 进度 5/308:Part 0 三篇 ✅,Part 2 已开两篇(what-is-a-neuron、why-non-linearity 互链对)。下一篇建议回 Part 0 写 `linear-systems`(矩阵的历史发源,matrices 三角矩阵节点名提及;或续 Part 2 的 `activation-functions`/具体激活函数篇)。跑代码一律 `uv run --with <pkg>`;先跑后写;数字算过再写;写完 lint+截图双重肉眼核对(衍字/繁体 lint 不查)。
 - [2026-07-28] MNIST 词条退役回炉(用户决定「不保留,按新架构重规划」):vault 翻回 active、slug 回 known_absent,sync 自动清产物(退役链路验证通过)。重写时机 = Part 2 收尾,届时改为纯实战篇、数学全引用;其失效模式真跑素材(去 ReLU ~90%+过拟合裂口、lr=10 锁死 ln10)分流到 `saturation-and-vanishing`/`gradient-descent` 等对应词条。站点词条总数 308(linear-algebra 拆细后)。
 - [2026-07-27] 仓库 github.com/master-g/why-models-learn 已建已推;攒够 10 个词条再部署 Pages。

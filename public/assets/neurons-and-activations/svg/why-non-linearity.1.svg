@@ -1,0 +1,57 @@
+<svg width="560" height="250" viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+    </marker>
+  </defs>
+
+  <!-- 左 panel:输入空间,不可分 -->
+  <text x="40" y="24" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="13" fill="#6c6a64">输入空间 (x₁, x₂)：一条直线最多分对三个点</text>
+  <!-- 网格 -->
+  <line x1="60" y1="100" x2="240" y2="100" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="150" y1="55" x2="150" y2="205" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- 坐标轴 -->
+  <line x1="60" y1="190" x2="252" y2="190" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <line x1="60" y1="190" x2="60" y2="48" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <text x="258" y="194" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">x<tspan dy="3" font-size="9">1</tspan></text>
+  <text x="50" y="40" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">x<tspan dy="3" font-size="9">2</tspan></text>
+  <!-- 一条失败的直线(任何位置都失败,此为示例) -->
+  <line x1="70" y1="200" x2="185" y2="62" stroke="#b8b2a8" stroke-width="1.2" stroke-dasharray="6 4"/>
+  <!-- 类 0:墨色实心,(0,0) 与 (1,1) -->
+  <circle cx="60" cy="190" r="7" fill="#312f2f"/>
+  <circle cx="150" cy="100" r="7" fill="#312f2f"/>
+  <text x="70" y="212" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(0,0) → 0</text>
+  <text x="162" y="98" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(1,1) → 0</text>
+  <!-- 类 1:珊瑚色,(0,1) 与 (1,0) -->
+  <circle cx="60" cy="100" r="7" fill="#cc785c"/>
+  <circle cx="150" cy="190" r="7" fill="#cc785c"/>
+  <text x="70" y="98" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#cc785c">(0,1) → 1</text>
+  <text x="162" y="212" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#cc785c">(1,0) → 1</text>
+
+  <!-- 右 panel:隐藏空间,可分 -->
+  <text x="300" y="24" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="13" fill="#6c6a64">隐藏空间 (h₁, h₂)：两个 1 类点合并，一线可分</text>
+  <!-- 网格 -->
+  <line x1="330" y1="145" x2="500" y2="145" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="375" y1="70" x2="375" y2="205" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="465" y1="70" x2="465" y2="205" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- 坐标轴 -->
+  <line x1="330" y1="190" x2="512" y2="190" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <line x1="330" y1="190" x2="330" y2="48" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
+  <text x="518" y="194" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">h<tspan dy="3" font-size="9">1</tspan></text>
+  <text x="320" y="40" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">h<tspan dy="3" font-size="9">2</tspan></text>
+  <!-- 分界线 h1 - 3h2 = 0.25,从 (0.25,0) 到 (1.75,0.5) -->
+  <line x1="352" y1="190" x2="487" y2="145" stroke="#312f2f" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <!-- 类 0 像点:(0,0) 与 (1.5,0.5) -->
+  <circle cx="330" cy="190" r="7" fill="#312f2f"/>
+  <text x="294" y="212" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(0,0) 的像</text>
+  <circle cx="465" cy="145" r="7" fill="#312f2f"/>
+  <text x="476" y="143" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(1,1) 的像</text>
+  <!-- 类 1 像点:(0.5,0),两个输入点合并,用双圈标记 -->
+  <circle cx="375" cy="190" r="9" fill="none" stroke="#cc785c" stroke-width="1.5"/>
+  <circle cx="375" cy="190" r="6" fill="#cc785c"/>
+  <text x="345" y="170" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#cc785c">(0,1) 与 (1,0)</text>
+  <text x="356" y="158" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#cc785c">合并于此</text>
+
+  <!-- 底部点题 -->
+  <text x="280" y="240" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#312f2f" text-anchor="middle">隐藏层把空间折叠：缠住的点被折到一起，直线就够用了</text>
+</svg>
