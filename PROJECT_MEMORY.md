@@ -61,8 +61,10 @@
 
 - [2026-07-31] **`linear-systems` 毕业(6/308)**:结构=联立方程→Ax=b(包装即矩阵乘法的历史动机;《九章算术》消元早于矩阵记号两千年)→ 解的三种情形(相交/平行/重合三 panel SVG;**代数定理:不存在恰好两个解**,两解之差不失为解⟹直线皆解)→ 三角形态与回代(2x+y-z=9 例,解(4,3,2);「化三角是主体、回代是收割」预告 gaussian-elimination)→ **列视角:解=用 A 的列拼出 b 的配方**(矩阵乘法篇 M(2,1)=(7,4) 的逆问题,「乘法正着算、解方程反着问」)→ NN 语境:超定(6 万方程 785 参数)无精确解⟹最小二乘/正规方程 X^TX 方阵化 ⟹ 梯度下降路线。验证:sync 零警告、51/51、build 双闸、159 mjx 零错误、matrices 两处引用自动升级链接。**流程记录:单条回复内三次工具调用(write+2 todo)会撞输出上限截断,SVG 等大文件写入应单独成行**。
 
+- [2026-07-31] **`gaussian-elimination` 毕业(7/308),线性代数章前半收束**:结构=三种初等行变换(合法性=可逆性证明:解集一一对应搬运)→ 增广矩阵 [A|b] → 完整消元例题(x+y+z=4/2x-y+z=0/x+2y-z=9,解(2,3,-1);**例题设计含一次换行**,三种变换全覆盖,全程整数)→ 阶梯形读出三种情形(主元占满=唯一;[0 0|c≠0]矛盾行=无解;全零行=无穷,自由变量)→ **主元个数=秩**(rank 伏笔)→ 代价 (2/3)n³:n=785 约3e8 可解、n=1e6 约7e17 两年 ⟹ NN 走梯度下降路线。《九章算术·方程》词源。SVG 四快照矩阵流(括号 path 画法沿用 matrices.1 约定,主元珊瑚色)。失效模式:主元为零硬除/部分选主元、手工符号错回代验证、阶梯形不唯一但主元位置唯一(RREF 才唯一)。验证:sync 零警告、51/51、137 mjx 零错误、linear-systems 4 处+matrices 1 处伏笔全升级。
+
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
-- [2026-07-31] 进度 6/308:Part 0 四篇 ✅(vectors→matrices→matrix-multiplication→linear-systems,线性代数章主线完成 1/3),Part 2 两篇 ✅。下一篇自然候选:`gaussian-elimination`(linear-systems 篇「下一篇」点名,消元算法正文;写完则线性代数章前半收束)。跑代码 `uv run --with <pkg>`;先跑后写;lint+截图双重核对。
+- [2026-07-31] 进度 7/308:Part 0 五篇 ✅(线性代数章前半:vectors→matrices→matrix-multiplication→linear-systems→gaussian-elimination 收束),Part 2 两篇 ✅。下一篇候选:`rank`(消元篇主元伏笔+linear-systems 列视角伏笔双回收),或 Part 2 `activation-functions`。流程稳:实跑→写→lint→SVG→sync/test/build→截图→记忆→提交。
 - [2026-07-28] MNIST 词条退役回炉(用户决定「不保留,按新架构重规划」):vault 翻回 active、slug 回 known_absent,sync 自动清产物(退役链路验证通过)。重写时机 = Part 2 收尾,届时改为纯实战篇、数学全引用;其失效模式真跑素材(去 ReLU ~90%+过拟合裂口、lr=10 锁死 ln10)分流到 `saturation-and-vanishing`/`gradient-descent` 等对应词条。站点词条总数 308(linear-algebra 拆细后)。
 - [2026-07-27] 仓库 github.com/master-g/why-models-learn 已建已推;攒够 10 个词条再部署 Pages。
