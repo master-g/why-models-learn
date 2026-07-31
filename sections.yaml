@@ -172,7 +172,6 @@ known_absent:
   - generalization-intuition
   - model-selection
   # Part 2 神经网络
-  - what-is-a-neuron
   - activation-functions
   - why-non-linearity
   - heaviside-and-sigmoid

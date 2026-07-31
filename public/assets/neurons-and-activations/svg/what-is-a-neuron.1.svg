@@ -1,0 +1,52 @@
+<svg width="560" height="260" viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+    </marker>
+    <marker id="a-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <!-- 输入节点 x1 x2 x3 -->
+  <circle cx="70" cy="70" r="16" fill="#312f2f" opacity="0.06" stroke="#312f2f" stroke-width="1.5"/>
+  <text x="70" y="75" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f" text-anchor="middle">x<tspan dy="3" font-size="9">1</tspan></text>
+  <circle cx="70" cy="140" r="16" fill="#312f2f" opacity="0.06" stroke="#312f2f" stroke-width="1.5"/>
+  <text x="70" y="145" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f" text-anchor="middle">x<tspan dy="3" font-size="9">2</tspan></text>
+  <circle cx="70" cy="210" r="16" fill="#312f2f" opacity="0.06" stroke="#312f2f" stroke-width="1.5"/>
+  <text x="70" y="215" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f" text-anchor="middle">x<tspan dy="3" font-size="9">3</tspan></text>
+
+  <!-- 加权连线:输入 → 求和节点 -->
+  <line x1="86" y1="72" x2="246" y2="128" stroke="#312f2f" stroke-width="1.5" marker-end="url(#a-ink)"/>
+  <line x1="86" y1="140" x2="246" y2="140" stroke="#312f2f" stroke-width="1.5" marker-end="url(#a-ink)"/>
+  <line x1="86" y1="208" x2="246" y2="152" stroke="#312f2f" stroke-width="1.5" marker-end="url(#a-ink)"/>
+
+  <!-- 权重标签(紧贴连线) -->
+  <text x="140" y="96" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">w<tspan dy="3" font-size="9">1</tspan></text>
+  <text x="152" y="134" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">w<tspan dy="3" font-size="9">2</tspan></text>
+  <text x="140" y="192" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">w<tspan dy="3" font-size="9">3</tspan></text>
+
+  <!-- 偏置:从下方进入求和节点 -->
+  <circle cx="262" cy="218" r="12" fill="none" stroke="#312f2f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="262" y="222" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">b</text>
+  <line x1="262" y1="206" x2="262" y2="166" stroke="#312f2f" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a-ink)"/>
+
+  <!-- 求和节点 Σ -->
+  <circle cx="262" cy="140" r="24" fill="#312f2f" opacity="0.08" stroke="#312f2f" stroke-width="1.8"/>
+  <text x="262" y="147" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#312f2f" text-anchor="middle">Σ</text>
+
+  <!-- z 段:Σ → f -->
+  <line x1="286" y1="140" x2="336" y2="140" stroke="#312f2f" stroke-width="1.8" marker-end="url(#a-ink)"/>
+  <text x="304" y="132" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">z</text>
+
+  <!-- 激活函数方框 f -->
+  <rect x="340" y="118" width="56" height="44" rx="6" fill="#cc785c" opacity="0.10" stroke="#cc785c" stroke-width="1.8"/>
+  <text x="368" y="147" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="18" fill="#cc785c" text-anchor="middle">f</text>
+
+  <!-- 输出 y -->
+  <line x1="396" y1="140" x2="452" y2="140" stroke="#cc785c" stroke-width="2" marker-end="url(#a-coral)"/>
+  <text x="462" y="145" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#cc785c">y</text>
+
+  <!-- 底部点题 -->
+  <text x="280" y="248" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#312f2f" text-anchor="middle">y = f(w·x + b)：加权求和、加偏置、过一次非线性</text>
+</svg>
