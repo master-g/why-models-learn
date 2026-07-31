@@ -19,7 +19,7 @@ npm run build   # 构建 dist/
 
 ## 已决策事项(2026-07-27 grilling,勿重开)
 
-- **大纲**(2026-07-28 重设计,书目驱动):**6 部分 25 章 301 词条**见 `sections.yaml`,结构为 parts > sections > entries 三级。数学地基(Part 0,87 词条)先行——用户编程资深、数学偏弱,**词条写法向数学原理与推导侧重**。GQA 独立为 `gqa-and-mqa`;softmax 独立;评估拆为总览 `overfitting-and-regularization` + 细节篇;进阶理论(Part 6)为参考轨,长期 TODO 合法。
+- **大纲**(2026-07-28 重设计,书目驱动):**6 部分 25 章 308 词条**见 `sections.yaml`,结构为 parts > sections > entries 三级。数学地基(Part 0,94 词条)先行——用户编程资深、数学偏弱,**词条写法向数学原理与推导侧重**。GQA 独立为 `gqa-and-mqa`;softmax 独立;评估拆为总览 `overfitting-and-regularization` + 细节篇;进阶理论(Part 6)为参考轨,长期 TODO 合法。
 - **词条格式**:三条硬规则——①开头定义+定位段(无 TLDR callout)②`##` 分节 ③结尾 `## 相关词条`;实战类加 `## 运行方法`。**体裁是 algebrica 长文**(概念揉碎展开、推导不跳步、数字实例、失效模式一节),不是费曼卡片;参照 `mnist-mlp-training-loop`。
 - **代码**:ML/实战类词条内嵌,写作时本地真跑,输出贴进词条当证据;**Part 0 数学词条不引代码**(2026-07-28 用户反馈,vectors 重写时定)。大代码(LLaMA2)在 happy-llm。
 - **插图**(2026-07-28 vectors 补图时定):手绘 SVG 存 vault `svg/<slug>.<n>.svg`(点号分隔,防 slug 前缀歧义),正文 `![中文 alt](svg/x.svg)`;sync 校验归属/存在性(缺失=硬错误)→ 拷 `public/assets/<section>/svg/` 并改写绝对路径,与词条同生命周期。SVG 用系统字体栈(img 内用不了 webfont),配色从纸墨主题。禁 `![[embed]]`。

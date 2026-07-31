@@ -13,9 +13,9 @@ tags: ["why-models-learn"]
 
 ![向量是位移而不是位置：同一向量 (3, 1) 可以平移到任何起点，方向与长度不变](/assets/linear-algebra/svg/vectors.1.svg)
 
-**视角三：向量是可以做加法和数乘的东西。** 这是数学家的抽象：先不问向量「是什么」，只问它「能做什么」——两个向量能相加、一个向量能乘一个实数，且运算满足几条基本性质。满足这套规则的东西就叫向量，不管它是数组、箭头，还是函数、多项式。这个视角在 [vector-spaces](../linear-algebra/vector-spaces/) 里会公理化展开。为什么需要它？因为几何直觉在三维以上就失灵了——784 维空间画不出箭头，但只要运算规则还在，定理就还在。
+**视角三：向量是可以做加法和数乘的东西。** 这是数学家的抽象：先不问向量「是什么」，只问它「能做什么」——两个向量能相加、一个向量能乘一个实数，且运算满足几条基本性质。满足这套规则的东西就叫向量，不管它是数组、箭头，还是函数、多项式。这个视角在 [向量空间](../linear-algebra/vector-spaces/) 里会公理化展开。为什么需要它？因为几何直觉在三维以上就失灵了——784 维空间画不出箭头，但只要运算规则还在，定理就还在。
 
-三个视角各有分工：写代码时用视角一，建立直觉时用视角二，读论文、做推导时用视角三。一开始不必强迫自己统一它们，学到 [vector-spaces](../linear-algebra/vector-spaces/) 时它们自然会合流。
+三个视角各有分工：写代码时用视角一，建立直觉时用视角二，读论文、做推导时用视角三。一开始不必强迫自己统一它们，学到 [向量空间](../linear-algebra/vector-spaces/) 时它们自然会合流。
 
 ## 记号约定
 
@@ -29,7 +29,7 @@ $$
 \mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}
 $$
 
-横着写的 $(x_1, x_2, \dots, x_n)$ 只是列向量的排版简写。行向量与列向量的区别在单看一个向量时无关紧要，一旦进入矩阵乘法就成了形状问题，见 [matrix-multiplication](../linear-algebra/matrix-multiplication/)。
+横着写的 $(x_1, x_2, \dots, x_n)$ 只是列向量的排版简写。行向量与列向量的区别在单看一个向量时无关紧要，一旦进入矩阵乘法就成了形状问题，见 [矩阵乘法](../linear-algebra/matrix-multiplication/)。
 
 - 数学下标从 1 开始($x_1$ 是第一个分量)，编程语言的下标一般从 0 开始。本库公式一律用数学惯例。
 
@@ -82,7 +82,7 @@ $$
 3. **零向量**：分量全为 0 的向量 $\mathbf{0} = (0, 0, \dots, 0)$ 满足 $\mathbf{a} + \mathbf{0} = \mathbf{a}$。它是「原地不动」的位移。
 4. **加法逆元**：$\mathbf{a} + (-\mathbf{a}) = \mathbf{0}$——走过去再走回来。
 
-这几条性质显然到近乎无聊，但它们是向量空间公理的主体:[vector-spaces](../linear-algebra/vector-spaces/) 会把「什么算向量」归结为「是否满足这几条规则」，从而让函数、矩阵、多项式全部获得向量的身份。现在先记住一点：这些性质不是向量的「额外知识」，而是从逐分量定义里免费得到的。
+这几条性质显然到近乎无聊，但它们是向量空间公理的主体:[向量空间](../linear-algebra/vector-spaces/) 会把「什么算向量」归结为「是否满足这几条规则」，从而让函数、矩阵、多项式全部获得向量的身份。现在先记住一点：这些性质不是向量的「额外知识」，而是从逐分量定义里免费得到的。
 
 ## 逐分量乘法：存在，但不是「那个」乘法
 
@@ -98,17 +98,17 @@ $$
 \mathbf{a} \odot \mathbf{b} = (1 \times 4,\; 2 \times 0,\; 3 \times (-1)) = (4, 0, -3)
 $$
 
-但要明确一点:Hadamard 积**不是**数学和机器学习语境下「向量乘法」的默认含义。真正被重用的是两种别的乘法:**点积**(两个向量乘出一个数，是投影、相似度、线性层的基础，见 [inner-products](../linear-algebra/inner-products/))和**矩阵乘**(见 [matrix-multiplication](../linear-algebra/matrix-multiplication/))。Hadamard 积在神经网络里也有真实用途——注意力掩码、门控机制里「按位置开关」——但它是配角，不是主角。
+但要明确一点:Hadamard 积**不是**数学和机器学习语境下「向量乘法」的默认含义。真正被重用的是两种别的乘法:**点积**(两个向量乘出一个数，是投影、相似度、线性层的基础，见 [内积](../linear-algebra/inner-products/))和**矩阵乘**(见 [矩阵乘法](../linear-algebra/matrix-multiplication/))。Hadamard 积在神经网络里也有真实用途——注意力掩码、门控机制里「按位置开关」——但它是配角，不是主角。
 
 ## 神经网络里的向量
 
 至此向量还只是纯数学。把它放进神经网络的语境，向量同时扮演三种角色：数据、参数、中间状态。
 
-**角色一：数据。** 一张 MNIST 手写数字图片是 $28 \times 28$ 的灰度网格；把它按行拉平，就得到一个 784 维向量，每个分量是一个像素的灰度值。这一步「拉平」在概念上很重要：从此以后,**一张图片就是 $\mathbb{R}^{784}$ 里的一个点**，全部六万张训练图片就是 784 维空间里的六万个点，而「训练分类器」就是在这个空间里寻找分界面。[mnist-mlp-training-loop](../training-nn/mnist-mlp-training-loop/) 的实战全程建立在这个视角上。
+**角色一：数据。** 一张 MNIST 手写数字图片是 $28 \times 28$ 的灰度网格；把它按行拉平，就得到一个 784 维向量，每个分量是一个像素的灰度值。这一步「拉平」在概念上很重要：从此以后,**一张图片就是 $\mathbb{R}^{784}$ 里的一个点**，全部六万张训练图片就是 784 维空间里的六万个点，而「训练分类器」就是在这个空间里寻找分界面。[MNIST 训练循环](../training-nn/mnist-mlp-training-loop/) 的实战全程建立在这个视角上。
 
 **角色二：参数。** 模型里可学习的权重与偏置同样是向量。「训练」的数学含义，就是在参数向量构成的空间里搜索一个好点。
 
-**角色三：中间状态。** 数据流过网络，每一层的输出都是一个新的向量(常叫**隐藏状态**(hidden state)或**表示**(representation))。词的例子最典型：一个词先变成 one-hot(独热)向量(几万维、只有一个 1)，经过嵌入层变成几百维的稠密向量，此后在 Transformer 里层层变换，始终都是向量，见 [one-hot-and-distributed](../text-representation/one-hot-and-distributed/) 与 [embeddings](../text-representation/embeddings/)。
+**角色三：中间状态。** 数据流过网络，每一层的输出都是一个新的向量(常叫**隐藏状态**(hidden state)或**表示**(representation))。词的例子最典型：一个词先变成 one-hot(独热)向量(几万维、只有一个 1)，经过嵌入层变成几百维的稠密向量，此后在 Transformer 里层层变换，始终都是向量，见 [one-hot 与分布式表示](../text-representation/one-hot-and-distributed/) 与 [嵌入](../text-representation/embeddings/)。
 
 三种角色共享同一套加法和数乘——这就是向量是地基的原因：后面每一篇，从线性层到注意力，写的都是向量的运算。
 
@@ -116,7 +116,7 @@ $$
 
 **维度不匹配的运算没有定义。** 不同维度的向量不能相加——分量对不齐。这听起来不可能犯错，但在代码里，矩阵运算库常常用广播之类的机制静默「修复」维度错误，不报错，只让结果悄悄变错(典型症状是损失(loss)不下降)。数学上先养成条件反射：看到 $\mathbf{a} + \mathbf{b}$，先确认两者同维。
 
-**行向量与列向量不是一回事。** 同样三个数，横排与竖排在矩阵乘法里行为完全不同：行向量左乘列向量得到一个数(点积的雏形)，列向量左乘行向量得到一个矩阵(外积)。数学文献因此对行/列斤斤计较；本篇约定列向量为默认，转置记号 $\mathbf{x}^T$ 留给 [matrix-multiplication](../linear-algebra/matrix-multiplication/) 正式登场。
+**行向量与列向量不是一回事。** 同样三个数，横排与竖排在矩阵乘法里行为完全不同：行向量左乘列向量得到一个数(点积的雏形)，列向量左乘行向量得到一个矩阵(外积)。数学文献因此对行/列斤斤计较；本篇约定列向量为默认，转置记号 $\mathbf{x}^T$ 留给 [矩阵乘法](../linear-algebra/matrix-multiplication/) 正式登场。
 
 **几何直觉在高维失效。** 位移、箭头、平行四边形，全是二维三维的画面。784 维的图片向量、几千维的词嵌入，画不出任何箭头。这不是说要抛弃几何——「数据是空间中的点、训练是在参数空间里搜索」这类直觉依然是理解模型的主要引擎——而是要记住:**几何是直觉的来源，不是证明的工具**。任何结论最终都要能落回逐分量的定义与运算。
 
@@ -124,9 +124,9 @@ $$
 
 ## 相关词条
 
-- [matrices](../linear-algebra/matrices/)：把向量排成矩形就是矩阵，下一篇，线性代数的主战场
-- [vector-spaces](../linear-algebra/vector-spaces/)：把本篇「显然」的运算性质公理化，函数和多项式也会获得向量身份
-- [linear-combinations-and-span](../linear-algebra/linear-combinations-and-span/)：加法与数乘反复迭代，得到张成
-- [norms](../linear-algebra/norms/)：向量的「长度」，本文只说了缩放，没定义长度本身
-- [inner-products](../linear-algebra/inner-products/)：点积——第一种真正被重用的「向量乘法」
-- [one-hot-and-distributed](../text-representation/one-hot-and-distributed/)：词如何变成向量，神经网络语境的展开
+- [矩阵](../linear-algebra/matrices/)：把向量排成矩形就是矩阵，下一篇，线性代数的主战场
+- [向量空间](../linear-algebra/vector-spaces/)：把本篇「显然」的运算性质公理化，函数和多项式也会获得向量身份
+- [线性组合与张成](../linear-algebra/linear-combinations-and-span/)：加法与数乘反复迭代，得到张成
+- [范数](../linear-algebra/norms/)：向量的「长度」，本文只说了缩放，没定义长度本身
+- [内积](../linear-algebra/inner-products/)：点积——第一种真正被重用的「向量乘法」
+- [one-hot 与分布式表示](../text-representation/one-hot-and-distributed/)：词如何变成向量，神经网络语境的展开
