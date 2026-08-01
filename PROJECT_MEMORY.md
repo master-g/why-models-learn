@@ -26,6 +26,7 @@
 - [2026-07-28] **flex 长行布局事故(playground 暴露,根因已修)**:侧栏 `position:fixed` 脱离文档流,`#site-content` 靠 flex 容器里 `margin-left:auto` 吸收 330px 空隙对齐;含长行 pre 的页面把 flex 子项的自动最小尺寸(min-width:auto)撑到 1130px → auto margin 归零 → 整页内容钻到侧栏底下且文档横向溢出。algebrica 原站无代码块,主题未防。修法:zh-overrides 加 `.site-column-main{min-width:0}`。排查方法:headless Chrome `--screenshot/--dump-dom` + 临时脚本把 getComputedStyle 度量写进 DOM(二分 fixture 定位到长行一节)。任何含长行代码的词条都会踩到,属全局修复。
 
 - [2026-07-28] **文案门控升级(chinese-copywriting-guidelines skill 核对后用户批准)**:①lint 的 auto-fix 两类(盘古空格/半角标点)此前修复结果被 sync 丢弃且零报告——改为逐项 LINT 警告;②LINT-ERROR 从警告升级为硬错误(exit 1 不写产物,名实相符);③补重复标点 report(!!/??/。。;破折号——与省略号……豁免)。sync 硬错误时连警告一起报(否则被吞)。修复器同时补两个中文语料盲区(algebrica 英文语料没有):`$…$,其中`(数学闭合+中文逗号:原防护当英文枚举残留跳过,error 正则 lookahead 又只认空格/$,两边都漏)与「走 1,到达」(数字后散文逗号被坐标防护 lookbehind 挡)——坐标 (3, 1)/枚举 (1, 2, 3)/版本号/小数经测试仍安全。51/51 测试。
+- [2026-08-01] **GitHub Pages 部署落地(仓库已转公开,用户批准)**:线上 <https://master-g.github.io/why-models-learn/>,`.github/workflows/deploy.yml` push main 自动部署(Pages build_type=workflow;npm run build 自动带 postbuild 双闸,闸失败即不部署)。base 方案:`src/lib/base.mjs` 的 `BASE='/why-models-learn'` 是唯一事实源——astro.config 的 site/base、markdown 管线的 rehype-prefix-base 插件(挂在 rewrite 之后统一加前缀,内容与 sync 脚本保持 base 无关)、页面组件的 `withBase()`、构建后闸全部同源。**Astro 不会自动给模板/markdown 里的绝对路径加 base**(官方文档明示自行处理),只有打包资产 URL 自动带。dev/preview 只挂在 /why-models-learn/ 下,根路径 404 属预期;dist 根 = 部署 base,校验脚本需剥前缀再对盘。
 
 ## 失败尝试
 <!-- 踩过的坑、走不通的路径、被否决的方案及原因。超长时最旧条目优先淘汰。 -->
@@ -35,6 +36,7 @@
 - [2026-07-28] 词条代码注释里写 numpy 输出 `[[14.]]` 被 sync 的 wikilink 改写当成 `[[slug]]` 报警——代码/输出块内的双方括号与 wikilink 语法冲突,写作时避开或改写表述。
 
 - [2026-07-28] 「vectors 正文标点干净」是误判:只凭 Read 视觉输出核对——全角 `,` 与半角 `,` 在渲染层几乎不可区分,实际全文 153 处半角标点(写作时中英混用),lint 静默修复无人知,报告化升级才暴露。教训:**核对标点/空白类问题必须码点级验证(python repr/Unicode 码点),肉眼不可信**。修复路径:用 lint 修复器本身规范化 vault(139+10 处),敏感区(frontmatter/数学/坐标/alt/代码)抽查无损——修复器即标准,逻辑单一事实源。
+- [2026-08-01] **闸随 URL 方案静默失效风险**:check-svg-assets 的正则只认裸 `/assets/`,若不同步升级,加 base 前缀后一条都匹配不上,闸会静默「0 个引用全过」——改 URL 方案必须同步审计全部闸的正则。另:开工时发现 astro.config.mjs 被编辑器 format-on-save 静默重排(tab+双引号),git status 捉到即还原;仓库无 formatter 配置,风格以已提交代码(单引号+2 空格)为准。
 
 ## 上次会话
 <!-- 上次运行做了什么、停在何处。滚动记录,超长时最旧条目优先淘汰。 -->
@@ -68,9 +70,9 @@
 - [2026-07-31] **`linear-systems` 毕业(6/308)**:结构=联立方程→Ax=b(包装即矩阵乘法的历史动机;《九章算术》消元早于矩阵记号两千年)→ 解的三种情形(相交/平行/重合三 panel SVG;**代数定理:不存在恰好两个解**,两解之差不失为解⟹直线皆解)→ 三角形态与回代(2x+y-z=9 例,解(4,3,2);「化三角是主体、回代是收割」预告 gaussian-elimination)→ **列视角:解=用 A 的列拼出 b 的配方**(矩阵乘法篇 M(2,1)=(7,4) 的逆问题,「乘法正着算、解方程反着问」)→ NN 语境:超定(6 万方程 785 参数)无精确解⟹最小二乘/正规方程 X^TX 方阵化 ⟹ 梯度下降路线。验证:sync 零警告、51/51、build 双闸、159 mjx 零错误、matrices 两处引用自动升级链接。**流程记录:单条回复内三次工具调用(write+2 todo)会撞输出上限截断,SVG 等大文件写入应单独成行**。
 
 - [2026-07-31] **`gaussian-elimination` 毕业(7/308),线性代数章前半收束**:结构=三种初等行变换(合法性=可逆性证明:解集一一对应搬运)→ 增广矩阵 [A|b] → 完整消元例题(x+y+z=4/2x-y+z=0/x+2y-z=9,解(2,3,-1);**例题设计含一次换行**,三种变换全覆盖,全程整数)→ 阶梯形读出三种情形(主元占满=唯一;[0 0|c≠0]矛盾行=无解;全零行=无穷,自由变量)→ **主元个数=秩**(rank 伏笔)→ 代价 (2/3)n³:n=785 约3e8 可解、n=1e6 约7e17 两年 ⟹ NN 走梯度下降路线。《九章算术·方程》词源。SVG 四快照矩阵流(括号 path 画法沿用 matrices.1 约定,主元珊瑚色)。失效模式:主元为零硬除/部分选主元、手工符号错回代验证、阶梯形不唯一但主元位置唯一(RREF 才唯一)。验证:sync 零警告、51/51、137 mjx 零错误、linear-systems 4 处+matrices 1 处伏笔全升级。
+- [2026-08-01] **GitHub Pages 部署上线(10 篇阈值兑现,提交 f98cc9e)**:用户选定部署并批准仓库转公开(免费版 Pages 不对私有仓库开放)。落地:base 前缀层(base.mjs 单一事实源 + 新 rehype-prefix-base 插件 + 6 页面/组件 withBase + 搜索索引 URL 经 data 属性入客户端脚本)+ 闸适配(check-svg 识别带前缀 src、裸 /assets/ 视为漏加前缀错误;check-search 比较前剥前缀;search.json 解析失败显式报错)+ Actions 工作流 + README 线上地址。验证:58/58 测试(新插件 7 例)、build 双闸、dist 全站零裸绝对路径、preview 冒烟 7 路径全 200;**线上 7 路径全 200,vectors 页 119 mjx 零错误、交叉链接与搜索索引 URL 前缀正确**。首部署 38s 成功。坑:search.json.ts 在无 tsconfig 的 LSP 下推不出 astro:content 类型,entries.map 的 entry 参数需显式标注(隐含 any 报错)。
 
 ## 下次运行
 <!-- 计划要做的任务和优先级。长期保留,不随压缩淘汰。 -->
-- [2026-07-31] 进度 10/308:Part 0 八篇 ✅(线性代数章前半五篇 + rank + vector-spaces + subspaces),Part 2 两篇 ✅。**已达 10 篇部署阈值,下一步该议 GitHub Pages**。下一篇候选:按大纲 `linear-combinations-and-span`(张成伏笔待回收);或 Part 2 `activation-functions`。开放伏笔:`kernel-and-image`(核/列空间专篇)、`rank-nullity`、`affine-spaces-and-maps`(仿射,「只差一个平移」)、`lora`(低秩因子化)。流程稳:实跑→写→lint(修复器)→盲区码点自查→SVG→sync/test/build→截图→记忆→提交。
+- [2026-08-01] 进度 10/308,**已上线 GitHub Pages**(方案见已验证的事实,push main 即自动部署)。下一篇候选:按大纲 `linear-combinations-and-span`(张成伏笔待回收);或 Part 2 `activation-functions`。开放伏笔:`kernel-and-image`(核/列空间专篇)、`rank-nullity`、`affine-spaces-and-maps`(仿射,「只差一个平移」)、`lora`(低秩因子化)。流程稳:实跑→写→lint(修复器)→盲区码点自查→SVG→sync/test/build→截图→记忆→提交。
 - [2026-07-28] MNIST 词条退役回炉(用户决定「不保留,按新架构重规划」):vault 翻回 active、slug 回 known_absent,sync 自动清产物(退役链路验证通过)。重写时机 = Part 2 收尾,届时改为纯实战篇、数学全引用;其失效模式真跑素材(去 ReLU ~90%+过拟合裂口、lr=10 锁死 ln10)分流到 `saturation-and-vanishing`/`gradient-descent` 等对应词条。站点词条总数 308(linear-algebra 拆细后)。
-- [2026-07-27] 仓库 github.com/master-g/why-models-learn 已建已推;攒够 10 个词条再部署 Pages。

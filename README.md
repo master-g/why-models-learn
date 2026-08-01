@@ -4,6 +4,10 @@
 
 **词条是学习成果的正式沉淀:一个概念写成词条才算学完。** 骨架先行——`sections.yaml` 定义全部章节与词条,空词条以 TODO 状态光明正大地空着(known_absent 模式),随学习进度逐个填充。
 
+## 线上地址
+
+<https://master-g.github.io/why-models-learn/>(GitHub Pages;push main 后由 Actions 自动构建部署)
+
 ## 架构:vault 是事实源,本 repo 是渲染器
 
 词条在 Obsidian vault 飞地 `Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn/` 里以 feynman 卡片书写(约定见该目录 `_README.md`);`content-zh/` 是 `npm run sync` 的纯产物,不手改。

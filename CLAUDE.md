@@ -25,7 +25,7 @@ npm run build   # 构建 dist/
 - **插图**(2026-07-28 vectors 补图时定):手绘 SVG 存 vault `svg/<slug>.<n>.svg`(点号分隔,防 slug 前缀歧义),正文 `![中文 alt](svg/x.svg)`;sync 校验归属/存在性(缺失=硬错误)→ 拷 `public/assets/<section>/svg/` 并改写绝对路径,与词条同生命周期。SVG 用系统字体栈(img 内用不了 webfont),配色从纸墨主题。禁 `![[embed]]`。
 - **草稿**:vault 内 `status: active`,不出 vault;演算纸笔记是消耗品。
 - **支线**:CNN/RNN/LSTM 零代码,概念+数学推导。
-- **部署**:攒够 10 个词条再上 GitHub Pages。
+- **部署**:已上 GitHub Pages(2026-08-01,仓库公开)——<https://master-g.github.io/why-models-learn/>,push main 即 Actions 自动部署。站内绝对路径必须经 `withBase()` 或 markdown 管线的 rehype-prefix-base,唯一事实源 `src/lib/base.mjs`。
 
 ## 骨架
 
@@ -34,32 +34,38 @@ npm run build   # 构建 dist/
 **渲染试验田**:repo 根 `playground/rendering.md`(手维护 fixture,独立 collection)→ `/playground/` 页,与词条同管线同版式;改管线/样式后肉眼回归用。不进 vault/大纲/首页/搜索。
 
 ## 技术栈
+
 - Astro ~7.1.0(静态站点,"type": "module",纯 ESM .mjs;无框架组件,仅 .astro)
 - 数学管线:remark-math → rehype-mathjax/svg → rehype-sanitize(自定义 MathJax SVG 白名单)
 - 内容:Astro content collection(glob loader 扫 `content-zh/*/*.md`),frontmatter 只需 `title`(+ 可选 `tags`)
 - 测试:node:test + assert/strict(`node --test`),无测试框架
 
 ## 命令
+
 - `make`(无参数)列出全部命令——npm 脚本的薄封装:`make sync / dev / build / test / preview / check-search / install`
-- `make sync` 写词条后必跑;`make test` 45 个测试(含视觉契约)须全绿
+- `make sync` 写词条后必跑;`make test`(单元测试 + 视觉契约)须全绿
 
 ## 代码风格
+
 - 管线文件注释用中文;内部插件文件名沿用 algebrica 命名(历史遗留,勿改)
 - 词条正文:`##`(h2)分节(sectionize 插件依赖);交叉链接写相对路径 `../slug/` 或 `../section/slug/`
-- vault 侧写作用 Obsidian 习惯([[wikilink]]、callout),同步脚本负责适配,站点侧不手写 wikilink
+- vault 侧写作用 Obsidian 习惯(`[[wikilink]]`、callout),同步脚本负责适配,站点侧不手写 wikilink
 
 ## 禁止文件
+
 - `content-zh/` 下所有文件——同步产物,手改会被下次 sync 覆盖/清除
 - `dist/`、`node_modules/`、`.astro/`、`data/`(gitignore)
 - `public/theme/` 视觉资产(algebrica 移植,个人非商业用途,勿替换后外传)
 
 ## 审查规则
+
 - 词条验收:概念讲透(费曼)+ 结尾 `## 相关词条` 交叉链接 + 实战类代码内嵌可跑且贴运行输出
 - 自动闸(移植自 algebrica 验收体系,2026-07-28 升级):`npm run sync` 对每个同步词条跑 copywriting-lint——LINT 是警告(盘古空格/半角标点/直引号/全角数字/重复标点,回 vault 修),LINT-ERROR 是硬错误(数学区残留标点等,sync exit 1 不写产物);`npm run build` 的 postbuild 双闸:dist 全站 `mjx-error` + 插图 404,有即构建失败
 - `npm test` 必须全绿;视觉契约(visual-contracts)约束 BaseLayout/index/[slug] 的类名结构,改页面时同步改测试
 - sections.yaml 的 slug 与 vault 文件名一一对应;新词条先进 sections.yaml + known_absent
 
 ## 项目记忆 (回写约定)
+
 跨会话的持久信息记录在 [PROJECT_MEMORY.md](./PROJECT_MEMORY.md)。
 **完成每个重要任务后务必回写**: 把确认的决策写入「已验证的事实」、踩的坑写入「失败尝试」、用进展更新「上次会话」、把计划写入「下次运行」。
 保持 PROJECT_MEMORY.md 在 300~400 行,超长时用 `scripts/memory.py compact` 压缩(保留事实与计划,淘汰最旧日志)。
