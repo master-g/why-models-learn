@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getSections } from '../lib/sections.mjs';
+import { withBase } from '../lib/base.mjs';
 import { getEntries } from './_entries.mjs';
 
 interface SearchEntry {
@@ -16,14 +17,15 @@ export const GET: APIRoute = async () => {
   const sections = getSections();
 
   // title_en 用 slug 兜底:英文检索词(如 "backpropagation")命中 slug。
-  const result: SearchEntry[] = entries.map((entry) => {
+  // entry 显式标注:getEntries 来自 .mjs,LSP 在无 tsconfig 时推不出 astro:content 类型。
+  const result: SearchEntry[] = entries.map((entry: { id: string; data: { title: string | null; tags?: string[] } }) => {
     const [section, slug] = entry.id.split('/');
     return {
       title_zh: entry.data.title,
       title_en: slug.replace(/-/g, ' '),
       tags: entry.data.tags ?? [],
       keywords_zh: [],
-      url: `/${slug}/`,
+      url: withBase(`/${slug}/`),
       section,
     };
   });
@@ -34,7 +36,7 @@ export const GET: APIRoute = async () => {
       title_en: section.name_en,
       tags: [],
       keywords_zh: [],
-      url: `/category/${section.dir}/`,
+      url: withBase(`/category/${section.dir}/`),
       section: section.dir,
     });
   }

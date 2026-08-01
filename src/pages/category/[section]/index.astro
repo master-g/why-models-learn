@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getSections } from '../../../lib/sections.mjs';
+import { withBase } from '../../../lib/base.mjs';
 import { getEntries } from '../../_entries.mjs';
 
 export async function getStaticPaths() {
@@ -46,7 +47,7 @@ const title = `${section.name_zh} | 模型为什么会学习`;
           <div class="search-results__item">
             <div class="search-results__title">
               {found ? (
-                <a href={`/${slug}/`}>{found.entry.data.title}</a>
+                <a href={withBase(`/${slug}/`)}>{found.entry.data.title}</a>
               ) : (
                 <span class="entry-todo">{slug} <span class="badge-untranslated">TODO</span></span>
               )}

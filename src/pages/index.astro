@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getParts, getSections } from '../lib/sections.mjs';
+import { withBase } from '../lib/base.mjs';
 import { getEntries } from './_entries.mjs';
 
 const parts = getParts();
@@ -56,7 +57,7 @@ for (const s of sections) {
                   <div class="module-index-heading">
                     <span class="module-index-number">{section.order}.</span>
                     <span class="module-index-heading__title">
-                      <a href={`/category/${section.dir}/`}>{section.name_zh}</a>
+                      <a href={withBase(`/category/${section.dir}/`)}>{section.name_zh}</a>
                     </span>
                   </div>
                 </div>
@@ -69,7 +70,7 @@ for (const s of sections) {
                         <span class="module-index-number module-index-post__number">{number}</span>
                         <div class="module-index-post__title">
                           {entry ? (
-                            <a href={`/${slug}/`}>{entry.data.title}</a>
+                            <a href={withBase(`/${slug}/`)}>{entry.data.title}</a>
                           ) : (
                             <span class="entry-todo">{slug}<span class="badge-untranslated">TODO</span></span>
                           )}

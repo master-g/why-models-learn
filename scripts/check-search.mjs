@@ -5,6 +5,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { scoreEntry } from '../src/lib/search-score.mjs';
+import { BASE } from '../src/lib/base.mjs';
 
 const PATH = process.argv[2] || './dist/search.json';
 
@@ -31,7 +32,21 @@ function findRank(entries, query, predicate) {
 }
 
 const raw = readFileSync(PATH, 'utf8');
-const entries = JSON.parse(raw);
+let entries;
+try {
+  entries = JSON.parse(raw);
+} catch (err) {
+  console.error(`[check-search] search.json 解析失败: ${err.message}`);
+  process.exit(1);
+}
+
+// search.json 的 url 带部署 base 前缀(客户端直接拿去跳转);
+// 本检查的断言写站内裸路径,比较前统一剥掉前缀。
+for (const entry of entries) {
+  if (BASE && typeof entry.url === 'string' && entry.url.startsWith(`${BASE}/`)) {
+    entry.url = entry.url.slice(BASE.length);
+  }
+}
 
 console.log(`Loaded ${entries.length} entries from ${PATH}`);
 console.log(`Payload size: ${Buffer.byteLength(raw, 'utf8')} bytes`);

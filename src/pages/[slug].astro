@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { render } from 'astro:content';
 import { getSection } from '../lib/sections.mjs';
+import { withBase } from '../lib/base.mjs';
 import { getEntries } from './_entries.mjs';
 
 export async function getStaticPaths() {
@@ -26,7 +27,7 @@ const pageTitle = `${entry.data.title} | 模型为什么会学习`;
   <article class="post" lang="zh-CN">
     <div class="post-header">
       <nav class="post-header-breadcrumb" aria-label="Breadcrumb">
-        <a href={`/category/${section}/`}>{sectionMeta?.name_zh || section}</a>
+        <a href={withBase(`/category/${section}/`)}>{sectionMeta?.name_zh || section}</a>
       </nav>
       <div class="post-header-section-title">
         <h1 class="post-header-title">{entry.data.title}</h1>

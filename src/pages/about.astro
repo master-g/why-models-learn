@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/base.mjs';
 ---
 
 <BaseLayout title="关于 | 模型为什么会学习">
@@ -14,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="post-section">
       <h2>这是什么</h2>
       <p class="post-paragraph"><span class="post-paragraph-content">「模型为什么会学习」是一个写给未来的自己的结构化学习库。路线:从向量与数学地基开始,经过神经元的加权和、反向传播、CNN/RNN/LSTM 支线,手写完整个 Transformer,最终复现一个 LLaMA2 规模的模型。</span></p>
-      <p class="post-paragraph"><span class="post-paragraph-content">词条是学习成果的正式沉淀:一个概念写成词条才算学完。骨架先行——sections.yaml 先定义全部章节与词条,空词条以 TODO 状态光明正大地空着(known_absent 模式),随学习进度逐个填充。全库术语的译法约定见<a href="/glossary/">词汇表</a>。</span></p>
+      <p class="post-paragraph"><span class="post-paragraph-content">词条是学习成果的正式沉淀:一个概念写成词条才算学完。骨架先行——sections.yaml 先定义全部章节与词条,空词条以 TODO 状态光明正大地空着(known_absent 模式),随学习进度逐个填充。全库术语的译法约定见<a href={withBase('/glossary/')}>词汇表</a>。</span></p>
     </section>
 
     <section class="post-section">

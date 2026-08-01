@@ -6,6 +6,8 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeMarkStandaloneMath from '../plugins/rehype-mark-standalone-math.mjs';
 import rehypeRewriteAlgebrica from '../plugins/rehype-rewrite-algebrica.mjs';
 import rehypeSectionizeAlgebrica from '../plugins/rehype-sectionize-algebrica.mjs';
+import rehypePrefixBase from '../plugins/rehype-prefix-base.mjs';
+import { BASE } from '../lib/base.mjs';
 import danglingJson from '../lib/dangling-links.json' with { type: 'json' };
 import { buildSlugMap } from '../lib/slug-map.mjs';
 import { getKnownAbsent, getSections } from '../lib/sections.mjs';
@@ -106,6 +108,8 @@ function getProcessor(currentSection = null) {
           rehypeMathjax,
           rehypeMarkStandaloneMath,
           [rehypeRewriteAlgebrica, { slugMap, dangling, currentSection, sectionDirs: getSections().map((s) => s.dir) }],
+          // 同 astro.config.mjs:rewrite 之后统一加部署 base 前缀。
+          [rehypePrefixBase, { base: BASE }],
           rehypeSectionizeAlgebrica,
           [rehypeSanitize, makeMathSchema(defaultSchema)],
         ],

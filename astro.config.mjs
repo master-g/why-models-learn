@@ -6,6 +6,8 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeMarkStandaloneMath from './src/plugins/rehype-mark-standalone-math.mjs';
 import rehypeRewriteAlgebrica from './src/plugins/rehype-rewrite-algebrica.mjs';
 import rehypeSectionizeAlgebrica from './src/plugins/rehype-sectionize-algebrica.mjs';
+import rehypePrefixBase from './src/plugins/rehype-prefix-base.mjs';
+import { BASE } from './src/lib/base.mjs';
 import danglingJson from './src/lib/dangling-links.json' with { type: 'json' };
 import { buildSlugMap } from './src/lib/slug-map.mjs';
 import { getKnownAbsent, getSections } from './src/lib/sections.mjs';
@@ -145,6 +147,11 @@ function makeMathSchema(base) {
 }
 
 export default defineConfig({
+  // GitHub Pages 项目页:https://master-g.github.io/why-models-learn/
+  // base 只影响 Astro 自动生成的资产 URL 与 dev 路由;markdown 产物与组件里的
+  // 绝对路径由 rehype-prefix-base 插件与 withBase() 负责,统一取 src/lib/base.mjs。
+  site: 'https://master-g.github.io',
+  base: BASE,
   compressHTML: true,
   trailingSlash: 'always',
   build: {
@@ -158,6 +165,8 @@ export default defineConfig({
         rehypeMathjax,
         rehypeMarkStandaloneMath,
         [rehypeRewriteAlgebrica, { slugMap, dangling, warn: console.warn, sectionDirs: getSections().map((s) => s.dir) }],
+        // 必须在 rewrite 之后:把改写出的 /<slug>/、/category/、/assets/ 统一加部署前缀。
+        [rehypePrefixBase, { base: BASE }],
         rehypeSectionizeAlgebrica,
         [rehypeSanitize, makeMathSchema(defaultSchema)],
       ],

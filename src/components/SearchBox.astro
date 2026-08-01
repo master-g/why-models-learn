@@ -1,4 +1,6 @@
 ---
+import { withBase, BASE } from '../lib/base.mjs';
+
 export interface Props {
   variant: 'desktop' | 'mobile';
 }
@@ -6,10 +8,12 @@ export interface Props {
 const { variant } = Astro.props;
 const inputClass = variant === 'desktop' ? 'search-input -desktop' : 'search-input';
 const iconClass = variant === 'desktop' ? 'search__icon -desktop' : 'search__icon';
+// 给客户端脚本用的 base 前缀(Astro 会把 frontmatter 值注入打包后的脚本)。
+const searchIndexUrl = `${BASE}/search.json`;
 ---
 
-<div class="search__container" data-search-role="container">
-  <form action="/search/" data-search-role="form">
+<div class="search__container" data-search-role="container" data-search-index-url={searchIndexUrl}>
+  <form action={withBase('/search/')} data-search-role="form">
     <input
       name="s"
       class={inputClass}
@@ -22,7 +26,7 @@ const iconClass = variant === 'desktop' ? 'search__icon -desktop' : 'search__ico
       data-search-role="input"
     />
     <button class={iconClass} type="submit" aria-label="搜索">
-      <img alt="" src="/theme/images/icon-search.svg" width="22" height="22" />
+      <img alt="" src={withBase('/theme/images/icon-search.svg')} width="22" height="22" />
     </button>
   </form>
   <div class="search__suggestions" data-search-role="suggestions">
@@ -38,7 +42,6 @@ const iconClass = variant === 'desktop' ? 'search__icon -desktop' : 'search__ico
   const ERROR_TEXT = '搜索不可用';
   const UNTRANSLATED_TEXT = '未翻译';
   const MAX_SUGGESTIONS = 5;
-  const SEARCH_URL = '/search.json';
 
   function initSearch(container) {
     const form = container.querySelector('[data-search-role="form"]');
@@ -77,7 +80,8 @@ const iconClass = variant === 'desktop' ? 'search__icon -desktop' : 'search__ico
       status = 'loading';
       showMessage(LOADING_TEXT);
 
-      fetch(SEARCH_URL)
+      // 索引 URL 由 frontmatter 经 data 属性传入(带部署 base 前缀)。
+      fetch(container.dataset.searchIndexUrl)
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
