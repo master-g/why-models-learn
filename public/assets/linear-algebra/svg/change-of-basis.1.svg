@@ -1,0 +1,48 @@
+<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="cb-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+    </marker>
+    <marker id="cb-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <!-- 顶部:世界中的向量 b -->
+  <circle cx="280" cy="36" r="3" fill="#cc785c"/>
+  <text x="292" y="32" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#a9583e">b</text>
+
+  <!-- 左侧箭头:b → [b]_B -->
+  <line x1="270" y1="46" x2="196" y2="112" stroke="#312f2f" stroke-width="1.4" marker-end="url(#cb-arr-ink)"/>
+  <text x="176" y="82" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">[·]<tspan dy="3" font-size="9">B</tspan></text>
+
+  <!-- 右侧箭头:b → [b]_C -->
+  <line x1="290" y1="46" x2="364" y2="112" stroke="#312f2f" stroke-width="1.4" marker-end="url(#cb-arr-ink)"/>
+  <text x="340" y="82" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">[·]<tspan dy="3" font-size="9">C</tspan></text>
+
+  <!-- 底部左:[b]_B 列向量 (0.4, 2.8) -->
+  <path d="M160,118 L150,118 L150,168 L160,168" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <path d="M180,118 L190,118 L190,168 L180,168" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <text x="170" y="141" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#312f2f" text-anchor="middle">0.4</text>
+  <text x="170" y="163" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#312f2f" text-anchor="middle">2.8</text>
+  <text x="170" y="190" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64" text-anchor="middle">[b]<tspan dy="3" font-size="9">B</tspan></text>
+
+  <!-- 底部右:[b]_C 列向量 (5, −1) -->
+  <path d="M380,118 L370,118 L370,168 L380,168" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <path d="M400,118 L410,118 L410,168 L400,168" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <text x="390" y="141" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#312f2f" text-anchor="middle">5</text>
+  <text x="390" y="163" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#312f2f" text-anchor="middle">−1</text>
+  <text x="390" y="190" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64" text-anchor="middle">[b]<tspan dy="3" font-size="9">C</tspan></text>
+
+  <!-- 底部箭头:[b]_B → [b]_C(过渡矩阵) -->
+  <line x1="196" y1="143" x2="364" y2="143" stroke="#cc785c" stroke-width="1.4" marker-end="url(#cb-arr-coral)"/>
+
+  <!-- 过渡矩阵 2×2:[[2, 1.5],[1, −0.5]] -->
+  <path d="M256,96 L248,96 L248,132 L256,132" fill="none" stroke="#312f2f" stroke-width="1.2"/>
+  <path d="M312,96 L320,96 L320,132 L312,132" fill="none" stroke="#312f2f" stroke-width="1.2"/>
+  <text x="272" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#312f2f" text-anchor="middle">2</text>
+  <text x="298" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#312f2f" text-anchor="middle">1.5</text>
+  <text x="272" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#312f2f" text-anchor="middle">1</text>
+  <text x="298" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#312f2f" text-anchor="middle">−0.5</text>
+  <text x="284" y="88" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#a9583e" text-anchor="middle">P<tspan dy="3" font-size="9">C←B</tspan></text>
+</svg>

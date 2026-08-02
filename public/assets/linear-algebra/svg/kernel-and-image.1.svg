@@ -1,0 +1,54 @@
+<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ki-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+    </marker>
+    <marker id="ki-arr-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 左:定义域,核 = y 轴 ============ -->
+  <!-- 原点 (100,150),25px/单位 -->
+  <line x1="100" y1="150" x2="240" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
+  <line x1="100" y1="150" x2="100" y2="30" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
+  <text x="244" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
+  <text x="92" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+
+  <!-- 核:y 轴描珊瑚 -->
+  <line x1="100" y1="150" x2="100" y2="30" stroke="#cc785c" stroke-width="1.8"/>
+  <text x="108" y="44" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">ker P = y 轴</text>
+
+  <!-- 同一条竖直虚线上的两点 (2,1)、(2,3),都投到 (2,0) -->
+  <line x1="150" y1="75" x2="150" y2="148" stroke="#6c6a64" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#ki-arr-coral)"/>
+  <circle cx="150" cy="125" r="2.4" fill="#312f2f"/>
+  <text x="158" y="128" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(2, 1)</text>
+  <circle cx="150" cy="75" r="2.4" fill="#312f2f"/>
+  <text x="158" y="78" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(2, 3)</text>
+  <circle cx="150" cy="150" r="2.6" fill="#cc785c"/>
+  <text x="158" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">(2, 0)</text>
+
+  <circle cx="100" cy="150" r="2.4" fill="#312f2f"/>
+
+  <text x="20" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">同一垂线上的点,映到同一点</text>
+
+  <!-- ============ 右:值域,像 = x 轴 ============ -->
+  <!-- 原点 (390,150),25px/单位 -->
+  <line x1="390" y1="150" x2="530" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
+  <line x1="390" y1="150" x2="390" y2="30" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
+  <text x="534" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
+  <text x="382" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+
+  <!-- 像:x 轴描珊瑚 -->
+  <line x1="390" y1="150" x2="530" y2="150" stroke="#cc785c" stroke-width="1.8"/>
+  <text x="418" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">im P = x 轴</text>
+
+  <!-- 像外的点 b=(1,2) -->
+  <circle cx="415" cy="100" r="2.4" fill="#6c6a64"/>
+  <text x="422" y="96" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">b = (1, 2)</text>
+  <text x="422" y="112" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#a9583e">像外,无解</text>
+
+  <circle cx="390" cy="150" r="2.4" fill="#312f2f"/>
+
+  <text x="332" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">像只占一条线,线外够不到</text>
+</svg>
