@@ -57,6 +57,11 @@ title: 词汇表:术语译法与约定
 | unit ball / unit sphere | 单位球 | 译(本篇球面与球体不分,均指 ‖x‖=1 或 ‖x‖≤1) | [norms](../linear-algebra/norms/) |
 | triangle inequality | 三角不等式 | 译 | [norms](../linear-algebra/norms/) |
 | Minkowski inequality | Minkowski 不等式 | 不译(音译闵可夫斯基亦见,词条正文用英文) | [norms](../linear-algebra/norms/) |
+| inner product | 内积 | 译;三条公理:对称性、双线性、正定性 | [inner-products](../linear-algebra/inner-products/) |
+| inner product space | 内积空间 | 译(向量空间配内积) | [inner-products](../linear-algebra/inner-products/) |
+| Cauchy–Schwarz inequality | Cauchy–Schwarz 不等式 | 不译(音译柯西-施瓦茨亦见,词条正文用英文) | [inner-products](../linear-algebra/inner-products/) |
+| Frobenius inner product / norm | Frobenius 内积 / 范数 | 不译(人名);⟨A,B⟩=tr(AᵀB) | [inner-products](../linear-algebra/inner-products/) |
+| parallelogram law | 平行四边形法则 | 译;内积诱导范数的判据 | [inner-products](../linear-algebra/inner-products/) |
 
 ## 机器学习
 

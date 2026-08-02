@@ -46,7 +46,6 @@ parts:
 
 known_absent:
   # Part 0 数学地基
-  - inner-products
   - lengths-and-distances
   - angles-and-orthogonality
   - orthonormal-basis
