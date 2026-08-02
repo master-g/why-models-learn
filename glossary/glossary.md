@@ -52,6 +52,11 @@ title: 词汇表:术语译法与约定
 | affine set | 仿射集 | 译,正式处理见「仿射空间与映射」 | [vector-spaces](../linear-algebra/vector-spaces/) |
 | affine subspace | 仿射子空间 | 译(子空间的平移) | [affine-spaces-and-maps](../linear-algebra/affine-spaces-and-maps/) |
 | affine map | 仿射映射 | 译(线性映射加平移) | [affine-spaces-and-maps](../linear-algebra/affine-spaces-and-maps/) |
+| norm | 范数 | 译;三条公理:正定性、齐次性、三角不等式 | [norms](../linear-algebra/norms/) |
+| p-norm | p 范数 | 译;欧几里得(p=2)、曼哈顿(p=1)、最大模(p=∞) | [norms](../linear-algebra/norms/) |
+| unit ball / unit sphere | 单位球 | 译(本篇球面与球体不分,均指 ‖x‖=1 或 ‖x‖≤1) | [norms](../linear-algebra/norms/) |
+| triangle inequality | 三角不等式 | 译 | [norms](../linear-algebra/norms/) |
+| Minkowski inequality | Minkowski 不等式 | 不译(音译闵可夫斯基亦见,词条正文用英文) | [norms](../linear-algebra/norms/) |
 
 ## 机器学习
 

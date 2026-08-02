@@ -1,0 +1,49 @@
+<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="nm-arr-gray" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+    </marker>
+  </defs>
+
+  <!-- ============ 左:三种范数的单位球 ============ -->
+  <!-- 原点 (115,135),44px/单位 -->
+  <line x1="115" y1="135" x2="205" y2="135" stroke="#b8b2a8" stroke-width="1" marker-end="url(#nm-arr-gray)"/>
+  <line x1="115" y1="135" x2="115" y2="45" stroke="#b8b2a8" stroke-width="1" marker-end="url(#nm-arr-gray)"/>
+  <text x="209" y="139" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
+  <text x="107" y="41" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+
+  <!-- p=∞ 单位球:方块 max(|x|,|y|)=1 -->
+  <rect x="71" y="91" width="88" height="88" fill="none" stroke="#6c6a64" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <!-- p=2 单位球:圆 x^2+y^2=1 -->
+  <circle cx="115" cy="135" r="44" fill="none" stroke="#312f2f" stroke-width="1.5"/>
+  <!-- p=1 单位球:菱形 |x|+|y|=1 -->
+  <polygon points="159,135 115,91 71,135 115,179" fill="none" stroke="#cc785c" stroke-width="1.8"/>
+
+  <!-- 曲线标签 -->
+  <text x="163" y="131" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">p = 1</text>
+  <text x="121" y="85" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">p = 2</text>
+  <text x="61" y="88" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64" text-anchor="end">p = ∞</text>
+
+  <text x="115" y="194" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">范数越小,单位球越大</text>
+
+  <!-- ============ 右:同一向量 (3,4) 的三个长度 ============ -->
+  <!-- 基线 y=150,12px/单位 -->
+  <line x1="300" y1="150" x2="535" y2="150" stroke="#b8b2a8" stroke-width="1"/>
+
+  <!-- p=1:7 -->
+  <rect x="325" y="66" width="38" height="84" fill="#cc785c"/>
+  <text x="344" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#a9583e" text-anchor="middle">7</text>
+  <!-- p=2:5 -->
+  <rect x="405" y="90" width="38" height="60" fill="#312f2f"/>
+  <text x="424" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#312f2f" text-anchor="middle">5</text>
+  <!-- p=∞:4 -->
+  <rect x="485" y="102" width="38" height="48" fill="#b8b2a8"/>
+  <text x="504" y="90" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">4</text>
+
+  <!-- 范数名(下标逐个核对) -->
+  <text x="344" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">‖x‖<tspan dy="2" font-size="9">1</tspan></text>
+  <text x="424" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">‖x‖<tspan dy="2" font-size="9">2</tspan></text>
+  <text x="504" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">‖x‖<tspan dy="2" font-size="9">∞</tspan></text>
+
+  <text x="420" y="196" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">同一向量 (3, 4) 的三个长度</text>
+</svg>
