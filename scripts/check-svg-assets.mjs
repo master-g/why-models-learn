@@ -9,22 +9,22 @@
  *
  * 挂在 npm postbuild 生命周期上,与 check-mjx-errors 串联。
  */
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { extname, resolve, join } from 'node:path';
-import { BASE } from '../src/lib/base.mjs';
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { extname, resolve, join } from "node:path";
+import { BASE } from "../src/lib/base.mjs";
 
 function* walkHtml(dir) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = resolve(dir, entry.name);
-    if (entry.isDirectory()) yield* walkHtml(p);
-    else if (entry.isFile() && extname(entry.name) === '.html') yield p;
-  }
+	for (const entry of readdirSync(dir, { withFileTypes: true })) {
+		const p = resolve(dir, entry.name);
+		if (entry.isDirectory()) yield* walkHtml(p);
+		else if (entry.isFile() && extname(entry.name) === ".html") yield p;
+	}
 }
 
-const dir = resolve(process.argv[2] || 'dist');
+const dir = resolve(process.argv[2] || "dist");
 if (!existsSync(dir)) {
-  console.error(`[check-svg] 目录不存在: ${dir}`);
-  process.exit(1);
+	console.error(`[check-svg] 目录不存在: ${dir}`);
+	process.exit(1);
 }
 
 // dist 根对应部署 base 路径,浏览器里的 <base>/assets/x.svg 落盘为 dist/assets/x.svg。
@@ -35,27 +35,27 @@ const checked = new Set();
 let failed = false;
 
 for (const file of walkHtml(dir)) {
-  const html = readFileSync(file, 'utf8');
-  let m;
-  while ((m = assetRe.exec(html)) !== null) {
-    const src = m[1];
-    if (BASE && !src.startsWith(`${BASE}/`)) {
-      console.error(`[check-svg] 未加部署前缀: ${src}(在 ${file})`);
-      failed = true;
-      continue;
-    }
-    const onDisk = BASE ? src.slice(BASE.length) : src;
-    if (checked.has(onDisk)) continue;
-    checked.add(onDisk);
-    if (!existsSync(join(dir, onDisk))) {
-      console.error(`[check-svg] 404: ${src}(引用于 ${file})`);
-      failed = true;
-    }
-  }
-  while ((m = relativeRe.exec(html)) !== null) {
-    console.error(`[check-svg] 未改写的相对路径: ${m[1]}(在 ${file})`);
-    failed = true;
-  }
+	const html = readFileSync(file, "utf8");
+	let m;
+	while ((m = assetRe.exec(html)) !== null) {
+		const src = m[1];
+		if (BASE && !src.startsWith(`${BASE}/`)) {
+			console.error(`[check-svg] 未加部署前缀: ${src}(在 ${file})`);
+			failed = true;
+			continue;
+		}
+		const onDisk = BASE ? src.slice(BASE.length) : src;
+		if (checked.has(onDisk)) continue;
+		checked.add(onDisk);
+		if (!existsSync(join(dir, onDisk))) {
+			console.error(`[check-svg] 404: ${src}(引用于 ${file})`);
+			failed = true;
+		}
+	}
+	while ((m = relativeRe.exec(html)) !== null) {
+		console.error(`[check-svg] 未改写的相对路径: ${m[1]}(在 ${file})`);
+		failed = true;
+	}
 }
 
 if (failed) process.exit(1);

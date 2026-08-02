@@ -1,4 +1,4 @@
-import { visit } from 'unist-util-visit';
+import { visit } from "unist-util-visit";
 
 /**
  * Rehype 插件:给 markdown 渲染产物里的站内绝对路径统一加部署 base 前缀。
@@ -13,23 +13,23 @@ import { visit } from 'unist-util-visit';
  * Options:
  *   - base: 部署 base 路径(如 '/why-models-learn');空串时插件不做事。
  */
-export default function rehypePrefixBase({ base = '' } = {}) {
-  const prefix = base.replace(/\/+$/, '');
-  return (tree) => {
-    if (!prefix) return;
-    visit(tree, 'element', (node) => {
-      const props = node.properties;
-      if (!props) return;
-      for (const attr of ['href', 'src']) {
-        const value = props[attr];
-        if (typeof value !== 'string') continue;
-        if (!value.startsWith('/') || value.startsWith('//')) continue;
-        if (value === '/') {
-          props[attr] = `${prefix}/`;
-        } else if (!value.startsWith(`${prefix}/`)) {
-          props[attr] = `${prefix}${value}`;
-        }
-      }
-    });
-  };
+export default function rehypePrefixBase({ base = "" } = {}) {
+	const prefix = base.replace(/\/+$/, "");
+	return (tree) => {
+		if (!prefix) return;
+		visit(tree, "element", (node) => {
+			const props = node.properties;
+			if (!props) return;
+			for (const attr of ["href", "src"]) {
+				const value = props[attr];
+				if (typeof value !== "string") continue;
+				if (!value.startsWith("/") || value.startsWith("//")) continue;
+				if (value === "/") {
+					props[attr] = `${prefix}/`;
+				} else if (!value.startsWith(`${prefix}/`)) {
+					props[attr] = `${prefix}${value}`;
+				}
+			}
+		});
+	};
 }

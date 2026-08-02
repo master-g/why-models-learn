@@ -9,16 +9,16 @@
  * 不用 import.meta.env.BASE_URL:它由本常量派生(base + '/'),
  * 但独立 Node 脚本(sync、check-*)没有 import.meta.env,统一用本模块。
  */
-export const BASE = '/why-models-learn';
+export const BASE = "/why-models-learn";
 
 /**
  * 给站内绝对路径加 base 前缀:'/about/' → '/why-models-learn/about/'。
  * 外部 URL、锚点、协议相对路径(//)原样返回;已加过前缀的路径幂等返回。
  */
 export function withBase(path) {
-  if (typeof path !== 'string') return path;
-  if (!path.startsWith('/') || path.startsWith('//')) return path;
-  if (path === '/') return `${BASE}/`;
-  if (path.startsWith(`${BASE}/`)) return path;
-  return `${BASE}${path}`;
+	if (typeof path !== "string") return path;
+	if (!path.startsWith("/") || path.startsWith("//")) return path;
+	if (path === "/") return `${BASE}/`;
+	if (path.startsWith(`${BASE}/`)) return path;
+	return `${BASE}${path}`;
 }
