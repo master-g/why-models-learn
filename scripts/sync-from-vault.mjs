@@ -30,6 +30,10 @@ import { join } from "node:path";
 import yaml from "js-yaml";
 import { parseFrontmatter, splitFrontmatter } from "./lib/frontmatter.mjs";
 import { lintChineseCopywriting } from "./lib/copywriting-lint.mjs";
+import {
+	formatSvgThemeIssue,
+	validateSvgTheme,
+} from "./lib/svg-theme-contract.mjs";
 
 const VAULT_DIR = join(
 	homedir(),
@@ -39,6 +43,8 @@ const VAULT_SVG_DIR = join(VAULT_DIR, "svg");
 const OUT_ROOT = "content-zh";
 const ASSETS_ROOT = "public/assets";
 const SYNCABLE_STATUS = new Set(["complete", "reference"]);
+// 迁移阶段只能显式关闭严格闸;默认阻止旧的浅色专用 SVG 进入产物。
+const STRICT_SVG_THEME = process.env.SVG_THEME_STRICT !== "0";
 
 function loadSlugSections() {
 	const data = yaml.load(readFileSync("sections.yaml", "utf8"));
@@ -229,6 +235,25 @@ function main() {
 		);
 
 		targets.set(`${section}/${slug}`, finalContent);
+	}
+
+	// SVG 主题契约必须在任何 content-zh/ 或 public/assets/ 写入前检查。
+	// SVG 的唯一事实源是 vault;生成目录的全量检查由 check-svg-theme.mjs 负责。
+	if (existsSync(VAULT_SVG_DIR)) {
+		for (const file of readdirSync(VAULT_SVG_DIR)) {
+			if (!file.endsWith(".svg")) continue;
+			const owner = parseSvgOwner(file, slugSections);
+			if (!owner || !SYNCABLE_STATUS.has(statusMap.get(owner))) continue;
+			const source = readFileSync(join(VAULT_SVG_DIR, file), "utf8");
+			const theme = validateSvgTheme(source, {
+				asset: `svg/${file}`,
+				strict: STRICT_SVG_THEME,
+			});
+			for (const issue of theme.warnings)
+				warn(`SVG 主题迁移提示: ${formatSvgThemeIssue(issue)}`);
+			for (const issue of theme.errors)
+				errors.push(`SVG 主题契约错误: ${formatSvgThemeIssue(issue)}`);
+		}
 	}
 
 	// 硬错误闸:有则连警告一起全报(只报 ERROR 会吞掉同文件的其他违规),
