@@ -64,10 +64,10 @@ describe('independent visual contracts', () => {
     assert.doesNotMatch(articlePage, /URLSearchParams|localStorage.*next|[?&]next=/);
   });
 
-  it('centers standalone illustrations and display formulas', () => {
+  it('contains standalone illustrations across the whole article and centers display formulas', () => {
     assert.match(
       siteCss,
-      /\.article-section p > img:only-child\s*\{[^}]*display:\s*block;[^}]*margin-inline:\s*auto;/s,
+      /\.article-content p > img:only-child\s*\{[^}]*display:\s*block;[^}]*max-width:\s*100%;[^}]*height:\s*auto;[^}]*margin-inline:\s*auto;/s,
     );
     assert.match(
       siteCss,

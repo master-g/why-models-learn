@@ -1165,7 +1165,7 @@ summary {
   font: 400 12px/1.65 var(--font-mono);
 }
 
-.article-section p > img:only-child {
+.article-content p > img:only-child {
   display: block;
   max-width: 100%;
   height: auto;
