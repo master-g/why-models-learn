@@ -8,7 +8,7 @@
  * 适配规则(写作无感,脚本负责):
  *   - `[[slug]]` / `[[slug|显示文本]]` → 站内相对链接(按 sections.yaml 的 slug→章节映射)
  *   - 指向飞地外笔记或未知 slug 的 wikilink → 降级为纯文本并警告
- *   - Obsidian callout 标记 `> [!tldr]` 剥掉,内容保留为 blockquote
+	 *   - 普通 Obsidian callout 标记剥掉,内容保留为 blockquote;受控教学布局标记保留供渲染管线转换
  *   - frontmatter 只透传 title(必填)与 tags(可选),vault-only 字段不透传
  *   - 插图:vault `svg/<slug>.<n>.svg` 拷贝到 `public/assets/<section>/svg/`,
  *     与词条同生命周期(退役即清);引用缺失/归属错误/`![[embed]]` 是硬错误
@@ -30,7 +30,7 @@ import { join } from "node:path";
 import yaml from "js-yaml";
 import { parseFrontmatter, splitFrontmatter } from "./lib/frontmatter.mjs";
 import { lintChineseCopywriting } from "./lib/copywriting-lint.mjs";
-import { prepareSidenoteSource } from "./lib/sidenote-source.mjs";
+import { prepareArticleLayoutSource } from "./lib/article-layout-source.mjs";
 import {
 	formatSvgThemeIssue,
 	validateSvgTheme,
@@ -192,14 +192,16 @@ function main() {
 			);
 		}
 
-		const sidenoteSource = prepareSidenoteSource(body);
-		for (const issue of sidenoteSource.warnings) {
-			warn(`${slug}:${issue.line} SIDENOTE-LINT ${issue.message}`);
+		const layoutSource = prepareArticleLayoutSource(body);
+		for (const issue of layoutSource.warnings) {
+			const label = issue.source === "layout" ? "LAYOUT-LINT" : "SIDENOTE-LINT";
+			warn(`${slug}:${issue.line} ${label} ${issue.message}`);
 		}
-		for (const issue of sidenoteSource.errors) {
-			errors.push(`${slug}:${issue.line} SIDENOTE-ERROR ${issue.message}`);
+		for (const issue of layoutSource.errors) {
+			const label = issue.source === "layout" ? "LAYOUT-ERROR" : "SIDENOTE-ERROR";
+			errors.push(`${slug}:${issue.line} ${label} ${issue.message}`);
 		}
-		const outBody = rewriteWikilinks(sidenoteSource.text, slugSections, warn);
+		const outBody = rewriteWikilinks(layoutSource.text, slugSections, warn);
 		const outContent = `${outFrontmatter.join("\n")}\n${outBody}`;
 
 		// 文案 lint(沿用 algebrica 规则):reports 警告(LINT),errors 进硬错误数组

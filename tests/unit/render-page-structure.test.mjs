@@ -2,6 +2,7 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { renderPageMarkdown } from '../../src/pages/_render-page.mjs';
+import { makeMarkdownSanitizeSchema } from '../../src/lib/markdown-pipeline.mjs';
 
 const astroConfig = readFileSync('astro.config.mjs', 'utf8');
 const renderHelper = readFileSync('src/pages/_render-page.mjs', 'utf8');
@@ -104,5 +105,52 @@ The value $x + y$ stays inline.
     assert.doesNotMatch(html, /<span>危险<\/span>/);
     assert.match(html, /危险/);
     assert.match(html, /安全文本/);
+  });
+
+  it('renders the three Tufte layouts as semantic nodes after sidenotes', async () => {
+    const html = await renderPageMarkdown(`## Layouts
+
+正文。[^note]
+
+> [!marginfigure] 图注
+> ![示意](svg/example.1.svg)
+
+> [!fullwidth] 比较表
+> | 条件 | 结果 |
+> | --- | --- |
+> | 小 | 大 |
+
+> [!epigraph]
+> 先说明问题。
+>
+> ——来源
+
+[^note]: 局部补充。`, { currentSection: 'linear-algebra' });
+
+    assert.match(html, /<span id="sidenote-note" class="sidenote sidenote--numbered"/);
+    assert.match(html, /<figure class="marginfigure"><img[^>]+alt="示意"[^>]*><figcaption>图注<\/figcaption><\/figure>/);
+    assert.match(html, /<figure class="fullwidth fullwidth--table">[\s\S]*<table>/);
+    assert.match(html, /<blockquote class="epigraph"><p>先说明问题。<\/p><footer>——来源<\/footer><\/blockquote>/);
+    assert.match(html, /src="\/why-models-learn\/assets\/linear-algebra\/svg\/example\.1\.svg"/);
+  });
+
+  it('fails closed when a layout marker reaches HAST with an invalid shape', async () => {
+    await assert.rejects(
+      () => renderPageMarkdown(`## Invalid
+
+> [!marginfigure] 标记
+>
+> 第二段`),
+      /Tufte 块转换失败|布局 callout/,
+    );
+  });
+
+  it('allows only the semantic Tufte tags and class attributes in sanitize', () => {
+    const schema = makeMarkdownSanitizeSchema({ tagNames: [], attributes: {} });
+    assert.deepEqual(schema.tagNames.filter((tag) => ['figure', 'figcaption', 'footer'].includes(tag)), ['figure', 'figcaption', 'footer']);
+    assert.deepEqual(schema.attributes.figure, ['class', 'className']);
+    assert.deepEqual(schema.attributes.figcaption, ['class', 'className']);
+    assert.deepEqual(schema.attributes.footer, ['class', 'className']);
+    assert.deepEqual(schema.attributes.blockquote, ['class', 'className']);
   });
 });

@@ -5,7 +5,7 @@
 ## 架构:vault 是事实源,repo 是渲染器
 
 - **词条唯一事实源**:Obsidian vault 飞地 `~/Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn/<slug>.md`(feynman 卡片格式,约定见该目录 `_README.md`)。
-- `content-zh/` 是 `npm run sync` 的**纯产物,永不手改**。同步只拷 `status: complete | reference`;wikilink 改写为站内链接;callout 标记剥掉;frontmatter 只透传 `title`/`tags`。
+- `content-zh/` 是 `npm run sync` 的**纯产物,永不手改**。同步只拷 `status: complete | reference`;wikilink 改写为站内链接;普通 callout 标记剥掉,受控 `marginfigure`/`fullwidth`/`epigraph` 标记经源校验后保留供渲染管线转换;frontmatter 只透传 `title`/`tags`。
 - 毕业信号:词条写完 → vault 里 `status` 翻为 `complete` → repo `sections.yaml` 的 `known_absent` 移除该 slug。指向未毕业词条的链接自动渲染为纯文本。
 
 ## 工作流

@@ -26,6 +26,7 @@ Transformer，再到理解预训练、微调、推理与对齐。
 `known_absent` 移除对应 slug，再运行同步、测试、构建与视觉验收。
 
 新增或迁移插图时，遵循 [SVG 主题作者规范](docs/authoring/svg-theme.md)。编写页边补充内容时，遵循 [旁注作者规范](docs/authoring/sidenotes.md)。
+第一遍学习从 [学习路径](learn/) 进入；路径数据位于 `learning-paths.yaml`。编写页边图、通栏图表或题记时，遵循 [Tufte 教学布局作者规范](docs/authoring/tufte-layout.md)。
 
 ## 常用命令
 
@@ -46,6 +47,8 @@ npm run check:public-history  # 检查全部可达 Git 历史
 - `scripts/sync-from-vault.mjs`：同步管道。
 - `scripts/migrate-svg-theme.mjs`：迁移与检查插图的明暗主题角色。
 - `playground/rendering.md`：渲染管线回归夹具。
+- `learning-paths.yaml`：第一遍主线、数学层级、按需回补和参考轨。
+- `docs/authoring/tufte-layout.md`：教学布局的源语法与验收合同。
 
 ## 许可
 

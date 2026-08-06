@@ -6,6 +6,7 @@ import rehypePrefixBase from "../plugins/rehype-prefix-base.mjs";
 import rehypeRewriteAlgebrica from "../plugins/rehype-rewrite-algebrica.mjs";
 import rehypeSectionizeAlgebrica from "../plugins/rehype-sectionize-algebrica.mjs";
 import rehypeSidenotes from "../plugins/rehype-sidenotes.mjs";
+import rehypeTufteBlocks from "../plugins/rehype-tufte-blocks.mjs";
 import { BASE } from "./base.mjs";
 
 /**
@@ -20,6 +21,9 @@ export function makeMarkdownSanitizeSchema(base = defaultSchema) {
 		tagNames: [
 			...(base.tagNames || []),
 			"aside",
+			"figure",
+			"figcaption",
+			"footer",
 			"style",
 			"mjx-container",
 			"mjx-assistive-mml",
@@ -136,6 +140,10 @@ export function makeMarkdownSanitizeSchema(base = defaultSchema) {
 				"ariaDescribedBy",
 			],
 			aside: ["id", "class", "className", "role", "ariaLabel", "ariaLabelledBy"],
+			blockquote: ["class", "className"],
+			figure: ["class", "className"],
+			figcaption: ["class", "className"],
+			footer: ["class", "className"],
 			span: [
 				...(base.attributes?.span || []),
 				"id",
@@ -172,6 +180,7 @@ export function createArticleMarkdownPipeline({
 			rehypeMathjax,
 			rehypeMarkStandaloneMath,
 			rehypeSidenotes,
+			rehypeTufteBlocks,
 			[
 				rehypeRewriteAlgebrica,
 				{ slugMap, dangling, warn, currentSection, sectionDirs },

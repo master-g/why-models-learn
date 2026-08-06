@@ -1,10 +1,12 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { validateSvgTheme } from '../../scripts/lib/svg-theme-contract.mjs';
 
 const baseLayout = readFileSync('src/layouts/BaseLayout.astro', 'utf8');
 const homePage = readFileSync('src/pages/index.astro', 'utf8');
+const learnPage = existsSync('src/pages/learn.astro') ? readFileSync('src/pages/learn.astro', 'utf8') : '';
+const categoryPage = readFileSync('src/pages/category/[section]/index.astro', 'utf8');
 const articlePage = readFileSync('src/pages/[slug].astro', 'utf8');
 const siteCss = readFileSync('src/styles/site.css', 'utf8');
 const playgroundMarkdown = readFileSync('playground/rendering.md', 'utf8');
@@ -28,6 +30,38 @@ describe('independent visual contracts', () => {
     assert.match(homePage, /class="home-page"/);
     assert.match(homePage, /class="home-hero"/);
     assert.match(homePage, /class="section-index__group"/);
+    assert.match(homePage, /href={withBase\('\/learn\/'\)}/);
+    assert.match(homePage, /从这里开始/);
+  });
+
+  it('renders a no-script learning path with stages, optional branches, and references', () => {
+    assert.notEqual(learnPage, '', 'learning path page is missing');
+    assert.match(learnPage, /class="learning-path-page"/);
+    assert.match(learnPage, /class="learning-path-stage"/);
+    assert.match(learnPage, /17/);
+    assert.match(learnPage, /56/);
+    assert.match(learnPage, /21/);
+    assert.match(learnPage, /遇到推导困难时回补/);
+    assert.match(learnPage, /可选支线/);
+    assert.match(learnPage, /进阶参考/);
+    assert.match(learnPage, /<blockquote class="epigraph"/);
+    assert.match(learnPage, /class="newthought"/);
+    assert.match(learnPage, /<details/);
+  });
+
+  it('marks category roles and non-blocking math backfill without empty placeholders', () => {
+    assert.match(categoryPage, /getSectionPathContext/);
+    assert.match(categoryPage, /class="category-path-role"/);
+    assert.match(categoryPage, /class="category-backfill"/);
+    assert.match(categoryPage, /遇到推导困难时回补/);
+    assert.match(categoryPage, /backfillGroups\.length > 0/);
+  });
+
+  it('keeps article navigation path-aware and server-generated', () => {
+    assert.match(articlePage, /getArticleNavigation/);
+    assert.match(articlePage, /class="[^"]*\bpath-nav\b/);
+    assert.match(articlePage, /class="article-path-returns"/);
+    assert.doesNotMatch(articlePage, /URLSearchParams|localStorage.*next|[?&]next=/);
   });
 
   it('centers standalone illustrations and display formulas', () => {
@@ -85,6 +119,18 @@ describe('independent visual contracts', () => {
     assert.match(playgroundMarkdown, /> \[!marginnote\] 符号提醒/);
     assert.match(playgroundMarkdown, /\[\^sidenote-math\]:[^\n]*\$[^$]+\$/);
     assert.match(playgroundMarkdown, /\[\^sidenote-link\]:[^\n]*\[[^\]]+\]\([^)]+\)/);
+  });
+
+  it('keeps a complete Tufte layout fixture and responsive/print contracts', () => {
+    assert.match(playgroundMarkdown, /> \[!marginfigure\]/);
+    assert.match(playgroundMarkdown, /> \[!fullwidth\]/);
+    assert.match(playgroundMarkdown, /> \[!epigraph\]/);
+    assert.match(siteCss, /\.article-content figure\.marginfigure\s*\{[\s\S]*width:\s*240px;/);
+    assert.match(siteCss, /\.article-content figure\.fullwidth\s*\{[\s\S]*clear:\s*both;/);
+    assert.match(siteCss, /@media \(max-width:\s*760px\)[\s\S]*\.article-content figure\.marginfigure,[\s\S]*float:\s*none;/);
+    assert.match(siteCss, /@media print[\s\S]*\.article-content figure\.marginfigure,[\s\S]*break-inside:\s*avoid;/);
+    assert.match(siteCss, /@media print[\s\S]*details:not\(\[open\]\) > :not\(summary\)/);
+    assert.match(siteCss, /@media \(prefers-reduced-motion:\s*reduce\)/);
   });
 
   it('renders a scoped content-license notice on every article', () => {

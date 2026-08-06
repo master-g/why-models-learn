@@ -1,0 +1,279 @@
+# 教学路径只引用 sections.yaml 的 section 与 slug。
+# 章节归属、正文顺序、标题和完成状态仍以 sections.yaml 与 vault 为准。
+math_layers:
+  core:
+    name_zh: 最小数学前置
+    description_zh: 先读定义、数字例子和第一次机器学习用途，复杂证明留到回补或参考轨。
+    groups:
+      - id: linear-algebra
+        name_zh: 线性代数
+        entries:
+          - slug: vectors
+            why_now_zh: 向量是样本、特征和参数的共同表示。
+            first_use: linear-regression
+            reading_goal_zh: 定义、一个数字例子和在线性回归中的首次用途。
+          - slug: matrices
+            why_now_zh: 矩阵把一批样本和一组参数组织成可计算的对象。
+            first_use: linear-regression
+            reading_goal_zh: 定义、一个数字例子和在线性回归中的首次用途。
+          - slug: matrix-multiplication
+            why_now_zh: 矩阵乘法把特征与参数组合成预测，是神经网络层的基本运算。
+            first_use: linear-regression
+            reading_goal_zh: 定义、一个数字例子和在线性回归中的首次用途。
+          - slug: norms
+            why_now_zh: 范数提供误差、参数规模和距离的统一度量。
+            first_use: ridge-and-lasso
+            reading_goal_zh: 定义、一个数字例子和在线性模型正则化中的首次用途。
+      - id: calculus
+        name_zh: 微积分
+        entries:
+          - slug: derivatives
+            why_now_zh: 导数描述参数变化如何改变损失。
+            first_use: gradient-descent
+            reading_goal_zh: 定义、一个数字例子和在梯度下降中的首次用途。
+          - slug: differentiation-rules
+            why_now_zh: 求导规则把复合损失拆成可计算的局部变化。
+            first_use: backpropagation
+            reading_goal_zh: 定义、一个数字例子和在反向传播中的首次用途。
+          - slug: chain-rule
+            why_now_zh: 链式法则连接网络层之间的局部导数。
+            first_use: backpropagation
+            reading_goal_zh: 定义、一个数字例子和在反向传播中的首次用途。
+          - slug: partial-derivatives
+            why_now_zh: 偏导数区分多参数模型中每个参数的影响。
+            first_use: backpropagation
+            reading_goal_zh: 定义、一个数字例子和在反向传播中的首次用途。
+          - slug: gradient
+            why_now_zh: 梯度把所有偏导数组合成一次更新所需的方向。
+            first_use: gradient-descent
+            reading_goal_zh: 定义、一个数字例子和在梯度下降中的首次用途。
+      - id: probability
+        name_zh: 概率
+        entries:
+          - slug: random-variables
+            why_now_zh: 随机变量表达数据、标签和采样结果的不确定性。
+            first_use: empirical-risk-minimization
+            reading_goal_zh: 定义、一个数字例子和在经验风险最小化中的首次用途。
+          - slug: expectation
+            why_now_zh: 期望把单次损失提升为总体风险的平均量。
+            first_use: empirical-risk-minimization
+            reading_goal_zh: 定义、一个数字例子和在经验风险最小化中的首次用途。
+          - slug: variance-and-covariance
+            why_now_zh: 方差和协方差描述噪声、相关性与估计波动。
+            first_use: bias-variance-tradeoff
+            reading_goal_zh: 定义、一个数字例子和在偏差-方差分析中的首次用途。
+      - id: information-theory
+        name_zh: 信息论
+        entries:
+          - slug: information-and-surprise
+            why_now_zh: 信息量解释低概率事件为何贡献更大的学习信号。
+            first_use: classification-losses
+            reading_goal_zh: 定义、一个数字例子和在分类损失中的首次用途。
+          - slug: entropy
+            why_now_zh: 熵量化预测分布的不确定性。
+            first_use: classification-losses
+            reading_goal_zh: 定义、一个数字例子和在分类损失中的首次用途。
+          - slug: cross-entropy
+            why_now_zh: 交叉熵把目标分布与模型分布的差异写成可优化损失。
+            first_use: classification-losses
+            reading_goal_zh: 定义、一个数字例子和在分类损失中的首次用途。
+      - id: optimization
+        name_zh: 优化
+        entries:
+          - slug: optimization-problems
+            why_now_zh: 优化问题明确模型要选择什么参数以及比较什么目标。
+            first_use: gradient-descent
+            reading_goal_zh: 定义、一个数字例子和在梯度下降中的首次用途。
+          - slug: gradient-descent-theory
+            why_now_zh: 梯度下降把损失的局部变化转成参数更新。
+            first_use: gradient-descent
+            reading_goal_zh: 定义、一个数字例子和在梯度下降中的首次用途。
+  backfill:
+    - id: linear-models
+      name_zh: 线性模型回补
+      purpose_zh: 解释线性回归、最小二乘、概率模型和正则化的推导细节。
+      entries:
+        - linear-systems
+        - gaussian-elimination
+        - vector-spaces
+        - subspaces
+        - linear-combinations-and-span
+        - linear-independence
+        - basis
+        - dimension
+        - coordinates
+        - linear-maps
+        - kernel-and-image
+        - rank
+        - matrix-inverse
+        - affine-spaces-and-maps
+        - orthogonal-projections
+        - pseudoinverse
+        - gaussian-distribution
+        - joint-distributions
+        - marginal-and-conditional
+        - bayes-theorem
+        - independence
+        - covariance-matrix
+        - maximum-likelihood
+        - maximum-a-posteriori
+        - convex-sets-and-functions
+        - local-and-global-minima
+        - first-order-optimality
+    - id: backprop-training
+      name_zh: 反向传播与训练回补
+      purpose_zh: 解释向量求导、自动微分、随机优化和训练稳定性的推导细节。
+      entries:
+        - total-derivative
+        - jacobian
+        - vector-chain-rule
+        - hessian
+        - taylor-series
+        - elementwise-derivatives
+        - broadcast-and-reduction-derivatives
+        - matrix-calculus-identities
+        - numerical-differentiation
+        - automatic-differentiation
+        - stochastic-gradient-descent-theory
+        - momentum-theory
+        - adaptive-learning-rates
+        - curvature-and-conditioning
+        - loss-landscapes
+        - saddle-points
+    - id: transformer
+      name_zh: Transformer 回补
+      purpose_zh: 解释注意力、表示几何、谱分解和语言模型评估所需的数学。
+      entries:
+        - inner-products
+        - lengths-and-distances
+        - angles-and-orthogonality
+        - orthonormal-basis
+        - trace
+        - eigenvalues-and-eigenvectors
+        - eigendecomposition
+        - spectral-theorem
+        - quadratic-forms
+        - svd
+        - low-rank-approximation
+        - matrix-norms
+        - perplexity
+  reference:
+    id: advanced-math
+    name_zh: 进阶数学参考
+    purpose_zh: 为希望继续研究理论边界的读者保留完整数学支撑。
+    entries:
+      - change-of-basis
+      - rank-nullity
+      - orthogonal-matrices-and-rotations
+      - determinant
+      - characteristic-polynomial
+      - probability-spaces
+      - discrete-distributions
+      - continuous-distributions
+      - law-of-large-numbers
+      - central-limit-theorem
+      - sampling
+      - change-of-variables
+      - exponential-family
+      - concentration-inequalities
+      - kl-divergence
+      - conditional-entropy
+      - mutual-information
+      - second-order-optimality
+      - second-order-methods
+      - constrained-optimization
+      - duality
+
+paths:
+  first-pass:
+    id: first-pass
+    name_zh: 第一遍主线
+    description_zh: 先用有限数学前置建立模型学习闭环，再沿机器学习、神经网络、Transformer 和现代 LLM 推进。
+    stages:
+      - id: math-core
+        kind: core-math
+        name_zh: 最小数学前置
+        goal_zh: 建立阅读后续推导所需的最小共同语言。
+        math_groups:
+          - linear-algebra
+          - calculus
+          - probability
+          - information-theory
+          - optimization
+      - id: ml-foundations
+        kind: section-group
+        name_zh: 机器学习基础
+        goal_zh: 把学习问题、线性模型和泛化评价连成第一个反馈闭环。
+        sections:
+          - learning-framework
+          - linear-models
+          - evaluation-and-generalization
+      - id: neural-networks
+        kind: section-group
+        name_zh: 神经网络
+        goal_zh: 从神经元、反向传播走到一次可观察的训练循环。
+        sections:
+          - neurons-and-activations
+          - backpropagation
+          - training-nn
+      - id: transformer
+        kind: section-group
+        name_zh: Transformer
+        goal_zh: 从文本表示和注意力推进到完整 Transformer 架构。
+        sections:
+          - text-representation
+          - attention
+          - transformer-components
+          - transformer-architectures
+      - id: modern-llm
+        kind: section-group
+        name_zh: GPT 与现代 LLM
+        goal_zh: 连接预训练、推理、微调、对齐和 LLaMA2 实战。
+        sections:
+          - pretraining
+          - inference
+          - finetuning
+          - alignment
+    optional_branches:
+      - id: classic-architectures
+        name_zh: 经典架构支线
+        description_zh: 在 Transformer 之前按兴趣阅读 CNN 与 RNN/LSTM，不计入主线进度。
+        return_stage: transformer
+        sections:
+          - cnn
+          - rnn-lstm
+    reference_tracks:
+      - id: advanced-theory
+        name_zh: 进阶理论参考轨
+        description_zh: 按兴趣回看逼近论、训练理论、泛化理论和生成模型。
+        sections:
+          - approximation-theory
+          - training-theory
+          - generalization-theory
+          - generative-models
+
+backfill_for_sections:
+  linear-models:
+    - linear-models
+  evaluation-and-generalization:
+    - linear-models
+  backpropagation:
+    - backprop-training
+  training-nn:
+    - backprop-training
+  text-representation:
+    - transformer
+  attention:
+    - transformer
+  transformer-components:
+    - transformer
+  transformer-architectures:
+    - transformer
+  pretraining:
+    - transformer
+  inference:
+    - transformer
+  finetuning:
+    - transformer
+  alignment:
+    - transformer

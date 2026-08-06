@@ -40,6 +40,7 @@ const { lang = 'zh-CN', title = '模型为什么会学习' } = Astro.props;
         </a>
 
         <nav class="site-nav" aria-label="主导航">
+          <a href={withBase('/learn/')}>学习路径</a>
           <a href={withBase('/')}>章节目录</a>
           <a href={withBase('/glossary/')}>词汇表</a>
           <a href={withBase('/about/')}>关于</a>
@@ -55,6 +56,7 @@ const { lang = 'zh-CN', title = '模型为什么会学习' } = Astro.props;
           <summary aria-label="展开导航"><span></span><span></span><span></span></summary>
           <div class="site-menu__panel">
             <SearchBox variant="mobile" />
+            <a href={withBase('/learn/')}>学习路径</a>
             <a href={withBase('/')}>章节目录</a>
             <a href={withBase('/glossary/')}>词汇表</a>
             <a href={withBase('/about/')}>关于</a>

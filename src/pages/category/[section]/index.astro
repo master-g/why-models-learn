@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getSectionPathContext } from '../../../lib/article-navigation.mjs';
+import { getLearningPaths } from '../../../lib/learning-paths.mjs';
 import { getSections } from '../../../lib/sections.mjs';
 import { withBase } from '../../../lib/base.mjs';
 import { getEntries } from '../../_entries.mjs';
@@ -14,6 +16,8 @@ export async function getStaticPaths() {
 const { section } = Astro.props;
 const entries = await getEntries();
 const bySlug = new Map(entries.map((entry) => [entry.id.split('/')[1], entry]));
+const learning = getLearningPaths();
+const pathContext = getSectionPathContext(learning, section.dir);
 const title = `${section.name_zh} | 模型为什么会学习`;
 ---
 
@@ -27,6 +31,35 @@ const title = `${section.name_zh} | 模型为什么会学习`;
       <span class="page-kicker">第 {section.order} 章 · {section.entries.length} 篇</span>
       <h1>{section.name_zh}</h1>
       {section.description_zh && <p>{section.description_zh}</p>}
+      {(pathContext.mainlineStage || pathContext.optionalBranch) && (
+        <div class="category-path-role">
+          <strong>{pathContext.mainlineStage ? '第一遍主线' : '可选支线'}</strong>
+          <span>{pathContext.mainlineStage?.name_zh || pathContext.optionalBranch?.name_zh}</span>
+          <small>{pathContext.mainlineStage ? '本章词条按主线前后关系提供导航。' : '本章不计入主线进度，可从学习路径返回。'}</small>
+        </div>
+      )}
+      {pathContext.backfillGroups.length > 0 && (
+        <aside class="category-backfill" aria-label="按需数学回补">
+          <strong>遇到推导困难时回补</strong>
+          <p>以下数学组为当前章节提供推导支撑，不构成进入下一篇的条件。</p>
+          <ul>
+            {pathContext.backfillGroups.map((group) => (
+              <li>
+                <span>{group.name_zh}</span>
+                <small>{group.entries.length} 篇</small>
+                <div>
+                  {group.entries.slice(0, 4).map((item) => (
+                    bySlug.has(item.slug)
+                      ? <a href={withBase(`/${item.slug}/`)}>{bySlug.get(item.slug).data.title}</a>
+                      : <span>{item.slug} · TODO</span>
+                  ))}
+                  {group.entries.length > 4 && <em>等 {group.entries.length} 篇</em>}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
     </header>
 
     <section class="category-contents" aria-labelledby="category-contents-title">

@@ -9,7 +9,7 @@ const FENCE = /^[ \t]{0,3}(`{3,}|~{3,})/;
  * 返回值保持输入文本不变，只把非 marginnote callout 降级为普通引用块。
  * errors 会阻止同步；warnings 只进入现有 LINT 输出。
  */
-export function prepareSidenoteSource(text) {
+export function prepareSidenoteSource(text, { preserveCallouts = [] } = {}) {
 	const newline = text.includes("\r\n") ? "\r\n" : "\n";
 	const lines = text.split(/\r?\n/);
 	const errors = [];
@@ -137,7 +137,7 @@ export function prepareSidenoteSource(text) {
 	}
 
 	return {
-		text: stripOrdinaryCallouts(lines.join(newline)),
+		text: stripOrdinaryCallouts(lines.join(newline), new Set(preserveCallouts.map((type) => type.toLowerCase()))),
 		errors,
 		warnings,
 	};
@@ -233,10 +233,11 @@ function validateInlineContent(content, line, { multiParagraph = false } = {}) {
 	return errors;
 }
 
-function stripOrdinaryCallouts(text) {
+function stripOrdinaryCallouts(text, preservedTypes = new Set()) {
 	return text.replace(
 		/^> \[!([A-Za-z0-9_-]+)\][ \t]*(.*)$/gm,
 		(match, type, title) => {
+			if (preservedTypes.has(type.toLowerCase())) return match;
 			if (type.toLowerCase() === "marginnote") return match;
 			return title.trim() ? `> **${title.trim()}**` : ">";
 		},

@@ -1,6 +1,11 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { getNextAvailableSlug } from '../../src/lib/article-navigation.mjs';
+import { getLearningPaths } from '../../src/lib/learning-paths.mjs';
+import {
+  getArticleNavigation,
+  getNextAvailableSlug,
+  getSectionPathContext,
+} from '../../src/lib/article-navigation.mjs';
 
 describe('article navigation', () => {
   it('skips unfinished entries and links to the next available article', () => {
@@ -24,5 +29,66 @@ describe('article navigation', () => {
   it('returns no link when the current slug is outside the section', () => {
     const next = getNextAvailableSlug(['written'], 'missing', new Set(['written']));
     assert.equal(next, undefined);
+  });
+
+  it('uses the mainline across a stage boundary without query state', () => {
+    const paths = getLearningPaths();
+    const available = new Set([...paths.entryIndex.values()].filter((entry) => entry.available).map((entry) => entry.slug));
+    const navigation = getArticleNavigation(paths, {
+      slug: 'gradient-descent-theory',
+      sectionEntries: paths.sections.get('optimization-theory').entries,
+      availableSlugs: available,
+    });
+
+    assert.equal(navigation.mode, 'mainline');
+    assert.equal(navigation.stageId, 'math-core');
+    assert.equal(navigation.nextSlug, 'what-is-learning');
+    assert.equal(navigation.previousSlug, 'optimization-problems');
+    assert.equal(navigation.hrefQuery, undefined);
+  });
+
+  it('keeps optional architecture navigation separate and returns to Transformer', () => {
+    const paths = getLearningPaths();
+    const available = new Set([...paths.entryIndex.values()].filter((entry) => entry.available).map((entry) => entry.slug));
+    const navigation = getArticleNavigation(paths, {
+      slug: 'cnn',
+      sectionEntries: paths.sections.get('cnn').entries,
+      availableSlugs: available,
+    });
+
+    assert.equal(navigation.mode, 'optional-branch');
+    assert.equal(navigation.branchId, 'classic-architectures');
+    assert.equal(navigation.returnSlug, 'tokenization');
+    assert.equal(navigation.nextSlug, 'why-convolution');
+  });
+
+  it('keeps reference articles on chapter navigation and exposes all backfill returns', () => {
+    const paths = getLearningPaths();
+    const available = new Set([...paths.entryIndex.values()].filter((entry) => entry.available).map((entry) => entry.slug));
+    const reference = getArticleNavigation(paths, {
+      slug: 'universal-approximation-formal',
+      sectionEntries: paths.sections.get('approximation-theory').entries,
+      availableSlugs: available,
+    });
+    const backfill = getArticleNavigation(paths, {
+      slug: 'jacobian',
+      sectionEntries: paths.sections.get('calculus').entries,
+      availableSlugs: available,
+    });
+
+    assert.equal(reference.mode, 'catalog-only');
+    assert.equal(reference.nextSlug, undefined);
+    assert.deepEqual(backfill.backfillReturns.map((stage) => stage.id), ['neural-networks']);
+  });
+
+  it('exposes a category role only when a section has a configured path', () => {
+    const paths = getLearningPaths();
+    const backprop = getSectionPathContext(paths, 'backpropagation');
+    const glossary = getSectionPathContext(paths, 'approximation-theory');
+
+    assert.equal(backprop.mainlineStage.id, 'neural-networks');
+    assert.deepEqual(backprop.backfillGroups.map((group) => group.id), ['backprop-training']);
+    assert.equal(glossary.mainlineStage, undefined);
+    assert.deepEqual(glossary.backfillGroups, []);
   });
 });
