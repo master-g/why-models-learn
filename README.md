@@ -25,7 +25,7 @@ Transformer，再到理解预训练、微调、推理与对齐。
 写作完成后，把 vault 词条的 `status` 改为 `complete`，从 `sections.yaml` 的
 `known_absent` 移除对应 slug，再运行同步、测试、构建与视觉验收。
 
-新增或迁移插图时，遵循 [SVG 主题作者规范](docs/authoring/svg-theme.md)。
+新增或迁移插图时，遵循 [SVG 主题作者规范](docs/authoring/svg-theme.md)。编写页边补充内容时，遵循 [旁注作者规范](docs/authoring/sidenotes.md)。
 
 ## 常用命令
 

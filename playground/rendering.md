@@ -109,6 +109,22 @@ sync 会把 Obsidian callout 标记剥成普通 blockquote:
 >
 > 引用块的第二段,测试多段引用与数学 $\mathbb{R}^n$ 的混排。
 
+## 旁注
+
+同一段包含两个编号旁注:第一条对应局部术语[^sidenote-first],第二条继续验证同段堆叠顺序[^sidenote-second]。桌面端两条旁注应进入右侧页边并依次向下排列;移动端应在各自引用之后始终显示。
+
+行内数学旁注验证公式 $\lVert x \rVert_2$ 与正文基线[^sidenote-math]。
+
+> [!marginnote] 符号提醒
+> 无编号边注使用独立标签,不占用编号序列;桌面进入页边,移动端紧邻本段显示。
+
+下一段验证旁注中的站内链接[^sidenote-link],同时观察相邻段落的页边内容是否保持文档顺序。
+
+[^sidenote-first]: 第一条编号旁注用于验证局部锚点、页边起点和返回链接。
+[^sidenote-second]: 第二条编号旁注故意与第一条位于同一段,用于验证页边内容按引用顺序堆叠,且不覆盖后续正文。
+[^sidenote-math]: 行内数学 $\lVert x \rVert_2 = \sqrt{x^T x}$ 应保持行内尺寸,不触发展示公式布局。
+[^sidenote-link]: 站内链接应继续经过统一改写与部署前缀处理,例如[内积](../linear-algebra/inner-products/)。
+
 ## 列表与表格
 
 无序列表:

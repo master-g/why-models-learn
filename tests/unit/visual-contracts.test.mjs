@@ -7,6 +7,7 @@ const baseLayout = readFileSync('src/layouts/BaseLayout.astro', 'utf8');
 const homePage = readFileSync('src/pages/index.astro', 'utf8');
 const articlePage = readFileSync('src/pages/[slug].astro', 'utf8');
 const siteCss = readFileSync('src/styles/site.css', 'utf8');
+const playgroundMarkdown = readFileSync('playground/rendering.md', 'utf8');
 const playgroundSvg = readFileSync('public/assets/playground/svg/test-1.svg', 'utf8');
 
 describe('independent visual contracts', () => {
@@ -53,6 +54,37 @@ describe('independent visual contracts', () => {
       siteCss,
       /\.article-section li > mjx-container:not\(\[display="true"\]\)\s*\{[^}]*max-width:\s*100%;[^}]*overflow-x:\s*auto;/s,
     );
+  });
+
+  it('keeps notes visible in flow on narrow screens and in the 240px desktop margin', () => {
+    assert.match(
+      siteCss,
+      /\.article-section \.sidenote\s*\{[^}]*display:\s*block;[^}]*max-width:\s*100%;[^}]*background:\s*var\(--note\);/s,
+    );
+    assert.match(
+      siteCss,
+      /@media \(min-width:\s*1040px\)[\s\S]*\.article-section \.sidenote\s*\{[^}]*float:\s*right;[^}]*clear:\s*right;[^}]*width:\s*240px;[^}]*background:\s*transparent;/s,
+    );
+    assert.match(
+      siteCss,
+      /@media \(min-width:\s*1040px\)[\s\S]*\.article-section::after\s*\{[^}]*clear:\s*both;/s,
+    );
+    assert.doesNotMatch(siteCss, /sidenote[^{}]*checkbox|checkbox[^{}]*sidenote/i);
+  });
+
+  it('styles note labels, anchors and return links with visible focus', () => {
+    assert.match(siteCss, /\.sidenote__label[\s\S]*font-family:\s*var\(--font-mono\)/);
+    assert.match(siteCss, /\.sidenote-ref:focus-visible/);
+    assert.match(siteCss, /\.sidenote__backref:focus-visible/);
+    assert.match(siteCss, /\.sidenote:target/);
+  });
+
+  it('keeps a complete sidenote fixture in the rendering playground', () => {
+    assert.match(playgroundMarkdown, /\[\^sidenote-first\]/);
+    assert.match(playgroundMarkdown, /\[\^sidenote-second\]/);
+    assert.match(playgroundMarkdown, /> \[!marginnote\] 符号提醒/);
+    assert.match(playgroundMarkdown, /\[\^sidenote-math\]:[^\n]*\$[^$]+\$/);
+    assert.match(playgroundMarkdown, /\[\^sidenote-link\]:[^\n]*\[[^\]]+\]\([^)]+\)/);
   });
 
   it('renders a scoped content-license notice on every article', () => {

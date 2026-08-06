@@ -143,6 +143,14 @@ describe("lintChineseCopywriting", () => {
 		assert.ok(!reports.some((r) => /半角标点/.test(r.message)));
 	});
 
+	it("ignores the structural colon in Markdown footnote definitions", () => {
+		const input =
+			"正文。[^note]\n\n[^note]: 旁注正文仍然接受中文文案检查。";
+		const { text, reports } = lintChineseCopywriting(input);
+		assert.equal(text, input);
+		assert.ok(!reports.some((r) => /半角标点/.test(r.message)));
+	});
+
 	it("preserves YAML frontmatter and ignores quoted metadata values", () => {
 		const input = [
 			"---",

@@ -30,15 +30,18 @@ import { join } from "node:path";
 import yaml from "js-yaml";
 import { parseFrontmatter, splitFrontmatter } from "./lib/frontmatter.mjs";
 import { lintChineseCopywriting } from "./lib/copywriting-lint.mjs";
+import { prepareSidenoteSource } from "./lib/sidenote-source.mjs";
 import {
 	formatSvgThemeIssue,
 	validateSvgTheme,
 } from "./lib/svg-theme-contract.mjs";
 
-const VAULT_DIR = join(
-	homedir(),
-	"Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn",
-);
+const VAULT_DIR =
+	process.env.WHY_MODELS_LEARN_VAULT_DIR ||
+	join(
+		homedir(),
+		"Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn",
+	);
 const VAULT_SVG_DIR = join(VAULT_DIR, "svg");
 const OUT_ROOT = "content-zh";
 const ASSETS_ROOT = "public/assets";
@@ -117,13 +120,6 @@ function rewriteWikilinks(body, slugSections, warn) {
 	);
 }
 
-function stripCallouts(body) {
-	// `> [!tldr] 标题` → `> **标题**`;无标题的标记行 → `>`
-	return body.replace(/^> \[!\w+\][ \t]*(.*)$/gm, (_m, title) =>
-		title.trim() ? `> **${title.trim()}**` : ">",
-	);
-}
-
 // 插图文件名约定:<slug>.<n>.svg。用点号不用连字符:slug 互相包含前缀时
 // (如 vector / vector-spaces)连字符归属有歧义,slug 不含点,点号解析无歧义。
 function parseSvgOwner(filename, slugSections) {
@@ -196,7 +192,14 @@ function main() {
 			);
 		}
 
-		const outBody = stripCallouts(rewriteWikilinks(body, slugSections, warn));
+		const sidenoteSource = prepareSidenoteSource(body);
+		for (const issue of sidenoteSource.warnings) {
+			warn(`${slug}:${issue.line} SIDENOTE-LINT ${issue.message}`);
+		}
+		for (const issue of sidenoteSource.errors) {
+			errors.push(`${slug}:${issue.line} SIDENOTE-ERROR ${issue.message}`);
+		}
+		const outBody = rewriteWikilinks(sidenoteSource.text, slugSections, warn);
 		const outContent = `${outFrontmatter.join("\n")}\n${outBody}`;
 
 		// 文案 lint(沿用 algebrica 规则):reports 警告(LINT),errors 进硬错误数组

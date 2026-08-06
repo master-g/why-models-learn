@@ -654,7 +654,9 @@ summary {
 }
 
 .article-section .sidenote {
-  margin: 30px 0;
+  display: block;
+  max-width: 100%;
+  margin: 12px 0 24px;
   padding: 16px 18px;
   border-left: 1px solid var(--hairline-dark);
   color: var(--muted);
@@ -662,16 +664,58 @@ summary {
   font-family: var(--font-serif);
   font-size: 15px;
   line-height: 1.75;
+  scroll-margin-top: 96px;
   text-wrap: pretty;
 }
 
-.article-section .sidenote::before {
-  content: "旁注";
+.article-section .sidenote:target {
+  border-color: var(--accent);
+  box-shadow: inset 3px 0 0 color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.article-section .sidenote__number,
+.article-section .sidenote__label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   color: var(--ink);
-  font: 600 9px/1 var(--font-mono);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.2;
   letter-spacing: 0.12em;
+}
+
+.article-section .sidenote__number {
+  color: var(--accent);
+}
+
+.article-section .sidenote__body {
+  display: inline;
+}
+
+.article-section .sidenote-ref-wrapper {
+  margin-left: 0.08em;
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+.article-section .sidenote-ref,
+.article-section .sidenote__backref {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.article-section .sidenote__backref {
+  margin-left: 0.45em;
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+}
+
+.article-section .sidenote-ref:focus-visible,
+.article-section .sidenote__backref:focus-visible {
+  border-radius: 2px;
+  outline-color: var(--accent);
 }
 
 .article-section ul,

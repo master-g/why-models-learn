@@ -68,6 +68,9 @@ export function lintChineseCopywriting(text) {
 		.replace(/\[\/?(?:shortcode|class)(?:=[^\]\r\n]+)?\]/g, (m) =>
 			" ".repeat(m.length),
 		)
+		.replace(/^[ \t]*\[\^[^\]\r\n]+\]:(?=[ \t]+)/gm, (m) =>
+			" ".repeat(m.length),
+		)
 		.replace(/^[ \t]*\[[^\]\r\n]+\]:[ \t]*\S+[ \t]*$/gm, (m) =>
 			" ".repeat(m.length),
 		)
