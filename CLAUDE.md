@@ -25,11 +25,11 @@ npm run build   # 构建 dist/
 - **插图**(2026-07-28 vectors 补图时定):手绘 SVG 存 vault `svg/<slug>.<n>.svg`(点号分隔,防 slug 前缀歧义),正文 `![中文 alt](svg/x.svg)`;sync 校验归属/存在性(缺失=硬错误)→ 拷 `public/assets/<section>/svg/` 并改写绝对路径,与词条同生命周期。SVG 用系统字体栈(img 内用不了 webfont),配色从纸墨主题。禁 `![[embed]]`。
 - **草稿**:vault 内 `status: active`,不出 vault;演算纸笔记是消耗品。
 - **支线**:CNN/RNN/LSTM 零代码,概念+数学推导。
-- **部署**:已上 GitHub Pages(2026-08-01,仓库公开)——<https://master-g.github.io/why-models-learn/>,push main 即 Actions 自动部署。站内绝对路径必须经 `withBase()` 或 markdown 管线的 rehype-prefix-base,唯一事实源 `src/lib/base.mjs`。
+- **部署**:GitHub Pages 公开地址为 <https://master-g.github.io/why-models-learn/>。发布工作流先执行 `check:public-history` 与 `check:public-release`;历史清理完成前禁止发布。站内绝对路径必须经 `withBase()` 或 markdown 管线的 rehype-prefix-base,唯一事实源 `src/lib/base.mjs`。
 
 ## 骨架
 
-移植自 algebrica-zh(MathJax SVG 渲染、sectionize 主题、搜索、中文写作 lint)。原始上下文见 `docs/handoff.md`。
+数学渲染、sectionize、搜索与中文写作 lint 源自 algebrica-zh 的 MIT 许可代码。公开界面使用本项目的独立样式 `src/styles/site.css`,不包含 Algebrica 主题包、品牌图标与主题字体。原始上下文见 `docs/handoff.md`。
 
 **渲染试验田**:repo 根 `playground/rendering.md`(手维护 fixture,独立 collection)→ `/playground/` 页,与词条同管线同版式;改管线/样式后肉眼回归用。不进 vault/大纲/首页/搜索。
 
@@ -55,12 +55,13 @@ npm run build   # 构建 dist/
 
 - `content-zh/` 下所有文件——同步产物,手改会被下次 sync 覆盖/清除
 - `dist/`、`node_modules/`、`.astro/`、`data/`(gitignore)
-- `public/theme/` 视觉资产(algebrica 移植,个人非商业用途,勿替换后外传)
+- `public/theme/`、`public/styles/zh-overrides.css`——旧 Algebrica 主题资产,不得进入当前树或可达 Git 历史
 
 ## 审查规则
 
 - 词条验收:概念讲透(费曼)+ 结尾 `## 相关词条` 交叉链接 + 实战类代码内嵌可跑且贴运行输出
-- 自动闸(移植自 algebrica 验收体系,2026-07-28 升级):`npm run sync` 对每个同步词条跑 copywriting-lint——LINT 是警告(盘古空格/半角标点/直引号/全角数字/重复标点,回 vault 修),LINT-ERROR 是硬错误(数学区残留标点等,sync exit 1 不写产物);`npm run build` 的 postbuild 双闸:dist 全站 `mjx-error` + 插图 404,有即构建失败
+- 自动闸(移植自 algebrica 验收体系,2026-07-28 升级):`npm run sync` 对每个同步词条跑 copywriting-lint——LINT 是警告(盘古空格/半角标点/直引号/全角数字/重复标点,回 vault 修),LINT-ERROR 是硬错误(数学区残留标点等,sync exit 1 不写产物);`npm run build` 的 postbuild 检查 `mjx-error`、插图 404 和全站内部引用
+- 公开发布必须先通过 `npm run check:public-history` 和 `npm run check:public-release`;前者失败时按 `docs/runbooks/public-repository-cutover.md` 清理历史
 - `npm test` 必须全绿;视觉契约(visual-contracts)约束 BaseLayout/index/[slug] 的类名结构,改页面时同步改测试
 - sections.yaml 的 slug 与 vault 文件名一一对应;新词条先进 sections.yaml + known_absent
 

@@ -55,6 +55,14 @@ describe('rehype-rewrite-algebrica', () => {
     assert.equal(a.properties.href, '/definite-integrals/');
   });
 
+  it('rewrites same-section ./<slug>/ link to /<slug>/', () => {
+    const tree = { type: 'root', children: [makeLink('definite integrals', './definite-integrals/')] };
+    const slugMap = new Map([['definite-integrals', 'integrals']]);
+    run(tree, { slugMap, dangling: { external: [], text: [] } });
+    const [a] = find(tree, 'a');
+    assert.equal(a.properties.href, '/definite-integrals/');
+  });
+
   it('rewrites a stale article slug through an explicit alias', () => {
     const tree = { type: 'root', children: [makeLink('Euler formula', '../eulers-formula/')] };
     const slugMap = new Map([['euler-formula', 'complex-numbers']]);

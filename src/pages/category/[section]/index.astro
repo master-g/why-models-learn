@@ -13,48 +13,45 @@ export async function getStaticPaths() {
 
 const { section } = Astro.props;
 const entries = await getEntries();
-const bySlug = new Map(
-  entries.map((e) => {
-    const [sec, slug] = e.id.split('/');
-    return [slug, { entry: e, section: sec }];
-  }),
-);
-
+const bySlug = new Map(entries.map((entry) => [entry.id.split('/')[1], entry]));
 const title = `${section.name_zh} | 模型为什么会学习`;
 ---
 
 <BaseLayout title={title}>
-  <div class="post-header">
-    <nav class="post-header-breadcrumb" aria-label="Breadcrumb">分类</nav>
-    <div class="post-header-section-title">
-      <h1 class="post-header-title">{section.name_zh}</h1>
-      <div class="post-header-meta">{section.entries.length} 个条目</div>
-      {
-        section.description_zh && (
-          <div class="post-header-cat-description" lang="zh-CN">
-            <p>{section.description_zh}</p>
-          </div>
-        )
-      }
-    </div>
-  </div>
+  <div class="category-page">
+    <nav class="breadcrumbs" aria-label="面包屑">
+      <a href={withBase('/')}>全库目录</a><span>/</span><span>{section.name_zh}</span>
+    </nav>
 
-  <div class="page-search-wrapper">
-    {
-      section.entries.map((slug) => {
-        const found = bySlug.get(slug);
-        return (
-          <div class="search-results__item">
-            <div class="search-results__title">
-              {found ? (
-                <a href={withBase(`/${slug}/`)}>{found.entry.data.title}</a>
+    <header class="category-header">
+      <span class="page-kicker">第 {section.order} 章 · {section.entries.length} 篇</span>
+      <h1>{section.name_zh}</h1>
+      {section.description_zh && <p>{section.description_zh}</p>}
+    </header>
+
+    <section class="category-contents" aria-labelledby="category-contents-title">
+      <h2 id="category-contents-title">本章目录</h2>
+      <ol class="chapter-list">
+        {section.entries.map((slug, index) => {
+          const entry = bySlug.get(slug);
+          return (
+            <li>
+              {entry ? (
+                <a href={withBase(`/${slug}/`)}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{entry.data.title}</strong>
+                </a>
               ) : (
-                <span class="entry-todo">{slug} <span class="badge-untranslated">TODO</span></span>
+                <div class="chapter-list__todo">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{slug}</strong>
+                  <small>TODO</small>
+                </div>
               )}
-            </div>
-          </div>
-        );
-      })
-    }
+            </li>
+          );
+        })}
+      </ol>
+    </section>
   </div>
 </BaseLayout>

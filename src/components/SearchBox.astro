@@ -1,22 +1,20 @@
 ---
-import { withBase, BASE } from '../lib/base.mjs';
+import { withBase } from '../lib/base.mjs';
 
 export interface Props {
   variant: 'desktop' | 'mobile';
 }
 
 const { variant } = Astro.props;
-const inputClass = variant === 'desktop' ? 'search-input -desktop' : 'search-input';
-const iconClass = variant === 'desktop' ? 'search__icon -desktop' : 'search__icon';
-// 给客户端脚本用的 base 前缀(Astro 会把 frontmatter 值注入打包后的脚本)。
-const searchIndexUrl = `${BASE}/search.json`;
+const formClass = variant === 'desktop' ? 'site-search__form is-compact' : 'site-search__form';
+const searchIndexUrl = withBase('/search.json');
 ---
 
-<div class="search__container" data-search-role="container" data-search-index-url={searchIndexUrl}>
-  <form action={withBase('/search/')} data-search-role="form">
+<div class="site-search" data-search-role="container" data-search-url={searchIndexUrl}>
+  <form class={formClass} action={withBase('/search/')} data-search-role="form">
     <input
       name="s"
-      class={inputClass}
+      class="site-search__input"
       type="text"
       autocomplete="off"
       autocorrect="off"
@@ -25,11 +23,24 @@ const searchIndexUrl = `${BASE}/search.json`;
       placeholder="搜索…"
       data-search-role="input"
     />
-    <button class={iconClass} type="submit" aria-label="搜索">
-      <img alt="" src={withBase('/theme/images/icon-search.svg')} width="22" height="22" />
+    <button class="site-search__submit" type="submit" aria-label="搜索" title="搜索">
+      <!-- Lucide Search 图标；许可见 LICENSES/LUCIDE.txt。 -->
+      <svg
+        class="site-search__icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
     </button>
   </form>
-  <div class="search__suggestions" data-search-role="suggestions">
+  <div class="site-search__suggestions" data-search-role="suggestions">
     <ul data-search-role="list"></ul>
   </div>
 </div>
@@ -80,8 +91,7 @@ const searchIndexUrl = `${BASE}/search.json`;
       status = 'loading';
       showMessage(LOADING_TEXT);
 
-      // 索引 URL 由 frontmatter 经 data 属性传入(带部署 base 前缀)。
-      fetch(container.dataset.searchIndexUrl)
+      fetch(container.dataset.searchUrl)
         .then((res) => {
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
@@ -227,25 +237,3 @@ const searchIndexUrl = `${BASE}/search.json`;
 
   document.querySelectorAll('[data-search-role="container"]').forEach(initSearch);
 </script>
-
-<style is:global>
-  .search-suggestion-message {
-    display: block;
-    padding: 0 12px;
-    color: #636363;
-  }
-  .search-untranslated {
-    display: inline-block;
-    margin-left: 6px;
-    padding: 1px 5px;
-    border-radius: 3px;
-    background: #e9e3e2;
-    color: #636363;
-    font-size: 11px;
-    line-height: 1.4;
-  }
-  .search__suggestions li.search-suggestion-highlight,
-  .search__suggestions li.search-suggestion-highlight a {
-    background: #d7cdcb;
-  }
-</style>

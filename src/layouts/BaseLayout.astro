@@ -1,5 +1,6 @@
 ---
 import SearchBox from '../components/SearchBox.astro';
+import '../styles/site.css';
 import { withBase } from '../lib/base.mjs';
 
 export interface Props {
@@ -10,107 +11,93 @@ const { lang = 'zh-CN', title = '模型为什么会学习' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} data-theme="white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
     <title>{title}</title>
-    <link rel="stylesheet" href={withBase('/theme/style.css')} />
-    <link rel="stylesheet" href={withBase('/styles/zh-overrides.css')} />
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('why-models-learn-theme');
+          if (saved === 'black') document.documentElement.dataset.theme = 'black';
+        } catch (_) {
+          // 本地文件预览可能禁用 storage。
+        }
+      })();
+    </script>
   </head>
   <body>
-    <div id="curtain" class="curtain"></div>
+    <a class="skip-link" href="#main-content">跳到正文</a>
 
-    <header id="header" class="header">
-      <div class="header-main-layout">
-        <div class="header-main-layout__layer--left only-mobile">
-          <details class="mobile-nav">
-            <summary class="menu-float__hamburger" aria-label="展开导航">
-              <div></div>
-              <div></div>
-              <div></div>
-            </summary>
-            <div class="mobile-nav__panel">
-              <div class="sidebar__brand">
-                <a href={withBase('/')} aria-label="模型为什么会学习首页">
-                  <img src={withBase('/theme/images/icon-algebrica.svg')} alt="" width="40" height="40" />
-                </a>
-              </div>
-              <div class="sidebar__section">
-                <div class="search__wrapper">
-                  <div id="search-mobile">
-                    <SearchBox variant="mobile" />
-                  </div>
-                </div>
-              </div>
-              <div class="sidebar__section">
-                <div class="sidebar__menu">
-                  <div class="sidebar-list">
-                    <div class="sidebar-nav-li"><a href={withBase('/')}>首页 / 索引</a></div>
-                    <div class="sidebar-nav-li"><a href={withBase('/about/')}>关于</a></div>
-                    <div class="sidebar-nav-li"><a href="https://github.com/master-g/why-models-learn" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="sidebar__bottom-links">
-                <div class="sidebar__license">
-                  内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可。
-                </div>
-              </div>
-            </div>
-          </details>
-        </div>
-        <div class="header-main-layout__layer--center">
-          <div class="only-mobile">
-            <a href={withBase('/')} aria-label="模型为什么会学习首页">
-              <img src={withBase('/theme/images/icon-algebrica.svg')} alt="" width="42" height="21" />
-            </a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href={withBase('/')} aria-label="模型为什么会学习首页">
+          <span class="site-brand__name">模型为什么会学习</span>
+          <span class="site-brand__tagline">结构化机器学习条目</span>
+        </a>
+
+        <nav class="site-nav" aria-label="主导航">
+          <a href={withBase('/')}>章节目录</a>
+          <a href={withBase('/glossary/')}>词汇表</a>
+          <a href={withBase('/about/')}>关于</a>
+          <a href="https://github.com/master-g/why-models-learn" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <SearchBox variant="desktop" />
+          <div class="theme-switch" role="group" aria-label="黑白主题">
+            <button type="button" data-theme-choice="white" aria-pressed="true" title="白色主题">白</button>
+            <button type="button" data-theme-choice="black" aria-pressed="false" title="黑色主题">黑</button>
           </div>
-        </div>
-        <div class="header-main-layout__layer--right"></div>
+        </nav>
+
+        <details class="site-menu">
+          <summary aria-label="展开导航"><span></span><span></span><span></span></summary>
+          <div class="site-menu__panel">
+            <SearchBox variant="mobile" />
+            <a href={withBase('/')}>章节目录</a>
+            <a href={withBase('/glossary/')}>词汇表</a>
+            <a href={withBase('/about/')}>关于</a>
+            <a href="https://github.com/master-g/why-models-learn" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <div class="theme-switch" role="group" aria-label="黑白主题">
+              <button type="button" data-theme-choice="white" aria-pressed="true">白色</button>
+              <button type="button" data-theme-choice="black" aria-pressed="false">黑色</button>
+            </div>
+          </div>
+        </details>
       </div>
     </header>
 
-    <div id="site-main" class="main">
-      <div id="site-container" class="container relative">
-        <div id="site-container-grid" class="site-container">
-          <aside id="site-sidebar-right" class="sidebar site-column no-mobile" aria-label="站点导航">
-            <div class="sidebar__brand">
-              <a href={withBase('/')} aria-label="模型为什么会学习首页">
-                <img src={withBase('/theme/images/icon-algebrica.svg')} alt="" width="40" height="40" />
-              </a>
-            </div>
-            <div class="sidebar__section">
-              <div class="search__wrapper">
-                <div id="search-desktop">
-                  <SearchBox variant="desktop" />
-                </div>
-              </div>
-            </div>
-            <div class="sidebar__section">
-              <div class="sidebar__menu">
-                <div class="sidebar-list">
-                  <div class="sidebar-nav-li"><a href={withBase('/')}>首页 / 索引</a></div>
-                  <div class="sidebar-nav-li"><a href={withBase('/about/')}>关于</a></div>
-                  <div class="sidebar-nav-li"><a href="https://github.com/master-g/why-models-learn" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></div>
-                </div>
-              </div>
-            </div>
-            <div class="sidebar__bottom-links">
-              <div class="sidebar__license">
-                内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可。
-              </div>
-            </div>
-          </aside>
+    <main id="main-content" class="site-shell">
+      <slot />
+    </main>
 
-          <div id="site-content" class="site-column-main">
-            <slot />
-          </div>
-        </div>
-      </div>
-    </div>
+    <footer class="site-footer">
+      <span>模型为什么会学习 · 独立界面与中文排版</span>
+      <span>正文与原创插图采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></span>
+    </footer>
 
-    <div class="footer"></div>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const buttons = Array.from(document.querySelectorAll('[data-theme-choice]'));
 
+        function setTheme(theme, persist = true) {
+          const next = theme === 'black' ? 'black' : 'white';
+          root.dataset.theme = next;
+          buttons.forEach((button) => {
+            button.setAttribute('aria-pressed', String(button.dataset.themeChoice === next));
+          });
+          if (persist) {
+            try { localStorage.setItem('why-models-learn-theme', next); } catch (_) {}
+          }
+        }
+
+        setTheme(root.dataset.theme, false);
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => setTheme(button.dataset.themeChoice));
+        });
+      })();
+    </script>
   </body>
 </html>

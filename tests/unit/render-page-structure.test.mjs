@@ -2,8 +2,8 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { renderPageMarkdown } from '../../src/pages/_render-page.mjs';
 
-describe('renderPageMarkdown theme structure', () => {
-  it('wraps every level-two heading and its content in a post section', async () => {
+describe('renderPageMarkdown article structure', () => {
+  it('wraps every level-two heading and its content in an article section', async () => {
     const html = await renderPageMarkdown(`## Introduction
 
 First paragraph.
@@ -13,15 +13,15 @@ First paragraph.
 Second paragraph.
 `);
 
-    const sections = html.match(/<section class="post-section">/g) || [];
+    const sections = html.match(/<section class="article-section">/g) || [];
     assert.equal(sections.length, 2);
     assert.match(
       html,
-      /<section class="post-section"><h2[^>]*>Introduction<\/h2>\s*<p>First paragraph\.<\/p>\s*<\/section>/,
+      /<section class="article-section"><h2[^>]*>Introduction<\/h2>\s*<p>First paragraph\.<\/p>\s*<\/section>/,
     );
     assert.match(
       html,
-      /<section class="post-section"><h2[^>]*>Properties<\/h2>\s*<p>Second paragraph\.<\/p>\s*<\/section>/,
+      /<section class="article-section"><h2[^>]*>Properties<\/h2>\s*<p>Second paragraph\.<\/p>\s*<\/section>/,
     );
   });
 
@@ -33,7 +33,7 @@ $x + y$
 
     assert.match(html, /<\/section>\s*<style>/);
     assert.match(html, /<\/style>$/);
-    assert.equal((html.match(/<section class="post-section">/g) || []).length, 1);
+    assert.equal((html.match(/<section class="article-section">/g) || []).length, 1);
   });
 
   it('marks paragraph-only inline MathJax output for display-style centering', async () => {

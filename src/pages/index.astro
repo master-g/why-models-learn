@@ -7,83 +7,70 @@ import { getEntries } from './_entries.mjs';
 const parts = getParts();
 const sections = getSections();
 const entries = await getEntries();
-const bySlug = new Map(entries.map((e) => [e.id.split('/')[1], e]));
-// 部分 > 章 > 词条:按 part 字段分组(无 part 的旧数据归入未分组)
+const bySlug = new Map(entries.map((entry) => [entry.id.split('/')[1], entry]));
+const totalEntries = sections.reduce((total, section) => total + section.entries.length, 0);
 const sectionsByPart = new Map();
-for (const s of sections) {
-  const key = s.part ?? '';
+for (const section of sections) {
+  const key = section.part ?? '';
   if (!sectionsByPart.has(key)) sectionsByPart.set(key, []);
-  sectionsByPart.get(key).push(s);
+  sectionsByPart.get(key).push(section);
 }
 ---
 
 <BaseLayout title="模型为什么会学习">
-  <div class="ui-new-home-wrapper">
-    <div class="video-home-wrap">
-      <div class="video-home-headline">模型为什么会学习</div>
-      <div class="video-home-desc">
-        一个写给未来的自己的结构化学习库:从向量开始,到手写 Transformer,再到复现 LLaMA2。
+  <div class="home-page">
+    <header class="home-hero">
+      <span class="page-kicker">从数学地基到语言模型</span>
+      <h1>模型为什么<br />会学习</h1>
+      <p>一个写给未来的自己的结构化学习库。从向量开始，逐步推导神经网络、Transformer、预训练、微调、推理与对齐。</p>
+      <div class="home-hero__stats" aria-label="学习库进度">
+        <span><strong>{parts.length}</strong> 个部分</span>
+        <span><strong>{sections.length}</strong> 个章节</span>
+        <span><strong>{entries.length}</strong> / {totalEntries} 篇已完成</span>
       </div>
-    </div>
+    </header>
 
-    <div class="ui-new-home-heros">
-      <div class="ui-new-home-spacer"></div>
-      <div class="ui-new-home-cols">
-        <div class="ui-new-home-col">
-          <div style="text-align: center;">
-            词条是学习成果的正式沉淀:一个概念写成词条才算学完。骨架先行,空词条即 TODO。
-          </div>
-        </div>
-        <div class="ui-new-home-col no-mobile">
-          <div style="text-align: center;">
-            全部内容以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a> 许可发布于
-            <a href="https://github.com/master-g/why-models-learn" target="_blank" rel="noopener noreferrer">GitHub</a>。
-          </div>
-        </div>
+    <section class="section-index" aria-labelledby="section-index-title">
+      <div class="section-index__head">
+        <span class="page-kicker">全库目录</span>
+        <h2 id="section-index-title">按学习依赖阅读</h2>
       </div>
-    </div>
 
-    <div class="module-index">
-      {
-        parts.map((part) => (
-          <div class="module-index-part">
-            <div class="module-index-part__header">
-              <span class="module-index-part__title">{part.name_zh}</span>
-              <span class="module-index-part__desc">{part.description_zh.trim()}</span>
-            </div>
-            {(sectionsByPart.get(part.id) || []).map((section) => (
-              <div class="module-index-section">
-                <div class="module-index-section-header">
-                  <div class="module-index-heading">
-                    <span class="module-index-number">{section.order}.</span>
-                    <span class="module-index-heading__title">
-                      <a href={withBase(`/category/${section.dir}/`)}>{section.name_zh}</a>
-                    </span>
-                  </div>
+      {parts.map((part) => (
+        <section class="part-index" aria-labelledby={`part-${part.id}`}>
+          <header class="part-index__head">
+            <span class="page-kicker">第 {part.order} 部分</span>
+            <h2 id={`part-${part.id}`}>{part.name_zh}</h2>
+            <p>{part.description_zh.trim()}</p>
+          </header>
+
+          {(sectionsByPart.get(part.id) || []).map((section) => (
+            <section class="section-index__group">
+              <header class="section-index__group-head">
+                <span class="section-index__number">{String(section.order).padStart(2, '0')}</span>
+                <div>
+                  <h3><a href={withBase(`/category/${section.dir}/`)}>{section.name_zh}</a></h3>
+                  <p>{section.description_zh}</p>
                 </div>
-                <div class="module-index-posts">
-                  {section.entries.map((slug, idx) => {
-                    const entry = bySlug.get(slug);
-                    const number = `${section.order}.${idx + 1}`;
-                    return (
-                      <div class="module-index-post">
-                        <span class="module-index-number module-index-post__number">{number}</span>
-                        <div class="module-index-post__title">
-                          {entry ? (
-                            <a href={withBase(`/${slug}/`)}>{entry.data.title}</a>
-                          ) : (
-                            <span class="entry-todo">{slug}<span class="badge-untranslated">TODO</span></span>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-        ))
-      }
-    </div>
+              </header>
+              <ol class="section-index__entries">
+                {section.entries.map((slug, index) => {
+                  const entry = bySlug.get(slug);
+                  return (
+                    <li>
+                      <span>{section.order}.{index + 1}</span>
+                      {entry
+                        ? <a href={withBase(`/${slug}/`)}>{entry.data.title}</a>
+                        : <span class="entry-todo">{slug}</span>}
+                      {!entry && <small>TODO</small>}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          ))}
+        </section>
+      ))}
+    </section>
   </div>
 </BaseLayout>

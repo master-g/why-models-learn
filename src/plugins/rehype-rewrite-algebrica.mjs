@@ -29,9 +29,9 @@ export default function rehypeRewriteAlgebrica({ slugMap = new Map(), dangling =
     visit(tree, 'element', (node, index, parent) => {
       if (node.tagName === 'a') {
         const href = node.properties?.href;
-        if (typeof href !== 'string' || !href.startsWith('../')) return;
+        if (typeof href !== 'string' || (!href.startsWith('../') && !href.startsWith('./'))) return;
 
-        const target = href.replace(/^(\.\.\/)+/, '').replace(/\/$/, '');
+        const target = href.replace(/^(?:\.\.?\/)+/, '').replace(/\/$/, '');
 
         if (aliases.has(target)) {
           const canonical = aliases.get(target);

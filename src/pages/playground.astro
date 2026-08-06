@@ -1,9 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/base.mjs';
 
-// 渲染试验田:用与词条完全相同的管线和版式渲染 playground/ 下的 fixture。
-// 不进首页与搜索;URL 直达 /playground/。
 const docs = await getCollection('playground');
 docs.sort((a, b) => a.id.localeCompare(b.id));
 const rendered = await Promise.all(
@@ -14,16 +13,15 @@ const rendered = await Promise.all(
 <BaseLayout title="渲染试验田 | 模型为什么会学习">
   {
     rendered.map(({ doc, Content }) => (
-      <article class="post" lang="zh-CN">
-        <div class="post-header">
-          <nav class="post-header-breadcrumb" aria-label="Breadcrumb">
-            <span>playground</span>
-          </nav>
-          <div class="post-header-section-title">
-            <h1 class="post-header-title">{doc.data.title}</h1>
+      <article class="article-page" lang="zh-CN">
+        <nav class="breadcrumbs" aria-label="面包屑"><a href={withBase('/')}>首页</a><span>/</span><span>渲染试验田</span></nav>
+        <header class="article-header article-header--single">
+          <div>
+            <span class="page-kicker">渲染回归</span>
+            <h1 class="article-title">{doc.data.title}</h1>
           </div>
-        </div>
-        <div class="post-content">
+        </header>
+        <div class="article-content">
           <Content />
         </div>
       </article>

@@ -1,47 +1,56 @@
 # 模型为什么会学习
 
-写给未来的自己的结构化学习库:从向量与数学地基开始,到手写完整 Transformer,再到复现 LLaMA2。
+写给未来的自己的结构化学习库：从向量与数学地基开始，到手写完整
+Transformer，再到理解预训练、微调、推理与对齐。
 
-**词条是学习成果的正式沉淀:一个概念写成词条才算学完。** 骨架先行——`sections.yaml` 定义全部章节与词条,空词条以 TODO 状态光明正大地空着(known_absent 模式),随学习进度逐个填充。
+**词条是学习成果的正式沉淀：一个概念写成词条才算学完。**
+`sections.yaml` 先定义全部章节与词条；未完成词条保留为 TODO，随后按学习依赖
+逐篇编写、核验并发布。
 
-## 线上地址
+## 公开发布状态
 
-<https://master-g.github.io/why-models-learn/>(GitHub Pages;push main 后由 Actions 自动构建部署)
+公开站点使用独立界面与中文排版，不发布 Algebrica 的主题包、品牌图标或主题
+字体文件。GitHub Pages 工作流同时检查当前文件树、构建产物和 Git 可达历史；
+任何旧主题对象仍在可达历史中时，工作流拒绝部署。
 
-## 架构:vault 是事实源,本 repo 是渲染器
+公开历史清理必须在隔离镜像中执行，并保留可恢复 bundle。执行步骤见
+[`docs/runbooks/public-repository-cutover.md`](docs/runbooks/public-repository-cutover.md)。
 
-词条在 Obsidian vault 飞地 `Documents/ObsidianVaults/Main/03 - AREAS/learning/why-models-learn/` 里以 feynman 卡片书写(约定见该目录 `_README.md`);`content-zh/` 是 `npm run sync` 的纯产物,不手改。
+## 架构：vault 是事实源，repo 是渲染器
 
-## 写作工作流
+词条唯一事实源位于 Obsidian vault 的
+`03 - AREAS/learning/why-models-learn/`。`content-zh/` 是 `npm run sync` 的
+纯产物，不手工修改。
 
-1. 在 vault 飞地新建 `<slug>.md`(slug 须在 `sections.yaml` 中),frontmatter 带 `title` 与 `status: active`。
-2. 写完 → `status` 翻为 `complete` → `npm run sync` → 从 `sections.yaml` 的 `known_absent` 移除该 slug。站内指向它的链接随即自动从纯文本变成真链接。
-3. `npm run dev` 预览;`npm test` 跑渲染与样式契约检查。
-
-词条验收标准:概念讲透(写给自己的费曼检验)+ 交叉链接到相关词条 + 实战类词条代码自包含可运行(输出贴进词条当证据)。
+写作完成后，把 vault 词条的 `status` 改为 `complete`，从 `sections.yaml` 的
+`known_absent` 移除对应 slug，再运行同步、测试、构建与视觉验收。
 
 ## 常用命令
 
-`make`(无参数)列出全部命令,均为 npm 脚本的薄封装:
-
 ```bash
-make install       # 安装依赖
-make sync          # vault → content-zh 单向同步
-make dev           # 本地预览
-make build         # 构建到 dist/
-make test          # 单元测试 + 视觉契约
-make check-search  # 搜索冒烟(需先 build;词条未写齐时 FAIL 属预期)
+npm run sync                  # vault → content-zh 单向同步
+npm test                      # 单元测试与视觉契约
+npm run build                 # 构建 dist/ 并检查公式、插图和静态链接
+npm run check:licenses        # 检查依赖许可元数据与第三方声明
+npm run check:public-release  # 检查当前文件树和构建产物
+npm run check:public-history  # 检查全部可达 Git 历史
 ```
 
 ## 结构
 
-- `sections.yaml` — 章节骨架与 known_absent TODO 列表
-- `content-zh/<section>/<slug>.md` — 同步产物(勿手改)
-- `scripts/sync-from-vault.mjs` — 同步管道(wikilink 改写/callout 剥离/status 闸门)
-- `docs/handoff.md` — 项目启动上下文(定位、已决策事项、路线图)
+- `sections.yaml`：章节骨架与 `known_absent` TODO 列表。
+- `content-zh/<section>/<slug>.md`：同步产物。
+- `public/assets/<section>/svg/`：从 vault 同步的原创插图。
+- `scripts/sync-from-vault.mjs`：同步管道。
+- `playground/rendering.md`：渲染管线回归夹具。
 
-## 许可与致谢
+## 许可
 
-内容以 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可发布。
+- 中文词条与原创插图按
+  [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+  提供。
+- 原创软件代码采用 MIT License。
+- 第三方材料继续遵循各自许可证。
 
-站点骨架与视觉主题移植自 [Algebrica](https://algebrica.org) 的中文镜像项目 algebrica-zh(个人非商业用途);数学公式由 MathJax 渲染。
+完整边界见 [LICENSE.md](LICENSE.md)，第三方清单见
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

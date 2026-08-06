@@ -3,10 +3,8 @@ function isElement(node, tagName) {
 }
 
 /**
- * Restore the section wrappers expected by the upstream Algebrica theme.
- * Each Markdown level-two heading starts one visual article section. MathJax's
- * document-level companion style remains a sibling so section spacing and
- * borders do not treat it as article content.
+ * 每个 Markdown 二级标题开启一个文章分节。MathJax 的文档级伴随样式保留为
+ * 分节的兄弟节点，避免分节间距和边框把样式元素视为正文。
  */
 export default function rehypeSectionizeAlgebrica() {
   return (tree) => {
@@ -20,7 +18,7 @@ export default function rehypeSectionizeAlgebrica() {
         section = {
           type: 'element',
           tagName: 'section',
-          properties: { className: ['post-section'] },
+          properties: { className: ['article-section'] },
           children: [child],
         };
         children.push(section);
