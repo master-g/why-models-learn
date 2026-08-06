@@ -1,48 +1,72 @@
-<svg width="560" height="220" viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="220" viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-fill { fill: #cc785c; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-divider-stroke { stroke: #e1ddd7; }
+  .svg-ink-fill { fill: #312f2f; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-muted-stroke { stroke: #6c6a64; }
+  @media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-fill { fill: #e28466; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-divider-stroke { stroke: #4f4f49; }
+    .svg-ink-fill { fill: #f0efe8; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-muted-stroke { stroke: #aaa9a1; }
+  }
+</style>
   <defs>
     <marker id="ld-arr-gray" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
     <marker id="ld-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-ink-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左:一对点的位移与三种距离 ============ -->
   <!-- 原点 (40,175),20px/单位; y 轴向上 -->
-  <line x1="40" y1="175" x2="158" y2="175" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ld-arr-gray)"/>
-  <line x1="40" y1="175" x2="40" y2="30" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ld-arr-gray)"/>
-  <text x="163" y="179" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="34" y="27" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="40" y1="175" x2="158" y2="175"  stroke-width="1" marker-end="url(#ld-arr-gray)" class="svg-axis-stroke"/>
+  <line x1="40" y1="175" x2="40" y2="30"  stroke-width="1" marker-end="url(#ld-arr-gray)" class="svg-axis-stroke"/>
+  <text x="163" y="179" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="34" y="27" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- a=(1,2),b=(4,6);直达线与曼哈顿折线 -->
-  <line x1="60" y1="135" x2="120" y2="55" stroke="#312f2f" stroke-width="1.8" marker-end="url(#ld-arr-ink)"/>
-  <path d="M60,135 L120,135 L120,55" fill="none" stroke="#cc785c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ld-arr-gray)"/>
-  <circle cx="60" cy="135" r="3" fill="#cc785c"/>
-  <circle cx="120" cy="55" r="3" fill="#312f2f"/>
-  <text x="49" y="151" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">a=(1, 2)</text>
-  <text x="126" y="51" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">b=(4, 6)</text>
-  <text x="88" y="98" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11" fill="#312f2f">d₂=5</text>
-  <text x="126" y="127" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11" fill="#a9583e">d₁=7</text>
-  <text x="91" y="202" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">b−a=(3, 4), d∞=4</text>
+  <line x1="60" y1="135" x2="120" y2="55"  stroke-width="1.8" marker-end="url(#ld-arr-ink)" class="svg-ink-stroke"/>
+  <path d="M60,135 L120,135 L120,55" fill="none"  stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ld-arr-gray)" class="svg-coral-stroke-stroke"/>
+  <circle cx="60" cy="135" r="3"  class="svg-coral-stroke-fill"/>
+  <circle cx="120" cy="55" r="3"  class="svg-ink-fill"/>
+  <text x="49" y="151" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-coral-text-fill">a=(1, 2)</text>
+  <text x="126" y="51" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-ink-fill">b=(4, 6)</text>
+  <text x="88" y="98" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11"  class="svg-ink-fill">d₂=5</text>
+  <text x="126" y="127" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11"  class="svg-coral-text-fill">d₁=7</text>
+  <text x="91" y="202" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-muted-fill">b−a=(3, 4), d∞=4</text>
 
-  <line x1="278" y1="20" x2="278" y2="205" stroke="#e1ddd7" stroke-width="1"/>
+  <line x1="278" y1="20" x2="278" y2="205"  stroke-width="1" class="svg-divider-stroke"/>
 
   <!-- ============ 右:同一中心的三种距离球 ============ -->
   <!-- 中心 (420,120),20px/单位;半径 r=2 -->
-  <line x1="362" y1="120" x2="480" y2="120" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ld-arr-gray)"/>
-  <line x1="420" y1="178" x2="420" y2="35" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ld-arr-gray)"/>
-  <text x="484" y="124" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="414" y="32" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="362" y1="120" x2="480" y2="120"  stroke-width="1" marker-end="url(#ld-arr-gray)" class="svg-axis-stroke"/>
+  <line x1="420" y1="178" x2="420" y2="35"  stroke-width="1" marker-end="url(#ld-arr-gray)" class="svg-axis-stroke"/>
+  <text x="484" y="124" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="414" y="32" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- d∞ 球:正方形;d₂ 球:圆盘;d₁ 球:菱形 -->
-  <rect x="380" y="80" width="80" height="80" fill="none" stroke="#6c6a64" stroke-width="1.2" stroke-dasharray="4 4"/>
-  <circle cx="420" cy="120" r="40" fill="none" stroke="#312f2f" stroke-width="1.5"/>
-  <polygon points="460,120 420,80 380,120 420,160" fill="none" stroke="#cc785c" stroke-width="1.8"/>
-  <circle cx="420" cy="120" r="2.8" fill="#312f2f"/>
+  <rect x="380" y="80" width="80" height="80" fill="none"  stroke-width="1.2" stroke-dasharray="4 4" class="svg-muted-stroke"/>
+  <circle cx="420" cy="120" r="40" fill="none"  stroke-width="1.5" class="svg-ink-stroke"/>
+  <polygon points="460,120 420,80 380,120 420,160" fill="none"  stroke-width="1.8" class="svg-coral-stroke-stroke"/>
+  <circle cx="420" cy="120" r="2.8"  class="svg-ink-fill"/>
 
-  <text x="465" y="116" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">d₁≤2</text>
-  <text x="424" y="75" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">d₂≤2</text>
-  <text x="375" y="76" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64" text-anchor="end">d∞≤2</text>
-  <text x="420" y="202" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">同一半径 r=2 的三种距离球</text>
+  <text x="465" y="116" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-coral-text-fill">d₁≤2</text>
+  <text x="424" y="75" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-ink-fill">d₂≤2</text>
+  <text x="375" y="76" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  text-anchor="end" class="svg-muted-fill">d∞≤2</text>
+  <text x="420" y="202" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-muted-fill">同一半径 r=2 的三种距离球</text>
 </svg>

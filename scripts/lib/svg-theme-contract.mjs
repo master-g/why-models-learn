@@ -77,6 +77,7 @@ const PAINT_TAGS = new Set([
 ]);
 const HEX_COLOR = /#[0-9a-f]{3,8}\b/gi;
 const ROLE_TOKEN = /\bsvg-[a-z0-9-]+\b/gi;
+const STANDARD_ROLE_ALIAS = /^(svg-(?:page|ink|muted|axis|divider|coral-text|coral-stroke))(?:-(?:fill|stroke))?$/;
 const SPECIAL_ROLE = /^svg-special-(text|graphic|fill)-[a-z0-9-]+$/;
 const DARK_MEDIA = /@media\s*\(\s*prefers-color-scheme\s*:\s*dark\s*\)/gi;
 const SAFE_PAINT_VALUE = /^(?:none|transparent|currentcolor|inherit|context-(?:fill|stroke)|var\(--[a-z0-9-]+\)|url\([^)]*\))$/i;
@@ -135,8 +136,16 @@ export function contrastRatio(foreground, background) {
 	return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
 }
 
+function canonicalRoleClass(value) {
+	if (Object.hasOwn(STANDARD_SVG_ROLES, value)) return value;
+	const standardAlias = value.match(STANDARD_ROLE_ALIAS);
+	if (standardAlias) return standardAlias[1];
+	if (SPECIAL_ROLE.test(value)) return value;
+	return null;
+}
+
 function isRoleClass(value) {
-	return Object.hasOwn(STANDARD_SVG_ROLES, value) || SPECIAL_ROLE.test(value);
+	return canonicalRoleClass(value) !== null;
 }
 
 function roleClasses(text) {
@@ -228,7 +237,7 @@ function parseRoleColors(css, theme, asset, source, issues) {
 		for (const token of unknown) {
 			issues.push(issueAt("UNKNOWN_PAINT_ROLE", `未登记的 SVG 角色类 ${token}`, asset, source, rule.index));
 		}
-		const known = tokens.filter(isRoleClass);
+		const known = [...new Set(tokens.filter(isRoleClass).map(canonicalRoleClass))];
 		const colors = colorValues(rule.body);
 		const paints = declarations(rule.body);
 		const unsafePaints = paints.filter(({ value }) => !SAFE_PAINT_VALUE.test(value));
@@ -318,7 +327,7 @@ function scanMarkup(source, asset, issues) {
 			}
 		}
 		const inheritedRole = stack.at(-1)?.role || null;
-		const role = localRoles.find(isRoleClass) || inheritedRole;
+		const role = canonicalRoleClass(localRoles.find(isRoleClass) || "") || inheritedRole;
 		const directPaints = [...attributes.matchAll(/\b(fill|stroke|color|stop-color|flood-color)\s*=\s*["']([^"']*)["']/gi)];
 		const inlinePaints = [...attributes.matchAll(/\bstyle\s*=\s*["']([^"']*)["']/gi)].flatMap((style) =>
 			[...style[1].matchAll(/(?:^|;)\s*(fill|stroke|color|stop-color|flood-color)\s*:\s*([^;]+)/gi)].map((paint) => [paint[1], paint[2].trim()]),
@@ -418,7 +427,7 @@ export function validateSvgTheme(source, { asset = "<inline-svg>", strict = true
 	for (const match of text.matchAll(/\bclass\s*=\s*["']([^"']+)["']/gi)) {
 		for (const role of roleClasses(match[1])) {
 			if (!isRoleClass(role)) errors.push(issueAt("UNKNOWN_PAINT_ROLE", `未登记的 SVG 角色类 ${role}`, asset, text, match.index));
-			else usedRoles.add(role);
+			else usedRoles.add(canonicalRoleClass(role));
 		}
 	}
 	validateRoleDefinitions(roles, usedRoles, asset, errors);

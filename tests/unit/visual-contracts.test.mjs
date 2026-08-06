@@ -1,11 +1,13 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { validateSvgTheme } from '../../scripts/lib/svg-theme-contract.mjs';
 
 const baseLayout = readFileSync('src/layouts/BaseLayout.astro', 'utf8');
 const homePage = readFileSync('src/pages/index.astro', 'utf8');
 const articlePage = readFileSync('src/pages/[slug].astro', 'utf8');
 const siteCss = readFileSync('src/styles/site.css', 'utf8');
+const playgroundSvg = readFileSync('public/assets/playground/svg/test-1.svg', 'utf8');
 
 describe('independent visual contracts', () => {
   it('loads the repository-owned stylesheet without copied theme paths', () => {
@@ -57,5 +59,12 @@ describe('independent visual contracts', () => {
     assert.match(articlePage, /<footer class="article-attribution">/);
     assert.match(articlePage, /正文与原创插图/);
     assert.match(articlePage, /软件代码与第三方材料不在此许可范围内/);
+  });
+
+  it('keeps the repository-owned illustration on the adaptive SVG contract', () => {
+    const result = validateSvgTheme(playgroundSvg, { asset: 'playground/svg/test-1.svg' });
+    assert.deepEqual(result.errors, []);
+    assert.match(playgroundSvg, /prefers-color-scheme:\s*dark/);
+    assert.doesNotMatch(playgroundSvg, /\b(?:fill|stroke)="#[0-9a-f]{3,8}"/i);
   });
 });

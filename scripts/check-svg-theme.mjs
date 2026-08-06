@@ -24,7 +24,7 @@ function walk(root) {
 
 export function checkSvgThemeTree(root = "public/assets") {
 	const absoluteRoot = resolve(root);
-	if (!existsSync(absoluteRoot) || !statSync(absoluteRoot).isDirectory()) {
+	if (!existsSync(absoluteRoot)) {
 		return {
 			errors: [{ code: "MISSING_ASSET_ROOT", message: `SVG 目录不存在: ${absoluteRoot}` }],
 			checked: 0,
@@ -32,7 +32,8 @@ export function checkSvgThemeTree(root = "public/assets") {
 	}
 	const errors = [];
 	let checked = 0;
-	for (const file of walk(absoluteRoot)) {
+	const files = statSync(absoluteRoot).isFile() ? [absoluteRoot] : walk(absoluteRoot);
+	for (const file of files) {
 		checked += 1;
 		const result = validateSvgTheme(readFileSync(file, "utf8"), {
 			asset: relative(absoluteRoot, file),
