@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .small { font-size:14px; }
+      .label { font-size:16px; font-weight:600; }
+      .muted { fill:#6c6a64; font-size:13px; }
+      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
+      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
+      .line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#arrow); }
+      .curve { fill:none; stroke:#cc785c; stroke-width:2.2; }
+      .interp { fill:none; stroke:#5d7775; stroke-width:2; }
+      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#f4f0ec"/>
+  <text x="36" y="34" class="ink label">通用逼近：把“连续”变成可拼接的折点</text>
+  <text x="36" y="57" class="ink muted">定理给表达能力的存在性，不替训练、泛化和高维效率背书</text>
+
+  <rect x="36" y="82" width="188" height="104" rx="10" class="accent"/>
+  <text x="130" y="108" text-anchor="middle" class="ink label">目标 f(x)</text>
+  <path d="M60 162 C82 126 103 145 123 122 C144 99 159 145 199 112" class="curve"/>
+  <path d="M60 165 H201 M60 165 V119" class="guide"/>
+  <circle cx="60" cy="165" r="2.5" fill="#cc785c"/>
+  <circle cx="95" cy="142" r="2.5" fill="#cc785c"/>
+  <circle cx="130" cy="116" r="2.5" fill="#cc785c"/>
+  <circle cx="164" cy="139" r="2.5" fill="#cc785c"/>
+  <circle cx="199" cy="112" r="2.5" fill="#cc785c"/>
+
+  <rect x="274" y="78" width="214" height="112" rx="10" class="box"/>
+  <text x="381" y="105" text-anchor="middle" class="ink label">细网格</text>
+  <text x="381" y="130" text-anchor="middle" class="ink small">h = 1 / m</text>
+  <text x="381" y="151" text-anchor="middle" class="ink small">连续性 → ωf(h) 变小</text>
+  <text x="381" y="173" text-anchor="middle" class="ink small">相邻点之间用直线连接</text>
+
+  <rect x="538" y="78" width="226" height="112" rx="10" class="box"/>
+  <text x="651" y="105" text-anchor="middle" class="ink label">ReLU 折点</text>
+  <text x="651" y="130" text-anchor="middle" class="ink small">ReLU(x − ti)</text>
+  <text x="651" y="151" text-anchor="middle" class="ink small">每个 ti 改变一次斜率</text>
+  <text x="651" y="173" text-anchor="middle" class="ink small">线性组合得到 gm(x)</text>
+
+  <path d="M224 134 H268" class="line"/>
+  <path d="M488 134 H532" class="line"/>
+
+  <rect x="36" y="226" width="220" height="82" rx="10" class="box"/>
+  <text x="146" y="253" text-anchor="middle" class="ink label">分段线性网络 gm</text>
+  <text x="146" y="278" text-anchor="middle" class="ink small">网格点命中，区间内保持直线</text>
+  <text x="146" y="297" text-anchor="middle" class="ink small">宽度随折点数量增长</text>
+
+  <rect x="290" y="218" width="220" height="90" rx="10" class="accent"/>
+  <text x="400" y="245" text-anchor="middle" class="ink label">误差</text>
+  <text x="400" y="270" text-anchor="middle" class="ink small">‖f − gm‖∞ ≤ ωf(h)</text>
+  <text x="400" y="292" text-anchor="middle" class="ink small">h → 0 时趋近 0</text>
+
+  <rect x="544" y="226" width="220" height="82" rx="10" class="box"/>
+  <text x="654" y="253" text-anchor="middle" class="ink label">定理边界</text>
+  <text x="654" y="278" text-anchor="middle" class="ink small">紧域 · 连续目标 · 存在性</text>
+  <text x="654" y="297" text-anchor="middle" class="ink small">不保证优化与泛化</text>
+
+  <path d="M651 190 V208 H400 V212" class="line"/>
+  <path d="M400 308 V340 H36" class="line"/>
+  <path d="M36 340 H764" class="guide"/>
+  <text x="400" y="363" text-anchor="middle" class="ink muted">逼近 ≠ 精确表示 ≠ 训练保证：先写清域、范数与参数预算</text>
+</svg>

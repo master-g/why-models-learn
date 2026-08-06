@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">低容量、合适容量和高容量模型的训练与验证风险诊断</title>
+  <desc id="desc">三个并列面板分别展示欠拟合、当前协议下较好和过拟合：训练风险与验证风险的相对高低给出排查线索。</desc>
+  <rect width="560" height="250" fill="#f4efee"/>
+  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">过拟合与欠拟合：先看两条风险</text>
+  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">训练风险和验证风险的组合，是诊断而不是结论</text>
+
+  <rect x="24" y="68" width="158" height="119" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="45" y="91" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">容量太小</text>
+  <text x="45" y="108" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">欠拟合线索</text>
+  <text x="45" y="131" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">训练风险</text>
+  <rect x="111" y="123" width="50" height="12" rx="5" fill="#a9583e"/>
+  <text x="45" y="157" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">验证风险</text>
+  <rect x="111" y="149" width="50" height="12" rx="5" fill="#c66a4b"/>
+  <text x="45" y="178" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">两者都高</text>
+
+  <path d="M187 128 H198" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M193 121 L201 128 L193 135" fill="none" stroke="#c66a4b" stroke-width="2"/>
+
+  <rect x="201" y="68" width="158" height="119" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
+  <text x="222" y="91" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">容量合适</text>
+  <text x="222" y="108" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">当前协议下较好</text>
+  <text x="222" y="131" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">训练风险</text>
+  <rect x="288" y="123" width="29" height="12" rx="5" fill="#4f7775"/>
+  <text x="222" y="157" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">验证风险</text>
+  <rect x="288" y="149" width="35" height="12" rx="5" fill="#4f7775"/>
+  <text x="222" y="178" fill="#4f7775" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">都较低且接近</text>
+
+  <path d="M364 128 H375" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M370 121 L378 128 L370 135" fill="none" stroke="#c66a4b" stroke-width="2"/>
+
+  <rect x="378" y="68" width="158" height="119" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="399" y="91" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">容量太大</text>
+  <text x="399" y="108" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">过拟合线索</text>
+  <text x="399" y="131" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">训练风险</text>
+  <rect x="465" y="123" width="20" height="12" rx="5" fill="#4f7775"/>
+  <text x="399" y="157" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">验证风险</text>
+  <rect x="465" y="149" width="51" height="12" rx="5" fill="#a9583e"/>
+  <text x="399" y="178" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">间隙变大</text>
+
+  <rect x="142" y="213" width="276" height="25" rx="9" fill="#ebe7e4"/>
+  <text x="179" y="230" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">先查数据与优化，再决定增减容量</text>
+</svg>

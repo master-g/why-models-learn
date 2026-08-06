@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">离散卷积的索引与滑动</title>
+  <desc id="desc">长度为三的输入序列与长度为二的核先翻转核，再沿输入滑动并逐项求和，得到长度为四的 full convolution；下方对照线性、有效和循环边界。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .sequence { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.3; }
+      .kernel { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.6; }
+      .output { fill: #dce9df; stroke: #75957e; stroke-width: 1.3; }
+      .highlight { fill: #f4ddd4; fill-opacity: .75; stroke: #cc785c; stroke-width: 2; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">离散卷积：索引先对齐，乘积再求和</text>
+  <text x="38" y="65" class="subtitle">x = [1, 2, 1]，h = [2, −1]；翻转 h 后滑动，full 输出长度为 3 + 2 − 1</text>
+
+  <text x="116" y="91" text-anchor="middle" class="label">输入 x[k]</text>
+  <g transform="translate(50 111)">
+    <rect width="42" height="42" class="sequence"/>
+    <rect x="42" width="42" height="42" class="sequence"/>
+    <rect x="84" width="42" height="42" class="sequence"/>
+    <rect x="0" width="84" height="42" class="highlight"/>
+    <text x="21" y="27" text-anchor="middle" class="value">1</text>
+    <text x="63" y="27" text-anchor="middle" class="value">2</text>
+    <text x="105" y="27" text-anchor="middle" class="value">1</text>
+  </g>
+  <text x="113" y="174" text-anchor="middle" class="detail">当前重叠窗口</text>
+
+  <path d="M188 132 H225" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="206" y="116" text-anchor="middle" class="detail">翻转</text>
+
+  <text x="285" y="91" text-anchor="middle" class="label">核 h[k] → h[−k]</text>
+  <g transform="translate(245 111)">
+    <rect width="40" height="42" class="kernel"/>
+    <rect x="40" width="40" height="42" class="kernel"/>
+    <text x="20" y="27" text-anchor="middle" class="value">−1</text>
+    <text x="60" y="27" text-anchor="middle" class="value">2</text>
+  </g>
+  <text x="285" y="174" text-anchor="middle" class="detail">逐项乘积：−1、4</text>
+
+  <path d="M335 132 H378" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="356" y="116" text-anchor="middle" class="detail">滑动求和</text>
+
+  <text x="454" y="91" text-anchor="middle" class="label">输出 y[n]</text>
+  <g transform="translate(390 111)">
+    <rect width="40" height="42" class="output"/>
+    <rect x="40" width="40" height="42" class="output"/>
+    <rect x="80" width="40" height="42" class="output"/>
+    <rect x="120" width="40" height="42" class="output"/>
+    <rect x="40" width="40" height="42" fill="#a9c6ad"/>
+    <text x="20" y="27" text-anchor="middle" class="value">2</text>
+    <text x="60" y="27" text-anchor="middle" class="value">3</text>
+    <text x="100" y="27" text-anchor="middle" class="value">0</text>
+    <text x="140" y="27" text-anchor="middle" class="value">−1</text>
+  </g>
+  <text x="470" y="174" text-anchor="middle" class="detail">y = [2, 3, 0, −1]</text>
+
+  <rect x="582" y="94" width="178" height="90" rx="10" class="card"/>
+  <text x="600" y="119" class="label">定义</text>
+  <text x="600" y="145" class="value">y[n] = Σₖ x[k]h[n−k]</text>
+  <text x="600" y="169" class="detail">边界外序列取零</text>
+  <text x="600" y="188" class="detail">非零支持决定输出长度</text>
+
+  <rect x="38" y="220" width="226" height="65" rx="9" class="assumption"/>
+  <text x="54" y="243" class="panel-title">线性 full</text>
+  <text x="54" y="261" class="panel-detail">从第一次接触到最后一次接触</text>
+  <text x="54" y="277" class="panel-detail">长度：N + M − 1</text>
+
+  <rect x="287" y="220" width="226" height="65" rx="9" class="assumption"/>
+  <text x="303" y="243" class="panel-title">valid</text>
+  <text x="303" y="261" class="panel-detail">只保留核完全落入输入的窗口</text>
+  <text x="303" y="277" class="panel-detail">长度：N − M + 1</text>
+
+  <rect x="536" y="220" width="226" height="65" rx="9" class="assumption"/>
+  <text x="552" y="243" class="panel-title">循环边界</text>
+  <text x="552" y="261" class="panel-detail">索引按周期回绕，不是零延拓</text>
+  <text x="552" y="277" class="panel-detail">FFT 计算线性卷积需先补零</text>
+
+  <rect x="38" y="300" width="724" height="24" rx="8" class="card"/>
+  <text x="400" y="316" text-anchor="middle" class="detail">卷积 ≠ 逐元素乘法：每个 y[n] 聚合一段相对索引的重叠乘积</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">验收：先确认 n − k、翻转方向和边界模式，再对照输出长度与第一项</text>
+</svg>

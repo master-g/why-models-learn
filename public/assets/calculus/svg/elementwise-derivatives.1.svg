@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="elementwise-title elementwise-desc">
+  <title id="elementwise-title">逐分量层的坐标通道和反向导数门</title>
+  <desc id="elementwise-desc">三个输入坐标各自经过同一个标量函数，反向敏感度分别乘上对应的标量导数，没有交叉通道。</desc>
+  <defs>
+    <marker id="elementwise-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <marker id="elementwise-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <style>
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .small { font-size: 11px; }
+      .title { font-size: 15px; font-weight: 600; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <text x="22" y="28" class="label title">逐分量前向</text>
+  <text x="22" y="143" class="label title">逐分量反向</text>
+
+  <g fill="#f0ebe6" stroke="#b8b2a8">
+    <rect x="28" y="50" width="72" height="30" rx="5"/>
+    <rect x="28" y="85" width="72" height="30" rx="5"/>
+    <rect x="28" y="120" width="72" height="30" rx="5"/>
+    <rect x="235" y="50" width="84" height="30" rx="5"/>
+    <rect x="235" y="85" width="84" height="30" rx="5"/>
+    <rect x="235" y="120" width="84" height="30" rx="5"/>
+    <rect x="454" y="50" width="72" height="30" rx="5"/>
+    <rect x="454" y="85" width="72" height="30" rx="5"/>
+    <rect x="454" y="120" width="72" height="30" rx="5"/>
+  </g>
+  <text x="49" y="70" class="label">x₁</text>
+  <text x="49" y="105" class="label">x₂</text>
+  <text x="49" y="140" class="label">x₃</text>
+  <text x="254" y="70" class="label">φ(x₁)</text>
+  <text x="254" y="105" class="label">φ(x₂)</text>
+  <text x="254" y="140" class="label">φ(x₃)</text>
+  <text x="478" y="70" class="label">y₁</text>
+  <text x="478" y="105" class="label">y₂</text>
+  <text x="478" y="140" class="label">y₃</text>
+  <g stroke="#cc785c" stroke-width="2" marker-end="url(#elementwise-arrow-coral)">
+    <line x1="104" y1="65" x2="229" y2="65"/>
+    <line x1="104" y1="100" x2="229" y2="100"/>
+    <line x1="104" y1="135" x2="229" y2="135"/>
+    <line x1="323" y1="65" x2="448" y2="65"/>
+    <line x1="323" y1="100" x2="448" y2="100"/>
+    <line x1="323" y1="135" x2="448" y2="135"/>
+  </g>
+  <text x="146" y="56" class="label small">φ</text>
+  <text x="365" y="56" class="label small">逐坐标</text>
+  <text x="147" y="159" class="label small">没有交叉通道</text>
+
+  <g fill="#f0ebe6" stroke="#b8b2a8">
+    <rect x="28" y="170" width="72" height="30" rx="5"/>
+    <rect x="235" y="170" width="84" height="30" rx="5"/>
+    <rect x="454" y="170" width="72" height="30" rx="5"/>
+  </g>
+  <text x="48" y="190" class="label">g_y</text>
+  <text x="253" y="190" class="label">φ′(x)</text>
+  <text x="476" y="190" class="label">g_x</text>
+  <line x1="229" y1="185" x2="104" y2="185" stroke="#312f2f" stroke-width="2" marker-end="url(#elementwise-arrow-ink)"/>
+  <line x1="448" y1="185" x2="323" y2="185" stroke="#312f2f" stroke-width="2" marker-end="url(#elementwise-arrow-ink)"/>
+  <text x="137" y="214" class="label small">g_x=g_y⊙φ′(x)</text>
+  <text x="361" y="214" class="label small">对角 Jacobian 的反向作用</text>
+</svg>

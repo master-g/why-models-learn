@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">高斯混合模型与 EM：责任度和参数更新</title>
+  <desc id="desc">左侧展示两个重叠的一维高斯成分和观测点，中间展示 E 步把样本分配为软责任度，右侧展示 M 步用责任度更新均值和方差，然后循环。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 7 7; }
+    .curve-one { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .curve-two { fill: none; stroke: #6e8f8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+    .one { fill: #cc785c; stroke: #fdfcfa; stroke-width: 2; }
+    .two { fill: #6e8f8a; stroke: #fdfcfa; stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">高斯混合模型与 EM：让重叠样本保留不确定性</text>
+  <text x="52" y="87" class="muted" font-size="14">E 步计算责任度；M 步按责任度加权更新参数；两步交替直到收敛</text>
+
+  <rect x="52" y="111" width="220" height="205" rx="14" class="box"/>
+  <text x="72" y="140" class="ink" font-size="16" font-weight="700">混合密度</text>
+  <line x1="74" y1="278" x2="251" y2="278" class="axis"/>
+  <line x1="74" y1="278" x2="74" y2="151" class="axis"/>
+  <text x="241" y="298" class="muted" font-size="12">x</text>
+  <text x="59" y="159" class="muted" font-size="12">密度</text>
+  <path d="M 78 276 C 94 275, 103 264, 113 231 C 122 198, 133 160, 146 154 C 159 160, 169 201, 178 240 C 187 267, 198 275, 224 276" class="curve-one"/>
+  <path d="M 91 276 C 113 275, 124 268, 135 244 C 147 217, 160 170, 176 157 C 191 166, 201 204, 211 236 C 220 264, 230 274, 247 276" class="curve-two"/>
+  <circle cx="105" cy="278" r="6" class="one"/>
+  <circle cx="124" cy="278" r="6" class="one"/>
+  <circle cx="201" cy="278" r="6" class="two"/>
+  <circle cx="220" cy="278" r="6" class="two"/>
+  <text x="76" y="166" class="ink" font-size="12">π₁𝒩₁ + π₂𝒩₂</text>
+  <text x="76" y="306" class="muted" font-size="12">● 成分 1　● 成分 2</text>
+
+  <path d="M 288 214 L 328 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="340" y="111" width="190" height="205" rx="14" class="accent-box"/>
+  <text x="363" y="140" class="ink" font-size="16" font-weight="700">E 步：责任度</text>
+  <text x="363" y="166" class="muted" font-size="12">rᵢₖ = p(zᵢ=k | xᵢ)</text>
+  <text x="363" y="188" class="muted" font-size="12">每一行加总为 1</text>
+  <text x="363" y="218" class="ink" font-size="13">x = 1</text>
+  <rect x="415" y="207" width="83" height="13" rx="6" fill="#e6ded7"/>
+  <rect x="415" y="207" width="82" height="13" rx="6" fill="#cc785c"/>
+  <text x="363" y="244" class="ink" font-size="13">x = 3</text>
+  <rect x="415" y="233" width="83" height="13" rx="6" fill="#e6ded7"/>
+  <rect x="415" y="233" width="42" height="13" rx="6" fill="#cc785c"/>
+  <text x="363" y="270" class="ink" font-size="13">x = 5</text>
+  <rect x="415" y="259" width="83" height="13" rx="6" fill="#e6ded7"/>
+  <rect x="415" y="259" width="4" height="13" rx="2" fill="#cc785c"/>
+  <text x="363" y="300" class="muted" font-size="12">软分配，而非硬标签</text>
+
+  <path d="M 546 214 L 586 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="598" y="111" width="150" height="205" rx="14" class="box"/>
+  <text x="620" y="140" class="ink" font-size="16" font-weight="700">M 步：更新</text>
+  <line x1="620" y1="214" x2="727" y2="214" class="axis"/>
+  <circle cx="646" cy="214" r="7" class="one"/>
+  <circle cx="697" cy="214" r="7" class="two"/>
+  <line x1="646" y1="175" x2="646" y2="252" class="guide"/>
+  <line x1="697" y1="175" x2="697" y2="252" class="guide"/>
+  <path d="M 646 177 C 638 169, 634 160, 638 151" class="curve-one" marker-end="url(#arrow)"/>
+  <path d="M 697 177 C 705 169, 709 160, 705 151" class="curve-two"/>
+  <text x="620" y="274" class="muted" font-size="12">μₖ ← 加权平均</text>
+  <text x="620" y="295" class="muted" font-size="12">Σₖ ← 加权二阶矩</text>
+</svg>

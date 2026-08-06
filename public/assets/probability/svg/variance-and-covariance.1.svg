@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">方差与协方差的示意图</title>
+  <desc id="desc">左图展示样本围绕均值的平方偏离，右图展示两个变量同向偏离均值时产生正协方差。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .accent { stroke: #cc785c; stroke-width: 1.8; }
+    </style>
+    <marker id="arrow-coral" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">方差：围绕均值的平方偏离</text>
+  <text x="140" y="43" text-anchor="middle" class="small math">Var(X) = E[(X−μ)²]</text>
+  <line x1="48" y1="128" x2="232" y2="128" class="axis"/>
+  <line x1="75" y1="122" x2="75" y2="134" class="axis"/>
+  <line x1="140" y1="122" x2="140" y2="134" class="axis"/>
+  <line x1="205" y1="122" x2="205" y2="134" class="axis"/>
+  <text x="75" y="151" text-anchor="middle" class="small math">x=1</text>
+  <text x="140" y="151" text-anchor="middle" class="small math">μ=3</text>
+  <text x="205" y="151" text-anchor="middle" class="small math">x=5</text>
+  <circle cx="75" cy="128" r="6" fill="#fffaf8" stroke="#312f2f" stroke-width="1.2"/>
+  <circle cx="140" cy="128" r="7" fill="#cc785c" fill-opacity="0.2" stroke="#cc785c" stroke-width="1.5"/>
+  <circle cx="205" cy="128" r="6" fill="#fffaf8" stroke="#312f2f" stroke-width="1.2"/>
+  <line x1="75" y1="92" x2="140" y2="92" class="guide"/>
+  <line x1="140" y1="92" x2="205" y2="92" class="guide"/>
+  <line x1="75" y1="96" x2="75" y2="122" class="accent" marker-end="url(#arrow-coral)"/>
+  <line x1="205" y1="96" x2="205" y2="122" class="accent" marker-end="url(#arrow-coral)"/>
+  <text x="140" y="78" text-anchor="middle" class="small math">(x−μ)²</text>
+  <text x="140" y="181" text-anchor="middle" class="caption">左右偏离都变成正的平方距离</text>
+  <text x="140" y="204" text-anchor="middle" class="caption math">E[X²] − E[X]² = 2</text>
+  <text x="140" y="228" text-anchor="middle" class="small">标准差再开平方，回到原单位</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">协方差：共同偏离的乘积</text>
+  <text x="420" y="43" text-anchor="middle" class="small math">Cov(X,Y) = E[(X−μX)(Y−μY)]</text>
+  <line x1="326" y1="186" x2="510" y2="186" class="axis"/>
+  <line x1="350" y1="68" x2="350" y2="208" class="axis"/>
+  <line x1="350" y1="128" x2="498" y2="128" class="guide"/>
+  <line x1="424" y1="68" x2="424" y2="208" class="guide"/>
+  <line x1="338" y1="186" x2="498" y2="74" stroke="#c9c4bb" stroke-width="1.1" stroke-dasharray="4 4"/>
+  <circle cx="363" cy="176" r="4.5" fill="#cc785c" fill-opacity="0.45" stroke="#cc785c" stroke-width="1"/>
+  <circle cx="384" cy="159" r="4.5" fill="#cc785c" fill-opacity="0.45" stroke="#cc785c" stroke-width="1"/>
+  <circle cx="407" cy="148" r="4.5" fill="#cc785c" fill-opacity="0.45" stroke="#cc785c" stroke-width="1"/>
+  <circle cx="437" cy="111" r="4.5" fill="#cc785c" fill-opacity="0.45" stroke="#cc785c" stroke-width="1"/>
+  <circle cx="461" cy="99" r="4.5" fill="#cc785c" fill-opacity="0.45" stroke="#cc785c" stroke-width="1"/>
+  <circle cx="483" cy="82" r="4.5" fill="#cc785c" fill-opacity="0.45" stroke="#cc785c" stroke-width="1"/>
+  <text x="342" y="71" class="small math">Y</text>
+  <text x="503" y="201" class="small math">X</text>
+  <text x="430" y="123" text-anchor="middle" class="small math">μX, μY</text>
+  <text x="420" y="224" text-anchor="middle" class="caption">同向偏离的乘积多为正，协方差为正</text>
+</svg>

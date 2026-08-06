@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">ResNet 后续架构的扩展方向</title>
+  <desc id="desc">图中展示恒等残差路径、并行变换求和、DenseNet 特征拼接和现代卷积 block 的关系。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#463b35"/>
+    </marker>
+    <style>
+      .paper { fill: #f7f1e8; }
+      .line { stroke: #463b35; stroke-width: 2; fill: none; }
+      .soft { stroke: #a98f7c; stroke-width: 2; fill: none; }
+      .box { fill: #eadcc9; stroke: #8e7867; stroke-width: 1.5; }
+      .skip { fill: #dfebdc; stroke: #688262; stroke-width: 1.5; }
+      .branch { fill: #e6e0ef; stroke: #76658b; stroke-width: 1.5; }
+      .merge { fill: #ead3b7; stroke: #a76e42; stroke-width: 1.5; }
+      .dense { fill: #dbe6ec; stroke: #68869a; stroke-width: 1.5; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #463b35; }
+      .heading { font-size: 16px; font-weight: 700; }
+      .label { font-size: 13px; }
+      .small { font-size: 11px; fill: #75685e; }
+      .formula { font-family: "Times New Roman", "Noto Serif CJK SC", serif; font-size: 16px; }
+    </style>
+  </defs>
+  <rect class="paper" x="0" y="0" width="800" height="373" rx="16"/>
+  <text class="heading" x="32" y="34">ResNet 后续架构的四个扩展方向</text>
+  <text class="small" x="32" y="54">加法保留基线；分支求和增加 cardinality；concat 保留历史通道；现代 block 重写更新算子</text>
+
+  <g transform="translate(25,75)">
+    <text class="heading" x="100" y="0" text-anchor="middle">identity mapping</text>
+    <rect class="skip" x="70" y="28" width="60" height="32" rx="7"/>
+    <text class="label" x="100" y="49" text-anchor="middle">x</text>
+    <line class="line" x1="100" y1="60" x2="100" y2="82" marker-end="url(#arrow)"/>
+    <rect class="box" x="59" y="83" width="82" height="36" rx="7"/>
+    <text class="label" x="100" y="106" text-anchor="middle">F(x)</text>
+    <line class="line" x1="100" y1="119" x2="100" y2="162"/>
+    <circle class="merge" cx="100" cy="183" r="20"/>
+    <text class="heading" x="100" y="190" text-anchor="middle">+</text>
+    <line class="line" x1="100" y1="203" x2="100" y2="225" marker-end="url(#arrow)"/>
+    <rect class="merge" x="70" y="226" width="60" height="32" rx="7"/>
+    <text class="label" x="100" y="247" text-anchor="middle">y</text>
+    <path class="soft" d="M130,44 C188,44 188,183 121,183" marker-end="url(#arrow)"/>
+    <text class="small" x="158" y="111" text-anchor="middle">shortcut</text>
+  </g>
+
+  <g transform="translate(285,75)">
+    <text class="heading" x="100" y="0" text-anchor="middle">cardinality</text>
+    <rect class="branch" x="70" y="28" width="60" height="32" rx="7"/>
+    <text class="label" x="100" y="49" text-anchor="middle">x</text>
+    <line class="line" x1="100" y1="60" x2="100" y2="75"/>
+    <rect class="branch" x="8" y="76" width="58" height="32" rx="7"/>
+    <rect class="branch" x="71" y="76" width="58" height="32" rx="7"/>
+    <rect class="branch" x="134" y="76" width="58" height="32" rx="7"/>
+    <text class="label" x="37" y="97" text-anchor="middle">T₁</text>
+    <text class="label" x="100" y="97" text-anchor="middle">T₂</text>
+    <text class="label" x="163" y="97" text-anchor="middle">T₃</text>
+    <path class="line" d="M100,75 L37,76" marker-end="url(#arrow)"/>
+    <path class="line" d="M100,75 L100,76" marker-end="url(#arrow)"/>
+    <path class="line" d="M100,75 L163,76" marker-end="url(#arrow)"/>
+    <path class="line" d="M37,108 L100,161" marker-end="url(#arrow)"/>
+    <path class="line" d="M100,108 L100,161" marker-end="url(#arrow)"/>
+    <path class="line" d="M163,108 L100,161" marker-end="url(#arrow)"/>
+    <circle class="merge" cx="100" cy="182" r="20"/>
+    <text class="heading" x="100" y="189" text-anchor="middle">Σ</text>
+    <line class="line" x1="100" y1="202" x2="100" y2="226" marker-end="url(#arrow)"/>
+    <rect class="merge" x="70" y="227" width="60" height="31" rx="7"/>
+    <text class="label" x="100" y="248" text-anchor="middle">F(x)</text>
+    <text class="small" x="100" y="278" text-anchor="middle">F(x)=Σ Tᵢ(x)</text>
+  </g>
+
+  <g transform="translate(545,75)">
+    <text class="heading" x="105" y="0" text-anchor="middle">concat 与现代 block</text>
+    <rect class="dense" x="8" y="28" width="48" height="32" rx="7"/>
+    <text class="label" x="32" y="49" text-anchor="middle">x₀</text>
+    <line class="line" x1="56" y1="44" x2="77" y2="44" marker-end="url(#arrow)"/>
+    <rect class="dense" x="78" y="28" width="48" height="32" rx="7"/>
+    <text class="label" x="102" y="49" text-anchor="middle">H₁</text>
+    <line class="line" x1="126" y1="44" x2="147" y2="44" marker-end="url(#arrow)"/>
+    <rect class="dense" x="148" y="28" width="48" height="32" rx="7"/>
+    <text class="label" x="172" y="49" text-anchor="middle">H₂</text>
+    <path class="soft" d="M32,60 C32,130 78,130 78,92" marker-end="url(#arrow)"/>
+    <path class="soft" d="M102,60 C102,130 148,130 148,92" marker-end="url(#arrow)"/>
+    <rect class="dense" x="65" y="92" width="116" height="32" rx="7"/>
+    <text class="label" x="123" y="113" text-anchor="middle">[x₀,x₁,x₂]</text>
+    <line class="line" x1="123" y1="124" x2="123" y2="151" marker-end="url(#arrow)"/>
+    <rect class="branch" x="78" y="152" width="90" height="32" rx="7"/>
+    <text class="label" x="123" y="173" text-anchor="middle">DWConv + PW</text>
+    <line class="line" x1="123" y1="184" x2="123" y2="221" marker-end="url(#arrow)"/>
+    <rect class="merge" x="93" y="222" width="60" height="32" rx="7"/>
+    <text class="label" x="123" y="243" text-anchor="middle">update</text>
+  </g>
+
+  <rect x="25" y="330" width="750" height="28" rx="9" fill="#eadcc9" stroke="#b79b83"/>
+  <text class="formula" x="45" y="350">depth D</text>
+  <text class="formula" x="190" y="350">width C</text>
+  <text class="formula" x="330" y="350">cardinality G</text>
+  <text class="formula" x="505" y="350">Cₗ=C₀+lk</text>
+  <text class="formula" x="650" y="350">x + update</text>
+</svg>

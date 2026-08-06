@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="quad-title quad-desc">
+  <title id="quad-title">正定与不定二次型的等值线</title>
+  <desc id="quad-desc">左侧是正定二次型的椭圆等值线，主轴沿两个正交特征方向；右侧是不定二次型 x 平方减 y 平方等于 1 的双曲线。</desc>
+  <defs>
+    <marker id="quad-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="quad-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
+
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+    <text x="20" y="25" font-size="13" font-weight="600">正定：椭圆等值线</text>
+    <text x="300" y="25" font-size="13" font-weight="600">不定：双曲线等值线</text>
+  </g>
+
+  <!-- Left panel: ellipse and principal axes -->
+  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+    <line x1="28" y1="137" x2="258" y2="137" marker-end="url(#quad-arrow-ink)"/>
+    <line x1="142" y1="220" x2="142" y2="42" marker-end="url(#quad-arrow-ink)"/>
+  </g>
+  <ellipse cx="142" cy="137" rx="78" ry="35" transform="rotate(-35 142 137)" fill="#cc785c" fill-opacity="0.12" stroke="#cc785c" stroke-width="1.6"/>
+  <line x1="78" y1="181" x2="206" y2="93" stroke="#cc785c" stroke-width="2" marker-end="url(#quad-arrow-coral)"/>
+  <line x1="124" y1="106" x2="160" y2="168" stroke="#312f2f" stroke-width="1.8" marker-end="url(#quad-arrow-ink)"/>
+  <text x="207" y="91" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">q₁，λ=4</text>
+  <text x="163" y="174" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">q₂，λ=2</text>
+  <text x="28" y="207" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">4z₁²+2z₂²=1</text>
+  <text x="28" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">特征值越大，允许的半轴越短</text>
+
+  <!-- Right panel: hyperbola -->
+  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+    <line x1="300" y1="137" x2="548" y2="137" marker-end="url(#quad-arrow-ink)"/>
+    <line x1="424" y1="220" x2="424" y2="42" marker-end="url(#quad-arrow-ink)"/>
+    <line x1="350" y1="211" x2="498" y2="63" stroke="#c9c4bb" stroke-dasharray="5 4"/>
+    <line x1="350" y1="63" x2="498" y2="211" stroke="#c9c4bb" stroke-dasharray="5 4"/>
+  </g>
+  <path d="M 459 137 C 460 125, 467 111, 478 98 C 491 83, 507 70, 530 58" fill="none" stroke="#cc785c" stroke-width="1.8"/>
+  <path d="M 459 137 C 460 149, 467 163, 478 176 C 491 191, 507 204, 530 216" fill="none" stroke="#cc785c" stroke-width="1.8"/>
+  <path d="M 389 137 C 388 125, 381 111, 370 98 C 357 83, 341 70, 318 58" fill="none" stroke="#cc785c" stroke-width="1.8"/>
+  <path d="M 389 137 C 388 149, 381 163, 370 176 C 357 191, 341 204, 318 216" fill="none" stroke="#cc785c" stroke-width="1.8"/>
+  <text x="300" y="207" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">x²−y²=1</text>
+  <text x="400" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">正负特征值产生相反弯曲方向</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">经典感知机：错误驱动地移动线性边界</title>
+  <desc id="desc">二维输入空间中的两类点、线性分界和一次错误更新的方向示意。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .line { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 7 7; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">经典感知机：错误驱动地移动边界</text>
+  <text x="52" y="87" class="muted" font-size="14">分数 sign 决定硬标签；错误样本沿 yx 的方向更新参数</text>
+
+  <rect x="52" y="112" width="358" height="203" rx="14" class="box"/>
+  <line x1="98" y1="274" x2="369" y2="274" class="axis"/>
+  <line x1="98" y1="274" x2="98" y2="134" class="axis"/>
+  <path d="M 102 148 L 350 267" class="line"/>
+  <path d="M 127 172 L 101 159" class="guide"/>
+  <text x="116" y="135" class="ink" font-size="16" font-weight="700">y = +1</text>
+  <text x="304" y="302" class="muted" font-size="12">x₁</text>
+  <text x="82" y="143" class="muted" font-size="12">x₂</text>
+  <text x="286" y="172" class="muted" font-size="13">s = 0</text>
+
+  <circle cx="178" cy="177" r="7" fill="#cc785c"/>
+  <circle cx="235" cy="211" r="7" fill="#cc785c"/>
+  <circle cx="291" cy="237" r="7" fill="#cc785c"/>
+  <text x="164" y="169" class="ink" font-size="13">A</text>
+  <text x="221" y="203" class="ink" font-size="13">C</text>
+  <text x="278" y="229" class="ink" font-size="13">?</text>
+
+  <circle cx="174" cy="250" r="7" fill="#312f2f"/>
+  <circle cx="232" cy="226" r="7" fill="#312f2f"/>
+  <circle cx="289" cy="197" r="7" fill="#312f2f"/>
+  <text x="160" y="267" class="ink" font-size="13">B</text>
+  <text x="218" y="243" class="ink" font-size="13">D</text>
+  <text x="276" y="190" class="ink" font-size="13">E</text>
+  <path d="M 291 237 L 338 214" class="line" marker-end="url(#arrow)"/>
+  <text x="300" y="256" class="muted" font-size="12">错误点推动边界</text>
+
+  <path d="M 437 214 L 484 214" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="502" y="112" width="246" height="203" rx="14" class="accent-box"/>
+  <text x="526" y="145" class="ink" font-size="18" font-weight="700">更新规则</text>
+  <text x="526" y="181" class="ink" font-size="19">θ ← θ + η y x̃</text>
+  <text x="526" y="214" class="ink" font-size="16">margin = y θᵀx̃ ≤ 0</text>
+  <line x1="526" y1="237" x2="724" y2="237" class="guide"/>
+  <text x="526" y="263" class="muted" font-size="14">可分：错误有限</text>
+  <text x="526" y="287" class="muted" font-size="14">不可分：可能循环</text>
+</svg>

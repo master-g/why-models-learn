@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">回归指标：从残差到尺度与诊断</title>
+  <desc id="desc">左侧对比真实值和预测值并画出残差，中间展示绝对误差与平方误差对大错的不同惩罚，右侧展示残差随预测值变化时需要检查的结构。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .accent { fill: #cc785c; }
+    .teal { fill: #6e8f8a; }
+    .residual { stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+    .curve { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">回归指标：残差、尺度与诊断</text>
+  <text x="52" y="87" class="muted" font-size="14">先看每个误差，再选择绝对、平方、相对或区间指标</text>
+
+  <rect x="52" y="111" width="220" height="205" rx="14" class="box"/>
+  <text x="74" y="141" class="ink" font-size="16" font-weight="700">真实值与预测值</text>
+  <line x1="78" y1="274" x2="247" y2="274" class="axis"/>
+  <line x1="78" y1="274" x2="78" y2="158" class="axis"/>
+  <text x="232" y="294" class="muted" font-size="11">样本</text>
+  <text x="60" y="164" class="muted" font-size="11">数值</text>
+  <path d="M 94 250 L 130 235 L 166 205 L 202 166" class="curve"/>
+  <circle cx="94" cy="250" r="6" class="teal"/>
+  <circle cx="130" cy="235" r="6" class="teal"/>
+  <circle cx="166" cy="205" r="6" class="teal"/>
+  <circle cx="202" cy="166" r="6" class="teal"/>
+  <circle cx="94" cy="242" r="6" class="accent"/>
+  <circle cx="130" cy="250" r="6" class="accent"/>
+  <circle cx="166" cy="190" r="6" class="accent"/>
+  <circle cx="202" cy="182" r="6" class="accent"/>
+  <line x1="94" y1="242" x2="94" y2="250" class="residual"/>
+  <line x1="130" y1="250" x2="130" y2="235" class="residual"/>
+  <line x1="166" y1="190" x2="166" y2="205" class="residual"/>
+  <line x1="202" y1="182" x2="202" y2="166" class="residual"/>
+  <text x="74" y="307" class="muted" font-size="12">● 预测　● 真实　竖线 = 残差</text>
+
+  <path d="M 288 214 L 322 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="332" y="111" width="200" height="205" rx="14" class="accent-box"/>
+  <text x="355" y="141" class="ink" font-size="16" font-weight="700">误差尺度</text>
+  <text x="355" y="166" class="muted" font-size="12">同一个大残差 e</text>
+  <text x="355" y="203" class="ink" font-size="13">MAE：|e|</text>
+  <rect x="425" y="191" width="52" height="17" rx="8" fill="#cc785c"/>
+  <text x="355" y="239" class="ink" font-size="13">MSE：e²</text>
+  <rect x="425" y="227" width="92" height="17" rx="8" fill="#6e8f8a"/>
+  <text x="355" y="276" class="muted" font-size="12">平方项更重视大错</text>
+  <text x="355" y="298" class="muted" font-size="12">RMSE 回到原单位</text>
+
+  <path d="M 548 214 L 582 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="592" y="111" width="156" height="205" rx="14" class="box"/>
+  <text x="614" y="141" class="ink" font-size="16" font-weight="700">残差诊断</text>
+  <line x1="615" y1="218" x2="728" y2="218" class="axis"/>
+  <line x1="615" y1="175" x2="615" y2="279" class="axis"/>
+  <line x1="615" y1="218" x2="728" y2="218" class="guide"/>
+  <circle cx="629" cy="207" r="5" class="accent"/>
+  <circle cx="647" cy="199" r="5" class="accent"/>
+  <circle cx="665" cy="189" r="5" class="accent"/>
+  <circle cx="683" cy="177" r="5" class="accent"/>
+  <circle cx="701" cy="164" r="5" class="accent"/>
+  <circle cx="719" cy="151" r="5" class="accent"/>
+  <text x="614" y="294" class="muted" font-size="12">模式 ≠ 随机噪声</text>
+  <text x="614" y="309" class="muted" font-size="11">检查偏差与异方差</text>
+</svg>

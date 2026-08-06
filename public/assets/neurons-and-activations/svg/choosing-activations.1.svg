@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .small { font-size:14px; }
+      .label { font-size:16px; font-weight:600; }
+      .muted { fill:#6c6a64; font-size:13px; }
+      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
+      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
+      .line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#arrow); }
+      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#f4f0ec"/>
+  <text x="36" y="34" class="ink label">激活函数选择：先定语义，再测工作点</text>
+  <text x="36" y="57" class="ink muted">同一个名字在隐藏层、门控层和输出头里承担不同职责</text>
+
+  <rect x="36" y="86" width="170" height="74" rx="10" class="accent"/>
+  <text x="121" y="113" text-anchor="middle" class="ink label">任务约束</text>
+  <text x="121" y="137" text-anchor="middle" class="ink small">范围 · 标签 · 损失</text>
+  <text x="121" y="153" text-anchor="middle" class="ink small">是否需要概率或正值</text>
+
+  <rect x="273" y="78" width="214" height="90" rx="10" class="box"/>
+  <text x="380" y="106" text-anchor="middle" class="ink label">输出头 g</text>
+  <text x="380" y="131" text-anchor="middle" class="ink small">identity · softplus</text>
+  <text x="380" y="151" text-anchor="middle" class="ink small">sigmoid · softmax</text>
+
+  <rect x="554" y="86" width="210" height="74" rx="10" class="box"/>
+  <text x="659" y="113" text-anchor="middle" class="ink label">输出可表示吗？</text>
+  <text x="659" y="137" text-anchor="middle" class="ink small">与损失的梯度是否匹配</text>
+  <text x="659" y="153" text-anchor="middle" class="ink small">先排除错误输出空间</text>
+  <path d="M206 123 H267" class="line"/>
+  <path d="M487 123 H548" class="line"/>
+
+  <path d="M659 160 V203 H407" class="line"/>
+  <path d="M659 160 V203 H707" class="line"/>
+  <text x="534" y="194" class="ink muted">隐藏层候选</text>
+
+  <rect x="36" y="219" width="168" height="91" rx="10" class="box"/>
+  <text x="120" y="246" text-anchor="middle" class="ink label">输入统计</text>
+  <text x="120" y="270" text-anchor="middle" class="ink small">均值 · 方差 · 分位数</text>
+  <text x="120" y="290" text-anchor="middle" class="ink small">零值比例 · 导数分布</text>
+  <path d="M407 203 H204 V248 H210" class="line"/>
+
+  <rect x="238" y="219" width="168" height="91" rx="10" class="accent"/>
+  <text x="322" y="246" text-anchor="middle" class="ink label">结构条件</text>
+  <text x="322" y="270" text-anchor="middle" class="ink small">残差 · 门控 · 状态</text>
+  <text x="322" y="290" text-anchor="middle" class="ink small">公平参数预算</text>
+
+  <rect x="440" y="219" width="168" height="91" rx="10" class="box"/>
+  <text x="524" y="246" text-anchor="middle" class="ink label">实现条件</text>
+  <text x="524" y="270" text-anchor="middle" class="ink small">dtype · fused kernel</text>
+  <text x="524" y="290" text-anchor="middle" class="ink small">延迟 · 稀疏利用率</text>
+
+  <rect x="642" y="219" width="122" height="91" rx="10" class="box"/>
+  <text x="703" y="246" text-anchor="middle" class="ink label">复测</text>
+  <text x="703" y="270" text-anchor="middle" class="ink small">前向</text>
+  <text x="703" y="289" text-anchor="middle" class="ink small">反向</text>
+  <text x="703" y="308" text-anchor="middle" class="ink small">部署</text>
+
+  <path d="M204 265 H232" class="line"/>
+  <path d="M406 265 H434" class="line"/>
+  <path d="M608 265 H636" class="line"/>
+  <path d="M764 265 V340 H36" class="line"/>
+  <path d="M36 340 H764" class="guide"/>
+  <text x="400" y="363" text-anchor="middle" class="ink muted">选择记录应写成“在这些条件下采用……”，而不是脱离协议的全局排名</text>
+</svg>

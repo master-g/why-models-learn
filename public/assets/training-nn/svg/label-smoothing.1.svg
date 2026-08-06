@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">标签平滑的目标分布与梯度</title>
+  <desc id="desc">one-hot 目标与均匀分布按 epsilon 混合，得到正确类较大、错误类非零的目标，并把 logits 梯度从 p-y 改为 p-q。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#a9583e"/>
+    </marker>
+  </defs>
+  <rect width="800" height="373" rx="18" fill="#f7f2ed"/>
+  <rect x="1" y="1" width="798" height="371" rx="17" fill="none" stroke="#c9c4bb" stroke-width="2"/>
+
+  <g fill="#312f2f" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">
+    <text x="28" y="34" font-size="20" font-weight="700">标签平滑：目标质量从 one-hot 向参考分布移动</text>
+    <text x="28" y="57" font-size="12" fill="#6c6863">正确类仍占最大质量，错误类不再被要求严格为零</text>
+  </g>
+
+  <g transform="translate(24 76)">
+    <rect width="508" height="184" rx="14" fill="#fbf8f4" stroke="#c9c4bb" stroke-width="1.5"/>
+    <text x="18" y="27" fill="#312f2f" font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">目标分布</text>
+    <text x="18" y="47" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">示例：K = 4，正确类为 2，ε = 0.2</text>
+
+    <line x1="34" y1="146" x2="204" y2="146" stroke="#b8b2a8" stroke-width="1"/>
+    <line x1="268" y1="146" x2="478" y2="146" stroke="#b8b2a8" stroke-width="1"/>
+    <text x="119" y="169" text-anchor="middle" fill="#6c6863" font-size="11" font-family="Georgia,serif">one-hot y</text>
+    <text x="373" y="169" text-anchor="middle" fill="#6c6863" font-size="11" font-family="Georgia,serif">q = (1 − ε)y + εu</text>
+
+    <rect x="48" y="146" width="25" height="0" rx="4" fill="#eadfca"/>
+    <rect x="86" y="86" width="25" height="60" rx="4" fill="#cc785c"/>
+    <rect x="124" y="146" width="25" height="0" rx="4" fill="#eadfca"/>
+    <rect x="162" y="146" width="25" height="0" rx="4" fill="#eadfca"/>
+    <text x="60.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">1</text>
+    <text x="98.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">2</text>
+    <text x="136.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">3</text>
+    <text x="174.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">4</text>
+
+    <path d="M211 104H253" fill="none" stroke="#a9583e" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="232" y="88" text-anchor="middle" fill="#a9583e" font-size="11" font-family="Georgia,serif">mix ε</text>
+
+    <rect x="284" y="142" width="28" height="4" rx="2" fill="#eadfca"/>
+    <rect x="330" y="78" width="28" height="68" rx="4" fill="#cc785c"/>
+    <rect x="376" y="142" width="28" height="4" rx="2" fill="#eadfca"/>
+    <rect x="422" y="142" width="28" height="4" rx="2" fill="#eadfca"/>
+    <text x="298" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">1</text>
+    <text x="344" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">2</text>
+    <text x="390" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">3</text>
+    <text x="436" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">4</text>
+    <text x="298" y="136" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">.05</text>
+    <text x="344" y="71" text-anchor="middle" fill="#a9583e" font-size="10" font-family="Georgia,serif">.85</text>
+    <text x="390" y="136" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">.05</text>
+    <text x="436" y="136" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">.05</text>
+  </g>
+
+  <g transform="translate(552 76)">
+    <rect width="224" height="184" rx="14" fill="#fbf8f4" stroke="#c9c4bb" stroke-width="1.5"/>
+    <text x="18" y="27" fill="#312f2f" font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">logits 梯度</text>
+    <text x="18" y="48" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">同一 softmax，不同目标</text>
+
+    <rect x="18" y="65" width="188" height="39" rx="9" fill="#f0d9cf" stroke="#cc785c" stroke-width="1.5"/>
+    <text x="31" y="89" fill="#312f2f" font-size="16" font-family="Georgia,serif">hard：p − y</text>
+
+    <rect x="18" y="119" width="188" height="39" rx="9" fill="#d9e9e5" stroke="#7ea49e" stroke-width="1.5"/>
+    <text x="31" y="143" fill="#312f2f" font-size="16" font-family="Georgia,serif">smooth：p − q</text>
+  </g>
+
+  <rect x="24" y="282" width="752" height="64" rx="12" fill="#eee3db"/>
+  <text x="42" y="309" fill="#312f2f" font-size="17" font-family="Georgia,serif">L_smooth = (1 − ε)L_hard + εL_uniform</text>
+  <text x="42" y="329" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">损失仍对所有类别求和；均匀项减弱把正确类推向 1、错误类推向 0 的压力</text>
+  <text x="602" y="319" fill="#6c6863" font-size="12" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">目标先变，指标分开</text>
+</svg>

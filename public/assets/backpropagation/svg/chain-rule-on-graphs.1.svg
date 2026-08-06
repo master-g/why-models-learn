@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <defs>
+    <marker id="forward-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+    </marker>
+    <marker id="reverse-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5d7775"/>
+    </marker>
+    <style>
+      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .small { font-size:14px; }
+      .label { font-size:16px; font-weight:600; }
+      .muted { fill:#6c6a64; font-size:13px; }
+      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
+      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
+      .reverse-box { fill:#e3eeeb; stroke:#5d7775; stroke-width:1.5; }
+      .forward-line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#forward-arrow); }
+      .reverse-line { fill:none; stroke:#5d7775; stroke-width:2; marker-end:url(#reverse-arrow); }
+      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#f4f0ec"/>
+  <text x="36" y="34" class="ink label">链式法则：路径内相乘，汇合处相加</text>
+  <text x="36" y="57" class="ink muted">u = x²，v = xy，L = 2u + v；在 x = 2，y = 3 处得到 L = 14</text>
+
+  <rect x="34" y="92" width="132" height="68" rx="10" class="box"/>
+  <text x="100" y="120" text-anchor="middle" class="ink label">输入</text>
+  <text x="100" y="145" text-anchor="middle" class="ink small">x = 2，y = 3</text>
+
+  <rect x="236" y="62" width="136" height="68" rx="10" class="accent"/>
+  <text x="304" y="90" text-anchor="middle" class="ink label">平方分支</text>
+  <text x="304" y="115" text-anchor="middle" class="ink small">u = x² = 4</text>
+
+  <rect x="236" y="158" width="136" height="68" rx="10" class="accent"/>
+  <text x="304" y="186" text-anchor="middle" class="ink label">乘积分支</text>
+  <text x="304" y="211" text-anchor="middle" class="ink small">v = xy = 6</text>
+
+  <rect x="470" y="92" width="150" height="68" rx="10" class="accent"/>
+  <text x="545" y="120" text-anchor="middle" class="ink label">汇合输出</text>
+  <text x="545" y="145" text-anchor="middle" class="ink small">L = 2u + v = 14</text>
+
+  <path d="M166 126 H198 V96 H230" class="forward-line"/>
+  <path d="M166 134 H198 V192 H230" class="forward-line"/>
+  <path d="M372 96 H430 V126 H464" class="forward-line"/>
+  <path d="M372 192 H430 V126 H464" class="forward-line"/>
+  <text x="414" y="78" text-anchor="middle" class="ink muted">前向值</text>
+
+  <rect x="634" y="264" width="132" height="58" rx="10" class="reverse-box"/>
+  <text x="700" y="289" text-anchor="middle" class="ink label">输出敏感度</text>
+  <text x="700" y="309" text-anchor="middle" class="ink small">L̄ = 1</text>
+
+  <rect x="470" y="264" width="150" height="58" rx="10" class="reverse-box"/>
+  <text x="545" y="289" text-anchor="middle" class="ink label">分支贡献</text>
+  <text x="545" y="309" text-anchor="middle" class="ink small">ū = 2，v̄ = 1</text>
+
+  <rect x="236" y="264" width="136" height="58" rx="10" class="reverse-box"/>
+  <text x="304" y="289" text-anchor="middle" class="ink label">路径累加</text>
+  <text x="304" y="309" text-anchor="middle" class="ink small">x̄ = 8 + 3 = 11</text>
+
+  <rect x="34" y="264" width="132" height="58" rx="10" class="reverse-box"/>
+  <text x="100" y="289" text-anchor="middle" class="ink label">另一输入</text>
+  <text x="100" y="309" text-anchor="middle" class="ink small">ȳ = 2</text>
+
+  <path d="M634 293 H626" class="reverse-line"/>
+  <path d="M470 293 H378" class="reverse-line"/>
+  <path d="M236 293 H174" class="reverse-line"/>
+  <path d="M304 264 V238 H184 V150" class="reverse-line"/>
+  <path d="M304 238 H184 V226" class="reverse-line"/>
+  <path d="M36 342 H764" class="guide"/>
+  <text x="400" y="361" text-anchor="middle" class="ink muted">同一条链式法则：路径内乘局部导数，多个路径在同一节点相加</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Attention 作为 key-value 检索</title>
+  <desc id="desc">query 与三个 key 计算 score，softmax 产生读取权重，再对三个 value 做加权求和得到 context。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">Attention 作为检索：匹配地址，再读取内容</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">query 提出条件；key 参与匹配；value 提供被读出的内容</text>
+
+    <rect x="32" y="86" width="160" height="116" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="50" y="113" font-size="14" font-weight="700">query</text>
+    <text x="50" y="143" font-size="16">当前读取条件</text>
+    <text x="50" y="174" font-size="13" fill="#6f665b">q = [1, 0]</text>
+
+    <path d="M192 144 H226" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M218 136 L228 144 L218 152" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="228" y="86" width="236" height="116" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="246" y="113" font-size="14" font-weight="700">key：地址匹配</text>
+    <text x="246" y="142" font-size="13">k₁ → score 1.0</text>
+    <text x="246" y="164" font-size="13">k₂ → score 0.0</text>
+    <text x="246" y="186" font-size="13">k₃ → score −1.0</text>
+
+    <path d="M464 144 H498" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M490 136 L500 144 L490 152" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="500" y="86" width="268" height="116" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="518" y="113" font-size="14" font-weight="700">soft read</text>
+    <text x="518" y="142" font-size="13">α = softmax(score)</text>
+    <text x="518" y="164" font-size="13">[0.665, 0.245, 0.090]</text>
+    <text x="518" y="186" font-size="13">c = Σ αᵢ vᵢ</text>
+
+    <rect x="32" y="232" width="736" height="94" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="50" y="258" font-size="14" font-weight="700">value memory</text>
+    <rect x="50" y="273" width="130" height="30" rx="7" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="68" y="293" font-size="13">v₁ = 2</text>
+    <rect x="194" y="273" width="130" height="30" rx="7" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="212" y="293" font-size="13">v₂ = 0</text>
+    <rect x="338" y="273" width="130" height="30" rx="7" fill="#e5edf0" stroke="#75939d"/>
+    <text x="356" y="293" font-size="13">v₃ = −1</text>
+    <path d="M490 288 H524" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M516 280 L526 288 L516 296" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <text x="544" y="282" font-size="13" font-weight="700">context</text>
+    <text x="544" y="303" font-size="13">c ≈ 1.240</text>
+  </g>
+</svg>

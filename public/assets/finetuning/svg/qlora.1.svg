@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <rect width="800" height="373" fill="#fbfaf7"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#312f2f">
+    <text x="36" y="38" font-size="21" font-weight="600">QLoRA：4-bit 基础权重与 LoRA adapter</text>
+    <text x="36" y="64" font-size="13" fill="#6d6862">量化用于存储，反量化用于计算；只有低秩因子获得更新</text>
+
+    <rect x="34" y="111" width="177" height="105" rx="10" fill="#f1eee8" stroke="#b8b2a8" stroke-width="2"/>
+    <text x="122" y="141" text-anchor="middle" font-size="18" font-weight="600">冻结基础权重</text>
+    <text x="122" y="170" text-anchor="middle" font-size="20">q₄ + scale</text>
+    <text x="122" y="194" text-anchor="middle" font-size="12" fill="#6d6862">NF4 index / double quant</text>
+
+    <line x1="211" y1="163" x2="282" y2="163" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="282,163 270,156 270,170" fill="#cc785c"/>
+
+    <rect x="283" y="111" width="165" height="105" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <text x="365" y="141" text-anchor="middle" font-size="18" font-weight="600">反量化计算</text>
+    <text x="365" y="170" text-anchor="middle" font-size="20">Ŵ₀ = dequant(q,s)</text>
+    <text x="365" y="194" text-anchor="middle" font-size="12" fill="#6d6862">BF16 / FP16 GEMM</text>
+
+    <rect x="283" y="244" width="165" height="78" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <text x="365" y="270" text-anchor="middle" font-size="18" font-weight="600">LoRA adapter</text>
+    <text x="365" y="297" text-anchor="middle" font-size="20">s · B(Ax)</text>
+    <text x="365" y="315" text-anchor="middle" font-size="12" fill="#6d6862">A、B 可训练</text>
+
+    <line x1="211" y1="163" x2="282" y2="282" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="282,282 269,276 273,290" fill="#cc785c"/>
+    <line x1="448" y1="163" x2="526" y2="163" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="526,163 514,156 514,170" fill="#cc785c"/>
+    <line x1="448" y1="282" x2="489" y2="282" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="489,282 477,275 477,289" fill="#cc785c"/>
+    <line x1="489" y1="282" x2="526" y2="188" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="526,188 515,196 529,201" fill="#cc785c"/>
+
+    <circle cx="559" cy="163" r="33" fill="#fffaf4" stroke="#cc785c" stroke-width="2"/>
+    <text x="559" y="158" text-anchor="middle" font-size="20" font-weight="600">+</text>
+    <text x="559" y="181" text-anchor="middle" font-size="11" fill="#6d6862">相加</text>
+
+    <line x1="592" y1="163" x2="635" y2="163" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="635,163 623,156 623,170" fill="#cc785c"/>
+
+    <rect x="636" y="111" width="130" height="105" rx="10" fill="#e7efe9" stroke="#718779" stroke-width="2"/>
+    <text x="701" y="141" text-anchor="middle" font-size="18" font-weight="600">输出 y</text>
+    <text x="701" y="170" text-anchor="middle" font-size="18">base + Δ</text>
+    <text x="701" y="194" text-anchor="middle" font-size="12" fill="#6d6862">adapter-only update</text>
+
+    <text x="400" y="350" text-anchor="middle" font-size="13" fill="#6d6862">4-bit 只压缩冻结基础权重；activation、LoRA state 和 workspace 仍需单独测量</text>
+  </g>
+</svg>

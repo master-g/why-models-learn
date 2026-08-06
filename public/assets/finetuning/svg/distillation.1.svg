@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <rect width="800" height="373" fill="#fbfaf7"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#312f2f">
+    <text x="36" y="38" font-size="21" font-weight="600">知识蒸馏：teacher 分布约束 student</text>
+    <text x="36" y="64" font-size="13" fill="#6d6862">soft target 与 hard label 共同进入 student loss</text>
+
+    <rect x="35" y="110" width="166" height="92" rx="10" fill="#f1eee8" stroke="#b8b2a8" stroke-width="2"/>
+    <text x="118" y="141" text-anchor="middle" font-size="18" font-weight="600">输入 x</text>
+    <text x="118" y="170" text-anchor="middle" font-size="13" fill="#6d6862">同一 tokenizer / mask</text>
+    <text x="118" y="188" text-anchor="middle" font-size="12" fill="#8a847b">label y</text>
+
+    <line x1="201" y1="145" x2="278" y2="112" stroke="#b8b2a8" stroke-width="3"/>
+    <polygon points="278,112 265,111 270,123" fill="#b8b2a8"/>
+    <line x1="201" y1="166" x2="278" y2="244" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="278,244 265,237 275,228" fill="#cc785c"/>
+
+    <rect x="279" y="74" width="181" height="92" rx="10" fill="#f1eee8" stroke="#b8b2a8" stroke-width="2"/>
+    <text x="370" y="104" text-anchor="middle" font-size="18" font-weight="600">冻结 teacher</text>
+    <text x="370" y="134" text-anchor="middle" font-size="20">zₜ → softmax</text>
+    <text x="370" y="153" text-anchor="middle" font-size="12" fill="#6d6862">temperature τ</text>
+
+    <rect x="279" y="210" width="181" height="92" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <text x="370" y="240" text-anchor="middle" font-size="18" font-weight="600">可训练 student</text>
+    <text x="370" y="270" text-anchor="middle" font-size="20">zₛ → loss</text>
+    <text x="370" y="289" text-anchor="middle" font-size="12" fill="#6d6862">梯度更新</text>
+
+    <line x1="460" y1="120" x2="542" y2="163" stroke="#b8b2a8" stroke-width="3"/>
+    <polygon points="542,163 528,162 534,150" fill="#b8b2a8"/>
+    <line x1="460" y1="256" x2="542" y2="205" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="542,205 529,211 532,198" fill="#cc785c"/>
+
+    <rect x="543" y="131" width="222" height="106" rx="10" fill="#e7efe9" stroke="#718779" stroke-width="2"/>
+    <text x="654" y="162" text-anchor="middle" font-size="18" font-weight="600">student objective</text>
+    <text x="654" y="191" text-anchor="middle" font-size="19">α CE + (1−α) τ² KL</text>
+    <text x="654" y="216" text-anchor="middle" font-size="12" fill="#6d6862">hard + soft target</text>
+
+    <text x="400" y="348" text-anchor="middle" font-size="13" fill="#6d6862">保存 teacher hash、temperature、对齐规则、mask 和 logits cache</text>
+  </g>
+</svg>

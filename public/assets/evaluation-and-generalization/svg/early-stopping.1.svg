@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">早停：训练曲线、最佳检查点和验证边界</title>
+  <desc id="desc">左侧训练损失持续下降而验证损失先降后升，竖线标出最佳检查点；右侧展示记录验证、保存最佳权重、耐心等待和恢复检查点的流程。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .grid { stroke: #d5d0c8; stroke-width: 1.2; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .train { fill: none; stroke: #6e8f8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .valid { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .accent { fill: #cc785c; }
+    .teal { fill: #6e8f8a; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">早停：曲线、检查点与验证边界</text>
+  <text x="52" y="87" class="muted" font-size="14">训练还在下降，不等于验证风险还在下降</text>
+
+  <rect x="52" y="111" width="454" height="205" rx="14" class="box"/>
+  <text x="76" y="141" class="ink" font-size="16" font-weight="700">训练轨迹</text>
+  <line x1="91" y1="278" x2="475" y2="278" class="axis"/>
+  <line x1="91" y1="278" x2="91" y2="157" class="axis"/>
+  <line x1="91" y1="248" x2="475" y2="248" class="grid"/>
+  <line x1="91" y1="218" x2="475" y2="218" class="grid"/>
+  <line x1="91" y1="188" x2="475" y2="188" class="grid"/>
+  <line x1="91" y1="158" x2="475" y2="158" class="grid"/>
+  <line x1="91" y1="157" x2="91" y2="278" class="grid"/>
+  <line x1="139" y1="157" x2="139" y2="278" class="grid"/>
+  <line x1="187" y1="157" x2="187" y2="278" class="grid"/>
+  <line x1="235" y1="157" x2="235" y2="278" class="grid"/>
+  <line x1="283" y1="157" x2="283" y2="278" class="grid"/>
+  <line x1="331" y1="157" x2="331" y2="278" class="grid"/>
+  <line x1="379" y1="157" x2="379" y2="278" class="grid"/>
+  <line x1="427" y1="157" x2="427" y2="278" class="grid"/>
+  <line x1="475" y1="157" x2="475" y2="278" class="grid"/>
+  <polyline points="91,244 139,225 187,211 235,198 283,188 331,181 379,175 427,170 475,166" class="train"/>
+  <polyline points="91,232 139,211 187,198 235,190 283,182 331,176 379,184 427,204 475,231" class="valid"/>
+  <line x1="331" y1="157" x2="331" y2="278" class="guide"/>
+  <circle cx="331" cy="176" r="7" class="accent"/>
+  <text x="342" y="171" class="ink" font-size="12">最佳 t=5</text>
+  <text x="76" y="174" class="muted" font-size="11">损失</text>
+  <text x="435" y="299" class="muted" font-size="11">训练时间 t</text>
+  <line x1="110" y1="132" x2="140" y2="132" class="train"/>
+  <text x="147" y="136" class="muted" font-size="12">训练</text>
+  <line x1="198" y1="132" x2="228" y2="132" class="valid"/>
+  <text x="235" y="136" class="muted" font-size="12">验证</text>
+  <text x="76" y="300" class="muted" font-size="11">保存最佳 checkpoint，不取最后权重</text>
+
+  <path d="M 520 214 L 548 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="558" y="111" width="190" height="205" rx="14" class="accent-box"/>
+  <text x="581" y="141" class="ink" font-size="16" font-weight="700">选择协议</text>
+  <circle cx="584" cy="169" r="6" class="teal"/>
+  <text x="599" y="174" class="ink" font-size="13">检查验证指标</text>
+  <line x1="584" y1="178" x2="584" y2="199" class="guide"/>
+  <circle cx="584" cy="207" r="6" class="teal"/>
+  <text x="599" y="212" class="ink" font-size="13">保存最佳权重</text>
+  <line x1="584" y1="216" x2="584" y2="237" class="guide"/>
+  <circle cx="584" cy="245" r="6" class="accent"/>
+  <text x="599" y="250" class="ink" font-size="13">patience 等待</text>
+  <line x1="584" y1="254" x2="584" y2="275" class="guide"/>
+  <circle cx="584" cy="283" r="6" class="accent"/>
+  <text x="599" y="288" class="ink" font-size="13">恢复 t=5</text>
+  <text x="581" y="307" class="muted" font-size="11">测试集在冻结后只读一次</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">随机变量把样本点映射为数值并形成分布函数</title>
+  <desc id="desc">左图把四个两次投掷硬币的结果映射为正面数，右图显示这个离散随机变量的阶梯分布函数。</desc>
+  <defs>
+    <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+    </marker>
+    <marker id="arrow-coral" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">样本点 → 随机变量值</text>
+  <rect x="24" y="42" width="112" height="154" rx="8" fill="none" stroke="#b8b2a8" stroke-width="1.2"/>
+  <text x="80" y="59" text-anchor="middle" class="small math">Ω</text>
+  <rect x="43" y="70" width="74" height="24" rx="4" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <rect x="43" y="104" width="74" height="24" rx="4" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <rect x="43" y="138" width="74" height="24" rx="4" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <rect x="43" y="172" width="74" height="24" rx="4" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <text x="80" y="87" text-anchor="middle" class="label math">HH</text>
+  <text x="80" y="121" text-anchor="middle" class="label math">HT</text>
+  <text x="80" y="155" text-anchor="middle" class="label math">TH</text>
+  <text x="80" y="189" text-anchor="middle" class="label math">TT</text>
+
+  <text x="178" y="59" text-anchor="middle" class="small math">X(ω)</text>
+  <line x1="118" y1="82" x2="171" y2="82" stroke="#cc785c" stroke-width="1.5" marker-end="url(#arrow-coral)"/>
+  <line x1="118" y1="116" x2="171" y2="116" stroke="#cc785c" stroke-width="1.5" marker-end="url(#arrow-coral)"/>
+  <line x1="118" y1="150" x2="171" y2="116" stroke="#cc785c" stroke-width="1.5" marker-end="url(#arrow-coral)"/>
+  <line x1="118" y1="184" x2="171" y2="184" stroke="#cc785c" stroke-width="1.5" marker-end="url(#arrow-coral)"/>
+  <rect x="171" y="70" width="50" height="24" rx="4" fill="#cc785c" fill-opacity="0.18" stroke="#cc785c" stroke-width="1.2"/>
+  <rect x="171" y="104" width="50" height="24" rx="4" fill="#cc785c" fill-opacity="0.18" stroke="#cc785c" stroke-width="1.2"/>
+  <rect x="171" y="172" width="50" height="24" rx="4" fill="#cc785c" fill-opacity="0.18" stroke="#cc785c" stroke-width="1.2"/>
+  <text x="196" y="87" text-anchor="middle" class="label math">2</text>
+  <text x="196" y="121" text-anchor="middle" class="label math">1</text>
+  <text x="196" y="189" text-anchor="middle" class="label math">0</text>
+  <text x="140" y="220" text-anchor="middle" class="caption">HT 与 TH 都映射到 1</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">CDF：Fₓ(t) = P(X ≤ t)</text>
+  <line x1="314" y1="204" x2="527" y2="204" class="axis" marker-end="url(#arrow-ink)"/>
+  <line x1="334" y1="220" x2="334" y2="42" class="axis" marker-end="url(#arrow-ink)"/>
+  <text x="530" y="220" class="small math">t</text>
+  <text x="319" y="45" class="small math">Fₓ</text>
+  <line x1="334" y1="204" x2="382" y2="204" stroke="#312f2f" stroke-width="2.5"/>
+  <line x1="382" y1="204" x2="382" y2="159" stroke="#cc785c" stroke-width="2.5"/>
+  <line x1="382" y1="159" x2="430" y2="159" stroke="#cc785c" stroke-width="2.5"/>
+  <line x1="430" y1="159" x2="430" y2="91" stroke="#cc785c" stroke-width="2.5"/>
+  <line x1="430" y1="91" x2="478" y2="91" stroke="#cc785c" stroke-width="2.5"/>
+  <line x1="478" y1="91" x2="478" y2="55" stroke="#cc785c" stroke-width="2.5"/>
+  <line x1="478" y1="55" x2="516" y2="55" stroke="#cc785c" stroke-width="2.5"/>
+  <circle cx="382" cy="159" r="4" fill="#fffaf8" stroke="#cc785c" stroke-width="1.5"/>
+  <circle cx="430" cy="91" r="4" fill="#fffaf8" stroke="#cc785c" stroke-width="1.5"/>
+  <circle cx="478" cy="55" r="4" fill="#fffaf8" stroke="#cc785c" stroke-width="1.5"/>
+  <text x="382" y="222" text-anchor="middle" class="small math">0</text>
+  <text x="430" y="222" text-anchor="middle" class="small math">1</text>
+  <text x="478" y="222" text-anchor="middle" class="small math">2</text>
+  <text x="346" y="208" class="small math">0</text>
+  <text x="346" y="163" class="small math">1/4</text>
+  <text x="346" y="95" class="small math">3/4</text>
+  <text x="346" y="59" class="small math">1</text>
+</svg>

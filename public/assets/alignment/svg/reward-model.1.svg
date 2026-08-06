@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">奖励模型把偏好反馈转成代理分数</title>
+  <desc id="desc">候选回答和偏好标签训练奖励模型，奖励模型给策略优化提供代理分数，独立评测检查分数提升是否对应真实结果。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; }
+      .muted { fill: #6c6863; }
+      .box { fill: #f3f0eb; stroke: #b8b2a8; stroke-width: 2; }
+      .warm { fill: #f6e4dc; stroke: #cc785c; stroke-width: 2; }
+      .cool { fill: #e6eee8; stroke: #809783; stroke-width: 2; }
+      .label { font: 600 19px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .small { font: 14px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .tiny { font: 12px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .line { fill: none; stroke: #312f2f; stroke-width: 2.4; marker-end: url(#arrow-ink); }
+      .coral-line { fill: none; stroke: #cc785c; stroke-width: 2.4; marker-end: url(#arrow-coral); }
+      .dash { fill: none; stroke: #b8b2a8; stroke-width: 1.7; stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" fill="#fbf9f6"/>
+  <text x="38" y="38" class="ink label">奖励模型：偏好分数是代理目标</text>
+  <text x="38" y="62" class="muted small">pairwise label → reward score → policy optimization → independent result</text>
+
+  <rect x="38" y="105" width="150" height="82" rx="12" class="box"/>
+  <text x="113" y="132" text-anchor="middle" class="ink label">候选回答</text>
+  <text x="113" y="156" text-anchor="middle" class="muted small">y⁺ / y⁻</text>
+  <text x="113" y="174" text-anchor="middle" class="muted tiny">同一 prompt x</text>
+
+  <rect x="225" y="105" width="150" height="82" rx="12" class="warm"/>
+  <text x="300" y="132" text-anchor="middle" class="ink label">偏好标签</text>
+  <text x="300" y="156" text-anchor="middle" class="muted small">chosen / rejected</text>
+  <text x="300" y="174" text-anchor="middle" class="muted tiny">指南和标注版本</text>
+
+  <rect x="412" y="105" width="150" height="82" rx="12" class="box"/>
+  <text x="487" y="132" text-anchor="middle" class="ink label">Reward model</text>
+  <text x="487" y="156" text-anchor="middle" class="muted small">rφ(x,y)</text>
+  <text x="487" y="174" text-anchor="middle" class="muted tiny">分数差 → 概率</text>
+
+  <rect x="599" y="105" width="163" height="82" rx="12" class="cool"/>
+  <text x="680" y="132" text-anchor="middle" class="ink label">策略优化</text>
+  <text x="680" y="156" text-anchor="middle" class="muted small">πθ 追逐高分</text>
+  <text x="680" y="174" text-anchor="middle" class="muted tiny">可能进入 OOD</text>
+
+  <path d="M188 146 H225" class="line"/>
+  <path d="M375 146 H412" class="line"/>
+  <path d="M562 146 H599" class="line"/>
+
+  <rect x="223" y="267" width="164" height="64" rx="12" class="box"/>
+  <text x="305" y="293" text-anchor="middle" class="ink label">独立评测</text>
+  <text x="305" y="315" text-anchor="middle" class="muted tiny">事实 · 安全 · 后果</text>
+
+  <rect x="478" y="267" width="164" height="64" rx="12" class="warm"/>
+  <text x="560" y="293" text-anchor="middle" class="ink label">回流反馈</text>
+  <text x="560" y="315" text-anchor="middle" class="muted tiny">新候选和新切分</text>
+
+  <path d="M680 187 C680 230 642 230 642 267" class="line"/>
+  <path d="M478 299 H387" class="line"/>
+  <path d="M478 299 C426 238 356 218 300 187" class="coral-line"/>
+  <path d="M642 299 C690 348 250 351 223 320" class="coral-line"/>
+
+  <path d="M38 350 H762" class="dash"/>
+  <text x="38" y="367" class="muted tiny">审计重点：reward 上升时，独立质量、约束违反率、长度和策略 KL 是否同步改善？</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">SwiGLU 的 gate 与 value 分支</title>
+  <desc id="desc">同一个 token 的输入分别经过 gate projection 和 up projection，gate 分支经过 SiLU 后与 value 分支逐坐标相乘，再通过 down projection 回到 residual stream 的宽度。</desc>
+  <style>
+    .paper { fill: #f4efee; }
+    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted { fill: #6c6a64; font-size: 16px; }
+    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
+    .small { fill: #6c6a64; font-size: 14px; }
+    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
+    .linear { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
+    .activation { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
+    .merge { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; }
+    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow { fill: #312f2f; }
+  </style>
+  <rect class="paper" width="800" height="373"/>
+  <text class="ink label" x="42" y="42">SwiGLU 的两条中间分支</text>
+  <text class="ink muted" x="42" y="69">同一个 token 产生 gate 与 value，逐坐标相乘后压回 d 维</text>
+
+  <rect class="box" x="42" y="126" width="74" height="50"/>
+  <text class="ink label" x="70" y="158">h</text>
+  <text class="ink small" x="70" y="198">d</text>
+
+  <path class="path" d="M116 151H136V96H154"/>
+  <path class="arrow" d="M154 96l-9-6v12z"/>
+  <path class="path" d="M116 151H136V212H154"/>
+  <path class="arrow" d="M154 212l-9-6v12z"/>
+
+  <rect class="linear" x="166" y="72" width="104" height="48"/>
+  <text class="ink label" x="199" y="103">W<tspan baseline-shift="sub" font-size="13">g</tspan>h</text>
+  <text class="ink small" x="197" y="143">g ∈ Rᵐ</text>
+
+  <path class="path" d="M270 96H292"/>
+  <path class="arrow" d="M292 96l-9-6v12z"/>
+  <rect class="activation" x="304" y="72" width="112" height="48"/>
+  <text class="ink label" x="325" y="103">SiLU(g)</text>
+  <text class="ink small" x="331" y="143">gate s</text>
+
+  <rect class="linear" x="166" y="188" width="104" height="48"/>
+  <text class="ink label" x="199" y="219">W<tspan baseline-shift="sub" font-size="13">u</tspan>h</text>
+  <text class="ink small" x="197" y="259">u ∈ Rᵐ</text>
+
+  <path class="path" d="M270 212H416V175H431"/>
+  <path class="arrow" d="M431 175l-9-6v12z"/>
+  <path class="path" d="M416 96V127H431"/>
+  <path class="arrow" d="M431 127l-9-6v12z"/>
+
+  <circle class="merge" cx="455" cy="151" r="24"/>
+  <text class="ink label" x="445" y="158">⊙</text>
+  <text class="ink small" x="421" y="198">a = s ⊙ u</text>
+
+  <path class="path" d="M479 151H508"/>
+  <path class="arrow" d="M508 151l-9-6v12z"/>
+  <rect class="linear" x="520" y="126" width="104" height="50"/>
+  <text class="ink label" x="553" y="158">W<tspan baseline-shift="sub" font-size="13">d</tspan>a</text>
+  <text class="ink small" x="560" y="198">m → d</text>
+
+  <path class="path" d="M624 151H664"/>
+  <path class="arrow" d="M664 151l-9-6v12z"/>
+  <rect class="box" x="676" y="126" width="78" height="50"/>
+  <text class="ink label" x="706" y="158">y</text>
+  <text class="ink small" x="705" y="198">d</text>
+
+  <path d="M42 278H758" stroke="#d5c9c5" stroke-width="1.5"/>
+  <text class="ink label" x="42" y="315">逐 token 独立</text>
+  <text class="ink small" x="42" y="341">两条上投影读取同一个 h，不跨 token 相乘</text>
+  <text class="ink label" x="474" y="315">d → m → d</text>
+  <text class="ink small" x="474" y="341">a = SiLU(g) ⊙ u</text>
+</svg>

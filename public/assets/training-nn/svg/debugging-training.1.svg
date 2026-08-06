@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">训练调试的分层证据路径</title>
+  <desc id="desc">从数据合同经过前向和损失、反向梯度、参数更新到评估，每个边界都有形状、范围、有限性和状态检查。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f897f"/>
+    </marker>
+    <style>
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+      .muted { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #716b63; }
+      .small { font-size: 13px; }
+      .body { font-size: 15px; }
+      .strong { font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" rx="18" fill="#f7f3ec"/>
+  <rect x="22" y="18" width="756" height="45" rx="12" fill="#efe7d8"/>
+  <text x="44" y="47" class="label strong" font-size="22">训练调试</text>
+  <text x="190" y="46" class="muted body">找到第一个不符合预期的边界</text>
+
+  <text x="38" y="87" class="muted small">执行路径</text>
+  <rect x="38" y="99" width="135" height="57" rx="11" fill="#f1d2c4" stroke="#cc785c" stroke-width="1.5"/>
+  <text x="105.5" y="123" text-anchor="middle" class="label body strong">数据合同</text>
+  <text x="105.5" y="145" text-anchor="middle" class="muted small">shape / label / split</text>
+
+  <path d="M 173 127.5 H 206" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="208" y="99" width="135" height="57" rx="11" fill="#f1d2c4" stroke="#cc785c" stroke-width="1.5"/>
+  <text x="275.5" y="123" text-anchor="middle" class="label body strong">前向 / 损失</text>
+  <text x="275.5" y="145" text-anchor="middle" class="muted small">range / finite / reduce</text>
+
+  <path d="M 343 127.5 H 376" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="378" y="99" width="135" height="57" rx="11" fill="#efe7d8" stroke="#b8b2a8" stroke-width="1.5"/>
+  <text x="445.5" y="123" text-anchor="middle" class="label body strong">反向梯度</text>
+  <text x="445.5" y="145" text-anchor="middle" class="muted small">norm / finite / sign</text>
+
+  <path d="M 513 127.5 H 546" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="548" y="99" width="105" height="57" rx="11" fill="#d9e6df" stroke="#6f9b88" stroke-width="1.5"/>
+  <text x="600.5" y="123" text-anchor="middle" class="label body strong">更新</text>
+  <text x="600.5" y="145" text-anchor="middle" class="muted small">ratio / step</text>
+
+  <path d="M 653 127.5 H 686" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="688" y="99" width="74" height="57" rx="11" fill="#d9e6df" stroke="#6f9b88" stroke-width="1.5"/>
+  <text x="725" y="123" text-anchor="middle" class="label body strong">评估</text>
+  <text x="725" y="145" text-anchor="middle" class="muted small">mode / metric</text>
+
+  <text x="38" y="188" class="muted small">每个边界都记录</text>
+  <rect x="38" y="201" width="215" height="61" rx="11" fill="#fffaf2" stroke="#d8cdbd"/>
+  <text x="58" y="226" class="label body strong">数据证据</text>
+  <text x="58" y="248" class="muted small">shape · dtype · 范围 · 对齐 · split</text>
+
+  <rect x="270" y="201" width="215" height="61" rx="11" fill="#fffaf2" stroke="#d8cdbd"/>
+  <text x="290" y="226" class="label body strong">数值证据</text>
+  <text x="290" y="248" class="muted small">finite · 分位数 · gradient norm</text>
+
+  <rect x="502" y="201" width="260" height="61" rx="11" fill="#fffaf2" stroke="#d8cdbd"/>
+  <text x="522" y="226" class="label body strong">协议证据</text>
+  <text x="522" y="248" class="muted small">seed · optimizer · scaler · checkpoint</text>
+
+  <path d="M 105.5 156 C 105.5 176 145 178 145 201" stroke="#b8b2a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 445.5 156 C 445.5 176 378 178 378 201" stroke="#b8b2a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 725 156 C 725 176 650 178 650 201" stroke="#b8b2a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="38" y="290" width="724" height="58" rx="12" fill="#f4ddd2" stroke="#cc785c" stroke-width="1.5"/>
+  <circle cx="72" cy="319" r="17" fill="#cc785c"/>
+  <text x="72" y="324" text-anchor="middle" fill="#fffaf2" font-size="16" font-weight="700">!</text>
+  <text x="105" y="315" class="label body strong">停止在第一个分叉</text>
+  <text x="105" y="337" class="muted small">先修数据 / 公式 / 梯度 / 更新，再增加模型和训练复杂度</text>
+</svg>

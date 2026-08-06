@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">优化器的状态分支</title>
+  <desc id="desc">同一个梯度进入不同的优化器状态：SGD 直接更新，动量保存方向，自适应方法保存坐标尺度，Adam 同时保存一阶和二阶统计。</desc>
+  <rect width="800" height="373" rx="18" fill="#fbfaf7"/>
+  <text x="28" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#312f2f">一个梯度，几种状态路径</text>
+  <text x="28" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#716c65">优化器的区别在于保存什么、怎样把它写回参数</text>
+
+  <rect x="24" y="69" width="230" height="276" rx="14" fill="#f6f3ee" stroke="#d5d0c8"/>
+  <circle cx="139" cy="111" r="28" fill="#cc785c"/>
+  <text x="139" y="116" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#fffdfa">gₖ</text>
+  <text x="139" y="153" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#514c46">有效梯度</text>
+  <line x1="139" y1="141" x2="139" y2="176" stroke="#b8b2a8" stroke-width="1.5"/>
+  <polygon points="139,184 134,176 144,176" fill="#b8b2a8"/>
+  <rect x="58" y="191" width="162" height="42" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
+  <text x="139" y="217" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#312f2f">状态分派</text>
+  <line x1="139" y1="234" x2="139" y2="261" stroke="#b8b2a8" stroke-width="1.5"/>
+  <polygon points="139,269 134,261 144,261" fill="#b8b2a8"/>
+  <text x="139" y="298" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#716c65">参数 θₖ + 位移 uₖ</text>
+  <text x="139" y="322" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#8a847b">记录 step 与状态</text>
+
+  <rect x="280" y="69" width="496" height="276" rx="14" fill="#f6f3ee" stroke="#d5d0c8"/>
+  <text x="307" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#312f2f">状态的四种角色</text>
+
+  <rect x="307" y="121" width="211" height="42" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
+  <circle cx="327" cy="142" r="11" fill="#6d8796"/>
+  <text x="327" y="146" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#fffdfa">1</text>
+  <text x="349" y="147" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">SGD：无历史状态</text>
+  <text x="349" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#716c65">uₖ = −ηgₖ</text>
+
+  <rect x="539" y="121" width="211" height="42" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
+  <circle cx="559" cy="142" r="11" fill="#cc785c"/>
+  <text x="559" y="146" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#fffdfa">2</text>
+  <text x="581" y="147" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">动量：记方向</text>
+  <text x="581" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#716c65">βvₖ + gₖ</text>
+
+  <rect x="307" y="180" width="211" height="55" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
+  <circle cx="327" cy="207" r="11" fill="#5b8f83"/>
+  <text x="327" y="211" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#fffdfa">3</text>
+  <text x="349" y="204" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">AdaGrad / RMSProp</text>
+  <text x="349" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#716c65">记平方尺度 dₖ</text>
+
+  <rect x="539" y="180" width="211" height="55" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
+  <circle cx="559" cy="207" r="11" fill="#a65f48"/>
+  <text x="559" y="211" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#fffdfa">4</text>
+  <text x="581" y="204" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">Adam：方向 + 尺度</text>
+  <text x="581" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#716c65">mₖ、vₖ、偏置修正</text>
+
+  <line x1="307" y1="264" x2="750" y2="264" stroke="#c9c4bb" stroke-width="1"/>
+  <text x="307" y="291" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#514c46">比较时要同时冻结</text>
+  <text x="307" y="314" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#716c65">batch / step budget / η schedule / decay / checkpoint state</text>
+  <text x="307" y="333" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#8a847b">最终观察真实更新范数和验证曲线</text>
+</svg>

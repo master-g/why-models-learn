@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">卷积作为 Toeplitz 结构</title>
+  <desc id="desc">一维共享核形成带状 Toeplitz 矩阵，二维局部窗口形成 block Toeplitz with Toeplitz blocks，反向传播沿矩阵转置散射并在共享对角线上累加。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .input { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.2; }
+      .diag { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.6; }
+      .block { fill: #dce9df; stroke: #75957e; stroke-width: 1.4; }
+      .transpose { fill: #e8e1ef; stroke: #8e7caa; stroke-width: 1.5; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">卷积作为 Toeplitz 结构：共享窗口变成重复对角线</text>
+  <text x="38" y="65" class="subtitle">零表示局部连接，重复表示权值共享，转置表示反向散射</text>
+
+  <rect x="38" y="87" width="226" height="174" rx="12" class="assumption"/>
+  <text x="56" y="113" class="panel-title">一维：y = T_wx</text>
+  <text x="56" y="132" class="panel-detail">w = [w₀, w₁, w₂]</text>
+  <g transform="translate(56 146)">
+    <rect width="27" height="24" class="diag"/>
+    <rect x="27" width="27" height="24" class="diag"/>
+    <rect x="54" width="27" height="24" class="diag"/>
+    <rect x="81" width="27" height="24" class="input"/>
+    <rect x="108" width="27" height="24" class="input"/>
+    <rect y="24" width="27" height="24" class="input"/>
+    <rect x="27" y="24" width="27" height="24" class="diag"/>
+    <rect x="54" y="24" width="27" height="24" class="diag"/>
+    <rect x="81" y="24" width="27" height="24" class="diag"/>
+    <rect x="108" y="24" width="27" height="24" class="input"/>
+    <rect y="48" width="27" height="24" class="input"/>
+    <rect x="27" y="48" width="27" height="24" class="input"/>
+    <rect x="54" y="48" width="27" height="24" class="diag"/>
+    <rect x="81" y="48" width="27" height="24" class="diag"/>
+    <rect x="108" y="48" width="27" height="24" class="diag"/>
+    <text x="13.5" y="17" text-anchor="middle" class="value">w₀</text>
+    <text x="40.5" y="17" text-anchor="middle" class="value">w₁</text>
+    <text x="67.5" y="17" text-anchor="middle" class="value">w₂</text>
+    <text x="94.5" y="17" text-anchor="middle" class="detail">0</text>
+    <text x="121.5" y="17" text-anchor="middle" class="detail">0</text>
+    <text x="13.5" y="41" text-anchor="middle" class="detail">0</text>
+    <text x="40.5" y="41" text-anchor="middle" class="value">w₀</text>
+    <text x="67.5" y="41" text-anchor="middle" class="value">w₁</text>
+    <text x="94.5" y="41" text-anchor="middle" class="value">w₂</text>
+    <text x="121.5" y="41" text-anchor="middle" class="detail">0</text>
+    <text x="13.5" y="65" text-anchor="middle" class="detail">0</text>
+    <text x="40.5" y="65" text-anchor="middle" class="detail">0</text>
+    <text x="67.5" y="65" text-anchor="middle" class="value">w₀</text>
+    <text x="94.5" y="65" text-anchor="middle" class="value">w₁</text>
+    <text x="121.5" y="65" text-anchor="middle" class="value">w₂</text>
+  </g>
+  <text x="56" y="238" class="panel-detail">同一 w 在重复对角线上出现</text>
+  <text x="56" y="254" class="panel-detail">稀疏带状矩阵，局部且共享</text>
+
+  <rect x="287" y="87" width="226" height="174" rx="12" class="assumption"/>
+  <text x="305" y="113" class="panel-title">二维：BTTB</text>
+  <text x="305" y="132" class="panel-detail">block Toeplitz with Toeplitz blocks</text>
+  <g transform="translate(305 148)">
+    <rect width="84" height="38" rx="7" class="block"/>
+    <rect x="90" width="84" height="38" rx="7" class="block"/>
+    <rect y="48" width="84" height="38" rx="7" class="block"/>
+    <rect x="90" y="48" width="84" height="38" rx="7" class="block"/>
+    <text x="42" y="24" text-anchor="middle" class="value">a b / c d</text>
+    <text x="132" y="24" text-anchor="middle" class="value">0 a / 0 c</text>
+    <text x="42" y="72" text-anchor="middle" class="value">0 0 / a b</text>
+    <text x="132" y="72" text-anchor="middle" class="value">a b / 0 c</text>
+  </g>
+  <text x="305" y="248" class="panel-detail">块内沿宽度平移，块间沿高度平移</text>
+
+  <rect x="536" y="87" width="226" height="174" rx="12" class="assumption"/>
+  <text x="554" y="113" class="panel-title">反向：矩阵转置</text>
+  <rect x="554" y="132" width="80" height="36" rx="8" class="transpose"/>
+  <text x="594" y="155" text-anchor="middle" class="label">y = T_wx</text>
+  <path d="M639 150 H658" fill="none" stroke="#8b817b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <rect x="667" y="132" width="77" height="36" rx="8" class="transpose"/>
+  <text x="705.5" y="155" text-anchor="middle" class="label">T_wᵀg</text>
+  <text x="554" y="192" class="panel-detail">输入梯度：scatter-add</text>
+  <text x="554" y="211" class="panel-detail">核梯度：重复对角线累加</text>
+  <line x1="554" y1="222" x2="744" y2="222" stroke="#d7ccc4" stroke-width="1"/>
+  <text x="554" y="243" class="panel-detail">im2col → patch → GEMM</text>
+
+  <rect x="38" y="278" width="724" height="43" rx="9" class="card"/>
+  <text x="54" y="298" class="label">结构</text>
+  <text x="96" y="298" class="value">y = T_wx</text>
+  <text x="167" y="298" class="detail">；</text>
+  <text x="188" y="298" class="label">反向</text>
+  <text x="233" y="298" class="value">∂L/∂x = T_wᵀg</text>
+  <text x="382" y="298" class="detail">；</text>
+  <text x="403" y="298" class="label">stride</text>
+  <text x="447" y="298" class="value">= 选择矩阵行</text>
+  <text x="54" y="314" class="detail">padding 改边界行，dilation 留空洞，channel mixing 组成块矩阵。</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">验收：核方向、矩阵布局、非零连接、共享对角线与转置累加必须和滑窗实现一致</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">核技巧：从非线性输入关系到特征空间中的线性分界</title>
+  <desc id="desc">左侧是原空间中交错的正负样本，中间是乘积特征映射，右侧是在隐式特征坐标中用零作为线性边界。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 7 7; }
+    .accent { fill: #cc785c; }
+    .dark { fill: #312f2f; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">核技巧：把非线性关系变成隐式内积</text>
+  <text x="52" y="87" class="muted" font-size="14">原空间的边界交错；特征空间中只需一个线性阈值</text>
+
+  <rect x="52" y="111" width="205" height="205" rx="14" class="box"/>
+  <text x="72" y="140" class="ink" font-size="16" font-weight="700">原空间</text>
+  <line x1="90" y1="276" x2="230" y2="276" class="axis"/>
+  <line x1="90" y1="276" x2="90" y2="151" class="axis"/>
+  <text x="218" y="296" class="muted" font-size="12">x₁</text>
+  <text x="70" y="159" class="muted" font-size="12">x₂</text>
+  <circle cx="121" cy="181" r="8" class="accent"/>
+  <circle cx="199" cy="259" r="8" class="accent"/>
+  <circle cx="121" cy="259" r="8" class="dark"/>
+  <circle cx="199" cy="181" r="8" class="dark"/>
+  <text x="136" y="184" class="ink" font-size="13">+1</text>
+  <text x="208" y="264" class="ink" font-size="13">+1</text>
+  <text x="136" y="264" class="ink" font-size="13">−1</text>
+  <text x="208" y="184" class="ink" font-size="13">−1</text>
+  <text x="72" y="306" class="muted" font-size="12">y = sign(x₁x₂)</text>
+
+  <path d="M 274 214 L 322 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="332" y="111" width="155" height="205" rx="14" class="accent-box"/>
+  <text x="357" y="143" class="ink" font-size="16" font-weight="700">特征映射</text>
+  <text x="357" y="180" class="ink" font-size="15">φ(x)</text>
+  <text x="357" y="208" class="muted" font-size="13">z₃ = √2 x₁x₂</text>
+  <line x1="357" y1="234" x2="462" y2="234" class="guide"/>
+  <text x="357" y="260" class="muted" font-size="13">不显式存储</text>
+  <text x="357" y="284" class="muted" font-size="13">只计算 K(x,z)</text>
+
+  <path d="M 505 214 L 553 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="563" y="111" width="185" height="205" rx="14" class="box"/>
+  <text x="586" y="143" class="ink" font-size="16" font-weight="700">隐式特征空间</text>
+  <line x1="602" y1="244" x2="715" y2="244" class="axis"/>
+  <line x1="658" y1="164" x2="658" y2="286" class="axis"/>
+  <line x1="584" y1="214" x2="732" y2="214" class="guide"/>
+  <text x="713" y="263" class="muted" font-size="12">z₃</text>
+  <text x="670" y="209" class="muted" font-size="12">0</text>
+  <circle cx="620" cy="184" r="8" class="accent"/>
+  <circle cx="696" cy="184" r="8" class="accent"/>
+  <circle cx="620" cy="274" r="8" class="dark"/>
+  <circle cx="696" cy="274" r="8" class="dark"/>
+  <text x="586" y="305" class="muted" font-size="12">线性边界：z₃ = 0</text>
+</svg>

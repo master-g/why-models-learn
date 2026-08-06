@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">小批量梯度的噪声与平均</title>
+  <desc id="desc">左侧展示不同小批次梯度围绕完整梯度的方向，右侧展示增大批次后方差下降但更新次数减少。</desc>
+  <rect width="800" height="373" fill="#f7f4ef"/>
+  <text x="28" y="30" fill="#2c2a27" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700">小批量梯度：在完整方向附近采样</text>
+  <text x="28" y="51" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">batch size 同时改变噪声和更新频率</text>
+
+  <rect x="22" y="68" width="414" height="275" rx="12" fill="#fffefa" stroke="#d8d1c7"/>
+  <text x="42" y="92" fill="#38342f" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700">同一参数点的梯度估计</text>
+  <text x="42" y="111" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">小批次方向不同，但平均方向指向完整梯度</text>
+  <line x1="224" y1="232" x2="224" y2="113" stroke="#a9583e" stroke-width="3.5"/>
+  <polygon points="224,104 218,118 230,118" fill="#a9583e"/>
+  <text x="237" y="116" fill="#a9583e" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">完整梯度</text>
+  <line x1="224" y1="232" x2="330" y2="151" stroke="#54758a" stroke-width="2.5"/>
+  <polygon points="338,145 324,148 331,157" fill="#54758a"/>
+  <line x1="224" y1="232" x2="122" y2="157" stroke="#54758a" stroke-width="2.5"/>
+  <polygon points="114,151 121,162 128,151" fill="#54758a"/>
+  <line x1="224" y1="232" x2="308" y2="276" stroke="#8a7965" stroke-width="2.5"/>
+  <polygon points="318,281 306,270 302,282" fill="#8a7965"/>
+  <line x1="224" y1="232" x2="147" y2="286" stroke="#8a7965" stroke-width="2.5"/>
+  <polygon points="137,293 153,289 146,280" fill="#8a7965"/>
+  <circle cx="224" cy="232" r="5" fill="#2c2a27"/>
+  <text x="235" y="252" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">当前参数</text>
+  <line x1="42" y1="314" x2="62" y2="314" stroke="#a9583e" stroke-width="3"/>
+  <text x="68" y="318" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">全批量方向</text>
+  <line x1="166" y1="314" x2="186" y2="314" stroke="#54758a" stroke-width="3"/>
+  <text x="192" y="318" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">小 batch 样本</text>
+  <line x1="300" y1="314" x2="320" y2="314" stroke="#8a7965" stroke-width="3"/>
+  <text x="326" y="318" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">另一批样本</text>
+
+  <rect x="452" y="68" width="326" height="275" rx="12" fill="#fffefa" stroke="#d8d1c7"/>
+  <text x="472" y="92" fill="#38342f" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700">批次越大，方向越稳</text>
+  <text x="472" y="111" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">但固定 epoch 中的更新次数会减少</text>
+  <line x1="490" y1="292" x2="744" y2="292" stroke="#777168" stroke-width="1.2"/>
+  <line x1="490" y1="139" x2="490" y2="292" stroke="#777168" stroke-width="1.2"/>
+  <line x1="490" y1="216" x2="744" y2="216" stroke="#ddd7cf"/>
+  <text x="472" y="296" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">0</text>
+  <text x="466" y="220" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">½</text>
+  <text x="466" y="143" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">1</text>
+  <rect x="521" y="173" width="38" height="119" rx="4" fill="#a9583e"/>
+  <rect x="593" y="232" width="38" height="60" rx="4" fill="#54758a"/>
+  <rect x="665" y="262" width="38" height="30" rx="4" fill="#8a7965"/>
+  <text x="520" y="311" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">B=1</text>
+  <text x="585" y="311" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">B=4</text>
+  <text x="655" y="311" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">B=16</text>
+  <text x="554" y="330" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">相对梯度方差</text>
+  <text x="517" y="161" fill="#a9583e" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">噪声大</text>
+  <text x="658" y="251" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">噪声小</text>
+</svg>

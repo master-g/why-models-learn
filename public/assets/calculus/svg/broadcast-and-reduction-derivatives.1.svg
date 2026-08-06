@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="broadcast-title broadcast-desc">
+  <title id="broadcast-title">广播复制与归约求和的前向和反向</title>
+  <desc id="broadcast-desc">前向时一个向量被复制到三个输出位置，反向时三个位置的梯度沿共享轴求和回同一个输入。</desc>
+  <defs>
+    <marker id="broadcast-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <marker id="broadcast-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <style>
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .small { font-size: 11px; }
+      .title { font-size: 15px; font-weight: 600; }
+      .box { fill: #f0ebe6; stroke: #b8b2a8; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="20" y1="130" x2="540" y2="130" stroke="#d8d0c8"/>
+
+  <text x="22" y="25" class="label title">前向：一个输入被广播复制</text>
+  <rect x="28" y="54" width="100" height="36" rx="6" class="box"/>
+  <text x="53" y="77" class="label">b ∈ Rᴰ</text>
+  <rect x="205" y="54" width="96" height="36" rx="6" class="box"/>
+  <text x="227" y="77" class="label">广播复制</text>
+  <rect x="416" y="35" width="94" height="28" rx="5" class="box"/>
+  <rect x="416" y="68" width="94" height="28" rx="5" class="box"/>
+  <rect x="416" y="101" width="94" height="28" rx="5" class="box"/>
+  <text x="449" y="54" class="label">y₁</text>
+  <text x="449" y="87" class="label">y₂</text>
+  <text x="449" y="120" class="label">y₃</text>
+  <line x1="132" y1="72" x2="199" y2="72" stroke="#cc785c" stroke-width="2" marker-end="url(#broadcast-arrow-coral)"/>
+  <line x1="307" y1="72" x2="382" y2="72" stroke="#cc785c" stroke-width="2"/>
+  <line x1="382" y1="72" x2="382" y2="49" stroke="#cc785c" stroke-width="2"/>
+  <line x1="382" y1="72" x2="382" y2="82" stroke="#cc785c" stroke-width="2"/>
+  <line x1="382" y1="72" x2="382" y2="115" stroke="#cc785c" stroke-width="2"/>
+  <line x1="382" y1="49" x2="410" y2="49" stroke="#cc785c" stroke-width="2" marker-end="url(#broadcast-arrow-coral)"/>
+  <line x1="382" y1="82" x2="410" y2="82" stroke="#cc785c" stroke-width="2" marker-end="url(#broadcast-arrow-coral)"/>
+  <line x1="382" y1="115" x2="410" y2="115" stroke="#cc785c" stroke-width="2" marker-end="url(#broadcast-arrow-coral)"/>
+  <text x="135" y="49" class="label small">同一参数</text>
+  <text x="315" y="49" class="label small">复制到共享轴</text>
+  <text x="218" y="111" class="label small">dB = 1ₘ dbᵀ</text>
+
+  <text x="22" y="155" class="label title">反向：共享位置的梯度求和</text>
+  <rect x="28" y="184" width="100" height="36" rx="6" class="box"/>
+  <text x="49" y="207" class="label">g_b</text>
+  <rect x="205" y="184" width="96" height="36" rx="6" class="box"/>
+  <text x="226" y="207" class="label">按轴求和</text>
+  <rect x="416" y="160" width="94" height="28" rx="5" class="box"/>
+  <rect x="416" y="193" width="94" height="28" rx="5" class="box"/>
+  <rect x="416" y="226" width="94" height="20" rx="5" class="box"/>
+  <text x="442" y="179" class="label">g_y₁</text>
+  <text x="442" y="212" class="label">g_y₂</text>
+  <text x="442" y="241" class="label small">g_y₃</text>
+  <line x1="410" y1="174" x2="302" y2="196" stroke="#312f2f" stroke-width="2" marker-end="url(#broadcast-arrow-ink)"/>
+  <line x1="410" y1="207" x2="302" y2="202" stroke="#312f2f" stroke-width="2" marker-end="url(#broadcast-arrow-ink)"/>
+  <line x1="410" y1="236" x2="302" y2="210" stroke="#312f2f" stroke-width="2" marker-end="url(#broadcast-arrow-ink)"/>
+  <line x1="199" y1="202" x2="132" y2="202" stroke="#312f2f" stroke-width="2" marker-end="url(#broadcast-arrow-ink)"/>
+  <text x="137" y="237" class="label small">g_b = Σᵢ g_yᵢ</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <defs>
+    <marker id="forward-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+    </marker>
+    <marker id="reverse-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5d7775"/>
+    </marker>
+    <style>
+      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .small { font-size:14px; }
+      .label { font-size:16px; font-weight:600; }
+      .muted { fill:#6c6a64; font-size:13px; }
+      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
+      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
+      .reverse-box { fill:#e3eeeb; stroke:#5d7775; stroke-width:1.5; }
+      .forward-line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#forward-arrow); }
+      .reverse-line { fill:none; stroke:#5d7775; stroke-width:2; marker-end:url(#reverse-arrow); }
+      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#f4f0ec"/>
+  <text x="36" y="34" class="ink label">计算图：值沿箭头前进，敏感度沿反向边返回</text>
+  <text x="36" y="57" class="ink muted">共享节点 s 只前向求值一次，反向把 q、r 两路贡献相加</text>
+
+  <rect x="36" y="92" width="128" height="68" rx="10" class="box"/>
+  <text x="100" y="120" text-anchor="middle" class="ink label">输入</text>
+  <text x="100" y="145" text-anchor="middle" class="ink small">x = 2，y = 3</text>
+
+  <rect x="208" y="92" width="144" height="68" rx="10" class="accent"/>
+  <text x="280" y="120" text-anchor="middle" class="ink label">共享节点</text>
+  <text x="280" y="145" text-anchor="middle" class="ink small">s = x + y = 5</text>
+
+  <rect x="420" y="62" width="128" height="68" rx="10" class="accent"/>
+  <text x="484" y="90" text-anchor="middle" class="ink label">平方分支</text>
+  <text x="484" y="115" text-anchor="middle" class="ink small">q = s² = 25</text>
+
+  <rect x="420" y="158" width="128" height="68" rx="10" class="accent"/>
+  <text x="484" y="186" text-anchor="middle" class="ink label">线性分支</text>
+  <text x="484" y="211" text-anchor="middle" class="ink small">r = 3s = 15</text>
+
+  <rect x="616" y="92" width="148" height="68" rx="10" class="box"/>
+  <text x="690" y="120" text-anchor="middle" class="ink label">输出损失</text>
+  <text x="690" y="145" text-anchor="middle" class="ink small">L = q + r = 40</text>
+
+  <path d="M164 126 H202" class="forward-line"/>
+  <path d="M352 112 H414" class="forward-line"/>
+  <path d="M352 140 H382 V192 H414" class="forward-line"/>
+  <path d="M548 96 H580 V126 H610" class="forward-line"/>
+  <path d="M548 192 H580 V126 H610" class="forward-line"/>
+  <text x="388" y="78" text-anchor="middle" class="ink muted">前向拓扑序</text>
+
+  <rect x="616" y="264" width="148" height="58" rx="10" class="reverse-box"/>
+  <text x="690" y="289" text-anchor="middle" class="ink label">反向初始化</text>
+  <text x="690" y="309" text-anchor="middle" class="ink small">L̄ = 1</text>
+
+  <rect x="420" y="264" width="128" height="58" rx="10" class="reverse-box"/>
+  <text x="484" y="289" text-anchor="middle" class="ink label">两路贡献</text>
+  <text x="484" y="309" text-anchor="middle" class="ink small">q̄ = r̄ = 1</text>
+
+  <rect x="208" y="264" width="144" height="58" rx="10" class="reverse-box"/>
+  <text x="280" y="289" text-anchor="middle" class="ink label">汇合累加</text>
+  <text x="280" y="309" text-anchor="middle" class="ink small">s̄ = 2s + 3 = 13</text>
+
+  <rect x="36" y="264" width="128" height="58" rx="10" class="reverse-box"/>
+  <text x="100" y="289" text-anchor="middle" class="ink label">输入梯度</text>
+  <text x="100" y="309" text-anchor="middle" class="ink small">x̄ = ȳ = 13</text>
+
+  <path d="M616 293 H554" class="reverse-line"/>
+  <path d="M420 293 H358" class="reverse-line"/>
+  <path d="M208 293 H170" class="reverse-line"/>
+  <path d="M36 342 H764" class="guide"/>
+  <text x="400" y="361" text-anchor="middle" class="ink muted">DAG 让前向可结束；逆拓扑序让反向可累加</text>
+</svg>

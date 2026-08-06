@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">稀疏注意力只保留连接集合中的 query-key 位置</title>
+  <desc id="desc">三个矩阵分别展示 dense attention、局部窗口和带全局行列的稀疏 pattern；底部说明 mask 与实际 kernel 跳过位置的区别。</desc>
+  <style>
+    .ink { fill: #312f2f; }
+    .muted { fill: #6d6862; }
+    .coral { fill: #cc785c; }
+    .coral-soft { fill: #f0d9d0; }
+    .coral-pale { fill: #ead2c7; }
+    .axis { stroke: #b8b2a8; stroke-width: 1.5; }
+    .grid { stroke: #c9c4bb; stroke-width: 1; }
+    .panel { fill: #fbfaf7; stroke: #d7d1c8; stroke-width: 1; }
+    .dark { fill: #a9563e; }
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; }
+    .title { font-size: 20px; font-weight: 700; }
+    .head { font-size: 15px; font-weight: 700; }
+    .label { font-size: 13px; }
+    .small { font-size: 11px; }
+  </style>
+
+  <rect width="800" height="373" fill="#f5f1ea"/>
+  <text x="40" y="32" class="ink title">稀疏 attention = 只保留有效 query-key 连接</text>
+  <text x="40" y="53" class="muted label">mask 定义 E；只有 kernel 跳过 E 之外的位置，逻辑稀疏才转成实际资源节省</text>
+
+  <rect x="28" y="72" width="236" height="205" rx="10" class="panel"/>
+  <text x="46" y="99" class="ink head">dense</text>
+  <text x="46" y="118" class="muted label">每个 query 读取全部 key</text>
+  <g transform="translate(67 137)">
+    <rect width="128" height="128" class="coral-soft"/>
+    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid"/>
+    <rect x="0" y="0" width="128" height="128" fill="none" stroke="#cc785c" stroke-width="2"/>
+    <text x="64" y="150" text-anchor="middle" class="ink label">N = B h<tspan baseline-shift="sub" font-size="10">q</tspan> T S</text>
+  </g>
+
+  <rect x="282" y="72" width="236" height="205" rx="10" class="panel"/>
+  <text x="300" y="99" class="ink head">local window</text>
+  <text x="300" y="118" class="muted label">每行保留邻近 key</text>
+  <g transform="translate(321 137)">
+    <rect width="128" height="128" fill="#fbfaf7"/>
+    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid"/>
+    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128H112V112H96V96H80V80H64V64H48V48H32V32H16V16H0Z" class="coral-pale"/>
+    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128" fill="none" stroke="#a9563e" stroke-width="3"/>
+    <text x="64" y="150" text-anchor="middle" class="ink label">N ≈ B h<tspan baseline-shift="sub" font-size="10">q</tspan> T w</text>
+  </g>
+
+  <rect x="536" y="72" width="236" height="205" rx="10" class="panel"/>
+  <text x="554" y="99" class="ink head">global + local</text>
+  <text x="554" y="118" class="muted label">少量长程 row / column</text>
+  <g transform="translate(575 137)">
+    <rect width="128" height="128" fill="#fbfaf7"/>
+    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid"/>
+    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128H112V112H96V96H80V80H64V64H48V48H32V32H16V16H0Z" class="coral-pale"/>
+    <rect x="0" y="0" width="16" height="128" class="coral"/>
+    <rect x="112" y="0" width="16" height="128" class="coral"/>
+    <rect x="0" y="0" width="128" height="16" class="coral"/>
+    <text x="64" y="150" text-anchor="middle" class="ink label">O(Tw + Tg + gT)</text>
+  </g>
+
+  <rect x="28" y="296" width="744" height="53" rx="9" fill="#ece6dc"/>
+  <text x="46" y="319" class="ink label"><tspan font-weight="700">mask：</tspan>输出可以等于 masked dense attention，但 dense kernel 仍可能计算完整矩形</text>
+  <text x="46" y="338" class="ink label"><tspan font-weight="700">sparse kernel：</tspan>跳过无效位置后，MAC、map 字节和 cache 读取才接近有效边集合</text>
+</svg>

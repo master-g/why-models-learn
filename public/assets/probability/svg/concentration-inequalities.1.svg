@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>集中不等式从信息条件到尾部上界</title>
+  <desc>根据已知的一阶矩、二阶矩、支持区间、矩母函数和方差选择不同的集中不等式，得到偏离事件的尾部上界。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 12px; font-weight: 600; }
+    .body { font-size: 11px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 12px; }
+    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
+    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.5; }
+    .line { stroke: #cc785c; stroke-width: 1.8; fill: none; }
+    .soft { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <text x="28" y="30" class="title">集中不等式：已知什么，能控制什么</text>
+  <text x="28" y="50" class="body">信息条件越强，尾部上界越能反映实际波动</text>
+
+  <rect x="28" y="78" width="126" height="72" rx="8" class="box"/>
+  <text x="91" y="99" text-anchor="middle" class="label">已知条件</text>
+  <text x="91" y="119" text-anchor="middle" class="body">一阶矩 / 方差</text>
+  <text x="91" y="137" text-anchor="middle" class="body">区间 / MGF</text>
+
+  <path d="M154 114 H188" class="line" marker-end="url(#arrow)"/>
+  <rect x="188" y="65" width="172" height="98" rx="8" class="accent"/>
+  <text x="274" y="86" text-anchor="middle" class="label">选择不等式</text>
+  <text x="274" y="106" text-anchor="middle" class="body">Markov：一阶矩</text>
+  <text x="274" y="123" text-anchor="middle" class="body">Chebyshev：方差</text>
+  <text x="274" y="140" text-anchor="middle" class="body">Chernoff / Hoeffding / Bernstein</text>
+
+  <path d="M360 114 H394" class="line" marker-end="url(#arrow)"/>
+  <rect x="394" y="78" width="138" height="72" rx="8" class="box"/>
+  <text x="463" y="99" text-anchor="middle" class="label">尾部上界</text>
+  <text x="463" y="122" text-anchor="middle" class="formula">P(|X−μ| ≥ t)</text>
+  <text x="463" y="141" text-anchor="middle" class="body">随 t 或 n 衰减</text>
+
+  <path d="M274 163 V188" class="soft"/>
+  <rect x="112" y="188" width="324" height="38" rx="8" class="box"/>
+  <text x="274" y="211" text-anchor="middle" class="formula">2 exp(−2nε²/(b−a)²)  ·  Hoeffding 平均值界</text>
+</svg>

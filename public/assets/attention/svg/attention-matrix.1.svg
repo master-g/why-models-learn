@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Attention Matrix 的行列语义与 value 读取</title>
+  <desc id="desc">Q 与 K 形成 T×S score，沿每个 query 行 softmax 得到 attention matrix A，A 的每一行读取 V 的各个 key value，输出 C。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">Attention Matrix：行是 query，列是 key</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">逐行 softmax 让每个 query 在有效 key 集合内分配 1 单位读取质量</text>
+
+    <rect x="32" y="82" width="156" height="126" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="50" y="108" font-size="14" font-weight="700">QKᵀ / √dₖ + M</text>
+    <text x="50" y="137" font-size="13">score S</text>
+    <rect x="50" y="151" width="90" height="43" rx="5" fill="#f6f0e5" stroke="#b58b5b"/>
+    <text x="58" y="168" font-size="11">query ↓</text>
+    <text x="58" y="185" font-size="11">key →</text>
+    <text x="146" y="176" font-size="12">T × S</text>
+
+    <path d="M188 145 H220" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M212 137 L222 145 L212 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="222" y="82" width="184" height="126" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="240" y="108" font-size="14" font-weight="700">逐行 softmax</text>
+    <text x="240" y="136" font-size="13">A = softmax₍row₎(S)</text>
+    <text x="240" y="161" font-size="12" fill="#6f665b">Aₜ,: 的和 = 1</text>
+    <text x="240" y="184" font-size="12" fill="#6f665b">列和不必 = 1</text>
+
+    <path d="M406 145 H438" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M430 137 L440 145 L430 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="440" y="72" width="186" height="146" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="458" y="98" font-size="14" font-weight="700">Attention Matrix A</text>
+    <text x="458" y="118" font-size="11" fill="#6f665b">行：query　列：key</text>
+    <g transform="translate(470 130)">
+      <rect x="0" y="0" width="34" height="24" fill="#cc785c"/>
+      <rect x="36" y="0" width="34" height="24" fill="#d8a37e"/>
+      <rect x="72" y="0" width="34" height="24" fill="#ead4bd"/>
+      <rect x="0" y="26" width="34" height="24" fill="#e3c5a5"/>
+      <rect x="36" y="26" width="34" height="24" fill="#e3c5a5"/>
+      <rect x="72" y="26" width="34" height="24" fill="#e3c5a5"/>
+      <rect x="0" y="52" width="34" height="24" fill="#ead4bd"/>
+      <rect x="36" y="52" width="34" height="24" fill="#d8a37e"/>
+      <rect x="72" y="52" width="34" height="24" fill="#cc785c"/>
+      <text x="5" y="-6" font-size="10" fill="#6f665b">k₁</text>
+      <text x="41" y="-6" font-size="10" fill="#6f665b">k₂</text>
+      <text x="77" y="-6" font-size="10" fill="#6f665b">k₃</text>
+      <text x="-22" y="16" font-size="10" fill="#6f665b">q₁</text>
+      <text x="-22" y="42" font-size="10" fill="#6f665b">q₂</text>
+      <text x="-22" y="68" font-size="10" fill="#6f665b">q₃</text>
+    </g>
+
+    <path d="M626 145 H658" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M650 137 L660 145 L650 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="660" y="72" width="108" height="146" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <text x="678" y="98" font-size="14" font-weight="700">C = AV</text>
+    <text x="678" y="127" font-size="12">每行 A</text>
+    <text x="678" y="147" font-size="12">混合 V</text>
+    <text x="678" y="177" font-size="12" fill="#6f665b">输出仍按</text>
+    <text x="678" y="196" font-size="12" fill="#6f665b">query 排列</text>
+
+    <rect x="32" y="255" width="736" height="82" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <text x="52" y="280" font-size="13" font-weight="700">行随机性质</text>
+    <text x="145" y="280" font-size="14">A ≥ 0</text>
+    <text x="214" y="280" font-size="14">·</text>
+    <text x="234" y="280" font-size="14">A 1ₛ = 1ₜ</text>
+    <text x="360" y="280" font-size="14">·</text>
+    <text x="380" y="280" font-size="14">1ₜᵀA 的列和不必相等</text>
+    <text x="52" y="310" font-size="12" fill="#6f665b">FlashAttention 可以不物化完整 A，但精确读取仍遵循同一个 T × S 逻辑矩阵</text>
+  </g>
+</svg>

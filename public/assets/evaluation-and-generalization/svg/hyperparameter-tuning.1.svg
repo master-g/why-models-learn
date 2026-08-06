@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">超参数搜索：空间、试验与冻结</title>
+  <desc id="desc">左侧展示对数尺度上的搜索空间和候选点，中间展示试验分数与预算淘汰，右侧展示从选择到最终冻结和测试的边界。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .grid { stroke: #d5d0c8; stroke-width: 1.2; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .accent { fill: #cc785c; }
+    .teal { fill: #6e8f8a; }
+    .amber { fill: #e8a55a; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">超参数搜索：空间、试验与冻结</text>
+  <text x="52" y="87" class="muted" font-size="14">先决定尺度和预算，再让验证证据分配试验</text>
+
+  <rect x="52" y="111" width="220" height="205" rx="14" class="box"/>
+  <text x="74" y="141" class="ink" font-size="16" font-weight="700">搜索空间</text>
+  <text x="74" y="162" class="muted" font-size="12">常在对数坐标采样</text>
+  <line x1="91" y1="278" x2="246" y2="278" class="axis"/>
+  <line x1="91" y1="278" x2="91" y2="173" class="axis"/>
+  <line x1="91" y1="243" x2="246" y2="243" class="grid"/>
+  <line x1="91" y1="208" x2="246" y2="208" class="grid"/>
+  <line x1="129" y1="173" x2="129" y2="278" class="grid"/>
+  <line x1="168" y1="173" x2="168" y2="278" class="grid"/>
+  <line x1="207" y1="173" x2="207" y2="278" class="grid"/>
+  <circle cx="114" cy="255" r="5" class="teal"/>
+  <circle cx="142" cy="218" r="5" class="teal"/>
+  <circle cx="162" cy="236" r="5" class="amber"/>
+  <circle cx="188" cy="201" r="5" class="teal"/>
+  <circle cx="213" cy="221" r="5" class="teal"/>
+  <circle cx="226" cy="188" r="7" class="accent"/>
+  <text x="229" y="178" class="muted" font-size="11">最好</text>
+  <text x="223" y="294" class="muted" font-size="11">log λ / η</text>
+  <text x="72" y="181" class="muted" font-size="11">CV 损失</text>
+  <text x="74" y="306" class="muted" font-size="11">边界、条件、尺度</text>
+
+  <path d="M 288 214 L 322 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="332" y="111" width="200" height="205" rx="14" class="accent-box"/>
+  <text x="355" y="141" class="ink" font-size="16" font-weight="700">候选试验</text>
+  <text x="355" y="163" class="muted" font-size="12">每次记录分数、成本和种子</text>
+  <text x="355" y="194" class="ink" font-size="13">27 → 9 → 3</text>
+  <rect x="355" y="205" width="142" height="15" rx="7" fill="#d9e7e4"/>
+  <rect x="355" y="205" width="98" height="15" rx="7" class="teal"/>
+  <rect x="355" y="231" width="142" height="15" rx="7" fill="#d9e7e4"/>
+  <rect x="355" y="231" width="57" height="15" rx="7" class="amber"/>
+  <rect x="355" y="257" width="142" height="15" rx="7" fill="#f2d6cd"/>
+  <rect x="355" y="257" width="25" height="15" rx="7" class="accent"/>
+  <text x="355" y="297" class="muted" font-size="12">多保真：先快筛，后加预算</text>
+
+  <path d="M 548 214 L 582 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="592" y="111" width="156" height="205" rx="14" class="box"/>
+  <text x="614" y="141" class="ink" font-size="16" font-weight="700">冻结边界</text>
+  <rect x="614" y="160" width="112" height="38" rx="8" class="accent-box"/>
+  <text x="670" y="184" class="ink" font-size="12" text-anchor="middle">选 λ、重训</text>
+  <path d="M 614 214 L 726 214" class="guide"/>
+  <text x="670" y="237" class="muted" font-size="12" text-anchor="middle">测试集：只读一次</text>
+  <text x="670" y="262" class="muted" font-size="12" text-anchor="middle">成本与质量一起报</text>
+  <text x="614" y="294" class="muted" font-size="11">搜索本身也是算法</text>
+</svg>

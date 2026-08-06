@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">ALiBi 距离线性偏置</title>
+  <desc id="desc">内容 score 与每个 head 的距离惩罚相加，再经过 mask 和 softmax；不同 head 使用不同斜率。</desc>
+  <defs>
+    <marker id="arrow-alibi" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink{fill:#312f2f;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","PingFang SC",sans-serif}
+      .muted{fill:#706b66;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","PingFang SC",sans-serif}
+      .box{fill:#fffdfa;stroke:#b8b2a8;stroke-width:1.5}
+      .accent{fill:#f4e7e0;stroke:#cc785c;stroke-width:1.5}
+      .teal{fill:#e4eeeb;stroke:#5e7772;stroke-width:1.5}
+      .axis{stroke:#8e8982;stroke-width:1.2}
+      .guide{stroke:#c9c4bb;stroke-width:1;stroke-dasharray:4 4}
+      .label{font-size:14px}
+      .small{font-size:12px}
+      .title{font-size:20px;font-weight:600}
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#fdfbf8"/>
+  <text x="34" y="34" class="ink title">ALiBi：把距离惩罚直接加入 attention score</text>
+  <text x="34" y="57" class="muted small">Q/K/V 保持原路径，位置条件只改变 softmax 前的 logits</text>
+
+  <rect x="34" y="82" width="174" height="66" rx="9" class="box"/>
+  <text x="121" y="108" text-anchor="middle" class="ink label">内容 score</text>
+  <text x="121" y="132" text-anchor="middle" class="muted small">QKᵀ / √dₕ</text>
+  <text x="228" y="119" text-anchor="middle" class="ink title">+</text>
+  <rect x="250" y="82" width="198" height="66" rx="9" class="teal"/>
+  <text x="349" y="108" text-anchor="middle" class="ink label">距离 bias</text>
+  <text x="349" y="132" text-anchor="middle" class="muted small">−mₕ Δ(i,j)</text>
+  <path d="M208 115 H244" fill="none" stroke="#cc785c" stroke-width="1.6" marker-end="url(#arrow-alibi)"/>
+  <path d="M448 115 H496" fill="none" stroke="#cc785c" stroke-width="1.6" marker-end="url(#arrow-alibi)"/>
+  <rect x="500" y="82" width="128" height="66" rx="9" class="accent"/>
+  <text x="564" y="108" text-anchor="middle" class="ink label">logits</text>
+  <text x="564" y="132" text-anchor="middle" class="muted small">+ mask → softmax</text>
+
+  <text x="52" y="178" class="ink label">causal score matrix</text>
+  <text x="52" y="196" class="muted small">行：query　列：key　越远 bias 越负</text>
+  <g transform="translate(52 215)">
+    <rect x="0" y="0" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="34" y="0" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="68" y="0" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="102" y="0" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="136" y="0" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="170" y="0" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="0" y="34" width="34" height="34" fill="#cc785c" stroke="#b8b2a8"/>
+    <rect x="34" y="34" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="68" y="34" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="102" y="34" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="136" y="34" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="170" y="34" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="0" y="68" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="34" y="68" width="34" height="34" fill="#cc785c" stroke="#b8b2a8"/>
+    <rect x="68" y="68" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="102" y="68" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="136" y="68" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="170" y="68" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="0" y="102" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
+    <rect x="34" y="102" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="68" y="102" width="34" height="34" fill="#cc785c" stroke="#b8b2a8"/>
+    <rect x="102" y="102" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="136" y="102" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="170" y="102" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="0" y="136" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
+    <rect x="34" y="136" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
+    <rect x="68" y="136" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="102" y="136" width="34" height="34" fill="#cc785c" stroke="#b8b2a8"/>
+    <rect x="136" y="136" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="170" y="136" width="34" height="34" fill="#f0eeea" stroke="#b8b2a8"/>
+    <rect x="0" y="170" width="34" height="34" fill="#f4e7e0" stroke="#b8b2a8"/>
+    <rect x="34" y="170" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
+    <rect x="68" y="170" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
+    <rect x="102" y="170" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <rect x="136" y="170" width="34" height="34" fill="#cc785c" stroke="#b8b2a8"/>
+    <rect x="170" y="170" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
+    <text x="17" y="222" text-anchor="middle" class="muted small">0</text>
+    <text x="51" y="222" text-anchor="middle" class="muted small">1</text>
+    <text x="85" y="222" text-anchor="middle" class="muted small">2</text>
+    <text x="119" y="222" text-anchor="middle" class="muted small">3</text>
+    <text x="153" y="222" text-anchor="middle" class="muted small">4</text>
+    <text x="187" y="222" text-anchor="middle" class="muted small">5</text>
+    <text x="-10" y="22" text-anchor="end" class="muted small">0</text>
+    <text x="-10" y="56" text-anchor="end" class="muted small">1</text>
+    <text x="-10" y="90" text-anchor="end" class="muted small">2</text>
+    <text x="-10" y="124" text-anchor="end" class="muted small">3</text>
+    <text x="-10" y="158" text-anchor="end" class="muted small">4</text>
+    <text x="-10" y="192" text-anchor="end" class="muted small">5</text>
+  </g>
+  <text x="154" y="360" text-anchor="middle" class="muted small">右上三角由 causal mask 删除</text>
+
+  <text x="364" y="178" class="ink label">不同 head 的 slope</text>
+  <text x="364" y="196" class="muted small">大斜率偏近，小斜率保留远距历史</text>
+  <line x1="414" y1="222" x2="760" y2="222" class="guide"/>
+  <line x1="414" y1="222" x2="414" y2="346" class="axis"/>
+  <text x="414" y="363" text-anchor="middle" class="muted small">0</text>
+  <text x="760" y="363" text-anchor="middle" class="muted small">更强距离惩罚</text>
+  <text x="385" y="242" text-anchor="end" class="muted small">h₁</text>
+  <rect x="414" y="230" width="292" height="18" rx="4" fill="#cc785c"/>
+  <text x="716" y="243" class="muted small">m₁ = 0.5</text>
+  <text x="385" y="274" text-anchor="end" class="muted small">h₂</text>
+  <rect x="414" y="262" width="196" height="18" rx="4" fill="#d99e86"/>
+  <text x="620" y="275" class="muted small">m₂ = 0.25</text>
+  <text x="385" y="306" text-anchor="end" class="muted small">h₃</text>
+  <rect x="414" y="294" width="118" height="18" rx="4" fill="#e8c7b8"/>
+  <text x="542" y="307" class="muted small">m₃ = 0.125</text>
+  <text x="385" y="338" text-anchor="end" class="muted small">h₄</text>
+  <rect x="414" y="326" width="70" height="18" rx="4" fill="#efdcd2"/>
+  <text x="494" y="339" class="muted small">m₄ = 0.0625</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">样本平均靠近总体均值</title>
+  <desc id="desc">左侧展示多条样本平均路径随着样本数量增加收窄到总体均值附近，右侧展示 Chebyshev 上界随样本数量增加趋于零。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .path-a { fill: none; stroke: #cc785c; stroke-width: 2; stroke-linecap: round; }
+      .path-b { fill: none; stroke: #cc785c; stroke-width: 1.7; stroke-opacity: 0.62; stroke-linecap: round; }
+      .path-c { fill: none; stroke: #cc785c; stroke-width: 1.5; stroke-opacity: 0.38; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="374" y1="16" x2="374" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="187" y="22" text-anchor="middle" class="label">样本平均的路径逐渐收窄</text>
+  <line x1="48" y1="117" x2="350" y2="117" class="guide"/>
+  <line x1="48" y1="75" x2="350" y2="75" class="guide"/>
+  <line x1="48" y1="159" x2="350" y2="159" class="guide"/>
+  <line x1="48" y1="54" x2="48" y2="202" class="axis"/>
+  <line x1="48" y1="202" x2="350" y2="202" class="axis"/>
+  <text x="43" y="79" text-anchor="end" class="small math">μ+ε</text>
+  <text x="43" y="121" text-anchor="end" class="small math">μ</text>
+  <text x="43" y="163" text-anchor="end" class="small math">μ−ε</text>
+  <text x="48" y="218" text-anchor="middle" class="small math">小 n</text>
+  <text x="350" y="218" text-anchor="middle" class="small math">大 n</text>
+  <text x="355" y="207" class="small math">n</text>
+
+  <path d="M50 74 C80 101 96 168 126 137 S178 102 208 125 S270 114 304 119 S332 117 350 117" class="path-a"/>
+  <path d="M50 170 C82 151 99 83 130 105 S175 146 209 128 S268 121 304 116 S333 117 350 117" class="path-b"/>
+  <path d="M50 111 C79 137 101 118 129 126 S177 112 210 121 S268 116 304 118 S333 117 350 117" class="path-c"/>
+  <circle cx="350" cy="117" r="3.5" fill="#cc785c"/>
+  <text x="280" y="101" class="small math">X̄ₙ</text>
+  <text x="187" y="239" text-anchor="middle" class="caption">波动尺度：σ/√n</text>
+
+  <text x="467" y="22" text-anchor="middle" class="label">偏离概率趋于 0</text>
+  <text x="467" y="51" text-anchor="middle" class="small math">P(|X̄ₙ−μ|≥ε)</text>
+  <text x="467" y="70" text-anchor="middle" class="small math">≤ σ²/(nε²) → 0</text>
+  <line x1="410" y1="191" x2="530" y2="191" class="axis"/>
+  <line x1="410" y1="92" x2="410" y2="191" class="axis"/>
+  <path d="M416 104 C432 122 445 143 458 157 S483 177 500 183 S519 188 528 189" fill="none" stroke="#cc785c" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="416" cy="104" r="3" fill="#cc785c"/>
+  <circle cx="528" cy="189" r="3" fill="#cc785c"/>
+  <text x="402" y="101" text-anchor="end" class="small math">1</text>
+  <text x="402" y="195" text-anchor="end" class="small math">0</text>
+  <text x="410" y="208" text-anchor="middle" class="small math">小 n</text>
+  <text x="528" y="208" text-anchor="middle" class="small math">大 n</text>
+  <text x="467" y="231" text-anchor="middle" class="caption">固定 ε，n 越大越稳定</text>
+</svg>

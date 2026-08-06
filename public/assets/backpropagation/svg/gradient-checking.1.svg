@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">梯度检查的双路径比较</title>
+  <desc id="desc">同一个参数点分别经过解析反向传播和正负有限差分，两个梯度结果在比较框中对齐。</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#3b5368"/>
+    </marker>
+    <marker id="red-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a34f42"/>
+    </marker>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="8" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+      <feComponentTransfer in="gray" result="faded">
+        <feFuncA type="table" tableValues="0 0.04"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="faded" mode="multiply"/>
+    </filter>
+    <style>
+      .paper { fill: #f8f4eb; }
+      .ink { fill: #263746; stroke: #263746; }
+      .muted { fill: #61717b; }
+      .blue { fill: #e4edf0; stroke: #527285; }
+      .red { fill: #f4e5df; stroke: #a34f42; }
+      .green { fill: #e9eadb; stroke: #718050; }
+      .label { font: 18px 'STKaiti', 'Kaiti SC', 'Noto Serif CJK SC', serif; fill: #263746; }
+      .small { font: 14px 'STKaiti', 'Kaiti SC', 'Noto Serif CJK SC', serif; fill: #61717b; }
+      .formula { font: 17px 'STKaiti', 'Kaiti SC', 'Noto Serif CJK SC', serif; fill: #263746; }
+      .rough { stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="paper" x="3" y="3" width="794" height="367" rx="18" filter="url(#paper)"/>
+  <text x="28" y="36" class="label">同一个参数点，两条证据路径</text>
+  <path d="M24 57 C185 50 360 66 520 55 S700 51 778 59" fill="none" stroke="#d2c8b6" stroke-width="1.2" class="rough"/>
+  <text x="28" y="82" class="small">固定数据、状态与目标，只改变参数的一个坐标</text>
+
+  <rect class="blue" x="36" y="127" width="140" height="64" rx="12"/>
+  <text x="106" y="155" text-anchor="middle" class="label">参数点 θ</text>
+  <text x="106" y="177" text-anchor="middle" class="small">保存快照</text>
+
+  <rect class="blue" x="224" y="100" width="156" height="72" rx="12"/>
+  <text x="302" y="128" text-anchor="middle" class="label">反向传播</text>
+  <text x="302" y="151" text-anchor="middle" class="formula">g = ∇L(θ)</text>
+
+  <rect class="red" x="224" y="218" width="156" height="72" rx="12"/>
+  <text x="302" y="246" text-anchor="middle" class="label">有限差分</text>
+  <text x="302" y="269" text-anchor="middle" class="formula">L(θ+h eᵢ), L(θ−h eᵢ)</text>
+
+  <line x1="176" y1="150" x2="220" y2="137" stroke="#3b5368" stroke-width="2.5" marker-end="url(#blue-arrow)" class="rough"/>
+  <path d="M176 168 C198 199 198 237 220 253" fill="none" stroke="#a34f42" stroke-width="2.5" marker-end="url(#red-arrow)" class="rough"/>
+
+  <rect class="blue" x="425" y="100" width="140" height="72" rx="12"/>
+  <text x="495" y="128" text-anchor="middle" class="label">解析梯度</text>
+  <text x="495" y="151" text-anchor="middle" class="formula">gᵢ</text>
+  <rect class="red" x="425" y="218" width="140" height="72" rx="12"/>
+  <text x="495" y="246" text-anchor="middle" class="label">数值梯度</text>
+  <text x="495" y="269" text-anchor="middle" class="formula">ĝᵢ = ΔL / 2h</text>
+  <line x1="380" y1="136" x2="421" y2="136" stroke="#3b5368" stroke-width="2.5" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="380" y1="254" x2="421" y2="254" stroke="#a34f42" stroke-width="2.5" marker-end="url(#red-arrow)" class="rough"/>
+
+  <rect class="green" x="617" y="142" width="145" height="106" rx="14"/>
+  <text x="689" y="171" text-anchor="middle" class="label">比较</text>
+  <text x="689" y="196" text-anchor="middle" class="formula">abs / rel error</text>
+  <text x="689" y="220" text-anchor="middle" class="small">记录最大坐标</text>
+  <line x1="565" y1="136" x2="613" y2="174" stroke="#3b5368" stroke-width="2.3" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="565" y1="254" x2="613" y2="216" stroke="#a34f42" stroke-width="2.3" marker-end="url(#red-arrow)" class="rough"/>
+
+  <text x="36" y="335" class="label">中心差分</text>
+  <text x="137" y="335" class="formula">[L(θ+h eᵢ) − L(θ−h eᵢ)] / 2h</text>
+  <path d="M618 285 C667 278 723 292 767 283" fill="none" stroke="#d2c8b6" stroke-width="1.5" class="rough"/>
+  <text x="618" y="315" class="small">步长太大：截断误差</text>
+  <text x="618" y="337" class="small">步长太小：舍入误差</text>
+</svg>

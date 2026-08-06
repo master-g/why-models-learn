@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">RNN 梯度消失与方向性增益</title>
+  <desc id="desc">左侧展示标量梯度沿时间反复乘以 c，右侧展示二维状态的两个方向分别衰减和增长，时间 Jacobian 由 recurrent 权重与激活导数共同决定。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#6f6a63"/>
+    </marker>
+    <marker id="coral-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#b26e58"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="800" height="373" rx="16" fill="#f7f2e9"/>
+  <text x="30" y="31" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700">RNN 梯度消失：时间 Jacobian 的连乘</text>
+  <text x="30" y="52" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">矩阵方向与激活工作点共同决定一条长路径最后还剩多少信号</text>
+
+  <rect x="22" y="74" width="250" height="230" rx="13" fill="#fbf8f2" stroke="#d2ccc2"/>
+  <text x="42" y="101" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="14" font-weight="700">标量：反复乘 c</text>
+  <text x="42" y="121" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">g₀ = cᵀ gₜ</text>
+
+  <g fill="#ded8ee" stroke="#b8b2a8" stroke-width="1.1">
+    <rect x="40" y="151" width="52" height="34" rx="8"/>
+    <rect x="105" y="151" width="52" height="34" rx="8"/>
+    <rect x="170" y="151" width="52" height="34" rx="8"/>
+  </g>
+  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle">
+    <text x="66" y="173">gₜ</text>
+    <text x="131" y="173">c·g</text>
+    <text x="196" y="173">c²·g</text>
+  </g>
+  <g stroke="#6f6a63" stroke-width="1.3" fill="none" marker-end="url(#arrow)">
+    <line x1="92" y1="168" x2="105" y2="168"/>
+    <line x1="157" y1="168" x2="170" y2="168"/>
+  </g>
+  <text x="226" y="173" fill="#8d867e" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="16">…</text>
+  <rect x="67" y="206" width="160" height="35" rx="9" fill="#f1ded6" stroke="#c99b89"/>
+  <text x="147" y="228" text-anchor="middle" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" font-weight="700">c=0.8：0.8²⁰≈0.0115</text>
+  <text x="147" y="263" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">距离越长，偏离 1 越明显</text>
+  <line x1="42" y1="280" x2="252" y2="280" stroke="#d2ccc2" stroke-width="1"/>
+  <text x="147" y="297" text-anchor="middle" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">小于 1 → 消失；大于 1 → 爆炸</text>
+
+  <rect x="290" y="74" width="488" height="230" rx="13" fill="#fbf8f2" stroke="#d2ccc2"/>
+  <text x="311" y="101" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="14" font-weight="700">向量：不同方向不同增益</text>
+  <text x="311" y="121" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">Jₜ = Dₜ Wₕₕ；Dₜ 还会随激活工作点变化</text>
+
+  <g stroke="#e1dbd2" stroke-width="1">
+    <line x1="350" y1="151" x2="748" y2="151"/>
+    <line x1="350" y1="191" x2="748" y2="191"/>
+    <line x1="350" y1="231" x2="748" y2="231"/>
+  </g>
+  <g stroke="#8d867e" stroke-width="1.2" fill="none">
+    <line x1="350" y1="137" x2="350" y2="268"/>
+    <line x1="350" y1="268" x2="748" y2="268"/>
+  </g>
+  <g fill="#8d867e" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="9">
+    <text x="314" y="143">log gain</text>
+    <text x="711" y="286">时间距离 k</text>
+    <text x="340" y="273">0</text>
+  </g>
+  <path d="M370,158 C460,178 565,221 730,253" fill="none" stroke="#7d789b" stroke-width="2.3"/>
+  <path d="M370,246 C470,232 580,185 730,143" fill="none" stroke="#b26e58" stroke-width="2.3"/>
+  <g fill="#7d789b" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">
+    <text x="380" y="151">0.8ᵏ：收缩方向</text>
+  </g>
+  <g fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">
+    <text x="601" y="137">1.2ᵏ：膨胀方向</text>
+  </g>
+  <line x1="311" y1="319" x2="757" y2="319" stroke="#c9c4bb" stroke-width="1"/>
+  <text x="534" y="343" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">同一 RNN 可以在不同方向同时消失与爆炸</text>
+</svg>

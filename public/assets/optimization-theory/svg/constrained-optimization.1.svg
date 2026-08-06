@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <rect width="560" height="250" fill="#f7f3ef"/>
+  <text x="28" y="29" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700">约束优化每步先移动，再回到可行域</text>
+  <text x="28" y="51" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">目标梯度与集合几何同时决定下一点</text>
+
+  <rect x="24" y="72" width="150" height="91" rx="10" fill="#eee9e5" stroke="#b8b2a8"/>
+  <text x="40" y="95" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">原始梯度步</text>
+  <text x="40" y="123" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13">z = x − ηg</text>
+  <text x="40" y="147" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">可能越出集合</text>
+
+  <line x1="179" y1="117" x2="204" y2="117" stroke="#cc785c" stroke-width="2"/>
+  <polygon points="204,117 196,112 196,122" fill="#cc785c"/>
+
+  <rect x="204" y="72" width="151" height="91" rx="10" fill="#f2dfd7" stroke="#cc785c"/>
+  <text x="220" y="95" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">可行性修正</text>
+  <text x="220" y="123" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13">Π𝒞(z)</text>
+  <text x="220" y="147" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">投影或约束子问题</text>
+
+  <line x1="360" y1="117" x2="385" y2="117" stroke="#cc785c" stroke-width="2"/>
+  <polygon points="385,117 377,112 377,122" fill="#cc785c"/>
+
+  <rect x="385" y="72" width="151" height="91" rx="10" fill="#eee9e5" stroke="#b8b2a8"/>
+  <text x="401" y="95" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">新的可行点</text>
+  <text x="401" y="123" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13">x₊ = Π𝒞(z)</text>
+  <text x="401" y="147" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">再计算梯度</text>
+
+  <rect x="24" y="183" width="512" height="43" rx="9" fill="#e8e3df"/>
+  <line x1="194" y1="190" x2="194" y2="219" stroke="#c9c4bb"/>
+  <line x1="365" y1="190" x2="365" y2="219" stroke="#c9c4bb"/>
+  <text x="43" y="201" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">等式</text>
+  <text x="43" y="217" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="11">KKT 线性系统</text>
+  <text x="214" y="201" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">罚与乘子</text>
+  <text x="214" y="217" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="11">残差逐步减小</text>
+  <text x="384" y="201" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">分裂</text>
+  <text x="384" y="217" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="11">ADMM 交替求解</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Causal Language Modeling 的数据流</title>
+  <desc id="desc">右移的真实前缀进入因果 decoder，每个位置只读取历史，输出 next-token logits 与标签计算损失，推理时逐 token decode</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+    .small { font-size: 18px; }
+    .label { font-size: 22px; font-weight: 600; }
+    .title { font-size: 28px; font-weight: 700; }
+    .box { fill: #fffdf8; stroke: #312f2f; stroke-width: 2; rx: 14; }
+    .input { fill: #f2e4da; stroke: #cc785c; }
+    .dec { fill: #e7edf0; stroke: #668692; }
+    .out { fill: #eee8d9; stroke: #9b865c; }
+    .arrow { stroke: #312f2f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .future { stroke: #cc785c; stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
+    .guide { stroke: #b8b2a8; stroke-width: 2; stroke-dasharray: 5 7; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#312f2f"/></marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/></marker>
+  </defs>
+  <rect width="1200" height="560" fill="#f8f5ee"/>
+  <text x="600" y="45" text-anchor="middle" class="title">Causal Language Modeling：真实前缀、因果读取、下一个 token</text>
+
+  <text x="100" y="92" text-anchor="middle" class="label">右移输入</text>
+  <rect x="25" y="112" width="160" height="48" class="box input"/>
+  <text x="105" y="143" text-anchor="middle" class="small">BOS, x₁, …, xₜ₋₁</text>
+  <path d="M185 136 H235" class="arrow"/>
+
+  <rect x="235" y="75" width="330" height="125" class="box dec"/>
+  <text x="400" y="111" text-anchor="middle" class="label">Causal Decoder</text>
+  <text x="400" y="143" text-anchor="middle" class="small">masked self-attention + FFN</text>
+  <text x="400" y="175" text-anchor="middle" class="small">row i reads key 0 … i</text>
+
+  <path d="M565 136 H615" class="arrow"/>
+  <rect x="615" y="95" width="190" height="82" class="box out"/>
+  <text x="710" y="128" text-anchor="middle" class="label">LM head</text>
+  <text x="710" y="158" text-anchor="middle" class="small">logits (B,T,V)</text>
+
+  <path d="M805 136 H855" class="arrow"/>
+  <rect x="855" y="95" width="150" height="82" class="box out"/>
+  <text x="930" y="128" text-anchor="middle" class="label">NLL</text>
+  <text x="930" y="158" text-anchor="middle" class="small">label xᵢ₊₁</text>
+
+  <path d="M400 200 V290" class="future"/>
+  <text x="420" y="250" class="small" fill="#cc785c">future key blocked</text>
+  <rect x="235" y="290" width="330" height="92" class="box input"/>
+  <text x="400" y="325" text-anchor="middle" class="label">训练：并行 T 行</text>
+  <text x="400" y="356" text-anchor="middle" class="small">teacher forcing · causal mask</text>
+
+  <path d="M565 336 H650" class="arrow"/>
+  <rect x="650" y="290" width="220" height="92" class="box out"/>
+  <text x="760" y="325" text-anchor="middle" class="label">推理：decode</text>
+  <text x="760" y="356" text-anchor="middle" class="small">追加一个 token + KV cache</text>
+
+  <path d="M105 210 V450 H1005 V177" class="guide"/>
+  <text x="600" y="445" text-anchor="middle" class="small">训练输入来自真实前缀　推理输入来自模型前一步输出</text>
+  <text x="600" y="485" text-anchor="middle" class="small">score shape (B,h,T,T)　单步 decode 读取历史长度 t+1</text>
+</svg>

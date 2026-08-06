@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">长上下文中的位置、读取和资源</title>
+  <desc id="desc">长 token 序列包含开头、中间证据和结尾 query，局部窗口、远距离读取、二次 attention 成本和线性 KV cache 共同决定有效上下文</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif; fill: #2f2a27; }
+    .title { font-size: 22px; font-weight: 700; }
+    .label { font-size: 15px; font-weight: 700; }
+    .body { font-size: 13px; }
+    .small { font-size: 12px; fill: #6d625b; }
+    .seq { fill: #ece7df; stroke: #77746e; stroke-width: 1.4; rx: 9; }
+    .evidence { fill: #f0dfd4; stroke: #bd7556; stroke-width: 1.6; rx: 9; }
+    .query { fill: #e2eadf; stroke: #718b6c; stroke-width: 1.6; rx: 9; }
+    .cost { fill: #f5ead6; stroke: #b98a4c; stroke-width: 1.4; rx: 11; }
+    .read { fill: #e8e4dc; stroke: #77746e; stroke-width: 1.4; rx: 11; }
+    .risk { fill: #f0e2e0; stroke: #a76a65; stroke-width: 1.4; rx: 11; }
+    .arrow { stroke: #bd7556; stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
+    .thin { stroke: #aaa198; stroke-width: 1; fill: none; }
+    .dash { stroke: #bd7556; stroke-width: 1.6; stroke-dasharray: 5 4; fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#bd7556"/>
+    </marker>
+  </defs>
+  <rect width="800" height="373" fill="#f7f2ed"/>
+  <text x="40" y="38" class="title">长上下文：长度、位置与可达路径</text>
+  <text x="40" y="61" class="small">窗口上限定义可处理 token 数，effective context 还要按位置和任务测量</text>
+
+  <text x="40" y="96" class="label">token 序列</text>
+  <rect x="40" y="111" width="145" height="58" class="seq"/>
+  <text x="112.5" y="137" text-anchor="middle" class="label">开头 0%</text>
+  <text x="112.5" y="157" text-anchor="middle" class="small">system / prefix</text>
+
+  <rect x="205" y="111" width="145" height="58" class="evidence"/>
+  <text x="277.5" y="137" text-anchor="middle" class="label">中间 50%</text>
+  <text x="277.5" y="157" text-anchor="middle" class="small">evidence / distractor</text>
+
+  <rect x="370" y="111" width="145" height="58" class="seq"/>
+  <text x="442.5" y="137" text-anchor="middle" class="label">后中 75%</text>
+  <text x="442.5" y="157" text-anchor="middle" class="small">documents / history</text>
+
+  <rect x="535" y="111" width="145" height="58" class="query"/>
+  <text x="607.5" y="137" text-anchor="middle" class="label">结尾 100%</text>
+  <text x="607.5" y="157" text-anchor="middle" class="small">query / next token</text>
+
+  <path d="M277 177 C360 205, 520 205, 608 177" class="dash"/>
+  <text x="440" y="203" text-anchor="middle" class="small">远距离读取：位置、mask、注意力竞争</text>
+  <path d="M607 177 C582 207, 330 218, 277 177" class="arrow"/>
+
+  <rect x="40" y="239" width="215" height="83" class="cost"/>
+  <text x="147.5" y="264" text-anchor="middle" class="label">长度成本</text>
+  <text x="147.5" y="287" text-anchor="middle" class="body">dense attention ∝ T²</text>
+  <text x="147.5" y="307" text-anchor="middle" class="small">prefill MAC 与 workspace</text>
+
+  <rect x="293" y="239" width="215" height="83" class="read"/>
+  <text x="400.5" y="264" text-anchor="middle" class="label">历史状态</text>
+  <text x="400.5" y="287" text-anchor="middle" class="body">KV cache ∝ P</text>
+  <text x="400.5" y="307" text-anchor="middle" class="small">GQA width、dtype、page</text>
+
+  <rect x="546" y="239" width="214" height="83" class="risk"/>
+  <text x="653" y="264" text-anchor="middle" class="label">有效上下文</text>
+  <text x="653" y="287" text-anchor="middle" class="body">长度 × 位置 × 任务</text>
+  <text x="653" y="307" text-anchor="middle" class="small">检索、干扰、多跳、PPL</text>
+
+  <path d="M255 280 H293" class="arrow"/>
+  <path d="M508 280 H546" class="arrow"/>
+  <path d="M40 342 H760" class="thin"/>
+  <text x="40" y="362" class="small">局部、全局、稀疏、摘要和检索改变可达路径，也改变评测和复现合同</text>
+</svg>

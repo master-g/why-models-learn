@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Encoder-only Transformer 的双向上下文编码</title>
+  <desc id="desc">token 加入位置条件后进入双向 encoder stack，输出 contextual hidden，再分流到 token、CLS 和 span 任务头</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+    .small { font-size: 18px; }
+    .label { font-size: 22px; font-weight: 600; }
+    .title { font-size: 28px; font-weight: 700; }
+    .box { fill: #fffdf8; stroke: #312f2f; stroke-width: 2; rx: 14; }
+    .input { fill: #eee8d9; stroke: #9b865c; }
+    .stack { fill: #f2e4da; stroke: #cc785c; }
+    .head { fill: #e7edf0; stroke: #668692; }
+    .arrow { stroke: #312f2f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .branch { stroke: #668692; stroke-width: 3; fill: none; marker-end: url(#arrow-blue); }
+    .guide { stroke: #b8b2a8; stroke-width: 2; stroke-dasharray: 5 7; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#312f2f"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#668692"/></marker>
+  </defs>
+  <rect width="1200" height="560" fill="#f8f5ee"/>
+  <text x="600" y="45" text-anchor="middle" class="title">Encoder-Only：完整输入、双向读取、多个任务头</text>
+
+  <rect x="35" y="105" width="155" height="58" class="box input"/>
+  <text x="112" y="140" text-anchor="middle" class="label">token id</text>
+  <text x="112" y="158" text-anchor="middle" class="small">(B,T)</text>
+  <path d="M190 134 H245" class="arrow"/>
+  <rect x="245" y="105" width="190" height="58" class="box input"/>
+  <text x="340" y="140" text-anchor="middle" class="label">embedding + 位置</text>
+  <text x="340" y="158" text-anchor="middle" class="small">(B,T,D)</text>
+  <path d="M435 134 H490" class="arrow"/>
+
+  <rect x="490" y="75" width="330" height="120" class="box stack"/>
+  <text x="655" y="112" text-anchor="middle" class="label">Bidirectional Encoder Stack</text>
+  <text x="655" y="145" text-anchor="middle" class="small">self-attention：全部有效 token</text>
+  <text x="655" y="171" text-anchor="middle" class="small">residual + norm + FFN × L</text>
+
+  <path d="M820 134 H875" class="arrow"/>
+  <rect x="875" y="105" width="190" height="58" class="box"/>
+  <text x="970" y="140" text-anchor="middle" class="label">contextual hidden</text>
+  <text x="970" y="158" text-anchor="middle" class="small">(B,T,D)</text>
+
+  <path d="M970 163 V245 H190" class="guide"/>
+  <text x="600" y="235" text-anchor="middle" class="small">每个位置都可以读取其他有效位置，padding 列仍由 mask 排除</text>
+
+  <path d="M970 163 V300 H850" class="branch"/>
+  <path d="M970 163 V380 H850" class="branch"/>
+  <path d="M970 163 V460 H850" class="branch"/>
+
+  <rect x="630" y="275" width="220" height="58" class="box head"/>
+  <text x="740" y="310" text-anchor="middle" class="label">token head</text>
+  <text x="740" y="328" text-anchor="middle" class="small">(B,T,C)</text>
+  <rect x="630" y="355" width="220" height="58" class="box head"/>
+  <text x="740" y="390" text-anchor="middle" class="label">CLS / mean pool</text>
+  <text x="740" y="408" text-anchor="middle" class="small">(B,D) → (B,C)</text>
+  <rect x="630" y="435" width="220" height="58" class="box head"/>
+  <text x="740" y="470" text-anchor="middle" class="label">span head</text>
+  <text x="740" y="488" text-anchor="middle" class="small">start / end (B,T)</text>
+
+  <path d="M850 304 H1085" class="branch"/>
+  <path d="M850 384 H1085" class="branch"/>
+  <path d="M850 464 H1085" class="branch"/>
+  <text x="1120" y="309" text-anchor="middle" class="small">序列标注</text>
+  <text x="1120" y="389" text-anchor="middle" class="small">分类 / 检索</text>
+  <text x="1120" y="469" text-anchor="middle" class="small">区间抽取</text>
+
+  <text x="600" y="535" text-anchor="middle" class="small">架构：双向 encoder　目标：由任务头决定　MLM：另一个训练目标</text>
+</svg>

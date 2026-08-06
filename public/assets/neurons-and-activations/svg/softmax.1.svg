@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .small { font-size:14px; }
+      .label { font-size:16px; font-weight:600; }
+      .muted { fill:#6c6a64; font-size:13px; }
+      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
+      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
+      .line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#arrow); }
+      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#f4f0ec"/>
+  <text x="36" y="34" class="ink label">Softmax：先定轴，再做稳定归一化</text>
+  <text x="36" y="57" class="ink muted">它是共享分母的向量函数，不是逐坐标复制的标量激活</text>
+
+  <rect x="36" y="84" width="170" height="78" rx="10" class="accent"/>
+  <text x="121" y="111" text-anchor="middle" class="ink label">logits z</text>
+  <text x="121" y="135" text-anchor="middle" class="ink small">任意实数向量</text>
+  <text x="121" y="153" text-anchor="middle" class="ink small">每个坐标是相对分数</text>
+
+  <rect x="254" y="84" width="190" height="78" rx="10" class="box"/>
+  <text x="349" y="111" text-anchor="middle" class="ink label">归一化轴</text>
+  <text x="349" y="135" text-anchor="middle" class="ink small">class · key · vocab</text>
+  <text x="349" y="153" text-anchor="middle" class="ink small">每个竞争集合独立求和</text>
+
+  <rect x="492" y="76" width="272" height="94" rx="10" class="box"/>
+  <text x="628" y="103" text-anchor="middle" class="ink label">稳定化</text>
+  <text x="628" y="127" text-anchor="middle" class="ink small">m = max(z)，先算 z − m</text>
+  <text x="628" y="149" text-anchor="middle" class="ink small">避免 exp 上溢，保留 log-sum-exp</text>
+
+  <path d="M206 123 H248" class="line"/>
+  <path d="M444 123 H486" class="line"/>
+
+  <rect x="36" y="216" width="194" height="91" rx="10" class="box"/>
+  <text x="133" y="243" text-anchor="middle" class="ink label">可选 mask</text>
+  <text x="133" y="267" text-anchor="middle" class="ink small">无效位置 → −∞</text>
+  <text x="133" y="287" text-anchor="middle" class="ink small">空集合要显式处理</text>
+
+  <rect x="274" y="208" width="226" height="99" rx="10" class="accent"/>
+  <text x="387" y="235" text-anchor="middle" class="ink label">exp + reduce</text>
+  <text x="387" y="259" text-anchor="middle" class="ink small">p = exp(z − m) / Σ exp(z − m)</text>
+  <text x="387" y="282" text-anchor="middle" class="ink small">分子与分母沿同一轴计算</text>
+
+  <rect x="544" y="216" width="220" height="91" rx="10" class="box"/>
+  <text x="654" y="243" text-anchor="middle" class="ink label">概率单纯形 p</text>
+  <text x="654" y="267" text-anchor="middle" class="ink small">pₖ &gt; 0 · Σpₖ = 1</text>
+  <text x="654" y="287" text-anchor="middle" class="ink small">Jacobian 耦合 · CE 梯度 p − y</text>
+
+  <path d="M628 170 V190 H387 V202" class="line"/>
+  <path d="M230 261 H268" class="line"/>
+  <path d="M500 261 H538" class="line"/>
+
+  <path d="M764 261 V340 H36" class="line"/>
+  <path d="M36 340 H764" class="guide"/>
+  <text x="400" y="363" text-anchor="middle" class="ink muted">验收：总和 · 平移不变性 · Jacobian 差分 · dtype 与 mask 边界</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">困惑度评估协议</title>
+  <desc id="desc">文本经过 tokenizer 和上下文窗口切分，窗口只对不重复的 target 区域计算 NLL，所有有效 token 的 NLL 汇总后指数化为 PPL。侧边记录 tokenizer、mask、污染和版本证据。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#312f2f"/>
+    </marker>
+    <marker id="coral-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif; }
+      .small { font-size: 13px; }
+      .label { font-size: 16px; font-weight: 600; }
+      .note { font-size: 12px; }
+      .box { fill: #faf8f5; stroke: #312f2f; stroke-width: 1.5; }
+      .check { fill: #eee9e2; stroke: #b8b2a8; stroke-width: 1.2; }
+      .warn { fill: #f8e6df; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="800" height="373" rx="12" fill="#f5f1eb"/>
+  <text x="38" y="33" class="ink label">困惑度评估：先固定事件，再汇总 NLL</text>
+  <text x="38" y="55" class="ink small">tokenizer、target mask、context window 与 reduction 共同定义结果</text>
+
+  <rect x="35" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="98" y="114" text-anchor="middle" class="ink label">文本</text>
+  <text x="98" y="136" text-anchor="middle" class="ink small">raw · split · hash</text>
+
+  <rect x="186" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="249" y="114" text-anchor="middle" class="ink label">Tokenizer</text>
+  <text x="249" y="136" text-anchor="middle" class="ink small">token · BOS · EOS</text>
+
+  <rect x="337" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="400" y="114" text-anchor="middle" class="ink label">窗口</text>
+  <text x="400" y="136" text-anchor="middle" class="ink small">context · stride</text>
+
+  <rect x="488" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="551" y="114" text-anchor="middle" class="ink label">Target mask</text>
+  <text x="551" y="136" text-anchor="middle" class="ink small">只计分新位置</text>
+
+  <rect x="639" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="702" y="114" text-anchor="middle" class="ink label">log probability</text>
+  <text x="702" y="136" text-anchor="middle" class="ink small">teacher forcing</text>
+
+  <path d="M161 119 L186 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M312 119 L337 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M463 119 L488 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M614 119 L639 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="112" y="192" width="180" height="53" rx="8" class="check"/>
+  <text x="202" y="215" text-anchor="middle" class="ink label">充分统计量</text>
+  <text x="202" y="233" text-anchor="middle" class="ink small">S = NLL · Q = 有效 token</text>
+
+  <rect x="310" y="192" width="180" height="53" rx="8" class="warn"/>
+  <text x="400" y="215" text-anchor="middle" class="ink label">版本与污染证据</text>
+  <text x="400" y="233" text-anchor="middle" class="ink small">manifest · duplicate · clean set</text>
+
+  <rect x="508" y="192" width="180" height="53" rx="8" class="box"/>
+  <text x="598" y="215" text-anchor="middle" class="ink label">PPL = exp(S / Q)</text>
+  <text x="598" y="233" text-anchor="middle" class="ink small">先汇总，最后指数化</text>
+
+  <path d="M702 150 C702 170 620 175 598 192" fill="none" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M551 150 C551 170 250 170 202 192" fill="none" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M400 150 L400 192" stroke="#cc785c" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#coral-arrow)"/>
+  <path d="M292 218 L508 218" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="288" width="215" height="50" rx="8" class="check"/>
+  <text x="147.5" y="310" text-anchor="middle" class="ink label">token-level</text>
+  <text x="147.5" y="328" text-anchor="middle" class="ink note">按有效 token 加权</text>
+
+  <rect x="292" y="288" width="215" height="50" rx="8" class="check"/>
+  <text x="399.5" y="310" text-anchor="middle" class="ink label">sequence-level</text>
+  <text x="399.5" y="328" text-anchor="middle" class="ink note">每条文档等权</text>
+
+  <rect x="545" y="288" width="215" height="50" rx="8" class="check"/>
+  <text x="652.5" y="310" text-anchor="middle" class="ink label">报告</text>
+  <text x="652.5" y="328" text-anchor="middle" class="ink note">NLL · PPL · CI · 限制</text>
+
+  <path d="M598 245 C598 268 652 268 652.5 288" fill="none" stroke="#312f2f" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M202 245 C202 268 147.5 268 147.5 288" fill="none" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M400 245 L399.5 288" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <text x="40" y="269" class="ink note">重叠窗口可以共享 context，不能重复计入 target</text>
+  <text x="40" y="357" class="ink note">同一文本、tokenizer、mask、窗口和版本协议下，PPL 才具有可比性</text>
+</svg>

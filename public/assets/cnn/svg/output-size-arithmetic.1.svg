@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">输出尺寸：逐层从最后一个合法窗口算出</title>
+  <desc id="desc">一个空间尺寸账本展示卷积、池化和膨胀卷积如何把三十二乘三十二逐层变成八乘八，右侧给出转置卷积的尺寸公式和 output padding 的作用。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .input { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.2; }
+      .stage { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .highlight { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.8; }
+      .tap { fill: #dce9df; stroke: #75957e; stroke-width: 1.5; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">输出尺寸：逐层从最后一个合法窗口算出</text>
+  <text x="38" y="65" class="subtitle">先展开有效核，再核对四侧 padding、stride 和最后一个窗口</text>
+
+  <rect x="38" y="87" width="430" height="174" rx="12" class="assumption"/>
+  <text x="56" y="113" class="panel-title">shape ledger：每层都把输入接到下一层</text>
+  <text x="56" y="133" class="panel-detail">空间尺寸，参数，最后一个完整窗口</text>
+
+  <g transform="translate(55 151)">
+    <rect width="76" height="48" rx="8" class="input"/>
+    <text x="38" y="21" text-anchor="middle" class="label">输入</text>
+    <text x="38" y="39" text-anchor="middle" class="value">32 × 32</text>
+  </g>
+  <path d="M134 175 H150" fill="none" stroke="#8b817b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <g transform="translate(158 151)">
+    <rect width="91" height="48" rx="8" class="stage"/>
+    <text x="45.5" y="20" text-anchor="middle" class="label">conv</text>
+    <text x="45.5" y="38" text-anchor="middle" class="detail">k3 p1 s1 → 32</text>
+  </g>
+  <path d="M252 175 H268" fill="none" stroke="#8b817b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <g transform="translate(276 151)">
+    <rect width="91" height="48" rx="8" class="highlight"/>
+    <text x="45.5" y="20" text-anchor="middle" class="label">pool</text>
+    <text x="45.5" y="38" text-anchor="middle" class="detail">k2 s2 → 16</text>
+  </g>
+  <path d="M370 175 H386" fill="none" stroke="#8b817b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <g transform="translate(394 151)">
+    <rect width="57" height="48" rx="8" class="tap"/>
+    <text x="28.5" y="19" text-anchor="middle" class="label">dil.</text>
+    <text x="28.5" y="37" text-anchor="middle" class="detail">→ 8</text>
+  </g>
+
+  <text x="56" y="222" class="panel-detail">32 → 32 → 16 → 8 → 8</text>
+  <text x="56" y="242" class="panel-detail">最后一层：k3、d2、p2，Keff = 5，所以 8 + 4 − 5 + 1 = 8</text>
+
+  <rect x="491" y="87" width="271" height="174" rx="12" class="assumption"/>
+  <text x="509" y="113" class="panel-title">转置卷积：反向的尺寸关系</text>
+  <text x="509" y="137" class="value">O = (I − 1)S − Pl − Pr</text>
+  <text x="509" y="157" class="value">    + D(K − 1) + Op + 1</text>
+  <line x1="509" y1="170" x2="744" y2="170" stroke="#d7ccc4" stroke-width="1"/>
+  <text x="509" y="191" class="panel-detail">I = 3，k = 3，s = 2，p = 1</text>
+  <text x="509" y="211" class="value">O = 5 + output padding</text>
+  <text x="509" y="234" class="panel-detail">Op ∈ {0, 1} 只选择离散 shape</text>
+  <text x="509" y="250" class="panel-detail">不是把真实零追加到输出末端</text>
+
+  <rect x="38" y="278" width="724" height="43" rx="9" class="card"/>
+  <text x="54" y="298" class="label">一轴公式</text>
+  <text x="125" y="298" class="value">O = floor((I + Pl + Pr − Keff) / S) + 1</text>
+  <text x="54" y="314" class="detail">二维沿高度和宽度分别计算；stride 不整除时，floor、ceil 或 same 决定尾窗口。</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">验收：写出最后一个合法窗口，记录四侧 padding、输出相位和下一层输入 shape</text>
+</svg>

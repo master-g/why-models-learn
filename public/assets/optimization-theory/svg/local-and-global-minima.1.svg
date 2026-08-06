@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>局部谷底不一定是全局谷底</title>
+  <desc>左侧曲线有两个深度不同的谷底，左边是局部最小点，右边是更低的全局最小点；右侧区分局部和全局的比较范围。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 13px; font-weight: 600; }
+    .body { font-size: 12px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 12px; }
+    .axis { stroke: #8f8a83; stroke-width: 1.1; fill: none; }
+    .curve { stroke: #312f2f; stroke-width: 2.3; fill: none; }
+    .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+    .local { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.5; }
+    .global { fill: #cc785c; stroke: #cc785c; stroke-width: 1.5; }
+    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8f8a83"/>
+    </marker>
+  </defs>
+
+  <text x="28" y="29" class="title">局部谷底不一定是全局谷底</text>
+  <text x="28" y="50" class="body">梯度为 0 只描述当前位置；全局最小要比较整个可行域</text>
+
+  <path d="M44 204 H320 M68 220 V70" class="axis" marker-end="url(#arrow)"/>
+  <text x="311" y="219" class="body">x</text>
+  <text x="52" y="78" class="body">f(x)</text>
+  <path d="M52 90 C76 101 95 137 121 145 C144 152 157 124 177 99 C198 78 215 151 244 184 C266 205 288 160 312 119" class="curve"/>
+
+  <path d="M121 145 V204 M244 184 V204" class="guide"/>
+  <circle cx="121" cy="145" r="4.5" class="local"/>
+  <circle cx="244" cy="184" r="4.5" class="global"/>
+  <text x="121" y="137" text-anchor="middle" class="label">局部</text>
+  <text x="244" y="201" text-anchor="middle" class="label" fill="#fff">全局</text>
+  <text x="112" y="221" class="body">x≈−1</text>
+  <text x="235" y="221" class="body">x≈1</text>
+
+  <rect x="348" y="74" width="184" height="62" rx="8" class="local"/>
+  <text x="440" y="98" text-anchor="middle" class="label">局部最小</text>
+  <text x="440" y="120" text-anchor="middle" class="formula">只看一个邻域</text>
+
+  <path d="M440 136 V152" class="axis" marker-end="url(#arrow)"/>
+  <rect x="348" y="157" width="184" height="62" rx="8" class="box"/>
+  <text x="440" y="181" text-anchor="middle" class="label">全局最小</text>
+  <text x="440" y="203" text-anchor="middle" class="formula">比较全部可行点</text>
+</svg>

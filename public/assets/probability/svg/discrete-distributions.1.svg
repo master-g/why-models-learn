@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">离散分布的概率质量柱状图</title>
+  <desc id="desc">左图显示三次公平试验成功次数的二项分布质量，右图显示泊松分布质量从零点开始逐渐下降。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    </style>
+    <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">二项分布 Binomial(3, 1/2)</text>
+  <line x1="42" y1="204" x2="246" y2="204" class="axis" marker-end="url(#arrow-ink)"/>
+  <line x1="42" y1="204" x2="42" y2="45" class="axis" marker-end="url(#arrow-ink)"/>
+  <text x="248" y="220" class="small math">k</text>
+  <text x="28" y="48" class="small math">p(k)</text>
+  <line x1="84" y1="204" x2="84" y2="168" stroke="#cc785c" stroke-width="28"/>
+  <line x1="136" y1="204" x2="136" y2="96" stroke="#cc785c" stroke-width="28"/>
+  <line x1="188" y1="204" x2="188" y2="96" stroke="#cc785c" stroke-width="28"/>
+  <line x1="240" y1="204" x2="240" y2="168" stroke="#cc785c" stroke-width="28"/>
+  <text x="84" y="222" text-anchor="middle" class="small math">0</text>
+  <text x="136" y="222" text-anchor="middle" class="small math">1</text>
+  <text x="188" y="222" text-anchor="middle" class="small math">2</text>
+  <text x="240" y="222" text-anchor="middle" class="small math">3</text>
+  <text x="84" y="160" text-anchor="middle" class="small math">1/8</text>
+  <text x="162" y="87" text-anchor="middle" class="small math">3/8</text>
+  <text x="140" y="239" text-anchor="middle" class="caption">中间质量较大，因为成功位置有更多排列</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">泊松分布 Poisson(2)</text>
+  <line x1="314" y1="204" x2="527" y2="204" class="axis" marker-end="url(#arrow-ink)"/>
+  <line x1="314" y1="204" x2="314" y2="45" class="axis" marker-end="url(#arrow-ink)"/>
+  <text x="529" y="220" class="small math">k</text>
+  <text x="300" y="48" class="small math">p(k)</text>
+  <line x1="344" y1="204" x2="344" y2="91" stroke="#312f2f" stroke-width="20"/>
+  <line x1="378" y1="204" x2="378" y2="131" stroke="#cc785c" stroke-width="20"/>
+  <line x1="412" y1="204" x2="412" y2="164" stroke="#cc785c" stroke-width="20"/>
+  <line x1="446" y1="204" x2="446" y2="184" stroke="#cc785c" stroke-width="20"/>
+  <line x1="480" y1="204" x2="480" y2="195" stroke="#cc785c" stroke-width="20"/>
+  <text x="344" y="222" text-anchor="middle" class="small math">0</text>
+  <text x="378" y="222" text-anchor="middle" class="small math">1</text>
+  <text x="412" y="222" text-anchor="middle" class="small math">2</text>
+  <text x="446" y="222" text-anchor="middle" class="small math">3</text>
+  <text x="480" y="222" text-anchor="middle" class="small math">4</text>
+  <text x="420" y="239" text-anchor="middle" class="caption">每根柱子的高度是一个取值的概率质量</text>
+</svg>

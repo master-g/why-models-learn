@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">分类指标：从混淆矩阵到阈值曲线</title>
+  <desc id="desc">左侧是包含真阳性、假阴性、假阳性和真阴性的混淆矩阵，中间展示改变阈值会改变混淆矩阵，右侧对比 ROC 与 PR 曲线保存的排序信息。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .accent { fill: #cc785c; }
+    .teal { fill: #6e8f8a; }
+    .curve-one { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .curve-two { fill: none; stroke: #6e8f8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">分类指标：从混淆矩阵到阈值与排序</text>
+  <text x="52" y="87" class="muted" font-size="14">先保存四个计数，再扫描阈值；ROC 与 PR 读取同一组排序的不同切面</text>
+
+  <rect x="52" y="111" width="220" height="205" rx="14" class="box"/>
+  <text x="74" y="141" class="ink" font-size="16" font-weight="700">混淆矩阵</text>
+  <text x="148" y="163" class="muted" font-size="11">预测正</text>
+  <text x="215" y="163" class="muted" font-size="11">预测负</text>
+  <text x="69" y="192" class="muted" font-size="11">真实正</text>
+  <text x="69" y="243" class="muted" font-size="11">真实负</text>
+  <rect x="135" y="173" width="65" height="45" rx="6" fill="#e9c1b3"/>
+  <rect x="202" y="173" width="55" height="45" rx="6" fill="#f1e7e1"/>
+  <rect x="135" y="224" width="65" height="45" rx="6" fill="#f1e7e1"/>
+  <rect x="202" y="224" width="55" height="45" rx="6" fill="#c7d8d3"/>
+  <text x="151" y="192" class="ink" font-size="13" font-weight="700">TP 18</text>
+  <text x="216" y="192" class="ink" font-size="13" font-weight="700">FN 2</text>
+  <text x="151" y="243" class="ink" font-size="13" font-weight="700">FP 6</text>
+  <text x="216" y="243" class="ink" font-size="13" font-weight="700">TN 74</text>
+  <text x="74" y="294" class="muted" font-size="12">accuracy / precision / recall</text>
+
+  <path d="M 288 214 L 322 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="332" y="111" width="200" height="205" rx="14" class="accent-box"/>
+  <text x="355" y="141" class="ink" font-size="16" font-weight="700">阈值扫描</text>
+  <text x="355" y="164" class="muted" font-size="12">sᵢ ≥ t → 硬预测</text>
+  <line x1="355" y1="207" x2="510" y2="207" class="axis"/>
+  <circle cx="369" cy="207" r="6" class="accent"/>
+  <circle cx="396" cy="207" r="6" class="teal"/>
+  <circle cx="422" cy="207" r="6" class="accent"/>
+  <circle cx="445" cy="207" r="6" class="accent"/>
+  <circle cx="470" cy="207" r="6" class="teal"/>
+  <circle cx="496" cy="207" r="6" class="teal"/>
+  <line x1="420" y1="177" x2="420" y2="237" class="guide"/>
+  <text x="357" y="228" class="muted" font-size="11">高分</text>
+  <text x="485" y="228" class="muted" font-size="11">低分</text>
+  <rect x="355" y="247" width="140" height="14" rx="7" fill="#e6ded7"/>
+  <rect x="355" y="247" width="94" height="14" rx="7" fill="#cc785c"/>
+  <text x="355" y="284" class="ink" font-size="13">t 改变 TP / FP / FN / TN</text>
+  <text x="355" y="304" class="muted" font-size="12">选择验证集工作点</text>
+
+  <path d="M 548 214 L 582 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="592" y="111" width="156" height="205" rx="14" class="box"/>
+  <text x="614" y="141" class="ink" font-size="16" font-weight="700">排序曲线</text>
+  <line x1="615" y1="270" x2="728" y2="270" class="axis"/>
+  <line x1="615" y1="270" x2="615" y2="166" class="axis"/>
+  <line x1="615" y1="270" x2="728" y2="166" class="guide"/>
+  <path d="M 615 270 C 624 235, 635 206, 649 194 C 665 181, 680 176, 728 166" class="curve-one"/>
+  <path d="M 615 270 C 625 250, 636 231, 651 220 C 669 207, 694 192, 728 180" class="curve-two"/>
+  <text x="660" y="288" class="muted" font-size="11">FPR / recall</text>
+  <text x="599" y="174" class="muted" font-size="11">TPR / precision</text>
+  <circle cx="638" cy="188" r="4" class="accent"/>
+  <circle cx="638" cy="227" r="4" class="teal"/>
+  <text x="650" y="191" class="muted" font-size="11">ROC</text>
+  <text x="650" y="230" class="muted" font-size="11">PR</text>
+</svg>

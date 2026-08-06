@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">主成分分析：从中心化点云到一维主成分</title>
+  <desc id="desc">左侧是沿对角线分布的中心化点云，中间标出最大方差方向和正交的次要方向，右侧展示投影到一维轴后的主成分分数。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 7 7; }
+    .line { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .secondary { fill: none; stroke: #9a958c; stroke-width: 2.5; stroke-linecap: round; }
+    .point { fill: #cc785c; stroke: #fdfcfa; stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">主成分分析：沿最大方差方向压缩坐标</text>
+  <text x="52" y="87" class="muted" font-size="14">先中心化，再选择正交方向；特征值记录每条轴上的变化量</text>
+
+  <rect x="52" y="111" width="220" height="205" rx="14" class="box"/>
+  <text x="74" y="142" class="ink" font-size="16" font-weight="700">中心化点云</text>
+  <line x1="83" y1="274" x2="244" y2="274" class="axis"/>
+  <line x1="83" y1="274" x2="83" y2="151" class="axis"/>
+  <text x="232" y="295" class="muted" font-size="12">x₁</text>
+  <text x="66" y="158" class="muted" font-size="12">x₂</text>
+  <path d="M 101 258 L 230 158" class="guide"/>
+  <circle cx="116" cy="250" r="8" class="point"/>
+  <circle cx="145" cy="226" r="8" class="point"/>
+  <circle cx="188" cy="192" r="8" class="point"/>
+  <circle cx="217" cy="168" r="8" class="point"/>
+  <text x="74" y="306" class="muted" font-size="12">均值已移到原点</text>
+
+  <path d="M 289 214 L 329 214" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="340" y="111" width="190" height="205" rx="14" class="accent-box"/>
+  <text x="363" y="142" class="ink" font-size="16" font-weight="700">主方向</text>
+  <line x1="373" y1="276" x2="497" y2="151" class="line" marker-end="url(#arrow)"/>
+  <line x1="373" y1="151" x2="497" y2="276" class="secondary"/>
+  <circle cx="435" cy="214" r="5" fill="#312f2f"/>
+  <text x="363" y="303" class="ink" font-size="14">u₁：λ₁ 最大</text>
+  <text x="363" y="323" class="muted" font-size="12">u₂ 与 u₁ 正交</text>
+
+  <path d="M 547 214 L 587 214" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="598" y="111" width="150" height="205" rx="14" class="box"/>
+  <text x="620" y="142" class="ink" font-size="16" font-weight="700">一维得分</text>
+  <line x1="620" y1="218" x2="728" y2="218" class="axis"/>
+  <line x1="674" y1="181" x2="674" y2="254" class="guide"/>
+  <circle cx="632" cy="218" r="7" class="point"/>
+  <circle cx="653" cy="218" r="7" class="point"/>
+  <circle cx="695" cy="218" r="7" class="point"/>
+  <circle cx="716" cy="218" r="7" class="point"/>
+  <text x="620" y="172" class="muted" font-size="13">tᵢ = u₁ᵀxᵢ</text>
+  <text x="620" y="278" class="muted" font-size="13">保留大方差</text>
+  <text x="620" y="299" class="muted" font-size="13">舍弃小方向</text>
+</svg>

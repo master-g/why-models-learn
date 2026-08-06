@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">插值阈值附近的双下降风险曲线</title>
+  <desc id="desc">随着模型复杂度增加,训练风险下降并趋近零,测试风险先下降后在插值阈值附近上升,再在过参数化区域下降</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; fill: #312f2f; }
+      .small { font-size: 16px; }
+      .body { font-size: 18px; }
+      .label { font-size: 20px; font-weight: 700; }
+      .title { font-size: 24px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="900" height="420" fill="#f6f1ef"/>
+  <text x="42" y="40" class="title">双下降:风险在插值点之后可能再次下降</text>
+  <text x="42" y="68" class="small">模型容量增加 → 训练风险接近零;测试风险取决于插值解的结构</text>
+
+  <line x1="90" y1="350" x2="840" y2="350" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="90" y1="350" x2="90" y2="100" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="766" y="387" class="body">模型复杂度 p</text>
+  <text x="33" y="112" class="body" transform="rotate(-90 33 112)">风险</text>
+
+  <line x1="535" y1="112" x2="535" y2="350" stroke="#cc785c" stroke-width="2" stroke-dasharray="7 7"/>
+  <text x="493" y="94" class="label">p ≈ n</text>
+  <text x="443" y="373" class="small">插值阈值</text>
+
+  <path d="M110 150 C220 188 310 245 410 286 C470 310 515 320 535 320 C610 320 700 320 820 320" fill="none" stroke="#312f2f" stroke-width="4"/>
+  <text x="690" y="335" class="small">训练风险</text>
+
+  <path d="M110 280 C190 252 265 250 335 272 C410 298 475 320 522 148 C530 113 535 108 541 148 C558 245 615 286 690 303 C750 317 795 310 830 292" fill="none" stroke="#cc785c" stroke-width="5"/>
+  <circle cx="522" cy="148" r="6" fill="#cc785c"/>
+  <text x="560" y="142" class="label">风险峰</text>
+  <text x="560" y="169" class="small">接近插值时噪声放大</text>
+  <text x="700" y="245" class="label">第二次下降</text>
+  <text x="700" y="270" class="small">需要结构与算法偏置</text>
+
+  <rect x="112" y="112" width="180" height="52" rx="10" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="132" y="144" class="body">欠参数化</text>
+  <rect x="685" y="112" width="175" height="52" rx="10" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="700" y="144" class="body">过参数化插值解</text>
+</svg>

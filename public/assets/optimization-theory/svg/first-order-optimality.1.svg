@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>一阶条件表示没有可行下降方向</title>
+  <desc>左侧显示约束直线、圆形等值线和约束上的最优点，目标梯度垂直于约束方向；右侧区分无约束梯度条件和带乘子的约束条件。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 13px; font-weight: 600; }
+    .body { font-size: 12px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 12px; }
+    .axis { stroke: #8f8a83; stroke-width: 1.1; fill: none; }
+    .contour { stroke: #b8b2a8; stroke-width: 1.4; fill: none; }
+    .constraint { stroke: #312f2f; stroke-width: 2; fill: none; }
+    .normal { stroke: #cc785c; stroke-width: 2; fill: none; }
+    .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.4; }
+    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8f8a83"/>
+    </marker>
+    <marker id="coral-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <text x="28" y="29" class="title">一阶条件：没有可行下降方向</text>
+  <text x="28" y="50" class="body">约束点上，梯度可以被约束法向量抵消</text>
+
+  <path d="M44 204 H316 M68 220 V70" class="axis" marker-end="url(#arrow)"/>
+  <text x="308" y="219" class="body">x₁</text>
+  <text x="51" y="78" class="body">x₂</text>
+
+  <ellipse cx="183" cy="143" rx="91" ry="45" class="contour"/>
+  <ellipse cx="183" cy="143" rx="59" ry="29" class="contour"/>
+  <path d="M78 198 L290 83" class="constraint"/>
+  <text x="251" y="102" class="body">h(x)=0</text>
+
+  <path d="M180 143 L228 117" class="normal" marker-end="url(#coral-arrow)"/>
+  <path d="M180 143 L131 169" class="guide"/>
+  <circle cx="180" cy="143" r="5" fill="#cc785c"/>
+  <text x="187" y="157" class="label">x*</text>
+  <text x="229" y="113" class="body">∇f</text>
+  <text x="109" y="180" class="body">可行切向</text>
+
+  <rect x="348" y="73" width="184" height="62" rx="8" class="accent"/>
+  <text x="440" y="97" text-anchor="middle" class="label">无约束</text>
+  <text x="440" y="119" text-anchor="middle" class="formula">∇f(x*) = 0</text>
+
+  <path d="M440 135 V151" class="axis" marker-end="url(#arrow)"/>
+  <rect x="348" y="156" width="184" height="63" rx="8" class="box"/>
+  <text x="440" y="180" text-anchor="middle" class="label">有约束</text>
+  <text x="440" y="202" text-anchor="middle" class="formula">∇f + Jᵀλ = 0</text>
+</svg>

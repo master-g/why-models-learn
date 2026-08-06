@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">从总体到估计量的抽样流程</title>
+  <desc id="desc">左侧展示总体经过抽样设计得到样本并计算估计量，右侧展示重复抽样时估计量围绕目标参数形成抽样分布。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 1.2; }
+      .accent-box { fill: #cc785c; fill-opacity: 0.12; stroke: #cc785c; stroke-width: 1.4; }
+      .arrow { stroke: #cc785c; stroke-width: 1.6; fill: none; stroke-linecap: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="370" y1="16" x2="370" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="185" y="22" text-anchor="middle" class="label">抽样过程：从总体取得可计算的观测</text>
+  <rect x="16" y="40" width="338" height="181" rx="5" fill="none" stroke="#e5dedb" stroke-width="1"/>
+  <rect x="29" y="64" width="82" height="50" rx="4" class="box"/>
+  <rect x="139" y="64" width="92" height="50" rx="4" class="accent-box"/>
+  <rect x="259" y="64" width="82" height="50" rx="4" class="box"/>
+  <path d="M111 89 L135 89" class="arrow" marker-end="url(#arrowhead)"/>
+  <path d="M231 89 L255 89" class="arrow" marker-end="url(#arrowhead)"/>
+  <text x="70" y="83" text-anchor="middle" class="label">总体</text>
+  <text x="70" y="101" text-anchor="middle" class="small math">P 或 U</text>
+  <text x="185" y="83" text-anchor="middle" class="label">抽样设计</text>
+  <text x="185" y="101" text-anchor="middle" class="small math">πᵢ &gt; 0</text>
+  <text x="300" y="83" text-anchor="middle" class="label">样本</text>
+  <text x="300" y="101" text-anchor="middle" class="small math">x₁,…,xₙ</text>
+
+  <text x="70" y="132" text-anchor="middle" class="caption">目标参数 θ</text>
+  <text x="185" y="132" text-anchor="middle" class="caption">谁有机会被选</text>
+  <text x="300" y="132" text-anchor="middle" class="caption">一次观测结果</text>
+  <path d="M300 114 L300 159 L184 159" class="arrow" marker-end="url(#arrowhead)"/>
+  <rect x="94" y="148" width="92" height="42" rx="4" class="box"/>
+  <text x="140" y="166" text-anchor="middle" class="label">计算估计量</text>
+  <text x="140" y="182" text-anchor="middle" class="small math">θ̂ = T(x)</text>
+  <text x="185" y="211" text-anchor="middle" class="caption">改变抽样结果，重复观察 θ̂</text>
+
+  <text x="465" y="22" text-anchor="middle" class="label">重复抽样的估计量散布</text>
+  <line x1="398" y1="190" x2="535" y2="190" class="axis"/>
+  <line x1="467" y1="60" x2="467" y2="190" class="guide"/>
+  <path d="M405 187 C417 183 427 172 437 151 C448 127 458 93 467 82 C476 93 486 127 497 151 C507 172 517 183 529 187" fill="#cc785c" fill-opacity="0.14" stroke="#cc785c" stroke-width="1.8"/>
+  <line x1="467" y1="82" x2="467" y2="190" class="guide"/>
+  <text x="467" y="74" text-anchor="middle" class="small math">E[θ̂]≈θ</text>
+  <text x="467" y="207" text-anchor="middle" class="small math">θ</text>
+  <text x="467" y="231" text-anchor="middle" class="caption">偏差、方差和抽样误差</text>
+</svg>

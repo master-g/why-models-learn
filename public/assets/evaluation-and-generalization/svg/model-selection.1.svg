@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">模型选择：候选、证据与冻结</title>
+  <desc id="desc">左侧展示候选模型，中间展示统一的验证证据和复杂度约束，右侧展示选择后重训并由封存测试集进行一次最终评估。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+    .accent { fill: #cc785c; }
+    .teal { fill: #6e8f8a; }
+    .amber { fill: #e8a55a; }
+    .soft { fill: #f2d6cd; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">模型选择：候选、证据与冻结</text>
+  <text x="52" y="87" class="muted" font-size="14">先定义风险和边界，再比较完整的学习方案</text>
+
+  <rect x="52" y="112" width="205" height="204" rx="14" class="box"/>
+  <text x="75" y="142" class="ink" font-size="16" font-weight="700">候选方案</text>
+  <text x="75" y="164" class="muted" font-size="12">结构、特征、预算、种子</text>
+  <rect x="75" y="185" width="154" height="28" rx="8" fill="#d9e7e4"/>
+  <text x="152" y="204" class="ink" font-size="12" text-anchor="middle">A  线性</text>
+  <rect x="75" y="222" width="154" height="28" rx="8" fill="#f3e3c5"/>
+  <text x="152" y="241" class="ink" font-size="12" text-anchor="middle">B  二次</text>
+  <rect x="75" y="259" width="154" height="28" rx="8" fill="#f2d6cd"/>
+  <text x="152" y="278" class="ink" font-size="12" text-anchor="middle">C  高阶 / 大模型</text>
+  <text x="75" y="306" class="muted" font-size="11">每个候选都要完整记录</text>
+
+  <path d="M 273 214 L 308 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="318" y="112" width="204" height="204" rx="14" class="accent-box"/>
+  <text x="341" y="142" class="ink" font-size="16" font-weight="700">开发证据</text>
+  <text x="341" y="164" class="muted" font-size="12">同一切分、同一指标</text>
+  <line x1="345" y1="268" x2="493" y2="268" class="guide"/>
+  <line x1="345" y1="190" x2="345" y2="268" class="guide"/>
+  <circle cx="373" cy="246" r="6" class="teal"/>
+  <circle cx="407" cy="231" r="6" class="teal"/>
+  <circle cx="440" cy="246" r="6" class="amber"/>
+  <circle cx="471" cy="211" r="8" class="accent"/>
+  <text x="352" y="185" class="muted" font-size="11">验证风险</text>
+  <text x="437" y="290" class="muted" font-size="11">复杂度 / 资源</text>
+  <text x="341" y="306" class="muted" font-size="11">交叉验证或留出集</text>
+
+  <path d="M 538 214 L 573 214" class="arrow" marker-end="url(#arrow)"/>
+
+  <rect x="583" y="112" width="165" height="204" rx="14" class="box"/>
+  <text x="606" y="142" class="ink" font-size="16" font-weight="700">冻结之后</text>
+  <rect x="605" y="164" width="121" height="36" rx="9" class="accent-box"/>
+  <text x="665" y="187" class="ink" font-size="12" text-anchor="middle">选中 B，重训</text>
+  <path d="M 605 218 L 726 218" class="guide"/>
+  <text x="665" y="242" class="muted" font-size="12" text-anchor="middle">封存测试集</text>
+  <text x="665" y="264" class="muted" font-size="12" text-anchor="middle">只读一次</text>
+  <text x="606" y="294" class="muted" font-size="11">报告风险与约束</text>
+</svg>

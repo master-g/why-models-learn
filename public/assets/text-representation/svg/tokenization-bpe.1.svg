@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">BPE 分词流程</title>
+  <desc id="desc">带词边界的训练语料经过 pair 统计和 merge rank 学习，再把新词 lower 编码为 low、e、r 和边界标记，最后映射为 ID。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">BPE：统计 pair，固定 rank，再编码</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">训练阶段学习 merge list；推理阶段只回放已经学习的规则</text>
+
+    <rect x="32" y="82" width="212" height="94" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="48" y="107" font-size="14" font-weight="700">训练语料</text>
+    <text x="48" y="132" font-size="13">low × 3</text>
+    <text x="48" y="153" font-size="13">lower × 1</text>
+    <text x="128" y="132" font-size="13">lowest × 1</text>
+    <text x="128" y="153" font-size="13" fill="#6f665b">+ 〈/w〉 边界</text>
+
+    <path d="M244 129 H279" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M271 121 L281 129 L271 137" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="281" y="82" width="226" height="94" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="297" y="107" font-size="14" font-weight="700">pair 频率</text>
+    <text x="297" y="132" font-size="13">(l,o) = 5</text>
+    <text x="405" y="132" font-size="13">(o,w) = 5</text>
+    <text x="297" y="153" font-size="13">(w,〈/w〉) = 3</text>
+    <text x="405" y="153" font-size="13">(w,e) = 2</text>
+
+    <path d="M507 129 H542" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M534 121 L544 129 L534 137" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="544" y="82" width="224" height="94" rx="12" fill="#ead9dc" stroke="#a8757c"/>
+    <text x="560" y="107" font-size="14" font-weight="700">merge rank</text>
+    <text x="560" y="132" font-size="13">1: l + o → lo</text>
+    <text x="560" y="153" font-size="13">2: lo + w → low</text>
+    <text x="560" y="171" font-size="13">3: low + 〈/w〉</text>
+
+    <path d="M400 176 V213" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M392 205 L400 215 L408 205" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="32" y="221" width="258" height="106" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="48" y="247" font-size="14" font-weight="700">新输入：lower</text>
+    <text x="48" y="273" font-size="13">l o w e r 〈/w〉</text>
+    <text x="48" y="296" font-size="13">→ lo w e r 〈/w〉</text>
+    <text x="48" y="319" font-size="13">→ low e r 〈/w〉</text>
+
+    <path d="M290 274 H331" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M323 266 L333 274 L323 282" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="333" y="221" width="211" height="106" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="349" y="247" font-size="14" font-weight="700">最终 token</text>
+    <text x="349" y="276" font-size="16" font-weight="700">[low, e, r, 〈/w〉]</text>
+    <text x="349" y="302" font-size="12" fill="#6f665b">rank 3 不可用：low 与边界不相邻</text>
+
+    <path d="M544 274 H585" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M577 266 L587 274 L577 282" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="587" y="221" width="181" height="106" rx="12" fill="#e5e0eb" stroke="#8d7ba5"/>
+    <text x="603" y="247" font-size="14" font-weight="700">vocabulary ID</text>
+    <text x="603" y="278" font-size="16" font-weight="700">[6, 4, 5, 0]</text>
+    <text x="603" y="303" font-size="12" fill="#6f665b">rank ≠ ID</text>
+    <text x="603" y="320" font-size="12" fill="#6f665b">交给 embedding 查表</text>
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <defs>
+    <marker id="forward-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .small { font-size:14px; }
+      .label { font-size:16px; font-weight:600; }
+      .muted { fill:#6c6a64; font-size:13px; }
+      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
+      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
+      .output { fill:#e3eeeb; stroke:#5d7775; stroke-width:1.5; }
+      .line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#forward-arrow); }
+      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+    </style>
+  </defs>
+  <rect width="800" height="373" fill="#f4f0ec"/>
+  <text x="36" y="34" class="ink label">前向计算：值按依赖顺序从输入走到损失</text>
+  <text x="36" y="57" class="ink muted">每个框都记录一次具体执行的值、形状和模式</text>
+
+  <rect x="28" y="112" width="112" height="76" rx="10" class="box"/>
+  <text x="84" y="140" text-anchor="middle" class="ink label">输入</text>
+  <text x="84" y="165" text-anchor="middle" class="ink small">x = (1，2)</text>
+
+  <rect x="166" y="112" width="126" height="76" rx="10" class="accent"/>
+  <text x="229" y="140" text-anchor="middle" class="ink label">仿射层</text>
+  <text x="229" y="165" text-anchor="middle" class="ink small">z = Wx + b</text>
+
+  <rect x="318" y="112" width="126" height="76" rx="10" class="accent"/>
+  <text x="381" y="140" text-anchor="middle" class="ink label">隐藏激活</text>
+  <text x="381" y="165" text-anchor="middle" class="ink small">h = ReLU(z)</text>
+
+  <rect x="470" y="112" width="126" height="76" rx="10" class="accent"/>
+  <text x="533" y="140" text-anchor="middle" class="ink label">输出 logits</text>
+  <text x="533" y="165" text-anchor="middle" class="ink small">o = W₂h + b₂</text>
+
+  <rect x="622" y="112" width="150" height="76" rx="10" class="output"/>
+  <text x="697" y="140" text-anchor="middle" class="ink label">概率与损失</text>
+  <text x="697" y="165" text-anchor="middle" class="ink small">p，ℓ(p，y)</text>
+
+  <path d="M140 150 H160" class="line"/>
+  <path d="M292 150 H312" class="line"/>
+  <path d="M444 150 H464" class="line"/>
+  <path d="M596 150 H616" class="line"/>
+  <text x="400" y="91" text-anchor="middle" class="ink muted">前向拓扑顺序</text>
+
+  <rect x="116" y="250" width="568" height="54" rx="10" class="box"/>
+  <text x="400" y="274" text-anchor="middle" class="ink label">训练态：可能有 dropout mask 或 batch 统计量</text>
+  <text x="400" y="294" text-anchor="middle" class="ink small">推理态：关闭随机 mask，读取固定 running 统计量（若该层需要）</text>
+
+  <path d="M36 336 H764" class="guide"/>
+  <text x="400" y="357" text-anchor="middle" class="ink muted">前向只求值；反向读取部分缓存，优化器随后才改变参数</text>
+</svg>

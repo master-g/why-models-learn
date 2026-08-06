@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">语言模型推理生命周期</title>
+  <desc id="desc">输入经过 tokenizer 和 prefill，prefill 产生 KV cache，decode 逐 token 读取 cache，停止条件和后处理返回结果；下方显示延迟与显存账本。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#312f2f"/>
+    </marker>
+    <marker id="coral-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif; }
+      .small { font-size: 13px; }
+      .label { font-size: 16px; font-weight: 600; }
+      .note { font-size: 12px; }
+      .box { fill: #faf8f5; stroke: #312f2f; stroke-width: 1.5; }
+      .cache { fill: #eee9e2; stroke: #b8b2a8; stroke-width: 1.2; }
+      .coral { fill: #f8e6df; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="800" height="373" rx="12" fill="#f5f1eb"/>
+  <text x="38" y="33" class="ink label">推理：prefill 建立上下文，decode 逐 token 读取</text>
+  <text x="38" y="55" class="ink small">冻结 checkpoint 后，tokenizer、cache、停止条件与服务调度共同决定结果</text>
+
+  <rect x="35" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="98" y="114" text-anchor="middle" class="ink label">输入</text>
+  <text x="98" y="136" text-anchor="middle" class="ink small">text · prompt</text>
+
+  <rect x="186" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="249" y="114" text-anchor="middle" class="ink label">Tokenizer</text>
+  <text x="249" y="136" text-anchor="middle" class="ink small">input_ids · mask</text>
+
+  <rect x="337" y="88" width="126" height="62" rx="8" class="box"/>
+  <text x="400" y="114" text-anchor="middle" class="ink label">Prefill</text>
+  <text x="400" y="136" text-anchor="middle" class="ink small">全 prompt 前向</text>
+
+  <rect x="488" y="88" width="126" height="62" rx="8" class="cache"/>
+  <text x="551" y="114" text-anchor="middle" class="ink label">KV cache</text>
+  <text x="551" y="136" text-anchor="middle" class="ink small">K/V · position</text>
+
+  <rect x="639" y="88" width="126" height="62" rx="8" class="coral"/>
+  <text x="702" y="114" text-anchor="middle" class="ink label">Decode</text>
+  <text x="702" y="136" text-anchor="middle" class="ink small">one token · loop</text>
+
+  <path d="M161 119 L186 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M312 119 L337 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M463 119 L488 119" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M614 119 L639 119" stroke="#cc785c" stroke-width="1.5" marker-end="url(#coral-arrow)"/>
+
+  <rect x="95" y="190" width="190" height="53" rx="8" class="cache"/>
+  <text x="190" y="213" text-anchor="middle" class="ink label">延迟账本</text>
+  <text x="190" y="231" text-anchor="middle" class="ink small">TTFT · inter-token · e2e</text>
+
+  <rect x="305" y="190" width="190" height="53" rx="8" class="cache"/>
+  <text x="400" y="213" text-anchor="middle" class="ink label">显存账本</text>
+  <text x="400" y="231" text-anchor="middle" class="ink small">weights · KV · workspace</text>
+
+  <rect x="515" y="190" width="190" height="53" rx="8" class="box"/>
+  <text x="610" y="213" text-anchor="middle" class="ink label">停止与后处理</text>
+  <text x="610" y="231" text-anchor="middle" class="ink small">EOS · stop · response</text>
+
+  <path d="M400 150 L400 190" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M551 150 C551 171 610 169 610 190" fill="none" stroke="#cc785c" stroke-width="1.4" marker-end="url(#coral-arrow)"/>
+  <path d="M702 150 C702 171 221 169 190 190" fill="none" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="285" width="205" height="52" rx="8" class="box"/>
+  <text x="182.5" y="308" text-anchor="middle" class="ink label">batch scheduler</text>
+  <text x="182.5" y="326" text-anchor="middle" class="ink note">slot · padding · cache index</text>
+
+  <rect x="298" y="285" width="205" height="52" rx="8" class="box"/>
+  <text x="400.5" y="308" text-anchor="middle" class="ink label">解码配置</text>
+  <text x="400.5" y="326" text-anchor="middle" class="ink note">greedy · sampling · beam</text>
+
+  <rect x="516" y="285" width="205" height="52" rx="8" class="box"/>
+  <text x="618.5" y="308" text-anchor="middle" class="ink label">审计记录</text>
+  <text x="618.5" y="326" text-anchor="middle" class="ink note">model hash · token trace · stop reason</text>
+
+  <path d="M190 243 C190 264 182.5 269 182.5 285" fill="none" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M610 243 C610 264 400.5 266 400.5 285" fill="none" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M610 243 C635 263 618.5 270 618.5 285" fill="none" stroke="#cc785c" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#coral-arrow)"/>
+
+  <text x="38" y="359" class="ink note">prefill 决定 TTFT，decode 决定逐 token 延迟；KV cache 让历史投影可复用但随长度增长</text>
+</svg>

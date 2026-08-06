@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">条件分布的重新归一化与连续切片</title>
+  <desc id="desc">左图从联合概率表取出 Y 等于 1 的列并重新归一化，右图在三角支持区域中固定 X 后沿竖直切片得到条件范围。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    </style>
+    <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+    </marker>
+    <marker id="arrow-coral" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">联合表 → 条件分布</text>
+  <rect x="40" y="48" width="132" height="98" fill="#fffaf8" stroke="#b8b2a8" stroke-width="1.2"/>
+  <line x1="40" y1="80" x2="172" y2="80" stroke="#b8b2a8" stroke-width="1"/>
+  <line x1="40" y1="113" x2="172" y2="113" stroke="#b8b2a8" stroke-width="1"/>
+  <line x1="84" y1="48" x2="84" y2="146" stroke="#b8b2a8" stroke-width="1"/>
+  <line x1="128" y1="48" x2="128" y2="146" stroke="#b8b2a8" stroke-width="1"/>
+  <text x="62" y="69" text-anchor="middle" class="small math">X</text>
+  <text x="106" y="69" text-anchor="middle" class="small math">Y=1</text>
+  <text x="150" y="69" text-anchor="middle" class="small math">Σ</text>
+  <text x="62" y="101" text-anchor="middle" class="small math">0</text>
+  <text x="106" y="101" text-anchor="middle" class="small math">1/2</text>
+  <text x="150" y="101" text-anchor="middle" class="small math">1/2</text>
+  <text x="62" y="134" text-anchor="middle" class="small math">1</text>
+  <text x="106" y="134" text-anchor="middle" class="small math">3/10</text>
+  <text x="150" y="134" text-anchor="middle" class="small math">3/10</text>
+  <rect x="85" y="49" width="42" height="96" fill="#cc785c" fill-opacity="0.18"/>
+  <line x1="178" y1="98" x2="222" y2="98" stroke="#cc785c" stroke-width="1.7" marker-end="url(#arrow-coral)"/>
+  <text x="200" y="84" text-anchor="middle" class="small">除以 4/5</text>
+  <rect x="222" y="62" width="42" height="72" fill="#fffaf8" stroke="#cc785c" stroke-width="1.3"/>
+  <line x1="222" y1="98" x2="264" y2="98" stroke="#cc785c" stroke-width="1"/>
+  <text x="243" y="84" text-anchor="middle" class="small math">X</text>
+  <text x="243" y="93" text-anchor="middle" class="small math">0:5/8</text>
+  <text x="243" y="119" text-anchor="middle" class="small math">1:3/8</text>
+  <text x="140" y="181" text-anchor="middle" class="caption">先选 Y=1 这一层，再把总量归一化</text>
+  <text x="140" y="210" text-anchor="middle" class="caption math">P(X=1 | Y=1) = 3/8</text>
+  <text x="140" y="235" text-anchor="middle" class="caption">已知信息改变了分布</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">连续切片：固定 X=x</text>
+  <line x1="318" y1="211" x2="526" y2="211" class="axis" marker-end="url(#arrow-ink)"/>
+  <line x1="318" y1="211" x2="318" y2="45" class="axis" marker-end="url(#arrow-ink)"/>
+  <polygon points="318,211 510,211 510,55" fill="#cc785c" fill-opacity="0.15"/>
+  <line x1="318" y1="211" x2="510" y2="55" stroke="#312f2f" stroke-width="1.4"/>
+  <line x1="410" y1="211" x2="410" y2="137" stroke="#cc785c" stroke-width="3"/>
+  <line x1="410" y1="178" x2="410" y2="137" stroke="#312f2f" stroke-width="7"/>
+  <line x1="410" y1="137" x2="410" y2="211" class="guide"/>
+  <text x="410" y="226" text-anchor="middle" class="small math">x</text>
+  <text x="423" y="132" class="small math">0 ≤ y ≤ x</text>
+  <text x="420" y="241" text-anchor="middle" class="caption">条件密度在切片上重新归一化</text>
+</svg>

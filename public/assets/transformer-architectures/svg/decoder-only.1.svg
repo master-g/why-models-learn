@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Decoder-only Transformer 的因果生成路径</title>
+  <desc id="desc">右移前缀经过 embedding 和 causal decoder stack，历史 key/value 写入 cache，最后一个 hidden 经过 LM head 产生 next-token logits</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+    .small { font-size: 18px; }
+    .label { font-size: 22px; font-weight: 600; }
+    .title { font-size: 28px; font-weight: 700; }
+    .box { fill: #fffdf8; stroke: #312f2f; stroke-width: 2; rx: 14; }
+    .input { fill: #eee8d9; stroke: #9b865c; }
+    .stack { fill: #e7edf0; stroke: #668692; }
+    .cache { fill: #f2e4da; stroke: #cc785c; }
+    .out { fill: #f2e4da; stroke: #cc785c; }
+    .arrow { stroke: #312f2f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .coral { stroke: #cc785c; stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
+    .guide { stroke: #b8b2a8; stroke-width: 2; stroke-dasharray: 5 7; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#312f2f"/></marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/></marker>
+  </defs>
+  <rect width="1200" height="560" fill="#f8f5ee"/>
+  <text x="600" y="45" text-anchor="middle" class="title">Decoder-Only：因果前缀、KV cache、下一个 token</text>
+
+  <rect x="30" y="112" width="150" height="58" class="box input"/>
+  <text x="105" y="147" text-anchor="middle" class="label">右移前缀</text>
+  <text x="105" y="165" text-anchor="middle" class="small">(B,T)</text>
+  <path d="M180 141 H230" class="arrow"/>
+  <rect x="230" y="112" width="190" height="58" class="box input"/>
+  <text x="325" y="147" text-anchor="middle" class="label">embedding + 位置</text>
+  <text x="325" y="165" text-anchor="middle" class="small">(B,T,D)</text>
+  <path d="M420 141 H475" class="arrow"/>
+
+  <rect x="475" y="78" width="345" height="126" class="box stack"/>
+  <text x="647" y="114" text-anchor="middle" class="label">Causal Decoder Stack</text>
+  <text x="647" y="146" text-anchor="middle" class="small">masked self-attention</text>
+  <text x="647" y="172" text-anchor="middle" class="small">residual + norm + FFN × L</text>
+  <text x="647" y="193" text-anchor="middle" class="small">only current / past positions</text>
+
+  <path d="M820 141 H875" class="arrow"/>
+  <rect x="875" y="112" width="180" height="58" class="box out"/>
+  <text x="965" y="147" text-anchor="middle" class="label">LM head</text>
+  <text x="965" y="165" text-anchor="middle" class="small">(B,T,V)</text>
+  <path d="M1055 141 H1100" class="arrow"/>
+  <rect x="1100" y="112" width="75" height="58" class="box out"/>
+  <text x="1137" y="139" text-anchor="middle" class="small">next</text>
+  <text x="1137" y="160" text-anchor="middle" class="small">token</text>
+
+  <path d="M647 204 V310 H430" class="coral"/>
+  <rect x="180" y="285" width="250" height="62" class="box cache"/>
+  <text x="305" y="317" text-anchor="middle" class="label">KV cache per layer</text>
+  <text x="305" y="338" text-anchor="middle" class="small">(B,hₖᵥ,t,dₕ) × K/V</text>
+  <path d="M430 316 H520 V204" class="coral"/>
+
+  <rect x="560" y="285" width="300" height="62" class="box"/>
+  <text x="710" y="317" text-anchor="middle" class="label">causal score</text>
+  <text x="710" y="338" text-anchor="middle" class="small">(B,h_q,1,t+1)，只读历史</text>
+  <path d="M820 204 V316 H860" class="guide"/>
+
+  <path d="M90 430 H1110" class="guide"/>
+  <text x="600" y="415" text-anchor="middle" class="small">prefill：一次处理 prompt　decode：每次追加一个 token　position offset 随 cache 长度增长</text>
+  <text x="600" y="470" text-anchor="middle" class="small">MHA / GQA / MQA 改变 K/V head 与 cache，causal mask 仍然限制 query-key 位置</text>
+  <text x="600" y="510" text-anchor="middle" class="small">训练可并行计算整段下三角矩阵，推理读取最后位置的 logits</text>
+</svg>

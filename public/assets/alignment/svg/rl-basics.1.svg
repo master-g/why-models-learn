@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">强化学习中的状态、动作、奖励和价值更新</title>
+  <desc id="desc">智能体观察状态后由策略选择动作，环境返回奖励并转移到下一状态，轨迹被价值估计和策略更新使用。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; }
+      .muted { fill: #6c6863; }
+      .box { fill: #f3f0eb; stroke: #b8b2a8; stroke-width: 2; }
+      .warm { fill: #f6e4dc; stroke: #cc785c; stroke-width: 2; }
+      .cool { fill: #e6eee8; stroke: #809783; stroke-width: 2; }
+      .label { font: 600 19px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .small { font: 14px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .tiny { font: 12px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .line { fill: none; stroke: #312f2f; stroke-width: 2.4; marker-end: url(#arrow-ink); }
+      .coral-line { fill: none; stroke: #cc785c; stroke-width: 2.4; marker-end: url(#arrow-coral); }
+      .dash { fill: none; stroke: #b8b2a8; stroke-width: 1.7; stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" fill="#fbf9f6"/>
+  <text x="38" y="38" class="ink label">强化学习：一条轨迹连接动作与长期回报</text>
+  <text x="38" y="62" class="muted small">策略选择动作，环境返回结果，价值估计把后续奖励传回当前状态</text>
+
+  <rect x="38" y="105" width="145" height="82" rx="12" class="box"/>
+  <text x="110" y="132" text-anchor="middle" class="ink label">状态 Sₜ</text>
+  <text x="110" y="157" text-anchor="middle" class="muted small">观测和历史摘要</text>
+  <text x="110" y="175" text-anchor="middle" class="muted tiny">s ∈ 𝒮</text>
+
+  <rect x="221" y="105" width="145" height="82" rx="12" class="warm"/>
+  <text x="294" y="132" text-anchor="middle" class="ink label">策略 π</text>
+  <text x="294" y="157" text-anchor="middle" class="muted small">选择动作 Aₜ</text>
+  <text x="294" y="175" text-anchor="middle" class="muted tiny">π(a | s)</text>
+
+  <rect x="404" y="105" width="145" height="82" rx="12" class="box"/>
+  <text x="477" y="132" text-anchor="middle" class="ink label">环境</text>
+  <text x="477" y="157" text-anchor="middle" class="muted small">转移和奖励</text>
+  <text x="477" y="175" text-anchor="middle" class="muted tiny">P(s′,r | s,a)</text>
+
+  <rect x="587" y="105" width="175" height="82" rx="12" class="cool"/>
+  <text x="674" y="132" text-anchor="middle" class="ink label">下一状态</text>
+  <text x="674" y="157" text-anchor="middle" class="muted small">Sₜ₊₁、Rₜ₊₁</text>
+  <text x="674" y="175" text-anchor="middle" class="muted tiny">轨迹继续</text>
+
+  <path d="M183 146 H221" class="line"/>
+  <path d="M366 146 H404" class="line"/>
+  <path d="M549 146 H587" class="line"/>
+  <path d="M674 187 C674 236 110 236 110 187" class="coral-line"/>
+  <text x="387" y="227" text-anchor="middle" class="muted tiny">Sₜ₊₁ 进入下一次决策</text>
+
+  <rect x="153" y="278" width="180" height="57" rx="12" class="box"/>
+  <text x="243" y="303" text-anchor="middle" class="ink label">回报 Gₜ</text>
+  <text x="243" y="322" text-anchor="middle" class="muted tiny">Rₜ₊₁ + γGₜ₊₁</text>
+
+  <rect x="420" y="278" width="180" height="57" rx="12" class="warm"/>
+  <text x="510" y="303" text-anchor="middle" class="ink label">价值更新</text>
+  <text x="510" y="322" text-anchor="middle" class="muted tiny">δₜ = r + γV(s′) − V(s)</text>
+
+  <path d="M477 187 V250 H333 V278" class="line"/>
+  <path d="M333 306 H420" class="coral-line"/>
+  <path d="M510 278 V250 H294 V187" class="coral-line"/>
+
+  <path d="M38 356 H762" class="dash"/>
+  <text x="38" y="368" class="muted tiny">审计重点：奖励合同、终止语义、探索分布、价值估计和部署约束必须同时记录</text>
+</svg>

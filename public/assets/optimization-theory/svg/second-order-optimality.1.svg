@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>二阶条件检查每个方向的曲率</title>
+  <desc>左侧显示正定 Hessian 的椭圆等值线和两个正曲率方向，右侧区分正定 Hessian 的局部最小与不定 Hessian 的鞍点。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 13px; font-weight: 600; }
+    .body { font-size: 12px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 12px; }
+    .axis { stroke: #8f8a83; stroke-width: 1.1; fill: none; }
+    .contour { stroke: #b8b2a8; stroke-width: 1.5; fill: none; }
+    .ray { stroke: #cc785c; stroke-width: 2; fill: none; }
+    .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.4; }
+    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8f8a83"/>
+    </marker>
+    <marker id="coral-arrow" markerWidth="8" height="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <text x="28" y="29" class="title">二阶条件：沿每个方向看曲率</text>
+  <text x="28" y="50" class="body">q(d) = dᵀHd；正定是谷底，不定是鞍点</text>
+
+  <path d="M42 204 H292 M63 220 V72" class="axis" marker-end="url(#arrow)"/>
+  <text x="283" y="219" class="body">d₁</text>
+  <text x="48" y="80" class="body">d₂</text>
+  <ellipse cx="172" cy="145" rx="91" ry="48" class="contour"/>
+  <ellipse cx="172" cy="145" rx="61" ry="32" class="contour"/>
+  <ellipse cx="172" cy="145" rx="30" ry="16" class="contour"/>
+  <path d="M172 145 L253 102" class="ray" marker-end="url(#coral-arrow)"/>
+  <path d="M172 145 L128 187" class="ray" marker-end="url(#coral-arrow)"/>
+  <circle cx="172" cy="145" r="4.5" fill="#cc785c"/>
+  <text x="180" y="158" class="label">驻点</text>
+  <text x="251" y="98" class="body">λ 大</text>
+  <text x="116" y="197" class="body">λ 小</text>
+
+  <rect x="326" y="72" width="206" height="63" rx="8" class="accent"/>
+  <text x="429" y="96" text-anchor="middle" class="label">H ≻ 0</text>
+  <text x="429" y="119" text-anchor="middle" class="formula">严格局部最小</text>
+
+  <path d="M429 135 V151" class="axis" marker-end="url(#arrow)"/>
+  <rect x="326" y="156" width="206" height="63" rx="8" class="box"/>
+  <text x="429" y="180" text-anchor="middle" class="label">H 不定</text>
+  <text x="429" y="203" text-anchor="middle" class="formula">正负曲率 → 鞍点</text>
+</svg>

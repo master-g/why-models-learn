@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">线性 attention 通过特征映射先汇总 key/value</title>
+  <desc id="desc">左侧展示标准 attention 先构造 T 乘 S 矩阵，右侧展示线性 attention 先计算 phi(K) 转置 V 与 phi(K) 的摘要，再由 phi(Q) 读取；底部展示 causal prefix state。</desc>
+  <style>
+    .ink { fill: #312f2f; }
+    .muted { fill: #6d6862; }
+    .coral { fill: #cc785c; }
+    .coral-soft { fill: #f0d9d0; }
+    .paper { fill: #fbfaf7; stroke: #d7d1c8; stroke-width: 1; }
+    .line { stroke: #b8b2a8; stroke-width: 1.6; fill: none; }
+    .arrow { stroke: #cc785c; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .grid { stroke: #c9c4bb; stroke-width: 1; }
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; }
+    .title { font-size: 20px; font-weight: 700; }
+    .head { font-size: 15px; font-weight: 700; }
+    .label { font-size: 13px; }
+    .small { font-size: 11px; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="373" fill="#f5f1ea"/>
+  <text x="40" y="32" class="ink title">先配对全部 key，还是先压缩成一个摘要？</text>
+  <text x="40" y="53" class="muted label">linear attention 用特征映射和结合律避开显式 T×S 矩阵，通常以近似 softmax 为代价</text>
+
+  <rect x="28" y="72" width="352" height="187" rx="10" class="paper"/>
+  <text x="46" y="99" class="ink head">标准 dense attention</text>
+  <rect x="48" y="119" width="54" height="36" rx="5" class="coral-soft"/>
+  <text x="75" y="142" text-anchor="middle" class="ink label">Q</text>
+  <path d="M106 137H143" class="arrow"/>
+  <rect x="151" y="115" width="106" height="74" class="coral-soft"/>
+  <path d="M151 115H257M151 133H257M151 151H257M151 169H257M151 187H257M169 115V189M187 115V189M205 115V189M223 115V189M241 115V189" class="grid"/>
+  <text x="204" y="210" text-anchor="middle" class="ink label">T × S map</text>
+  <path d="M263 137H300" class="arrow"/>
+  <rect x="308" y="119" width="54" height="36" rx="5" class="coral-soft"/>
+  <text x="335" y="142" text-anchor="middle" class="ink label">A V</text>
+  <text x="46" y="239" class="muted small">位置对：T S　·　map：通常物化</text>
+
+  <rect x="400" y="72" width="372" height="187" rx="10" class="paper"/>
+  <text x="418" y="99" class="ink head">linear attention</text>
+  <rect x="418" y="119" width="74" height="36" rx="5" class="coral-soft"/>
+  <text x="455" y="142" text-anchor="middle" class="ink label">φ(K)ᵀV</text>
+  <rect x="418" y="168" width="74" height="36" rx="5" class="coral-soft"/>
+  <text x="455" y="191" text-anchor="middle" class="ink label">φ(K)ᵀ1</text>
+  <path d="M498 137H535" class="arrow"/>
+  <path d="M498 186H535" class="arrow"/>
+  <rect x="543" y="119" width="74" height="36" rx="5" fill="#ead2c7"/>
+  <text x="580" y="142" text-anchor="middle" class="ink label">G, z</text>
+  <rect x="543" y="168" width="74" height="36" rx="5" fill="#ead2c7"/>
+  <text x="580" y="191" text-anchor="middle" class="ink label">r × d<tspan baseline-shift="sub" font-size="10">v</tspan></text>
+  <rect x="648" y="144" width="74" height="36" rx="5" class="coral-soft"/>
+  <text x="685" y="167" text-anchor="middle" class="ink label">φ(Q)</text>
+  <path d="M623 137H642" class="arrow"/>
+  <path d="M623 186H642" class="arrow"/>
+  <text x="418" y="239" class="muted small">摘要：r(d<tspan baseline-shift="sub" font-size="9">v</tspan>+1)　·　长度项：T+S</text>
+
+  <rect x="28" y="278" width="744" height="71" rx="9" fill="#ece6dc"/>
+  <text x="46" y="302" class="ink label"><tspan font-weight="700">causal：</tspan>G<tspan baseline-shift="sub" font-size="10">t</tspan>=G<tspan baseline-shift="sub" font-size="10">t−1</tspan>+φ(k<tspan baseline-shift="sub" font-size="10">t</tspan>)v<tspan baseline-shift="sub" font-size="10">t</tspan>ᵀ，z<tspan baseline-shift="sub" font-size="10">t</tspan>=z<tspan baseline-shift="sub" font-size="10">t−1</tspan>+φ(k<tspan baseline-shift="sub" font-size="10">t</tspan>)</text>
+  <text x="46" y="326" class="ink label"><tspan font-weight="700">检查：</tspan>固定 r 时每步读取摘要的成本不随历史长度增长，但有限 φ 通常不等于标准 softmax</text>
+</svg>

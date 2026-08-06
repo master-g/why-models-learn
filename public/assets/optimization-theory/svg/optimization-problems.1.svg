@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>优化问题是在可行集内寻找最低等高线</title>
+  <desc>左侧坐标图显示一个椭圆等高线目标和浅色可行集，珊瑚色点是可行集内达到最低目标的解；右侧写出最小化问题的三个组成部分。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 13px; font-weight: 600; }
+    .body { font-size: 12px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 13px; }
+    .axis { stroke: #8f8a83; stroke-width: 1.1; fill: none; }
+    .contour { stroke: #b8b2a8; stroke-width: 1.5; fill: none; }
+    .feasible { fill: #f4ddd4; fill-opacity: .65; stroke: #cc785c; stroke-width: 1.6; }
+    .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8f8a83"/>
+    </marker>
+  </defs>
+
+  <text x="28" y="29" class="title">优化问题：在可行集里找最低的目标值</text>
+  <text x="28" y="50" class="body">min f(x)，x 只能落在 C 中；珊瑚点是一个可行最优解</text>
+
+  <path d="M42 201 H322 M62 220 V73" class="axis" marker-end="url(#arrow)"/>
+  <text x="314" y="217" class="body">x₁</text>
+  <text x="48" y="80" class="body">x₂</text>
+
+  <ellipse cx="190" cy="143" rx="105" ry="55" class="contour"/>
+  <ellipse cx="190" cy="143" rx="76" ry="39" class="contour"/>
+  <ellipse cx="190" cy="143" rx="45" ry="23" class="contour"/>
+  <text x="255" y="103" class="body">f 较大</text>
+  <text x="208" y="141" class="body">f 较小</text>
+
+  <path d="M85 177 C94 117 150 92 239 104 C284 111 303 149 278 181 C248 218 141 217 99 195 Z" class="feasible"/>
+  <text x="104" y="111" class="label">可行集 C</text>
+  <path d="M239 104 L190 143" class="guide"/>
+  <circle cx="190" cy="143" r="5" fill="#cc785c"/>
+  <text x="198" y="159" class="label">x*</text>
+
+  <rect x="360" y="79" width="172" height="55" rx="8" class="feasible"/>
+  <text x="446" y="101" text-anchor="middle" class="label">可行集</text>
+  <text x="446" y="122" text-anchor="middle" class="formula">x ∈ C</text>
+
+  <path d="M446 134 V151" class="axis" marker-end="url(#arrow)"/>
+
+  <rect x="360" y="157" width="172" height="55" rx="8" fill="#faf8f5" stroke="#b8b2a8" stroke-width="1.4"/>
+  <text x="446" y="179" text-anchor="middle" class="label">目标函数</text>
+  <text x="446" y="200" text-anchor="middle" class="formula">min f(x) → x*</text>
+</svg>

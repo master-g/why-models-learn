@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">Jacobian 修正坐标变换的面积</title>
+  <desc id="desc">左侧展示笛卡尔坐标中的小矩形面积，右侧展示极坐标变换后的扇形环面积，面积元素由 r dr dθ 修正。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .accent { stroke: #cc785c; stroke-width: 1.5; fill: none; }
+      .grid { stroke: #c9c4bb; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">笛卡尔坐标：小矩形</text>
+  <line x1="40" y1="190" x2="240" y2="190" class="axis"/>
+  <line x1="66" y1="217" x2="66" y2="54" class="axis"/>
+  <line x1="118" y1="190" x2="118" y2="143" class="grid"/>
+  <line x1="166" y1="190" x2="166" y2="143" class="grid"/>
+  <line x1="66" y1="143" x2="166" y2="143" class="grid"/>
+  <rect x="118" y="143" width="48" height="47" fill="#cc785c" fill-opacity="0.2" stroke="#cc785c" stroke-width="1.5"/>
+  <line x1="118" y1="199" x2="166" y2="199" class="accent"/>
+  <line x1="111" y1="143" x2="111" y2="190" class="accent"/>
+  <text x="142" y="216" text-anchor="middle" class="small math">dx</text>
+  <text x="103" y="169" text-anchor="middle" class="small math">dy</text>
+  <text x="142" y="164" text-anchor="middle" class="small math">dx dy</text>
+  <text x="140" y="231" text-anchor="middle" class="caption">单位面积元素</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">极坐标：扇形环</text>
+  <line x1="320" y1="190" x2="535" y2="190" class="axis"/>
+  <line x1="420" y1="211" x2="420" y2="49" class="axis"/>
+  <path d="M420 190 L507 140 A100 100 0 0 0 498 119 Z" fill="#cc785c" fill-opacity="0.2" stroke="#cc785c" stroke-width="1.5"/>
+  <path d="M420 190 L498 119" class="accent"/>
+  <path d="M420 190 L507 140" class="accent"/>
+  <path d="M498 119 A100 100 0 0 1 507 140" class="accent"/>
+  <path d="M420 190 L484 131" class="guide"/>
+  <text x="471" y="181" class="small math">r</text>
+  <text x="500" y="132" class="small math">dr</text>
+  <text x="452" y="158" class="small math">dθ</text>
+  <text x="420" y="218" text-anchor="middle" class="small math">dx dy = r dr dθ</text>
+  <text x="420" y="239" text-anchor="middle" class="caption">Jacobian：面积被拉伸 r 倍</text>
+</svg>

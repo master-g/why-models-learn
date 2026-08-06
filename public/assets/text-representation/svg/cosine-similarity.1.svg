@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">余弦相似度只比较方向</title>
+  <desc id="desc">向量 a 和 b 的夹角决定余弦相似度，单位化后余弦与欧氏距离可以互相换算；零向量没有方向。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">余弦相似度：只比较方向</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">长度被归一化；零向量没有可比较的方向</text>
+
+    <rect x="32" y="82" width="380" height="202" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="50" y="109" font-size="14" font-weight="700">向量夹角</text>
+    <line x1="86" y1="242" x2="360" y2="242" stroke="#8f8576" stroke-width="1.5"/>
+    <line x1="132" y1="276" x2="132" y2="124" stroke="#8f8576" stroke-width="1.5"/>
+    <path d="M360 242 L350 237 M360 242 L350 247" stroke="#8f8576" stroke-width="1.5" fill="none"/>
+    <path d="M132 124 L127 134 M132 124 L137 134" stroke="#8f8576" stroke-width="1.5" fill="none"/>
+    <line x1="132" y1="242" x2="321" y2="179" stroke="#8f6840" stroke-width="3"/>
+    <line x1="132" y1="242" x2="283" y2="142" stroke="#75939d" stroke-width="3"/>
+    <path d="M178 227 A48 48 0 0 1 171 203" fill="none" stroke="#89906c" stroke-width="2"/>
+    <path d="M321 179 L309 178 M321 179 L316 189" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M283 142 L272 147 M283 142 L286 153" stroke="#75939d" stroke-width="2" fill="none"/>
+    <text x="327" y="177" font-size="14" font-weight="700">a</text>
+    <text x="287" y="139" font-size="14" font-weight="700">b</text>
+    <text x="175" y="199" font-size="13" fill="#6f665b">θ</text>
+    <text x="50" y="266" font-size="12" fill="#6f665b">cos θ 只看方向</text>
+
+    <rect x="436" y="82" width="332" height="202" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="454" y="109" font-size="14" font-weight="700">单位化后的关系</text>
+    <rect x="454" y="126" width="296" height="42" rx="8" fill="#f6f0e5" stroke="#c5b9a7"/>
+    <text x="470" y="152" font-size="15">cos(a,b) = a·b / (‖a‖‖b‖)</text>
+    <rect x="454" y="179" width="296" height="42" rx="8" fill="#f6f0e5" stroke="#c5b9a7"/>
+    <text x="470" y="205" font-size="15">d² = 2 − 2 cos(a,b)</text>
+    <rect x="454" y="232" width="296" height="32" rx="8" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="470" y="253" font-size="12" font-weight="700">先检查零行，再决定是否归一化</text>
+
+    <rect x="32" y="304" width="736" height="42" rx="10" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="50" y="330" font-size="13" font-weight="700">余弦保留方向，点积保留尺度与方向；阈值必须绑定 checkpoint、层、样本和预处理。</text>
+  </g>
+</svg>

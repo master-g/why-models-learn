@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">GQA 与 MQA 的 query head 和 K/V head 共享</title>
+  <desc id="desc">四个 query head 映射到两个 K/V 组，组内共享 K/V 但保留独立 query 和 attention weight；下方对比 MHA、GQA 和 MQA 的 KV cache。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">GQA / MQA：共享 K/V，保留多个 query 视角</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">query head 独立计算 → 组内复用 K/V → 缩小 KV cache</text>
+
+    <rect x="32" y="78" width="118" height="134" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="52" y="106" font-size="15" font-weight="700">输入 H</text>
+    <text x="52" y="134" font-size="13">B × T × dₘ</text>
+    <text x="52" y="163" font-size="12" fill="#6f665b">Q、K、V</text>
+    <text x="52" y="185" font-size="12" fill="#6f665b">分别投影</text>
+
+    <path d="M150 145 H177" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M169 137 L179 145 L169 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="179" y="70" width="198" height="151" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="197" y="94" font-size="14" font-weight="700">query heads：h_q = 4</text>
+    <rect x="197" y="106" width="70" height="24" rx="5" fill="#f0e7ca" stroke="#b19350"/>
+    <rect x="277" y="106" width="70" height="24" rx="5" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="220" y="123" font-size="12">q₀</text>
+    <text x="300" y="123" font-size="12">q₁</text>
+    <rect x="197" y="139" width="70" height="24" rx="5" fill="#e5edf0" stroke="#75939d"/>
+    <rect x="277" y="139" width="70" height="24" rx="5" fill="#e5edf0" stroke="#75939d"/>
+    <text x="220" y="156" font-size="12">q₂</text>
+    <text x="300" y="156" font-size="12">q₃</text>
+    <text x="197" y="187" font-size="11" fill="#6f665b">每个 q 有自己的 score / A</text>
+
+    <path d="M377 112 H407" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M399 104 L409 112 L399 120" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M377 177 H407" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M399 169 L409 177 L399 185" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="409" y="70" width="179" height="151" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="427" y="94" font-size="14" font-weight="700">K/V groups：hₖᵥ = 2</text>
+    <rect x="427" y="106" width="143" height="35" rx="6" fill="#d9e4e5" stroke="#75939d"/>
+    <text x="445" y="128" font-size="13">g₀：q₀、q₁</text>
+    <text x="543" y="128" font-size="11">K₀ / V₀</text>
+    <rect x="427" y="151" width="143" height="35" rx="6" fill="#d9e4e5" stroke="#75939d"/>
+    <text x="445" y="173" font-size="13">g₁：q₂、q₃</text>
+    <text x="543" y="173" font-size="11">K₁ / V₁</text>
+    <text x="427" y="207" font-size="11" fill="#6f665b">组内共享，不共享 Q</text>
+
+    <path d="M588 145 H618" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M610 137 L620 145 L610 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="620" y="70" width="148" height="151" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="638" y="94" font-size="14" font-weight="700">输出</text>
+    <text x="638" y="123" font-size="13">C⁽q⁾ = A⁽q⁾V⁽g⁾</text>
+    <text x="638" y="151" font-size="12" fill="#6f665b">Concat q₀…q₃</text>
+    <text x="638" y="178" font-size="13">→ Wₒ</text>
+    <text x="638" y="205" font-size="11" fill="#6f665b">回到 dₘ</text>
+
+    <rect x="32" y="255" width="736" height="82" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <text x="52" y="281" font-size="13" font-weight="700">每层 KV cache（同一 L、FP16）</text>
+    <text x="52" y="308" font-size="12">MHA</text>
+    <rect x="101" y="297" width="272" height="13" rx="5" fill="#cc785c"/>
+    <text x="384" y="308" font-size="12">hₖᵥ = h_q</text>
+    <text x="52" y="329" font-size="12">GQA</text>
+    <rect x="101" y="318" width="68" height="13" rx="5" fill="#75939d"/>
+    <text x="180" y="329" font-size="12">hₖᵥ = h_q / 4</text>
+    <text x="498" y="308" font-size="12">共享 K/V，保留 query head</text>
+    <text x="498" y="329" font-size="12">MQA：hₖᵥ = 1</text>
+  </g>
+</svg>

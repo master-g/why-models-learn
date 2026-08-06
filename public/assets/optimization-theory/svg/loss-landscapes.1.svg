@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">损失景观中的等值线、梯度轨迹与平坦谷</title>
+  <desc id="desc">左侧是椭圆等值线和沿平坦方向靠近谷底的梯度轨迹，右侧说明用 Hessian 特征值读取局部景观。</desc>
+  <rect width="560" height="250" fill="#f4efee"/>
+  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">损失景观的局部形状</text>
+  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">等值线、梯度轨迹和参数等价谷</text>
+
+  <rect x="24" y="62" width="300" height="164" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <line x1="55" y1="181" x2="286" y2="181" stroke="#b8b2a8" stroke-width="1.2"/>
+  <line x1="165" y1="207" x2="165" y2="76" stroke="#b8b2a8" stroke-width="1.2"/>
+  <text x="278" y="198" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">参数方向</text>
+  <text x="174" y="84" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">损失</text>
+
+  <ellipse cx="165" cy="148" rx="108" ry="57" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
+  <ellipse cx="165" cy="148" rx="88" ry="46" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
+  <ellipse cx="165" cy="148" rx="67" ry="35" fill="none" stroke="#b8b2a8" stroke-width="1.2"/>
+  <ellipse cx="165" cy="148" rx="45" ry="23" fill="none" stroke="#cc785c" stroke-width="1.5"/>
+  <line x1="58" y1="148" x2="273" y2="148" stroke="#c9c4bb" stroke-width="1.2" stroke-dasharray="5 5"/>
+  <polyline points="270,91 243,105 217,119 193,133 175,143 165,148" fill="none" stroke="#cc785c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="270" cy="91" r="4" fill="#cc785c"/>
+  <circle cx="243" cy="105" r="3.5" fill="#cc785c"/>
+  <circle cx="217" cy="119" r="3.5" fill="#cc785c"/>
+  <circle cx="193" cy="133" r="3.5" fill="#cc785c"/>
+  <circle cx="175" cy="143" r="3.5" fill="#cc785c"/>
+  <circle cx="165" cy="148" r="4" fill="#312f2f"/>
+  <text x="232" y="83" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" font-weight="600">陡峭方向</text>
+  <text x="205" y="169" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">平坦谷</text>
+  <text x="72" y="215" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">二维切片只是高维景观的剖面</text>
+
+  <rect x="344" y="62" width="192" height="164" rx="12" fill="#ebe7e4" stroke="#c9c4bb"/>
+  <text x="364" y="88" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="700">局部读法</text>
+  <text x="364" y="112" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">Hessian 特征值</text>
+  <text x="364" y="132" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">λ_max 大 → 横向陡</text>
+  <text x="364" y="151" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">λ_min 小 → 沿谷慢</text>
+  <line x1="364" y1="165" x2="516" y2="165" stroke="#c9c4bb" stroke-width="1"/>
+  <text x="364" y="187" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">平坦方向 ≠ 泛化保证</text>
+  <text x="364" y="207" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">先固定参数化再比较</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">期望与条件均值示意图</title>
+  <desc id="desc">左图用公平骰子的六个等概率取值展示概率加权平均位于 3.5，右图展示固定输入时平方损失在条件均值处最小。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+      .accent { stroke: #cc785c; stroke-width: 2; }
+    </style>
+    <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">期望：概率加权平均</text>
+  <text x="140" y="43" text-anchor="middle" class="small math">E[X] = Σ x p(x)</text>
+  <line x1="48" y1="132" x2="232" y2="132" class="axis"/>
+  <line x1="63" y1="126" x2="63" y2="138" class="axis"/>
+  <line x1="97" y1="126" x2="97" y2="138" class="axis"/>
+  <line x1="131" y1="126" x2="131" y2="138" class="axis"/>
+  <line x1="165" y1="126" x2="165" y2="138" class="axis"/>
+  <line x1="199" y1="126" x2="199" y2="138" class="axis"/>
+  <line x1="233" y1="126" x2="233" y2="138" class="axis"/>
+  <text x="63" y="153" text-anchor="middle" class="small math">1</text>
+  <text x="97" y="153" text-anchor="middle" class="small math">2</text>
+  <text x="131" y="153" text-anchor="middle" class="small math">3</text>
+  <text x="165" y="153" text-anchor="middle" class="small math">4</text>
+  <text x="199" y="153" text-anchor="middle" class="small math">5</text>
+  <text x="233" y="153" text-anchor="middle" class="small math">6</text>
+  <circle cx="63" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <circle cx="97" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <circle cx="131" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <circle cx="165" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <circle cx="199" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <circle cx="233" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <line x1="148" y1="77" x2="148" y2="126" class="accent" marker-end="url(#arrow-ink)"/>
+  <circle cx="148" cy="132" r="7" fill="#cc785c" fill-opacity="0.2" stroke="#cc785c" stroke-width="1.5"/>
+  <text x="148" y="69" text-anchor="middle" class="small math">E[X]=3.5</text>
+  <text x="140" y="182" text-anchor="middle" class="caption">六个点等概率，平均位置在中点</text>
+  <text x="140" y="204" text-anchor="middle" class="caption math">1/6+⋯+6/6 = 3.5</text>
+  <text x="140" y="228" text-anchor="middle" class="small">期望可以不是一次可观测的取值</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">平方损失：条件均值最优</text>
+  <text x="420" y="43" text-anchor="middle" class="small math">a* = E[Y | X=x]</text>
+  <line x1="332" y1="132" x2="508" y2="132" class="axis"/>
+  <line x1="349" y1="126" x2="349" y2="138" class="axis"/>
+  <line x1="420" y1="126" x2="420" y2="138" class="axis"/>
+  <line x1="491" y1="126" x2="491" y2="138" class="axis"/>
+  <circle cx="349" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <circle cx="420" cy="132" r="7" fill="#cc785c" fill-opacity="0.2" stroke="#cc785c" stroke-width="1.5"/>
+  <circle cx="491" cy="132" r="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1"/>
+  <line x1="349" y1="132" x2="420" y2="132" class="guide"/>
+  <line x1="420" y1="132" x2="491" y2="132" class="guide"/>
+  <text x="349" y="153" text-anchor="middle" class="small math">Y=1</text>
+  <text x="420" y="153" text-anchor="middle" class="small math">a=3</text>
+  <text x="491" y="153" text-anchor="middle" class="small math">Y=5</text>
+  <text x="420" y="77" text-anchor="middle" class="small">固定 X=x</text>
+  <text x="420" y="96" text-anchor="middle" class="small">左右偏差的平方总和最小</text>
+  <text x="420" y="182" text-anchor="middle" class="caption math">E[(Y−a)²|X=x]</text>
+  <text x="420" y="204" text-anchor="middle" class="caption">a 偏离条件均值，平方项增加</text>
+  <text x="420" y="228" text-anchor="middle" class="small">回归输出逼近条件均值</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">经验风险最小化从样本损失平均到候选规则选择</title>
+  <desc id="desc">左侧显示带标签样本，中间计算每个候选规则的平均损失，右侧选择经验风险最小的规则并进行验证。</desc>
+  <rect width="560" height="250" fill="#f4efee"/>
+  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">经验风险最小化：从样本损失到规则</text>
+  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">训练目标只看当前样本，泛化需要额外证据</text>
+
+  <rect x="24" y="72" width="132" height="104" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="43" y="96" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">带标签样本 S</text>
+  <text x="43" y="120" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">(x₁, y₁)</text>
+  <text x="43" y="141" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">(x₂, y₂)</text>
+  <text x="43" y="162" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">… (xₙ, yₙ)</text>
+
+  <path d="M166 124 H198" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M191 117 L200 124 L191 131" fill="none" stroke="#c66a4b" stroke-width="2"/>
+
+  <rect x="204" y="72" width="150" height="104" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
+  <text x="224" y="96" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">逐样本计算</text>
+  <text x="224" y="120" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">ℓ(h(xᵢ), yᵢ)</text>
+  <text x="224" y="142" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">求平均 R̂ₛ(h)</text>
+  <text x="224" y="164" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">比较候选损失</text>
+
+  <path d="M364 124 H396" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M389 117 L398 124 L389 131" fill="none" stroke="#c66a4b" stroke-width="2"/>
+
+  <rect x="402" y="66" width="134" height="51" rx="9" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="420" y="88" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700">ERM 选择</text>
+  <text x="420" y="105" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">arg min R̂ₛ(h)</text>
+  <rect x="402" y="125" width="134" height="51" rx="9" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="420" y="147" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700">训练外检查</text>
+  <text x="420" y="164" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">验证 / 部署风险</text>
+
+  <rect x="142" y="214" width="276" height="25" rx="9" fill="#ebe7e4"/>
+  <text x="174" y="231" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">训练误差小 ≠ 总体风险一定小</text>
+</svg>

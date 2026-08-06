@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">不变性与等变性</title>
+  <desc id="desc">同一个一维输入向右平移后，循环互相关的响应跟着平移，保持等变；全局最大值和平均值在平移前后保持相同，形成不变标量。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .input { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.2; }
+      .shift { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.7; }
+      .equiv { fill: #dce9df; stroke: #75957e; stroke-width: 1.5; }
+      .invariant { fill: #e8e1ef; stroke: #8e7caa; stroke-width: 1.5; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">不变性与等变性：变换如何穿过网络</text>
+  <text x="38" y="65" class="subtitle">等变保留位置关系，不变把允许忽略的坐标自由度汇聚掉</text>
+
+  <rect x="38" y="87" width="226" height="174" rx="12" class="assumption"/>
+  <text x="56" y="113" class="panel-title">输入：向右平移一格</text>
+  <text x="56" y="133" class="panel-detail">x = [0, 1, 2, 0]</text>
+  <g transform="translate(56 146)">
+    <rect width="38" height="35" class="input"/>
+    <rect x="38" width="38" height="35" class="shift"/>
+    <rect x="76" width="38" height="35" class="shift"/>
+    <rect x="114" width="38" height="35" class="input"/>
+    <text x="19" y="23" text-anchor="middle" class="value">0</text>
+    <text x="57" y="23" text-anchor="middle" class="value">1</text>
+    <text x="95" y="23" text-anchor="middle" class="value">2</text>
+    <text x="133" y="23" text-anchor="middle" class="value">0</text>
+  </g>
+  <path d="M56 195 H208" fill="none" stroke="#cc785c" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <text x="56" y="218" class="panel-detail">T₁x = [0, 0, 1, 2]</text>
+  <text x="56" y="241" class="panel-detail">坐标重排，不是数值缩放</text>
+
+  <rect x="287" y="87" width="226" height="174" rx="12" class="assumption"/>
+  <text x="305" y="113" class="panel-title">循环互相关：等变</text>
+  <text x="305" y="133" class="panel-detail">w = [1, −1]</text>
+  <rect x="305" y="148" width="190" height="34" rx="8" class="equiv"/>
+  <text x="400" y="170" text-anchor="middle" class="value">C(x) = [−1, −1, 2, 0]</text>
+  <rect x="305" y="192" width="190" height="34" rx="8" class="equiv"/>
+  <text x="400" y="214" text-anchor="middle" class="value">C(T₁x) = [0, −1, −1, 2]</text>
+  <text x="305" y="246" class="panel-detail">C(T₁x) = T₁C(x)：响应一起移动</text>
+
+  <rect x="536" y="87" width="226" height="174" rx="12" class="assumption"/>
+  <text x="554" y="113" class="panel-title">全局汇聚：不变</text>
+  <text x="554" y="133" class="panel-detail">把所有空间位置看作一个集合</text>
+  <rect x="554" y="148" width="88" height="43" rx="8" class="invariant"/>
+  <text x="598" y="167" text-anchor="middle" class="label">average</text>
+  <text x="598" y="184" text-anchor="middle" class="value">0.75 = 0.75</text>
+  <rect x="655" y="148" width="88" height="43" rx="8" class="invariant"/>
+  <text x="699" y="167" text-anchor="middle" class="label">max</text>
+  <text x="699" y="184" text-anchor="middle" class="value">2 = 2</text>
+  <text x="554" y="215" class="panel-detail">A(T₁x) = A(x)</text>
+  <text x="554" y="235" class="panel-detail">位置被汇聚，不再输出</text>
+
+  <rect x="38" y="278" width="724" height="43" rx="9" class="card"/>
+  <text x="54" y="298" class="label">等变</text>
+  <text x="103" y="298" class="value">f(Tg x) = ρ(g)f(x)</text>
+  <text x="285" y="298" class="detail">；</text>
+  <text x="307" y="298" class="label">不变</text>
+  <text x="356" y="298" class="value">f(Tg x) = f(x)</text>
+  <text x="54" y="314" class="detail">先确认任务需要保留坐标，还是允许把变换轨道汇聚成同一个输出。</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">验收：对齐空间输出后测等变误差，对标量输出测不变误差，并单独记录边界与 stride 相位</text>
+</svg>

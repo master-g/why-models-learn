@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">独立性与两两独立的示意图</title>
+  <desc id="desc">左图展示独立变量的联合概率表由行和列边缘概率的乘积得到，右图展示异或变量两两独立但三个变量不相互独立。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .grid { stroke: #b8b2a8; stroke-width: 1.1; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">独立：联合 = 边缘乘积</text>
+  <text x="140" y="43" text-anchor="middle" class="small math">p(X,Y)=p(X)p(Y)</text>
+  <rect x="52" y="61" width="176" height="94" fill="#fffaf8" stroke="#b8b2a8" stroke-width="1.2"/>
+  <line x1="52" y1="92" x2="228" y2="92" class="grid"/>
+  <line x1="52" y1="123" x2="228" y2="123" class="grid"/>
+  <line x1="96" y1="61" x2="96" y2="155" class="grid"/>
+  <line x1="140" y1="61" x2="140" y2="155" class="grid"/>
+  <line x1="184" y1="61" x2="184" y2="155" class="grid"/>
+  <text x="74" y="81" text-anchor="middle" class="small math">X＼Y</text>
+  <text x="118" y="81" text-anchor="middle" class="small math">0</text>
+  <text x="162" y="81" text-anchor="middle" class="small math">1</text>
+  <text x="206" y="81" text-anchor="middle" class="small math">边缘</text>
+  <text x="74" y="112" text-anchor="middle" class="small math">0</text>
+  <text x="118" y="112" text-anchor="middle" class="small math">1/4</text>
+  <text x="162" y="112" text-anchor="middle" class="small math">1/4</text>
+  <text x="206" y="112" text-anchor="middle" class="small math">1/2</text>
+  <text x="74" y="143" text-anchor="middle" class="small math">1</text>
+  <text x="118" y="143" text-anchor="middle" class="small math">1/4</text>
+  <text x="162" y="143" text-anchor="middle" class="small math">1/4</text>
+  <text x="206" y="143" text-anchor="middle" class="small math">1/2</text>
+  <text x="140" y="178" text-anchor="middle" class="caption">每个格子 = 1/2 × 1/2</text>
+  <text x="140" y="199" text-anchor="middle" class="caption">知道 Y 不改变 X 的边缘</text>
+  <text x="140" y="226" text-anchor="middle" class="small math">P(X=1,Y=1)=1/4</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">XOR：两两独立 ≠ 相互独立</text>
+  <text x="420" y="43" text-anchor="middle" class="small math">Z = X ⊕ Y</text>
+  <rect x="318" y="61" width="204" height="91" fill="#fffaf8" stroke="#b8b2a8" stroke-width="1.2"/>
+  <line x1="318" y1="84" x2="522" y2="84" class="grid"/>
+  <line x1="369" y1="61" x2="369" y2="152" class="grid"/>
+  <line x1="420" y1="61" x2="420" y2="152" class="grid"/>
+  <line x1="471" y1="61" x2="471" y2="152" class="grid"/>
+  <text x="343" y="76" text-anchor="middle" class="small math">X,Y,Z</text>
+  <text x="394" y="76" text-anchor="middle" class="small math">0,0,0</text>
+  <text x="445" y="76" text-anchor="middle" class="small math">0,1,1</text>
+  <text x="496" y="76" text-anchor="middle" class="small math">1,0,1</text>
+  <text x="343" y="106" text-anchor="middle" class="small math">P</text>
+  <text x="394" y="106" text-anchor="middle" class="small math">1/4</text>
+  <text x="445" y="106" text-anchor="middle" class="small math">1/4</text>
+  <text x="496" y="106" text-anchor="middle" class="small math">1/4</text>
+  <text x="343" y="137" text-anchor="middle" class="small math">1,1,0</text>
+  <text x="394" y="137" text-anchor="middle" class="small math">1/4</text>
+  <text x="445" y="137" text-anchor="middle" class="small">每对公平</text>
+  <text x="496" y="137" text-anchor="middle" class="small">每对公平</text>
+  <line x1="330" y1="169" x2="510" y2="169" class="guide"/>
+  <text x="420" y="190" text-anchor="middle" class="caption math">P(0,0,1)=0 ≠ 1/8</text>
+  <text x="420" y="212" text-anchor="middle" class="caption">三个变量有确定约束</text>
+  <text x="420" y="231" text-anchor="middle" class="small">两两检查漏掉高阶关系</text>
+</svg>

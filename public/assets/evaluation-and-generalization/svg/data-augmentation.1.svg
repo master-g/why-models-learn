@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">数据增强：原始样本、随机变换与训练分布</title>
+  <desc id="desc">左侧原始样本经过平移、裁剪和颜色变化等保持标签的随机变换，中间每次抽取一个视图，右侧把这些视图作为训练分布的一部分。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .grid { stroke: #d5d0c8; stroke-width: 1.2; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+    .sample { fill: #6e8f8a; stroke: #312f2f; stroke-width: 2; }
+    .sample-alt { fill: #cc785c; stroke: #312f2f; stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <clipPath id="crop">
+      <rect x="312" y="238" width="116" height="64" rx="8"/>
+    </clipPath>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">数据增强：从一个样本到一族训练视图</text>
+  <text x="52" y="87" class="muted" font-size="14">随机变换扩大合理变化的覆盖，不会把视图变成独立新样本</text>
+
+  <rect x="52" y="111" width="168" height="207" rx="14" class="box"/>
+  <text x="76" y="141" class="ink" font-size="16" font-weight="700">原始样本</text>
+  <rect x="76" y="157" width="120" height="120" rx="10" fill="#ece7df" stroke="#b8b2a8" stroke-width="1.5"/>
+  <path d="M 92 252 L 112 210 L 130 228 L 151 188 L 181 252 Z" class="sample"/>
+  <circle cx="162" cy="181" r="12" class="sample-alt"/>
+  <text x="76" y="299" class="muted" font-size="12">标签 y</text>
+  <text x="128" y="299" class="ink" font-size="13" font-weight="700">保持定义</text>
+
+  <path d="M 228 214 L 254 214" class="arrow" marker-end="url(#arrow)"/>
+  <text x="226" y="196" class="muted" font-size="12">抽样 T</text>
+
+  <rect x="262" y="111" width="190" height="207" rx="14" class="box"/>
+  <text x="286" y="141" class="ink" font-size="16" font-weight="700">随机变换</text>
+  <rect x="286" y="154" width="142" height="45" rx="8" fill="#f4efee" stroke="#d5d0c8"/>
+  <path d="M 307 185 L 323 169 L 338 178 L 353 163 L 375 185 Z" class="sample"/>
+  <circle cx="363" cy="160" r="7" class="sample-alt"/>
+  <text x="389" y="181" class="ink" font-size="12">平移</text>
+  <rect x="286" y="207" width="142" height="45" rx="8" fill="#f4efee" stroke="#d5d0c8"/>
+  <g clip-path="url(#crop)">
+    <path d="M 301 249 L 320 211 L 338 229 L 356 198 L 392 249 Z" class="sample"/>
+    <circle cx="374" cy="204" r="11" class="sample-alt"/>
+  </g>
+  <text x="389" y="234" class="ink" font-size="12">裁剪</text>
+  <rect x="286" y="260" width="142" height="45" rx="8" fill="#f4efee" stroke="#d5d0c8"/>
+  <path d="M 307 294 L 323 278 L 338 287 L 353 272 L 375 294 Z" fill="#8aa7a0" stroke="#312f2f" stroke-width="2"/>
+  <circle cx="363" cy="269" r="7" fill="#e39a7d" stroke="#312f2f" stroke-width="2"/>
+  <text x="389" y="287" class="ink" font-size="12">颜色</text>
+
+  <path d="M 460 214 L 488 214" class="arrow" marker-end="url(#arrow)"/>
+  <text x="458" y="196" class="muted" font-size="12">x'=T(x)</text>
+
+  <rect x="500" y="111" width="248" height="207" rx="14" class="accent-box"/>
+  <text x="524" y="141" class="ink" font-size="16" font-weight="700">训练分布</text>
+  <text x="524" y="164" class="muted" font-size="12">每轮看到一个或多个视图</text>
+  <line x1="625" y1="190" x2="625" y2="287" class="guide"/>
+  <line x1="548" y1="238" x2="702" y2="238" class="guide"/>
+  <g transform="translate(0,-4)">
+    <path d="M 584 226 L 596 211 L 607 218 L 618 205 L 638 226 Z" class="sample"/>
+    <circle cx="630" cy="202" r="7" class="sample-alt"/>
+  </g>
+  <g transform="translate(44,34) rotate(12 625 238)">
+    <path d="M 584 226 L 596 211 L 607 218 L 618 205 L 638 226 Z" class="sample"/>
+    <circle cx="630" cy="202" r="7" class="sample-alt"/>
+  </g>
+  <g transform="translate(-40,37) scale(.86)">
+    <path d="M 584 226 L 596 211 L 607 218 L 618 205 L 638 226 Z" class="sample"/>
+    <circle cx="630" cy="202" r="7" class="sample-alt"/>
+  </g>
+  <g transform="translate(20,56) scale(.72)">
+    <path d="M 584 226 L 596 211 L 607 218 L 618 205 L 638 226 Z" class="sample"/>
+    <circle cx="630" cy="202" r="7" class="sample-alt"/>
+  </g>
+  <text x="524" y="302" class="muted" font-size="12">标签动作 τT 与输入变换一起记录</text>
+</svg>

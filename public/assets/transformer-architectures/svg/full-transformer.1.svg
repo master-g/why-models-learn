@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">完整 Transformer 的数据流</title>
+  <desc id="desc">源 token 经过 embedding 和编码器，目标前缀经过 masked decoder，通过 cross-attention 读取 encoder memory，最后产生 logits</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+    .small { font-size: 18px; }
+    .label { font-size: 22px; font-weight: 600; }
+    .title { font-size: 28px; font-weight: 700; }
+    .box { fill: #fffdf8; stroke: #312f2f; stroke-width: 2; rx: 14; }
+    .enc { fill: #f2e4da; stroke: #cc785c; }
+    .dec { fill: #e7edf0; stroke: #668692; }
+    .out { fill: #eee8d9; stroke: #9b865c; }
+    .arrow { stroke: #312f2f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .cross { stroke: #cc785c; stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
+    .guide { stroke: #b8b2a8; stroke-width: 2; stroke-dasharray: 5 7; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#312f2f"/></marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/></marker>
+  </defs>
+  <rect width="1200" height="560" fill="#f8f5ee"/>
+  <text x="600" y="45" text-anchor="middle" class="title">完整 Transformer：两条序列、三种 attention、一个 logits 接口</text>
+
+  <text x="95" y="92" text-anchor="middle" class="label">源序列</text>
+  <rect x="25" y="112" width="140" height="48" class="box"/>
+  <text x="95" y="143" text-anchor="middle" class="small">token id (B,S)</text>
+  <path d="M165 136 H205" class="arrow"/>
+  <rect x="205" y="112" width="150" height="48" class="box"/>
+  <text x="280" y="143" text-anchor="middle" class="small">embedding + 位置</text>
+  <path d="M355 136 H395" class="arrow"/>
+  <rect x="395" y="82" width="300" height="108" class="box enc"/>
+  <text x="545" y="117" text-anchor="middle" class="label">Encoder stack</text>
+  <text x="545" y="151" text-anchor="middle" class="small">self-attention + FFN</text>
+  <text x="545" y="177" text-anchor="middle" class="small">memory (B,S,D)</text>
+
+  <text x="95" y="278" text-anchor="middle" class="label">目标前缀</text>
+  <rect x="25" y="298" width="140" height="48" class="box"/>
+  <text x="95" y="329" text-anchor="middle" class="small">右移 token (B,U)</text>
+  <path d="M165 322 H205" class="arrow"/>
+  <rect x="205" y="298" width="150" height="48" class="box"/>
+  <text x="280" y="329" text-anchor="middle" class="small">embedding + 位置</text>
+  <path d="M355 322 H395" class="arrow"/>
+  <rect x="395" y="245" width="300" height="154" class="box dec"/>
+  <text x="545" y="280" text-anchor="middle" class="label">Decoder stack</text>
+  <text x="545" y="314" text-anchor="middle" class="small">masked self-attention</text>
+  <text x="545" y="340" text-anchor="middle" class="small">cross-attention → memory</text>
+  <text x="545" y="366" text-anchor="middle" class="small">FFN · hidden (B,U,D)</text>
+
+  <path d="M545 190 V245" class="cross"/>
+  <text x="718" y="222" class="small" fill="#cc785c">K/V memory</text>
+  <path d="M695 322 H775" class="arrow"/>
+  <rect x="775" y="298" width="170" height="48" class="box out"/>
+  <text x="860" y="329" text-anchor="middle" class="small">LM head (B,U,V)</text>
+  <path d="M945 322 H1010" class="arrow"/>
+  <rect x="1010" y="298" width="155" height="48" class="box out"/>
+  <text x="1087" y="329" text-anchor="middle" class="small">softmax / token</text>
+
+  <path d="M395 210 H1135" class="guide"/>
+  <text x="600" y="455" text-anchor="middle" class="small">encoder self： (B,h,S,S)　decoder self： (B,h,U,U)　cross： (B,h,U,S)</text>
+  <text x="600" y="493" text-anchor="middle" class="small">训练：右移目标 + causal mask　推理：cache K/V，逐 token decode</text>
+</svg>

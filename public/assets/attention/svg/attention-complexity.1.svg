@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">注意力复杂度由 query 行数乘以 key 列数决定</title>
+  <desc id="desc">三个面板分别展示 self-attention 的 L 乘 L、cross-attention 的 T 乘 S 和 decode 单个 query 读取历史 key 的交互结构；底部标注 FlashAttention 与 GQA 的资源变化。</desc>
+  <style>
+    .ink { fill: #312f2f; }
+    .muted { fill: #6d6862; }
+    .coral { fill: #cc785c; }
+    .coral-soft { fill: #f0d9d0; }
+    .axis { stroke: #b8b2a8; stroke-width: 1.5; }
+    .grid { stroke: #c9c4bb; stroke-width: 1; }
+    .dash { stroke: #cc785c; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+    .panel { fill: #fbfaf7; stroke: #d7d1c8; stroke-width: 1; }
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; }
+    .title { font-size: 20px; font-weight: 700; }
+    .head { font-size: 15px; font-weight: 700; }
+    .label { font-size: 13px; }
+    .small { font-size: 11px; }
+  </style>
+
+  <rect width="800" height="373" fill="#f5f1ea"/>
+  <text x="40" y="32" class="ink title">query 行数 × key 列数 = 逻辑交互数</text>
+  <text x="40" y="53" class="muted label">dense attention 的长度项由 T×S 决定；self-attention 只是 T=S=L 的特例</text>
+
+  <rect x="28" y="72" width="236" height="205" rx="10" class="panel"/>
+  <text x="46" y="99" class="ink head">self-attention</text>
+  <text x="46" y="118" class="muted label">T=S=L</text>
+  <text x="46" y="137" class="muted small">每个位置读取同一序列</text>
+  <g transform="translate(67 151)">
+    <rect width="120" height="96" class="coral-soft"/>
+    <path d="M0 0H120M0 24H120M0 48H120M0 72H120M24 0V96M48 0V96M72 0V96M96 0V96" class="grid"/>
+    <path d="M0 0L120 96" class="dash"/>
+    <text x="60" y="115" text-anchor="middle" class="ink label">L × L</text>
+  </g>
+  <text x="46" y="267" class="coral label">交互数：B h<tspan baseline-shift="sub" font-size="10">q</tspan> L²</text>
+
+  <rect x="282" y="72" width="236" height="205" rx="10" class="panel"/>
+  <text x="300" y="99" class="ink head">cross-attention</text>
+  <text x="300" y="118" class="muted label">T ≠ S</text>
+  <text x="300" y="137" class="muted small">目标 query 读取 source key/value</text>
+  <g transform="translate(310 151)">
+    <rect width="160" height="96" class="coral-soft"/>
+    <path d="M0 0H160M0 24H160M0 48H160M0 72H160M32 0V96M64 0V96M96 0V96M128 0V96" class="grid"/>
+    <text x="80" y="115" text-anchor="middle" class="ink label">T × S</text>
+  </g>
+  <text x="300" y="267" class="coral label">交互数：B h<tspan baseline-shift="sub" font-size="10">q</tspan> T S</text>
+
+  <rect x="536" y="72" width="236" height="205" rx="10" class="panel"/>
+  <text x="554" y="99" class="ink head">decode · one token</text>
+  <text x="554" y="118" class="muted label">T=1，S=L</text>
+  <text x="554" y="137" class="muted small">新 query 读取已缓存历史</text>
+  <g transform="translate(563 151)">
+    <rect width="170" height="24" class="coral-soft"/>
+    <path d="M0 0V24M28 0V24M56 0V24M84 0V24M112 0V24M140 0V24" class="grid"/>
+    <circle cx="14" cy="12" r="4" fill="#cc785c"/>
+    <path d="M14 35V54M14 54H156" class="axis"/>
+    <text x="85" y="73" text-anchor="middle" class="ink label">1 × L</text>
+  </g>
+  <text x="554" y="267" class="coral label">每步：B h<tspan baseline-shift="sub" font-size="10">q</tspan> L</text>
+
+  <rect x="28" y="296" width="744" height="53" rx="9" fill="#ece6dc"/>
+  <text x="46" y="319" class="ink label"><tspan font-weight="700">FlashAttention：</tspan>仍处理 T×S 交互，不物化完整 A，减少显存读写</text>
+  <text x="46" y="338" class="ink label"><tspan font-weight="700">GQA / MQA：</tspan>减少 h<tspan baseline-shift="sub" font-size="10">kv</tspan> 的 K/V cache，保留 h<tspan baseline-shift="sub" font-size="10">q</tspan> 个 score 头</text>
+</svg>

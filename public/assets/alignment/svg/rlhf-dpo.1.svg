@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">RLHF 与 DPO：两条偏好优化路径</title>
+  <desc id="desc">SFT 和偏好数据进入两条路径，RLHF 使用 reward model、rollout 和 PPO，DPO 使用策略与参考策略的 log probability 差分。</desc>
+  <defs>
+    <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#718878"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8c8880"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted { fill: #706b65; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .small { font-size: 12px; }
+      .label { font-size: 14px; font-weight: 600; }
+      .title { font-size: 16px; font-weight: 600; }
+      .panel { fill: #fbfaf7; stroke: #d5d0c8; stroke-width: 1; }
+      .coral { fill: #f4e5df; stroke: #cc785c; stroke-width: 1.7; }
+      .green { fill: #e8eee9; stroke: #718878; stroke-width: 1.7; }
+      .plain { fill: #f8f6f2; stroke: #8c8880; stroke-width: 1.4; }
+      .line-coral { fill: none; stroke: #cc785c; stroke-width: 2; marker-end: url(#arrow-coral); }
+      .line-green { fill: none; stroke: #718878; stroke-width: 2; marker-end: url(#arrow-green); }
+      .line-muted { fill: none; stroke: #8c8880; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
+      .rule { stroke: #d5d0c8; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" rx="14" fill="#f4f1ec"/>
+  <text x="28" y="34" class="ink title">RLHF 与 DPO：同一偏好数据的两条优化路径</text>
+  <text x="28" y="56" class="muted small">参考策略固定 log-probability 坐标；独立评测检查代理目标是否对应真实结果</text>
+
+  <rect x="24" y="82" width="126" height="234" rx="12" class="panel"/>
+  <text x="87" y="111" text-anchor="middle" class="ink label">共同输入</text>
+  <rect x="43" y="131" width="88" height="43" rx="9" class="plain"/>
+  <text x="87" y="151" text-anchor="middle" class="ink small">SFT policy</text>
+  <text x="87" y="167" text-anchor="middle" class="muted small">π<tspan baseline-shift="sub">ref</tspan></text>
+  <rect x="43" y="198" width="88" height="56" rx="9" class="coral"/>
+  <text x="87" y="219" text-anchor="middle" class="ink small">偏好对</text>
+  <text x="87" y="237" text-anchor="middle" class="muted small">y<tspan baseline-shift="sub">w</tspan> / y<tspan baseline-shift="sub">l</tspan></text>
+  <text x="87" y="285" text-anchor="middle" class="muted small">同一 x、模板</text>
+  <text x="87" y="302" text-anchor="middle" class="muted small">tokenizer、mask</text>
+
+  <line x1="150" y1="142" x2="180" y2="142" class="line-muted"/>
+  <line x1="150" y1="226" x2="180" y2="226" class="line-coral"/>
+
+  <rect x="190" y="82" width="562" height="105" rx="12" class="panel"/>
+  <text x="211" y="109" class="ink title">RLHF + PPO</text>
+  <rect x="211" y="126" width="105" height="40" rx="8" class="coral"/>
+  <text x="263" y="151" text-anchor="middle" class="ink small">rollout π<tspan baseline-shift="sub">θ</tspan></text>
+  <line x1="316" y1="146" x2="338" y2="146" class="line-coral"/>
+  <rect x="344" y="126" width="105" height="40" rx="8" class="coral"/>
+  <text x="396" y="143" text-anchor="middle" class="ink small">reward model</text>
+  <text x="396" y="159" text-anchor="middle" class="muted small">r<tspan baseline-shift="sub">φ</tspan>(x,y)</text>
+  <line x1="449" y1="146" x2="471" y2="146" class="line-coral"/>
+  <rect x="477" y="126" width="105" height="40" rx="8" class="plain"/>
+  <text x="529" y="143" text-anchor="middle" class="ink small">KL + GAE</text>
+  <text x="529" y="159" text-anchor="middle" class="muted small">advantage</text>
+  <line x1="582" y1="146" x2="604" y2="146" class="line-coral"/>
+  <rect x="610" y="126" width="116" height="40" rx="8" class="green"/>
+  <text x="668" y="143" text-anchor="middle" class="ink small">PPO update</text>
+  <text x="668" y="159" text-anchor="middle" class="muted small">new rollout</text>
+  <path d="M529 118 C529 91 423 91 423 118" class="line-muted"/>
+  <text x="476" y="102" text-anchor="middle" class="muted small">π<tspan baseline-shift="sub">ref</tspan> frozen</text>
+
+  <rect x="190" y="211" width="562" height="105" rx="12" class="panel"/>
+  <text x="211" y="238" class="ink title">DPO</text>
+  <rect x="211" y="255" width="125" height="40" rx="8" class="coral"/>
+  <text x="273" y="272" text-anchor="middle" class="ink small">π<tspan baseline-shift="sub">θ</tspan> log p − π<tspan baseline-shift="sub">ref</tspan> log p</text>
+  <text x="273" y="288" text-anchor="middle" class="muted small">chosen / rejected</text>
+  <line x1="336" y1="275" x2="359" y2="275" class="line-coral"/>
+  <rect x="365" y="255" width="108" height="40" rx="8" class="plain"/>
+  <text x="419" y="272" text-anchor="middle" class="ink small">β m<tspan baseline-shift="sub">θ</tspan></text>
+  <text x="419" y="288" text-anchor="middle" class="muted small">log-ratio</text>
+  <line x1="473" y1="275" x2="496" y2="275" class="line-coral"/>
+  <rect x="502" y="255" width="108" height="40" rx="8" class="coral"/>
+  <text x="556" y="272" text-anchor="middle" class="ink small">DPO loss</text>
+  <text x="556" y="288" text-anchor="middle" class="muted small">−log σ(βm)</text>
+  <line x1="610" y1="275" x2="633" y2="275" class="line-green"/>
+  <rect x="639" y="255" width="87" height="40" rx="8" class="green"/>
+  <text x="682" y="272" text-anchor="middle" class="ink small">policy</text>
+  <text x="682" y="288" text-anchor="middle" class="muted small">offline step</text>
+
+  <line x1="752" y1="176" x2="752" y2="222" class="line-muted"/>
+  <text x="760" y="201" class="muted small">独立</text>
+  <text x="760" y="216" class="muted small">评测</text>
+</svg>

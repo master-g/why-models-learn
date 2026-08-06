@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">从阶跃函数到 sigmoid</title>
+  <desc id="desc">左侧显示在零点突然跳变的阶跃函数，右侧显示经过零点并逐渐饱和的 sigmoid，两个面板都标出 z 等于零的决策边界。</desc>
+  <rect width="800" height="373" rx="18" fill="#fbfaf7"/>
+  <text x="34" y="38" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700">从硬阈值到平滑概率</text>
+  <text x="34" y="64" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14">同一条 z=0 边界，训练时保留的梯度不同</text>
+
+  <rect x="28" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="52" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">阶跃 H(z)</text>
+  <text x="52" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">硬判定：导数几乎处处为 0</text>
+  <line x1="64" y1="273" x2="342" y2="273" stroke="#8e8982" stroke-width="1.5"/>
+  <line x1="203" y1="159" x2="203" y2="291" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="64" y1="216" x2="342" y2="216" stroke="#c9c4bb" stroke-width="1"/>
+  <path d="M 64 273 H 203 V 159 H 342" fill="none" stroke="#cc785c" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="203" cy="216" r="5" fill="#f5f1ec" stroke="#cc785c" stroke-width="3"/>
+  <circle cx="203" cy="159" r="5" fill="#cc785c"/>
+  <text x="193" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">z=0</text>
+  <text x="67" y="292" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
+  <text x="334" y="151" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">1</text>
+  <text x="334" y="289" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
+
+  <rect x="422" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="446" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">sigmoid σ(z)</text>
+  <text x="446" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">平滑过渡：中点处梯度最大</text>
+  <line x1="458" y1="273" x2="736" y2="273" stroke="#8e8982" stroke-width="1.5"/>
+  <line x1="597" y1="159" x2="597" y2="291" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="458" y1="216" x2="736" y2="216" stroke="#c9c4bb" stroke-width="1"/>
+  <path d="M 458 267 C 496 267, 519 260, 543 247 C 568 233, 584 220, 597 216 C 610 212, 626 199, 651 185 C 675 172, 698 165, 736 165" fill="none" stroke="#5f827d" stroke-width="5"/>
+  <circle cx="597" cy="216" r="5" fill="#5f827d"/>
+  <text x="586" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">z=0</text>
+  <text x="461" y="289" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
+  <text x="727" y="157" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">1</text>
+  <text x="604" y="207" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">σ(0)=0.5</text>
+
+  <path d="M 382 205 H 413" fill="none" stroke="#b8b2a8" stroke-width="2"/>
+  <path d="M 404 198 L 414 205 L 404 212" fill="none" stroke="#b8b2a8" stroke-width="2"/>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">不同任务分布需要不同归纳偏置</title>
+  <desc id="desc">同一份训练样本在有结构的任务族中支持一种偏置,在所有目标函数等权时则没有普遍更好的算法</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; fill: #312f2f; }
+      .small { font-size: 16px; }
+      .body { font-size: 18px; }
+      .title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 20px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="900" height="420" fill="#f6f1ef"/>
+  <text x="36" y="40" class="title">同一份样本,任务假设决定哪种偏置有效</text>
+  <text x="36" y="69" class="small">模型从已见标签出发,未见标签只有在任务分布提供结构时才可预测</text>
+
+  <rect x="36" y="105" width="190" height="245" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="58" y="139" class="label">已见样本</text>
+  <line x1="62" y1="268" x2="202" y2="268" stroke="#b8b2a8" stroke-width="2"/>
+  <circle cx="84" cy="244" r="7" fill="#312f2f"/>
+  <circle cx="143" cy="244" r="7" fill="#cc785c"/>
+  <circle cx="202" cy="244" r="7" fill="#b8b2a8" stroke="#312f2f" stroke-dasharray="4 4"/>
+  <text x="72" y="293" class="small">x₀</text>
+  <text x="131" y="293" class="small">x₁</text>
+  <text x="188" y="293" class="small">未见</text>
+  <text x="66" y="185" class="body">(x₀, 0)</text>
+  <text x="64" y="322" class="small">训练信息相同</text>
+
+  <line x1="226" y1="177" x2="282" y2="177" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="226" y1="291" x2="282" y2="291" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="292" y="105" width="260" height="112" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="316" y="138" class="label">有结构的任务族</text>
+  <text x="316" y="171" class="body">相近输入 → 相近标签</text>
+  <text x="316" y="199" class="small">平滑偏置可能获益</text>
+
+  <rect x="292" y="238" width="260" height="112" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="316" y="271" class="label">所有目标函数等权</text>
+  <text x="316" y="304" class="body">未见标签 0 / 1 都可能</text>
+  <text x="316" y="332" class="small">平均错误无法降低</text>
+
+  <line x1="552" y1="161" x2="608" y2="161" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="552" y1="294" x2="608" y2="294" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="618" y="105" width="246" height="112" rx="14" fill="#fffdfb" stroke="#cc785c" stroke-width="2"/>
+  <text x="642" y="138" class="label">算法 A</text>
+  <text x="642" y="171" class="body">预测未见点为 0</text>
+  <text x="642" y="199" class="small">在平滑族中表现好</text>
+
+  <rect x="618" y="238" width="246" height="112" rx="14" fill="#fffdfb" stroke="#cc785c" stroke-width="2"/>
+  <text x="642" y="271" class="label">算法 A 与 B</text>
+  <text x="642" y="304" class="body">一个猜中,一个猜错</text>
+  <text x="642" y="332" class="small">均匀平均都为 1/2</text>
+</svg>

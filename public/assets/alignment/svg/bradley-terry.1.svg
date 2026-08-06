@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Bradley–Terry 模型：比较图到排序分数</title>
+  <desc id="desc">四个候选通过成对比较产生有向边，模型估计分数差和选择概率，再固定一个基准输出全局排序。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8c8880"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted { fill: #706b65; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .small { font-size: 13px; }
+      .label { font-size: 15px; font-weight: 600; }
+      .node { fill: #f8f6f2; stroke: #8c8880; stroke-width: 1.5; }
+      .node-hot { fill: #f4e5df; stroke: #cc785c; stroke-width: 1.8; }
+      .node-base { fill: #e8eee9; stroke: #718878; stroke-width: 1.6; }
+      .panel { fill: #fbfaf7; stroke: #d5d0c8; stroke-width: 1; }
+      .edge { fill: none; stroke: #cc785c; stroke-width: 2.2; marker-end: url(#arrow); }
+      .edge-muted { fill: none; stroke: #8c8880; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
+      .rule { stroke: #d5d0c8; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" rx="14" fill="#f4f1ec"/>
+  <text x="32" y="35" class="ink label">Bradley–Terry：成对标签 → 概率 → 全局排序</text>
+  <text x="32" y="58" class="muted small">比较图提供分差约束；平移基准只选择坐标，不改变任何成对概率</text>
+
+  <rect x="24" y="82" width="358" height="255" rx="12" class="panel"/>
+  <text x="48" y="110" class="ink label">比较图</text>
+  <text x="48" y="132" class="muted small">边上的数字是 i 胜过 j 的次数</text>
+
+  <path d="M126 176 C176 146 219 146 267 176" class="edge"/>
+  <text x="185" y="150" class="muted small">A&gt;B 7:3</text>
+  <path d="M111 206 C143 242 165 252 197 263" class="edge"/>
+  <text x="126" y="259" class="muted small">A&gt;C 8:2</text>
+  <path d="M112 190 C173 196 226 196 286 190" class="edge-muted"/>
+  <text x="184" y="216" class="muted small">A&gt;D 6:4</text>
+  <path d="M282 214 C251 250 236 260 214 269" class="edge"/>
+  <text x="254" y="252" class="muted small">B&gt;C 6:4</text>
+  <path d="M304 196 C329 219 335 238 329 258" class="edge-muted"/>
+  <text x="340" y="229" class="muted small">B&gt;D 5:5</text>
+  <path d="M286 289 C247 300 216 300 183 287" class="edge-muted"/>
+  <text x="219" y="321" class="muted small">C&gt;D 4:6</text>
+
+  <circle cx="93" cy="186" r="31" class="node-hot"/>
+  <text x="93" y="191" text-anchor="middle" class="ink label">A</text>
+  <circle cx="302" cy="186" r="31" class="node"/>
+  <text x="302" y="191" text-anchor="middle" class="ink label">B</text>
+  <circle cx="207" cy="278" r="31" class="node"/>
+  <text x="207" y="283" text-anchor="middle" class="ink label">C</text>
+  <circle cx="337" cy="278" r="31" class="node-base"/>
+  <text x="337" y="283" text-anchor="middle" class="ink label">D</text>
+
+  <path d="M404 204 L452 204" class="edge"/>
+  <text x="405" y="185" class="muted small">分差</text>
+
+  <rect x="466" y="91" width="138" height="223" rx="12" class="panel"/>
+  <text x="535" y="121" text-anchor="middle" class="ink label">成对概率</text>
+  <text x="535" y="154" text-anchor="middle" class="ink small">pᵢⱼ = σ(sᵢ − sⱼ)</text>
+  <line x1="490" y1="173" x2="580" y2="173" class="rule"/>
+  <text x="535" y="204" text-anchor="middle" class="muted small">A&gt;D</text>
+  <text x="535" y="228" text-anchor="middle" class="ink label">0.656</text>
+  <text x="535" y="258" text-anchor="middle" class="muted small">平移 +3 后</text>
+  <text x="535" y="282" text-anchor="middle" class="ink label">仍为 0.656</text>
+
+  <path d="M626 204 L674 204" class="edge"/>
+  <text x="626" y="185" class="muted small">最大似然</text>
+
+  <rect x="684" y="91" width="92" height="223" rx="12" class="node-base"/>
+  <text x="730" y="121" text-anchor="middle" class="ink label">排序</text>
+  <text x="730" y="155" text-anchor="middle" class="ink small">A</text>
+  <text x="730" y="180" text-anchor="middle" class="ink small">D</text>
+  <text x="730" y="205" text-anchor="middle" class="ink small">B</text>
+  <text x="730" y="230" text-anchor="middle" class="ink small">C</text>
+  <line x1="706" y1="247" x2="754" y2="247" class="rule"/>
+  <text x="730" y="274" text-anchor="middle" class="muted small">s_D = 0</text>
+  <text x="730" y="294" text-anchor="middle" class="muted small">仅为基准</text>
+</svg>

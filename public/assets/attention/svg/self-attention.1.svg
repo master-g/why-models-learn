@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Self-Attention 的三份投影与上下文读取</title>
+  <desc id="desc">同一序列 H 经过 Q、K、V 三份线性投影，query 和 key 形成位置对分数，softmax 产生权重，权重乘 value 得到上下文表示。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">Self-Attention：同一序列互相读取</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">同一输入生成 Q、K、V；每个 query 读取整条可见序列的 value</text>
+
+    <rect x="32" y="84" width="164" height="124" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="50" y="111" font-size="14" font-weight="700">输入序列 H</text>
+    <rect x="50" y="128" width="42" height="50" rx="7" fill="#f6f0e5" stroke="#b58b5b"/>
+    <text x="63" y="150" font-size="13">h₁</text>
+    <text x="60" y="168" font-size="11" fill="#6f665b">x₁</text>
+    <rect x="98" y="128" width="42" height="50" rx="7" fill="#f6f0e5" stroke="#b58b5b"/>
+    <text x="111" y="150" font-size="13">h₂</text>
+    <text x="108" y="168" font-size="11" fill="#6f665b">x₂</text>
+    <rect x="146" y="128" width="42" height="50" rx="7" fill="#f6f0e5" stroke="#b58b5b"/>
+    <text x="159" y="150" font-size="13">h₃</text>
+    <text x="156" y="168" font-size="11" fill="#6f665b">x₃</text>
+
+    <path d="M196 146 H222" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M214 138 L224 146 L214 154" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="224" y="76" width="184" height="140" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="242" y="103" font-size="14" font-weight="700">三份线性投影</text>
+    <rect x="242" y="116" width="148" height="25" rx="6" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="258" y="133" font-size="13">Q = HWQ</text>
+    <rect x="242" y="147" width="148" height="25" rx="6" fill="#e5edf0" stroke="#75939d"/>
+    <text x="258" y="164" font-size="13">K = HWK</text>
+    <rect x="242" y="178" width="148" height="25" rx="6" fill="#efe1cd" stroke="#b58b5b"/>
+    <text x="258" y="195" font-size="13">V = HWV</text>
+
+    <path d="M408 129 H440" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M432 121 L442 129 L432 137" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <text x="413" y="113" font-size="11" fill="#6f665b">Q、K</text>
+
+    <rect x="444" y="76" width="150" height="140" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="462" y="103" font-size="14" font-weight="700">位置对分数</text>
+    <text x="462" y="128" font-size="13">QKᵀ / √dₖ + M</text>
+    <text x="462" y="151" font-size="12" fill="#6f665b">T × T 矩阵</text>
+    <text x="462" y="178" font-size="13">A = softmax(行)</text>
+    <text x="462" y="198" font-size="11" fill="#6f665b">每行是一个读取分布</text>
+
+    <path d="M594 146 H624" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M616 138 L626 146 L616 154" stroke="#8f6840" stroke-width="2" fill="none"/>
+
+    <rect x="626" y="76" width="142" height="140" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="644" y="103" font-size="14" font-weight="700">上下文输出 C</text>
+    <text x="644" y="132" font-size="14">C = AV</text>
+    <text x="644" y="157" font-size="12" fill="#6f665b">每个位置读取</text>
+    <text x="644" y="176" font-size="12" fill="#6f665b">所有可见 value</text>
+    <text x="644" y="201" font-size="13">h′₁, h′₂, h′₃</text>
+
+    <path d="M390 190 C490 260 585 258 644 214" stroke="#8f6840" stroke-width="2" fill="none" stroke-dasharray="6 5"/>
+    <text x="446" y="260" font-size="12" fill="#6f665b">V 作为消息内容</text>
+
+    <rect x="32" y="282" width="736" height="55" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <text x="52" y="305" font-size="13" font-weight="700">同一来源</text>
+    <text x="129" y="305" font-size="13">→</text>
+    <text x="151" y="305" font-size="13">Q / K / V 三种职责</text>
+    <text x="323" y="305" font-size="13">→</text>
+    <text x="345" y="305" font-size="13">T × T 位置关系</text>
+    <text x="487" y="305" font-size="13">→</text>
+    <text x="509" y="305" font-size="13">按行加权读取</text>
+    <text x="52" y="325" font-size="12" fill="#6f665b">没有位置特征时对排列等变；加入位置特征后才可表达顺序差异</text>
+  </g>
+</svg>

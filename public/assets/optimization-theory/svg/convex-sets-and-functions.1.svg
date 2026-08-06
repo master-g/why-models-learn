@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>凸函数的弦在图像上方</title>
+  <desc>左侧坐标图显示平方函数和连接两端点的弦，弦在函数图像上方；右侧说明凸函数不等式和上图集。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 13px; font-weight: 600; }
+    .body { font-size: 12px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 12px; }
+    .axis { stroke: #8f8a83; stroke-width: 1.1; fill: none; }
+    .curve { stroke: #312f2f; stroke-width: 2.2; fill: none; }
+    .chord { stroke: #cc785c; stroke-width: 2; fill: none; }
+    .gap { fill: #f4ddd4; fill-opacity: .7; stroke: none; }
+    .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
+    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8f8a83"/>
+    </marker>
+  </defs>
+
+  <text x="28" y="29" class="title">凸性：线段上的函数值不高于两端平均</text>
+  <text x="28" y="50" class="body">f(λx+(1−λ)y) ≤ λf(x)+(1−λ)f(y)</text>
+
+  <path d="M46 204 H316 M69 221 V69" class="axis" marker-end="url(#arrow)"/>
+  <text x="308" y="219" class="body">x</text>
+  <text x="56" y="77" class="body">f(x)</text>
+
+  <path d="M84 165 L270 125 L270 125 C228 135 208 158 181 181 C151 206 119 204 84 165 Z" class="gap"/>
+  <path d="M76 193 C111 205 143 201 171 180 C202 157 225 134 270 125" class="curve"/>
+  <path d="M84 165 L270 125" class="chord"/>
+  <path d="M177 144 V181" class="guide"/>
+  <circle cx="84" cy="165" r="4" fill="#cc785c"/>
+  <circle cx="270" cy="125" r="4" fill="#cc785c"/>
+  <circle cx="177" cy="144" r="3.5" fill="#cc785c"/>
+  <text x="91" y="157" class="body">f(x)</text>
+  <text x="260" y="116" text-anchor="end" class="body">f(y)</text>
+  <text x="184" y="138" class="body">弦</text>
+  <text x="184" y="177" class="body">f(中点)</text>
+
+  <rect x="348" y="75" width="184" height="62" rx="8" class="accent"/>
+  <text x="440" y="98" text-anchor="middle" class="label">凸函数</text>
+  <text x="440" y="121" text-anchor="middle" class="formula">点在弦的下方</text>
+
+  <path d="M440 137 V153" class="axis" marker-end="url(#arrow)"/>
+  <rect x="348" y="158" width="184" height="58" rx="8" class="box"/>
+  <text x="440" y="181" text-anchor="middle" class="label">上图集 epi(f)</text>
+  <text x="440" y="202" text-anchor="middle" class="formula">{(x,t): t ≥ f(x)}</text>
+</svg>

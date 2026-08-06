@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">梯度消失与爆炸的 Jacobian 连乘</title>
+  <desc id="desc">深度方向的局部 Jacobian 逐层相乘，较小的增益衰减，较大的增益放大；底部展示循环时间轴。</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#3b5368"/>
+    </marker>
+    <marker id="red-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a34f42"/>
+    </marker>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="11" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+      <feComponentTransfer in="gray" result="faded">
+        <feFuncA type="table" tableValues="0 0.04"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="faded" mode="multiply"/>
+    </filter>
+    <style>
+      .paper { fill: #f8f4eb; }
+      .ink { fill: #263746; stroke: #263746; }
+      .muted { fill: #61717b; }
+      .blue { fill: #e4edf0; stroke: #527285; }
+      .red { fill: #f4e5df; stroke: #a34f42; }
+      .green { fill: #e9eadb; stroke: #718050; }
+      .label { font: 18px 'STKaiti', 'Kaiti SC', 'Noto Serif CJK SC', serif; fill: #263746; }
+      .small { font: 14px 'STKaiti', 'Kaiti SC', 'Noto Serif CJK SC', serif; fill: #61717b; }
+      .formula { font: 17px 'STKaiti', 'Kaiti SC', 'Noto Serif CJK SC', serif; fill: #263746; }
+      .rough { stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="paper" x="3" y="3" width="794" height="367" rx="18" filter="url(#paper)"/>
+  <text x="28" y="36" class="label">局部 Jacobian 的连乘</text>
+  <path d="M24 57 C180 48 350 65 510 54 S700 51 778 59" fill="none" stroke="#d2c8b6" stroke-width="1.2" class="rough"/>
+  <text x="28" y="82" class="small">同一条路径上，每层的尺度都会留下痕迹</text>
+
+  <rect class="blue" x="33" y="116" width="105" height="62" rx="12"/>
+  <text x="85" y="143" text-anchor="middle" class="label">gₗ₊₁</text>
+  <text x="85" y="164" text-anchor="middle" class="small">上游信号</text>
+  <rect class="blue" x="180" y="116" width="112" height="62" rx="12"/>
+  <text x="236" y="143" text-anchor="middle" class="label">Jₗᵀ</text>
+  <text x="236" y="164" text-anchor="middle" class="small">局部回传</text>
+  <rect class="blue" x="335" y="116" width="112" height="62" rx="12"/>
+  <text x="391" y="143" text-anchor="middle" class="label">Jₗ₋₁ᵀ</text>
+  <text x="391" y="164" text-anchor="middle" class="small">继续相乘</text>
+  <rect class="blue" x="490" y="116" width="112" height="62" rx="12"/>
+  <text x="546" y="143" text-anchor="middle" class="label">⋯</text>
+  <text x="546" y="164" text-anchor="middle" class="small">深度 / 时间</text>
+  <line x1="138" y1="147" x2="176" y2="147" stroke="#3b5368" stroke-width="2.4" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="292" y1="147" x2="331" y2="147" stroke="#3b5368" stroke-width="2.4" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="447" y1="147" x2="486" y2="147" stroke="#3b5368" stroke-width="2.4" marker-end="url(#blue-arrow)" class="rough"/>
+
+  <rect class="red" x="649" y="99" width="115" height="73" rx="12"/>
+  <text x="706" y="127" text-anchor="middle" class="label">乘积</text>
+  <text x="706" y="151" text-anchor="middle" class="formula">Jₗ:₁ᵀg</text>
+  <line x1="602" y1="147" x2="645" y2="135" stroke="#a34f42" stroke-width="2.4" marker-end="url(#red-arrow)" class="rough"/>
+
+  <rect class="green" x="49" y="217" width="207" height="62" rx="12"/>
+  <text x="152" y="245" text-anchor="middle" class="label">σₘₐₓ &lt; 1</text>
+  <text x="152" y="266" text-anchor="middle" class="small">多数方向趋向消失</text>
+  <rect class="green" x="296" y="217" width="207" height="62" rx="12"/>
+  <text x="399" y="245" text-anchor="middle" class="label">σₘᵢₙ ≈ 0</text>
+  <text x="399" y="266" text-anchor="middle" class="small">某些方向被压扁</text>
+  <rect class="green" x="543" y="217" width="207" height="62" rx="12"/>
+  <text x="646" y="245" text-anchor="middle" class="label">σₘₐₓ &gt; 1</text>
+  <text x="646" y="266" text-anchor="middle" class="small">某些方向可能爆炸</text>
+
+  <text x="30" y="315" class="label">循环时间轴</text>
+  <circle cx="181" cy="311" r="18" fill="#e4edf0" stroke="#527285" stroke-width="2"/>
+  <circle cx="266" cy="311" r="18" fill="#e4edf0" stroke="#527285" stroke-width="2"/>
+  <circle cx="351" cy="311" r="18" fill="#e4edf0" stroke="#527285" stroke-width="2"/>
+  <circle cx="436" cy="311" r="18" fill="#e4edf0" stroke="#527285" stroke-width="2"/>
+  <circle cx="521" cy="311" r="18" fill="#f4e5df" stroke="#a34f42" stroke-width="2"/>
+  <line x1="199" y1="311" x2="244" y2="311" stroke="#3b5368" stroke-width="2" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="284" y1="311" x2="329" y2="311" stroke="#3b5368" stroke-width="2" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="369" y1="311" x2="414" y2="311" stroke="#3b5368" stroke-width="2" marker-end="url(#blue-arrow)" class="rough"/>
+  <line x1="454" y1="311" x2="499" y2="311" stroke="#a34f42" stroke-width="2" marker-end="url(#red-arrow)" class="rough"/>
+  <text x="181" y="317" text-anchor="middle" class="small">t</text>
+  <text x="266" y="317" text-anchor="middle" class="small">t+1</text>
+  <text x="351" y="317" text-anchor="middle" class="small">t+2</text>
+  <text x="436" y="317" text-anchor="middle" class="small">⋯</text>
+  <text x="521" y="317" text-anchor="middle" class="small">T</text>
+  <text x="574" y="306" class="small">长乘积</text>
+  <text x="574" y="329" class="small">也是时间距离</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">强化学习在智能体与环境的循环交互中学习策略和价值</title>
+  <desc id="desc">左侧环境提供状态和奖励，中央智能体根据策略选择动作，反馈循环进入价值和策略更新。</desc>
+  <rect width="560" height="250" fill="#f4efee"/>
+  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">强化学习：在交互中学习长期回报</text>
+  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">状态 → 动作 → 奖励与下一个状态 → 更新策略</text>
+
+  <rect x="24" y="78" width="140" height="90" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="47" y="105" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">环境</text>
+  <text x="47" y="128" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">状态 s</text>
+  <text x="47" y="149" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">奖励 r</text>
+  <text x="47" y="170" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">转移 P</text>
+
+  <path d="M174 120 H205" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M198 113 L207 120 L198 127" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <text x="177" y="108" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">状态</text>
+
+  <rect x="211" y="78" width="140" height="90" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
+  <text x="234" y="105" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">智能体</text>
+  <text x="234" y="128" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">策略 π(a|s)</text>
+  <text x="234" y="149" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">价值 V / Q</text>
+  <text x="234" y="170" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">更新与探索</text>
+
+  <path d="M361 120 H392" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M385 113 L394 120 L385 127" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <text x="364" y="108" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">动作</text>
+
+  <rect x="399" y="78" width="137" height="90" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="420" y="105" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">长期目标</text>
+  <text x="420" y="128" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">回报 Gₜ</text>
+  <text x="420" y="149" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">折扣 γ</text>
+  <text x="420" y="170" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">最大化 J(π)</text>
+
+  <path d="M468 181 C468 218 89 218 89 182" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M82 190 L89 181 L96 190" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <text x="210" y="211" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">奖励反馈推动下一轮决策</text>
+
+  <rect x="142" y="226" width="276" height="17" rx="8" fill="#ebe7e4"/>
+  <text x="194" y="238" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">奖励不是标签，而是长期目标的反馈</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">激活函数：形状与任务头</title>
+  <desc id="desc">左侧比较 sigmoid、tanh、ReLU 和 GELU 的形状，右侧说明隐藏层和输出头的选择边界。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+    .grid { fill: none; stroke: #d5d0c8; stroke-width: 1.2; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
+    .sigmoid { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+    .tanh { fill: none; stroke: #6e8f8a; stroke-width: 3; stroke-linecap: round; }
+    .relu { fill: none; stroke: #e8a55a; stroke-width: 3; stroke-linecap: round; }
+    .gelu { fill: none; stroke: #756b91; stroke-width: 3; stroke-linecap: round; }
+  </style>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">激活函数：形状与任务头</text>
+  <text x="52" y="87" class="muted" font-size="14">同一个预激活值，输出范围和反向梯度可以完全不同</text>
+
+  <rect x="52" y="111" width="390" height="205" rx="14" class="box"/>
+  <text x="75" y="141" class="ink" font-size="16" font-weight="700">标量形状</text>
+  <line x1="99" y1="247" x2="410" y2="247" class="axis"/>
+  <line x1="255" y1="166" x2="255" y2="286" class="axis"/>
+  <line x1="99" y1="207" x2="410" y2="207" class="grid"/>
+  <line x1="99" y1="167" x2="410" y2="167" class="grid"/>
+  <line x1="177" y1="243" x2="177" y2="251" class="axis"/>
+  <line x1="333" y1="243" x2="333" y2="251" class="axis"/>
+  <path d="M 99 276 C 131 275, 150 270, 172 258 C 192 246, 207 227, 220 214 C 235 200, 247 195, 255 195 C 267 195, 281 201, 294 214 C 308 229, 323 247, 339 258 C 359 271, 381 275, 410 276" class="sigmoid"/>
+  <path d="M 99 171 C 128 172, 151 178, 172 190 C 195 202, 215 220, 232 236 C 244 245, 252 247, 255 247 C 263 247, 275 240, 288 230 C 306 215, 326 195, 345 184 C 365 173, 386 170, 410 171" class="tanh"/>
+  <path d="M 99 247 L 255 247 L 410 168" class="relu"/>
+  <path d="M 99 257 C 134 257, 166 254, 197 251 C 223 249, 244 247, 255 247 C 279 245, 301 236, 322 224 C 344 211, 365 191, 386 176 C 396 169, 404 166, 410 165" class="gelu"/>
+  <text x="101" y="292" class="muted" font-size="11">负侧</text>
+  <text x="395" y="292" class="muted" font-size="11">正侧</text>
+  <circle cx="108" cy="153" r="4" fill="#cc785c"/>
+  <text x="118" y="157" class="muted" font-size="11">sigmoid</text>
+  <circle cx="183" cy="153" r="4" fill="#6e8f8a"/>
+  <text x="193" y="157" class="muted" font-size="11">tanh</text>
+  <circle cx="241" cy="153" r="4" fill="#e8a55a"/>
+  <text x="251" y="157" class="muted" font-size="11">ReLU</text>
+  <circle cx="306" cy="153" r="4" fill="#756b91"/>
+  <text x="316" y="157" class="muted" font-size="11">GELU</text>
+
+  <rect x="466" y="111" width="282" height="205" rx="14" class="accent-box"/>
+  <text x="490" y="141" class="ink" font-size="16" font-weight="700">按任务放置</text>
+  <text x="490" y="166" class="muted" font-size="12">隐藏层：非线性与梯度</text>
+  <rect x="490" y="179" width="228" height="28" rx="8" fill="#d9e7e4"/>
+  <text x="604" y="198" class="ink" font-size="12" text-anchor="middle">ReLU / GELU / Swish</text>
+  <text x="490" y="230" class="muted" font-size="12">输出头：目标变量与损失</text>
+  <rect x="490" y="243" width="104" height="28" rx="8" fill="#f3e3c5"/>
+  <text x="542" y="262" class="ink" font-size="11" text-anchor="middle">回归：identity</text>
+  <rect x="606" y="243" width="112" height="28" rx="8" fill="#f2d6cd"/>
+  <text x="662" y="262" class="ink" font-size="11" text-anchor="middle">分类：logit/softmax</text>
+  <text x="490" y="297" class="muted" font-size="11">先匹配语义，再比较曲线</text>
+</svg>

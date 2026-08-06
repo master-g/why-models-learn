@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">LayerNorm 沿 token 特征轴的计算流程</title>
+  <desc id="desc">输入的一个 token 特征向量先计算均值和方差，再中心化和缩放，最后使用 gamma 和 beta 做逐特征仿射变换。</desc>
+  <style>
+    .paper { fill: #f4efee; }
+    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted { fill: #6c6a64; font-size: 16px; }
+    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
+    .small { fill: #6c6a64; font-size: 14px; }
+    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
+    .stat { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
+    .scale { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
+    .affine { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; rx: 10; }
+    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .helper { fill: none; stroke: #a9583e; stroke-width: 2; stroke-dasharray: 7 6; stroke-linecap: round; }
+    .arrow { fill: #312f2f; }
+  </style>
+  <rect class="paper" width="800" height="373"/>
+  <text class="ink label" x="42" y="48">一个 token 的 LayerNorm</text>
+  <text class="ink muted" x="42" y="75">只沿特征轴归约，统计量不跨 token 共享</text>
+
+  <rect class="box" x="42" y="119" width="112" height="58"/>
+  <text class="ink label" x="73" y="154">x</text>
+  <text class="ink small" x="55" y="198">d 个特征</text>
+  <path class="path" d="M154 148H187"/>
+  <path class="arrow" d="M187 148l-9-6v12z"/>
+
+  <rect class="stat" x="199" y="103" width="130" height="45"/>
+  <text class="ink" x="224" y="132" font-size="18">均值 μ</text>
+  <rect class="stat" x="199" y="158" width="130" height="45"/>
+  <text class="ink" x="224" y="187" font-size="18">方差 v</text>
+  <path class="helper" d="M154 148H175V125H199"/>
+  <path class="arrow" d="M199 125l-9-6v12z"/>
+  <path class="helper" d="M175 181H199"/>
+  <path class="arrow" d="M199 181l-9-6v12z"/>
+  <text class="ink small" x="204" y="226">每个 (b,t) 独立</text>
+
+  <path class="path" d="M329 148H363"/>
+  <path class="arrow" d="M363 148l-9-6v12z"/>
+  <rect class="scale" x="375" y="119" width="126" height="58"/>
+  <text class="ink" x="395" y="154" font-size="18">z=(x−μ)/s</text>
+  <text class="ink small" x="388" y="198">s=√(v+ε)</text>
+
+  <path class="path" d="M501 148H535"/>
+  <path class="arrow" d="M535 148l-9-6v12z"/>
+  <rect class="affine" x="547" y="119" width="126" height="58"/>
+  <text class="ink" x="571" y="154" font-size="18">γ⊙z+β</text>
+  <text class="ink small" x="561" y="198">逐特征参数</text>
+
+  <path class="path" d="M673 148H707"/>
+  <path class="arrow" d="M707 148l-9-6v12z"/>
+  <rect class="box" x="719" y="119" width="40" height="58"/>
+  <text class="ink label" x="729" y="154">y</text>
+
+  <text class="ink label" x="42" y="284">统计集合</text>
+  <text class="ink small" x="42" y="312">x[b,t,:] 的 d 个特征</text>
+  <path class="helper" d="M154 177V300H42"/>
+  <path class="arrow" d="M42 300l9-6v12z"/>
+  <text class="ink small" x="250" y="312">不包含其他 token、batch 或 KV cache</text>
+  <text class="ink small" x="547" y="312">γ, β ∈ Rᵈ</text>
+  <text class="ink small" x="547" y="338">LayerNorm：无 running statistics</text>
+</svg>

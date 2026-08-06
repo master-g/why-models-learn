@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Residual stream 的分支读写与残差汇合</title>
+  <desc id="desc">同一个 residual stream 版本沿 shortcut 传递，attention 和 FFN 读取它并产生增量，两个增量在加法节点写回得到下一层 stream。</desc>
+  <style>
+    .paper { fill: #f4efee; }
+    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted { fill: #6c6a64; font-size: 16px; }
+    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
+    .small { fill: #6c6a64; font-size: 14px; }
+    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
+    .branch { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
+    .add { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; }
+    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .shortcut { fill: none; stroke: #a9583e; stroke-width: 2.5; stroke-dasharray: 7 6; stroke-linecap: round; }
+    .arrow { fill: #312f2f; }
+  </style>
+  <rect class="paper" width="800" height="373"/>
+  <text class="ink label" x="42" y="45">Residual stream 的分支读写</text>
+  <text class="ink muted" x="42" y="72">shortcut 传递当前表示，子层只写入增量</text>
+
+  <rect class="box" x="58" y="136" width="96" height="48"/>
+  <text class="ink label" x="91" y="167">xₗ</text>
+
+  <path class="shortcut" d="M154 160H486"/>
+  <path class="arrow" d="M486 160l-10-6v12z"/>
+  <text class="ink small" x="184" y="151">shortcut</text>
+
+  <path class="path" d="M154 160H194V112H218"/>
+  <path class="arrow" d="M218 112l-9-6v12z"/>
+  <rect class="branch" x="218" y="88" width="136" height="48"/>
+  <text class="ink label" x="246" y="119">Attention</text>
+  <text class="ink small" x="58" y="211">两支读取 xₗ</text>
+  <path class="path" d="M354 112H454V144H486"/>
+  <path class="arrow" d="M486 144l-9-6v12z"/>
+  <text class="ink small" x="371" y="105">Δ_attn</text>
+
+  <path class="path" d="M194 160V208H218"/>
+  <path class="arrow" d="M218 208l-9-6v12z"/>
+  <rect class="branch" x="218" y="184" width="136" height="48"/>
+  <text class="ink label" x="262" y="215">FFN</text>
+  <text class="ink small" x="244" y="253">读取同一 stream 版本</text>
+  <path class="path" d="M354 208H454V176H486"/>
+  <path class="arrow" d="M486 176l-9-6v12z"/>
+  <text class="ink small" x="371" y="226">Δ_ffn</text>
+
+  <circle class="add" cx="510" cy="160" r="24"/>
+  <path class="path" d="M502 152l16 16M518 152l-16 16"/>
+  <path class="path" d="M534 160H620"/>
+  <path class="arrow" d="M620 160l-9-6v12z"/>
+  <rect class="box" x="632" y="136" width="96" height="48"/>
+  <text class="ink label" x="653" y="167">xₗ₊₁</text>
+  <text class="ink small" x="487" y="205">加法节点</text>
+
+  <path d="M42 279H758" stroke="#d5c9c5" stroke-width="1.5"/>
+  <text class="ink small" x="58" y="314">shape: (B, T, d_model)</text>
+  <text class="ink label" x="360" y="316">x<tspan baseline-shift="sub" font-size="13">L</tspan> = x<tspan baseline-shift="sub" font-size="13">0</tspan> + Σ Δ<tspan baseline-shift="sub" font-size="13">l</tspan></text>
+  <text class="ink small" x="58" y="342">同宽度传递；跨 token 的读取发生在分支内部</text>
+  <text class="ink small" x="548" y="342">Δ_l 写回前必须回到 d_model</text>
+</svg>

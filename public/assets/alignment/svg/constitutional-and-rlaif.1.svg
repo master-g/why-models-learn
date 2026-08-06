@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">宪法式对齐与 RLAIF：原则、批评修订和独立评测</title>
+  <desc id="desc">constitution 提供原则、优先级和例外，生成模型经过批评和修订产生候选，AI 评价器生成偏好对并进入策略优化，独立评测检查真实效用和约束。</desc>
+  <defs>
+    <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#718878"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8c8880"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted { fill: #706b65; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .small { font-size: 12px; }
+      .label { font-size: 14px; font-weight: 600; }
+      .title { font-size: 16px; font-weight: 600; }
+      .panel { fill: #fbfaf7; stroke: #d5d0c8; stroke-width: 1; }
+      .coral { fill: #f4e5df; stroke: #cc785c; stroke-width: 1.7; }
+      .green { fill: #e8eee9; stroke: #718878; stroke-width: 1.7; }
+      .plain { fill: #f8f6f2; stroke: #8c8880; stroke-width: 1.4; }
+      .line-coral { fill: none; stroke: #cc785c; stroke-width: 2; marker-end: url(#arrow-coral); }
+      .line-green { fill: none; stroke: #718878; stroke-width: 2; marker-end: url(#arrow-green); }
+      .line-muted { fill: none; stroke: #8c8880; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" rx="14" fill="#f4f1ec"/>
+  <text x="28" y="34" class="ink title">宪法式对齐与 RLAIF：原则 → 反馈 → 独立验收</text>
+  <text x="28" y="56" class="muted small">AI 评价器生成偏好信号；原则、策略、评价器和外部结果分开记录</text>
+
+  <rect x="24" y="84" width="160" height="232" rx="12" class="panel"/>
+  <text x="104" y="111" text-anchor="middle" class="ink label">constitution C</text>
+  <rect x="43" y="128" width="122" height="45" rx="8" class="coral"/>
+  <text x="104" y="147" text-anchor="middle" class="ink small">原则集合</text>
+  <text x="104" y="163" text-anchor="middle" class="muted small">truth / helpful / safe</text>
+  <rect x="43" y="190" width="57" height="42" rx="8" class="plain"/>
+  <text x="71" y="207" text-anchor="middle" class="ink small">范围</text>
+  <text x="71" y="223" text-anchor="middle" class="muted small">例外</text>
+  <rect x="108" y="190" width="57" height="42" rx="8" class="plain"/>
+  <text x="136" y="207" text-anchor="middle" class="ink small">优先级</text>
+  <text x="136" y="223" text-anchor="middle" class="muted small">硬约束</text>
+  <text x="43" y="264" class="muted small">版本 / 模板 / 语言</text>
+  <text x="43" y="282" class="muted small">适用条件 / 失败动作</text>
+  <text x="43" y="300" class="muted small">规则不授予外部权限</text>
+
+  <line x1="184" y1="151" x2="207" y2="151" class="line-coral"/>
+
+  <rect x="217" y="84" width="258" height="232" rx="12" class="panel"/>
+  <text x="239" y="111" class="ink label">批评与修订</text>
+  <rect x="239" y="128" width="74" height="45" rx="8" class="plain"/>
+  <text x="276" y="147" text-anchor="middle" class="ink small">draft y⁰</text>
+  <text x="276" y="163" text-anchor="middle" class="muted small">初始回答</text>
+  <line x1="313" y1="151" x2="328" y2="151" class="line-muted"/>
+  <rect x="334" y="128" width="74" height="45" rx="8" class="coral"/>
+  <text x="371" y="147" text-anchor="middle" class="ink small">critique</text>
+  <text x="371" y="163" text-anchor="middle" class="muted small">按 C 检查</text>
+  <line x1="408" y1="151" x2="423" y2="151" class="line-coral"/>
+  <rect x="429" y="128" width="30" height="45" rx="7" class="green"/>
+  <text x="444" y="147" text-anchor="middle" class="ink small">y¹</text>
+  <text x="444" y="163" text-anchor="middle" class="muted small">修订</text>
+  <rect x="239" y="198" width="99" height="43" rx="8" class="plain"/>
+  <text x="288" y="215" text-anchor="middle" class="ink small">原则分量 s<tspan baseline-shift="sub">k</tspan></text>
+  <text x="288" y="231" text-anchor="middle" class="muted small">help / truth / safe</text>
+  <line x1="338" y1="219" x2="355" y2="219" class="line-muted"/>
+  <rect x="361" y="198" width="98" height="43" rx="8" class="coral"/>
+  <text x="410" y="215" text-anchor="middle" class="ink small">偏好对</text>
+  <text x="410" y="231" text-anchor="middle" class="muted small">y<tspan baseline-shift="sub">w</tspan> / y<tspan baseline-shift="sub">l</tspan></text>
+  <path d="M371 184 C371 177 288 177 288 191" class="line-muted"/>
+  <text x="239" y="270" class="muted small">保存原文、批评、修订和版本</text>
+  <text x="239" y="288" class="muted small">self-critique 不是外部事实核验</text>
+  <text x="239" y="306" class="muted small">候选分布随 checkpoint 改变</text>
+
+  <line x1="475" y1="219" x2="498" y2="219" class="line-coral"/>
+
+  <rect x="508" y="84" width="268" height="232" rx="12" class="panel"/>
+  <text x="530" y="111" class="ink label">RLAIF 与独立评测</text>
+  <rect x="530" y="128" width="96" height="43" rx="8" class="coral"/>
+  <text x="578" y="145" text-anchor="middle" class="ink small">AI judge</text>
+  <text x="578" y="161" text-anchor="middle" class="muted small">按 C 比较</text>
+  <line x1="626" y1="149" x2="644" y2="149" class="line-coral"/>
+  <rect x="652" y="128" width="102" height="43" rx="8" class="coral"/>
+  <text x="703" y="145" text-anchor="middle" class="ink small">preference</text>
+  <text x="703" y="161" text-anchor="middle" class="muted small">label / rationale</text>
+  <rect x="530" y="194" width="96" height="43" rx="8" class="plain"/>
+  <text x="578" y="211" text-anchor="middle" class="ink small">PPO / DPO</text>
+  <text x="578" y="227" text-anchor="middle" class="muted small">policy update</text>
+  <line x1="626" y1="215" x2="644" y2="215" class="line-green"/>
+  <rect x="652" y="194" width="102" height="43" rx="8" class="green"/>
+  <text x="703" y="211" text-anchor="middle" class="ink small">独立评测</text>
+  <text x="703" y="227" text-anchor="middle" class="muted small">U / C / 外部状态</text>
+  <line x1="703" y1="171" x2="703" y2="188" class="line-muted"/>
+  <text x="530" y="268" class="muted small">人工校准 / 时间外 / 对抗切片</text>
+  <text x="530" y="286" class="muted small">评价器与策略版本分开保存</text>
+  <text x="530" y="304" class="muted small">原则分数上升不等于任务结果改善</text>
+</svg>

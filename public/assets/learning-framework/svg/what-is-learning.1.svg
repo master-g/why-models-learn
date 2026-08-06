@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">机器学习从数据经过假设空间和损失函数得到规则</title>
+  <desc id="desc">图中从样本数据出发，经过假设空间和损失反馈，由学习算法选择一个用于新输入的规则。</desc>
+  <rect width="560" height="250" fill="#f4efee"/>
+  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">学习是从样本中选择规则</text>
+  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">数据提供证据，假设空间规定可能性，损失定义好坏</text>
+
+  <rect x="24" y="70" width="120" height="92" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="44" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">样本 S</text>
+  <text x="44" y="117" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">(x₁, y₁)</text>
+  <text x="44" y="137" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">(x₂, y₂)</text>
+  <text x="44" y="157" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">⋮  有限证据</text>
+
+  <path d="M149 116 H177" stroke="#cc785c" stroke-width="2" stroke-linecap="round"/>
+  <path d="M172 111 L179 116 L172 121" fill="none" stroke="#cc785c" stroke-width="2"/>
+
+  <rect x="184" y="70" width="142" height="92" rx="12" fill="#ebe7e4" stroke="#c9c4bb"/>
+  <text x="204" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">假设空间 ℋ</text>
+  <text x="204" y="117" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">线性、树、神经网络</text>
+  <text x="204" y="138" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">允许哪些规则</text>
+  <text x="204" y="157" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">由结构和参数决定</text>
+
+  <path d="M331 116 H359" stroke="#cc785c" stroke-width="2" stroke-linecap="round"/>
+  <path d="M354 111 L361 116 L354 121" fill="none" stroke="#cc785c" stroke-width="2"/>
+
+  <rect x="366" y="70" width="170" height="92" rx="12" fill="#fdfcfa" stroke="#cc785c"/>
+  <text x="386" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">损失 + 算法</text>
+  <text x="386" y="117" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">比较预测与反馈</text>
+  <text x="386" y="138" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">选择 ĥ = A(S)</text>
+  <text x="386" y="157" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="600">得到可部署规则</text>
+
+  <rect x="144" y="187" width="272" height="38" rx="10" fill="#ebe7e4"/>
+  <text x="168" y="211" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">新输入 → 预测 / 行动 → 在新分布上检验</text>
+</svg>

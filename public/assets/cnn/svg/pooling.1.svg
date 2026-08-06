@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">池化的固定局部聚合</title>
+  <desc id="desc">四乘四输入经过二乘二、stride 为二的窗口，分别产生最大池化和平均池化的二乘二输出；右侧对比固定池化与带可学习参数的步幅卷积。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .input { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.2; }
+      .window { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.8; }
+      .max { fill: #dce9df; stroke: #75957e; stroke-width: 1.5; }
+      .avg { fill: #e8e1ef; stroke: #8e7caa; stroke-width: 1.5; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">池化：固定局部聚合，窗口决定被保留的证据</text>
+  <text x="38" y="65" class="subtitle">max 选赢家，average 求局部水平，stride 让空间从 4 × 4 变成 2 × 2</text>
+
+  <rect x="38" y="87" width="250" height="174" rx="12" class="assumption"/>
+  <text x="56" y="113" class="panel-title">输入窗口：k = 2，s = 2</text>
+  <text x="56" y="133" class="panel-detail">同一个局部窗口产生不同统计量</text>
+  <g transform="translate(56 146)">
+    <rect width="30" height="27" class="window"/>
+    <rect x="30" width="30" height="27" class="window"/>
+    <rect y="27" width="30" height="27" class="window"/>
+    <rect x="30" y="27" width="30" height="27" class="window"/>
+    <rect x="60" width="30" height="27" class="input"/>
+    <rect x="90" width="30" height="27" class="input"/>
+    <rect x="60" y="27" width="30" height="27" class="input"/>
+    <rect x="90" y="27" width="30" height="27" class="input"/>
+    <rect x="120" width="30" height="27" class="input"/>
+    <rect x="150" width="30" height="27" class="input"/>
+    <rect x="120" y="27" width="30" height="27" class="input"/>
+    <rect x="150" y="27" width="30" height="27" class="input"/>
+    <rect y="54" width="30" height="27" class="input"/>
+    <rect x="30" y="54" width="30" height="27" class="input"/>
+    <rect x="60" y="54" width="30" height="27" class="input"/>
+    <rect x="90" y="54" width="30" height="27" class="input"/>
+    <rect x="120" y="54" width="30" height="27" class="input"/>
+    <rect x="150" y="54" width="30" height="27" class="input"/>
+    <rect y="81" width="30" height="27" class="input"/>
+    <rect x="30" y="81" width="30" height="27" class="input"/>
+    <rect x="60" y="81" width="30" height="27" class="input"/>
+    <rect x="90" y="81" width="30" height="27" class="input"/>
+    <rect x="120" y="81" width="30" height="27" class="input"/>
+    <rect x="150" y="81" width="30" height="27" class="input"/>
+    <text x="15" y="19" text-anchor="middle" class="value">1</text>
+    <text x="45" y="19" text-anchor="middle" class="value">4</text>
+    <text x="75" y="19" text-anchor="middle" class="value">2</text>
+    <text x="105" y="19" text-anchor="middle" class="value">0</text>
+    <text x="135" y="19" text-anchor="middle" class="value">3</text>
+    <text x="165" y="19" text-anchor="middle" class="value">2</text>
+    <text x="15" y="46" text-anchor="middle" class="value">3</text>
+    <text x="45" y="46" text-anchor="middle" class="value">2</text>
+    <text x="75" y="46" text-anchor="middle" class="value">5</text>
+    <text x="105" y="46" text-anchor="middle" class="value">1</text>
+    <text x="135" y="46" text-anchor="middle" class="value">0</text>
+    <text x="165" y="46" text-anchor="middle" class="value">6</text>
+    <text x="15" y="73" text-anchor="middle" class="value">4</text>
+    <text x="45" y="73" text-anchor="middle" class="value">3</text>
+    <text x="75" y="73" text-anchor="middle" class="value">2</text>
+    <text x="105" y="73" text-anchor="middle" class="value">7</text>
+    <text x="135" y="73" text-anchor="middle" class="detail">·</text>
+    <text x="165" y="73" text-anchor="middle" class="detail">·</text>
+    <text x="15" y="100" text-anchor="middle" class="detail">·</text>
+    <text x="45" y="100" text-anchor="middle" class="detail">·</text>
+    <text x="75" y="100" text-anchor="middle" class="detail">·</text>
+    <text x="105" y="100" text-anchor="middle" class="detail">·</text>
+    <text x="135" y="100" text-anchor="middle" class="detail">·</text>
+    <text x="165" y="100" text-anchor="middle" class="detail">·</text>
+  </g>
+  <text x="56" y="246" class="panel-detail">左上窗口 [1, 4; 3, 2] → max 4 / avg 2.5</text>
+
+  <path d="M300 174 H316" fill="none" stroke="#8b817b" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <rect x="326" y="87" width="178" height="174" rx="12" class="assumption"/>
+  <text x="344" y="113" class="panel-title">固定聚合</text>
+  <rect x="344" y="131" width="63" height="48" rx="8" class="max"/>
+  <text x="375.5" y="151" text-anchor="middle" class="label">max</text>
+  <text x="375.5" y="169" text-anchor="middle" class="value">4 5</text>
+  <rect x="344" y="190" width="63" height="48" rx="8" class="avg"/>
+  <text x="375.5" y="210" text-anchor="middle" class="label">avg</text>
+  <text x="375.5" y="228" text-anchor="middle" class="value">2.5 2</text>
+  <text x="423" y="151" class="panel-detail">2 × 2</text>
+  <text x="423" y="169" class="panel-detail">输出空间</text>
+  <text x="423" y="210" class="panel-detail">同一窗口</text>
+  <text x="423" y="228" class="panel-detail">不同统计量</text>
+
+  <rect x="522" y="87" width="240" height="174" rx="12" class="assumption"/>
+  <text x="540" y="113" class="panel-title">池化 ≠ stride 卷积</text>
+  <text x="540" y="138" class="label">pooling</text>
+  <text x="540" y="157" class="panel-detail">固定 max / mean / sum</text>
+  <text x="540" y="175" class="panel-detail">逐通道，参数为 0</text>
+  <line x1="540" y1="186" x2="744" y2="186" stroke="#d7ccc4" stroke-width="1"/>
+  <text x="540" y="207" class="label">stride conv</text>
+  <text x="540" y="226" class="panel-detail">学习局部加权组合</text>
+  <text x="540" y="244" class="panel-detail">可混合通道，参数随 C 增长</text>
+
+  <rect x="38" y="278" width="724" height="43" rx="9" class="card"/>
+  <text x="54" y="298" class="label">一轴公式</text>
+  <text x="125" y="298" class="value">O = floor((I + Pl + Pr − Keff) / S) + 1</text>
+  <text x="54" y="314" class="detail">max 把梯度送到赢家，average 按分母分配；边界分母和最后窗口必须单独记录。</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">验收：检查输出 shape、padding 值、average 分母、argmax tie、相位和混叠风险</text>
+</svg>

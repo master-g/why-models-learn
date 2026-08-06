@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">PPO：旧策略、优势、概率比和裁剪更新</title>
+  <desc id="desc">旧策略生成 rollout，reward 和 value 产生 advantage，新旧策略 log probability 产生 ratio，clipped surrogate 更新当前策略并监测 KL。</desc>
+  <defs>
+    <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#718878"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8c8880"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted { fill: #706b65; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .small { font-size: 12px; }
+      .label { font-size: 14px; font-weight: 600; }
+      .title { font-size: 16px; font-weight: 600; }
+      .panel { fill: #fbfaf7; stroke: #d5d0c8; stroke-width: 1; }
+      .coral { fill: #f4e5df; stroke: #cc785c; stroke-width: 1.7; }
+      .green { fill: #e8eee9; stroke: #718878; stroke-width: 1.7; }
+      .plain { fill: #f8f6f2; stroke: #8c8880; stroke-width: 1.4; }
+      .line-coral { fill: none; stroke: #cc785c; stroke-width: 2; marker-end: url(#arrow-coral); }
+      .line-green { fill: none; stroke: #718878; stroke-width: 2; marker-end: url(#arrow-green); }
+      .line-muted { fill: none; stroke: #8c8880; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
+      .rule { stroke: #d5d0c8; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" rx="14" fill="#f4f1ec"/>
+  <text x="28" y="34" class="ink title">PPO：rollout → advantage + ratio → clipped update</text>
+  <text x="28" y="56" class="muted small">旧策略固定一个 batch；当前策略更新后用 ratio、clip fraction、KL 和独立结果复核</text>
+
+  <rect x="24" y="86" width="148" height="228" rx="12" class="panel"/>
+  <text x="98" y="113" text-anchor="middle" class="ink label">旧策略快照</text>
+  <rect x="46" y="132" width="104" height="42" rx="8" class="coral"/>
+  <text x="98" y="149" text-anchor="middle" class="ink small">π<tspan baseline-shift="sub">old</tspan></text>
+  <text x="98" y="165" text-anchor="middle" class="muted small">rollout</text>
+  <rect x="46" y="195" width="104" height="42" rx="8" class="plain"/>
+  <text x="98" y="212" text-anchor="middle" class="ink small">old log p</text>
+  <text x="98" y="228" text-anchor="middle" class="muted small">value / done</text>
+  <text x="98" y="269" text-anchor="middle" class="muted small">action mask</text>
+  <text x="98" y="287" text-anchor="middle" class="muted small">token mask</text>
+
+  <line x1="172" y1="153" x2="198" y2="153" class="line-coral"/>
+  <line x1="172" y1="216" x2="198" y2="216" class="line-muted"/>
+
+  <rect x="208" y="86" width="258" height="228" rx="12" class="panel"/>
+  <text x="230" y="113" class="ink label">批次统计</text>
+  <rect x="230" y="132" width="100" height="42" rx="8" class="coral"/>
+  <text x="280" y="149" text-anchor="middle" class="ink small">reward</text>
+  <text x="280" y="165" text-anchor="middle" class="muted small">r<tspan baseline-shift="sub">t</tspan></text>
+  <line x1="330" y1="153" x2="349" y2="153" class="line-coral"/>
+  <rect x="355" y="132" width="87" height="42" rx="8" class="plain"/>
+  <text x="398" y="149" text-anchor="middle" class="ink small">GAE</text>
+  <text x="398" y="165" text-anchor="middle" class="muted small">A<tspan baseline-shift="sub">t</tspan> / R<tspan baseline-shift="sub">t</tspan></text>
+  <rect x="230" y="207" width="100" height="42" rx="8" class="plain"/>
+  <text x="280" y="224" text-anchor="middle" class="ink small">π<tspan baseline-shift="sub">θ</tspan> log p</text>
+  <text x="280" y="240" text-anchor="middle" class="muted small">new policy</text>
+  <line x1="330" y1="228" x2="349" y2="228" class="line-coral"/>
+  <rect x="355" y="207" width="87" height="42" rx="8" class="coral"/>
+  <text x="398" y="224" text-anchor="middle" class="ink small">ratio</text>
+  <text x="398" y="240" text-anchor="middle" class="muted small">ρ<tspan baseline-shift="sub">t</tspan></text>
+  <path d="M398 195 C398 180 280 180 280 195" class="line-muted"/>
+  <text x="339" y="191" text-anchor="middle" class="muted small">old / new 对齐</text>
+
+  <line x1="466" y1="153" x2="493" y2="153" class="line-coral"/>
+  <line x1="466" y1="228" x2="493" y2="228" class="line-coral"/>
+
+  <rect x="503" y="86" width="273" height="228" rx="12" class="panel"/>
+  <text x="525" y="113" class="ink label">裁剪更新与监测</text>
+  <rect x="525" y="132" width="105" height="42" rx="8" class="coral"/>
+  <text x="577" y="149" text-anchor="middle" class="ink small">min(ρA, clip)</text>
+  <text x="577" y="165" text-anchor="middle" class="muted small">surrogate</text>
+  <line x1="630" y1="153" x2="649" y2="153" class="line-coral"/>
+  <rect x="655" y="132" width="98" height="42" rx="8" class="green"/>
+  <text x="704" y="149" text-anchor="middle" class="ink small">π<tspan baseline-shift="sub">θ</tspan> update</text>
+  <text x="704" y="165" text-anchor="middle" class="muted small">next batch</text>
+  <rect x="525" y="207" width="105" height="42" rx="8" class="plain"/>
+  <text x="577" y="224" text-anchor="middle" class="ink small">KL</text>
+  <text x="577" y="240" text-anchor="middle" class="muted small">ratio 分位数</text>
+  <line x1="630" y1="228" x2="649" y2="228" class="line-muted"/>
+  <rect x="655" y="207" width="98" height="42" rx="8" class="green"/>
+  <text x="704" y="224" text-anchor="middle" class="ink small">独立评测</text>
+  <text x="704" y="240" text-anchor="middle" class="muted small">质量 / 约束</text>
+  <text x="525" y="281" class="muted small">ε、γ、λ、value/entropy coefficient</text>
+  <text x="525" y="298" class="muted small">决定局部步长、估计方差和训练尺度</text>
+</svg>

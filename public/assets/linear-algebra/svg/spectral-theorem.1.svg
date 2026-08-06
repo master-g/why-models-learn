@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="spectral-title spectral-desc">
+  <title id="spectral-title">实对称矩阵的正交谱分解</title>
+  <desc id="spectral-desc">左侧显示对称矩阵分解为正交矩阵 Q、对角特征值矩阵 Lambda 和 Q 的转置，右侧椭圆的主轴显示两个正交特征方向。</desc>
+  <defs>
+    <marker id="spectral-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="spectral-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
+
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+    <text x="20" y="25" font-size="13" font-weight="600">对称矩阵的正交分解</text>
+    <text x="300" y="25" font-size="13" font-weight="600">正交主方向与椭圆</text>
+  </g>
+
+  <!-- Left panel: A = Q Lambda Q^T -->
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" text-anchor="middle" fill="#312f2f">
+    <text x="49" y="55">A</text>
+    <text x="203" y="55">Λ</text>
+  </g>
+  <g transform="translate(23 69)" stroke="#b8b2a8" stroke-width="1">
+    <rect x="0" y="0" width="52" height="52" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+    <rect x="52" y="0" width="52" height="52" fill="#fffdfb"/>
+    <rect x="0" y="52" width="52" height="52" fill="#fffdfb"/>
+    <rect x="52" y="52" width="52" height="52" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+  </g>
+  <g transform="translate(177 69)" stroke="#b8b2a8" stroke-width="1">
+    <rect x="0" y="0" width="52" height="52" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+    <rect x="52" y="0" width="52" height="52" fill="#fffdfb"/>
+    <rect x="0" y="52" width="52" height="52" fill="#fffdfb"/>
+    <rect x="52" y="52" width="52" height="52" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="18" text-anchor="middle" fill="#312f2f">
+    <text x="49" y="102">3</text>
+    <text x="101" y="102">1</text>
+    <text x="49" y="154">1</text>
+    <text x="101" y="154">3</text>
+    <text x="203" y="102">4</text>
+    <text x="255" y="102">0</text>
+    <text x="203" y="154">0</text>
+    <text x="255" y="154">2</text>
+  </g>
+  <text x="128" y="112" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" text-anchor="middle" fill="#a9583e">Q · · Qᵀ</text>
+  <line x1="128" y1="166" x2="128" y2="184" stroke="#312f2f" stroke-width="1.5" marker-end="url(#spectral-arrow)"/>
+  <text x="23" y="205" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#a9583e">A=QΛQᵀ</text>
+  <text x="23" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">Q 保持长度与角度</text>
+
+  <!-- Right panel: ellipse with orthogonal axes -->
+  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+    <line x1="300" y1="137" x2="548" y2="137" marker-end="url(#spectral-arrow)"/>
+    <line x1="424" y1="224" x2="424" y2="43" marker-end="url(#spectral-arrow)"/>
+  </g>
+  <ellipse cx="424" cy="137" rx="82" ry="35" transform="rotate(-35 424 137)" fill="#cc785c" fill-opacity="0.12" stroke="#cc785c" stroke-width="1.5"/>
+  <line x1="358" y1="183" x2="490" y2="91" stroke="#cc785c" stroke-width="2" marker-end="url(#spectral-arrow-coral)"/>
+  <line x1="404" y1="106" x2="444" y2="168" stroke="#312f2f" stroke-width="1.8" marker-end="url(#spectral-arrow)"/>
+  <text x="493" y="89" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">q₁，λ₁=4</text>
+  <text x="447" y="174" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">q₂，λ₂=2</text>
+  <text x="300" y="207" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">特征向量正交，特征值控制轴向缩放</text>
+  <text x="300" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">4/6=2/3：第一方向的方差占比</text>
+</svg>

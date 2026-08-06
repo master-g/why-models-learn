@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">支持向量机：最大化两类之间的几何间隔</title>
+  <desc id="desc">二维样本、中心决策边界、两条间隔边界和两枚支持向量示意。</desc>
+  <style>
+    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
+    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
+    .line { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 7 7; }
+    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
+  <text x="52" y="61" class="ink" font-size="22" font-weight="700">支持向量机：让边界留出最大间隔</text>
+  <text x="52" y="87" class="muted" font-size="14">中心边界两侧的规范化 margin = ±1；贴边的点决定解</text>
+
+  <rect x="52" y="111" width="399" height="206" rx="14" class="box"/>
+  <line x1="93" y1="278" x2="414" y2="278" class="axis"/>
+  <line x1="93" y1="278" x2="93" y2="137" class="axis"/>
+  <path d="M 116 150 L 391 264" class="guide"/>
+  <path d="M 116 170 L 391 284" class="line"/>
+  <path d="M 116 190 L 391 304" class="guide"/>
+  <text x="322" y="175" class="muted" font-size="13">margin = +1</text>
+  <text x="326" y="222" class="ink" font-size="14" font-weight="700">f(x) = 0</text>
+  <text x="322" y="298" class="muted" font-size="13">margin = −1</text>
+  <text x="398" y="301" class="muted" font-size="12">x₁</text>
+  <text x="78" y="143" class="muted" font-size="12">x₂</text>
+
+  <circle cx="167" cy="171" r="7" fill="#cc785c"/>
+  <circle cx="224" cy="194" r="7" fill="#cc785c"/>
+  <circle cx="282" cy="217" r="7" fill="#cc785c"/>
+  <circle cx="339" cy="240" r="7" fill="#cc785c"/>
+  <circle cx="167" cy="292" r="7" fill="#312f2f"/>
+  <circle cx="224" cy="269" r="7" fill="#312f2f"/>
+  <circle cx="282" cy="246" r="7" fill="#312f2f"/>
+  <circle cx="339" cy="223" r="7" fill="#312f2f"/>
+  <circle cx="167" cy="171" r="10" fill="none" stroke="#cc785c" stroke-width="2.5"/>
+  <circle cx="167" cy="292" r="10" fill="none" stroke="#312f2f" stroke-width="2.5"/>
+  <text x="184" y="168" class="ink" font-size="13">SV</text>
+  <text x="184" y="296" class="ink" font-size="13">SV</text>
+
+  <path d="M 485 213 L 531 213" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="548" y="111" width="200" height="206" rx="14" class="accent-box"/>
+  <text x="571" y="146" class="ink" font-size="18" font-weight="700">最大间隔</text>
+  <text x="571" y="181" class="ink" font-size="17">min ½‖w‖²</text>
+  <text x="571" y="211" class="ink" font-size="15">yᵢ f(xᵢ) ≥ 1</text>
+  <line x1="571" y1="235" x2="725" y2="235" class="guide"/>
+  <text x="571" y="263" class="muted" font-size="14">支持向量：贴边</text>
+  <text x="571" y="288" class="muted" font-size="14">其余点：有余量</text>
+</svg>

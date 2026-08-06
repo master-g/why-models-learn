@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">分布式训练的并行轴与通信</title>
+  <desc id="desc">左侧显示数据并行副本和流水线 stage，右侧显示 global batch、局部张量和 collective 通信。</desc>
+  <rect width="800" height="373" fill="#f7f3ee"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans CJK SC','PingFang SC',sans-serif" fill="#312f2f">
+    <text x="40" y="34" font-size="20" font-weight="600">分布式训练：global batch、并行轴与 collective</text>
+    <text x="40" y="58" font-size="12" fill="#6f6a63">数据副本切 batch，模型副本切层或矩阵，通信保持局部结果一致</text>
+    <g transform="translate(48 86)">
+      <text x="0" y="0" font-size="13" font-weight="600">DP replicas</text>
+      <rect x="0" y="13" width="116" height="35" rx="6" fill="#fffaf5" stroke="#c9c4bb"/>
+      <rect x="132" y="13" width="116" height="35" rx="6" fill="#fffaf5" stroke="#c9c4bb"/>
+      <text x="58" y="36" text-anchor="middle" font-size="12">DP rank 0</text>
+      <text x="190" y="36" text-anchor="middle" font-size="12">DP rank 1</text>
+      <path d="M58 54 V75 M190 54 V75" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <text x="0" y="98" font-size="13" font-weight="600">pipeline stages</text>
+      <rect x="0" y="112" width="96" height="62" rx="7" fill="#f5e2d9" stroke="#cc785c"/>
+      <rect x="122" y="112" width="96" height="62" rx="7" fill="#e7eee9" stroke="#5f7c75"/>
+      <rect x="244" y="112" width="96" height="62" rx="7" fill="#f1e8df" stroke="#9a6f4f"/>
+      <text x="48" y="137" text-anchor="middle" font-size="13" font-weight="600">stage 0</text>
+      <text x="48" y="157" text-anchor="middle" font-size="11">layer 0–L₀</text>
+      <text x="170" y="137" text-anchor="middle" font-size="13" font-weight="600">stage 1</text>
+      <text x="170" y="157" text-anchor="middle" font-size="11">layer L₀–L₁</text>
+      <text x="292" y="137" text-anchor="middle" font-size="13" font-weight="600">stage 2</text>
+      <text x="292" y="157" text-anchor="middle" font-size="11">layer L₁–L</text>
+      <path d="M96 143 H122 M218 143 H244" stroke="#8b857d" stroke-width="2"/>
+      <path d="M112 137 L122 143 L112 149 M234 137 L244 143 L234 149" fill="none" stroke="#8b857d" stroke-width="2"/>
+      <circle cx="32" cy="194" r="5" fill="#cc785c"/>
+      <circle cx="52" cy="194" r="5" fill="#cc785c"/>
+      <circle cx="72" cy="194" r="5" fill="#cc785c"/>
+      <text x="88" y="199" font-size="11" fill="#6f6a63">micro-batches</text>
+      <path d="M48 224 H292" stroke="#b8b2a8" stroke-width="2"/>
+      <path d="M292 224 L282 218 M292 224 L282 230" stroke="#b8b2a8" stroke-width="2"/>
+      <text x="0" y="247" font-size="12" fill="#6f6a63">activation →</text>
+      <text x="184" y="247" font-size="12" fill="#6f6a63">gradient ←</text>
+    </g>
+    <g transform="translate(450 86)">
+      <rect x="0" y="0" width="304" height="222" rx="8" fill="#fffaf5" stroke="#c9c4bb"/>
+      <rect x="18" y="18" width="268" height="52" rx="6" fill="#f5e2d9" stroke="#cc785c"/>
+      <text x="32" y="40" font-size="13" font-weight="600">global batch</text>
+      <text x="32" y="59" font-size="13">DP × micro-batch × accumulation</text>
+      <text x="20" y="96" font-size="13">global tensor X</text>
+      <text x="20" y="117" font-size="12">B × T × D</text>
+      <path d="M126 109 H168" stroke="#8b857d" stroke-width="1.8"/>
+      <path d="M168 109 L158 103 M168 109 L158 115" stroke="#8b857d" stroke-width="1.8"/>
+      <text x="178" y="96" font-size="13">local shard</text>
+      <text x="178" y="117" font-size="12">Bᵣ × T × Dᵣ</text>
+      <line x1="20" y1="137" x2="286" y2="137" stroke="#c9c4bb"/>
+      <circle cx="45" cy="163" r="6" fill="#cc785c"/>
+      <text x="60" y="168" font-size="13">all-reduce</text>
+      <circle cx="45" cy="190" r="6" fill="#5f7c75"/>
+      <text x="60" y="195" font-size="13">all-gather / reduce-scatter</text>
+      <circle cx="45" cy="217" r="6" fill="#9a6f4f"/>
+      <text x="60" y="222" font-size="13">all-to-all for experts</text>
+    </g>
+  </g>
+</svg>

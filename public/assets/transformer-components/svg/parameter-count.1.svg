@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">参数量总账的四本账</title>
+  <desc id="desc">同一组模型配置分别产生参数、计算、激活和运行时状态四本账，参数量不随 batch 和序列长度增长，计算与激活会增长。</desc>
+  <style>
+    .paper { fill: #f4efee; }
+    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted { fill: #6c6a64; font-size: 16px; }
+    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
+    .small { fill: #6c6a64; font-size: 14px; }
+    .config { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
+    .parameter { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
+    .compute { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
+    .memory { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; rx: 10; }
+    .state { fill: #e8e0ef; stroke: #75618a; stroke-width: 2; rx: 10; }
+    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow { fill: #312f2f; }
+  </style>
+  <rect class="paper" width="800" height="373"/>
+  <text class="ink label" x="42" y="43">参数量总账的四本账</text>
+  <text class="ink muted" x="42" y="70">同一组 shape 先计数，再按 dtype、生命周期和 batch 分别换算</text>
+
+  <rect class="config" x="42" y="126" width="132" height="72"/>
+  <text class="ink label" x="70" y="155">模型配置</text>
+  <text class="ink small" x="65" y="181">L · d · m · V</text>
+
+  <path class="path" d="M174 162H196V116H214"/>
+  <path class="arrow" d="M214 116l-9-6v12z"/>
+  <path class="path" d="M174 162H196V218H214"/>
+  <path class="arrow" d="M214 218l-9-6v12z"/>
+  <path class="path" d="M174 162H424V116H492"/>
+  <path class="arrow" d="M492 116l-9-6v12z"/>
+  <path class="path" d="M174 162H424V218H492"/>
+  <path class="arrow" d="M492 218l-9-6v12z"/>
+
+  <rect class="parameter" x="226" y="88" width="176" height="58"/>
+  <text class="ink label" x="256" y="119">参数 P</text>
+  <text class="ink small" x="256" y="137">唯一可学习张量</text>
+
+  <rect class="compute" x="226" y="190" width="176" height="58"/>
+  <text class="ink label" x="256" y="221">计算 MAC/FLOP</text>
+  <text class="ink small" x="256" y="239">随 token 数增长</text>
+
+  <rect class="memory" x="504" y="88" width="202" height="58"/>
+  <text class="ink label" x="534" y="119">激活 bytes</text>
+  <text class="ink small" x="534" y="137">BTd · BTm · BhT²</text>
+
+  <rect class="state" x="504" y="190" width="202" height="58"/>
+  <text class="ink label" x="534" y="221">运行时状态</text>
+  <text class="ink small" x="534" y="239">optimizer · KV cache</text>
+
+  <path d="M42 278H758" stroke="#d5c9c5" stroke-width="1.5"/>
+  <text class="ink label" x="42" y="315">参数账不随 B、T 复制</text>
+  <text class="ink small" x="42" y="341">同一权重被所有 token 复用</text>
+  <text class="ink label" x="438" y="315">计算与激活随场景变化</text>
+  <text class="ink small" x="438" y="341">先写口径，再报告峰值与生命周期</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Embedding 的长度、方向与邻域</title>
+  <desc id="desc">四个 token embedding 作为二维空间中的点，长度和夹角共同决定点积、距离与余弦；坐标旋转可以保留几何关系。</desc>
+  <rect width="800" height="373" fill="#f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+    <text x="32" y="34" font-size="22" font-weight="700">Embedding 几何：长度、方向与邻域</text>
+    <text x="32" y="57" font-size="12" fill="#6f665b">行向量是点；metric 和预处理决定“近邻”的含义</text>
+
+    <rect x="32" y="82" width="382" height="202" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <text x="50" y="109" font-size="14" font-weight="700">二维 toy 空间</text>
+    <line x1="92" y1="245" x2="366" y2="245" stroke="#8f8576" stroke-width="1.5"/>
+    <line x1="210" y1="126" x2="210" y2="267" stroke="#8f8576" stroke-width="1.5"/>
+    <path d="M366 245 L356 240 M366 245 L356 250" stroke="#8f8576" stroke-width="1.5" fill="none"/>
+    <path d="M210 126 L205 136 M210 126 L215 136" stroke="#8f8576" stroke-width="1.5" fill="none"/>
+    <line x1="210" y1="245" x2="322" y2="189" stroke="#8f6840" stroke-width="2"/>
+    <line x1="210" y1="245" x2="300" y2="178" stroke="#75939d" stroke-width="2"/>
+    <line x1="210" y1="245" x2="188" y2="178" stroke="#89906c" stroke-width="2"/>
+    <line x1="210" y1="245" x2="210" y2="304" stroke="#b56d5b" stroke-width="2"/>
+    <circle cx="322" cy="189" r="6" fill="#8f6840"/>
+    <circle cx="300" cy="178" r="6" fill="#75939d"/>
+    <circle cx="188" cy="178" r="6" fill="#89906c"/>
+    <circle cx="210" cy="304" r="6" fill="#b56d5b"/>
+    <text x="330" y="185" font-size="13" font-weight="700">cat</text>
+    <text x="307" y="174" font-size="13" font-weight="700">dog</text>
+    <text x="163" y="174" font-size="13" font-weight="700">car</text>
+    <text x="218" y="318" font-size="13" font-weight="700">fish</text>
+    <text x="354" y="263" font-size="11" fill="#6f665b">x₁</text>
+    <text x="218" y="137" font-size="11" fill="#6f665b">x₂</text>
+    <text x="50" y="267" font-size="12" fill="#6f665b">长度：离原点多远</text>
+
+    <rect x="438" y="82" width="330" height="202" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <text x="456" y="109" font-size="14" font-weight="700">同一对向量的三种读法</text>
+    <rect x="456" y="126" width="294" height="38" rx="8" fill="#f6f0e5" stroke="#c5b9a7"/>
+    <text x="470" y="150" font-size="13">点积：尺度 × 方向</text>
+    <rect x="456" y="173" width="294" height="38" rx="8" fill="#f6f0e5" stroke="#c5b9a7"/>
+    <text x="470" y="197" font-size="13">距离：两点的位置差</text>
+    <rect x="456" y="220" width="294" height="38" rx="8" fill="#f6f0e5" stroke="#c5b9a7"/>
+    <text x="470" y="244" font-size="13">余弦：单位化后的方向关系</text>
+
+    <rect x="32" y="304" width="736" height="42" rx="10" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="50" y="330" font-size="13" font-weight="700">审计：固定 token、checkpoint、层、metric、归一化和候选集，再报告近邻。</text>
+  </g>
+</svg>

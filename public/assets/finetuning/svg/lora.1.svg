@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <rect width="800" height="373" fill="#fbfaf7"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#312f2f">
+    <text x="36" y="38" font-size="21" font-weight="600">LoRA：用低秩因子表示权重增量</text>
+    <text x="36" y="64" font-size="13" fill="#6d6862">冻结 W₀，只训练 A、B；缩放后的 BA 与基础权重相加</text>
+
+    <rect x="34" y="113" width="143" height="86" rx="10" fill="#f1eee8" stroke="#b8b2a8" stroke-width="2"/>
+    <text x="105" y="143" text-anchor="middle" font-size="18" font-weight="600">输入 x</text>
+    <text x="105" y="168" text-anchor="middle" font-size="13" fill="#6d6862">dᵢₙ</text>
+    <text x="105" y="188" text-anchor="middle" font-size="12" fill="#8a847b">同一输入</text>
+
+    <line x1="177" y1="156" x2="238" y2="156" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="238,156 226,149 226,163" fill="#cc785c"/>
+    <line x1="177" y1="156" x2="238" y2="270" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="238,270 225,264 229,278" fill="#cc785c"/>
+
+    <rect x="239" y="102" width="150" height="108" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <text x="314" y="132" text-anchor="middle" font-size="18" font-weight="600">冻结基础路径</text>
+    <text x="314" y="162" text-anchor="middle" font-size="20">W₀x</text>
+    <text x="314" y="190" text-anchor="middle" font-size="12" fill="#6d6862">dₒᵤₜ × dᵢₙ</text>
+
+    <rect x="239" y="226" width="150" height="88" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <text x="314" y="253" text-anchor="middle" font-size="18" font-weight="600">低秩路径</text>
+    <text x="314" y="280" text-anchor="middle" font-size="20">s · B(Ax)</text>
+    <text x="314" y="301" text-anchor="middle" font-size="12" fill="#6d6862">dᵢₙ → r → dₒᵤₜ</text>
+
+    <line x1="389" y1="156" x2="474" y2="156" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="474,156 462,149 462,163" fill="#cc785c"/>
+    <line x1="389" y1="270" x2="438" y2="270" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="438,270 426,263 426,277" fill="#cc785c"/>
+    <line x1="438" y1="270" x2="474" y2="180" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="474,180 463,188 477,193" fill="#cc785c"/>
+
+    <circle cx="508" cy="156" r="33" fill="#fffaf4" stroke="#cc785c" stroke-width="2"/>
+    <text x="508" y="151" text-anchor="middle" font-size="20" font-weight="600">+</text>
+    <text x="508" y="174" text-anchor="middle" font-size="11" fill="#6d6862">相加</text>
+
+    <line x1="541" y1="156" x2="607" y2="156" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="607,156 595,149 595,163" fill="#cc785c"/>
+
+    <rect x="608" y="113" width="157" height="86" rx="10" fill="#e7efe9" stroke="#718779" stroke-width="2"/>
+    <text x="686" y="143" text-anchor="middle" font-size="18" font-weight="600">部署矩阵</text>
+    <text x="686" y="170" text-anchor="middle" font-size="20">W′ = W₀ + sBA</text>
+    <text x="686" y="190" text-anchor="middle" font-size="12" fill="#6d6862">合并后单一路径</text>
+
+    <text x="430" y="337" text-anchor="middle" font-size="13" fill="#6d6862">s = α/r；B∈Rᵈᵒᵤₜ×ʳ，A∈Rʳ×ᵈⁱⁿ；B=0 时初始增量为零</text>
+  </g>
+</svg>

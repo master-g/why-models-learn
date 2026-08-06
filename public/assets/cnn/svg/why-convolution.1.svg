@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">为什么图像需要卷积</title>
+  <desc id="desc">输入图像中的局部窗口在不同位置使用同一个卷积核，产生特征图并逐层扩大感受野；下方概括局部性、位置复用和层级组合三条归纳偏置。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .formula { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .grid { fill: #fffaf3; stroke: #b9a997; stroke-width: 1; }
+      .window-a { fill: #f4ddd4; fill-opacity: .78; stroke: #cc785c; stroke-width: 2; }
+      .window-b { fill: #dce9df; fill-opacity: .6; stroke: #75957e; stroke-width: 2; stroke-dasharray: 4 3; }
+      .kernel { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.6; }
+      .response { fill: #dce9df; stroke: #75957e; stroke-width: 1.3; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">为什么图像需要卷积</text>
+  <text x="38" y="65" class="subtitle">把局部关系与跨位置复用写进连接方式，而不是让数据从零学习它们</text>
+
+  <text x="113" y="88" text-anchor="middle" class="label">像素网格</text>
+  <g transform="translate(38 98)">
+    <rect width="150" height="150" rx="4" fill="#fffaf3" stroke="#b9a997" stroke-width="1.4"/>
+    <path d="M30 0V150 M60 0V150 M90 0V150 M120 0V150 M0 30H150 M0 60H150 M0 90H150 M0 120H150" fill="none" stroke="#d7ccc4"/>
+    <rect x="1" y="1" width="88" height="88" rx="2" class="window-a"/>
+    <rect x="61" y="61" width="88" height="88" rx="2" class="window-b"/>
+    <text x="18" y="20" class="detail">A</text>
+    <text x="128" y="143" class="detail">B</text>
+  </g>
+  <text x="113" y="266" text-anchor="middle" class="detail">两个位置的同类窗口</text>
+
+  <path d="M198 173 H238" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="218" y="157" text-anchor="middle" class="detail">取局部</text>
+
+  <text x="294" y="88" text-anchor="middle" class="label">共享检测器</text>
+  <g transform="translate(249 105)">
+    <rect width="90" height="90" rx="4" class="kernel"/>
+    <path d="M30 0V90 M60 0V90 M0 30H90 M0 60H90" fill="none" stroke="#cc785c" stroke-width="1"/>
+    <text x="15" y="20" text-anchor="middle" class="detail">k₁</text>
+    <text x="45" y="20" text-anchor="middle" class="detail">k₂</text>
+    <text x="75" y="20" text-anchor="middle" class="detail">k₃</text>
+    <text x="45" y="80" text-anchor="middle" class="formula">K</text>
+  </g>
+  <text x="294" y="219" text-anchor="middle" class="detail">A、B 都使用同一个 K</text>
+
+  <path d="M350 150 H385" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="368" y="134" text-anchor="middle" class="detail">重复计算</text>
+
+  <text x="452" y="88" text-anchor="middle" class="label">响应图</text>
+  <g transform="translate(407 105)">
+    <rect width="120" height="120" rx="4" class="response"/>
+    <path d="M40 0V120 M80 0V120 M0 40H120 M0 80H120" fill="none" stroke="#75957e"/>
+    <rect x="3" y="3" width="34" height="34" fill="#88ad91"/>
+    <rect x="83" y="43" width="34" height="34" fill="#a9c6ad"/>
+    <rect x="43" y="83" width="34" height="34" fill="#88ad91"/>
+    <text x="60" y="70" text-anchor="middle" class="formula">Y</text>
+  </g>
+  <text x="467" y="242" text-anchor="middle" class="detail">模式在哪里出现，响应就在哪里出现</text>
+
+  <rect x="558" y="98" width="202" height="150" rx="10" class="card"/>
+  <text x="577" y="124" class="label">卷积写入的先验</text>
+  <text x="577" y="151" class="formula">局部性</text>
+  <text x="577" y="173" class="detail">相邻像素先组合</text>
+  <text x="577" y="197" class="formula">位置复用</text>
+  <text x="577" y="219" class="detail">同一模式可跨坐标迁移</text>
+  <path d="M577 232 H741" stroke="#d7ccc4"/>
+
+  <rect x="38" y="280" width="226" height="50" rx="9" class="assumption"/>
+  <text x="54" y="301" class="panel-title">局部性</text>
+  <text x="54" y="318" class="panel-detail">输出先读取小窗口，不连接整张图</text>
+
+  <rect x="287" y="280" width="226" height="50" rx="9" class="assumption"/>
+  <text x="303" y="301" class="panel-title">位置复用</text>
+  <text x="303" y="318" class="panel-detail">多个窗口共同估计同一个检测器</text>
+
+  <rect x="536" y="280" width="226" height="50" rx="9" class="assumption"/>
+  <text x="552" y="301" class="panel-title">层级组合</text>
+  <text x="552" y="318" class="panel-detail">局部响应逐层组成更大结构</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">参数减少是结构交换：统计效率提高，同时排除了位置特异和远距离的部分函数</text>
+</svg>

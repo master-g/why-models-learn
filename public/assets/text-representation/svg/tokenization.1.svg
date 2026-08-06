@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Tokenization：从文本到模型输入</title>
+  <desc id="desc">原始文本经过规范化、预分词和子词切分得到 token，再查词表得到整数 ID，最后由 embedding 查表得到连续向量。</desc>
+  <defs>
+    <marker id="gray-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#6f6a63"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="800" height="373" rx="16" fill="#f7f2e9"/>
+  <text x="30" y="31" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700">Tokenization：字符串如何变成模型输入</text>
+  <text x="30" y="52" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">规范化 → 边界 → token → ID → embedding</text>
+
+  <rect x="22" y="76" width="756" height="211" rx="13" fill="#fbf8f2" stroke="#d2ccc2"/>
+
+  <g fill="#f1ded6" stroke="#c99b89" stroke-width="1.2">
+    <rect x="43" y="126" width="118" height="52" rx="9"/>
+    <rect x="190" y="126" width="118" height="52" rx="9"/>
+  </g>
+  <text x="102" y="147" text-anchor="middle" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" font-weight="700">raw text</text>
+  <text x="102" y="165" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">lower cats</text>
+  <text x="249" y="147" text-anchor="middle" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" font-weight="700">normalize + pre-tokenize</text>
+  <text x="249" y="165" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">lower / cats</text>
+
+  <g fill="#ded8ee" stroke="#aaa1c2" stroke-width="1.2">
+    <rect x="337" y="126" width="118" height="52" rx="9"/>
+    <rect x="484" y="126" width="118" height="52" rx="9"/>
+  </g>
+  <text x="396" y="147" text-anchor="middle" fill="#8176a4" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" font-weight="700">token model</text>
+  <text x="396" y="165" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">[low, er, cat, s]</text>
+  <text x="543" y="147" text-anchor="middle" fill="#8176a4" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" font-weight="700">vocabulary lookup</text>
+  <text x="543" y="165" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">[2, 3, 5, 4]</text>
+
+  <rect x="631" y="126" width="122" height="52" rx="9" fill="#dfe9df" stroke="#9db29f" stroke-width="1.2"/>
+  <text x="692" y="147" text-anchor="middle" fill="#6f8e72" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" font-weight="700">embedding lookup</text>
+  <text x="692" y="165" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">E[2], E[3], E[5], E[4]</text>
+
+  <g stroke="#6f6a63" stroke-width="1.4" fill="none" marker-end="url(#gray-arrow)">
+    <line x1="161" y1="152" x2="190" y2="152"/>
+    <line x1="308" y1="152" x2="337" y2="152"/>
+    <line x1="455" y1="152" x2="484" y2="152"/>
+    <line x1="602" y1="152" x2="631" y2="152"/>
+  </g>
+
+  <rect x="43" y="215" width="710" height="43" rx="9" fill="#f7f2e9" stroke="#d2ccc2"/>
+  <text x="62" y="233" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">模型协议还要携带：</text>
+  <text x="162" y="233" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">BOS / EOS / PAD / UNK</text>
+  <text x="325" y="233" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">mask</text>
+  <text x="377" y="233" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">padding</text>
+  <text x="448" y="233" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">truncation</text>
+  <text x="543" y="233" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">版本必须与 checkpoint 绑定</text>
+
+  <text x="30" y="327" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">token ≠ embedding ≠ integer 的大小关系</text>
+  <text x="472" y="327" fill="#6f8e72" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">长度、OOV 与可逆性都是接口合同</text>
+</svg>

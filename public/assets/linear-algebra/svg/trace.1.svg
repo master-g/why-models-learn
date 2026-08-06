@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="trace-title trace-desc">
+  <title id="trace-title">迹的对角线定义与相似不变量</title>
+  <desc id="trace-desc">左侧矩阵的主对角线被突出并相加，右侧同一映射的两个相似矩阵对角线不同但迹相同。</desc>
+  <defs>
+    <marker id="trace-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="trace-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
+
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+    <text x="20" y="25" font-size="13" font-weight="600">主对角线相加</text>
+    <text x="300" y="25" font-size="13" font-weight="600">相似变换，迹不变</text>
+  </g>
+
+  <!-- 左 panel: diagonal cells of a 3x3 matrix -->
+  <g transform="translate(30 52)" stroke="#b8b2a8" stroke-width="1">
+    <rect x="0" y="0" width="48" height="48" fill="#cc785c" fill-opacity="0.20" stroke="#cc785c" stroke-width="1.5"/>
+    <rect x="48" y="0" width="48" height="48" fill="#fffdfb"/>
+    <rect x="96" y="0" width="48" height="48" fill="#fffdfb"/>
+    <rect x="0" y="48" width="48" height="48" fill="#fffdfb"/>
+    <rect x="48" y="48" width="48" height="48" fill="#cc785c" fill-opacity="0.20" stroke="#cc785c" stroke-width="1.5"/>
+    <rect x="96" y="48" width="48" height="48" fill="#fffdfb"/>
+    <rect x="0" y="96" width="48" height="48" fill="#fffdfb"/>
+    <rect x="48" y="96" width="48" height="48" fill="#fffdfb"/>
+    <rect x="96" y="96" width="48" height="48" fill="#cc785c" fill-opacity="0.20" stroke="#cc785c" stroke-width="1.5"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#312f2f" text-anchor="middle">
+    <text x="54" y="82">a₁₁</text>
+    <text x="102" y="82">a₁₂</text>
+    <text x="150" y="82">a₁₃</text>
+    <text x="54" y="130">a₂₁</text>
+    <text x="102" y="130">a₂₂</text>
+    <text x="150" y="130">a₂₃</text>
+    <text x="54" y="178">a₃₁</text>
+    <text x="102" y="178">a₃₂</text>
+    <text x="150" y="178">a₃₃</text>
+  </g>
+  <line x1="188" y1="124" x2="238" y2="124" stroke="#cc785c" stroke-width="1.8" marker-end="url(#trace-arrow-coral)"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" fill="#a9583e">
+    <text x="190" y="103" font-size="14">tr A</text>
+    <text x="188" y="148" font-size="15">= a₁₁ + a₂₂ + a₃₃</text>
+  </g>
+  <text x="30" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">只保留一条对角线的总和</text>
+
+  <!-- Right panel: A and a similar A' -->
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#312f2f" text-anchor="middle">
+    <text x="328" y="52" font-style="italic" font-size="15">A</text>
+    <text x="492" y="52" font-style="italic" font-size="15">P⁻¹AP</text>
+  </g>
+  <g transform="translate(300 65)" stroke="#b8b2a8" stroke-width="1">
+    <rect x="0" y="0" width="42" height="42" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+    <rect x="42" y="0" width="42" height="42" fill="#fffdfb"/>
+    <rect x="0" y="42" width="42" height="42" fill="#fffdfb"/>
+    <rect x="42" y="42" width="42" height="42" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+  </g>
+  <g transform="translate(464 65)" stroke="#b8b2a8" stroke-width="1">
+    <rect x="0" y="0" width="42" height="42" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+    <rect x="42" y="0" width="42" height="42" fill="#fffdfb"/>
+    <rect x="0" y="42" width="42" height="42" fill="#fffdfb"/>
+    <rect x="42" y="42" width="42" height="42" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#312f2f" text-anchor="middle">
+    <text x="321" y="92">1</text>
+    <text x="363" y="92">2</text>
+    <text x="321" y="134">3</text>
+    <text x="363" y="134">4</text>
+    <text x="485" y="92">−2</text>
+    <text x="527" y="92">−4</text>
+    <text x="485" y="134">3</text>
+    <text x="527" y="134">7</text>
+  </g>
+  <line x1="391" y1="107" x2="449" y2="107" stroke="#312f2f" stroke-width="1.7" marker-end="url(#trace-arrow-ink)"/>
+  <text x="420" y="95" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64" text-anchor="middle">P⁻¹(·)P</text>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e" text-anchor="middle">
+    <text x="342" y="181">tr A = 1 + 4 = 5</text>
+    <text x="505" y="181">tr A′ = −2 + 7 = 5</text>
+  </g>
+  <text x="300" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">对角线变了，总和没有变</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <rect width="800" height="373" fill="#fbfaf7"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#312f2f">
+    <text x="36" y="38" font-size="21" font-weight="600">Prompt Tuning：虚拟 token 条件化冻结模型</text>
+    <text x="36" y="64" font-size="13" fill="#6d6862">P 只在输入 embedding 前拼接；基础 Transformer 参数保持冻结</text>
+
+    <rect x="34" y="112" width="164" height="104" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <text x="116" y="142" text-anchor="middle" font-size="18" font-weight="600">可训练 soft prompt</text>
+    <text x="116" y="171" text-anchor="middle" font-size="20">P ∈ Rᵐˣᴰ</text>
+    <text x="116" y="195" text-anchor="middle" font-size="12" fill="#6d6862">m 个虚拟 token</text>
+
+    <rect x="34" y="246" width="164" height="76" rx="10" fill="#f1eee8" stroke="#b8b2a8" stroke-width="2"/>
+    <text x="116" y="274" text-anchor="middle" font-size="18" font-weight="600">真实 token</text>
+    <text x="116" y="300" text-anchor="middle" font-size="20">E(x) ∈ Rᵀˣᴰ</text>
+
+    <line x1="198" y1="164" x2="278" y2="164" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="278,164 266,157 266,171" fill="#cc785c"/>
+    <line x1="198" y1="284" x2="245" y2="284" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="245,284 233,277 233,291" fill="#cc785c"/>
+    <line x1="245" y1="284" x2="278" y2="190" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="278,190 267,198 281,203" fill="#cc785c"/>
+
+    <rect x="279" y="112" width="188" height="104" rx="10" fill="#fffaf4" stroke="#cc785c" stroke-width="2"/>
+    <text x="373" y="142" text-anchor="middle" font-size="18" font-weight="600">序列拼接</text>
+    <text x="373" y="172" text-anchor="middle" font-size="20">H₀ = [P ; E(x)]</text>
+    <text x="373" y="196" text-anchor="middle" font-size="12" fill="#6d6862">(m + T) × D</text>
+
+    <line x1="467" y1="164" x2="543" y2="164" stroke="#cc785c" stroke-width="3"/>
+    <polygon points="543,164 531,157 531,171" fill="#cc785c"/>
+
+    <rect x="544" y="112" width="222" height="104" rx="10" fill="#e7efe9" stroke="#718779" stroke-width="2"/>
+    <text x="655" y="142" text-anchor="middle" font-size="18" font-weight="600">冻结 Transformer</text>
+    <text x="655" y="172" text-anchor="middle" font-size="20">Y = fθ₀(H₀)</text>
+    <text x="655" y="196" text-anchor="middle" font-size="12" fill="#6d6862">只更新 P</text>
+
+    <line x1="655" y1="216" x2="655" y2="274" stroke="#718779" stroke-width="3"/>
+    <polygon points="655,289 648,277 662,277" fill="#718779"/>
+    <rect x="544" y="290" width="222" height="32" rx="8" fill="#f1eee8" stroke="#b8b2a8" stroke-width="1"/>
+    <text x="655" y="311" text-anchor="middle" font-size="12" fill="#6d6862">任务 loss 只监督真实 target</text>
+
+    <text x="400" y="351" text-anchor="middle" font-size="13" fill="#6d6862">prompt length 会增加序列长度、attention 和 KV cache；checkpoint 仍需绑定 base hash</text>
+  </g>
+</svg>

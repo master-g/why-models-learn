@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="norm-title norm-desc">
+  <title id="norm-title">矩阵范数的五把尺子</title>
+  <desc id="norm-desc">同一个矩阵 A 分别用最大列和、最大行和、最大长度放大、全部元素和奇异值之和来测量。</desc>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="207" y1="42" x2="207" y2="228" stroke="#e2dbd3"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+    <text x="22" y="28" font-size="15" font-weight="600">同一个 A，五种读法</text>
+    <text x="25" y="57" font-size="13" fill="#6c6a64">元素矩阵</text>
+    <text x="25" y="203" font-size="12" fill="#6c6a64">A = (3, 4) 的外积</text>
+    <text x="230" y="28" font-size="13" fill="#6c6a64">每把尺子回答不同问题</text>
+  </g>
+
+  <g fill="#312f2f" font-family="Georgia, 'Times New Roman', serif" font-size="25">
+    <text x="55" y="105">A =</text>
+    <text x="120" y="90">3</text>
+    <text x="158" y="90">4</text>
+    <text x="120" y="130">0</text>
+    <text x="158" y="130">0</text>
+  </g>
+  <g stroke="#312f2f" stroke-width="1.5" fill="none">
+    <path d="M105 72 h8 M105 72 v76 M105 148 h8"/>
+    <path d="M180 72 h-8 M180 72 v76 M180 148 h-8"/>
+  </g>
+  <line x1="75" y1="166" x2="174" y2="166" stroke="#cc785c" stroke-width="2"/>
+  <circle cx="75" cy="166" r="3" fill="#cc785c"/>
+  <circle cx="174" cy="166" r="3" fill="#cc785c"/>
+  <text x="83" y="183" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#a9583e">非零行的长度是 5</text>
+
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12">
+    <rect x="230" y="43" width="302" height="33" rx="5" fill="#f3eee8"/>
+    <text x="244" y="64" fill="#312f2f">诱导 1 范数：最大列和</text>
+    <text x="445" y="64" fill="#a9583e">‖A‖₁ = 4</text>
+
+    <rect x="230" y="80" width="302" height="33" rx="5" fill="#f3eee8"/>
+    <text x="244" y="101" fill="#312f2f">诱导 ∞ 范数：最大行和</text>
+    <text x="445" y="101" fill="#a9583e">‖A‖∞ = 7</text>
+
+    <rect x="230" y="117" width="302" height="33" rx="5" fill="#f3eee8"/>
+    <text x="244" y="138" fill="#312f2f">谱范数：最长长度放大</text>
+    <text x="445" y="138" fill="#a9583e">‖A‖₂ = 5</text>
+
+    <rect x="230" y="154" width="302" height="33" rx="5" fill="#f3eee8"/>
+    <text x="244" y="175" fill="#312f2f">Frobenius：所有元素</text>
+    <text x="445" y="175" fill="#a9583e">‖A‖F = 5</text>
+
+    <rect x="230" y="191" width="302" height="33" rx="5" fill="#f3eee8"/>
+    <text x="244" y="212" fill="#312f2f">核范数：奇异值总和</text>
+    <text x="445" y="212" fill="#a9583e">‖A‖* = 5</text>
+  </g>
+</svg>

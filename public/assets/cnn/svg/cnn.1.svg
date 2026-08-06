@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">卷积神经网络的局部窗口与权值共享</title>
+  <desc id="desc">一个三乘三卷积核在五乘五输入的不同局部窗口重复计算，形成特征图；下方概括局部连接、权值共享和平移等变三个结构假设。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+    </marker>
+    <style>
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .formula { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-title { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
+      .grid { fill: #fffaf3; stroke: #b9a997; stroke-width: 1; }
+      .kernel { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.6; }
+      .response { fill: #dce9df; stroke: #75957e; stroke-width: 1.2; }
+      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
+      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
+      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
+  <text x="38" y="43" class="title">卷积神经网络：局部结构的可复用检测器</text>
+  <text x="38" y="65" class="subtitle">同一个 K 在不同空间位置重复计算；位置改变时，响应图随之移动</text>
+
+  <text x="108" y="88" text-anchor="middle" class="label">输入窗口</text>
+  <g transform="translate(48 98)">
+    <rect width="150" height="150" rx="4" fill="#fffaf3" stroke="#b9a997" stroke-width="1.4"/>
+    <path d="M30 0V150 M60 0V150 M90 0V150 M120 0V150 M0 30H150 M0 60H150 M0 90H150 M0 120H150" fill="none" stroke="#d7ccc4"/>
+    <rect x="60" y="60" width="90" height="90" rx="2" fill="#f4ddd4" fill-opacity=".8" stroke="#cc785c" stroke-width="2"/>
+    <text x="75" y="78" text-anchor="middle" class="detail">窗口</text>
+  </g>
+  <text x="123" y="266" text-anchor="middle" class="detail">5×5 输入 X</text>
+
+  <path d="M208 173 H236" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="222" y="157" text-anchor="middle" class="detail">局部取样</text>
+
+  <text x="294" y="88" text-anchor="middle" class="label">共享核</text>
+  <g transform="translate(249 113)">
+    <rect width="90" height="90" rx="4" fill="#f4ddd4" stroke="#cc785c" stroke-width="1.8"/>
+    <path d="M30 0V90 M60 0V90 M0 30H90 M0 60H90" fill="none" stroke="#cc785c" stroke-width="1"/>
+    <text x="15" y="20" text-anchor="middle" class="detail">k₁</text>
+    <text x="45" y="20" text-anchor="middle" class="detail">k₂</text>
+    <text x="75" y="20" text-anchor="middle" class="detail">k₃</text>
+    <text x="45" y="81" text-anchor="middle" class="formula">K</text>
+  </g>
+  <text x="294" y="221" text-anchor="middle" class="detail">3×3 参数，不随位置复制</text>
+
+  <path d="M350 173 H385" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="368" y="157" text-anchor="middle" class="detail">逐元素乘加</text>
+
+  <text x="445" y="88" text-anchor="middle" class="label">特征图</text>
+  <g transform="translate(400 113)">
+    <rect width="90" height="90" rx="4" fill="#dce9df" stroke="#75957e" stroke-width="1.4"/>
+    <path d="M30 0V90 M60 0V90 M0 30H90 M0 60H90" fill="none" stroke="#75957e" stroke-width="1"/>
+    <rect x="2" y="2" width="26" height="26" fill="#a9c6ad"/>
+    <rect x="32" y="2" width="26" height="26" fill="#88ad91"/>
+    <rect x="62" y="32" width="26" height="26" fill="#a9c6ad"/>
+    <rect x="32" y="62" width="26" height="26" fill="#88ad91"/>
+    <text x="45" y="53" text-anchor="middle" class="formula">Y</text>
+  </g>
+  <text x="445" y="221" text-anchor="middle" class="detail">每个位置一个响应值</text>
+
+  <rect x="526" y="98" width="234" height="150" rx="10" class="card"/>
+  <text x="544" y="124" class="label">滑动的含义</text>
+  <text x="544" y="150" class="formula">Yₕ,ᵥ = ⟨K, Xₕ,ᵥ⟩ + b</text>
+  <text x="544" y="176" class="detail">窗口从左上移动到右下</text>
+  <text x="544" y="195" class="detail">K 始终是同一组参数</text>
+  <path d="M544 214 H734" stroke="#d7ccc4"/>
+  <text x="544" y="233" class="detail">局部连接 + 权值共享</text>
+
+  <rect x="38" y="280" width="226" height="50" rx="9" class="assumption"/>
+  <text x="54" y="301" class="panel-title">局部连接</text>
+  <text x="54" y="318" class="panel-detail">每个输出只读取一个小窗口</text>
+
+  <rect x="287" y="280" width="226" height="50" rx="9" class="assumption"/>
+  <text x="303" y="301" class="panel-title">权值共享</text>
+  <text x="303" y="318" class="panel-detail">同一核在所有位置重复使用</text>
+
+  <rect x="536" y="280" width="226" height="50" rx="9" class="assumption"/>
+  <text x="552" y="301" class="panel-title">近似平移等变</text>
+  <text x="552" y="318" class="panel-detail">输入平移，响应图大致随之平移</text>
+
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
+  <text x="400" y="351" text-anchor="middle" class="detail">验收：先核对轴顺序、窗口尺寸、输出尺寸和感受野，再解释通道语义</text>
+</svg>

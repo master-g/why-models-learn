@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">对齐问题的目标、优化、行为与评测反馈</title>
+  <desc id="desc">人类意图经过目标合同和代理指标进入优化，模型产生行为并被独立评测，评测反馈影响下一轮训练，代理目标和真实意图之间存在偏差。</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <style>
+      .ink { fill: #312f2f; }
+      .muted { fill: #6c6863; }
+      .box { fill: #f3f0eb; stroke: #b8b2a8; stroke-width: 2; }
+      .warm { fill: #f6e4dc; stroke: #cc785c; stroke-width: 2; }
+      .cool { fill: #e6eee8; stroke: #809783; stroke-width: 2; }
+      .label { font: 600 19px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .small { font: 14px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .tiny { font: 12px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .line { fill: none; stroke: #312f2f; stroke-width: 2.4; marker-end: url(#arrow-ink); }
+      .coral-line { fill: none; stroke: #cc785c; stroke-width: 2.4; marker-end: url(#arrow-coral); }
+      .dash { fill: none; stroke: #b8b2a8; stroke-width: 1.7; stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+
+  <rect width="800" height="373" fill="#fbf9f6"/>
+  <text x="38" y="38" class="ink label">对齐问题：代理目标与真实意图不总是同一件事</text>
+  <text x="38" y="62" class="muted small">目标合同、测量合同、优化合同和行动合同需要分别核验</text>
+
+  <rect x="38" y="99" width="148" height="82" rx="12" class="box"/>
+  <text x="112" y="126" text-anchor="middle" class="ink label">人类意图</text>
+  <text x="112" y="151" text-anchor="middle" class="muted small">正确 · 诚实 · 安全</text>
+  <text x="112" y="169" text-anchor="middle" class="muted tiny">真实效用 U(x,y,a)</text>
+
+  <rect x="220" y="99" width="148" height="82" rx="12" class="warm"/>
+  <text x="294" y="126" text-anchor="middle" class="ink label">代理指标</text>
+  <text x="294" y="151" text-anchor="middle" class="muted small">标签 · 规则 · reward</text>
+  <text x="294" y="169" text-anchor="middle" class="muted tiny">可计算的 rφ(x,y)</text>
+
+  <rect x="402" y="99" width="148" height="82" rx="12" class="box"/>
+  <text x="476" y="126" text-anchor="middle" class="ink label">优化</text>
+  <text x="476" y="151" text-anchor="middle" class="muted small">loss · policy · 更新</text>
+  <text x="476" y="169" text-anchor="middle" class="muted tiny">argmin / argmax</text>
+
+  <rect x="584" y="99" width="178" height="82" rx="12" class="cool"/>
+  <text x="673" y="126" text-anchor="middle" class="ink label">模型行为</text>
+  <text x="673" y="151" text-anchor="middle" class="muted small">回答 · 拒答 · 工具动作</text>
+  <text x="673" y="169" text-anchor="middle" class="muted tiny">πθ(y,a | x,s)</text>
+
+  <path d="M186 140 H220" class="line"/>
+  <path d="M368 140 H402" class="line"/>
+  <path d="M550 140 H584" class="line"/>
+
+  <rect x="220" y="238" width="148" height="67" rx="12" class="box"/>
+  <text x="294" y="265" text-anchor="middle" class="ink label">独立评测</text>
+  <text x="294" y="288" text-anchor="middle" class="muted small">事实 · 风险 · 后果</text>
+
+  <rect x="402" y="238" width="148" height="67" rx="12" class="warm"/>
+  <text x="476" y="265" text-anchor="middle" class="ink label">反馈数据</text>
+  <text x="476" y="288" text-anchor="middle" class="muted small">新标签 · 新分布</text>
+
+  <path d="M673 181 C673 222 550 221 550 254" class="coral-line"/>
+  <path d="M402 271 H368" class="line"/>
+  <path d="M368 271 C390 209 428 201 463 181" class="coral-line"/>
+  <path d="M550 271 C607 328 306 340 294 305" class="coral-line"/>
+
+  <path d="M112 181 V218 H190" class="dash"/>
+  <path d="M190 218 H760 V181" class="dash"/>
+  <text x="47" y="230" class="muted tiny">真实意图没有直接进入优化</text>
+  <text x="585" y="220" class="muted tiny">分布和行为会被模型改变</text>
+
+  <text x="38" y="345" class="muted small">审计重点：代理分数上升时，独立意图分量、约束违反率和行动后果是否同步改善？</text>
+</svg>

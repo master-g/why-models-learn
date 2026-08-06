@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">概率空间中的有限事件与连续区间</title>
+  <desc id="desc">左图在四个有序硬币结果中圈出至少一次正面的事件，右图在单位区间中标出一个区间事件和一个概率为零的单点。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    </style>
+    <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="140" y="22" text-anchor="middle" class="label">有限样本空间 Ω</text>
+  <rect x="30" y="38" width="220" height="166" rx="8" fill="none" stroke="#b8b2a8" stroke-width="1.2"/>
+  <text x="42" y="57" class="small math">A = 至少一次正面</text>
+
+  <rect x="53" y="73" width="72" height="37" rx="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1.2"/>
+  <rect x="155" y="73" width="72" height="37" rx="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1.2"/>
+  <rect x="53" y="132" width="72" height="37" rx="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1.2"/>
+  <rect x="155" y="132" width="72" height="37" rx="5" fill="#fffaf8" stroke="#312f2f" stroke-width="1.2"/>
+  <text x="89" y="97" text-anchor="middle" class="label math">HH</text>
+  <text x="191" y="97" text-anchor="middle" class="label math">HT</text>
+  <text x="89" y="156" text-anchor="middle" class="label math">TH</text>
+  <text x="191" y="156" text-anchor="middle" class="label math">TT</text>
+
+  <path d="M43,67 C38,88 38,151 45,176 C55,187 125,181 137,174 C143,151 141,89 132,68 C116,61 59,61 43,67 Z"
+        fill="#cc785c" fill-opacity="0.12" stroke="#cc785c" stroke-width="2"/>
+  <text x="91" y="193" text-anchor="middle" class="caption">三个样本点组成一个事件</text>
+  <text x="140" y="225" text-anchor="middle" class="caption math">P(A) = 3/4</text>
+
+  <text x="420" y="22" text-anchor="middle" class="label">连续样本空间 [0,1]</text>
+  <line x1="318" y1="120" x2="525" y2="120" stroke="#b8b2a8" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+  <line x1="318" y1="112" x2="318" y2="128" stroke="#312f2f" stroke-width="1.2"/>
+  <line x1="525" y1="112" x2="525" y2="128" stroke="#312f2f" stroke-width="1.2"/>
+  <text x="318" y="146" text-anchor="middle" class="small math">0</text>
+  <text x="525" y="146" text-anchor="middle" class="small math">1</text>
+  <line x1="359" y1="120" x2="483" y2="120" stroke="#cc785c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="359" y1="106" x2="359" y2="134" stroke="#cc785c" stroke-width="1.2"/>
+  <line x1="483" y1="106" x2="483" y2="134" stroke="#cc785c" stroke-width="1.2"/>
+  <text x="421" y="94" text-anchor="middle" class="small math">[0.2,0.8]</text>
+  <text x="421" y="164" text-anchor="middle" class="caption math">P([0.2,0.8]) = 0.6</text>
+
+  <circle cx="421.5" cy="120" r="4" fill="#312f2f"/>
+  <line x1="421.5" y1="124" x2="421.5" y2="184" class="guide"/>
+  <text x="421.5" y="201" text-anchor="middle" class="small math">{0.5}</text>
+  <text x="421.5" y="221" text-anchor="middle" class="caption math">P({0.5}) = 0</text>
+</svg>

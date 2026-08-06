@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">ReLU 的分段线与活动门</title>
+  <desc id="desc">左侧显示负侧为零、正侧斜率为一的 ReLU 曲线，右侧显示其导数在零点两侧从零跳到一。</desc>
+  <rect width="800" height="373" rx="18" fill="#fbfaf7"/>
+  <text x="34" y="38" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700">ReLU：正侧直通，负侧关门</text>
+  <text x="34" y="64" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14">max(0,z) 保留正值，活动门决定梯度是否通过</text>
+
+  <rect x="28" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="52" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">函数 ReLU(z)</text>
+  <text x="52" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">负侧输出为 0，正侧斜率为 1</text>
+  <line x1="64" y1="244" x2="342" y2="244" stroke="#8e8982" stroke-width="1.5"/>
+  <line x1="203" y1="158" x2="203" y2="292" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="64" y1="188" x2="342" y2="188" stroke="#c9c4bb" stroke-width="1"/>
+  <line x1="64" y1="288" x2="342" y2="288" stroke="#c9c4bb" stroke-width="1"/>
+  <path d="M 64 244 L 203 244 L 332 158" fill="none" stroke="#cc785c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="203" cy="244" r="5" fill="#cc785c"/>
+  <text x="193" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">z=0</text>
+  <text x="68" y="180" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">正值</text>
+  <text x="68" y="263" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
+  <text x="300" y="151" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">斜率 1</text>
+  <text x="90" y="232" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">负侧被截断</text>
+
+  <rect x="422" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
+  <text x="446" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">导数：活动门</text>
+  <text x="446" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">负侧为 0，正侧为 1，零点需约定</text>
+  <line x1="458" y1="273" x2="736" y2="273" stroke="#8e8982" stroke-width="1.5"/>
+  <line x1="597" y1="158" x2="597" y2="292" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="458" y1="188" x2="736" y2="188" stroke="#c9c4bb" stroke-width="1"/>
+  <path d="M 458 273 L 597 273 L 597 188 L 736 188" fill="none" stroke="#5f827d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="597" cy="273" r="5" fill="#5f827d"/>
+  <circle cx="597" cy="188" r="5" fill="#fbfaf7" stroke="#5f827d" stroke-width="3"/>
+  <text x="586" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">z=0</text>
+  <text x="727" y="180" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">1</text>
+  <text x="727" y="284" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
+  <text x="503" y="263" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">梯度屏蔽</text>
+  <text x="651" y="178" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">梯度通过</text>
+
+  <path d="M 382 205 H 413" fill="none" stroke="#b8b2a8" stroke-width="2"/>
+  <path d="M 404 198 L 414 205 L 404 212" fill="none" stroke="#b8b2a8" stroke-width="2"/>
+</svg>

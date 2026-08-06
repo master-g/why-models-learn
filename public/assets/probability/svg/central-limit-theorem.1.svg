@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">标准化和趋近钟形曲线</title>
+  <desc id="desc">左图对比单个离散样本的几个取值和许多样本标准化和形成的钟形曲线，右图标出标准正态分布约百分之九十五的中心区域。</desc>
+  <defs>
+    <style>
+      text {
+        font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        fill: #312f2f;
+      }
+      .math {
+        font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+        font-style: italic;
+      }
+      .small { font-size: 11px; }
+      .label { font-size: 12px; }
+      .caption { font-size: 12px; fill: #706a67; }
+      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
+      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .curve { fill: none; stroke: #cc785c; stroke-width: 2.2; stroke-linecap: round; }
+      .soft-curve { fill: none; stroke: #cc785c; stroke-width: 1.5; stroke-opacity: 0.4; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
+  <line x1="374" y1="16" x2="374" y2="234" stroke="#e5dedb" stroke-width="1"/>
+
+  <text x="187" y="22" text-anchor="middle" class="label">独立相加后，形状趋近正态</text>
+  <line x1="43" y1="190" x2="350" y2="190" class="axis"/>
+  <line x1="196" y1="51" x2="196" y2="190" class="guide"/>
+  <line x1="43" y1="120" x2="350" y2="120" class="guide"/>
+  <text x="38" y="124" text-anchor="end" class="small math">密度</text>
+  <text x="196" y="207" text-anchor="middle" class="small math">0</text>
+  <text x="48" y="207" text-anchor="middle" class="small math">−3</text>
+  <text x="344" y="207" text-anchor="middle" class="small math">3</text>
+  <text x="349" y="207" class="small math">z</text>
+
+  <line x1="77" y1="190" x2="77" y2="172" stroke="#b8b2a8" stroke-width="5"/>
+  <line x1="116" y1="190" x2="116" y2="158" stroke="#b8b2a8" stroke-width="5"/>
+  <line x1="155" y1="190" x2="155" y2="145" stroke="#b8b2a8" stroke-width="5"/>
+  <line x1="196" y1="190" x2="196" y2="139" stroke="#b8b2a8" stroke-width="5"/>
+  <line x1="237" y1="190" x2="237" y2="145" stroke="#b8b2a8" stroke-width="5"/>
+  <line x1="276" y1="190" x2="276" y2="158" stroke="#b8b2a8" stroke-width="5"/>
+  <line x1="315" y1="190" x2="315" y2="172" stroke="#b8b2a8" stroke-width="5"/>
+
+  <path d="M52 186 C77 181 95 164 116 142 C137 121 158 104 178 91 C187 85 192 83 196 82 C200 83 205 85 214 91 C234 104 255 121 276 142 C297 164 315 181 340 186" class="soft-curve"/>
+  <path d="M52 186 C79 183 99 172 123 151 C147 130 169 104 187 91 C191 88 194 86 196 86 C198 86 201 88 205 91 C223 104 245 130 269 151 C293 172 313 183 340 186" class="curve"/>
+  <text x="63" y="155" class="small">单个样本：离散取值</text>
+  <text x="231" y="83" class="small math">n 很大：Zₙ≈N(0,1)</text>
+  <text x="196" y="231" text-anchor="middle" class="caption">标准化：减去均值，再除以 σ/√n</text>
+
+  <text x="467" y="22" text-anchor="middle" class="label">标准正态的中心区域</text>
+  <line x1="401" y1="190" x2="534" y2="190" class="axis"/>
+  <line x1="467" y1="70" x2="467" y2="190" class="guide"/>
+  <path d="M405 188 C417 184 425 174 434 156 C444 134 453 106 461 91 C464 85 466 82 467 82 C468 82 470 85 473 91 C481 106 490 134 500 156 C509 174 517 184 529 188" fill="#cc785c" fill-opacity="0.12" stroke="#cc785c" stroke-width="1.8"/>
+  <path d="M428 190 C437 172 445 143 453 113 C458 94 463 84 467 82 C471 84 476 94 481 113 C489 143 497 172 506 190 Z" fill="#cc785c" fill-opacity="0.22"/>
+  <line x1="428" y1="190" x2="428" y2="178" class="guide"/>
+  <line x1="506" y1="190" x2="506" y2="178" class="guide"/>
+  <text x="428" y="207" text-anchor="middle" class="small math">−1.96</text>
+  <text x="506" y="207" text-anchor="middle" class="small math">1.96</text>
+  <text x="467" y="112" text-anchor="middle" class="small">≈95%</text>
+  <text x="467" y="231" text-anchor="middle" class="caption">区间宽度随标准误缩小</text>
+</svg>

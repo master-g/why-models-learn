@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="matrix-calc-title matrix-calc-desc">
+  <title id="matrix-calc-title">矩阵微分从表达式到梯度</title>
+  <desc id="matrix-calc-desc">先把标量表达式写成微分，再按迹和 Frobenius 内积整理成矩阵梯度；残差平方的梯度沿矩阵转置方向回传。</desc>
+  <defs>
+    <marker id="matrix-calc-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+    <marker id="matrix-calc-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <style>
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .small { font-size: 11px; }
+      .title { font-size: 15px; font-weight: 600; }
+      .box { fill: #f0ebe6; stroke: #b8b2a8; }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="20" y1="122" x2="540" y2="122" stroke="#d8d0c8"/>
+
+  <text x="22" y="25" class="label title">从标量表达式整理到矩阵梯度</text>
+  <rect x="28" y="48" width="126" height="42" rx="6" class="box"/>
+  <text x="63" y="74" class="label">f(X)</text>
+  <rect x="214" y="48" width="126" height="42" rx="6" class="box"/>
+  <text x="249" y="74" class="label">df</text>
+  <rect x="400" y="48" width="126" height="42" rx="6" class="box"/>
+  <text x="423" y="74" class="label">∇ₓf</text>
+  <line x1="158" y1="69" x2="208" y2="69" stroke="#cc785c" stroke-width="2" marker-end="url(#matrix-calc-arrow-coral)"/>
+  <line x1="344" y1="69" x2="394" y2="69" stroke="#cc785c" stroke-width="2" marker-end="url(#matrix-calc-arrow-coral)"/>
+  <text x="57" y="108" class="label small">含迹、乘积、逆矩阵</text>
+  <text x="226" y="108" class="label small">tr(Gᵀ dX)</text>
+  <text x="404" y="108" class="label small">读出 G</text>
+
+  <text x="22" y="148" class="label title">残差平方的局部路径</text>
+  <rect x="28" y="174" width="112" height="34" rx="5" class="box"/>
+  <text x="68" y="196" class="label">X</text>
+  <rect x="208" y="174" width="126" height="34" rx="5" class="box"/>
+  <text x="242" y="196" class="label">R = AX − B</text>
+  <rect x="402" y="174" width="124" height="34" rx="5" class="box"/>
+  <text x="420" y="196" class="label">½‖R‖²F</text>
+  <line x1="146" y1="191" x2="202" y2="191" stroke="#cc785c" stroke-width="2" marker-end="url(#matrix-calc-arrow-coral)"/>
+  <line x1="340" y1="191" x2="396" y2="191" stroke="#cc785c" stroke-width="2" marker-end="url(#matrix-calc-arrow-coral)"/>
+  <line x1="396" y1="220" x2="340" y2="220" stroke="#312f2f" stroke-width="2" marker-end="url(#matrix-calc-arrow-ink)"/>
+  <line x1="202" y1="220" x2="146" y2="220" stroke="#312f2f" stroke-width="2" marker-end="url(#matrix-calc-arrow-ink)"/>
+  <text x="407" y="235" class="label small">G_R = R</text>
+  <text x="204" y="235" class="label small">G_X = AᵀR</text>
+</svg>

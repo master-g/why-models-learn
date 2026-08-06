@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+  <title>交叉熵是用模型概率编码真实分布的平均代价</title>
+  <desc>真实分布 p 产生结果，模型分布 q 为结果分配概率，负对数概率按 p 加权平均得到交叉熵。</desc>
+  <style>
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      fill: #312f2f;
+    }
+    .title { font-size: 17px; font-weight: 600; }
+    .label { font-size: 13px; font-weight: 600; }
+    .body { font-size: 12px; }
+    .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 12px; }
+    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
+    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.5; }
+    .bar-p { fill: #312f2f; }
+    .bar-q { fill: #cc785c; }
+    .axis { stroke: #8f8a83; stroke-width: 1.1; }
+  </style>
+
+  <text x="28" y="29" class="title">交叉熵：真实分布 p，用模型分布 q 编码</text>
+  <text x="28" y="50" class="body">H(p,q) = −Σ p(x) log q(x)，平均代价由真实频率加权</text>
+
+  <rect x="28" y="72" width="148" height="91" rx="8" class="box"/>
+  <text x="102" y="94" text-anchor="middle" class="label">真实分布 p</text>
+  <text x="102" y="113" text-anchor="middle" class="body">负责产生结果</text>
+  <rect x="54" y="132" width="24" height="22" class="bar-p"/>
+  <rect x="88" y="140" width="24" height="14" class="bar-p"/>
+  <rect x="122" y="146" width="24" height="8" class="bar-p"/>
+  <text x="66" y="160" text-anchor="middle" class="body">p₁</text>
+  <text x="100" y="160" text-anchor="middle" class="body">p₂</text>
+  <text x="134" y="160" text-anchor="middle" class="body">p₃</text>
+
+  <path d="M176 117 H208" class="axis"/>
+  <path d="M208 117 H236" stroke="#cc785c" stroke-width="2" fill="none"/>
+  <polygon points="236,117 228,113 228,121" fill="#cc785c"/>
+
+  <rect x="236" y="72" width="148" height="91" rx="8" class="accent"/>
+  <text x="310" y="94" text-anchor="middle" class="label">模型分布 q</text>
+  <text x="310" y="113" text-anchor="middle" class="body">分配预测概率</text>
+  <rect x="262" y="132" width="24" height="22" class="bar-q"/>
+  <rect x="296" y="140" width="24" height="14" class="bar-q"/>
+  <rect x="330" y="146" width="24" height="8" class="bar-q"/>
+  <text x="274" y="160" text-anchor="middle" class="body">q₁</text>
+  <text x="308" y="160" text-anchor="middle" class="body">q₂</text>
+  <text x="342" y="160" text-anchor="middle" class="body">q₃</text>
+
+  <path d="M384 117 H416" class="axis"/>
+  <path d="M416 117 H444" stroke="#cc785c" stroke-width="2" fill="none"/>
+  <polygon points="444,117 436,113 436,121" fill="#cc785c"/>
+
+  <rect x="444" y="72" width="88" height="91" rx="8" class="box"/>
+  <text x="488" y="94" text-anchor="middle" class="label">平均损失</text>
+  <text x="488" y="119" text-anchor="middle" class="formula">−log q(x)</text>
+  <text x="488" y="143" text-anchor="middle" class="body">按 p 加权</text>
+
+  <rect x="95" y="190" width="370" height="36" rx="8" class="box"/>
+  <text x="280" y="213" text-anchor="middle" class="formula">H(p,q) = H(p) + DKL(p ∥ q) ≥ H(p)</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Teacher forcing 与自由运行</title>
+  <desc id="desc">编码器 context 连接三个 decoder 步骤，绿色箭头把真实前缀喂给训练，珊瑚色虚线把模型自己的输出带回下一步推理，错误可能沿后续前缀累积。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#6f6a63"/>
+    </marker>
+    <marker id="green-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#6f8e72"/>
+    </marker>
+    <marker id="coral-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#b26e58"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="800" height="373" rx="16" fill="#f7f2e9"/>
+  <text x="30" y="31" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700">Teacher forcing：同一 decoder，两种前缀分布</text>
+  <text x="30" y="52" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">训练喂真实 token；推理把自己的 token 送回下一步</text>
+
+  <rect x="22" y="74" width="756" height="230" rx="13" fill="#fbf8f2" stroke="#d2ccc2"/>
+  <rect x="42" y="110" width="120" height="57" rx="10" fill="#f1ded6" stroke="#c99b89"/>
+  <text x="102" y="134" text-anchor="middle" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="13" font-weight="700">context c</text>
+  <text x="102" y="153" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">encoder 摘要</text>
+
+  <g fill="#e9d8c9" stroke="#b8b2a8" stroke-width="1.2">
+    <rect x="270" y="108" width="86" height="48" rx="9"/>
+    <rect x="455" y="108" width="86" height="48" rx="9"/>
+    <rect x="640" y="108" width="86" height="48" rx="9"/>
+  </g>
+  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle">
+    <text x="313" y="128" font-weight="700">decoder 1</text>
+    <text x="498" y="128" font-weight="700">decoder 2</text>
+    <text x="683" y="128" font-weight="700">decoder 3</text>
+    <text x="313" y="145" fill="#6f6a63" font-size="9">d₁</text>
+    <text x="498" y="145" fill="#6f6a63" font-size="9">d₂</text>
+    <text x="683" y="145" fill="#6f6a63" font-size="9">d₃</text>
+  </g>
+  <path d="M162,138 C202,138 224,132 270,132" fill="none" stroke="#b26e58" stroke-width="1.7" marker-end="url(#coral-arrow)"/>
+  <path d="M162,145 C248,176 500,176 640,145" fill="none" stroke="#c99b89" stroke-width="1.1" stroke-dasharray="3 4"/>
+  <g stroke="#6f6a63" stroke-width="1.3" fill="none" marker-end="url(#arrow)">
+    <line x1="356" y1="132" x2="455" y2="132"/>
+    <line x1="541" y1="132" x2="640" y2="132"/>
+  </g>
+
+  <g fill="#ded8ee" stroke="#b8b2a8" stroke-width="1.1">
+    <rect x="283" y="178" width="60" height="28" rx="8"/>
+    <rect x="468" y="178" width="60" height="28" rx="8"/>
+    <rect x="653" y="178" width="60" height="28" rx="8"/>
+  </g>
+  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle">
+    <text x="313" y="197">ŷ₁</text>
+    <text x="498" y="197">ŷ₂</text>
+    <text x="683" y="197">ŷ₃</text>
+  </g>
+  <g stroke="#6f6a63" stroke-width="1.2" fill="none" marker-end="url(#arrow)">
+    <line x1="313" y1="156" x2="313" y2="178"/>
+    <line x1="498" y1="156" x2="498" y2="178"/>
+    <line x1="683" y1="156" x2="683" y2="178"/>
+  </g>
+
+  <g fill="#dfe9df" stroke="#9db29f" stroke-width="1.1">
+    <rect x="274" y="243" width="78" height="27" rx="8"/>
+    <rect x="459" y="243" width="78" height="27" rx="8"/>
+    <rect x="644" y="243" width="78" height="27" rx="8"/>
+  </g>
+  <g fill="#6f8e72" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" text-anchor="middle">
+    <text x="313" y="261">BOS / y₀</text>
+    <text x="498" y="261">y₁</text>
+    <text x="683" y="261">y₂</text>
+  </g>
+  <g stroke="#6f8e72" stroke-width="1.5" fill="none" marker-end="url(#green-arrow)">
+    <line x1="313" y1="243" x2="313" y2="156"/>
+    <line x1="498" y1="243" x2="498" y2="156"/>
+    <line x1="683" y1="243" x2="683" y2="156"/>
+  </g>
+  <text x="177" y="261" fill="#6f8e72" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">训练：真实前缀</text>
+
+  <path d="M343,192 C386,222 420,222 468,192" fill="none" stroke="#b26e58" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#coral-arrow)"/>
+  <path d="M528,192 C571,222 605,222 653,192" fill="none" stroke="#b26e58" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#coral-arrow)"/>
+  <text x="177" y="197" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">推理：ŷ 前缀</text>
+
+  <rect x="42" y="285" width="306" height="27" rx="8" fill="#edf4ed" stroke="#b8cbb9"/>
+  <text x="195" y="303" text-anchor="middle" fill="#6f8e72" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">真实前缀：错误不会自动传到下一步</text>
+  <rect x="450" y="285" width="306" height="27" rx="8" fill="#f1ded6" stroke="#c99b89"/>
+  <text x="603" y="303" text-anchor="middle" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">自己的前缀：一次错误可能改变后续条件</text>
+
+  <line x1="42" y1="326" x2="758" y2="326" stroke="#c9c4bb" stroke-width="1"/>
+  <text x="400" y="348" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">teacher-forced loss 不等于 free-running 序列质量</text>
+</svg>

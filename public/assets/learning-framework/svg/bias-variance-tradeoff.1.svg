@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+  <title id="title">预测风险分解为偏差平方、估计方差和不可约噪声</title>
+  <desc id="desc">左侧从预测风险分出三条路径，分别指向偏差平方、训练集引起的方差和标签不可约噪声；底部说明复杂度变化会移动这些项。</desc>
+  <rect width="560" height="250" fill="#f4efee"/>
+  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">偏差—方差分解：误差有三种来源</text>
+  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">固定输入，换训练集并展开平方预测误差</text>
+
+  <rect x="24" y="91" width="126" height="70" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
+  <text x="48" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">预测风险</text>
+  <text x="43" y="143" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">平方误差的期望</text>
+
+  <path d="M153 106 C170 106 169 81 187 81" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M153 126 H187" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M153 146 C170 146 169 171 187 171" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M180 75 L188 81 L180 87" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M180 120 L188 126 L180 132" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M180 165 L188 171 L180 177" fill="none" stroke="#c66a4b" stroke-width="2"/>
+
+  <rect x="192" y="64" width="111" height="45" rx="10" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="216" y="84" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">偏差²</text>
+  <text x="207" y="100" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9">平均预测偏离</text>
+
+  <rect x="192" y="104" width="111" height="45" rx="10" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="216" y="124" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">方差</text>
+  <text x="207" y="140" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9">换训练集的波动</text>
+
+  <rect x="192" y="144" width="111" height="45" rx="10" fill="#fdfcfa" stroke="#c9c4bb"/>
+  <text x="216" y="164" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">噪声</text>
+  <text x="207" y="180" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9">标签无法消除</text>
+
+  <path d="M307 86 H325" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M307 126 H325" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M307 166 H325" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M318 80 L326 86 L318 92" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M318 120 L326 126 L318 132" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M318 160 L326 166 L318 172" fill="none" stroke="#c66a4b" stroke-width="2"/>
+
+  <rect x="334" y="64" width="202" height="125" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
+  <text x="356" y="90" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">复杂度改变的方向</text>
+  <line x1="356" y1="101" x2="514" y2="101" stroke="#c9c4bb"/>
+  <text x="356" y="124" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">模型变简单：偏差 ↑，方差 ↓</text>
+  <text x="356" y="147" fill="#4f7775" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">模型变灵活：偏差 ↓，方差 ↑</text>
+  <text x="356" y="174" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">不是所有任务都严格如此</text>
+
+  <rect x="142" y="213" width="276" height="25" rx="9" fill="#ebe7e4"/>
+  <text x="190" y="230" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">平方风险 = 偏差² + 方差 + 噪声</text>
+</svg>

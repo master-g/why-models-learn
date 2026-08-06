@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+  <rect width="800" height="373" fill="#f7f3ee"/>
+  <style>
+    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .title { font-size: 20px; font-weight: 700; }
+    .label { font-size: 14px; font-weight: 700; }
+    .small { font-size: 12px; }
+    .box { stroke: #b8b2a8; stroke-width: 1.5; rx: 12; }
+    .arrow { stroke: #312f2f; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .dash { stroke: #c9c4bb; stroke-width: 1.5; stroke-dasharray: 5 5; fill: none; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#312f2f"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="31" text-anchor="middle" class="ink title">MoE：token 选择少量 expert，再合并回 residual stream</text>
+  <text x="400" y="53" text-anchor="middle" class="ink small">总参数随 expert 数增加，单 token 计算由 top-k 决定</text>
+
+  <rect x="28" y="112" width="112" height="80" class="box" fill="#f0e2dc"/>
+  <text x="84" y="137" text-anchor="middle" class="ink label">token batch</text>
+  <text x="84" y="158" text-anchor="middle" class="ink small">X ∈ ℝ^(N×D)</text>
+  <text x="84" y="178" text-anchor="middle" class="ink small">有效 token</text>
+
+  <rect x="174" y="101" width="126" height="102" class="box" fill="#f2ead9"/>
+  <text x="237" y="128" text-anchor="middle" class="ink label">router</text>
+  <text x="237" y="150" text-anchor="middle" class="ink small">z = xWᵣ + bᵣ</text>
+  <text x="237" y="169" text-anchor="middle" class="ink small">softmax → p</text>
+  <text x="237" y="188" text-anchor="middle" class="ink small">Top-k → gate</text>
+
+  <rect x="337" y="101" width="126" height="102" class="box" fill="#e3edf0"/>
+  <text x="400" y="128" text-anchor="middle" class="ink label">dispatch</text>
+  <text x="400" y="150" text-anchor="middle" class="ink small">token / expert</text>
+  <text x="400" y="169" text-anchor="middle" class="ink small">capacity slots</text>
+  <text x="400" y="188" text-anchor="middle" class="ink small">all-to-all</text>
+
+  <path d="M140 152 L174 152" class="arrow"/>
+  <path d="M300 152 L337 152" class="arrow"/>
+
+  <path d="M463 125 C500 88 523 88 552 104" class="arrow"/>
+  <path d="M463 152 L552 152" class="arrow"/>
+  <path d="M463 179 C500 216 523 216 552 200" class="arrow"/>
+
+  <rect x="552" y="78" width="102" height="54" class="box" fill="#e3edf0"/>
+  <text x="603" y="101" text-anchor="middle" class="ink label">expert 1</text>
+  <text x="603" y="119" text-anchor="middle" class="ink small">FFN / SwiGLU</text>
+
+  <rect x="552" y="137" width="102" height="54" class="box" fill="#e3edf0"/>
+  <text x="603" y="160" text-anchor="middle" class="ink label">expert 2</text>
+  <text x="603" y="178" text-anchor="middle" class="ink small">FFN / SwiGLU</text>
+
+  <rect x="552" y="196" width="102" height="54" class="box" fill="#e3edf0"/>
+  <text x="603" y="219" text-anchor="middle" class="ink label">expert E</text>
+  <text x="603" y="237" text-anchor="middle" class="ink small">未被选中</text>
+
+  <path d="M654 105 C687 105 687 139 716 152" class="arrow"/>
+  <path d="M654 164 L716 164" class="arrow"/>
+  <path d="M654 223 C687 223 687 189 716 176" class="dash"/>
+
+  <rect x="716" y="125" width="68" height="66" class="box" fill="#f0e2dc"/>
+  <text x="750" y="149" text-anchor="middle" class="ink label">combine</text>
+  <text x="750" y="168" text-anchor="middle" class="ink small">Σ gₑfₑ(x)</text>
+  <text x="750" y="184" text-anchor="middle" class="ink small">→ y</text>
+
+  <path d="M84 248 L84 294 L716 294 L716 208" class="dash"/>
+  <text x="400" y="319" text-anchor="middle" class="ink label">容量与审计</text>
+  <text x="400" y="340" text-anchor="middle" class="ink small">assignment load · overflow · expert/rank 通信 · 主任务与辅助损失</text>
+</svg>

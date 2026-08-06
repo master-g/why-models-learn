@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="pinv-title pinv-desc">
+  <title id="pinv-title">伪逆的两个投影</title>
+  <desc id="pinv-desc">左侧把输出向量 b 正交投影到矩阵的列空间，右侧在同样好的参数中选择垂直于核方向的最小范数解。</desc>
+  <defs>
+    <marker id="pinv-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+    </marker>
+    <marker id="pinv-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+    <text x="20" y="25" font-size="14" font-weight="600">AA⁺：输出空间的最近点</text>
+    <text x="300" y="25" font-size="14" font-weight="600">A⁺b：参数空间的最短解</text>
+  </g>
+
+  <!-- Output projection -->
+  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+    <line x1="42" y1="190" x2="255" y2="190" marker-end="url(#pinv-arrow-ink)"/>
+    <line x1="70" y1="220" x2="70" y2="40" marker-end="url(#pinv-arrow-ink)"/>
+    <line x1="48" y1="212" x2="238" y2="52" stroke="#c9c4bb" stroke-dasharray="5 4"/>
+  </g>
+  <line x1="70" y1="190" x2="230" y2="55" stroke="#cc785c" stroke-width="2"/>
+  <line x1="210" y1="190" x2="140" y2="120" stroke="#312f2f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="210" cy="190" r="4" fill="#312f2f"/>
+  <circle cx="140" cy="120" r="4" fill="#cc785c"/>
+  <text x="216" y="187" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">b=(1,0)</text>
+  <text x="145" y="116" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">AA⁺b=(1/2,1/2)</text>
+  <text x="91" y="78" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">col(A)</text>
+  <text x="174" y="163" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64">残差 ⟂ col(A)</text>
+
+  <!-- Parameter minimum norm -->
+  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+    <line x1="305" y1="190" x2="540" y2="190" marker-end="url(#pinv-arrow-ink)"/>
+    <line x1="350" y1="220" x2="350" y2="42" marker-end="url(#pinv-arrow-ink)"/>
+  </g>
+  <line x1="370" y1="190" x2="495" y2="65" stroke="#cc785c" stroke-width="2"/>
+  <line x1="340" y1="200" x2="500" y2="40" stroke="#c9c4bb" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="395" cy="145" r="4" fill="#cc785c"/>
+  <line x1="350" y1="190" x2="395" y2="145" stroke="#312f2f" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <text x="401" y="141" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">x⁺=(1/4,1/4)</text>
+  <text x="414" y="183" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">x₁+x₂=1/2</text>
+  <text x="447" y="78" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64">同样的最小残差</text>
+  <text x="304" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64">核方向：(1,−1)，x⁺ 与它正交</text>
+</svg>

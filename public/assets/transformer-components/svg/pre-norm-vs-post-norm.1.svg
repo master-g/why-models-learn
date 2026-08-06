@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+  <title id="title">Pre-norm 与 post-norm 的残差顺序</title>
+  <desc id="desc">上方 pre-norm 先归一化分支输入，再把分支输出与原输入相加；下方 post-norm 先相加，再对合并结果归一化。</desc>
+  <style>
+    .paper { fill: #f4efee; }
+    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted { fill: #6c6a64; font-size: 16px; }
+    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
+    .small { fill: #6c6a64; font-size: 14px; }
+    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
+    .norm { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
+    .branch { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
+    .add { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; }
+    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .shortcut { fill: none; stroke: #a9583e; stroke-width: 2; stroke-dasharray: 7 6; stroke-linecap: round; }
+    .arrow { fill: #312f2f; }
+  </style>
+  <rect class="paper" width="800" height="373"/>
+  <text class="ink label" x="42" y="45">同一个 F 和 N，不同的调用顺序</text>
+  <text class="ink muted" x="42" y="72">pre-norm 保留外侧恒等项，post-norm 让相加结果经过 N</text>
+
+  <text class="ink label" x="42" y="125">pre-norm</text>
+  <rect class="box" x="142" y="101" width="70" height="48"/>
+  <text class="ink label" x="168" y="132">x</text>
+  <path class="path" d="M212 125H240"/>
+  <path class="arrow" d="M240 125l-9-6v12z"/>
+  <rect class="norm" x="252" y="101" width="104" height="48"/>
+  <text class="ink" x="276" y="132" font-size="18">N(x)</text>
+  <path class="path" d="M356 125H384"/>
+  <path class="arrow" d="M384 125l-9-6v12z"/>
+  <rect class="branch" x="396" y="101" width="70" height="48"/>
+  <text class="ink label" x="420" y="132">F</text>
+  <path class="path" d="M466 125H506"/>
+  <path class="arrow" d="M506 125l-9-6v12z"/>
+  <circle class="add" cx="531" cy="125" r="22"/>
+  <path class="path" d="M524 118l14 14M538 118l-14 14"/>
+  <path class="path" d="M553 125H599"/>
+  <path class="arrow" d="M599 125l-9-6v12z"/>
+  <rect class="box" x="611" y="101" width="70" height="48"/>
+  <text class="ink label" x="635" y="132">y</text>
+  <path class="shortcut" d="M177 150V174H531V150"/>
+  <path class="arrow" d="M531 150l-6 9h12z"/>
+
+  <text class="ink label" x="42" y="242">post-norm</text>
+  <rect class="box" x="142" y="218" width="70" height="48"/>
+  <text class="ink label" x="168" y="249">x</text>
+  <path class="path" d="M212 242H260"/>
+  <path class="arrow" d="M260 242l-9-6v12z"/>
+  <rect class="branch" x="272" y="218" width="70" height="48"/>
+  <text class="ink label" x="296" y="249">F</text>
+  <path class="path" d="M342 242H390"/>
+  <path class="arrow" d="M390 242l-9-6v12z"/>
+  <circle class="add" cx="415" cy="242" r="22"/>
+  <path class="path" d="M408 235l14 14M422 235l-14 14"/>
+  <path class="shortcut" d="M177 267V291H415V267"/>
+  <path class="arrow" d="M415 267l-6 9h12z"/>
+  <path class="path" d="M437 242H470"/>
+  <path class="arrow" d="M470 242l-9-6v12z"/>
+  <rect class="norm" x="482" y="218" width="104" height="48"/>
+  <text class="ink" x="506" y="249" font-size="18">N</text>
+  <path class="path" d="M586 242H611"/>
+  <path class="arrow" d="M611 242l-9-6v12z"/>
+  <rect class="box" x="623" y="218" width="70" height="48"/>
+  <text class="ink label" x="647" y="249">y</text>
+
+  <text class="ink small" x="142" y="340">pre: J=I+J<tspan baseline-shift="sub" font-size="11">F</tspan>J<tspan baseline-shift="sub" font-size="11">N</tspan></text>
+  <text class="ink small" x="482" y="340">post: J=J<tspan baseline-shift="sub" font-size="11">N</tspan>(I+J<tspan baseline-shift="sub" font-size="11">F</tspan>)</text>
+</svg>
