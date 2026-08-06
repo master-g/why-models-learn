@@ -1,49 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-special-fill-fill-2c2a27 { fill: #2c2a27; }
+  .svg-special-fill-fill-54758a { fill: #54758a; }
+  .svg-special-fill-fill-8a7965 { fill: #8a7965; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+  .svg-special-fill-fill-fffefa { fill: #91908e; }
+  .svg-special-graphic-stroke-54758a { stroke: #54758a; }
+  .svg-special-graphic-stroke-777168 { stroke: #777168; }
+  .svg-special-graphic-stroke-8a7965 { stroke: #8a7965; }
+  .svg-special-graphic-stroke-d8d1c7 { stroke: #95908a; }
+  .svg-special-graphic-stroke-ddd7cf { stroke: #95908b; }
+  .svg-special-text-fill-2c2a27 { fill: #2c2a27; }
+  .svg-special-text-fill-38342f { fill: #38342f; }
+  .svg-special-text-fill-514b44 { fill: #514b44; }
+  .svg-special-text-fill-706a61 { fill: #706a61; }
+
+  .svg-special-background-fill-f7f4ef { fill: #f7f4ef; }
+  .svg-special-background-fill-fffefa { fill: #fffefa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-special-fill-fill-2c2a27 { fill: #646260; }
+    .svg-special-fill-fill-54758a { fill: #54758a; }
+    .svg-special-fill-fill-8a7965 { fill: #8a7965; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+    .svg-special-fill-fill-fffefa { fill: #91908e; }
+    .svg-special-graphic-stroke-54758a { stroke: #54758a; }
+    .svg-special-graphic-stroke-777168 { stroke: #777168; }
+    .svg-special-graphic-stroke-8a7965 { stroke: #8a7965; }
+    .svg-special-graphic-stroke-d8d1c7 { stroke: #95908a; }
+    .svg-special-graphic-stroke-ddd7cf { stroke: #95908b; }
+    .svg-special-text-fill-2c2a27 { fill: #a5a4a3; }
+    .svg-special-text-fill-38342f { fill: #a6a4a1; }
+    .svg-special-text-fill-514b44 { fill: #a7a4a0; }
+    .svg-special-text-fill-706a61 { fill: #a7a49e; }
+    .svg-special-background-fill-f7f4ef { fill: #353434; }
+    .svg-special-background-fill-fffefa { fill: #363635; }
+
+
+
+  }
+</style>
   <title id="title">小批量梯度的噪声与平均</title>
   <desc id="desc">左侧展示不同小批次梯度围绕完整梯度的方向，右侧展示增大批次后方差下降但更新次数减少。</desc>
-  <rect width="800" height="373" fill="#f7f4ef"/>
-  <text x="28" y="30" fill="#2c2a27" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700">小批量梯度：在完整方向附近采样</text>
-  <text x="28" y="51" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">batch size 同时改变噪声和更新频率</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f4ef svg-special-background-fill-f7f4ef"/>
+  <text x="28" y="30"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700" class="svg-special-text-fill-2c2a27">小批量梯度：在完整方向附近采样</text>
+  <text x="28" y="51"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-706a61">batch size 同时改变噪声和更新频率</text>
 
-  <rect x="22" y="68" width="414" height="275" rx="12" fill="#fffefa" stroke="#d8d1c7"/>
-  <text x="42" y="92" fill="#38342f" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700">同一参数点的梯度估计</text>
-  <text x="42" y="111" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">小批次方向不同，但平均方向指向完整梯度</text>
-  <line x1="224" y1="232" x2="224" y2="113" stroke="#a9583e" stroke-width="3.5"/>
-  <polygon points="224,104 218,118 230,118" fill="#a9583e"/>
-  <text x="237" y="116" fill="#a9583e" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">完整梯度</text>
-  <line x1="224" y1="232" x2="330" y2="151" stroke="#54758a" stroke-width="2.5"/>
-  <polygon points="338,145 324,148 331,157" fill="#54758a"/>
-  <line x1="224" y1="232" x2="122" y2="157" stroke="#54758a" stroke-width="2.5"/>
-  <polygon points="114,151 121,162 128,151" fill="#54758a"/>
-  <line x1="224" y1="232" x2="308" y2="276" stroke="#8a7965" stroke-width="2.5"/>
-  <polygon points="318,281 306,270 302,282" fill="#8a7965"/>
-  <line x1="224" y1="232" x2="147" y2="286" stroke="#8a7965" stroke-width="2.5"/>
-  <polygon points="137,293 153,289 146,280" fill="#8a7965"/>
-  <circle cx="224" cy="232" r="5" fill="#2c2a27"/>
-  <text x="235" y="252" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">当前参数</text>
-  <line x1="42" y1="314" x2="62" y2="314" stroke="#a9583e" stroke-width="3"/>
-  <text x="68" y="318" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">全批量方向</text>
-  <line x1="166" y1="314" x2="186" y2="314" stroke="#54758a" stroke-width="3"/>
-  <text x="192" y="318" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">小 batch 样本</text>
-  <line x1="300" y1="314" x2="320" y2="314" stroke="#8a7965" stroke-width="3"/>
-  <text x="326" y="318" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">另一批样本</text>
+  <rect x="22" y="68" width="414" height="275" rx="12"   class="svg-special-fill-fill-fffefa svg-special-graphic-stroke-d8d1c7 svg-special-background-fill-fffefa"/>
+  <text x="42" y="92"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-38342f">同一参数点的梯度估计</text>
+  <text x="42" y="111"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-706a61">小批次方向不同，但平均方向指向完整梯度</text>
+  <line x1="224" y1="232" x2="224" y2="113"  stroke-width="3.5" class="svg-coral-stroke-stroke"/>
+  <polygon points="224,104 218,118 230,118"  class="svg-special-fill-fill-a9583e"/>
+  <text x="237" y="116"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-coral-text-fill">完整梯度</text>
+  <line x1="224" y1="232" x2="330" y2="151"  stroke-width="2.5" class="svg-special-graphic-stroke-54758a"/>
+  <polygon points="338,145 324,148 331,157"  class="svg-special-fill-fill-54758a"/>
+  <line x1="224" y1="232" x2="122" y2="157"  stroke-width="2.5" class="svg-special-graphic-stroke-54758a"/>
+  <polygon points="114,151 121,162 128,151"  class="svg-special-fill-fill-54758a"/>
+  <line x1="224" y1="232" x2="308" y2="276"  stroke-width="2.5" class="svg-special-graphic-stroke-8a7965"/>
+  <polygon points="318,281 306,270 302,282"  class="svg-special-fill-fill-8a7965"/>
+  <line x1="224" y1="232" x2="147" y2="286"  stroke-width="2.5" class="svg-special-graphic-stroke-8a7965"/>
+  <polygon points="137,293 153,289 146,280"  class="svg-special-fill-fill-8a7965"/>
+  <circle cx="224" cy="232" r="5"  class="svg-special-fill-fill-2c2a27"/>
+  <text x="235" y="252"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-514b44">当前参数</text>
+  <line x1="42" y1="314" x2="62" y2="314"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+  <text x="68" y="318"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-514b44">全批量方向</text>
+  <line x1="166" y1="314" x2="186" y2="314"  stroke-width="3" class="svg-special-graphic-stroke-54758a"/>
+  <text x="192" y="318"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-514b44">小 batch 样本</text>
+  <line x1="300" y1="314" x2="320" y2="314"  stroke-width="3" class="svg-special-graphic-stroke-8a7965"/>
+  <text x="326" y="318"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-514b44">另一批样本</text>
 
-  <rect x="452" y="68" width="326" height="275" rx="12" fill="#fffefa" stroke="#d8d1c7"/>
-  <text x="472" y="92" fill="#38342f" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700">批次越大，方向越稳</text>
-  <text x="472" y="111" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">但固定 epoch 中的更新次数会减少</text>
-  <line x1="490" y1="292" x2="744" y2="292" stroke="#777168" stroke-width="1.2"/>
-  <line x1="490" y1="139" x2="490" y2="292" stroke="#777168" stroke-width="1.2"/>
-  <line x1="490" y1="216" x2="744" y2="216" stroke="#ddd7cf"/>
-  <text x="472" y="296" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">0</text>
-  <text x="466" y="220" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">½</text>
-  <text x="466" y="143" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">1</text>
-  <rect x="521" y="173" width="38" height="119" rx="4" fill="#a9583e"/>
-  <rect x="593" y="232" width="38" height="60" rx="4" fill="#54758a"/>
-  <rect x="665" y="262" width="38" height="30" rx="4" fill="#8a7965"/>
-  <text x="520" y="311" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">B=1</text>
-  <text x="585" y="311" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">B=4</text>
-  <text x="655" y="311" fill="#514b44" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">B=16</text>
-  <text x="554" y="330" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">相对梯度方差</text>
-  <text x="517" y="161" fill="#a9583e" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">噪声大</text>
-  <text x="658" y="251" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">噪声小</text>
+  <rect x="452" y="68" width="326" height="275" rx="12"   class="svg-special-fill-fill-fffefa svg-special-graphic-stroke-d8d1c7 svg-special-background-fill-fffefa"/>
+  <text x="472" y="92"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-38342f">批次越大，方向越稳</text>
+  <text x="472" y="111"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-706a61">但固定 epoch 中的更新次数会减少</text>
+  <line x1="490" y1="292" x2="744" y2="292"  stroke-width="1.2" class="svg-special-graphic-stroke-777168"/>
+  <line x1="490" y1="139" x2="490" y2="292"  stroke-width="1.2" class="svg-special-graphic-stroke-777168"/>
+  <line x1="490" y1="216" x2="744" y2="216"  class="svg-special-graphic-stroke-ddd7cf"/>
+  <text x="472" y="296"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-706a61">0</text>
+  <text x="466" y="220"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-706a61">½</text>
+  <text x="466" y="143"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-706a61">1</text>
+  <rect x="521" y="173" width="38" height="119" rx="4"  class="svg-special-fill-fill-a9583e"/>
+  <rect x="593" y="232" width="38" height="60" rx="4"  class="svg-special-fill-fill-54758a"/>
+  <rect x="665" y="262" width="38" height="30" rx="4"  class="svg-special-fill-fill-8a7965"/>
+  <text x="520" y="311"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-514b44">B=1</text>
+  <text x="585" y="311"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-514b44">B=4</text>
+  <text x="655" y="311"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-514b44">B=16</text>
+  <text x="554" y="330"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-706a61">相对梯度方差</text>
+  <text x="517" y="161"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-coral-text-fill">噪声大</text>
+  <text x="658" y="251"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-706a61">噪声小</text>
 </svg>

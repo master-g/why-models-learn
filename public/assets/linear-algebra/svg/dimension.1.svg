@@ -1,59 +1,89 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="dm-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="dm-arr-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左 panel:R² 子空间链,点 ⊂ 线 ⊂ 面 ============ -->
   <!-- 背景方格 = 全平面(dim 2) -->
-  <line x1="60" y1="20" x2="60" y2="160" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="100" y1="20" x2="100" y2="160" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="140" y1="20" x2="140" y2="160" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="180" y1="20" x2="180" y2="160" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="220" y1="20" x2="220" y2="160" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="30" y1="30" x2="250" y2="30" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="30" y1="70" x2="250" y2="70" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="30" y1="110" x2="250" y2="110" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
-  <line x1="30" y1="150" x2="250" y2="150" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="60" y1="20" x2="60" y2="160"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="100" y1="20" x2="100" y2="160"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="140" y1="20" x2="140" y2="160"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="180" y1="20" x2="180" y2="160"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="220" y1="20" x2="220" y2="160"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="30" y1="30" x2="250" y2="30"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="30" y1="70" x2="250" y2="70"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="30" y1="110" x2="250" y2="110"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="30" y1="150" x2="250" y2="150"  stroke-width="1" stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- 过原点的直线(dim 1) -->
-  <line x1="60" y1="150" x2="220" y2="70" stroke="#cc785c" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <line x1="60" y1="150" x2="220" y2="70"  stroke-width="1.6" stroke-dasharray="6 4" class="svg-coral-stroke-stroke"/>
 
   <!-- 原点(dim 0) -->
-  <circle cx="140" cy="110" r="3" fill="#312f2f"/>
+  <circle cx="140" cy="110" r="3"  class="svg-special-fill-fill-312f2f"/>
 
-  <text x="34" y="30" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">全平面:dim 2</text>
-  <text x="166" y="58" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">直线:dim 1</text>
-  <text x="150" y="126" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#312f2f">原点:dim 0</text>
+  <text x="34" y="30" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">全平面:dim 2</text>
+  <text x="166" y="58" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-coral-text-fill">直线:dim 1</text>
+  <text x="150" y="126" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-special-text-fill-312f2f">原点:dim 0</text>
 
-  <text x="36" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">R² 的子空间链:0 ⊂ 1 ⊂ 2</text>
+  <text x="36" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">R² 的子空间链:0 ⊂ 1 ⊂ 2</text>
 
   <!-- ============ 右 panel:R³ 伪 3D,xy 平面(dim 2)+ z 轴 ============ -->
   <!-- 原点 (400,150),e_x → (36,0),e_y → (26,-15),e_z → (0,-36) -->
-  <line x1="400" y1="150" x2="530" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#dm-arr-axis)"/>
-  <line x1="400" y1="150" x2="466" y2="112" stroke="#b8b2a8" stroke-width="1" marker-end="url(#dm-arr-axis)"/>
-  <line x1="400" y1="150" x2="400" y2="62" stroke="#b8b2a8" stroke-width="1" marker-end="url(#dm-arr-axis)"/>
-  <text x="534" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="470" y="112" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
-  <text x="392" y="56" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">z</text>
+  <line x1="400" y1="150" x2="530" y2="150"  stroke-width="1" marker-end="url(#dm-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="400" y1="150" x2="466" y2="112"  stroke-width="1" marker-end="url(#dm-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="400" y1="150" x2="400" y2="62"  stroke-width="1" marker-end="url(#dm-arr-axis)" class="svg-axis-stroke"/>
+  <text x="534" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="470" y="112" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
+  <text x="392" y="56" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">z</text>
 
   <!-- xy 平面(平行四边形,2e_x × 2e_y) -->
-  <line x1="400" y1="150" x2="472" y2="150" stroke="#6c6a64" stroke-width="1.2" stroke-dasharray="5 4"/>
-  <line x1="472" y1="150" x2="524" y2="120" stroke="#6c6a64" stroke-width="1.2" stroke-dasharray="5 4"/>
-  <line x1="524" y1="120" x2="452" y2="120" stroke="#6c6a64" stroke-width="1.2" stroke-dasharray="5 4"/>
-  <line x1="452" y1="120" x2="400" y2="150" stroke="#6c6a64" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="400" y1="150" x2="472" y2="150"  stroke-width="1.2" stroke-dasharray="5 4" class="svg-special-graphic-stroke-6c6a64"/>
+  <line x1="472" y1="150" x2="524" y2="120"  stroke-width="1.2" stroke-dasharray="5 4" class="svg-special-graphic-stroke-6c6a64"/>
+  <line x1="524" y1="120" x2="452" y2="120"  stroke-width="1.2" stroke-dasharray="5 4" class="svg-special-graphic-stroke-6c6a64"/>
+  <line x1="452" y1="120" x2="400" y2="150"  stroke-width="1.2" stroke-dasharray="5 4" class="svg-special-graphic-stroke-6c6a64"/>
 
   <!-- z 轴方向(第三维,平面外) -->
-  <line x1="400" y1="150" x2="400" y2="78" stroke="#cc785c" stroke-width="1.8" marker-end="url(#dm-arr-coral)"/>
+  <line x1="400" y1="150" x2="400" y2="78"  stroke-width="1.8" marker-end="url(#dm-arr-coral)" class="svg-coral-stroke-stroke"/>
 
-  <circle cx="400" cy="150" r="2.4" fill="#312f2f"/>
+  <circle cx="400" cy="150" r="2.4"  class="svg-special-fill-fill-312f2f"/>
 
-  <text x="428" y="140" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">xy 平面:dim 2</text>
-  <text x="408" y="96" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">第三维</text>
+  <text x="428" y="140" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">xy 平面:dim 2</text>
+  <text x="408" y="96" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-coral-text-fill">第三维</text>
 
-  <text x="366" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">R³:平面 dim 2,z 轴补上第三维</text>
+  <text x="366" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">R³:平面 dim 2,z 轴补上第三维</text>
 </svg>

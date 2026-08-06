@@ -1,93 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-718878 { fill: #718878; }
+  .svg-special-fill-fill-8c8880 { fill: #8c8880; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e8eee9 { fill: #8e918e; }
+  .svg-special-fill-fill-f4e5df { fill: #988f8b; }
+  .svg-special-fill-fill-f4f1ec { fill: #92908e; }
+  .svg-special-fill-fill-f8f6f2 { fill: #92908e; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-graphic-stroke-718878 { stroke: #718878; }
+  .svg-special-graphic-stroke-8c8880 { stroke: #8c8880; }
+  .svg-special-graphic-stroke-d5d0c8 { stroke: #94908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706b65 { fill: #706b65; }
+
+  .svg-special-background-fill-e8eee9 { fill: #e8eee9; }
+  .svg-special-background-fill-f4e5df { fill: #f4e5df; }
+  .svg-special-background-fill-f4f1ec { fill: #f4f1ec; }
+  .svg-special-background-fill-f8f6f2 { fill: #f8f6f2; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-718878 { fill: #718878; }
+    .svg-special-fill-fill-8c8880 { fill: #8c8880; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e8eee9 { fill: #8e918e; }
+    .svg-special-fill-fill-f4e5df { fill: #988f8b; }
+    .svg-special-fill-fill-f4f1ec { fill: #92908e; }
+    .svg-special-fill-fill-f8f6f2 { fill: #92908e; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-graphic-stroke-718878 { stroke: #718878; }
+    .svg-special-graphic-stroke-8c8880 { stroke: #8c8880; }
+    .svg-special-graphic-stroke-d5d0c8 { stroke: #94908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706b65 { fill: #a7a4a0; }
+    .svg-special-background-fill-e8eee9 { fill: #333333; }
+    .svg-special-background-fill-f4e5df { fill: #343231; }
+    .svg-special-background-fill-f4f1ec { fill: #343433; }
+    .svg-special-background-fill-f8f6f2 { fill: #353534; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">拒绝采样：候选生成、代理筛选与独立评测</title>
   <desc id="desc">proposal policy 为同一 prompt 生成 N 个候选，筛选器按阈值或代理 reward 选择样本，样本可以直接返回或进入 rejection fine-tuning，独立评测检查真实效用和约束。</desc>
   <defs>
     <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#718878"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-718878"/>
     </marker>
     <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#8c8880"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-8c8880"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
-      .muted { fill: #706b65; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
       .small { font-size: 12px; }
       .label { font-size: 14px; font-weight: 600; }
       .title { font-size: 16px; font-weight: 600; }
-      .panel { fill: #fbfaf7; stroke: #d5d0c8; stroke-width: 1; }
-      .coral { fill: #f4e5df; stroke: #cc785c; stroke-width: 1.7; }
-      .green { fill: #e8eee9; stroke: #718878; stroke-width: 1.7; }
-      .plain { fill: #f8f6f2; stroke: #8c8880; stroke-width: 1.4; }
-      .line-coral { fill: none; stroke: #cc785c; stroke-width: 2; marker-end: url(#arrow-coral); }
-      .line-green { fill: none; stroke: #718878; stroke-width: 2; marker-end: url(#arrow-green); }
-      .line-muted { fill: none; stroke: #8c8880; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
+      .panel {stroke-width: 1; }
+      .coral {stroke-width: 1.7; }
+      .green {stroke-width: 1.7; }
+      .plain {stroke-width: 1.4; }
+      .line-coral { fill: none;  stroke-width: 2; marker-end: url(#arrow-coral); }
+      .line-green { fill: none;  stroke-width: 2; marker-end: url(#arrow-green); }
+      .line-muted { fill: none;  stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
     </style>
   </defs>
 
-  <rect width="800" height="373" rx="14" fill="#f4f1ec"/>
-  <text x="28" y="34" class="ink title">拒绝采样：proposal → N 个候选 → 筛选 → 验收</text>
-  <text x="28" y="56" class="muted small">threshold 与 best-of-N 改变服务分布；RFT 还会把 accepted 样本写入新 checkpoint</text>
+  <rect width="800" height="373" rx="14"  class="svg-special-fill-fill-f4f1ec svg-special-background-fill-f4f1ec"/>
+  <text x="28" y="34" class="ink title svg-special-text-fill-312f2f">拒绝采样：proposal → N 个候选 → 筛选 → 验收</text>
+  <text x="28" y="56" class="muted small svg-special-text-fill-706b65">threshold 与 best-of-N 改变服务分布；RFT 还会把 accepted 样本写入新 checkpoint</text>
 
-  <rect x="24" y="84" width="168" height="232" rx="12" class="panel"/>
-  <text x="108" y="111" text-anchor="middle" class="ink label">proposal policy</text>
-  <rect x="44" y="128" width="128" height="43" rx="8" class="plain"/>
-  <text x="108" y="147" text-anchor="middle" class="ink small">π<tspan baseline-shift="sub">θ</tspan>(y|x)</text>
-  <text x="108" y="163" text-anchor="middle" class="muted small">prompt x</text>
-  <rect x="44" y="190" width="57" height="43" rx="8" class="coral"/>
-  <text x="72" y="207" text-anchor="middle" class="ink small">N samples</text>
-  <text x="72" y="223" text-anchor="middle" class="muted small">y₁ … y<tspan baseline-shift="sub">N</tspan></text>
-  <rect x="115" y="190" width="57" height="43" rx="8" class="plain"/>
-  <text x="144" y="207" text-anchor="middle" class="ink small">config</text>
-  <text x="144" y="223" text-anchor="middle" class="muted small">temp / top-p</text>
-  <text x="44" y="264" class="muted small">checkpoint / seed</text>
-  <text x="44" y="282" class="muted small">长度 / 语言 / 任务</text>
-  <text x="44" y="300" class="muted small">保存 rejected</text>
+  <rect x="24" y="84" width="168" height="232" rx="12" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-fbfaf7"/>
+  <text x="108" y="111" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">proposal policy</text>
+  <rect x="44" y="128" width="128" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="108" y="147" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">π<tspan baseline-shift="sub">θ</tspan>(y|x)</text>
+  <text x="108" y="163" text-anchor="middle" class="muted small svg-special-text-fill-706b65">prompt x</text>
+  <rect x="44" y="190" width="57" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="72" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">N samples</text>
+  <text x="72" y="223" text-anchor="middle" class="muted small svg-special-text-fill-706b65">y₁ … y<tspan baseline-shift="sub">N</tspan></text>
+  <rect x="115" y="190" width="57" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="144" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">config</text>
+  <text x="144" y="223" text-anchor="middle" class="muted small svg-special-text-fill-706b65">temp / top-p</text>
+  <text x="44" y="264" class="muted small svg-special-text-fill-706b65">checkpoint / seed</text>
+  <text x="44" y="282" class="muted small svg-special-text-fill-706b65">长度 / 语言 / 任务</text>
+  <text x="44" y="300" class="muted small svg-special-text-fill-706b65">保存 rejected</text>
 
-  <line x1="192" y1="151" x2="217" y2="151" class="line-coral"/>
-  <line x1="192" y1="211" x2="217" y2="211" class="line-muted"/>
+  <line x1="192" y1="151" x2="217" y2="151" class="line-coral svg-coral-stroke-stroke"/>
+  <line x1="192" y1="211" x2="217" y2="211" class="line-muted svg-special-graphic-stroke-8c8880"/>
 
-  <rect x="227" y="84" width="258" height="232" rx="12" class="panel"/>
-  <text x="249" y="111" class="ink label">筛选器</text>
-  <rect x="249" y="128" width="100" height="43" rx="8" class="coral"/>
-  <text x="299" y="145" text-anchor="middle" class="ink small">reward R<tspan baseline-shift="sub">φ</tspan></text>
-  <text x="299" y="161" text-anchor="middle" class="muted small">score / rule / mask</text>
-  <line x1="349" y1="149" x2="367" y2="149" class="line-coral"/>
-  <rect x="373" y="128" width="90" height="43" rx="8" class="coral"/>
-  <text x="418" y="145" text-anchor="middle" class="ink small">top-1 / top-k</text>
-  <text x="418" y="161" text-anchor="middle" class="muted small">或 threshold τ</text>
-  <rect x="249" y="198" width="100" height="43" rx="8" class="plain"/>
-  <text x="299" y="215" text-anchor="middle" class="ink small">acceptance</text>
-  <text x="299" y="231" text-anchor="middle" class="muted small">α / 拒绝原因</text>
-  <line x1="349" y1="219" x2="367" y2="219" class="line-muted"/>
-  <rect x="373" y="198" width="90" height="43" rx="8" class="green"/>
-  <text x="418" y="215" text-anchor="middle" class="ink small">accepted y</text>
-  <text x="418" y="231" text-anchor="middle" class="muted small">直接返回 / RFT</text>
-  <text x="249" y="270" class="muted small">N ↑：极值 reward 更高</text>
-  <text x="249" y="288" class="muted small">α ↓：期望采样次数 1/α</text>
-  <text x="249" y="306" class="muted small">记录候选覆盖和成本</text>
+  <rect x="227" y="84" width="258" height="232" rx="12" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-fbfaf7"/>
+  <text x="249" y="111" class="ink label svg-special-text-fill-312f2f">筛选器</text>
+  <rect x="249" y="128" width="100" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="299" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">reward R<tspan baseline-shift="sub">φ</tspan></text>
+  <text x="299" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">score / rule / mask</text>
+  <line x1="349" y1="149" x2="367" y2="149" class="line-coral svg-coral-stroke-stroke"/>
+  <rect x="373" y="128" width="90" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="418" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">top-1 / top-k</text>
+  <text x="418" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">或 threshold τ</text>
+  <rect x="249" y="198" width="100" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="299" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">acceptance</text>
+  <text x="299" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">α / 拒绝原因</text>
+  <line x1="349" y1="219" x2="367" y2="219" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <rect x="373" y="198" width="90" height="43" rx="8" class="green svg-special-fill-fill-e8eee9 svg-special-graphic-stroke-718878 svg-special-background-fill-e8eee9"/>
+  <text x="418" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">accepted y</text>
+  <text x="418" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">直接返回 / RFT</text>
+  <text x="249" y="270" class="muted small svg-special-text-fill-706b65">N ↑：极值 reward 更高</text>
+  <text x="249" y="288" class="muted small svg-special-text-fill-706b65">α ↓：期望采样次数 1/α</text>
+  <text x="249" y="306" class="muted small svg-special-text-fill-706b65">记录候选覆盖和成本</text>
 
-  <line x1="485" y1="219" x2="508" y2="219" class="line-green"/>
+  <line x1="485" y1="219" x2="508" y2="219" class="line-green svg-special-graphic-stroke-718878"/>
 
-  <rect x="518" y="84" width="258" height="232" rx="12" class="panel"/>
-  <text x="540" y="111" class="ink label">输出与独立验收</text>
-  <rect x="540" y="128" width="98" height="43" rx="8" class="green"/>
-  <text x="589" y="145" text-anchor="middle" class="ink small">服务输出</text>
-  <text x="589" y="161" text-anchor="middle" class="muted small">BoN 分布</text>
-  <line x1="638" y1="149" x2="656" y2="149" class="line-green"/>
-  <rect x="662" y="128" width="94" height="43" rx="8" class="green"/>
-  <text x="709" y="145" text-anchor="middle" class="ink small">独立评测</text>
-  <text x="709" y="161" text-anchor="middle" class="muted small">U / C / 覆盖</text>
-  <rect x="540" y="198" width="98" height="43" rx="8" class="plain"/>
-  <text x="589" y="215" text-anchor="middle" class="ink small">RFT data</text>
-  <text x="589" y="231" text-anchor="middle" class="muted small">accepted + rejected</text>
-  <line x1="638" y1="219" x2="656" y2="219" class="line-muted"/>
-  <rect x="662" y="198" width="94" height="43" rx="8" class="coral"/>
-  <text x="709" y="215" text-anchor="middle" class="ink small">回滚 / 停止</text>
-  <text x="709" y="231" text-anchor="middle" class="muted small">发现分离</text>
-  <text x="540" y="270" class="muted small">长度、重复、尾部和高风险切片</text>
-  <text x="540" y="288" class="muted small">保存每个候选的 score 与状态</text>
-  <text x="540" y="306" class="muted small">代理分数上升不等于效用上升</text>
+  <rect x="518" y="84" width="258" height="232" rx="12" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-fbfaf7"/>
+  <text x="540" y="111" class="ink label svg-special-text-fill-312f2f">输出与独立验收</text>
+  <rect x="540" y="128" width="98" height="43" rx="8" class="green svg-special-fill-fill-e8eee9 svg-special-graphic-stroke-718878 svg-special-background-fill-e8eee9"/>
+  <text x="589" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">服务输出</text>
+  <text x="589" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">BoN 分布</text>
+  <line x1="638" y1="149" x2="656" y2="149" class="line-green svg-special-graphic-stroke-718878"/>
+  <rect x="662" y="128" width="94" height="43" rx="8" class="green svg-special-fill-fill-e8eee9 svg-special-graphic-stroke-718878 svg-special-background-fill-e8eee9"/>
+  <text x="709" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">独立评测</text>
+  <text x="709" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">U / C / 覆盖</text>
+  <rect x="540" y="198" width="98" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="589" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">RFT data</text>
+  <text x="589" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">accepted + rejected</text>
+  <line x1="638" y1="219" x2="656" y2="219" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <rect x="662" y="198" width="94" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="709" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">回滚 / 停止</text>
+  <text x="709" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">发现分离</text>
+  <text x="540" y="270" class="muted small svg-special-text-fill-706b65">长度、重复、尾部和高风险切片</text>
+  <text x="540" y="288" class="muted small svg-special-text-fill-706b65">保存每个候选的 score 与状态</text>
+  <text x="540" y="306" class="muted small svg-special-text-fill-706b65">代理分数上升不等于效用上升</text>
 </svg>

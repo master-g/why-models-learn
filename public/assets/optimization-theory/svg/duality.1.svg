@@ -1,33 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
-  <rect width="560" height="250" fill="#f7f3ef"/>
-  <text x="28" y="29" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700">原问题与对偶问题从两侧逼近同一个值</text>
-  <text x="28" y="51" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">乘子把约束违反转成目标值的下界</text>
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e8e3df { fill: #94908e; }
+  .svg-special-fill-fill-eee9e5 { fill: #94908e; }
+  .svg-special-fill-fill-f2dfd7 { fill: #9b8e89; }
+  .svg-special-fill-fill-f7f3ef { fill: #93908e; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6e6963 { fill: #6e6963; }
 
-  <rect x="24" y="73" width="151" height="91" rx="10" fill="#eee9e5" stroke="#b8b2a8"/>
-  <text x="40" y="96" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">原问题</text>
-  <text x="40" y="124" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13">min f(x)</text>
-  <text x="40" y="147" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">x 必须可行</text>
+  .svg-special-background-fill-e8e3df { fill: #e8e3df; }
+  .svg-special-background-fill-eee9e5 { fill: #eee9e5; }
+  .svg-special-background-fill-f2dfd7 { fill: #f2dfd7; }
+  .svg-special-background-fill-f7f3ef { fill: #f7f3ef; }
 
-  <line x1="180" y1="117" x2="204" y2="117" stroke="#cc785c" stroke-width="2"/>
-  <polygon points="204,117 196,112 196,122" fill="#cc785c"/>
 
-  <rect x="204" y="73" width="151" height="91" rx="10" fill="#f2dfd7" stroke="#cc785c"/>
-  <text x="220" y="96" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">拉格朗日函数</text>
-  <text x="220" y="124" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13">L(x, λ)</text>
-  <text x="220" y="147" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">对 x 取下确界</text>
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e8e3df { fill: #94908e; }
+    .svg-special-fill-fill-eee9e5 { fill: #94908e; }
+    .svg-special-fill-fill-f2dfd7 { fill: #9b8e89; }
+    .svg-special-fill-fill-f7f3ef { fill: #93908e; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6e6963 { fill: #a7a4a0; }
+    .svg-special-background-fill-e8e3df { fill: #333231; }
+    .svg-special-background-fill-eee9e5 { fill: #333332; }
+    .svg-special-background-fill-f2dfd7 { fill: #343130; }
+    .svg-special-background-fill-f7f3ef { fill: #353434; }
 
-  <line x1="360" y1="117" x2="384" y2="117" stroke="#cc785c" stroke-width="2"/>
-  <polygon points="384,117 376,112 376,122" fill="#cc785c"/>
 
-  <rect x="384" y="73" width="152" height="91" rx="10" fill="#eee9e5" stroke="#b8b2a8"/>
-  <text x="400" y="96" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">对偶问题</text>
-  <text x="400" y="124" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13">max q(λ)</text>
-  <text x="400" y="147" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="12">λ ≥ 0 给出下界</text>
 
-  <rect x="24" y="183" width="512" height="43" rx="9" fill="#e8e3df"/>
-  <line x1="280" y1="190" x2="280" y2="219" stroke="#c9c4bb"/>
-  <text x="43" y="201" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">弱对偶</text>
-  <text x="43" y="217" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="11">q(λ) ≤ p*</text>
-  <text x="300" y="201" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700">强对偶</text>
-  <text x="300" y="217" fill="#6e6963" font-family="system-ui, -apple-system, sans-serif" font-size="11">凸性下 gap = 0</text>
+  }
+</style>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f7f3ef svg-special-background-fill-f7f3ef"/>
+  <text x="28" y="29"  font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" class="svg-special-text-fill-312f2f">原问题与对偶问题从两侧逼近同一个值</text>
+  <text x="28" y="51"  font-family="system-ui, -apple-system, sans-serif" font-size="12" class="svg-special-text-fill-6e6963">乘子把约束违反转成目标值的下界</text>
+
+  <rect x="24" y="73" width="151" height="91" rx="10"   class="svg-special-fill-fill-eee9e5 svg-axis-stroke svg-special-background-fill-eee9e5"/>
+  <text x="40" y="96"  font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">原问题</text>
+  <text x="40" y="124"  font-family="system-ui, -apple-system, sans-serif" font-size="13" class="svg-special-text-fill-312f2f">min f(x)</text>
+  <text x="40" y="147"  font-family="system-ui, -apple-system, sans-serif" font-size="12" class="svg-special-text-fill-6e6963">x 必须可行</text>
+
+  <line x1="180" y1="117" x2="204" y2="117"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+  <polygon points="204,117 196,112 196,122"  class="svg-special-fill-fill-cc785c"/>
+
+  <rect x="204" y="73" width="151" height="91" rx="10"   class="svg-special-fill-fill-f2dfd7 svg-coral-stroke-stroke svg-special-background-fill-f2dfd7"/>
+  <text x="220" y="96"  font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">拉格朗日函数</text>
+  <text x="220" y="124"  font-family="system-ui, -apple-system, sans-serif" font-size="13" class="svg-special-text-fill-312f2f">L(x, λ)</text>
+  <text x="220" y="147"  font-family="system-ui, -apple-system, sans-serif" font-size="12" class="svg-special-text-fill-6e6963">对 x 取下确界</text>
+
+  <line x1="360" y1="117" x2="384" y2="117"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+  <polygon points="384,117 376,112 376,122"  class="svg-special-fill-fill-cc785c"/>
+
+  <rect x="384" y="73" width="152" height="91" rx="10"   class="svg-special-fill-fill-eee9e5 svg-axis-stroke svg-special-background-fill-eee9e5"/>
+  <text x="400" y="96"  font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">对偶问题</text>
+  <text x="400" y="124"  font-family="system-ui, -apple-system, sans-serif" font-size="13" class="svg-special-text-fill-312f2f">max q(λ)</text>
+  <text x="400" y="147"  font-family="system-ui, -apple-system, sans-serif" font-size="12" class="svg-special-text-fill-6e6963">λ ≥ 0 给出下界</text>
+
+  <rect x="24" y="183" width="512" height="43" rx="9"  class="svg-special-fill-fill-e8e3df svg-special-background-fill-e8e3df"/>
+  <line x1="280" y1="190" x2="280" y2="219"  class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="43" y="201"  font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" class="svg-special-text-fill-312f2f">弱对偶</text>
+  <text x="43" y="217"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6e6963">q(λ) ≤ p*</text>
+  <text x="300" y="201"  font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" class="svg-special-text-fill-312f2f">强对偶</text>
+  <text x="300" y="217"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6e6963">凸性下 gap = 0</text>
 </svg>

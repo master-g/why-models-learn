@@ -1,62 +1,120 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-special-fill-fill-29251f { fill: #29251f; }
+  .svg-special-fill-fill-75939d { fill: #75939d; }
+  .svg-special-fill-fill-89906c { fill: #89906c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+  .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+  .svg-special-fill-fill-efe1cd { fill: #988f83; }
+  .svg-special-fill-fill-efe8de { fill: #95908a; }
+  .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+  .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+  .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+  .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+  .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+  .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+  .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+  .svg-special-text-fill-6f665b { fill: #6f665b; }
+
+  .svg-special-background-fill-e5edf0 { fill: #e5edf0; }
+  .svg-special-background-fill-e8e6d9 { fill: #e8e6d9; }
+  .svg-special-background-fill-efe1cd { fill: #efe1cd; }
+  .svg-special-background-fill-efe8de { fill: #efe8de; }
+  .svg-special-background-fill-f0e7ca { fill: #f0e7ca; }
+  .svg-special-background-fill-f6f0e5 { fill: #f6f0e5; }
+  .svg-special-text-fill-29251f { fill: #29251f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-special-fill-fill-29251f { fill: #65625d; }
+    .svg-special-fill-fill-75939d { fill: #75939d; }
+    .svg-special-fill-fill-89906c { fill: #89906c; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+    .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+    .svg-special-fill-fill-efe1cd { fill: #988f83; }
+    .svg-special-fill-fill-efe8de { fill: #95908a; }
+    .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+    .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+    .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+    .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+    .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+    .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+    .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+    .svg-special-text-fill-6f665b { fill: #a9a49d; }
+    .svg-special-background-fill-e5edf0 { fill: #323334; }
+    .svg-special-background-fill-e8e6d9 { fill: #333230; }
+    .svg-special-background-fill-efe1cd { fill: #34322f; }
+    .svg-special-background-fill-efe8de { fill: #343331; }
+    .svg-special-background-fill-f0e7ca { fill: #34322e; }
+    .svg-special-background-fill-f6f0e5 { fill: #353432; }
+    .svg-special-text-fill-29251f { fill: #a6a4a1; }
+
+
+
+  }
+</style>
   <title id="title">Scaled Dot-Product Attention 的缩放作用</title>
   <desc id="desc">点积由 d_k 个乘积相加，方差随 d_k 增长；除以平方根 d_k 后，score 的典型标准差回到常数尺度，再交给 softmax 形成读取权重。</desc>
-  <rect width="800" height="373" fill="#f6f0e5"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f6f0e5 svg-special-background-fill-f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"  class="svg-special-fill-fill-29251f svg-special-text-fill-29251f">
     <text x="32" y="34" font-size="22" font-weight="700">Scaled Dot-Product Attention：先校准 score 尺度</text>
-    <text x="32" y="57" font-size="12" fill="#6f665b">点积的随机波动随匹配维数增长；÷√dₖ 后再进入 softmax</text>
+    <text x="32" y="57" font-size="12"  class="svg-special-text-fill-6f665b">点积的随机波动随匹配维数增长；÷√dₖ 后再进入 softmax</text>
 
-    <rect x="32" y="82" width="178" height="126" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <rect x="32" y="82" width="178" height="126" rx="12"   class="svg-special-fill-fill-efe1cd svg-special-graphic-stroke-b58b5b svg-special-background-fill-efe1cd"/>
     <text x="50" y="108" font-size="14" font-weight="700">点积</text>
     <text x="50" y="135" font-size="16">qᵀk = Σ qⱼkⱼ</text>
-    <text x="50" y="160" font-size="12" fill="#6f665b">dₖ 个乘积项相加</text>
-    <rect x="50" y="174" width="28" height="18" rx="4" fill="#f6f0e5" stroke="#b58b5b"/>
-    <rect x="84" y="174" width="28" height="18" rx="4" fill="#f6f0e5" stroke="#b58b5b"/>
-    <rect x="118" y="174" width="28" height="18" rx="4" fill="#f6f0e5" stroke="#b58b5b"/>
-    <rect x="152" y="174" width="28" height="18" rx="4" fill="#f6f0e5" stroke="#b58b5b"/>
+    <text x="50" y="160" font-size="12"  class="svg-special-text-fill-6f665b">dₖ 个乘积项相加</text>
+    <rect x="50" y="174" width="28" height="18" rx="4"   class="svg-special-fill-fill-f6f0e5 svg-special-graphic-stroke-b58b5b svg-special-background-fill-f6f0e5"/>
+    <rect x="84" y="174" width="28" height="18" rx="4"   class="svg-special-fill-fill-f6f0e5 svg-special-graphic-stroke-b58b5b svg-special-background-fill-f6f0e5"/>
+    <rect x="118" y="174" width="28" height="18" rx="4"   class="svg-special-fill-fill-f6f0e5 svg-special-graphic-stroke-b58b5b svg-special-background-fill-f6f0e5"/>
+    <rect x="152" y="174" width="28" height="18" rx="4"   class="svg-special-fill-fill-f6f0e5 svg-special-graphic-stroke-b58b5b svg-special-background-fill-f6f0e5"/>
     <text x="59" y="187" font-size="11">①</text>
     <text x="93" y="187" font-size="11">②</text>
     <text x="127" y="187" font-size="11">③</text>
     <text x="161" y="187" font-size="11">…</text>
 
-    <path d="M210 145 H238" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M230 137 L240 145 L230 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M210 145 H238"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M230 137 L240 145 L230 153"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="240" y="82" width="180" height="126" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <rect x="240" y="82" width="180" height="126" rx="12"   class="svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
     <text x="258" y="108" font-size="14" font-weight="700">维数效应</text>
     <text x="258" y="137" font-size="16">Var(qᵀk) ∝ dₖ</text>
     <text x="258" y="162" font-size="16">Std(qᵀk) ∝ √dₖ</text>
-    <text x="258" y="188" font-size="12" fill="#6f665b">dₖ=64 时典型尺度≈8</text>
+    <text x="258" y="188" font-size="12"  class="svg-special-text-fill-6f665b">dₖ=64 时典型尺度≈8</text>
 
-    <path d="M420 145 H448" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M440 137 L450 145 L440 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M420 145 H448"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M440 137 L450 145 L440 153"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="450" y="82" width="128" height="126" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <rect x="450" y="82" width="128" height="126" rx="12"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
     <text x="468" y="108" font-size="14" font-weight="700">缩放</text>
     <text x="468" y="139" font-size="20">÷ √dₖ</text>
     <text x="468" y="168" font-size="13">Std → 常数</text>
-    <text x="468" y="190" font-size="11" fill="#6f665b">不增加参数</text>
+    <text x="468" y="190" font-size="11"  class="svg-special-text-fill-6f665b">不增加参数</text>
 
-    <path d="M578 145 H606" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M598 137 L608 145 L598 153" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M578 145 H606"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M598 137 L608 145 L598 153"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="608" y="82" width="160" height="126" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <rect x="608" y="82" width="160" height="126" rx="12"   class="svg-special-fill-fill-f0e7ca svg-special-graphic-stroke-b19350 svg-special-background-fill-f0e7ca"/>
     <text x="626" y="108" font-size="14" font-weight="700">softmax</text>
     <text x="626" y="136" font-size="13">分数差异可学习</text>
     <text x="626" y="161" font-size="13">权重和 = 1</text>
-    <text x="626" y="188" font-size="11" fill="#6f665b">避免仅因维数而饱和</text>
+    <text x="626" y="188" font-size="11"  class="svg-special-text-fill-6f665b">避免仅因维数而饱和</text>
 
-    <rect x="32" y="245" width="736" height="92" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <rect x="32" y="245" width="736" height="92" rx="12"   class="svg-special-fill-fill-efe8de svg-axis-stroke svg-special-background-fill-efe8de"/>
     <text x="52" y="270" font-size="13" font-weight="700">dₖ = 64 的标准差尺度</text>
-    <text x="52" y="299" font-size="12" fill="#6f665b">不缩放</text>
-    <rect x="116" y="288" width="154" height="14" rx="5" fill="#cc785c"/>
+    <text x="52" y="299" font-size="12"  class="svg-special-text-fill-6f665b">不缩放</text>
+    <rect x="116" y="288" width="154" height="14" rx="5"  class="svg-special-fill-fill-cc785c"/>
     <text x="278" y="300" font-size="12">8</text>
-    <text x="322" y="299" font-size="12" fill="#6f665b">÷√dₖ</text>
-    <rect x="385" y="288" width="20" height="14" rx="5" fill="#75939d"/>
+    <text x="322" y="299" font-size="12"  class="svg-special-text-fill-6f665b">÷√dₖ</text>
+    <rect x="385" y="288" width="20" height="14" rx="5"  class="svg-special-fill-fill-75939d"/>
     <text x="414" y="300" font-size="12">1</text>
-    <text x="455" y="299" font-size="12" fill="#6f665b">÷dₖ</text>
-    <rect x="515" y="288" width="3" height="14" rx="2" fill="#89906c"/>
+    <text x="455" y="299" font-size="12"  class="svg-special-text-fill-6f665b">÷dₖ</text>
+    <rect x="515" y="288" width="3" height="14" rx="2"  class="svg-special-fill-fill-89906c"/>
     <text x="528" y="300" font-size="12">0.125</text>
-    <text x="52" y="325" font-size="12" fill="#6f665b">标准缩放压低维数造成的随机波动，但不强制所有训练后 score 都平坦</text>
+    <text x="52" y="325" font-size="12"  class="svg-special-text-fill-6f665b">标准缩放压低维数造成的随机波动，但不强制所有训练后 score 都平坦</text>
   </g>
 </svg>

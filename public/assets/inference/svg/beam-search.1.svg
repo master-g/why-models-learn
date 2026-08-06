@@ -1,78 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-eeeae4 { fill: #93908d; }
+  .svg-special-fill-fill-f2e2d9 { fill: #998e89; }
+  .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+  .svg-special-graphic-stroke-8e8880 { stroke: #8e8880; }
+  .svg-special-graphic-stroke-d2cdc5 { stroke: #94908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6f6a64 { fill: #6f6a64; }
+
+  .svg-special-background-fill-eeeae4 { fill: #eeeae4; }
+  .svg-special-background-fill-f2e2d9 { fill: #f2e2d9; }
+  .svg-special-background-fill-f7f4ef { fill: #f7f4ef; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-eeeae4 { fill: #93908d; }
+    .svg-special-fill-fill-f2e2d9 { fill: #998e89; }
+    .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+    .svg-special-graphic-stroke-8e8880 { stroke: #8e8880; }
+    .svg-special-graphic-stroke-d2cdc5 { stroke: #94908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6f6a64 { fill: #a7a4a0; }
+    .svg-special-background-fill-eeeae4 { fill: #333332; }
+    .svg-special-background-fill-f2e2d9 { fill: #343230; }
+    .svg-special-background-fill-f7f4ef { fill: #353434; }
+
+
+
+  }
+</style>
   <title id="title">束搜索：保留多个候选以近似序列最优</title>
   <desc id="desc">每条 beam 扩展词表候选，按累计 log probability 做全局 top-k，选出 parent 后同步重排 KV cache。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
-      .muted { fill: #6f6a64; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
-      .box { fill: #f7f4ef; stroke: #8e8880; stroke-width: 1.5; }
-      .accent { fill: #f2e2d9; stroke: #cc785c; stroke-width: 1.5; }
-      .line { fill: none; stroke: #cc785c; stroke-width: 2; marker-end: url(#arrow); }
-      .dashed { fill: none; stroke: #b8b2a8; stroke-width: 1.4; stroke-dasharray: 5 5; }
+      .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .box {stroke-width: 1.5; }
+      .accent {stroke-width: 1.5; }
+      .line { fill: none;  stroke-width: 2; marker-end: url(#arrow); }
+      .dashed { fill: none;  stroke-width: 1.4; stroke-dasharray: 5 5; }
     </style>
   </defs>
 
-  <text x="32" y="30" class="ink" font-size="19" font-weight="600">束搜索：保留多个候选以近似序列最优</text>
+  <text x="32" y="30" class="ink svg-special-text-fill-312f2f" font-size="19" font-weight="600">束搜索：保留多个候选以近似序列最优</text>
 
-  <rect x="32" y="56" width="140" height="64" rx="8" class="box"/>
-  <text x="102" y="81" text-anchor="middle" class="ink" font-size="16" font-weight="600">当前 beams</text>
-  <text x="102" y="103" text-anchor="middle" class="muted" font-size="13">K 条前缀 + score</text>
+  <rect x="32" y="56" width="140" height="64" rx="8" class="box svg-special-fill-fill-f7f4ef svg-special-graphic-stroke-8e8880 svg-special-background-fill-f7f4ef"/>
+  <text x="102" y="81" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="600">当前 beams</text>
+  <text x="102" y="103" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="13">K 条前缀 + score</text>
 
-  <path d="M172 88 H208" class="line"/>
-  <rect x="208" y="56" width="152" height="64" rx="8" class="box"/>
-  <text x="284" y="81" text-anchor="middle" class="ink" font-size="16" font-weight="600">扩展 K × V</text>
-  <text x="284" y="103" text-anchor="middle" class="muted" font-size="13">logits → log P</text>
+  <path d="M172 88 H208" class="line svg-coral-stroke-stroke"/>
+  <rect x="208" y="56" width="152" height="64" rx="8" class="box svg-special-fill-fill-f7f4ef svg-special-graphic-stroke-8e8880 svg-special-background-fill-f7f4ef"/>
+  <text x="284" y="81" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="600">扩展 K × V</text>
+  <text x="284" y="103" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="13">logits → log P</text>
 
-  <path d="M360 88 H396" class="line"/>
-  <rect x="396" y="56" width="154" height="64" rx="8" class="accent"/>
-  <text x="473" y="81" text-anchor="middle" class="ink" font-size="16" font-weight="600">全局 top-k</text>
-  <text x="473" y="103" text-anchor="middle" class="muted" font-size="13">累计分数排序</text>
+  <path d="M360 88 H396" class="line svg-coral-stroke-stroke"/>
+  <rect x="396" y="56" width="154" height="64" rx="8" class="accent svg-special-fill-fill-f2e2d9 svg-coral-stroke-stroke svg-special-background-fill-f2e2d9"/>
+  <text x="473" y="81" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="600">全局 top-k</text>
+  <text x="473" y="103" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="13">累计分数排序</text>
 
-  <path d="M550 88 H586" class="line"/>
-  <rect x="586" y="56" width="182" height="64" rx="8" class="box"/>
-  <text x="677" y="81" text-anchor="middle" class="ink" font-size="16" font-weight="600">parent + token</text>
-  <text x="677" y="103" text-anchor="middle" class="muted" font-size="13">同步重排 KV cache</text>
+  <path d="M550 88 H586" class="line svg-coral-stroke-stroke"/>
+  <rect x="586" y="56" width="182" height="64" rx="8" class="box svg-special-fill-fill-f7f4ef svg-special-graphic-stroke-8e8880 svg-special-background-fill-f7f4ef"/>
+  <text x="677" y="81" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="600">parent + token</text>
+  <text x="677" y="103" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="13">同步重排 KV cache</text>
 
-  <line x1="32" y1="144" x2="768" y2="144" stroke="#d2cdc5" stroke-width="1"/>
-  <text x="32" y="173" class="ink" font-size="16" font-weight="600">束宽 K = 2 的一次扩展</text>
+  <line x1="32" y1="144" x2="768" y2="144"  stroke-width="1" class="svg-special-graphic-stroke-d2cdc5"/>
+  <text x="32" y="173" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="600">束宽 K = 2 的一次扩展</text>
 
-  <circle cx="82" cy="245" r="23" fill="#f7f4ef" stroke="#8e8880" stroke-width="1.5"/>
-  <text x="82" y="251" text-anchor="middle" class="ink" font-size="14">前缀</text>
+  <circle cx="82" cy="245" r="23"   stroke-width="1.5" class="svg-special-fill-fill-f7f4ef svg-special-graphic-stroke-8e8880"/>
+  <text x="82" y="251" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="14">前缀</text>
 
-  <path d="M105 234 C125 214 137 207 158 207" class="line"/>
-  <path d="M105 256 C125 276 137 283 158 283" class="line"/>
+  <path d="M105 234 C125 214 137 207 158 207" class="line svg-coral-stroke-stroke"/>
+  <path d="M105 256 C125 276 137 283 158 283" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="158" y="185" width="128" height="44" rx="7" class="accent"/>
-  <text x="222" y="204" text-anchor="middle" class="ink" font-size="14" font-weight="600">A · 0.60</text>
-  <text x="222" y="220" text-anchor="middle" class="muted" font-size="11">保留 beam 1</text>
+  <rect x="158" y="185" width="128" height="44" rx="7" class="accent svg-special-fill-fill-f2e2d9 svg-coral-stroke-stroke svg-special-background-fill-f2e2d9"/>
+  <text x="222" y="204" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="14" font-weight="600">A · 0.60</text>
+  <text x="222" y="220" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="11">保留 beam 1</text>
 
-  <rect x="158" y="261" width="128" height="44" rx="7" class="box"/>
-  <text x="222" y="280" text-anchor="middle" class="ink" font-size="14" font-weight="600">B · 0.40</text>
-  <text x="222" y="296" text-anchor="middle" class="muted" font-size="11">保留 beam 2</text>
+  <rect x="158" y="261" width="128" height="44" rx="7" class="box svg-special-fill-fill-f7f4ef svg-special-graphic-stroke-8e8880 svg-special-background-fill-f7f4ef"/>
+  <text x="222" y="280" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="14" font-weight="600">B · 0.40</text>
+  <text x="222" y="296" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="11">保留 beam 2</text>
 
-  <path d="M286 207 H322" class="line"/>
-  <path d="M286 283 H322" class="line"/>
+  <path d="M286 207 H322" class="line svg-coral-stroke-stroke"/>
+  <path d="M286 283 H322" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="322" y="185" width="150" height="44" rx="7" class="box"/>
-  <text x="397" y="204" text-anchor="middle" class="ink" font-size="14">A → A · 0.30</text>
-  <text x="397" y="220" text-anchor="middle" class="muted" font-size="11">累计概率</text>
+  <rect x="322" y="185" width="150" height="44" rx="7" class="box svg-special-fill-fill-f7f4ef svg-special-graphic-stroke-8e8880 svg-special-background-fill-f7f4ef"/>
+  <text x="397" y="204" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="14">A → A · 0.30</text>
+  <text x="397" y="220" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="11">累计概率</text>
 
-  <rect x="322" y="261" width="150" height="44" rx="7" class="accent"/>
-  <text x="397" y="280" text-anchor="middle" class="ink" font-size="14">B → A · 0.36</text>
-  <text x="397" y="296" text-anchor="middle" class="muted" font-size="11">累计最高</text>
+  <rect x="322" y="261" width="150" height="44" rx="7" class="accent svg-special-fill-fill-f2e2d9 svg-coral-stroke-stroke svg-special-background-fill-f2e2d9"/>
+  <text x="397" y="280" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="14">B → A · 0.36</text>
+  <text x="397" y="296" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="11">累计最高</text>
 
-  <path d="M472 207 H508" class="dashed"/>
-  <path d="M472 283 H508" class="line"/>
+  <path d="M472 207 H508" class="dashed svg-axis-stroke"/>
+  <path d="M472 283 H508" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="508" y="194" width="260" height="98" rx="8" fill="#eeeae4" stroke="#b8b2a8"/>
-  <text x="638" y="219" text-anchor="middle" class="ink" font-size="15" font-weight="600">保留 top-2</text>
-  <text x="638" y="243" text-anchor="middle" class="muted" font-size="13">B→A 与 A→A</text>
-  <text x="638" y="267" text-anchor="middle" class="ink" font-size="13">parent index = [1, 0]</text>
-  <text x="638" y="284" text-anchor="middle" class="muted" font-size="11">K/V 按同一顺序重排</text>
+  <rect x="508" y="194" width="260" height="98" rx="8"   class="svg-special-fill-fill-eeeae4 svg-axis-stroke svg-special-background-fill-eeeae4"/>
+  <text x="638" y="219" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="15" font-weight="600">保留 top-2</text>
+  <text x="638" y="243" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="13">B→A 与 A→A</text>
+  <text x="638" y="267" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="13">parent index = [1, 0]</text>
+  <text x="638" y="284" text-anchor="middle" class="muted svg-special-text-fill-6f6a64" font-size="11">K/V 按同一顺序重排</text>
 
-  <rect x="32" y="326" width="736" height="30" rx="7" fill="#eeeae4" stroke="#b8b2a8"/>
-  <text x="400" y="346" text-anchor="middle" class="ink" font-size="14">Sₜ₊₁ = Sₜ + log P(token)；束宽有限，因此 beam 是近似搜索而非完整序列枚举</text>
+  <rect x="32" y="326" width="736" height="30" rx="7"   class="svg-special-fill-fill-eeeae4 svg-axis-stroke svg-special-background-fill-eeeae4"/>
+  <text x="400" y="346" text-anchor="middle" class="ink svg-special-text-fill-312f2f" font-size="14">Sₜ₊₁ = Sₜ + log P(token)；束宽有限，因此 beam 是近似搜索而非完整序列枚举</text>
 </svg>

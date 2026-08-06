@@ -7,7 +7,7 @@
  *   - 默认样式是浅色主题;
  *   - 暗色值放在 prefers-color-scheme: dark 媒体规则中;
  *   - 专用角色按 svg-special-text-<name>、svg-special-graphic-<name>、
- *     svg-special-fill-<name> 命名。
+ *     svg-special-fill-<name>、svg-special-background-<name> 命名。
  *
  * 这里不做 XML 重写,也不把 CSS 当作完整浏览器实现。检查器只接受
  * 迁移工具生成的受限 CSS 形态,这样源文件和发布闸可以共享确定的规则。
@@ -78,7 +78,7 @@ const PAINT_TAGS = new Set([
 const HEX_COLOR = /#[0-9a-f]{3,8}\b/gi;
 const ROLE_TOKEN = /\bsvg-[a-z0-9-]+\b/gi;
 const STANDARD_ROLE_ALIAS = /^(svg-(?:page|ink|muted|axis|divider|coral-text|coral-stroke))(?:-(?:fill|stroke))?$/;
-const SPECIAL_ROLE = /^svg-special-(text|graphic|fill)-[a-z0-9-]+$/;
+const SPECIAL_ROLE = /^svg-special-(text|graphic|fill|background)-[a-z0-9-]+$/;
 const DARK_MEDIA = /@media\s*\(\s*prefers-color-scheme\s*:\s*dark\s*\)/gi;
 const SAFE_PAINT_VALUE = /^(?:none|transparent|currentcolor|inherit|context-(?:fill|stroke)|var\(--[a-z0-9-]+\)|url\([^)]*\))$/i;
 
@@ -341,8 +341,10 @@ function scanMarkup(source, asset, issues) {
 				issues.push(issueAt("DIRECT_PAINT_LITERAL", `${paint[0]} 不能直接写颜色 ${paint[1]}`, asset, source, match.index));
 			}
 		}
-		const allNone = paintValues.length > 0 && paintValues.every(([, value]) => /^(?:none|transparent)$/i.test(value.trim()));
-		if (PAINT_TAGS.has(tag) && !role && !allNone) {
+		const allSafePaints = paintValues.length > 0 && paintValues.every(([, value]) =>
+			allowedPaint(value) && !/#[0-9a-f]{3,8}\b/i.test(value.trim()),
+		);
+		if (PAINT_TAGS.has(tag) && paintValues.length > 0 && !role && !allSafePaints) {
 			issues.push(issueAt("MISSING_PAINT_ROLE", `绘制元素 <${tag}> 必须使用 SVG 语义角色类`, asset, source, match.index));
 		}
 		if (!match[0].endsWith("/>") && !["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"].includes(tag)) {

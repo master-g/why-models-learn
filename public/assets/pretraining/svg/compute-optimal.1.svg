@@ -1,36 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f5e2d9 { fill: #9a8e89; }
+  .svg-special-fill-fill-f7f3ee { fill: #93908e; }
+  .svg-special-fill-fill-fffaf5 { fill: #93908e; }
+  .svg-special-graphic-stroke-5f7c75 { stroke: #5f7c75; }
+  .svg-special-graphic-stroke-8b857d { stroke: #8b857d; }
+  .svg-special-graphic-stroke-9a6f4f { stroke: #9a6f4f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-f7f3ee { stroke: #93908e; }
+  .svg-special-text-fill-6f6a63 { fill: #6f6a63; }
+
+  .svg-special-background-fill-f5e2d9 { fill: #f5e2d9; }
+  .svg-special-background-fill-f7f3ee { fill: #f7f3ee; }
+  .svg-special-background-fill-fffaf5 { fill: #fffaf5; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f5e2d9 { fill: #9a8e89; }
+    .svg-special-fill-fill-f7f3ee { fill: #93908e; }
+    .svg-special-fill-fill-fffaf5 { fill: #93908e; }
+    .svg-special-graphic-stroke-5f7c75 { stroke: #5f7c75; }
+    .svg-special-graphic-stroke-8b857d { stroke: #8b857d; }
+    .svg-special-graphic-stroke-9a6f4f { stroke: #9a6f4f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-f7f3ee { stroke: #93908e; }
+    .svg-special-text-fill-6f6a63 { fill: #a7a49f; }
+    .svg-special-background-fill-f5e2d9 { fill: #343230; }
+    .svg-special-background-fill-f7f3ee { fill: #353433; }
+    .svg-special-background-fill-fffaf5 { fill: #363534; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="title">固定计算预算下的计算最优分配</title>
   <desc id="desc">横轴是模型规模，纵轴是数据规模，等计算量曲线上的验证损失在一个内部点最低。</desc>
-  <rect width="800" height="373" fill="#f7f3ee"/>
-  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans CJK SC','PingFang SC',sans-serif" fill="#312f2f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f3ee svg-special-background-fill-f7f3ee"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans CJK SC','PingFang SC',sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="40" y="34" font-size="20" font-weight="600">计算最优：固定预算下的模型—数据分配</text>
-    <text x="40" y="58" font-size="12" fill="#6f6a63">同一条等计算量曲线上的候选，损失在内部点达到最低</text>
+    <text x="40" y="58" font-size="12"  class="svg-special-text-fill-6f6a63">同一条等计算量曲线上的候选，损失在内部点达到最低</text>
     <g transform="translate(58 78)">
-      <line x1="0" y1="232" x2="350" y2="232" stroke="#8b857d" stroke-width="1.5"/>
-      <line x1="0" y1="232" x2="0" y2="0" stroke="#8b857d" stroke-width="1.5"/>
+      <line x1="0" y1="232" x2="350" y2="232"  stroke-width="1.5" class="svg-special-graphic-stroke-8b857d"/>
+      <line x1="0" y1="232" x2="0" y2="0"  stroke-width="1.5" class="svg-special-graphic-stroke-8b857d"/>
       <text x="145" y="260" font-size="13">模型规模 N</text>
       <text x="-5" y="-10" font-size="13">数据规模 D</text>
-      <text x="2" y="249" font-size="11" fill="#6f6a63">小</text>
-      <text x="332" y="249" font-size="11" fill="#6f6a63">大</text>
-      <text x="-19" y="226" font-size="11" fill="#6f6a63">少</text>
-      <text x="-19" y="12" font-size="11" fill="#6f6a63">多</text>
-      <path d="M22 22 C78 53 124 91 171 128 C218 165 270 198 335 222" fill="none" stroke="#b8b2a8" stroke-width="2.5" stroke-dasharray="6 6"/>
-      <text x="236" y="187" font-size="12" fill="#6f6a63" transform="rotate(29 236 187)">C = κND</text>
-      <path d="M27 43 C72 69 118 100 164 129 C210 159 261 188 325 214" fill="none" stroke="#cc785c" stroke-width="2.5"/>
-      <path d="M22 205 C75 190 122 168 168 142 C217 115 269 82 329 45" fill="none" stroke="#5f7c75" stroke-width="2.5"/>
-      <path d="M33 73 C91 92 137 119 176 142 C219 166 270 184 322 194" fill="none" stroke="#9a6f4f" stroke-width="2"/>
-      <circle cx="176" cy="142" r="6" fill="#cc785c" stroke="#f7f3ee" stroke-width="3"/>
+      <text x="2" y="249" font-size="11"  class="svg-special-text-fill-6f6a63">小</text>
+      <text x="332" y="249" font-size="11"  class="svg-special-text-fill-6f6a63">大</text>
+      <text x="-19" y="226" font-size="11"  class="svg-special-text-fill-6f6a63">少</text>
+      <text x="-19" y="12" font-size="11"  class="svg-special-text-fill-6f6a63">多</text>
+      <path d="M22 22 C78 53 124 91 171 128 C218 165 270 198 335 222" fill="none"  stroke-width="2.5" stroke-dasharray="6 6" class="svg-axis-stroke"/>
+      <text x="236" y="187" font-size="12"  transform="rotate(29 236 187)" class="svg-special-text-fill-6f6a63">C = κND</text>
+      <path d="M27 43 C72 69 118 100 164 129 C210 159 261 188 325 214" fill="none"  stroke-width="2.5" class="svg-coral-stroke-stroke"/>
+      <path d="M22 205 C75 190 122 168 168 142 C217 115 269 82 329 45" fill="none"  stroke-width="2.5" class="svg-special-graphic-stroke-5f7c75"/>
+      <path d="M33 73 C91 92 137 119 176 142 C219 166 270 184 322 194" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-9a6f4f"/>
+      <circle cx="176" cy="142" r="6"   stroke-width="3" class="svg-special-fill-fill-cc785c svg-special-graphic-stroke-f7f3ee"/>
       <text x="188" y="136" font-size="13" font-weight="600">最优点</text>
-      <text x="188" y="154" font-size="11" fill="#6f6a63">固定 C 下的最低 L</text>
+      <text x="188" y="154" font-size="11"  class="svg-special-text-fill-6f6a63">固定 C 下的最低 L</text>
     </g>
     <g transform="translate(468 86)">
-      <rect x="0" y="0" width="286" height="222" rx="8" fill="#fffaf5" stroke="#c9c4bb"/>
-      <rect x="18" y="19" width="250" height="54" rx="6" fill="#f5e2d9" stroke="#cc785c"/>
+      <rect x="0" y="0" width="286" height="222" rx="8"   class="svg-special-fill-fill-fffaf5 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fffaf5"/>
+      <rect x="18" y="19" width="250" height="54" rx="6"   class="svg-special-fill-fill-f5e2d9 svg-coral-stroke-stroke svg-special-background-fill-f5e2d9"/>
       <text x="31" y="43" font-size="14" font-weight="600">联合损失</text>
       <text x="31" y="62" font-size="13">L ≈ L∞ + A N⁻ᵅ + B D⁻ᵝ</text>
       <text x="20" y="101" font-size="13">固定计算预算：</text>
       <text x="20" y="122" font-size="13">C ≈ κND</text>
-      <line x1="20" y1="139" x2="266" y2="139" stroke="#c9c4bb"/>
+      <line x1="20" y1="139" x2="266" y2="139"  class="svg-special-graphic-stroke-c9c4bb"/>
       <text x="20" y="165" font-size="13">连续解给出候选中心</text>
       <text x="20" y="185" font-size="13">再检查数据池、显存和网格</text>
       <text x="20" y="205" font-size="13">验证损失与下游指标</text>

@@ -1,47 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="omr-title omr-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="omr-title omr-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="omr-title">旋转与反射保持长度</title>
   <desc id="omr-desc">左侧展示 90 度旋转，右侧展示关于 x 轴的反射，两者都保持向量长度。</desc>
   <defs>
     <marker id="omr-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="omr-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="omr-arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c6a64"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-6c6a64"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="280" y1="18" x2="280" y2="224" stroke="#e2dbd3"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="280" y1="18" x2="280" y2="224"  class="svg-special-graphic-stroke-e2dbd3"/>
 
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="18" y="24" font-size="13" font-weight="600">旋转：R₉₀</text>
     <text x="300" y="24" font-size="13" font-weight="600">反射：F</text>
   </g>
 
   <!-- 左 panel: x=(2,1) -> R90x=(-1,2) -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="29" y1="168" x2="252" y2="168" marker-end="url(#omr-arrow-muted)"/>
     <line x1="112" y1="216" x2="112" y2="43" marker-end="url(#omr-arrow-muted)"/>
   </g>
-  <circle cx="112" cy="168" r="79" fill="none" stroke="#e2dbd3" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="112" y1="168" x2="182" y2="133" stroke="#312f2f" stroke-width="2.2" marker-end="url(#omr-arrow-ink)"/>
-  <line x1="112" y1="168" x2="77" y2="98" stroke="#cc785c" stroke-width="2.2" marker-end="url(#omr-arrow-coral)"/>
-  <path d="M 143 152 A 35 35 0 0 0 96 137" fill="none" stroke="#6c6a64" stroke-width="1.2"/>
-  <text x="186" y="131" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">x</text>
-  <text x="61" y="94" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">R₉₀x</text>
-  <text x="37" y="217" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">‖x‖=‖R₉₀x‖</text>
+  <circle cx="112" cy="168" r="79" fill="none"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-e2dbd3"/>
+  <line x1="112" y1="168" x2="182" y2="133"  stroke-width="2.2" marker-end="url(#omr-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="112" y1="168" x2="77" y2="98"  stroke-width="2.2" marker-end="url(#omr-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <path d="M 143 152 A 35 35 0 0 0 96 137" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-6c6a64"/>
+  <text x="186" y="131" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">x</text>
+  <text x="61" y="94" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">R₉₀x</text>
+  <text x="37" y="217" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">‖x‖=‖R₉₀x‖</text>
 
   <!-- 右 panel: x=(2,1) -> F x=(2,-1) -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="301" y1="168" x2="548" y2="168" marker-end="url(#omr-arrow-muted)"/>
     <line x1="424" y1="216" x2="424" y2="43" marker-end="url(#omr-arrow-muted)"/>
   </g>
-  <line x1="424" y1="168" x2="494" y2="133" stroke="#312f2f" stroke-width="2.2" marker-end="url(#omr-arrow-ink)"/>
-  <line x1="424" y1="168" x2="494" y2="203" stroke="#cc785c" stroke-width="2.2" marker-end="url(#omr-arrow-coral)"/>
-  <text x="498" y="131" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">x</text>
-  <text x="498" y="216" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">Fx</text>
-  <text x="317" y="217" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">RᵀR=I，FᵀF=I；det R=+1，det F=−1</text>
+  <line x1="424" y1="168" x2="494" y2="133"  stroke-width="2.2" marker-end="url(#omr-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="424" y1="168" x2="494" y2="203"  stroke-width="2.2" marker-end="url(#omr-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="498" y="131" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">x</text>
+  <text x="498" y="216" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">Fx</text>
+  <text x="317" y="217" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">RᵀR=I，FᵀF=I；det R=+1，det F=−1</text>
 </svg>

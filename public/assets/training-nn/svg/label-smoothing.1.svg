@@ -1,69 +1,125 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-d9e9e5 { fill: #899390; }
+  .svg-special-fill-fill-eadfca { fill: #979083; }
+  .svg-special-fill-fill-eee3db { fill: #968f8a; }
+  .svg-special-fill-fill-f0d9cf { fill: #9c8e87; }
+  .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+  .svg-special-fill-fill-fbf8f4 { fill: #92908e; }
+  .svg-special-graphic-stroke-7ea49e { stroke: #749792; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6c6863 { fill: #6c6863; }
+
+  .svg-special-background-fill-d9e9e5 { fill: #d9e9e5; }
+  .svg-special-background-fill-eadfca { fill: #eadfca; }
+  .svg-special-background-fill-eee3db { fill: #eee3db; }
+  .svg-special-background-fill-f0d9cf { fill: #f0d9cf; }
+  .svg-special-background-fill-f7f2ed { fill: #f7f2ed; }
+  .svg-special-background-fill-fbf8f4 { fill: #fbf8f4; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-d9e9e5 { fill: #899390; }
+    .svg-special-fill-fill-eadfca { fill: #979083; }
+    .svg-special-fill-fill-eee3db { fill: #968f8a; }
+    .svg-special-fill-fill-f0d9cf { fill: #9c8e87; }
+    .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+    .svg-special-fill-fill-fbf8f4 { fill: #92908e; }
+    .svg-special-graphic-stroke-7ea49e { stroke: #749792; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6c6863 { fill: #a6a4a0; }
+    .svg-special-background-fill-d9e9e5 { fill: #303332; }
+    .svg-special-background-fill-eadfca { fill: #33312e; }
+    .svg-special-background-fill-eee3db { fill: #333231; }
+    .svg-special-background-fill-f0d9cf { fill: #34302f; }
+    .svg-special-background-fill-f7f2ed { fill: #353433; }
+    .svg-special-background-fill-fbf8f4 { fill: #353534; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="title">标签平滑的目标分布与梯度</title>
   <desc id="desc">one-hot 目标与均匀分布按 epsilon 混合，得到正确类较大、错误类非零的目标，并把 logits 梯度从 p-y 改为 p-q。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0 0L8 4L0 8Z" fill="#a9583e"/>
+      <path d="M0 0L8 4L0 8Z"  class="svg-special-fill-fill-a9583e"/>
     </marker>
   </defs>
-  <rect width="800" height="373" rx="18" fill="#f7f2ed"/>
-  <rect x="1" y="1" width="798" height="371" rx="17" fill="none" stroke="#c9c4bb" stroke-width="2"/>
+  <rect width="800" height="373" rx="18"  class="svg-special-fill-fill-f7f2ed svg-special-background-fill-f7f2ed"/>
+  <rect x="1" y="1" width="798" height="371" rx="17" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c9c4bb"/>
 
-  <g fill="#312f2f" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">
+  <g  font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="28" y="34" font-size="20" font-weight="700">标签平滑：目标质量从 one-hot 向参考分布移动</text>
-    <text x="28" y="57" font-size="12" fill="#6c6863">正确类仍占最大质量，错误类不再被要求严格为零</text>
+    <text x="28" y="57" font-size="12"  class="svg-special-text-fill-6c6863">正确类仍占最大质量，错误类不再被要求严格为零</text>
   </g>
 
   <g transform="translate(24 76)">
-    <rect width="508" height="184" rx="14" fill="#fbf8f4" stroke="#c9c4bb" stroke-width="1.5"/>
-    <text x="18" y="27" fill="#312f2f" font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">目标分布</text>
-    <text x="18" y="47" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">示例：K = 4，正确类为 2，ε = 0.2</text>
+    <rect width="508" height="184" rx="14"   stroke-width="1.5" class="svg-special-fill-fill-fbf8f4 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fbf8f4"/>
+    <text x="18" y="27"  font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-312f2f">目标分布</text>
+    <text x="18" y="47"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">示例：K = 4，正确类为 2，ε = 0.2</text>
 
-    <line x1="34" y1="146" x2="204" y2="146" stroke="#b8b2a8" stroke-width="1"/>
-    <line x1="268" y1="146" x2="478" y2="146" stroke="#b8b2a8" stroke-width="1"/>
-    <text x="119" y="169" text-anchor="middle" fill="#6c6863" font-size="11" font-family="Georgia,serif">one-hot y</text>
-    <text x="373" y="169" text-anchor="middle" fill="#6c6863" font-size="11" font-family="Georgia,serif">q = (1 − ε)y + εu</text>
+    <line x1="34" y1="146" x2="204" y2="146"  stroke-width="1" class="svg-axis-stroke"/>
+    <line x1="268" y1="146" x2="478" y2="146"  stroke-width="1" class="svg-axis-stroke"/>
+    <text x="119" y="169" text-anchor="middle"  font-size="11" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">one-hot y</text>
+    <text x="373" y="169" text-anchor="middle"  font-size="11" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">q = (1 − ε)y + εu</text>
 
-    <rect x="48" y="146" width="25" height="0" rx="4" fill="#eadfca"/>
-    <rect x="86" y="86" width="25" height="60" rx="4" fill="#cc785c"/>
-    <rect x="124" y="146" width="25" height="0" rx="4" fill="#eadfca"/>
-    <rect x="162" y="146" width="25" height="0" rx="4" fill="#eadfca"/>
-    <text x="60.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">1</text>
-    <text x="98.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">2</text>
-    <text x="136.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">3</text>
-    <text x="174.5" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">4</text>
+    <rect x="48" y="146" width="25" height="0" rx="4"  class="svg-special-fill-fill-eadfca svg-special-background-fill-eadfca"/>
+    <rect x="86" y="86" width="25" height="60" rx="4"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="124" y="146" width="25" height="0" rx="4"  class="svg-special-fill-fill-eadfca svg-special-background-fill-eadfca"/>
+    <rect x="162" y="146" width="25" height="0" rx="4"  class="svg-special-fill-fill-eadfca svg-special-background-fill-eadfca"/>
+    <text x="60.5" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">1</text>
+    <text x="98.5" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">2</text>
+    <text x="136.5" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">3</text>
+    <text x="174.5" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">4</text>
 
-    <path d="M211 104H253" fill="none" stroke="#a9583e" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="232" y="88" text-anchor="middle" fill="#a9583e" font-size="11" font-family="Georgia,serif">mix ε</text>
+    <path d="M211 104H253" fill="none"  stroke-width="2" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <text x="232" y="88" text-anchor="middle"  font-size="11" font-family="Georgia,serif" class="svg-coral-text-fill">mix ε</text>
 
-    <rect x="284" y="142" width="28" height="4" rx="2" fill="#eadfca"/>
-    <rect x="330" y="78" width="28" height="68" rx="4" fill="#cc785c"/>
-    <rect x="376" y="142" width="28" height="4" rx="2" fill="#eadfca"/>
-    <rect x="422" y="142" width="28" height="4" rx="2" fill="#eadfca"/>
-    <text x="298" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">1</text>
-    <text x="344" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">2</text>
-    <text x="390" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">3</text>
-    <text x="436" y="158" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">4</text>
-    <text x="298" y="136" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">.05</text>
-    <text x="344" y="71" text-anchor="middle" fill="#a9583e" font-size="10" font-family="Georgia,serif">.85</text>
-    <text x="390" y="136" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">.05</text>
-    <text x="436" y="136" text-anchor="middle" fill="#6c6863" font-size="10" font-family="Georgia,serif">.05</text>
+    <rect x="284" y="142" width="28" height="4" rx="2"  class="svg-special-fill-fill-eadfca svg-special-background-fill-eadfca"/>
+    <rect x="330" y="78" width="28" height="68" rx="4"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="376" y="142" width="28" height="4" rx="2"  class="svg-special-fill-fill-eadfca svg-special-background-fill-eadfca"/>
+    <rect x="422" y="142" width="28" height="4" rx="2"  class="svg-special-fill-fill-eadfca svg-special-background-fill-eadfca"/>
+    <text x="298" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">1</text>
+    <text x="344" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">2</text>
+    <text x="390" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">3</text>
+    <text x="436" y="158" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">4</text>
+    <text x="298" y="136" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">.05</text>
+    <text x="344" y="71" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-coral-text-fill">.85</text>
+    <text x="390" y="136" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">.05</text>
+    <text x="436" y="136" text-anchor="middle"  font-size="10" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">.05</text>
   </g>
 
   <g transform="translate(552 76)">
-    <rect width="224" height="184" rx="14" fill="#fbf8f4" stroke="#c9c4bb" stroke-width="1.5"/>
-    <text x="18" y="27" fill="#312f2f" font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">logits 梯度</text>
-    <text x="18" y="48" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">同一 softmax，不同目标</text>
+    <rect width="224" height="184" rx="14"   stroke-width="1.5" class="svg-special-fill-fill-fbf8f4 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fbf8f4"/>
+    <text x="18" y="27"  font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-312f2f">logits 梯度</text>
+    <text x="18" y="48"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">同一 softmax，不同目标</text>
 
-    <rect x="18" y="65" width="188" height="39" rx="9" fill="#f0d9cf" stroke="#cc785c" stroke-width="1.5"/>
-    <text x="31" y="89" fill="#312f2f" font-size="16" font-family="Georgia,serif">hard：p − y</text>
+    <rect x="18" y="65" width="188" height="39" rx="9"   stroke-width="1.5" class="svg-special-fill-fill-f0d9cf svg-coral-stroke-stroke svg-special-background-fill-f0d9cf"/>
+    <text x="31" y="89"  font-size="16" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">hard：p − y</text>
 
-    <rect x="18" y="119" width="188" height="39" rx="9" fill="#d9e9e5" stroke="#7ea49e" stroke-width="1.5"/>
-    <text x="31" y="143" fill="#312f2f" font-size="16" font-family="Georgia,serif">smooth：p − q</text>
+    <rect x="18" y="119" width="188" height="39" rx="9"   stroke-width="1.5" class="svg-special-fill-fill-d9e9e5 svg-special-graphic-stroke-7ea49e svg-special-background-fill-d9e9e5"/>
+    <text x="31" y="143"  font-size="16" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">smooth：p − q</text>
   </g>
 
-  <rect x="24" y="282" width="752" height="64" rx="12" fill="#eee3db"/>
-  <text x="42" y="309" fill="#312f2f" font-size="17" font-family="Georgia,serif">L_smooth = (1 − ε)L_hard + εL_uniform</text>
-  <text x="42" y="329" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">损失仍对所有类别求和；均匀项减弱把正确类推向 1、错误类推向 0 的压力</text>
-  <text x="602" y="319" fill="#6c6863" font-size="12" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">目标先变，指标分开</text>
+  <rect x="24" y="282" width="752" height="64" rx="12"  class="svg-special-fill-fill-eee3db svg-special-background-fill-eee3db"/>
+  <text x="42" y="309"  font-size="17" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">L_smooth = (1 − ε)L_hard + εL_uniform</text>
+  <text x="42" y="329"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">损失仍对所有类别求和；均匀项减弱把正确类推向 1、错误类推向 0 的压力</text>
+  <text x="602" y="319"  font-size="12" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">目标先变，指标分开</text>
 </svg>

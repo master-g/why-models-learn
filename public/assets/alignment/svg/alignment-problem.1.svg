@@ -1,73 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e6eee8 { fill: #8d928f; }
+  .svg-special-fill-fill-f3f0eb { fill: #92908d; }
+  .svg-special-fill-fill-f6e4dc { fill: #9a8e89; }
+  .svg-special-fill-fill-fbf9f6 { fill: #92908f; }
+  .svg-special-graphic-stroke-809783 { stroke: #809683; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6c6863 { fill: #6c6863; }
+
+  .svg-special-background-fill-e6eee8 { fill: #e6eee8; }
+  .svg-special-background-fill-f3f0eb { fill: #f3f0eb; }
+  .svg-special-background-fill-f6e4dc { fill: #f6e4dc; }
+  .svg-special-background-fill-fbf9f6 { fill: #fbf9f6; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e6eee8 { fill: #8d928f; }
+    .svg-special-fill-fill-f3f0eb { fill: #92908d; }
+    .svg-special-fill-fill-f6e4dc { fill: #9a8e89; }
+    .svg-special-fill-fill-fbf9f6 { fill: #92908f; }
+    .svg-special-graphic-stroke-809783 { stroke: #809683; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6c6863 { fill: #a6a4a0; }
+    .svg-special-background-fill-e6eee8 { fill: #323333; }
+    .svg-special-background-fill-f3f0eb { fill: #343433; }
+    .svg-special-background-fill-f6e4dc { fill: #353231; }
+    .svg-special-background-fill-fbf9f6 { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">对齐问题的目标、优化、行为与评测反馈</title>
   <desc id="desc">人类意图经过目标合同和代理指标进入优化，模型产生行为并被独立评测，评测反馈影响下一轮训练，代理目标和真实意图之间存在偏差。</desc>
   <defs>
     <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="arrow-coral" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; }
-      .muted { fill: #6c6863; }
-      .box { fill: #f3f0eb; stroke: #b8b2a8; stroke-width: 2; }
-      .warm { fill: #f6e4dc; stroke: #cc785c; stroke-width: 2; }
-      .cool { fill: #e6eee8; stroke: #809783; stroke-width: 2; }
+      .ink {}
+      .muted {}
+      .box {stroke-width: 2; }
+      .warm {stroke-width: 2; }
+      .cool {stroke-width: 2; }
       .label { font: 600 19px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .small { font: 14px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .tiny { font: 12px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-      .line { fill: none; stroke: #312f2f; stroke-width: 2.4; marker-end: url(#arrow-ink); }
-      .coral-line { fill: none; stroke: #cc785c; stroke-width: 2.4; marker-end: url(#arrow-coral); }
-      .dash { fill: none; stroke: #b8b2a8; stroke-width: 1.7; stroke-dasharray: 7 6; }
+      .line { fill: none;  stroke-width: 2.4; marker-end: url(#arrow-ink); }
+      .coral-line { fill: none;  stroke-width: 2.4; marker-end: url(#arrow-coral); }
+      .dash { fill: none;  stroke-width: 1.7; stroke-dasharray: 7 6; }
     </style>
   </defs>
 
-  <rect width="800" height="373" fill="#fbf9f6"/>
-  <text x="38" y="38" class="ink label">对齐问题：代理目标与真实意图不总是同一件事</text>
-  <text x="38" y="62" class="muted small">目标合同、测量合同、优化合同和行动合同需要分别核验</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-fbf9f6 svg-special-background-fill-fbf9f6"/>
+  <text x="38" y="38" class="ink label svg-special-text-fill-312f2f">对齐问题：代理目标与真实意图不总是同一件事</text>
+  <text x="38" y="62" class="muted small svg-special-text-fill-6c6863">目标合同、测量合同、优化合同和行动合同需要分别核验</text>
 
-  <rect x="38" y="99" width="148" height="82" rx="12" class="box"/>
-  <text x="112" y="126" text-anchor="middle" class="ink label">人类意图</text>
-  <text x="112" y="151" text-anchor="middle" class="muted small">正确 · 诚实 · 安全</text>
-  <text x="112" y="169" text-anchor="middle" class="muted tiny">真实效用 U(x,y,a)</text>
+  <rect x="38" y="99" width="148" height="82" rx="12" class="box svg-special-fill-fill-f3f0eb svg-axis-stroke svg-special-background-fill-f3f0eb"/>
+  <text x="112" y="126" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">人类意图</text>
+  <text x="112" y="151" text-anchor="middle" class="muted small svg-special-text-fill-6c6863">正确 · 诚实 · 安全</text>
+  <text x="112" y="169" text-anchor="middle" class="muted tiny svg-special-text-fill-6c6863">真实效用 U(x,y,a)</text>
 
-  <rect x="220" y="99" width="148" height="82" rx="12" class="warm"/>
-  <text x="294" y="126" text-anchor="middle" class="ink label">代理指标</text>
-  <text x="294" y="151" text-anchor="middle" class="muted small">标签 · 规则 · reward</text>
-  <text x="294" y="169" text-anchor="middle" class="muted tiny">可计算的 rφ(x,y)</text>
+  <rect x="220" y="99" width="148" height="82" rx="12" class="warm svg-special-fill-fill-f6e4dc svg-coral-stroke-stroke svg-special-background-fill-f6e4dc"/>
+  <text x="294" y="126" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">代理指标</text>
+  <text x="294" y="151" text-anchor="middle" class="muted small svg-special-text-fill-6c6863">标签 · 规则 · reward</text>
+  <text x="294" y="169" text-anchor="middle" class="muted tiny svg-special-text-fill-6c6863">可计算的 rφ(x,y)</text>
 
-  <rect x="402" y="99" width="148" height="82" rx="12" class="box"/>
-  <text x="476" y="126" text-anchor="middle" class="ink label">优化</text>
-  <text x="476" y="151" text-anchor="middle" class="muted small">loss · policy · 更新</text>
-  <text x="476" y="169" text-anchor="middle" class="muted tiny">argmin / argmax</text>
+  <rect x="402" y="99" width="148" height="82" rx="12" class="box svg-special-fill-fill-f3f0eb svg-axis-stroke svg-special-background-fill-f3f0eb"/>
+  <text x="476" y="126" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">优化</text>
+  <text x="476" y="151" text-anchor="middle" class="muted small svg-special-text-fill-6c6863">loss · policy · 更新</text>
+  <text x="476" y="169" text-anchor="middle" class="muted tiny svg-special-text-fill-6c6863">argmin / argmax</text>
 
-  <rect x="584" y="99" width="178" height="82" rx="12" class="cool"/>
-  <text x="673" y="126" text-anchor="middle" class="ink label">模型行为</text>
-  <text x="673" y="151" text-anchor="middle" class="muted small">回答 · 拒答 · 工具动作</text>
-  <text x="673" y="169" text-anchor="middle" class="muted tiny">πθ(y,a | x,s)</text>
+  <rect x="584" y="99" width="178" height="82" rx="12" class="cool svg-special-fill-fill-e6eee8 svg-special-graphic-stroke-809783 svg-special-background-fill-e6eee8"/>
+  <text x="673" y="126" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">模型行为</text>
+  <text x="673" y="151" text-anchor="middle" class="muted small svg-special-text-fill-6c6863">回答 · 拒答 · 工具动作</text>
+  <text x="673" y="169" text-anchor="middle" class="muted tiny svg-special-text-fill-6c6863">πθ(y,a | x,s)</text>
 
-  <path d="M186 140 H220" class="line"/>
-  <path d="M368 140 H402" class="line"/>
-  <path d="M550 140 H584" class="line"/>
+  <path d="M186 140 H220" class="line svg-ink-stroke"/>
+  <path d="M368 140 H402" class="line svg-ink-stroke"/>
+  <path d="M550 140 H584" class="line svg-ink-stroke"/>
 
-  <rect x="220" y="238" width="148" height="67" rx="12" class="box"/>
-  <text x="294" y="265" text-anchor="middle" class="ink label">独立评测</text>
-  <text x="294" y="288" text-anchor="middle" class="muted small">事实 · 风险 · 后果</text>
+  <rect x="220" y="238" width="148" height="67" rx="12" class="box svg-special-fill-fill-f3f0eb svg-axis-stroke svg-special-background-fill-f3f0eb"/>
+  <text x="294" y="265" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">独立评测</text>
+  <text x="294" y="288" text-anchor="middle" class="muted small svg-special-text-fill-6c6863">事实 · 风险 · 后果</text>
 
-  <rect x="402" y="238" width="148" height="67" rx="12" class="warm"/>
-  <text x="476" y="265" text-anchor="middle" class="ink label">反馈数据</text>
-  <text x="476" y="288" text-anchor="middle" class="muted small">新标签 · 新分布</text>
+  <rect x="402" y="238" width="148" height="67" rx="12" class="warm svg-special-fill-fill-f6e4dc svg-coral-stroke-stroke svg-special-background-fill-f6e4dc"/>
+  <text x="476" y="265" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">反馈数据</text>
+  <text x="476" y="288" text-anchor="middle" class="muted small svg-special-text-fill-6c6863">新标签 · 新分布</text>
 
-  <path d="M673 181 C673 222 550 221 550 254" class="coral-line"/>
-  <path d="M402 271 H368" class="line"/>
-  <path d="M368 271 C390 209 428 201 463 181" class="coral-line"/>
-  <path d="M550 271 C607 328 306 340 294 305" class="coral-line"/>
+  <path d="M673 181 C673 222 550 221 550 254" class="coral-line svg-coral-stroke-stroke"/>
+  <path d="M402 271 H368" class="line svg-ink-stroke"/>
+  <path d="M368 271 C390 209 428 201 463 181" class="coral-line svg-coral-stroke-stroke"/>
+  <path d="M550 271 C607 328 306 340 294 305" class="coral-line svg-coral-stroke-stroke"/>
 
-  <path d="M112 181 V218 H190" class="dash"/>
-  <path d="M190 218 H760 V181" class="dash"/>
-  <text x="47" y="230" class="muted tiny">真实意图没有直接进入优化</text>
-  <text x="585" y="220" class="muted tiny">分布和行为会被模型改变</text>
+  <path d="M112 181 V218 H190" class="dash svg-axis-stroke"/>
+  <path d="M190 218 H760 V181" class="dash svg-axis-stroke"/>
+  <text x="47" y="230" class="muted tiny svg-special-text-fill-6c6863">真实意图没有直接进入优化</text>
+  <text x="585" y="220" class="muted tiny svg-special-text-fill-6c6863">分布和行为会被模型改变</text>
 
-  <text x="38" y="345" class="muted small">审计重点：代理分数上升时，独立意图分量、约束违反率和行动后果是否同步改善？</text>
+  <text x="38" y="345" class="muted small svg-special-text-fill-6c6863">审计重点：代理分数上升时，独立意图分量、约束违反率和行动后果是否同步改善？</text>
 </svg>

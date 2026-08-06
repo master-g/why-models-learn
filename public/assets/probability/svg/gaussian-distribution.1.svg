@@ -1,11 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706a67 { fill: #706a67; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706a67 { fill: #a7a4a2; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+
+
+
+  }
+</style>
   <title id="title">高斯分布的标准差覆盖区间和二维等密度椭圆</title>
   <desc id="desc">左图在钟形曲线下标出均值左右一个标准差，右图显示协方差矩阵把圆形等密度线旋转为椭圆。</desc>
   <defs>
     <style>
       text {
         font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-        fill: #312f2f;
       }
       .math {
         font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
@@ -13,44 +44,44 @@
       }
       .small { font-size: 11px; }
       .label { font-size: 12px; }
-      .caption { font-size: 12px; fill: #706a67; }
-      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+      .caption { font-size: 12px;  }
+      .axis {stroke-width: 1.2; }
+      .guide {stroke-width: 1.2; stroke-dasharray: 4 4; }
     </style>
     <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+      <path d="M0,0 L7,3.5 L0,7 Z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
-  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+  <rect x="0" y="0" width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234"  stroke-width="1" class="svg-special-graphic-stroke-e5dedb"/>
 
-  <text x="140" y="22" text-anchor="middle" class="label">一维高斯：均值与标准差</text>
-  <line x1="36" y1="204" x2="246" y2="204" class="axis" marker-end="url(#arrow-ink)"/>
-  <line x1="36" y1="204" x2="36" y2="45" class="axis" marker-end="url(#arrow-ink)"/>
+  <text x="140" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">一维高斯：均值与标准差</text>
+  <line x1="36" y1="204" x2="246" y2="204" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
+  <line x1="36" y1="204" x2="36" y2="45" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
   <path d="M48,204 C66,196 78,145 102,96 C122,55 140,47 158,76 C183,116 191,180 232,204"
-        fill="none" stroke="#312f2f" stroke-width="2.3"/>
+        fill="none"  stroke-width="2.3" class="svg-ink-stroke"/>
   <path d="M103,204 C113,165 122,72 140,58 C158,72 167,165 177,204 Z"
-        fill="#cc785c" fill-opacity="0.28" stroke="none"/>
-  <line x1="103" y1="204" x2="103" y2="132" class="guide"/>
-  <line x1="140" y1="204" x2="140" y2="51" class="guide"/>
-  <line x1="177" y1="204" x2="177" y2="132" class="guide"/>
-  <text x="103" y="222" text-anchor="middle" class="small math">μ−σ</text>
-  <text x="140" y="222" text-anchor="middle" class="small math">μ</text>
-  <text x="177" y="222" text-anchor="middle" class="small math">μ+σ</text>
-  <text x="140" y="239" text-anchor="middle" class="caption">中间阴影约占 68.27%</text>
+         fill-opacity="0.28" stroke="none" class="svg-special-fill-fill-cc785c"/>
+  <line x1="103" y1="204" x2="103" y2="132" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="140" y1="204" x2="140" y2="51" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="177" y1="204" x2="177" y2="132" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="103" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">μ−σ</text>
+  <text x="140" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">μ</text>
+  <text x="177" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">μ+σ</text>
+  <text x="140" y="239" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">中间阴影约占 68.27%</text>
 
-  <text x="420" y="22" text-anchor="middle" class="label">二维高斯：协方差改变方向</text>
-  <line x1="314" y1="130" x2="527" y2="130" class="axis" marker-end="url(#arrow-ink)"/>
-  <line x1="420" y1="220" x2="420" y2="42" class="axis" marker-end="url(#arrow-ink)"/>
+  <text x="420" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">二维高斯：协方差改变方向</text>
+  <line x1="314" y1="130" x2="527" y2="130" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
+  <line x1="420" y1="220" x2="420" y2="42" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
   <ellipse cx="420" cy="130" rx="74" ry="36" transform="rotate(-28 420 130)"
-           fill="#cc785c" fill-opacity="0.13" stroke="#cc785c" stroke-width="2"/>
+            fill-opacity="0.13"  stroke-width="2" class="svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
   <ellipse cx="420" cy="130" rx="42" ry="20" transform="rotate(-28 420 130)"
-           fill="none" stroke="#312f2f" stroke-width="1.5"/>
-  <line x1="420" y1="130" x2="484" y2="96" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
-  <line x1="420" y1="130" x2="447" y2="181" class="guide"/>
-  <circle cx="420" cy="130" r="3.5" fill="#312f2f"/>
-  <text x="494" y="93" class="small math">主方向</text>
-  <text x="447" y="192" class="small math">Σ</text>
-  <text x="420" y="239" text-anchor="middle" class="caption">等密度线由 Mahalanobis 距离决定</text>
+           fill="none"  stroke-width="1.5" class="svg-ink-stroke"/>
+  <line x1="420" y1="130" x2="484" y2="96"  stroke-width="1.5" marker-end="url(#arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="420" y1="130" x2="447" y2="181" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="420" cy="130" r="3.5"  class="svg-special-fill-fill-312f2f"/>
+  <text x="494" y="93" class="small math svg-special-text-fill-312f2f">主方向</text>
+  <text x="447" y="192" class="small math svg-special-text-fill-312f2f">Σ</text>
+  <text x="420" y="239" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">等密度线由 Mahalanobis 距离决定</text>
 </svg>

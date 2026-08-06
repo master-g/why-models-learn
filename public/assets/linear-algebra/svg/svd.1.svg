@@ -1,24 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="svd-title svd-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="svd-title svd-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-f8f3ef { fill: #93908e; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-a9583e { fill: #a9583e; }
+  .svg-special-text-fill-f8f3ef { fill: #757271; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-f8f3ef { fill: #93908e; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-a9583e { fill: #cb9989; }
+    .svg-special-text-fill-f8f3ef { fill: #a5a4a3; }
+
+
+
+  }
+</style>
   <title id="svd-title">奇异值分解的三段作用</title>
   <desc id="svd-desc">矩阵先把输入换到右奇异向量坐标，再由奇异值分别缩放，最后用左奇异向量坐标输出。</desc>
   <defs>
     <marker id="svd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="20" y="25" font-size="14" font-weight="600">A = UΣVᵀ：换基、缩放、换基</text>
-    <text x="20" y="47" font-size="12" fill="#6c6a64">例：A = [[0, 4], [3, 0]]，奇异值为 4 和 3</text>
+    <text x="20" y="47" font-size="12"  class="svg-muted-fill">例：A = [[0, 4], [3, 0]]，奇异值为 4 和 3</text>
   </g>
 
-  <g fill="#f8f3ef" stroke="#d8d0c8" stroke-width="1">
+  <g   stroke-width="1" class="svg-special-fill-fill-f8f3ef svg-special-graphic-stroke-d8d0c8 svg-special-text-fill-f8f3ef">
     <rect x="20" y="70" width="145" height="105" rx="7"/>
     <rect x="207" y="70" width="145" height="105" rx="7"/>
     <rect x="394" y="70" width="145" height="105" rx="7"/>
   </g>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="36" y="91" font-size="13" font-weight="600">输入坐标</text>
     <text x="36" y="110" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15">Vᵀx</text>
     <text x="49" y="144" font-family="Georgia, 'Times New Roman', serif" font-size="16">⎡0  1⎤</text>
@@ -29,24 +67,24 @@
     <text x="242" y="163" font-family="Georgia, 'Times New Roman', serif" font-size="16">⎣0  3⎦</text>
     <text x="410" y="91" font-size="13" font-weight="600">输出坐标</text>
     <text x="410" y="110" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15">UΣVᵀx = Ax</text>
-    <line x1="428" y1="146" x2="504" y2="146" stroke="#b8b2a8"/>
-    <line x1="466" y1="166" x2="466" y2="126" stroke="#b8b2a8"/>
-    <line x1="466" y1="146" x2="496" y2="135" stroke="#cc785c" stroke-width="2"/>
-    <line x1="466" y1="146" x2="446" y2="132" stroke="#312f2f" stroke-width="1.6"/>
-    <text x="410" y="163" font-size="11" fill="#6c6a64">正交方向仍互相垂直</text>
+    <line x1="428" y1="146" x2="504" y2="146"  class="svg-axis-stroke"/>
+    <line x1="466" y1="166" x2="466" y2="126"  class="svg-axis-stroke"/>
+    <line x1="466" y1="146" x2="496" y2="135"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+    <line x1="466" y1="146" x2="446" y2="132"  stroke-width="1.6" class="svg-ink-stroke"/>
+    <text x="410" y="163" font-size="11"  class="svg-muted-fill">正交方向仍互相垂直</text>
   </g>
 
-  <g stroke="#312f2f" stroke-width="1.4" fill="none" marker-end="url(#svd-arrow)">
+  <g  stroke-width="1.4" fill="none" marker-end="url(#svd-arrow)" class="svg-ink-stroke">
     <line x1="167" y1="122" x2="202" y2="122"/>
     <line x1="354" y1="122" x2="389" y2="122"/>
   </g>
-  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#a9583e">
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15"  class="svg-special-fill-fill-a9583e svg-special-text-fill-a9583e">
     <text x="176" y="111">Σ</text>
     <text x="363" y="111">U</text>
   </g>
 
-  <line x1="20" y1="198" x2="540" y2="198" stroke="#e2dbd3"/>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <line x1="20" y1="198" x2="540" y2="198"  class="svg-special-graphic-stroke-e2dbd3"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="20" y="221" font-size="12">右奇异向量：输入的主方向</text>
     <text x="206" y="221" font-size="12">σᵢ：第 i 条通道的增益</text>
     <text x="406" y="221" font-size="12">左奇异向量：输出的主方向</text>

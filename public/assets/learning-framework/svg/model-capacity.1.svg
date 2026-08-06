@@ -1,33 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-4f7775 { fill: #4f7775; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-c66a4b { fill: #c66a4b; }
+  .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-4f7775 { fill: #4f7775; }
+
+  .svg-special-background-fill-ebe7e4 { fill: #ebe7e4; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-4f7775 { fill: #4f7775; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-c66a4b { fill: #c66a4b; }
+    .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-4f7775 { fill: #90aaa8; }
+    .svg-special-background-fill-ebe7e4 { fill: #333232; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">阈值、区间和查表模型的容量逐步增加，表达能力同时带来样本需求</title>
   <desc id="desc">左侧从一个边界到两个边界再到逐点查表，展示输入点上可表达模式逐步增加；右侧说明更大容量降低表达限制但增加样本辨别需求。</desc>
-  <rect width="560" height="250" fill="#f4efee"/>
-  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">模型容量：能表达多少种标注模式</text>
-  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">表达能力增加，也需要更多样本来区分候选规则</text>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="24" y="27"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" class="svg-special-text-fill-312f2f">模型容量：能表达多少种标注模式</text>
+  <text x="24" y="47"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">表达能力增加，也需要更多样本来区分候选规则</text>
 
-  <rect x="24" y="66" width="274" height="126" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="45" y="89" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">同一批输入点上的容量阶梯</text>
-  <line x1="46" y1="164" x2="275" y2="164" stroke="#c9c4bb"/>
-  <rect x="58" y="137" width="42" height="27" rx="5" fill="#4f7775"/>
-  <rect x="124" y="116" width="42" height="48" rx="5" fill="#c66a4b"/>
-  <rect x="190" y="82" width="42" height="82" rx="5" fill="#a9583e"/>
-  <text x="58" y="180" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">阈值</text>
-  <text x="124" y="180" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">区间</text>
-  <text x="190" y="180" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">查表</text>
-  <text x="51" y="126" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9">n+1</text>
-  <text x="116" y="105" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9">1+n(n+1)/2</text>
-  <text x="194" y="72" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9">2ⁿ</text>
+  <rect x="24" y="66" width="274" height="126" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="45" y="89"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">同一批输入点上的容量阶梯</text>
+  <line x1="46" y1="164" x2="275" y2="164"  class="svg-special-graphic-stroke-c9c4bb"/>
+  <rect x="58" y="137" width="42" height="27" rx="5"  class="svg-special-fill-fill-4f7775"/>
+  <rect x="124" y="116" width="42" height="48" rx="5"  class="svg-special-fill-fill-c66a4b"/>
+  <rect x="190" y="82" width="42" height="82" rx="5"  class="svg-special-fill-fill-a9583e"/>
+  <text x="58" y="180"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">阈值</text>
+  <text x="124" y="180"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">区间</text>
+  <text x="190" y="180"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">查表</text>
+  <text x="51" y="126"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9" class="svg-special-text-fill-312f2f">n+1</text>
+  <text x="116" y="105"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9" class="svg-special-text-fill-312f2f">1+n(n+1)/2</text>
+  <text x="194" y="72"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9" class="svg-special-text-fill-312f2f">2ⁿ</text>
 
-  <path d="M307 129 H326" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M319 122 L328 129 L319 136" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M307 129 H326"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M319 122 L328 129 L319 136" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="334" y="66" width="202" height="126" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
-  <text x="356" y="91" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">容量的两面</text>
-  <line x1="356" y1="103" x2="514" y2="103" stroke="#c9c4bb"/>
-  <text x="356" y="126" fill="#4f7775" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">表达更多规律</text>
-  <text x="356" y="148" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">区分更多偶然模式</text>
-  <text x="356" y="174" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">需要更多样本与归纳偏置</text>
+  <rect x="334" y="66" width="202" height="126" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c66a4b svg-special-background-fill-fdfcfa"/>
+  <text x="356" y="91"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">容量的两面</text>
+  <line x1="356" y1="103" x2="514" y2="103"  class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="356" y="126"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-special-text-fill-4f7775">表达更多规律</text>
+  <text x="356" y="148"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-coral-text-fill">区分更多偶然模式</text>
+  <text x="356" y="174"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">需要更多样本与归纳偏置</text>
 
-  <rect x="142" y="213" width="276" height="25" rx="9" fill="#ebe7e4"/>
-  <text x="190" y="230" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">参数量不是容量的完整定义</text>
+  <rect x="142" y="213" width="276" height="25" rx="9"  class="svg-special-fill-fill-ebe7e4 svg-special-background-fill-ebe7e4"/>
+  <text x="190" y="230"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">参数量不是容量的完整定义</text>
 </svg>

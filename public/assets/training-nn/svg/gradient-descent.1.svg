@@ -1,40 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-special-fill-fill-54758a { fill: #54758a; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-e9f0f1 { fill: #8d9192; }
+  .svg-special-fill-fill-f1e5df { fill: #978f8c; }
+  .svg-special-fill-fill-f1ebe0 { fill: #94908a; }
+  .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+  .svg-special-fill-fill-fffefa { fill: #91908e; }
+  .svg-special-graphic-stroke-54758a { stroke: #54758a; }
+  .svg-special-graphic-stroke-8a7965 { stroke: #8a7965; }
+  .svg-special-graphic-stroke-beb4a9 { stroke: #978f87; }
+  .svg-special-graphic-stroke-c6d5d9 { stroke: #889295; }
+  .svg-special-graphic-stroke-cbc2b8 { stroke: #969088; }
+  .svg-special-graphic-stroke-d5cdc3 { stroke: #959089; }
+  .svg-special-graphic-stroke-d8d1c7 { stroke: #95908a; }
+  .svg-special-graphic-stroke-ddd0b9 { stroke: #989080; }
+  .svg-special-graphic-stroke-dec5ba { stroke: #9f8d86; }
+  .svg-special-graphic-stroke-ded7ce { stroke: #95908a; }
+  .svg-special-text-fill-2c2a27 { fill: #2c2a27; }
+  .svg-special-text-fill-38342f { fill: #38342f; }
+  .svg-special-text-fill-383f42 { fill: #383f42; }
+  .svg-special-text-fill-49433b { fill: #49433b; }
+  .svg-special-text-fill-53636a { fill: #53636a; }
+  .svg-special-text-fill-54758a { fill: #54758a; }
+  .svg-special-text-fill-5a3f35 { fill: #5a3f35; }
+  .svg-special-text-fill-706a61 { fill: #706a61; }
+  .svg-special-text-fill-8b5746 { fill: #8b5746; }
+
+  .svg-special-background-fill-e9f0f1 { fill: #e9f0f1; }
+  .svg-special-background-fill-f1e5df { fill: #f1e5df; }
+  .svg-special-background-fill-f1ebe0 { fill: #f1ebe0; }
+  .svg-special-background-fill-f7f4ef { fill: #f7f4ef; }
+  .svg-special-background-fill-fffefa { fill: #fffefa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-special-fill-fill-54758a { fill: #54758a; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-e9f0f1 { fill: #8d9192; }
+    .svg-special-fill-fill-f1e5df { fill: #978f8c; }
+    .svg-special-fill-fill-f1ebe0 { fill: #94908a; }
+    .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+    .svg-special-fill-fill-fffefa { fill: #91908e; }
+    .svg-special-graphic-stroke-54758a { stroke: #54758a; }
+    .svg-special-graphic-stroke-8a7965 { stroke: #8a7965; }
+    .svg-special-graphic-stroke-beb4a9 { stroke: #978f87; }
+    .svg-special-graphic-stroke-c6d5d9 { stroke: #889295; }
+    .svg-special-graphic-stroke-cbc2b8 { stroke: #969088; }
+    .svg-special-graphic-stroke-d5cdc3 { stroke: #959089; }
+    .svg-special-graphic-stroke-d8d1c7 { stroke: #95908a; }
+    .svg-special-graphic-stroke-ddd0b9 { stroke: #989080; }
+    .svg-special-graphic-stroke-dec5ba { stroke: #9f8d86; }
+    .svg-special-graphic-stroke-ded7ce { stroke: #95908a; }
+    .svg-special-text-fill-2c2a27 { fill: #a5a4a3; }
+    .svg-special-text-fill-38342f { fill: #a6a4a1; }
+    .svg-special-text-fill-383f42 { fill: #a1a5a6; }
+    .svg-special-text-fill-49433b { fill: #a6a4a0; }
+    .svg-special-text-fill-53636a { fill: #9ca6aa; }
+    .svg-special-text-fill-54758a { fill: #93a8b5; }
+    .svg-special-text-fill-5a3f35 { fill: #afa29d; }
+    .svg-special-text-fill-706a61 { fill: #a7a49e; }
+    .svg-special-text-fill-8b5746 { fill: #bc9e94; }
+    .svg-special-background-fill-e9f0f1 { fill: #333434; }
+    .svg-special-background-fill-f1e5df { fill: #343231; }
+    .svg-special-background-fill-f1ebe0 { fill: #343331; }
+    .svg-special-background-fill-f7f4ef { fill: #353434; }
+    .svg-special-background-fill-fffefa { fill: #363635; }
+
+
+
+  }
+</style>
   <title id="title">梯度下降的曲率与步长</title>
   <desc id="desc">左侧展示梯度下降在细长二次谷底中的之字形轨迹，右侧比较过小、合适和过大的步长。</desc>
-  <rect width="800" height="373" fill="#f7f4ef"/>
-  <text x="28" y="30" fill="#2c2a27" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700">梯度下降的步长受曲率约束</text>
-  <text x="28" y="51" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">方向来自梯度，尺度来自学习率</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f4ef svg-special-background-fill-f7f4ef"/>
+  <text x="28" y="30"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="18" font-weight="700" class="svg-special-text-fill-2c2a27">梯度下降的步长受曲率约束</text>
+  <text x="28" y="51"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-706a61">方向来自梯度，尺度来自学习率</text>
 
-  <rect x="22" y="68" width="414" height="275" rx="12" fill="#fffefa" stroke="#d8d1c7"/>
-  <text x="42" y="92" fill="#38342f" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700">细长谷底中的之字形</text>
-  <text x="42" y="111" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">陡峭方向限制步长，平坦方向决定速度</text>
-  <ellipse cx="224" cy="211" rx="166" ry="91" transform="rotate(-28 224 211)" fill="none" stroke="#ded7ce" stroke-width="1.3"/>
-  <ellipse cx="224" cy="211" rx="132" ry="70" transform="rotate(-28 224 211)" fill="none" stroke="#d5cdc3" stroke-width="1.3"/>
-  <ellipse cx="224" cy="211" rx="98" ry="50" transform="rotate(-28 224 211)" fill="none" stroke="#cbc2b8" stroke-width="1.3"/>
-  <ellipse cx="224" cy="211" rx="62" ry="31" transform="rotate(-28 224 211)" fill="none" stroke="#beb4a9" stroke-width="1.3"/>
-  <circle cx="224" cy="211" r="4" fill="#a9583e"/>
-  <text x="232" y="207" fill="#a9583e" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">最优点</text>
-  <path d="M374 111 L132 274 L329 155 L169 260 L273 199 L205 235 L239 216" fill="none" stroke="#54758a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="374" cy="111" r="5" fill="#54758a"/>
-  <circle cx="132" cy="274" r="4" fill="#54758a"/>
-  <circle cx="329" cy="155" r="4" fill="#54758a"/>
-  <circle cx="169" cy="260" r="4" fill="#54758a"/>
-  <circle cx="273" cy="199" r="4" fill="#54758a"/>
-  <text x="351" y="101" fill="#54758a" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">起点</text>
-  <text x="42" y="322" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11">梯度指向局部上坡，负梯度把轨迹带回谷底</text>
+  <rect x="22" y="68" width="414" height="275" rx="12"   class="svg-special-fill-fill-fffefa svg-special-graphic-stroke-d8d1c7 svg-special-background-fill-fffefa"/>
+  <text x="42" y="92"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-38342f">细长谷底中的之字形</text>
+  <text x="42" y="111"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-706a61">陡峭方向限制步长，平坦方向决定速度</text>
+  <ellipse cx="224" cy="211" rx="166" ry="91" transform="rotate(-28 224 211)" fill="none"  stroke-width="1.3" class="svg-special-graphic-stroke-ded7ce"/>
+  <ellipse cx="224" cy="211" rx="132" ry="70" transform="rotate(-28 224 211)" fill="none"  stroke-width="1.3" class="svg-special-graphic-stroke-d5cdc3"/>
+  <ellipse cx="224" cy="211" rx="98" ry="50" transform="rotate(-28 224 211)" fill="none"  stroke-width="1.3" class="svg-special-graphic-stroke-cbc2b8"/>
+  <ellipse cx="224" cy="211" rx="62" ry="31" transform="rotate(-28 224 211)" fill="none"  stroke-width="1.3" class="svg-special-graphic-stroke-beb4a9"/>
+  <circle cx="224" cy="211" r="4"  class="svg-special-fill-fill-a9583e"/>
+  <text x="232" y="207"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-coral-text-fill">最优点</text>
+  <path d="M374 111 L132 274 L329 155 L169 260 L273 199 L205 235 L239 216" fill="none"  stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-special-graphic-stroke-54758a"/>
+  <circle cx="374" cy="111" r="5"  class="svg-special-fill-fill-54758a"/>
+  <circle cx="132" cy="274" r="4"  class="svg-special-fill-fill-54758a"/>
+  <circle cx="329" cy="155" r="4"  class="svg-special-fill-fill-54758a"/>
+  <circle cx="169" cy="260" r="4"  class="svg-special-fill-fill-54758a"/>
+  <circle cx="273" cy="199" r="4"  class="svg-special-fill-fill-54758a"/>
+  <text x="351" y="101"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-54758a">起点</text>
+  <text x="42" y="322"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="11" class="svg-special-text-fill-706a61">梯度指向局部上坡，负梯度把轨迹带回谷底</text>
 
-  <rect x="452" y="68" width="326" height="275" rx="12" fill="#fffefa" stroke="#d8d1c7"/>
-  <text x="472" y="92" fill="#38342f" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700">三种步长的训练信号</text>
-  <rect x="472" y="108" width="286" height="59" rx="8" fill="#f1ebe0" stroke="#ddd0b9"/>
-  <text x="487" y="128" fill="#49433b" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700">步长过小：慢</text>
-  <path d="M608 151 L630 147 L650 144 L668 141 L683 138" fill="none" stroke="#8a7965" stroke-width="2.5"/>
-  <text x="696" y="145" fill="#706a61" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">稳定</text>
-  <rect x="472" y="181" width="286" height="59" rx="8" fill="#e9f0f1" stroke="#c6d5d9"/>
-  <text x="487" y="201" fill="#383f42" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700">步长合适：降</text>
-  <path d="M608 224 L630 214 L650 207 L668 203 L683 201" fill="none" stroke="#54758a" stroke-width="2.5"/>
-  <text x="696" y="208" fill="#53636a" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">有效</text>
-  <rect x="472" y="254" width="286" height="59" rx="8" fill="#f1e5df" stroke="#dec5ba"/>
-  <text x="487" y="274" fill="#5a3f35" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700">步长过大：爆</text>
-  <path d="M608 296 L630 288 L650 301 L668 279 L683 309" fill="none" stroke="#a9583e" stroke-width="2.5"/>
-  <text x="696" y="291" fill="#8b5746" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10">发散</text>
+  <rect x="452" y="68" width="326" height="275" rx="12"   class="svg-special-fill-fill-fffefa svg-special-graphic-stroke-d8d1c7 svg-special-background-fill-fffefa"/>
+  <text x="472" y="92"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-38342f">三种步长的训练信号</text>
+  <rect x="472" y="108" width="286" height="59" rx="8"   class="svg-special-fill-fill-f1ebe0 svg-special-graphic-stroke-ddd0b9 svg-special-background-fill-f1ebe0"/>
+  <text x="487" y="128"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-49433b">步长过小：慢</text>
+  <path d="M608 151 L630 147 L650 144 L668 141 L683 138" fill="none"  stroke-width="2.5" class="svg-special-graphic-stroke-8a7965"/>
+  <text x="696" y="145"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-706a61">稳定</text>
+  <rect x="472" y="181" width="286" height="59" rx="8"   class="svg-special-fill-fill-e9f0f1 svg-special-graphic-stroke-c6d5d9 svg-special-background-fill-e9f0f1"/>
+  <text x="487" y="201"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-383f42">步长合适：降</text>
+  <path d="M608 224 L630 214 L650 207 L668 203 L683 201" fill="none"  stroke-width="2.5" class="svg-special-graphic-stroke-54758a"/>
+  <text x="696" y="208"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-53636a">有效</text>
+  <rect x="472" y="254" width="286" height="59" rx="8"   class="svg-special-fill-fill-f1e5df svg-special-graphic-stroke-dec5ba svg-special-background-fill-f1e5df"/>
+  <text x="487" y="274"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-5a3f35">步长过大：爆</text>
+  <path d="M608 296 L630 288 L650 301 L668 279 L683 309" fill="none"  stroke-width="2.5" class="svg-coral-stroke-stroke"/>
+  <text x="696" y="291"  font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="10" class="svg-special-text-fill-8b5746">发散</text>
 </svg>

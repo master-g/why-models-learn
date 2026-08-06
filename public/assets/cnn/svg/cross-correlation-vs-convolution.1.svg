@@ -1,87 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-8b817b { fill: #8b817b; }
+  .svg-special-fill-fill-eee3d8 { fill: #968f89; }
+  .svg-special-fill-fill-f3d8ce { fill: #9f8d87; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-f8f3ed { fill: #93908d; }
+  .svg-special-fill-fill-fffaf3 { fill: #93908c; }
+  .svg-special-graphic-stroke-8b817b { stroke: #8b817b; }
+  .svg-special-graphic-stroke-b9a997 { stroke: #9c8e7f; }
+  .svg-special-graphic-stroke-d7ccc4 { stroke: #978f8a; }
+  .svg-special-graphic-stroke-e4d9d1 { stroke: #978f8a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706e6e { fill: #706e6e; }
+
+  .svg-special-background-fill-eee3d8 { fill: #eee3d8; }
+  .svg-special-background-fill-f3d8ce { fill: #f3d8ce; }
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-f8f3ed { fill: #f8f3ed; }
+  .svg-special-background-fill-fffaf3 { fill: #fffaf3; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-8b817b { fill: #8b817b; }
+    .svg-special-fill-fill-eee3d8 { fill: #968f89; }
+    .svg-special-fill-fill-f3d8ce { fill: #9f8d87; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-f8f3ed { fill: #93908d; }
+    .svg-special-fill-fill-fffaf3 { fill: #93908c; }
+    .svg-special-graphic-stroke-8b817b { stroke: #8b817b; }
+    .svg-special-graphic-stroke-b9a997 { stroke: #9c8e7f; }
+    .svg-special-graphic-stroke-d7ccc4 { stroke: #978f8a; }
+    .svg-special-graphic-stroke-e4d9d1 { stroke: #978f8a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706e6e { fill: #a5a4a4; }
+    .svg-special-background-fill-eee3d8 { fill: #333230; }
+    .svg-special-background-fill-f3d8ce { fill: #34302f; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-f8f3ed { fill: #353433; }
+    .svg-special-background-fill-fffaf3 { fill: #363534; }
+
+
+
+  }
+</style>
   <title id="title">互相关与卷积的核翻转对照</title>
   <desc id="desc">输入窗口为一和二、核为二和负一；左侧互相关直接读取核得到零，右侧数学卷积先翻转核得到三，下方总结对称核会掩盖方向错误。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+      <path d="M0 0 L7 3.5 L0 7 Z"  class="svg-special-fill-fill-8b817b"/>
     </marker>
     <style>
-      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .sequence { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.3; }
-      .corr { fill: #eee3d8; stroke: #b9a997; stroke-width: 1.5; }
-      .conv { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.6; }
-      .output-corr { fill: #e6e2d8; stroke: #9b978b; stroke-width: 1.3; }
-      .output-conv { fill: #dce9df; stroke: #75957e; stroke-width: 1.3; }
-      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
-      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .sequence {stroke-width: 1.3; }
+      .corr {stroke-width: 1.5; }
+      .conv {stroke-width: 1.6; }
+      .output-corr {stroke-width: 1.3; }
+      .output-conv {stroke-width: 1.3; }
+      .card {stroke-width: 1.2; }
+      .accept {stroke-width: 1.4; }
     </style>
   </defs>
 
-  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
-  <text x="38" y="43" class="title">互相关与卷积：同一窗口，方向不同</text>
-  <text x="38" y="65" class="subtitle">x = [1, 2, 1]，h = [2, −1]；非对称核让翻转差异立即显现</text>
+  <rect x="14" y="14" width="772" height="345" rx="20"   class="svg-special-fill-fill-f8f3ed svg-special-graphic-stroke-e4d9d1 svg-special-background-fill-f8f3ed"/>
+  <text x="38" y="43" class="title svg-special-text-fill-312f2f">互相关与卷积：同一窗口，方向不同</text>
+  <text x="38" y="65" class="subtitle svg-special-text-fill-706e6e">x = [1, 2, 1]，h = [2, −1]；非对称核让翻转差异立即显现</text>
 
-  <rect x="38" y="84" width="349" height="181" rx="12" class="corr"/>
-  <text x="58" y="111" class="panel-title">互相关：直接读取 h</text>
-  <text x="58" y="132" class="panel-detail">c[0] = x[0]h[0] + x[1]h[1]</text>
+  <rect x="38" y="84" width="349" height="181" rx="12" class="corr svg-special-fill-fill-eee3d8 svg-special-graphic-stroke-b9a997 svg-special-background-fill-eee3d8"/>
+  <text x="58" y="111" class="panel-title svg-special-text-fill-312f2f">互相关：直接读取 h</text>
+  <text x="58" y="132" class="panel-detail svg-special-text-fill-706e6e">c[0] = x[0]h[0] + x[1]h[1]</text>
 
-  <text x="110" y="157" text-anchor="middle" class="label">输入窗口</text>
+  <text x="110" y="157" text-anchor="middle" class="label svg-special-text-fill-312f2f">输入窗口</text>
   <g transform="translate(58 169)">
-    <rect width="52" height="42" class="sequence"/>
-    <rect x="52" width="52" height="42" class="sequence"/>
-    <text x="26" y="27" text-anchor="middle" class="value">1</text>
-    <text x="78" y="27" text-anchor="middle" class="value">2</text>
+    <rect width="52" height="42" class="sequence svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="52" width="52" height="42" class="sequence svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <text x="26" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">1</text>
+    <text x="78" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">2</text>
   </g>
-  <text x="110" y="230" text-anchor="middle" class="detail">x[0], x[1]</text>
-  <path d="M177 190 H211" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="194" y="177" text-anchor="middle" class="detail">逐项乘</text>
+  <text x="110" y="230" text-anchor="middle" class="detail svg-special-text-fill-706e6e">x[0], x[1]</text>
+  <path d="M177 190 H211" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <text x="194" y="177" text-anchor="middle" class="detail svg-special-text-fill-706e6e">逐项乘</text>
   <g transform="translate(223 169)">
-    <rect width="52" height="42" class="corr"/>
-    <rect x="52" width="52" height="42" class="corr"/>
-    <text x="26" y="27" text-anchor="middle" class="value">2</text>
-    <text x="78" y="27" text-anchor="middle" class="value">−1</text>
+    <rect width="52" height="42" class="corr svg-special-fill-fill-eee3d8 svg-special-graphic-stroke-b9a997 svg-special-background-fill-eee3d8"/>
+    <rect x="52" width="52" height="42" class="corr svg-special-fill-fill-eee3d8 svg-special-graphic-stroke-b9a997 svg-special-background-fill-eee3d8"/>
+    <text x="26" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">2</text>
+    <text x="78" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">−1</text>
   </g>
-  <text x="275" y="230" text-anchor="middle" class="detail">h[0], h[1]</text>
-  <path d="M315 190 H337" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="347" y="183" text-anchor="middle" class="detail">2 − 2</text>
-  <text x="347" y="207" text-anchor="middle" class="value">c[0] = 0</text>
+  <text x="275" y="230" text-anchor="middle" class="detail svg-special-text-fill-706e6e">h[0], h[1]</text>
+  <path d="M315 190 H337" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <text x="347" y="183" text-anchor="middle" class="detail svg-special-text-fill-706e6e">2 − 2</text>
+  <text x="347" y="207" text-anchor="middle" class="value svg-special-text-fill-312f2f">c[0] = 0</text>
 
-  <rect x="413" y="84" width="349" height="181" rx="12" class="conv"/>
-  <text x="433" y="111" class="panel-title">数学卷积：先翻转 h</text>
-  <text x="433" y="132" class="panel-detail">v[0] = x[0]h[1] + x[1]h[0]</text>
+  <rect x="413" y="84" width="349" height="181" rx="12" class="conv svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+  <text x="433" y="111" class="panel-title svg-special-text-fill-312f2f">数学卷积：先翻转 h</text>
+  <text x="433" y="132" class="panel-detail svg-special-text-fill-706e6e">v[0] = x[0]h[1] + x[1]h[0]</text>
 
-  <text x="485" y="157" text-anchor="middle" class="label">输入窗口</text>
+  <text x="485" y="157" text-anchor="middle" class="label svg-special-text-fill-312f2f">输入窗口</text>
   <g transform="translate(433 169)">
-    <rect width="52" height="42" class="sequence"/>
-    <rect x="52" width="52" height="42" class="sequence"/>
-    <text x="26" y="27" text-anchor="middle" class="value">1</text>
-    <text x="78" y="27" text-anchor="middle" class="value">2</text>
+    <rect width="52" height="42" class="sequence svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="52" width="52" height="42" class="sequence svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <text x="26" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">1</text>
+    <text x="78" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">2</text>
   </g>
-  <text x="485" y="230" text-anchor="middle" class="detail">x[0], x[1]</text>
-  <path d="M552 190 H584" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="568" y="177" text-anchor="middle" class="detail">翻转</text>
+  <text x="485" y="230" text-anchor="middle" class="detail svg-special-text-fill-706e6e">x[0], x[1]</text>
+  <path d="M552 190 H584" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <text x="568" y="177" text-anchor="middle" class="detail svg-special-text-fill-706e6e">翻转</text>
   <g transform="translate(596 169)">
-    <rect width="52" height="42" class="conv"/>
-    <rect x="52" width="52" height="42" class="conv"/>
-    <text x="26" y="27" text-anchor="middle" class="value">−1</text>
-    <text x="78" y="27" text-anchor="middle" class="value">2</text>
+    <rect width="52" height="42" class="conv svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+    <rect x="52" width="52" height="42" class="conv svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+    <text x="26" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">−1</text>
+    <text x="78" y="27" text-anchor="middle" class="value svg-special-text-fill-312f2f">2</text>
   </g>
-  <text x="648" y="230" text-anchor="middle" class="detail">h[1], h[0]</text>
-  <path d="M688 190 H710" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="722" y="183" text-anchor="middle" class="detail">−1 + 4</text>
-  <text x="722" y="207" text-anchor="middle" class="value">v[0] = 3</text>
+  <text x="648" y="230" text-anchor="middle" class="detail svg-special-text-fill-706e6e">h[1], h[0]</text>
+  <path d="M688 190 H710" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <text x="722" y="183" text-anchor="middle" class="detail svg-special-text-fill-706e6e">−1 + 4</text>
+  <text x="722" y="207" text-anchor="middle" class="value svg-special-text-fill-312f2f">v[0] = 3</text>
 
-  <rect x="38" y="281" width="724" height="43" rx="9" class="card"/>
-  <text x="54" y="301" class="label">等价关系</text>
-  <text x="144" y="301" class="detail">互相关(x, h) = 卷积(x, 反转 h)；参数数量不变，权重的空间含义会变</text>
-  <text x="54" y="317" class="detail">对称核翻转后不变，会掩盖实现错误；验收应使用非对称方向核。</text>
+  <rect x="38" y="281" width="724" height="43" rx="9" class="card svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-fffaf3"/>
+  <text x="54" y="301" class="label svg-special-text-fill-312f2f">等价关系</text>
+  <text x="144" y="301" class="detail svg-special-text-fill-706e6e">互相关(x, h) = 卷积(x, 反转 h)；参数数量不变，权重的空间含义会变</text>
+  <text x="54" y="317" class="detail svg-special-text-fill-706e6e">对称核翻转后不变，会掩盖实现错误；验收应使用非对称方向核。</text>
 
-  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
-  <text x="400" y="351" text-anchor="middle" class="detail">验收：先写窗口求和式，再核对第一项、最后一项、两个空间轴与 checkpoint 语义</text>
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept svg-special-fill-fill-f3d8ce svg-coral-stroke-stroke svg-special-background-fill-f3d8ce"/>
+  <text x="400" y="351" text-anchor="middle" class="detail svg-special-text-fill-706e6e">验收：先写窗口求和式，再核对第一项、最后一项、两个空间轴与 checkpoint 语义</text>
 </svg>

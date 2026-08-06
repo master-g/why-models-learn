@@ -1,35 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-special-fill-fill-29251f { fill: #29251f; }
+  .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+  .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+  .svg-special-fill-fill-ead9dc { fill: #998e90; }
+  .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+  .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+  .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+  .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+  .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+  .svg-special-graphic-stroke-a8757c { stroke: #a8757c; }
+  .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+  .svg-special-text-fill-6f665b { fill: #6f665b; }
+
+  .svg-special-background-fill-e5edf0 { fill: #e5edf0; }
+  .svg-special-background-fill-e8e6d9 { fill: #e8e6d9; }
+  .svg-special-background-fill-ead9dc { fill: #ead9dc; }
+  .svg-special-background-fill-f0e7ca { fill: #f0e7ca; }
+  .svg-special-background-fill-f6f0e5 { fill: #f6f0e5; }
+  .svg-special-text-fill-29251f { fill: #29251f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-special-fill-fill-29251f { fill: #65625d; }
+    .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+    .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+    .svg-special-fill-fill-ead9dc { fill: #998e90; }
+    .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+    .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+    .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+    .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+    .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+    .svg-special-graphic-stroke-a8757c { stroke: #a8757c; }
+    .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+    .svg-special-text-fill-6f665b { fill: #a9a49d; }
+    .svg-special-background-fill-e5edf0 { fill: #323334; }
+    .svg-special-background-fill-e8e6d9 { fill: #333230; }
+    .svg-special-background-fill-ead9dc { fill: #333031; }
+    .svg-special-background-fill-f0e7ca { fill: #34322e; }
+    .svg-special-background-fill-f6f0e5 { fill: #353432; }
+    .svg-special-text-fill-29251f { fill: #a6a4a1; }
+
+
+
+  }
+</style>
   <title id="title">WordPiece 与 SentencePiece 对照</title>
   <desc id="desc">WordPiece 用归一化 pair 得分选择词片段，SentencePiece 保留原始空格并可选择 BPE 或 Unigram，三者最后都映射到 token ID。</desc>
-  <rect width="800" height="373" fill="#f6f0e5"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f6f0e5 svg-special-background-fill-f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"  class="svg-special-fill-fill-29251f svg-special-text-fill-29251f">
     <text x="32" y="34" font-size="22" font-weight="700">WordPiece 与 SentencePiece：模型层级不同</text>
-    <text x="32" y="57" font-size="12" fill="#6f665b">WordPiece 关注子词得分；SentencePiece 还规定 raw sentence、空格与模型类型</text>
+    <text x="32" y="57" font-size="12"  class="svg-special-text-fill-6f665b">WordPiece 关注子词得分；SentencePiece 还规定 raw sentence、空格与模型类型</text>
 
-    <rect x="32" y="82" width="226" height="108" rx="12" fill="#ead9dc" stroke="#a8757c"/>
+    <rect x="32" y="82" width="226" height="108" rx="12"   class="svg-special-fill-fill-ead9dc svg-special-graphic-stroke-a8757c svg-special-background-fill-ead9dc"/>
     <text x="48" y="108" font-size="14" font-weight="700">WordPiece</text>
     <text x="48" y="135" font-size="13">pair score = freq(pair)</text>
     <text x="48" y="156" font-size="13">÷ freq(left)freq(right)</text>
     <text x="48" y="177" font-size="13">greedy + continuation</text>
 
-    <rect x="287" y="82" width="226" height="108" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <rect x="287" y="82" width="226" height="108" rx="12"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
     <text x="303" y="108" font-size="14" font-weight="700">SentencePiece</text>
     <text x="303" y="135" font-size="13">raw sentence → ▁ whitespace</text>
     <text x="303" y="156" font-size="13">model type: BPE / Unigram</text>
     <text x="303" y="177" font-size="13">normalizer + vocabulary</text>
 
-    <rect x="542" y="82" width="226" height="108" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <rect x="542" y="82" width="226" height="108" rx="12"   class="svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
     <text x="558" y="108" font-size="14" font-weight="700">Unigram</text>
     <text x="558" y="135" font-size="13">token probabilities</text>
     <text x="558" y="156" font-size="13">Viterbi or sampling</text>
     <text x="558" y="177" font-size="13">multiple paths can survive</text>
 
-    <path d="M145 190 V226 H400" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M400 190 V226" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M655 190 V226 H400" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M391 217 L400 227 L409 217" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M145 190 V226 H400"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M400 190 V226"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M655 190 V226 H400"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M391 217 L400 227 L409 217"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="32" y="238" width="736" height="92" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <rect x="32" y="238" width="736" height="92" rx="12"   class="svg-special-fill-fill-f0e7ca svg-special-graphic-stroke-b19350 svg-special-background-fill-f0e7ca"/>
     <text x="48" y="264" font-size="14" font-weight="700">同一个原始输入：Hello world</text>
     <text x="48" y="289" font-size="13">WordPiece：Hello + world（词内延续可带 ##）</text>
     <text x="48" y="309" font-size="13">SentencePiece：▁Hello + ▁world；Unigram 还可比较多条合法路径</text>

@@ -1,71 +1,125 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+  .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+  .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+  .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+  .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+  .svg-special-fill-fill-f5ead6 { fill: #979084; }
+  .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+  .svg-special-graphic-stroke-6f665f { stroke: #6f665f; }
+  .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+  .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+  .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+  .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+  .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+  .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+  .svg-special-text-fill-2f2a27 { fill: #2f2a27; }
+  .svg-special-text-fill-6d625b { fill: #6d625b; }
+
+  .svg-special-background-fill-e2eadf { fill: #e2eadf; }
+  .svg-special-background-fill-e8e4dc { fill: #e8e4dc; }
+  .svg-special-background-fill-f0dfd4 { fill: #f0dfd4; }
+  .svg-special-background-fill-f0e2e0 { fill: #f0e2e0; }
+  .svg-special-background-fill-f5ead6 { fill: #f5ead6; }
+  .svg-special-background-fill-f7f2ed { fill: #f7f2ed; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+    .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+    .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+    .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+    .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+    .svg-special-fill-fill-f5ead6 { fill: #979084; }
+    .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+    .svg-special-graphic-stroke-6f665f { stroke: #6f665f; }
+    .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+    .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+    .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+    .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+    .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+    .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+    .svg-special-text-fill-2f2a27 { fill: #a6a4a2; }
+    .svg-special-text-fill-6d625b { fill: #aaa39f; }
+    .svg-special-background-fill-e2eadf { fill: #323331; }
+    .svg-special-background-fill-e8e4dc { fill: #333231; }
+    .svg-special-background-fill-f0dfd4 { fill: #343130; }
+    .svg-special-background-fill-f0e2e0 { fill: #343231; }
+    .svg-special-background-fill-f5ead6 { fill: #343330; }
+    .svg-special-background-fill-f7f2ed { fill: #353433; }
+
+
+
+  }
+</style>
   <title id="title">量化的资源链</title>
   <desc id="desc">浮点张量经过范围估计、scale、舍入和截断变成低比特码，再经过反量化进入计算并产生误差</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif; fill: #2f2a27; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;  }
     .title { font-size: 22px; font-weight: 700; }
     .label { font-size: 16px; font-weight: 700; }
     .body { font-size: 13px; }
-    .small { font-size: 12px; fill: #6d625b; }
-    .box { stroke: #6f665f; stroke-width: 1.5; rx: 12; }
-    .float { fill: #f0dfd4; stroke: #bd7556; }
-    .scale { fill: #f5ead6; stroke: #b98a4c; }
-    .code { fill: #e8e4dc; stroke: #77746e; }
-    .compute { fill: #e2eadf; stroke: #718b6c; }
-    .error { fill: #f0e2e0; stroke: #a76a65; }
-    .arrow { stroke: #bd7556; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
-    .thin { stroke: #aaa198; stroke-width: 1; fill: none; }
+    .small { font-size: 12px;  }
+    .box {stroke-width: 1.5; rx: 12; }
+    .float {}
+    .scale {}
+    .code {}
+    .compute {}
+    .error {}
+    .arrow {stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    .thin {stroke-width: 1; fill: none; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#bd7556"/>
+      <polygon points="0 0, 10 3.5, 0 7"  class="svg-special-fill-fill-bd7556"/>
     </marker>
   </defs>
-  <rect width="800" height="373" fill="#f7f2ed"/>
-  <text x="40" y="38" class="title">量化的资源链：表示更短，合同更长</text>
-  <text x="40" y="61" class="small">对象、粒度、scale、计算 dtype 与误差验收必须一起保存</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f2ed svg-special-background-fill-f7f2ed"/>
+  <text x="40" y="38" class="title svg-special-text-fill-2f2a27">量化的资源链：表示更短，合同更长</text>
+  <text x="40" y="61" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">对象、粒度、scale、计算 dtype 与误差验收必须一起保存</text>
 
-  <rect x="40" y="91" width="145" height="87" class="box float"/>
-  <text x="112.5" y="119" text-anchor="middle" class="label">浮点张量</text>
-  <text x="112.5" y="145" text-anchor="middle" class="body">W、x、K/V</text>
-  <text x="112.5" y="164" text-anchor="middle" class="small">FP16 / BF16 / FP32</text>
+  <rect x="40" y="91" width="145" height="87" class="box float svg-special-graphic-stroke-6f665f svg-special-fill-fill-f0dfd4 svg-special-graphic-stroke-bd7556 svg-special-background-fill-f0dfd4"/>
+  <text x="112.5" y="119" text-anchor="middle" class="label svg-special-text-fill-2f2a27">浮点张量</text>
+  <text x="112.5" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">W、x、K/V</text>
+  <text x="112.5" y="164" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">FP16 / BF16 / FP32</text>
 
-  <path d="M185 134 H236" class="arrow"/>
-  <rect x="236" y="91" width="142" height="87" class="box scale"/>
-  <text x="307" y="119" text-anchor="middle" class="label">范围与 scale</text>
-  <text x="307" y="145" text-anchor="middle" class="body">min-max / clip</text>
-  <text x="307" y="164" text-anchor="middle" class="small">s、z、axis、group</text>
+  <path d="M185 134 H236" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <rect x="236" y="91" width="142" height="87" class="box scale svg-special-graphic-stroke-6f665f svg-special-fill-fill-f5ead6 svg-special-graphic-stroke-b98a4c svg-special-background-fill-f5ead6"/>
+  <text x="307" y="119" text-anchor="middle" class="label svg-special-text-fill-2f2a27">范围与 scale</text>
+  <text x="307" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">min-max / clip</text>
+  <text x="307" y="164" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">s、z、axis、group</text>
 
-  <path d="M378 134 H429" class="arrow"/>
-  <rect x="429" y="91" width="142" height="87" class="box code"/>
-  <text x="500" y="119" text-anchor="middle" class="label">舍入与截断</text>
-  <text x="500" y="145" text-anchor="middle" class="body">round + clamp</text>
-  <text x="500" y="164" text-anchor="middle" class="small">int4 / int8 code</text>
+  <path d="M378 134 H429" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <rect x="429" y="91" width="142" height="87" class="box code svg-special-graphic-stroke-6f665f svg-special-fill-fill-e8e4dc svg-special-graphic-stroke-77746e svg-special-background-fill-e8e4dc"/>
+  <text x="500" y="119" text-anchor="middle" class="label svg-special-text-fill-2f2a27">舍入与截断</text>
+  <text x="500" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">round + clamp</text>
+  <text x="500" y="164" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">int4 / int8 code</text>
 
-  <path d="M571 134 H622" class="arrow"/>
-  <rect x="622" y="91" width="138" height="87" class="box compute"/>
-  <text x="691" y="119" text-anchor="middle" class="label">存储与计算</text>
-  <text x="691" y="145" text-anchor="middle" class="body">pack / dequant</text>
-  <text x="691" y="164" text-anchor="middle" class="small">compute + accumulate</text>
+  <path d="M571 134 H622" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <rect x="622" y="91" width="138" height="87" class="box compute svg-special-graphic-stroke-6f665f svg-special-fill-fill-e2eadf svg-special-graphic-stroke-718b6c svg-special-background-fill-e2eadf"/>
+  <text x="691" y="119" text-anchor="middle" class="label svg-special-text-fill-2f2a27">存储与计算</text>
+  <text x="691" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">pack / dequant</text>
+  <text x="691" y="164" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">compute + accumulate</text>
 
-  <path d="M691 178 V219 H500" class="arrow"/>
-  <rect x="40" y="219" width="210" height="93" class="box error"/>
-  <text x="145" y="247" text-anchor="middle" class="label">误差来源</text>
-  <text x="145" y="273" text-anchor="middle" class="body">舍入误差 · 截断误差</text>
-  <text x="145" y="295" text-anchor="middle" class="body">scale / zero point / 累加</text>
+  <path d="M691 178 V219 H500" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <rect x="40" y="219" width="210" height="93" class="box error svg-special-graphic-stroke-6f665f svg-special-fill-fill-f0e2e0 svg-special-graphic-stroke-a76a65 svg-special-background-fill-f0e2e0"/>
+  <text x="145" y="247" text-anchor="middle" class="label svg-special-text-fill-2f2a27">误差来源</text>
+  <text x="145" y="273" text-anchor="middle" class="body svg-special-text-fill-2f2a27">舍入误差 · 截断误差</text>
+  <text x="145" y="295" text-anchor="middle" class="body svg-special-text-fill-2f2a27">scale / zero point / 累加</text>
 
-  <path d="M250 265 H319" class="arrow"/>
-  <rect x="319" y="219" width="210" height="93" class="box float"/>
-  <text x="424" y="247" text-anchor="middle" class="label">输出近似</text>
-  <text x="424" y="273" text-anchor="middle" class="body">ŷ = dequant(q)</text>
-  <text x="424" y="295" text-anchor="middle" class="small">逐层 → logits → 生成协议</text>
+  <path d="M250 265 H319" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <rect x="319" y="219" width="210" height="93" class="box float svg-special-graphic-stroke-6f665f svg-special-fill-fill-f0dfd4 svg-special-graphic-stroke-bd7556 svg-special-background-fill-f0dfd4"/>
+  <text x="424" y="247" text-anchor="middle" class="label svg-special-text-fill-2f2a27">输出近似</text>
+  <text x="424" y="273" text-anchor="middle" class="body svg-special-text-fill-2f2a27">ŷ = dequant(q)</text>
+  <text x="424" y="295" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">逐层 → logits → 生成协议</text>
 
-  <path d="M529 265 H598" class="arrow"/>
-  <rect x="598" y="219" width="162" height="93" class="box scale"/>
-  <text x="679" y="247" text-anchor="middle" class="label">审计证据</text>
-  <text x="679" y="271" text-anchor="middle" class="body">bytes / 带宽</text>
-  <text x="679" y="291" text-anchor="middle" class="body">误差 / 质量</text>
+  <path d="M529 265 H598" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <rect x="598" y="219" width="162" height="93" class="box scale svg-special-graphic-stroke-6f665f svg-special-fill-fill-f5ead6 svg-special-graphic-stroke-b98a4c svg-special-background-fill-f5ead6"/>
+  <text x="679" y="247" text-anchor="middle" class="label svg-special-text-fill-2f2a27">审计证据</text>
+  <text x="679" y="271" text-anchor="middle" class="body svg-special-text-fill-2f2a27">bytes / 带宽</text>
+  <text x="679" y="291" text-anchor="middle" class="body svg-special-text-fill-2f2a27">误差 / 质量</text>
 
-  <path d="M40 338 H760" class="thin"/>
-  <text x="40" y="359" class="small">weight-only、activation、KV cache 可以分别量化；低 bit 不会自动改变逻辑 MAC 数</text>
+  <path d="M40 338 H760" class="thin svg-special-graphic-stroke-aaa198"/>
+  <text x="40" y="359" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">weight-only、activation、KV cache 可以分别量化；低 bit 不会自动改变逻辑 MAC 数</text>
 </svg>

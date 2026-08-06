@@ -1,35 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-special-fill-fill-5f827d { fill: #5f827d; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f5f1ec { fill: #93908e; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-graphic-stroke-5f827d { stroke: #5f827d; }
+  .svg-special-graphic-stroke-8e8982 { stroke: #8e8982; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-5f827d { fill: #597975; }
+  .svg-special-text-fill-6f6b65 { fill: #6f6b65; }
+
+  .svg-special-background-fill-f5f1ec { fill: #f5f1ec; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-special-fill-fill-5f827d { fill: #5f827d; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f5f1ec { fill: #93908e; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-graphic-stroke-5f827d { stroke: #5f827d; }
+    .svg-special-graphic-stroke-8e8982 { stroke: #8e8982; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-5f827d { fill: #94a9a6; }
+    .svg-special-text-fill-6f6b65 { fill: #a6a4a0; }
+    .svg-special-background-fill-f5f1ec { fill: #343433; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">GELU 曲线与导数</title>
   <desc id="desc">左侧显示 GELU 在负侧平滑接近零、正侧接近直线的曲线，右侧显示在零点平滑过渡、负侧可略为负且正侧略超过一的导数。</desc>
-  <rect width="800" height="373" rx="18" fill="#fbfaf7"/>
-  <text x="34" y="38" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700">GELU：概率门让折点变平滑</text>
-  <text x="34" y="64" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14">xΦ(x) 保留负侧小信号，正侧逐渐接近线性</text>
+  <rect width="800" height="373" rx="18"  class="svg-special-fill-fill-fbfaf7 svg-special-background-fill-fbfaf7"/>
+  <text x="34" y="38"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" class="svg-special-text-fill-312f2f">GELU：概率门让折点变平滑</text>
+  <text x="34" y="64"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" class="svg-special-text-fill-6f6b65">xΦ(x) 保留负侧小信号，正侧逐渐接近线性</text>
 
-  <rect x="28" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="52" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">函数 GELU(x)</text>
-  <text x="52" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">负侧平滑接近 0，正侧接近 y=x</text>
-  <line x1="64" y1="244" x2="342" y2="244" stroke="#8e8982" stroke-width="1.5"/>
-  <line x1="203" y1="158" x2="203" y2="292" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
-  <line x1="64" y1="188" x2="342" y2="188" stroke="#c9c4bb" stroke-width="1"/>
-  <line x1="64" y1="288" x2="342" y2="288" stroke="#c9c4bb" stroke-width="1"/>
-  <path d="M 64 241 C 92 238, 115 235, 139 247 C 160 257, 181 251, 203 244 C 228 236, 248 218, 270 197 C 293 177, 317 163, 342 158" fill="none" stroke="#cc785c" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="203" cy="244" r="5" fill="#cc785c"/>
-  <text x="193" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">x=0</text>
-  <text x="78" y="226" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">小负值</text>
-  <text x="294" y="151" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">接近 x</text>
+  <rect x="28" y="86" width="350" height="238" rx="14"   stroke-width="2" class="svg-special-fill-fill-f5f1ec svg-axis-stroke svg-special-background-fill-f5f1ec"/>
+  <text x="52" y="119"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" class="svg-special-text-fill-312f2f">函数 GELU(x)</text>
+  <text x="52" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">负侧平滑接近 0，正侧接近 y=x</text>
+  <line x1="64" y1="244" x2="342" y2="244"  stroke-width="1.5" class="svg-special-graphic-stroke-8e8982"/>
+  <line x1="203" y1="158" x2="203" y2="292"  stroke-width="1.5" stroke-dasharray="5 5" class="svg-axis-stroke"/>
+  <line x1="64" y1="188" x2="342" y2="188"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="64" y1="288" x2="342" y2="288"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <path d="M 64 241 C 92 238, 115 235, 139 247 C 160 257, 181 251, 203 244 C 228 236, 248 218, 270 197 C 293 177, 317 163, 342 158" fill="none"  stroke-width="5" stroke-linecap="round" class="svg-coral-stroke-stroke"/>
+  <circle cx="203" cy="244" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="193" y="309"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">x=0</text>
+  <text x="78" y="226"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-coral-text-fill">小负值</text>
+  <text x="294" y="151"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-coral-text-fill">接近 x</text>
 
-  <rect x="422" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="446" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">导数 Φ(x)+xφ(x)</text>
-  <text x="446" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">零点为 1/2，正侧可略超 1</text>
-  <line x1="458" y1="244" x2="736" y2="244" stroke="#8e8982" stroke-width="1.5"/>
-  <line x1="597" y1="158" x2="597" y2="292" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
-  <line x1="458" y1="188" x2="736" y2="188" stroke="#c9c4bb" stroke-width="1"/>
-  <path d="M 458 252 C 486 258, 514 258, 538 245 C 562 232, 582 218, 597 205 C 616 193, 638 186, 660 183 C 684 180, 711 181, 736 183" fill="none" stroke="#5f827d" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="597" cy="205" r="5" fill="#5f827d"/>
-  <text x="586" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">x=0</text>
-  <text x="469" y="271" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">负侧可为负</text>
-  <text x="682" y="174" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">略大于 1</text>
+  <rect x="422" y="86" width="350" height="238" rx="14"   stroke-width="2" class="svg-special-fill-fill-f5f1ec svg-axis-stroke svg-special-background-fill-f5f1ec"/>
+  <text x="446" y="119"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" class="svg-special-text-fill-312f2f">导数 Φ(x)+xφ(x)</text>
+  <text x="446" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">零点为 1/2，正侧可略超 1</text>
+  <line x1="458" y1="244" x2="736" y2="244"  stroke-width="1.5" class="svg-special-graphic-stroke-8e8982"/>
+  <line x1="597" y1="158" x2="597" y2="292"  stroke-width="1.5" stroke-dasharray="5 5" class="svg-axis-stroke"/>
+  <line x1="458" y1="188" x2="736" y2="188"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <path d="M 458 252 C 486 258, 514 258, 538 245 C 562 232, 582 218, 597 205 C 616 193, 638 186, 660 183 C 684 180, 711 181, 736 183" fill="none"  stroke-width="5" stroke-linecap="round" class="svg-special-graphic-stroke-5f827d"/>
+  <circle cx="597" cy="205" r="5"  class="svg-special-fill-fill-5f827d"/>
+  <text x="586" y="309"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">x=0</text>
+  <text x="469" y="271"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-5f827d">负侧可为负</text>
+  <text x="682" y="174"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-5f827d">略大于 1</text>
 
-  <path d="M 382 205 H 413" fill="none" stroke="#b8b2a8" stroke-width="2"/>
-  <path d="M 404 198 L 414 205 L 404 212" fill="none" stroke="#b8b2a8" stroke-width="2"/>
+  <path d="M 382 205 H 413" fill="none"  stroke-width="2" class="svg-axis-stroke"/>
+  <path d="M 404 198 L 414 205 L 404 212" fill="none"  stroke-width="2" class="svg-axis-stroke"/>
 </svg>

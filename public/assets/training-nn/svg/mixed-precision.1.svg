@@ -1,72 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-8f897f { fill: #8f897f; }
+  .svg-special-fill-fill-d9e6df { fill: #8a928e; }
+  .svg-special-fill-fill-efe7d8 { fill: #969087; }
+  .svg-special-fill-fill-f1d2c4 { fill: #a18c83; }
+  .svg-special-fill-fill-f7f3ec { fill: #93908c; }
+  .svg-special-fill-fill-fffaf2 { fill: #93908c; }
+  .svg-special-graphic-stroke-6f9b88 { stroke: #6e9a87; }
+  .svg-special-graphic-stroke-8f897f { stroke: #8f897f; }
+  .svg-special-graphic-stroke-d8cdbd { stroke: #979085; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-716b63 { fill: #716b63; }
+
+  .svg-special-background-fill-d9e6df { fill: #d9e6df; }
+  .svg-special-background-fill-efe7d8 { fill: #efe7d8; }
+  .svg-special-background-fill-f1d2c4 { fill: #f1d2c4; }
+  .svg-special-background-fill-f7f3ec { fill: #f7f3ec; }
+  .svg-special-background-fill-fffaf2 { fill: #fffaf2; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-8f897f { fill: #8f897f; }
+    .svg-special-fill-fill-d9e6df { fill: #8a928e; }
+    .svg-special-fill-fill-efe7d8 { fill: #969087; }
+    .svg-special-fill-fill-f1d2c4 { fill: #a18c83; }
+    .svg-special-fill-fill-f7f3ec { fill: #93908c; }
+    .svg-special-fill-fill-fffaf2 { fill: #93908c; }
+    .svg-special-graphic-stroke-6f9b88 { stroke: #6e9a87; }
+    .svg-special-graphic-stroke-8f897f { stroke: #8f897f; }
+    .svg-special-graphic-stroke-d8cdbd { stroke: #979085; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-716b63 { fill: #a7a49f; }
+    .svg-special-background-fill-d9e6df { fill: #303231; }
+    .svg-special-background-fill-efe7d8 { fill: #343230; }
+    .svg-special-background-fill-f1d2c4 { fill: #342f2e; }
+    .svg-special-background-fill-f7f3ec { fill: #353433; }
+    .svg-special-background-fill-fffaf2 { fill: #363534; }
+
+
+
+  }
+</style>
   <title id="title">混合精度训练的数据路径</title>
   <desc id="desc">低精度激活和矩阵计算经过高精度归约，损失缩放后反向，在有限性检查和梯度裁剪后更新 float32 主权重。</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8f897f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-8f897f"/>
     </marker>
     <style>
-      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #312f2f; }
-      .muted { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #716b63; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;  }
+      .muted { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;  }
       .small { font-size: 13px; }
       .body { font-size: 15px; }
       .strong { font-weight: 700; }
     </style>
   </defs>
 
-  <rect width="800" height="373" rx="18" fill="#f7f3ec"/>
-  <rect x="22" y="18" width="756" height="45" rx="12" fill="#efe7d8"/>
-  <text x="44" y="47" class="label strong" font-size="22">混合精度训练</text>
-  <text x="258" y="46" class="muted body">低精度计算，高精度归约与更新</text>
+  <rect width="800" height="373" rx="18"  class="svg-special-fill-fill-f7f3ec svg-special-background-fill-f7f3ec"/>
+  <rect x="22" y="18" width="756" height="45" rx="12"  class="svg-special-fill-fill-efe7d8 svg-special-background-fill-efe7d8"/>
+  <text x="44" y="47" class="label strong svg-special-text-fill-312f2f" font-size="22">混合精度训练</text>
+  <text x="258" y="46" class="muted body svg-special-text-fill-716b63">低精度计算，高精度归约与更新</text>
 
-  <text x="38" y="86" class="muted small">前向</text>
-  <rect x="38" y="98" width="145" height="55" rx="11" fill="#f1d2c4" stroke="#cc785c" stroke-width="1.5"/>
-  <text x="110.5" y="122" text-anchor="middle" class="label body strong">激活 / 参数</text>
-  <text x="110.5" y="143" text-anchor="middle" class="muted small">float16 或 bfloat16</text>
+  <text x="38" y="86" class="muted small svg-special-text-fill-716b63">前向</text>
+  <rect x="38" y="98" width="145" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-f1d2c4 svg-coral-stroke-stroke svg-special-background-fill-f1d2c4"/>
+  <text x="110.5" y="122" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">激活 / 参数</text>
+  <text x="110.5" y="143" text-anchor="middle" class="muted small svg-special-text-fill-716b63">float16 或 bfloat16</text>
 
-  <path d="M 183 125.5 H 218" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="220" y="98" width="165" height="55" rx="11" fill="#f1d2c4" stroke="#cc785c" stroke-width="1.5"/>
-  <text x="302.5" y="122" text-anchor="middle" class="label body strong">矩阵乘 / 卷积</text>
-  <text x="302.5" y="143" text-anchor="middle" class="muted small">低精度输入</text>
+  <path d="M 183 125.5 H 218"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <rect x="220" y="98" width="165" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-f1d2c4 svg-coral-stroke-stroke svg-special-background-fill-f1d2c4"/>
+  <text x="302.5" y="122" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">矩阵乘 / 卷积</text>
+  <text x="302.5" y="143" text-anchor="middle" class="muted small svg-special-text-fill-716b63">低精度输入</text>
 
-  <path d="M 385 125.5 H 420" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="422" y="98" width="165" height="55" rx="11" fill="#d9e6df" stroke="#6f9b88" stroke-width="1.5"/>
-  <text x="504.5" y="122" text-anchor="middle" class="label body strong">乘加 / 归约</text>
-  <text x="504.5" y="143" text-anchor="middle" class="muted small">float32 累加器</text>
+  <path d="M 385 125.5 H 420"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <rect x="422" y="98" width="165" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-d9e6df svg-special-graphic-stroke-6f9b88 svg-special-background-fill-d9e6df"/>
+  <text x="504.5" y="122" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">乘加 / 归约</text>
+  <text x="504.5" y="143" text-anchor="middle" class="muted small svg-special-text-fill-716b63">float32 累加器</text>
 
-  <path d="M 587 125.5 H 622" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="624" y="98" width="138" height="55" rx="11" fill="#d9e6df" stroke="#6f9b88" stroke-width="1.5"/>
-  <text x="693" y="122" text-anchor="middle" class="label body strong">损失 / 统计</text>
-  <text x="693" y="143" text-anchor="middle" class="muted small">稳定高精度边界</text>
+  <path d="M 587 125.5 H 622"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <rect x="624" y="98" width="138" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-d9e6df svg-special-graphic-stroke-6f9b88 svg-special-background-fill-d9e6df"/>
+  <text x="693" y="122" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">损失 / 统计</text>
+  <text x="693" y="143" text-anchor="middle" class="muted small svg-special-text-fill-716b63">稳定高精度边界</text>
 
-  <text x="38" y="184" class="muted small">反向与更新</text>
-  <rect x="38" y="196" width="145" height="55" rx="11" fill="#f1d2c4" stroke="#cc785c" stroke-width="1.5"/>
-  <text x="110.5" y="220" text-anchor="middle" class="label body strong">损失 × scale</text>
-  <text x="110.5" y="241" text-anchor="middle" class="muted small">扩大可表示梯度</text>
+  <text x="38" y="184" class="muted small svg-special-text-fill-716b63">反向与更新</text>
+  <rect x="38" y="196" width="145" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-f1d2c4 svg-coral-stroke-stroke svg-special-background-fill-f1d2c4"/>
+  <text x="110.5" y="220" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">损失 × scale</text>
+  <text x="110.5" y="241" text-anchor="middle" class="muted small svg-special-text-fill-716b63">扩大可表示梯度</text>
 
-  <path d="M 624 169 C 624 185 110 170 110 196" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path d="M 183 223.5 H 218" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="220" y="196" width="165" height="55" rx="11" fill="#f1d2c4" stroke="#cc785c" stroke-width="1.5"/>
-  <text x="302.5" y="220" text-anchor="middle" class="label body strong">反向梯度</text>
-  <text x="302.5" y="241" text-anchor="middle" class="muted small">低精度路径可缩放</text>
+  <path d="M 624 169 C 624 185 110 170 110 196"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <path d="M 183 223.5 H 218"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <rect x="220" y="196" width="165" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-f1d2c4 svg-coral-stroke-stroke svg-special-background-fill-f1d2c4"/>
+  <text x="302.5" y="220" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">反向梯度</text>
+  <text x="302.5" y="241" text-anchor="middle" class="muted small svg-special-text-fill-716b63">低精度路径可缩放</text>
 
-  <path d="M 385 223.5 H 420" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="422" y="196" width="165" height="55" rx="11" fill="#efe7d8" stroke="#b8b2a8" stroke-width="1.5"/>
-  <text x="504.5" y="220" text-anchor="middle" class="label body strong">unscale + 检查</text>
-  <text x="504.5" y="241" text-anchor="middle" class="muted small">有限性 / 梯度裁剪</text>
+  <path d="M 385 223.5 H 420"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <rect x="422" y="196" width="165" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-efe7d8 svg-axis-stroke svg-special-background-fill-efe7d8"/>
+  <text x="504.5" y="220" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">unscale + 检查</text>
+  <text x="504.5" y="241" text-anchor="middle" class="muted small svg-special-text-fill-716b63">有限性 / 梯度裁剪</text>
 
-  <path d="M 587 223.5 H 622" stroke="#8f897f" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <rect x="624" y="196" width="138" height="55" rx="11" fill="#d9e6df" stroke="#6f9b88" stroke-width="1.5"/>
-  <text x="693" y="220" text-anchor="middle" class="label body strong">主权重更新</text>
-  <text x="693" y="241" text-anchor="middle" class="muted small">float32 master</text>
+  <path d="M 587 223.5 H 622"  stroke-width="2" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8f897f"/>
+  <rect x="624" y="196" width="138" height="55" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-d9e6df svg-special-graphic-stroke-6f9b88 svg-special-background-fill-d9e6df"/>
+  <text x="693" y="220" text-anchor="middle" class="label body strong svg-special-text-fill-312f2f">主权重更新</text>
+  <text x="693" y="241" text-anchor="middle" class="muted small svg-special-text-fill-716b63">float32 master</text>
 
-  <rect x="38" y="278" width="351" height="70" rx="12" fill="#fffaf2" stroke="#d8cdbd"/>
-  <text x="58" y="302" class="label body strong">float16</text>
-  <text x="58" y="325" class="muted small">指数范围较窄 · 尾数相对更细</text>
-  <text x="58" y="341" class="muted small">小梯度下溢和大激活上溢要重点检查</text>
+  <rect x="38" y="278" width="351" height="70" rx="12"   class="svg-special-fill-fill-fffaf2 svg-special-graphic-stroke-d8cdbd svg-special-background-fill-fffaf2"/>
+  <text x="58" y="302" class="label body strong svg-special-text-fill-312f2f">float16</text>
+  <text x="58" y="325" class="muted small svg-special-text-fill-716b63">指数范围较窄 · 尾数相对更细</text>
+  <text x="58" y="341" class="muted small svg-special-text-fill-716b63">小梯度下溢和大激活上溢要重点检查</text>
 
-  <rect x="411" y="278" width="351" height="70" rx="12" fill="#fffaf2" stroke="#d8cdbd"/>
-  <text x="431" y="302" class="label body strong">bfloat16</text>
-  <text x="431" y="325" class="muted small">指数范围较宽 · 尾数相对更粗</text>
-  <text x="431" y="341" class="muted small">范围更宽不等于归约与更新可以降精度</text>
+  <rect x="411" y="278" width="351" height="70" rx="12"   class="svg-special-fill-fill-fffaf2 svg-special-graphic-stroke-d8cdbd svg-special-background-fill-fffaf2"/>
+  <text x="431" y="302" class="label body strong svg-special-text-fill-312f2f">bfloat16</text>
+  <text x="431" y="325" class="muted small svg-special-text-fill-716b63">指数范围较宽 · 尾数相对更粗</text>
+  <text x="431" y="341" class="muted small svg-special-text-fill-716b63">范围更宽不等于归约与更新可以降精度</text>
 </svg>

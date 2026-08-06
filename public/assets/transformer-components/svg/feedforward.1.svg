@@ -1,68 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-f7dfcf { fill: #9d8e84; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+  .svg-special-graphic-stroke-d5c9c5 { stroke: #988f8c; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e7f0ee { fill: #e7f0ee; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-f7dfcf { fill: #f7dfcf; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-f7dfcf { fill: #9d8e84; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+    .svg-special-graphic-stroke-d5c9c5 { stroke: #988f8c; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e7f0ee { fill: #323433; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-f7dfcf { fill: #35312f; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">逐 token 的前馈网络流程</title>
   <desc id="desc">一个 token 的表示依次经过第一层线性投影、逐坐标激活和第二层线性投影，先扩展到中间宽度，再回到 residual stream 的宽度。</desc>
   <style>
-    .paper { fill: #f4efee; }
-    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
-    .muted { fill: #6c6a64; font-size: 16px; }
-    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
-    .small { fill: #6c6a64; font-size: 14px; }
-    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
-    .linear { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
-    .activation { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
-    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .arrow { fill: #312f2f; }
+    .paper {}
+    .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted {font-size: 16px; }
+    .label {font-size: 20px; font-weight: 650; }
+    .small {font-size: 14px; }
+    .box {stroke-width: 2; rx: 10; }
+    .linear {stroke-width: 2; rx: 10; }
+    .activation {stroke-width: 2; rx: 10; }
+    .path { fill: none;  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow {}
   </style>
-  <rect class="paper" width="800" height="373"/>
-  <text class="ink label" x="42" y="45">一个 token 的 FFN</text>
-  <text class="ink muted" x="42" y="72">扩展特征宽度，逐坐标激活，再压回 residual stream</text>
+  <rect class="paper svg-special-fill-fill-f4efee svg-special-background-fill-f4efee" width="800" height="373"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="45">一个 token 的 FFN</text>
+  <text class="ink muted svg-special-text-fill-312f2f svg-muted-fill" x="42" y="72">扩展特征宽度，逐坐标激活，再压回 residual stream</text>
 
-  <rect class="box" x="42" y="118" width="78" height="50"/>
-  <text class="ink label" x="72" y="150">h</text>
-  <text class="ink small" x="70" y="192">d</text>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="42" y="118" width="78" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="72" y="150">h</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="70" y="192">d</text>
 
-  <path class="path" d="M120 143H140"/>
-  <path class="arrow" d="M140 143l-9-6v12z"/>
-  <rect class="linear" x="152" y="118" width="82" height="50"/>
-  <text class="ink label" x="182" y="150">W₁</text>
-  <text class="ink small" x="183" y="192">d → m</text>
+  <path class="path svg-ink-stroke" d="M120 143H140"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M140 143l-9-6v12z"/>
+  <rect class="linear svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="152" y="118" width="82" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="182" y="150">W₁</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="183" y="192">d → m</text>
 
-  <path class="path" d="M234 143H254"/>
-  <path class="arrow" d="M254 143l-9-6v12z"/>
-  <rect class="box" x="266" y="118" width="74" height="50"/>
-  <text class="ink label" x="295" y="150">z</text>
-  <text class="ink small" x="295" y="192">m</text>
+  <path class="path svg-ink-stroke" d="M234 143H254"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M254 143l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="266" y="118" width="74" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="295" y="150">z</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="295" y="192">m</text>
 
-  <path class="path" d="M340 143H360"/>
-  <path class="arrow" d="M360 143l-9-6v12z"/>
-  <rect class="activation" x="372" y="118" width="88" height="50"/>
-  <text class="ink label" x="410" y="150">φ</text>
-  <text class="ink small" x="402" y="192">逐坐标</text>
+  <path class="path svg-ink-stroke" d="M340 143H360"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M360 143l-9-6v12z"/>
+  <rect class="activation svg-special-fill-fill-f7dfcf svg-coral-stroke-stroke svg-special-background-fill-f7dfcf" x="372" y="118" width="88" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="410" y="150">φ</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="402" y="192">逐坐标</text>
 
-  <path class="path" d="M460 143H480"/>
-  <path class="arrow" d="M480 143l-9-6v12z"/>
-  <rect class="box" x="492" y="118" width="74" height="50"/>
-  <text class="ink label" x="521" y="150">a</text>
-  <text class="ink small" x="521" y="192">m</text>
+  <path class="path svg-ink-stroke" d="M460 143H480"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M480 143l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="492" y="118" width="74" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="521" y="150">a</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="521" y="192">m</text>
 
-  <path class="path" d="M566 143H586"/>
-  <path class="arrow" d="M586 143l-9-6v12z"/>
-  <rect class="linear" x="598" y="118" width="82" height="50"/>
-  <text class="ink label" x="628" y="150">W₂</text>
-  <text class="ink small" x="629" y="192">m → d</text>
+  <path class="path svg-ink-stroke" d="M566 143H586"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M586 143l-9-6v12z"/>
+  <rect class="linear svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="598" y="118" width="82" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="628" y="150">W₂</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="629" y="192">m → d</text>
 
-  <path class="path" d="M680 143H700"/>
-  <path class="arrow" d="M700 143l-9-6v12z"/>
-  <rect class="box" x="712" y="118" width="46" height="50"/>
-  <text class="ink label" x="729" y="150">y</text>
-  <text class="ink small" x="729" y="192">d</text>
+  <path class="path svg-ink-stroke" d="M680 143H700"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M700 143l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="712" y="118" width="46" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="729" y="150">y</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="729" y="192">d</text>
 
-  <path d="M42 228H758" stroke="#d5c9c5" stroke-width="1.5"/>
-  <text class="ink label" x="42" y="266">逐 token 独立</text>
-  <text class="ink small" x="42" y="292">固定 (b,t) 后，FFN 只混合特征轴</text>
-  <text class="ink label" x="416" y="266">扩展 → 激活 → 压回</text>
-  <text class="ink small" x="416" y="292">h<tspan baseline-shift="sub" font-size="11">b,t,: </tspan>∈ Rᵈ  →  y<tspan baseline-shift="sub" font-size="11">b,t,: </tspan>∈ Rᵈ</text>
+  <path d="M42 228H758"  stroke-width="1.5" class="svg-special-graphic-stroke-d5c9c5"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="266">逐 token 独立</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="42" y="292">固定 (b,t) 后，FFN 只混合特征轴</text>
+  <text class="ink label svg-special-text-fill-312f2f" x="416" y="266">扩展 → 激活 → 压回</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="416" y="292">h<tspan baseline-shift="sub" font-size="11">b,t,: </tspan>∈ Rᵈ  →  y<tspan baseline-shift="sub" font-size="11">b,t,: </tspan>∈ Rᵈ</text>
 
-  <text class="ink small" x="42" y="337">Z,A ∈ R^(B×T×m)</text>
-  <text class="ink small" x="416" y="337">Y ∈ R^(B×T×d_model)</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="42" y="337">Z,A ∈ R^(B×T×m)</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="416" y="337">Y ∈ R^(B×T×d_model)</text>
 </svg>

@@ -1,55 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f6f1ef { fill: #93908f; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f6f1ef { fill: #f6f1ef; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f6f1ef { fill: #93908f; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f6f1ef { fill: #353434; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">岭回归与 Lasso 的几何差异</title>
   <desc id="desc">左侧比较 L2 圆形约束和 L1 菱形约束与损失等高线的接触,右侧显示两种惩罚产生收缩或稀疏参数</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/>
+      <path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; fill: #312f2f; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif;  }
       .small { font-size: 16px; }
       .body { font-size: 18px; }
       .label { font-size: 20px; font-weight: 700; }
       .title { font-size: 24px; font-weight: 700; }
     </style>
   </defs>
-  <rect width="900" height="420" fill="#f6f1ef"/>
-  <text x="36" y="40" class="title">岭回归与 Lasso:惩罚项改变参数解的形状</text>
-  <text x="36" y="68" class="small">L2 连续收缩,L1 允许坐标落到 0</text>
+  <rect width="900" height="420"  class="svg-special-fill-fill-f6f1ef svg-special-background-fill-f6f1ef"/>
+  <text x="36" y="40" class="title svg-special-text-fill-312f2f">岭回归与 Lasso:惩罚项改变参数解的形状</text>
+  <text x="36" y="68" class="small svg-special-text-fill-312f2f">L2 连续收缩,L1 允许坐标落到 0</text>
 
-  <rect x="36" y="96" width="405" height="270" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="62" y="130" class="label">约束几何</text>
-  <line x1="104" y1="280" x2="378" y2="280" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="240" y1="330" x2="240" y2="145" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="363" y="307" class="small">β₁</text>
-  <text x="246" y="153" class="small">β₂</text>
-  <ellipse cx="294" cy="225" rx="112" ry="55" fill="none" stroke="#b8b2a8" stroke-width="3" transform="rotate(-25 294 225)"/>
-  <ellipse cx="294" cy="225" rx="80" ry="39" fill="none" stroke="#b8b2a8" stroke-width="2" transform="rotate(-25 294 225)"/>
-  <circle cx="240" cy="280" r="56" fill="#cc785c" fill-opacity="0.08" stroke="#cc785c" stroke-width="3"/>
-  <polygon points="240,220 300,280 240,340 180,280" fill="#b8b2a8" fill-opacity="0.18" stroke="#312f2f" stroke-width="3"/>
-  <circle cx="240" cy="280" r="5" fill="#312f2f"/>
-  <circle cx="240" cy="280" r="5" fill="#cc785c"/>
-  <text x="302" y="191" class="small">损失等高线</text>
-  <text x="303" y="267" class="small">L2 球</text>
-  <text x="156" y="354" class="small">L1 菱形尖角</text>
+  <rect x="36" y="96" width="405" height="270" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="62" y="130" class="label svg-special-text-fill-312f2f">约束几何</text>
+  <line x1="104" y1="280" x2="378" y2="280"  stroke-width="2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <line x1="240" y1="330" x2="240" y2="145"  stroke-width="2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <text x="363" y="307" class="small svg-special-text-fill-312f2f">β₁</text>
+  <text x="246" y="153" class="small svg-special-text-fill-312f2f">β₂</text>
+  <ellipse cx="294" cy="225" rx="112" ry="55" fill="none"  stroke-width="3" transform="rotate(-25 294 225)" class="svg-axis-stroke"/>
+  <ellipse cx="294" cy="225" rx="80" ry="39" fill="none"  stroke-width="2" transform="rotate(-25 294 225)" class="svg-axis-stroke"/>
+  <circle cx="240" cy="280" r="56"  fill-opacity="0.08"  stroke-width="3" class="svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
+  <polygon points="240,220 300,280 240,340 180,280"  fill-opacity="0.18"  stroke-width="3" class="svg-axis-fill svg-ink-stroke"/>
+  <circle cx="240" cy="280" r="5"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="240" cy="280" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="302" y="191" class="small svg-special-text-fill-312f2f">损失等高线</text>
+  <text x="303" y="267" class="small svg-special-text-fill-312f2f">L2 球</text>
+  <text x="156" y="354" class="small svg-special-text-fill-312f2f">L1 菱形尖角</text>
 
-  <line x1="441" y1="226" x2="486" y2="226" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="441" y1="226" x2="486" y2="226"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="500" y="104" width="160" height="102" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="537" y="138" class="label">共同目标</text>
-  <text x="531" y="171" class="body">拟合误差</text>
-  <text x="528" y="193" class="small">+ 参数惩罚</text>
+  <rect x="500" y="104" width="160" height="102" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="537" y="138" class="label svg-special-text-fill-312f2f">共同目标</text>
+  <text x="531" y="171" class="body svg-special-text-fill-312f2f">拟合误差</text>
+  <text x="528" y="193" class="small svg-special-text-fill-312f2f">+ 参数惩罚</text>
 
-  <line x1="660" y1="155" x2="698" y2="155" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="660" y1="155" x2="698" y2="155"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="710" y="104" width="160" height="102" rx="14" fill="#fffdfb" stroke="#cc785c" stroke-width="2"/>
-  <text x="738" y="138" class="label">Ridge</text>
-  <text x="722" y="171" class="body">L2 → 收缩</text>
-  <text x="726" y="193" class="small">多数坐标保留</text>
+  <rect x="710" y="104" width="160" height="102" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-coral-stroke-stroke svg-special-background-fill-fffdfb"/>
+  <text x="738" y="138" class="label svg-special-text-fill-312f2f">Ridge</text>
+  <text x="722" y="171" class="body svg-special-text-fill-312f2f">L2 → 收缩</text>
+  <text x="726" y="193" class="small svg-special-text-fill-312f2f">多数坐标保留</text>
 
-  <line x1="790" y1="206" x2="790" y2="248" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="790" y1="206" x2="790" y2="248"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="650" y="260" width="220" height="78" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="715" y="292" class="label">Lasso</text>
-  <text x="675" y="320" class="body">L1 → 稀疏与筛选</text>
+  <rect x="650" y="260" width="220" height="78" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="715" y="292" class="label svg-special-text-fill-312f2f">Lasso</text>
+  <text x="675" y="320" class="body svg-special-text-fill-312f2f">L1 → 稀疏与筛选</text>
 </svg>

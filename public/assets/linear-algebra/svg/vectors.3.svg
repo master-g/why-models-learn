@@ -1,40 +1,74 @@
-<svg width="420" height="230" viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="420" height="230" viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-d8d2c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-d8d2c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="a-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="a-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="a-muted" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#6c6a64"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-6c6a64"/>
     </marker>
     <marker id="a-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- 坐标轴 -->
-  <line x1="28" y1="175" x2="402" y2="175" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
-  <line x1="140" y1="212" x2="140" y2="52" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
-  <text x="408" y="179" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">x</text>
-  <text x="132" y="44" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">y</text>
-  <text x="124" y="193" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">O</text>
+  <line x1="28" y1="175" x2="402" y2="175"  stroke-width="1" marker-end="url(#a-axis)" class="svg-axis-stroke"/>
+  <line x1="140" y1="212" x2="140" y2="52"  stroke-width="1" marker-end="url(#a-axis)" class="svg-axis-stroke"/>
+  <text x="408" y="179" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">x</text>
+  <text x="132" y="44" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">y</text>
+  <text x="124" y="193" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">O</text>
 
   <!-- 共线辅助虚线:所有 ku 都落在同一条直线上 -->
-  <line x1="54" y1="204" x2="343" y2="107" stroke="#d8d2c8" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="54" y1="204" x2="343" y2="107"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-d8d2c8"/>
 
   <!-- u = (3,1) -->
-  <line x1="140" y1="175" x2="215" y2="150" stroke="#312f2f" stroke-width="1.8" marker-end="url(#a-ink)"/>
-  <text x="170" y="140" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">u</text>
+  <line x1="140" y1="175" x2="215" y2="150"  stroke-width="1.8" marker-end="url(#a-ink)" class="svg-ink-stroke"/>
+  <text x="170" y="140" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">u</text>
 
   <!-- 2.5u = (7.5,2.5):方向不变,长度 2.5 倍 -->
-  <line x1="140" y1="175" x2="332" y2="111" stroke="#cc785c" stroke-width="1.8" marker-end="url(#a-coral)"/>
-  <text x="256" y="122" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">2.5u</text>
+  <line x1="140" y1="175" x2="332" y2="111"  stroke-width="1.8" marker-end="url(#a-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="256" y="122" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">2.5u</text>
 
   <!-- -u = (-3,-1):反向,长度不变 -->
-  <line x1="140" y1="175" x2="65" y2="200" stroke="#6c6a64" stroke-width="1.8" marker-end="url(#a-muted)"/>
-  <text x="84" y="214" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#6c6a64">-u</text>
+  <line x1="140" y1="175" x2="65" y2="200"  stroke-width="1.8" marker-end="url(#a-muted)" class="svg-special-graphic-stroke-6c6a64"/>
+  <text x="84" y="214" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-muted-fill">-u</text>
 
-  <circle cx="140" cy="175" r="2.6" fill="#312f2f"/>
+  <circle cx="140" cy="175" r="2.6"  class="svg-special-fill-fill-312f2f"/>
 </svg>

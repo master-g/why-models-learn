@@ -1,51 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-6f8f8d { fill: #6f8f8d; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+  .svg-special-fill-fill-fcfaf7 { fill: #92908f; }
+  .svg-special-fill-fill-fff3ed { fill: #978f8c; }
+  .svg-special-graphic-stroke-6f8f8d { stroke: #6f8f8d; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6e6965 { fill: #6e6965; }
+
+  .svg-special-background-fill-f7f4ef { fill: #f7f4ef; }
+  .svg-special-background-fill-fcfaf7 { fill: #fcfaf7; }
+  .svg-special-background-fill-fff3ed { fill: #fff3ed; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-6f8f8d { fill: #6f8f8d; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+    .svg-special-fill-fill-fcfaf7 { fill: #92908f; }
+    .svg-special-fill-fill-fff3ed { fill: #978f8c; }
+    .svg-special-graphic-stroke-6f8f8d { stroke: #6f8f8d; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6e6965 { fill: #a7a4a1; }
+    .svg-special-background-fill-f7f4ef { fill: #353434; }
+    .svg-special-background-fill-fcfaf7 { fill: #353535; }
+    .svg-special-background-fill-fff3ed { fill: #363433; }
+
+
+
+  }
+</style>
   <title id="title">缩放定律与边际收益</title>
   <desc id="desc">在对数尺度上模型规模增加使损失下降，固定计算量还需要在模型和数据之间分配</desc>
   <defs>
     <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-      <path d="M0,0 L9,4.5 L0,9 Z" fill="#cc785c"/>
+      <path d="M0,0 L9,4.5 L0,9 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-      .muted { fill: #6e6965; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .ink {font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .muted {font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .small { font-size: 13px; }
       .label { font-size: 15px; font-weight: 650; }
       .formula { font-size: 17px; font-weight: 650; }
-      .axis { fill: none; stroke: #b8b2a8; stroke-width: 1.5; }
-      .curve { fill: none; stroke: #cc785c; stroke-width: 3; }
-      .curve2 { fill: none; stroke: #6f8f8d; stroke-width: 2.5; }
-      .dash { fill: none; stroke: #c9c4bb; stroke-width: 1.3; stroke-dasharray: 5 5; }
+      .axis { fill: none;  stroke-width: 1.5; }
+      .curve { fill: none;  stroke-width: 3; }
+      .curve2 { fill: none;  stroke-width: 2.5; }
+      .dash { fill: none;  stroke-width: 1.3; stroke-dasharray: 5 5; }
     </style>
   </defs>
 
-  <rect width="800" height="373" fill="#fcfaf7"/>
-  <text x="38" y="32" class="ink" font-size="22" font-weight="700">缩放定律：收益下降，但仍可测量</text>
-  <text x="38" y="56" class="muted small">固定数据、目标和评估口径后，在有限区间拟合经验曲线</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-fcfaf7 svg-special-background-fill-fcfaf7"/>
+  <text x="38" y="32" class="ink svg-special-text-fill-312f2f" font-size="22" font-weight="700">缩放定律：收益下降，但仍可测量</text>
+  <text x="38" y="56" class="muted small svg-special-text-fill-6e6965">固定数据、目标和评估口径后，在有限区间拟合经验曲线</text>
 
-  <line x1="70" y1="230" x2="360" y2="230" class="axis"/>
-  <line x1="70" y1="230" x2="70" y2="84" class="axis"/>
-  <text x="55" y="91" class="muted small" text-anchor="end">loss</text>
-  <text x="352" y="251" class="muted small" text-anchor="end">log model size</text>
-  <path d="M80 105 C135 117, 177 145, 222 172 S310 212, 350 221" class="curve"/>
-  <path d="M80 124 C136 138, 180 159, 224 181 S311 217, 350 225" class="curve2"/>
-  <line x1="80" y1="229" x2="80" y2="105" class="dash"/>
-  <line x1="350" y1="229" x2="350" y2="221" class="dash"/>
-  <text x="92" y="104" class="ink label">L∞ + A N⁻ᵅ</text>
-  <text x="254" y="196" class="muted small">边际收益变小</text>
-  <circle cx="222" cy="172" r="5" fill="#cc785c"/>
-  <circle cx="224" cy="181" r="4" fill="#6f8f8d"/>
+  <line x1="70" y1="230" x2="360" y2="230" class="axis svg-axis-stroke"/>
+  <line x1="70" y1="230" x2="70" y2="84" class="axis svg-axis-stroke"/>
+  <text x="55" y="91" class="muted small svg-special-text-fill-6e6965" text-anchor="end">loss</text>
+  <text x="352" y="251" class="muted small svg-special-text-fill-6e6965" text-anchor="end">log model size</text>
+  <path d="M80 105 C135 117, 177 145, 222 172 S310 212, 350 221" class="curve svg-coral-stroke-stroke"/>
+  <path d="M80 124 C136 138, 180 159, 224 181 S311 217, 350 225" class="curve2 svg-special-graphic-stroke-6f8f8d"/>
+  <line x1="80" y1="229" x2="80" y2="105" class="dash svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="350" y1="229" x2="350" y2="221" class="dash svg-special-graphic-stroke-c9c4bb"/>
+  <text x="92" y="104" class="ink label svg-special-text-fill-312f2f">L∞ + A N⁻ᵅ</text>
+  <text x="254" y="196" class="muted small svg-special-text-fill-6e6965">边际收益变小</text>
+  <circle cx="222" cy="172" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="224" cy="181" r="4"  class="svg-special-fill-fill-6f8f8d"/>
 
-  <rect x="404" y="83" width="354" height="66" rx="11" fill="#fff3ed" stroke="#cc785c" stroke-width="1.5"/>
-  <text x="424" y="110" class="ink label">单变量拟合</text>
-  <text x="424" y="136" class="ink formula">L(N) ≈ L∞ + A N⁻ᵅ</text>
+  <rect x="404" y="83" width="354" height="66" rx="11"   stroke-width="1.5" class="svg-special-fill-fill-fff3ed svg-coral-stroke-stroke svg-special-background-fill-fff3ed"/>
+  <text x="424" y="110" class="ink label svg-special-text-fill-312f2f">单变量拟合</text>
+  <text x="424" y="136" class="ink formula svg-special-text-fill-312f2f">L(N) ≈ L∞ + A N⁻ᵅ</text>
 
-  <rect x="404" y="166" width="354" height="75" rx="11" fill="#f7f4ef" stroke="#b8b2a8" stroke-width="1.4"/>
-  <text x="424" y="193" class="ink label">固定 compute</text>
-  <text x="424" y="219" class="ink formula">C ≈ κND</text>
-  <text x="592" y="219" class="muted small">N↑ → D↓</text>
+  <rect x="404" y="166" width="354" height="75" rx="11"   stroke-width="1.4" class="svg-special-fill-fill-f7f4ef svg-axis-stroke svg-special-background-fill-f7f4ef"/>
+  <text x="424" y="193" class="ink label svg-special-text-fill-312f2f">固定 compute</text>
+  <text x="424" y="219" class="ink formula svg-special-text-fill-312f2f">C ≈ κND</text>
+  <text x="592" y="219" class="muted small svg-special-text-fill-6e6965">N↑ → D↓</text>
 
-  <path d="M580 257 V285" fill="none" stroke="#cc785c" stroke-width="2.1" marker-end="url(#arrow)"/>
-  <rect x="404" y="293" width="354" height="48" rx="11" fill="#f7f4ef" stroke="#b8b2a8" stroke-width="1.4"/>
-  <text x="424" y="322" class="ink label">资源分配：模型项与数据项共同决定 loss</text>
+  <path d="M580 257 V285" fill="none"  stroke-width="2.1" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+  <rect x="404" y="293" width="354" height="48" rx="11"   stroke-width="1.4" class="svg-special-fill-fill-f7f4ef svg-axis-stroke svg-special-background-fill-f7f4ef"/>
+  <text x="424" y="322" class="ink label svg-special-text-fill-312f2f">资源分配：模型项与数据项共同决定 loss</text>
 </svg>

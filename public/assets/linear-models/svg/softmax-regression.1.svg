@@ -1,55 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">Softmax 回归：logits 到多分类概率</title>
   <desc id="desc">三个线性 logits 经过 softmax 归一化成为概率向量，再经过决策得到预测类别。</desc>
   <style>
-    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
-    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
-    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
-    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
-    .line { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 7 7; }
+    .ink {font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted {font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box {stroke-width: 2; }
+    .accent-box {stroke-width: 2.5; }
+    .line { fill: none;  stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .guide { fill: none;  stroke-width: 2; stroke-dasharray: 7 7; }
   </style>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
   </defs>
 
-  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
-  <text x="52" y="61" class="ink" font-size="22" font-weight="700">Softmax 回归：类别之间共同归一化</text>
-  <text x="52" y="87" class="muted" font-size="14">线性分数不是概率；同一个分母让所有类别相互竞争</text>
+  <rect x="24" y="24" width="752" height="325" rx="18"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="52" y="61" class="ink svg-special-text-fill-312f2f" font-size="22" font-weight="700">Softmax 回归：类别之间共同归一化</text>
+  <text x="52" y="87" class="muted svg-muted-fill" font-size="14">线性分数不是概率；同一个分母让所有类别相互竞争</text>
 
-  <rect x="52" y="116" width="193" height="169" rx="14" class="box"/>
-  <text x="72" y="148" class="ink" font-size="18" font-weight="700">线性层</text>
-  <text x="72" y="180" class="ink" font-size="17">z₁ = b₁ + xᵀw₁</text>
-  <text x="72" y="211" class="ink" font-size="17">z₂ = b₂ + xᵀw₂</text>
-  <text x="72" y="242" class="ink" font-size="17">z₃ = b₃ + xᵀw₃</text>
-  <text x="72" y="269" class="muted" font-size="13">三个 logits</text>
+  <rect x="52" y="116" width="193" height="169" rx="14" class="box svg-special-fill-fill-fdfcfa svg-axis-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="72" y="148" class="ink svg-special-text-fill-312f2f" font-size="18" font-weight="700">线性层</text>
+  <text x="72" y="180" class="ink svg-special-text-fill-312f2f" font-size="17">z₁ = b₁ + xᵀw₁</text>
+  <text x="72" y="211" class="ink svg-special-text-fill-312f2f" font-size="17">z₂ = b₂ + xᵀw₂</text>
+  <text x="72" y="242" class="ink svg-special-text-fill-312f2f" font-size="17">z₃ = b₃ + xᵀw₃</text>
+  <text x="72" y="269" class="muted svg-muted-fill" font-size="13">三个 logits</text>
 
-  <path d="M 259 201 L 310 201" class="line" marker-end="url(#arrow)"/>
+  <path d="M 259 201 L 310 201" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
 
-  <rect x="326" y="116" width="190" height="169" rx="14" class="accent-box"/>
-  <text x="348" y="148" class="ink" font-size="18" font-weight="700">Softmax</text>
-  <text x="348" y="181" class="ink" font-size="17">pₖ = exp(zₖ)</text>
-  <text x="348" y="210" class="ink" font-size="17">/ Σⱼ exp(zⱼ)</text>
-  <path d="M 350 250 C 375 232 402 266 428 247 S 481 231 496 250" class="guide"/>
-  <text x="348" y="271" class="muted" font-size="13">p₁ + p₂ + p₃ = 1</text>
+  <rect x="326" y="116" width="190" height="169" rx="14" class="accent-box svg-special-fill-fill-fdfcfa svg-coral-stroke-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="348" y="148" class="ink svg-special-text-fill-312f2f" font-size="18" font-weight="700">Softmax</text>
+  <text x="348" y="181" class="ink svg-special-text-fill-312f2f" font-size="17">pₖ = exp(zₖ)</text>
+  <text x="348" y="210" class="ink svg-special-text-fill-312f2f" font-size="17">/ Σⱼ exp(zⱼ)</text>
+  <path d="M 350 250 C 375 232 402 266 428 247 S 481 231 496 250" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="348" y="271" class="muted svg-muted-fill" font-size="13">p₁ + p₂ + p₃ = 1</text>
 
-  <path d="M 530 201 L 581 201" class="line" marker-end="url(#arrow)"/>
+  <path d="M 530 201 L 581 201" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
 
-  <rect x="597" y="116" width="153" height="169" rx="14" class="box"/>
-  <text x="617" y="148" class="ink" font-size="18" font-weight="700">输出</text>
-  <text x="617" y="181" class="ink" font-size="17">p ≈</text>
-  <text x="650" y="181" class="ink" font-size="16">(0.67,</text>
-  <text x="650" y="207" class="ink" font-size="16">0.24,</text>
-  <text x="650" y="233" class="ink" font-size="16">0.09)</text>
-  <text x="617" y="268" class="muted" font-size="13">argmax → 类别 1</text>
+  <rect x="597" y="116" width="153" height="169" rx="14" class="box svg-special-fill-fill-fdfcfa svg-axis-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="617" y="148" class="ink svg-special-text-fill-312f2f" font-size="18" font-weight="700">输出</text>
+  <text x="617" y="181" class="ink svg-special-text-fill-312f2f" font-size="17">p ≈</text>
+  <text x="650" y="181" class="ink svg-special-text-fill-312f2f" font-size="16">(0.67,</text>
+  <text x="650" y="207" class="ink svg-special-text-fill-312f2f" font-size="16">0.24,</text>
+  <text x="650" y="233" class="ink svg-special-text-fill-312f2f" font-size="16">0.09)</text>
+  <text x="617" y="268" class="muted svg-muted-fill" font-size="13">argmax → 类别 1</text>
 
-  <line x1="72" y1="310" x2="728" y2="310" class="guide"/>
-  <circle cx="113" cy="310" r="5" fill="#cc785c"/>
-  <circle cx="404" cy="310" r="5" fill="#cc785c"/>
-  <circle cx="687" cy="310" r="5" fill="#cc785c"/>
-  <text x="72" y="334" class="muted" font-size="13">相对分数</text>
-  <text x="356" y="334" class="muted" font-size="13">竞争式概率</text>
-  <text x="641" y="334" class="muted" font-size="13">决策规则</text>
+  <line x1="72" y1="310" x2="728" y2="310" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="113" cy="310" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="404" cy="310" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="687" cy="310" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="72" y="334" class="muted svg-muted-fill" font-size="13">相对分数</text>
+  <text x="356" y="334" class="muted svg-muted-fill" font-size="13">竞争式概率</text>
+  <text x="641" y="334" class="muted svg-muted-fill" font-size="13">决策规则</text>
 </svg>

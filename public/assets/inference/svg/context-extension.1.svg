@@ -1,68 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+  .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+  .svg-special-fill-fill-e8e1eb { fill: #948f96; }
+  .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+  .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+  .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+  .svg-special-fill-fill-f5ead6 { fill: #979084; }
+  .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+  .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+  .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+  .svg-special-graphic-stroke-8a7295 { stroke: #8a7295; }
+  .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+  .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+  .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+  .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+  .svg-special-text-fill-2f2a27 { fill: #2f2a27; }
+  .svg-special-text-fill-6d625b { fill: #6d625b; }
+
+  .svg-special-background-fill-e2eadf { fill: #e2eadf; }
+  .svg-special-background-fill-e8e1eb { fill: #e8e1eb; }
+  .svg-special-background-fill-e8e4dc { fill: #e8e4dc; }
+  .svg-special-background-fill-f0dfd4 { fill: #f0dfd4; }
+  .svg-special-background-fill-f0e2e0 { fill: #f0e2e0; }
+  .svg-special-background-fill-f5ead6 { fill: #f5ead6; }
+  .svg-special-background-fill-f7f2ed { fill: #f7f2ed; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+    .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+    .svg-special-fill-fill-e8e1eb { fill: #948f96; }
+    .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+    .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+    .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+    .svg-special-fill-fill-f5ead6 { fill: #979084; }
+    .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+    .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+    .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+    .svg-special-graphic-stroke-8a7295 { stroke: #8a7295; }
+    .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+    .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+    .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+    .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+    .svg-special-text-fill-2f2a27 { fill: #a6a4a2; }
+    .svg-special-text-fill-6d625b { fill: #aaa39f; }
+    .svg-special-background-fill-e2eadf { fill: #323331; }
+    .svg-special-background-fill-e8e1eb { fill: #333233; }
+    .svg-special-background-fill-e8e4dc { fill: #333231; }
+    .svg-special-background-fill-f0dfd4 { fill: #343130; }
+    .svg-special-background-fill-f0e2e0 { fill: #343231; }
+    .svg-special-background-fill-f5ead6 { fill: #343330; }
+    .svg-special-background-fill-f7f2ed { fill: #353433; }
+
+
+
+  }
+</style>
   <title id="title">上下文扩展的位置合同</title>
   <desc id="desc">训练位置区间通过直接外推或线性插值覆盖目标区间，RoPE 频率和相对距离随扩展因子变化，质量、缓存和计算成本需要分别审计</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif; fill: #2f2a27; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;  }
     .title { font-size: 22px; font-weight: 700; }
     .label { font-size: 15px; font-weight: 700; }
     .body { font-size: 13px; }
-    .small { font-size: 12px; fill: #6d625b; }
-    .train { fill: #e2eadf; stroke: #718b6c; stroke-width: 1.6; rx: 11; }
-    .map { fill: #f5ead6; stroke: #b98a4c; stroke-width: 1.6; rx: 11; }
-    .target { fill: #f0dfd4; stroke: #bd7556; stroke-width: 1.6; rx: 11; }
-    .distance { fill: #e8e4dc; stroke: #77746e; stroke-width: 1.4; rx: 11; }
-    .phase { fill: #e8e1eb; stroke: #8a7295; stroke-width: 1.4; rx: 11; }
-    .audit { fill: #f0e2e0; stroke: #a76a65; stroke-width: 1.4; rx: 11; }
-    .arrow { stroke: #bd7556; stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
-    .thin { stroke: #aaa198; stroke-width: 1; fill: none; }
-    .dash { stroke: #bd7556; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+    .small { font-size: 12px;  }
+    .train {stroke-width: 1.6; rx: 11; }
+    .map {stroke-width: 1.6; rx: 11; }
+    .target {stroke-width: 1.6; rx: 11; }
+    .distance {stroke-width: 1.4; rx: 11; }
+    .phase {stroke-width: 1.4; rx: 11; }
+    .audit {stroke-width: 1.4; rx: 11; }
+    .arrow {stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
+    .thin {stroke-width: 1; fill: none; }
+    .dash {stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#bd7556"/>
+      <polygon points="0 0, 10 3.5, 0 7"  class="svg-special-fill-fill-bd7556"/>
     </marker>
   </defs>
-  <rect width="800" height="373" fill="#f7f2ed"/>
-  <text x="40" y="38" class="title">上下文扩展：位置合同从训练区间到目标区间</text>
-  <text x="40" y="61" class="small">扩大 max position 只放宽入口；坐标、频率、训练分布和资源仍需要分别核对</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f2ed svg-special-background-fill-f7f2ed"/>
+  <text x="40" y="38" class="title svg-special-text-fill-2f2a27">上下文扩展：位置合同从训练区间到目标区间</text>
+  <text x="40" y="61" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">扩大 max position 只放宽入口；坐标、频率、训练分布和资源仍需要分别核对</text>
 
-  <rect x="40" y="94" width="205" height="91" class="train"/>
-  <text x="142.5" y="120" text-anchor="middle" class="label">训练区间</text>
-  <text x="142.5" y="146" text-anchor="middle" class="body">0 … 4,095</text>
-  <text x="142.5" y="168" text-anchor="middle" class="small">T_train = 4,096</text>
+  <rect x="40" y="94" width="205" height="91" class="train svg-special-fill-fill-e2eadf svg-special-graphic-stroke-718b6c svg-special-background-fill-e2eadf"/>
+  <text x="142.5" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">训练区间</text>
+  <text x="142.5" y="146" text-anchor="middle" class="body svg-special-text-fill-2f2a27">0 … 4,095</text>
+  <text x="142.5" y="168" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">T_train = 4,096</text>
 
-  <rect x="297" y="94" width="205" height="91" class="map"/>
-  <text x="399.5" y="120" text-anchor="middle" class="label">位置合同</text>
-  <text x="399.5" y="146" text-anchor="middle" class="body">direct / linear / RoPE</text>
-  <text x="399.5" y="168" text-anchor="middle" class="small">r = T_target / T_train = 8</text>
+  <rect x="297" y="94" width="205" height="91" class="map svg-special-fill-fill-f5ead6 svg-special-graphic-stroke-b98a4c svg-special-background-fill-f5ead6"/>
+  <text x="399.5" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">位置合同</text>
+  <text x="399.5" y="146" text-anchor="middle" class="body svg-special-text-fill-2f2a27">direct / linear / RoPE</text>
+  <text x="399.5" y="168" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">r = T_target / T_train = 8</text>
 
-  <rect x="555" y="94" width="205" height="91" class="target"/>
-  <text x="657.5" y="120" text-anchor="middle" class="label">目标区间</text>
-  <text x="657.5" y="146" text-anchor="middle" class="body">0 … 32,767</text>
-  <text x="657.5" y="168" text-anchor="middle" class="small">T_target = 32,768</text>
+  <rect x="555" y="94" width="205" height="91" class="target svg-special-fill-fill-f0dfd4 svg-special-graphic-stroke-bd7556 svg-special-background-fill-f0dfd4"/>
+  <text x="657.5" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">目标区间</text>
+  <text x="657.5" y="146" text-anchor="middle" class="body svg-special-text-fill-2f2a27">0 … 32,767</text>
+  <text x="657.5" y="168" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">T_target = 32,768</text>
 
-  <path d="M245 139 H297" class="arrow"/>
-  <path d="M502 139 H555" class="arrow"/>
-  <path d="M142 194 C205 217, 595 217, 657 194" class="dash"/>
-  <text x="400" y="218" text-anchor="middle" class="small">线性插值：p' = p / r；直接外推：p' = p</text>
+  <path d="M245 139 H297" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M502 139 H555" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M142 194 C205 217, 595 217, 657 194" class="dash svg-special-graphic-stroke-bd7556"/>
+  <text x="400" y="218" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">线性插值：p' = p / r；直接外推：p' = p</text>
 
-  <rect x="40" y="246" width="220" height="82" class="distance"/>
-  <text x="150" y="270" text-anchor="middle" class="label">相对距离</text>
-  <text x="150" y="292" text-anchor="middle" class="body">32 → 4</text>
-  <text x="150" y="312" text-anchor="middle" class="small">4,096 → 512</text>
+  <rect x="40" y="246" width="220" height="82" class="distance svg-special-fill-fill-e8e4dc svg-special-graphic-stroke-77746e svg-special-background-fill-e8e4dc"/>
+  <text x="150" y="270" text-anchor="middle" class="label svg-special-text-fill-2f2a27">相对距离</text>
+  <text x="150" y="292" text-anchor="middle" class="body svg-special-text-fill-2f2a27">32 → 4</text>
+  <text x="150" y="312" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">4,096 → 512</text>
 
-  <rect x="290" y="246" width="220" height="82" class="phase"/>
-  <text x="400" y="270" text-anchor="middle" class="label">RoPE 相位</text>
-  <text x="400" y="292" text-anchor="middle" class="body">ω' = ω / r</text>
-  <text x="400" y="312" text-anchor="middle" class="small">也可改 base 或频率表</text>
+  <rect x="290" y="246" width="220" height="82" class="phase svg-special-fill-fill-e8e1eb svg-special-graphic-stroke-8a7295 svg-special-background-fill-e8e1eb"/>
+  <text x="400" y="270" text-anchor="middle" class="label svg-special-text-fill-2f2a27">RoPE 相位</text>
+  <text x="400" y="292" text-anchor="middle" class="body svg-special-text-fill-2f2a27">ω' = ω / r</text>
+  <text x="400" y="312" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">也可改 base 或频率表</text>
 
-  <rect x="540" y="246" width="220" height="82" class="audit"/>
-  <text x="650" y="270" text-anchor="middle" class="label">审计合同</text>
-  <text x="650" y="292" text-anchor="middle" class="body">质量 × 资源 × 缓存</text>
-  <text x="650" y="312" text-anchor="middle" class="small">短回归、KV bytes、位置桶</text>
+  <rect x="540" y="246" width="220" height="82" class="audit svg-special-fill-fill-f0e2e0 svg-special-graphic-stroke-a76a65 svg-special-background-fill-f0e2e0"/>
+  <text x="650" y="270" text-anchor="middle" class="label svg-special-text-fill-2f2a27">审计合同</text>
+  <text x="650" y="292" text-anchor="middle" class="body svg-special-text-fill-2f2a27">质量 × 资源 × 缓存</text>
+  <text x="650" y="312" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">短回归、KV bytes、位置桶</text>
 
-  <path d="M260 287 H290" class="arrow"/>
-  <path d="M510 287 H540" class="arrow"/>
-  <path d="M40 347 H760" class="thin"/>
-  <text x="40" y="365" class="small">坐标映射改变相位与距离，继续训练改变适应分布；effective context 仍需按任务测量</text>
+  <path d="M260 287 H290" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M510 287 H540" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M40 347 H760" class="thin svg-special-graphic-stroke-aaa198"/>
+  <text x="40" y="365" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">坐标映射改变相位与距离，继续训练改变适应分布；effective context 仍需按任务测量</text>
 </svg>

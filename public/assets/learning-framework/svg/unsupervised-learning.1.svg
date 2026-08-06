@@ -1,42 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-4f7775 { fill: #4f7775; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-ebe7e4 { fill: #ebe7e4; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-4f7775 { fill: #4f7775; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-ebe7e4 { fill: #333232; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">无监督学习从输入样本中提取聚类、表示或分布结构</title>
   <desc id="desc">左侧只有没有标签的输入点，中间是由目标函数定义的结构提取过程，右侧显示聚类、低维表示和密度输出。</desc>
-  <rect width="560" height="250" fill="#f4efee"/>
-  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">无监督学习：从输入中提取结构</text>
-  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">没有外部标签，但目标函数仍规定「什么算相似」</text>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="24" y="27"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" class="svg-special-text-fill-312f2f">无监督学习：从输入中提取结构</text>
+  <text x="24" y="47"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">没有外部标签，但目标函数仍规定「什么算相似」</text>
 
-  <rect x="24" y="70" width="132" height="110" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="42" y="91" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">输入样本</text>
-  <circle cx="54" cy="118" r="5" fill="#a9583e"/>
-  <circle cx="78" cy="132" r="5" fill="#a9583e"/>
-  <circle cx="57" cy="151" r="5" fill="#a9583e"/>
-  <circle cx="122" cy="112" r="5" fill="#4f7775"/>
-  <circle cx="135" cy="139" r="5" fill="#4f7775"/>
-  <circle cx="113" cy="158" r="5" fill="#4f7775"/>
-  <text x="42" y="173" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">x₁, x₂, …, xₙ</text>
+  <rect x="24" y="70" width="132" height="110" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="42" y="91"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">输入样本</text>
+  <circle cx="54" cy="118" r="5"  class="svg-special-fill-fill-a9583e"/>
+  <circle cx="78" cy="132" r="5"  class="svg-special-fill-fill-a9583e"/>
+  <circle cx="57" cy="151" r="5"  class="svg-special-fill-fill-a9583e"/>
+  <circle cx="122" cy="112" r="5"  class="svg-special-fill-fill-4f7775"/>
+  <circle cx="135" cy="139" r="5"  class="svg-special-fill-fill-4f7775"/>
+  <circle cx="113" cy="158" r="5"  class="svg-special-fill-fill-4f7775"/>
+  <text x="42" y="173"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">x₁, x₂, …, xₙ</text>
 
-  <path d="M166 125 H198" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M191 118 L200 125 L191 132" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M166 125 H198"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M191 118 L200 125 L191 132" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="204" y="70" width="150" height="110" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
-  <text x="224" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">目标函数</text>
-  <text x="224" y="117" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">距离 / 重构 / 概率</text>
-  <text x="224" y="141" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">样本关系 / 压缩</text>
-  <text x="224" y="165" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">它决定学到的结构</text>
+  <rect x="204" y="70" width="150" height="110" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c66a4b svg-special-background-fill-fdfcfa"/>
+  <text x="224" y="94"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">目标函数</text>
+  <text x="224" y="117"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">距离 / 重构 / 概率</text>
+  <text x="224" y="141"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">样本关系 / 压缩</text>
+  <text x="224" y="165"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-coral-text-fill">它决定学到的结构</text>
 
-  <path d="M364 125 H396" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M389 118 L398 125 L389 132" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M364 125 H396"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M389 118 L398 125 L389 132" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="402" y="65" width="134" height="42" rx="9" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="418" y="83" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700">聚类</text>
-  <text x="418" y="98" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">相似组与中心</text>
-  <rect x="402" y="113" width="134" height="42" rx="9" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="418" y="131" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700">表示 / 降维</text>
-  <text x="418" y="146" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">压缩后的坐标</text>
-  <rect x="402" y="161" width="134" height="42" rx="9" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="418" y="179" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700">密度 / 生成</text>
-  <text x="418" y="194" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">输入分布的模型</text>
+  <rect x="402" y="65" width="134" height="42" rx="9"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="418" y="83"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700" class="svg-special-text-fill-312f2f">聚类</text>
+  <text x="418" y="98"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">相似组与中心</text>
+  <rect x="402" y="113" width="134" height="42" rx="9"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="418" y="131"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700" class="svg-special-text-fill-312f2f">表示 / 降维</text>
+  <text x="418" y="146"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">压缩后的坐标</text>
+  <rect x="402" y="161" width="134" height="42" rx="9"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="418" y="179"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="700" class="svg-special-text-fill-312f2f">密度 / 生成</text>
+  <text x="418" y="194"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">输入分布的模型</text>
 
-  <rect x="142" y="214" width="276" height="25" rx="9" fill="#ebe7e4"/>
-  <text x="173" y="231" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">没有标签 ≠ 没有目标</text>
+  <rect x="142" y="214" width="276" height="25" rx="9"  class="svg-special-fill-fill-ebe7e4 svg-special-background-fill-ebe7e4"/>
+  <text x="173" y="231"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">没有标签 ≠ 没有目标</text>
 </svg>

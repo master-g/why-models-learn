@@ -1,60 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-d9e9e5 { fill: #899390; }
+  .svg-special-fill-fill-e5efec { fill: #8c9291; }
+  .svg-special-fill-fill-e7e1d5 { fill: #949089; }
+  .svg-special-fill-fill-eadfca { fill: #979083; }
+  .svg-special-fill-fill-eee3db { fill: #968f8a; }
+  .svg-special-fill-fill-f0d9cf { fill: #9c8e87; }
+  .svg-special-fill-fill-f3e7df { fill: #978f8b; }
+  .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+  .svg-special-fill-fill-fbf8f4 { fill: #92908e; }
+  .svg-special-graphic-stroke-7ea49e { stroke: #749792; }
+  .svg-special-graphic-stroke-b8a789 { stroke: #9e8f76; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6c6863 { fill: #6c6863; }
+
+  .svg-special-background-fill-d9e9e5 { fill: #d9e9e5; }
+  .svg-special-background-fill-e5efec { fill: #e5efec; }
+  .svg-special-background-fill-e7e1d5 { fill: #e7e1d5; }
+  .svg-special-background-fill-eadfca { fill: #eadfca; }
+  .svg-special-background-fill-eee3db { fill: #eee3db; }
+  .svg-special-background-fill-f0d9cf { fill: #f0d9cf; }
+  .svg-special-background-fill-f3e7df { fill: #f3e7df; }
+  .svg-special-background-fill-f7f2ed { fill: #f7f2ed; }
+  .svg-special-background-fill-fbf8f4 { fill: #fbf8f4; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-d9e9e5 { fill: #899390; }
+    .svg-special-fill-fill-e5efec { fill: #8c9291; }
+    .svg-special-fill-fill-e7e1d5 { fill: #949089; }
+    .svg-special-fill-fill-eadfca { fill: #979083; }
+    .svg-special-fill-fill-eee3db { fill: #968f8a; }
+    .svg-special-fill-fill-f0d9cf { fill: #9c8e87; }
+    .svg-special-fill-fill-f3e7df { fill: #978f8b; }
+    .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+    .svg-special-fill-fill-fbf8f4 { fill: #92908e; }
+    .svg-special-graphic-stroke-7ea49e { stroke: #749792; }
+    .svg-special-graphic-stroke-b8a789 { stroke: #9e8f76; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6c6863 { fill: #a6a4a0; }
+    .svg-special-background-fill-d9e9e5 { fill: #303332; }
+    .svg-special-background-fill-e5efec { fill: #323433; }
+    .svg-special-background-fill-e7e1d5 { fill: #323230; }
+    .svg-special-background-fill-eadfca { fill: #33312e; }
+    .svg-special-background-fill-eee3db { fill: #333231; }
+    .svg-special-background-fill-f0d9cf { fill: #34302f; }
+    .svg-special-background-fill-f3e7df { fill: #343231; }
+    .svg-special-background-fill-f7f2ed { fill: #353433; }
+    .svg-special-background-fill-fbf8f4 { fill: #353534; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="title">Dropout 的训练与评估尺度</title>
   <desc id="desc">训练时用 Bernoulli 掩码置零并除以保留概率，评估时不再抽样而直接使用完整激活。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0 0L8 4L0 8Z" fill="#a9583e"/>
+      <path d="M0 0L8 4L0 8Z"  class="svg-special-fill-fill-a9583e"/>
     </marker>
   </defs>
-  <rect width="800" height="373" rx="18" fill="#f7f2ed"/>
-  <rect x="1" y="1" width="798" height="371" rx="17" fill="none" stroke="#c9c4bb" stroke-width="2"/>
+  <rect width="800" height="373" rx="18"  class="svg-special-fill-fill-f7f2ed svg-special-background-fill-f7f2ed"/>
+  <rect x="1" y="1" width="798" height="371" rx="17" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c9c4bb"/>
 
-  <g fill="#312f2f" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">
+  <g  font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="28" y="34" font-size="20" font-weight="700">Dropout：随机失活如何保持期望尺度</text>
-    <text x="28" y="57" font-size="12" fill="#6c6863">训练时改变路径，评估时恢复完整激活；缩放位置决定两种模式是否一致</text>
+    <text x="28" y="57" font-size="12"  class="svg-special-text-fill-6c6863">训练时改变路径，评估时恢复完整激活；缩放位置决定两种模式是否一致</text>
   </g>
 
   <g transform="translate(24 76)">
-    <rect width="474" height="184" rx="14" fill="#fbf8f4" stroke="#c9c4bb" stroke-width="1.5"/>
-    <text x="18" y="27" fill="#312f2f" font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">一次训练前向</text>
-    <text x="18" y="46" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">同一输入在不同掩码下经过不同的子路径</text>
+    <rect width="474" height="184" rx="14"   stroke-width="1.5" class="svg-special-fill-fill-fbf8f4 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fbf8f4"/>
+    <text x="18" y="27"  font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-312f2f">一次训练前向</text>
+    <text x="18" y="46"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">同一输入在不同掩码下经过不同的子路径</text>
 
-    <rect x="18" y="70" width="98" height="55" rx="10" fill="#f0d9cf" stroke="#cc785c" stroke-width="1.5"/>
-    <text x="67" y="91" text-anchor="middle" fill="#312f2f" font-size="14" font-family="Georgia,serif">x</text>
-    <text x="67" y="110" text-anchor="middle" fill="#6c6863" font-size="11" font-family="Georgia,serif">(2, −1, 4)</text>
+    <rect x="18" y="70" width="98" height="55" rx="10"   stroke-width="1.5" class="svg-special-fill-fill-f0d9cf svg-coral-stroke-stroke svg-special-background-fill-f0d9cf"/>
+    <text x="67" y="91" text-anchor="middle"  font-size="14" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">x</text>
+    <text x="67" y="110" text-anchor="middle"  font-size="11" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">(2, −1, 4)</text>
 
-    <path d="M116 97H143" fill="none" stroke="#a9583e" stroke-width="2" marker-end="url(#arrow)"/>
-    <rect x="146" y="70" width="126" height="55" rx="10" fill="#eadfca" stroke="#b8a789" stroke-width="1.5"/>
-    <text x="209" y="91" text-anchor="middle" fill="#312f2f" font-size="13" font-family="Georgia,serif">m ∼ Bernoulli(q)</text>
-    <text x="209" y="110" text-anchor="middle" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">m = (1, 0, 1)</text>
+    <path d="M116 97H143" fill="none"  stroke-width="2" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <rect x="146" y="70" width="126" height="55" rx="10"   stroke-width="1.5" class="svg-special-fill-fill-eadfca svg-special-graphic-stroke-b8a789 svg-special-background-fill-eadfca"/>
+    <text x="209" y="91" text-anchor="middle"  font-size="13" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">m ∼ Bernoulli(q)</text>
+    <text x="209" y="110" text-anchor="middle"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">m = (1, 0, 1)</text>
 
-    <path d="M272 97H299" fill="none" stroke="#a9583e" stroke-width="2" marker-end="url(#arrow)"/>
-    <rect x="302" y="70" width="151" height="55" rx="10" fill="#d9e9e5" stroke="#7ea49e" stroke-width="1.5"/>
-    <text x="377.5" y="91" text-anchor="middle" fill="#312f2f" font-size="14" font-family="Georgia,serif">m ⊙ x / q</text>
-    <text x="377.5" y="110" text-anchor="middle" fill="#6c6863" font-size="11" font-family="Georgia,serif">(4, 0, 8)</text>
+    <path d="M272 97H299" fill="none"  stroke-width="2" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <rect x="302" y="70" width="151" height="55" rx="10"   stroke-width="1.5" class="svg-special-fill-fill-d9e9e5 svg-special-graphic-stroke-7ea49e svg-special-background-fill-d9e9e5"/>
+    <text x="377.5" y="91" text-anchor="middle"  font-size="14" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">m ⊙ x / q</text>
+    <text x="377.5" y="110" text-anchor="middle"  font-size="11" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">(4, 0, 8)</text>
 
-    <rect x="18" y="143" width="206" height="25" rx="7" fill="#f3e7df"/>
-    <text x="121" y="160" text-anchor="middle" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">mᵢ = 0：该坐标输出 0</text>
-    <rect x="242" y="143" width="211" height="25" rx="7" fill="#e5efec"/>
-    <text x="347.5" y="160" text-anchor="middle" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">mᵢ = 1：该坐标除以 q</text>
+    <rect x="18" y="143" width="206" height="25" rx="7"  class="svg-special-fill-fill-f3e7df svg-special-background-fill-f3e7df"/>
+    <text x="121" y="160" text-anchor="middle"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">mᵢ = 0：该坐标输出 0</text>
+    <rect x="242" y="143" width="211" height="25" rx="7"  class="svg-special-fill-fill-e5efec svg-special-background-fill-e5efec"/>
+    <text x="347.5" y="160" text-anchor="middle"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">mᵢ = 1：该坐标除以 q</text>
   </g>
 
   <g transform="translate(522 76)">
-    <rect width="254" height="184" rx="14" fill="#fbf8f4" stroke="#c9c4bb" stroke-width="1.5"/>
-    <text x="18" y="27" fill="#312f2f" font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">同一层的两种模式</text>
-    <text x="18" y="47" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">inverted Dropout 把缩放放在训练态</text>
+    <rect width="254" height="184" rx="14"   stroke-width="1.5" class="svg-special-fill-fill-fbf8f4 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fbf8f4"/>
+    <text x="18" y="27"  font-size="15" font-weight="700" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-312f2f">同一层的两种模式</text>
+    <text x="18" y="47"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">inverted Dropout 把缩放放在训练态</text>
 
-    <rect x="18" y="64" width="218" height="43" rx="9" fill="#f0d9cf" stroke="#cc785c" stroke-width="1.5"/>
-    <text x="30" y="82" fill="#312f2f" font-size="12" font-family="Georgia,serif">training</text>
-    <text x="30" y="98" fill="#6c6863" font-size="12" font-family="Georgia,serif">m ⊙ x / q</text>
+    <rect x="18" y="64" width="218" height="43" rx="9"   stroke-width="1.5" class="svg-special-fill-fill-f0d9cf svg-coral-stroke-stroke svg-special-background-fill-f0d9cf"/>
+    <text x="30" y="82"  font-size="12" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">training</text>
+    <text x="30" y="98"  font-size="12" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">m ⊙ x / q</text>
 
-    <rect x="18" y="122" width="218" height="43" rx="9" fill="#e7e1d5" stroke="#b8a789" stroke-width="1.5"/>
-    <text x="30" y="140" fill="#312f2f" font-size="12" font-family="Georgia,serif">evaluation</text>
-    <text x="30" y="156" fill="#6c6863" font-size="12" font-family="Georgia,serif">x（不再抽掩码）</text>
+    <rect x="18" y="122" width="218" height="43" rx="9"   stroke-width="1.5" class="svg-special-fill-fill-e7e1d5 svg-special-graphic-stroke-b8a789 svg-special-background-fill-e7e1d5"/>
+    <text x="30" y="140"  font-size="12" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">evaluation</text>
+    <text x="30" y="156"  font-size="12" font-family="Georgia,serif" class="svg-special-text-fill-6c6863">x（不再抽掩码）</text>
   </g>
 
-  <rect x="24" y="282" width="752" height="64" rx="12" fill="#eee3db"/>
-  <text x="42" y="309" fill="#312f2f" font-size="17" font-family="Georgia,serif">E[mᵢ xᵢ / q] = xᵢ</text>
-  <text x="42" y="329" fill="#6c6863" font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">均值尺度保持，但方差增加：Var(mᵢ xᵢ / q) = (p / q)xᵢ²</text>
-  <text x="514" y="319" fill="#6c6863" font-size="12" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif">训练随机、评估确定</text>
+  <rect x="24" y="282" width="752" height="64" rx="12"  class="svg-special-fill-fill-eee3db svg-special-background-fill-eee3db"/>
+  <text x="42" y="309"  font-size="17" font-family="Georgia,serif" class="svg-special-text-fill-312f2f">E[mᵢ xᵢ / q] = xᵢ</text>
+  <text x="42" y="329"  font-size="11" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">均值尺度保持，但方差增加：Var(mᵢ xᵢ / q) = (p / q)xᵢ²</text>
+  <text x="514" y="319"  font-size="12" font-family="'Noto Serif SC','Source Han Serif SC','Songti SC',serif" class="svg-special-text-fill-6c6863">训练随机、评估确定</text>
 </svg>

@@ -1,60 +1,90 @@
-<svg width="480" height="260" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="480" height="260" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="a-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="a-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="a-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- 方格:每格 28px = 1 单位 -->
-  <line x1="78" y1="52" x2="78" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="106" y1="52" x2="106" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="134" y1="52" x2="134" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="162" y1="52" x2="162" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="190" y1="52" x2="190" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="218" y1="52" x2="218" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="246" y1="52" x2="246" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="274" y1="52" x2="274" y2="220" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="50" y1="192" x2="288" y2="192" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="50" y1="164" x2="288" y2="164" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="50" y1="136" x2="288" y2="136" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="50" y1="108" x2="288" y2="108" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="50" y1="80" x2="288" y2="80" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="78" y1="52" x2="78" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="106" y1="52" x2="106" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="134" y1="52" x2="134" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="162" y1="52" x2="162" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="190" y1="52" x2="190" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="218" y1="52" x2="218" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="246" y1="52" x2="246" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="274" y1="52" x2="274" y2="220"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="50" y1="192" x2="288" y2="192"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="50" y1="164" x2="288" y2="164"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="50" y1="136" x2="288" y2="136"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="50" y1="108" x2="288" y2="108"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="50" y1="80" x2="288" y2="80"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- 坐标轴 -->
-  <line x1="50" y1="220" x2="300" y2="220" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
-  <line x1="50" y1="220" x2="50" y2="44" stroke="#b8b2a8" stroke-width="1" marker-end="url(#a-axis)"/>
-  <text x="306" y="224" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">x</text>
-  <text x="42" y="36" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">y</text>
+  <line x1="50" y1="220" x2="300" y2="220"  stroke-width="1" marker-end="url(#a-axis)" class="svg-axis-stroke"/>
+  <line x1="50" y1="220" x2="50" y2="44"  stroke-width="1" marker-end="url(#a-axis)" class="svg-axis-stroke"/>
+  <text x="306" y="224" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">x</text>
+  <text x="42" y="36" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">y</text>
 
   <!-- a1 = (3,1) 实线墨箭头 -->
-  <line x1="50" y1="220" x2="131" y2="194" stroke="#312f2f" stroke-width="1.8" marker-end="url(#a-ink)"/>
-  <text x="100" y="212" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">a<tspan dy="3" font-size="9">1</tspan></text>
+  <line x1="50" y1="220" x2="131" y2="194"  stroke-width="1.8" marker-end="url(#a-ink)" class="svg-ink-stroke"/>
+  <text x="100" y="212" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-312f2f">a<tspan dy="3" font-size="9">1</tspan></text>
 
   <!-- a2 = (1,2) 实线墨箭头 -->
-  <line x1="50" y1="220" x2="75" y2="167" stroke="#312f2f" stroke-width="1.8" marker-end="url(#a-ink)"/>
-  <text x="58" y="188" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">a<tspan dy="3" font-size="9">2</tspan></text>
+  <line x1="50" y1="220" x2="75" y2="167"  stroke-width="1.8" marker-end="url(#a-ink)" class="svg-ink-stroke"/>
+  <text x="58" y="188" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-312f2f">a<tspan dy="3" font-size="9">2</tspan></text>
 
   <!-- 2a1:沿 a1 方向的延长,虚线 -->
-  <line x1="134" y1="192" x2="212" y2="166" stroke="#312f2f" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-ink)"/>
-  <text x="176" y="188" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">2a<tspan dy="3" font-size="9">1</tspan></text>
+  <line x1="134" y1="192" x2="212" y2="166"  stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-ink)" class="svg-ink-stroke"/>
+  <text x="176" y="188" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-312f2f">2a<tspan dy="3" font-size="9">1</tspan></text>
 
   <!-- 平移的 a2:从 2a1 的尖端出发,珊瑚虚线 -->
-  <line x1="218" y1="164" x2="243" y2="111" stroke="#cc785c" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-coral)"/>
-  <text x="236" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#cc785c">a<tspan dy="3" font-size="9">2</tspan></text>
+  <line x1="218" y1="164" x2="243" y2="111"  stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="236" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-coral-text-fill">a<tspan dy="3" font-size="9">2</tspan></text>
 
   <!-- 合向量 Ax = (7,4):珊瑚实线 -->
-  <line x1="50" y1="220" x2="242" y2="112" stroke="#cc785c" stroke-width="2" marker-end="url(#a-coral)"/>
-  <text x="258" y="104" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#cc785c">Ax = (7, 4)</text>
+  <line x1="50" y1="220" x2="242" y2="112"  stroke-width="2" marker-end="url(#a-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="258" y="104" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-coral-text-fill">Ax = (7, 4)</text>
 
   <!-- 终点标记 -->
-  <circle cx="246" cy="108" r="3" fill="#cc785c"/>
+  <circle cx="246" cy="108" r="3"  class="svg-special-fill-fill-cc785c"/>
 
   <!-- 底部点题 -->
-  <text x="240" y="248" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12.5" fill="#312f2f" text-anchor="middle">Ax = 2a₁ + 1a₂：列按 x 的分量缩放后相加</text>
+  <text x="240" y="248" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12.5"  text-anchor="middle" class="svg-special-text-fill-312f2f">Ax = 2a₁ + 1a₂：列按 x 的分量缩放后相加</text>
 </svg>

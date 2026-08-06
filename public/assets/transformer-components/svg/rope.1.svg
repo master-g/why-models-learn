@@ -1,93 +1,151 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-d99e86 { fill: #b78571; }
+  .svg-special-fill-fill-e4eeeb { fill: #8c9291; }
+  .svg-special-fill-fill-e8c7b8 { fill: #a38c82; }
+  .svg-special-fill-fill-efdcd2 { fill: #9b8e88; }
+  .svg-special-fill-fill-f3e6df { fill: #988f8b; }
+  .svg-special-fill-fill-f4e7e0 { fill: #988f8b; }
+  .svg-special-fill-fill-fdfbf8 { fill: #92908f; }
+  .svg-special-fill-fill-fffdfa { fill: #92908f; }
+  .svg-special-graphic-stroke-5e7772 { stroke: #5e7772; }
+  .svg-special-graphic-stroke-8e8982 { stroke: #8e8982; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706b66 { fill: #706b66; }
+
+  .svg-special-background-fill-d99e86 { fill: #d99e86; }
+  .svg-special-background-fill-e4eeeb { fill: #e4eeeb; }
+  .svg-special-background-fill-e8c7b8 { fill: #e8c7b8; }
+  .svg-special-background-fill-efdcd2 { fill: #efdcd2; }
+  .svg-special-background-fill-f3e6df { fill: #f3e6df; }
+  .svg-special-background-fill-f4e7e0 { fill: #f4e7e0; }
+  .svg-special-background-fill-fdfbf8 { fill: #fdfbf8; }
+  .svg-special-background-fill-fffdfa { fill: #fffdfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-d99e86 { fill: #b78571; }
+    .svg-special-fill-fill-e4eeeb { fill: #8c9291; }
+    .svg-special-fill-fill-e8c7b8 { fill: #a38c82; }
+    .svg-special-fill-fill-efdcd2 { fill: #9b8e88; }
+    .svg-special-fill-fill-f3e6df { fill: #988f8b; }
+    .svg-special-fill-fill-f4e7e0 { fill: #988f8b; }
+    .svg-special-fill-fill-fdfbf8 { fill: #92908f; }
+    .svg-special-fill-fill-fffdfa { fill: #92908f; }
+    .svg-special-graphic-stroke-5e7772 { stroke: #5e7772; }
+    .svg-special-graphic-stroke-8e8982 { stroke: #8e8982; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706b66 { fill: #a7a4a0; }
+    .svg-special-background-fill-d99e86 { fill: #302825; }
+    .svg-special-background-fill-e4eeeb { fill: #323333; }
+    .svg-special-background-fill-e8c7b8 { fill: #332e2c; }
+    .svg-special-background-fill-efdcd2 { fill: #34312f; }
+    .svg-special-background-fill-f3e6df { fill: #343231; }
+    .svg-special-background-fill-f4e7e0 { fill: #343231; }
+    .svg-special-background-fill-fdfbf8 { fill: #353535; }
+    .svg-special-background-fill-fffdfa { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">RoPE 旋转 query 和 key</title>
   <desc id="desc">两个二维坐标对按各自位置旋转，点积只保留相对相位，value 沿原路径进入输出。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink{fill:#312f2f;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","PingFang SC",sans-serif}
-      .muted{fill:#706b66;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","PingFang SC",sans-serif}
-      .box{fill:#fffdfa;stroke:#b8b2a8;stroke-width:1.5}
-      .accent{fill:#f4e7e0;stroke:#cc785c;stroke-width:1.5}
-      .teal{fill:#e4eeeb;stroke:#5e7772;stroke-width:1.5}
-      .axis{stroke:#8e8982;stroke-width:1.2}
-      .guide{stroke:#c9c4bb;stroke-width:1;stroke-dasharray:4 4}
+      .ink{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","PingFang SC",sans-serif}
+      .muted{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","PingFang SC",sans-serif}
+      .box{stroke-width:1.5}
+      .accent{stroke-width:1.5}
+      .teal{stroke-width:1.5}
+      .axis{stroke-width:1.2}
+      .guide{stroke-width:1;stroke-dasharray:4 4}
       .label{font-size:14px}
       .small{font-size:12px}
       .title{font-size:20px;font-weight:600}
     </style>
   </defs>
-  <rect width="800" height="373" fill="#fdfbf8"/>
-  <text x="34" y="34" class="ink title">RoPE：把位置写进 Q/K 的相对相位</text>
-  <text x="34" y="57" class="muted small">每个二维坐标对旋转，V 保持内容坐标，score 使用 s−p 的相位差</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-fdfbf8 svg-special-background-fill-fdfbf8"/>
+  <text x="34" y="34" class="ink title svg-special-text-fill-312f2f">RoPE：把位置写进 Q/K 的相对相位</text>
+  <text x="34" y="57" class="muted small svg-special-text-fill-706b66">每个二维坐标对旋转，V 保持内容坐标，score 使用 s−p 的相位差</text>
 
-  <text x="54" y="86" class="ink label">query</text>
-  <text x="276" y="86" class="ink label">key</text>
+  <text x="54" y="86" class="ink label svg-special-text-fill-312f2f">query</text>
+  <text x="276" y="86" class="ink label svg-special-text-fill-312f2f">key</text>
   <g transform="translate(104 128)">
-    <circle cx="0" cy="0" r="45" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
-    <line x1="-54" y1="0" x2="58" y2="0" class="axis"/>
-    <line x1="0" y1="54" x2="0" y2="-58" class="axis"/>
-    <path d="M0 0 L29 -34" fill="none" stroke="#5e7772" stroke-width="3" marker-end="url(#arrow)"/>
-    <path d="M0 0 L-41 -8" fill="none" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
-    <path d="M21 -31 A38 38 0 0 0 -18 -38" fill="none" stroke="#cc785c" stroke-width="1.5" marker-end="url(#arrow)"/>
-    <text x="6" y="-41" class="muted small">q</text>
-    <text x="-50" y="-12" class="muted small">R(pθ)q</text>
+    <circle cx="0" cy="0" r="45" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-c9c4bb"/>
+    <line x1="-54" y1="0" x2="58" y2="0" class="axis svg-special-graphic-stroke-8e8982"/>
+    <line x1="0" y1="54" x2="0" y2="-58" class="axis svg-special-graphic-stroke-8e8982"/>
+    <path d="M0 0 L29 -34" fill="none"  stroke-width="3" marker-end="url(#arrow)" class="svg-special-graphic-stroke-5e7772"/>
+    <path d="M0 0 L-41 -8" fill="none"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <path d="M21 -31 A38 38 0 0 0 -18 -38" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <text x="6" y="-41" class="muted small svg-special-text-fill-706b66">q</text>
+    <text x="-50" y="-12" class="muted small svg-special-text-fill-706b66">R(pθ)q</text>
   </g>
-  <text x="104" y="205" text-anchor="middle" class="muted small">p = 2</text>
+  <text x="104" y="205" text-anchor="middle" class="muted small svg-special-text-fill-706b66">p = 2</text>
   <g transform="translate(326 128)">
-    <circle cx="0" cy="0" r="45" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
-    <line x1="-54" y1="0" x2="58" y2="0" class="axis"/>
-    <line x1="0" y1="54" x2="0" y2="-58" class="axis"/>
-    <path d="M0 0 L42 -13" fill="none" stroke="#5e7772" stroke-width="3" marker-end="url(#arrow)"/>
-    <path d="M0 0 L-12 42" fill="none" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
-    <path d="M39 -13 A42 42 0 0 1 -8 41" fill="none" stroke="#cc785c" stroke-width="1.5" marker-end="url(#arrow)"/>
-    <text x="42" y="-18" class="muted small">k</text>
-    <text x="-7" y="57" class="muted small">R(sθ)k</text>
+    <circle cx="0" cy="0" r="45" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-c9c4bb"/>
+    <line x1="-54" y1="0" x2="58" y2="0" class="axis svg-special-graphic-stroke-8e8982"/>
+    <line x1="0" y1="54" x2="0" y2="-58" class="axis svg-special-graphic-stroke-8e8982"/>
+    <path d="M0 0 L42 -13" fill="none"  stroke-width="3" marker-end="url(#arrow)" class="svg-special-graphic-stroke-5e7772"/>
+    <path d="M0 0 L-12 42" fill="none"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <path d="M39 -13 A42 42 0 0 1 -8 41" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+    <text x="42" y="-18" class="muted small svg-special-text-fill-706b66">k</text>
+    <text x="-7" y="57" class="muted small svg-special-text-fill-706b66">R(sθ)k</text>
   </g>
-  <text x="326" y="205" text-anchor="middle" class="muted small">s = 5</text>
+  <text x="326" y="205" text-anchor="middle" class="muted small svg-special-text-fill-706b66">s = 5</text>
 
-  <path d="M164 128 H218" fill="none" stroke="#cc785c" stroke-width="1.6" marker-end="url(#arrow)"/>
-  <path d="M386 128 H440" fill="none" stroke="#cc785c" stroke-width="1.6" marker-end="url(#arrow)"/>
-  <rect x="444" y="91" width="190" height="74" rx="9" class="accent"/>
-  <text x="539" y="117" text-anchor="middle" class="ink label">相对相位</text>
-  <text x="539" y="141" text-anchor="middle" class="ink label">qᵀ R((s−p)θ) k</text>
-  <text x="539" y="157" text-anchor="middle" class="muted small">s − p = 3</text>
+  <path d="M164 128 H218" fill="none"  stroke-width="1.6" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+  <path d="M386 128 H440" fill="none"  stroke-width="1.6" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+  <rect x="444" y="91" width="190" height="74" rx="9" class="accent svg-special-fill-fill-f4e7e0 svg-coral-stroke-stroke svg-special-background-fill-f4e7e0"/>
+  <text x="539" y="117" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">相对相位</text>
+  <text x="539" y="141" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">qᵀ R((s−p)θ) k</text>
+  <text x="539" y="157" text-anchor="middle" class="muted small svg-special-text-fill-706b66">s − p = 3</text>
 
-  <rect x="50" y="247" width="214" height="62" rx="8" class="teal"/>
-  <text x="157" y="272" text-anchor="middle" class="ink label">V 不旋转</text>
-  <text x="157" y="294" text-anchor="middle" class="muted small">权重改变，value 内容坐标保留</text>
-  <path d="M264 278 H345" fill="none" stroke="#5e7772" stroke-width="1.7" marker-end="url(#arrow)"/>
-  <rect x="350" y="247" width="166" height="62" rx="8" class="box"/>
-  <text x="433" y="272" text-anchor="middle" class="ink label">softmax + mask</text>
-  <text x="433" y="294" text-anchor="middle" class="muted small">score 后再读取 V</text>
+  <rect x="50" y="247" width="214" height="62" rx="8" class="teal svg-special-fill-fill-e4eeeb svg-special-graphic-stroke-5e7772 svg-special-background-fill-e4eeeb"/>
+  <text x="157" y="272" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">V 不旋转</text>
+  <text x="157" y="294" text-anchor="middle" class="muted small svg-special-text-fill-706b66">权重改变，value 内容坐标保留</text>
+  <path d="M264 278 H345" fill="none"  stroke-width="1.7" marker-end="url(#arrow)" class="svg-special-graphic-stroke-5e7772"/>
+  <rect x="350" y="247" width="166" height="62" rx="8" class="box svg-special-fill-fill-fffdfa svg-axis-stroke svg-special-background-fill-fffdfa"/>
+  <text x="433" y="272" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">softmax + mask</text>
+  <text x="433" y="294" text-anchor="middle" class="muted small svg-special-text-fill-706b66">score 后再读取 V</text>
 
-  <text x="560" y="218" class="ink label">attention score</text>
-  <text x="560" y="236" class="muted small">行：query　列：key</text>
+  <text x="560" y="218" class="ink label svg-special-text-fill-312f2f">attention score</text>
+  <text x="560" y="236" class="muted small svg-special-text-fill-706b66">行：query　列：key</text>
   <g transform="translate(584 250)">
-    <rect x="0" y="0" width="34" height="34" fill="#f3e6df" stroke="#b8b2a8"/>
-    <rect x="34" y="0" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
-    <rect x="68" y="0" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
-    <rect x="102" y="0" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
-    <rect x="136" y="0" width="34" height="34" fill="#cc785c" stroke="#b8b2a8"/>
-    <rect x="0" y="34" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
-    <rect x="34" y="34" width="34" height="34" fill="#f3e6df" stroke="#b8b2a8"/>
-    <rect x="68" y="34" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
-    <rect x="102" y="34" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
-    <rect x="136" y="34" width="34" height="34" fill="#d99e86" stroke="#b8b2a8"/>
-    <rect x="0" y="68" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
-    <rect x="34" y="68" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
-    <rect x="68" y="68" width="34" height="34" fill="#f3e6df" stroke="#b8b2a8"/>
-    <rect x="102" y="68" width="34" height="34" fill="#efdcd2" stroke="#b8b2a8"/>
-    <rect x="136" y="68" width="34" height="34" fill="#e8c7b8" stroke="#b8b2a8"/>
-    <text x="17" y="119" text-anchor="middle" class="muted small">0</text>
-    <text x="51" y="119" text-anchor="middle" class="muted small">1</text>
-    <text x="85" y="119" text-anchor="middle" class="muted small">2</text>
-    <text x="119" y="119" text-anchor="middle" class="muted small">3</text>
-    <text x="153" y="119" text-anchor="middle" class="muted small">4</text>
-    <text x="-10" y="22" text-anchor="end" class="muted small">0</text>
-    <text x="-10" y="56" text-anchor="end" class="muted small">1</text>
-    <text x="-10" y="90" text-anchor="end" class="muted small">2</text>
+    <rect x="0" y="0" width="34" height="34"   class="svg-special-fill-fill-f3e6df svg-axis-stroke svg-special-background-fill-f3e6df"/>
+    <rect x="34" y="0" width="34" height="34"   class="svg-special-fill-fill-efdcd2 svg-axis-stroke svg-special-background-fill-efdcd2"/>
+    <rect x="68" y="0" width="34" height="34"   class="svg-special-fill-fill-e8c7b8 svg-axis-stroke svg-special-background-fill-e8c7b8"/>
+    <rect x="102" y="0" width="34" height="34"   class="svg-special-fill-fill-d99e86 svg-axis-stroke svg-special-background-fill-d99e86"/>
+    <rect x="136" y="0" width="34" height="34"   class="svg-special-fill-fill-cc785c svg-axis-stroke"/>
+    <rect x="0" y="34" width="34" height="34"   class="svg-special-fill-fill-efdcd2 svg-axis-stroke svg-special-background-fill-efdcd2"/>
+    <rect x="34" y="34" width="34" height="34"   class="svg-special-fill-fill-f3e6df svg-axis-stroke svg-special-background-fill-f3e6df"/>
+    <rect x="68" y="34" width="34" height="34"   class="svg-special-fill-fill-efdcd2 svg-axis-stroke svg-special-background-fill-efdcd2"/>
+    <rect x="102" y="34" width="34" height="34"   class="svg-special-fill-fill-e8c7b8 svg-axis-stroke svg-special-background-fill-e8c7b8"/>
+    <rect x="136" y="34" width="34" height="34"   class="svg-special-fill-fill-d99e86 svg-axis-stroke svg-special-background-fill-d99e86"/>
+    <rect x="0" y="68" width="34" height="34"   class="svg-special-fill-fill-e8c7b8 svg-axis-stroke svg-special-background-fill-e8c7b8"/>
+    <rect x="34" y="68" width="34" height="34"   class="svg-special-fill-fill-efdcd2 svg-axis-stroke svg-special-background-fill-efdcd2"/>
+    <rect x="68" y="68" width="34" height="34"   class="svg-special-fill-fill-f3e6df svg-axis-stroke svg-special-background-fill-f3e6df"/>
+    <rect x="102" y="68" width="34" height="34"   class="svg-special-fill-fill-efdcd2 svg-axis-stroke svg-special-background-fill-efdcd2"/>
+    <rect x="136" y="68" width="34" height="34"   class="svg-special-fill-fill-e8c7b8 svg-axis-stroke svg-special-background-fill-e8c7b8"/>
+    <text x="17" y="119" text-anchor="middle" class="muted small svg-special-text-fill-706b66">0</text>
+    <text x="51" y="119" text-anchor="middle" class="muted small svg-special-text-fill-706b66">1</text>
+    <text x="85" y="119" text-anchor="middle" class="muted small svg-special-text-fill-706b66">2</text>
+    <text x="119" y="119" text-anchor="middle" class="muted small svg-special-text-fill-706b66">3</text>
+    <text x="153" y="119" text-anchor="middle" class="muted small svg-special-text-fill-706b66">4</text>
+    <text x="-10" y="22" text-anchor="end" class="muted small svg-special-text-fill-706b66">0</text>
+    <text x="-10" y="56" text-anchor="end" class="muted small svg-special-text-fill-706b66">1</text>
+    <text x="-10" y="90" text-anchor="end" class="muted small svg-special-text-fill-706b66">2</text>
   </g>
-  <text x="670" y="371" text-anchor="middle" class="muted small">相对位置影响读取分布</text>
+  <text x="670" y="371" text-anchor="middle" class="muted small svg-special-text-fill-706b66">相对位置影响读取分布</text>
 </svg>

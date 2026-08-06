@@ -1,36 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
-  <rect width="800" height="373" fill="#fbfaf7"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#312f2f">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e7efe9 { fill: #8d928f; }
+  .svg-special-fill-fill-f1eee8 { fill: #92908d; }
+  .svg-special-fill-fill-f5e6df { fill: #988f8b; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-fill-fill-fffaf4 { fill: #93908d; }
+  .svg-special-graphic-stroke-718779 { stroke: #718779; }
+  .svg-special-text-fill-6d6862 { fill: #6d6862; }
+  .svg-special-text-fill-8a847b { fill: #78726b; }
+
+  .svg-special-background-fill-e7efe9 { fill: #e7efe9; }
+  .svg-special-background-fill-f1eee8 { fill: #f1eee8; }
+  .svg-special-background-fill-f5e6df { fill: #f5e6df; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+  .svg-special-background-fill-fffaf4 { fill: #fffaf4; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e7efe9 { fill: #8d928f; }
+    .svg-special-fill-fill-f1eee8 { fill: #92908d; }
+    .svg-special-fill-fill-f5e6df { fill: #988f8b; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-fill-fill-fffaf4 { fill: #93908d; }
+    .svg-special-graphic-stroke-718779 { stroke: #718779; }
+    .svg-special-text-fill-6d6862 { fill: #a7a4a0; }
+    .svg-special-text-fill-8a847b { fill: #a7a49f; }
+    .svg-special-background-fill-e7efe9 { fill: #323433; }
+    .svg-special-background-fill-f1eee8 { fill: #343333; }
+    .svg-special-background-fill-f5e6df { fill: #343231; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+    .svg-special-background-fill-fffaf4 { fill: #363534; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
+  <rect width="800" height="373"  class="svg-special-fill-fill-fbfaf7 svg-special-background-fill-fbfaf7"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="36" y="38" font-size="21" font-weight="600">灾难性遗忘：同一次更新影响两类任务</text>
-    <text x="36" y="64" font-size="13" fill="#6d6862">旧任务保持、新任务适配和参数/数据策略必须一起评测</text>
+    <text x="36" y="64" font-size="13"  class="svg-special-text-fill-6d6862">旧任务保持、新任务适配和参数/数据策略必须一起评测</text>
 
-    <rect x="34" y="119" width="146" height="86" rx="10" fill="#f1eee8" stroke="#b8b2a8" stroke-width="2"/>
+    <rect x="34" y="119" width="146" height="86" rx="10"   stroke-width="2" class="svg-special-fill-fill-f1eee8 svg-axis-stroke svg-special-background-fill-f1eee8"/>
     <text x="107" y="150" text-anchor="middle" font-size="18" font-weight="600">base θ₀</text>
-    <text x="107" y="177" text-anchor="middle" font-size="13" fill="#6d6862">old 能力保持</text>
-    <text x="107" y="195" text-anchor="middle" font-size="12" fill="#8a847b">新任务未适配</text>
+    <text x="107" y="177" text-anchor="middle" font-size="13"  class="svg-special-text-fill-6d6862">old 能力保持</text>
+    <text x="107" y="195" text-anchor="middle" font-size="12"  class="svg-special-text-fill-8a847b">新任务未适配</text>
 
-    <line x1="180" y1="162" x2="264" y2="162" stroke="#cc785c" stroke-width="3"/>
-    <polygon points="264,162 252,155 252,169" fill="#cc785c"/>
+    <line x1="180" y1="162" x2="264" y2="162"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+    <polygon points="264,162 252,155 252,169"  class="svg-special-fill-fill-cc785c"/>
 
-    <rect x="265" y="119" width="164" height="86" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <rect x="265" y="119" width="164" height="86" rx="10"   stroke-width="2" class="svg-special-fill-fill-f5e6df svg-coral-stroke-stroke svg-special-background-fill-f5e6df"/>
     <text x="347" y="150" text-anchor="middle" font-size="18" font-weight="600">new update</text>
-    <text x="347" y="177" text-anchor="middle" font-size="13" fill="#6d6862">梯度、数据、LR</text>
-    <text x="347" y="195" text-anchor="middle" font-size="12" fill="#8a847b">参数移动</text>
+    <text x="347" y="177" text-anchor="middle" font-size="13"  class="svg-special-text-fill-6d6862">梯度、数据、LR</text>
+    <text x="347" y="195" text-anchor="middle" font-size="12"  class="svg-special-text-fill-8a847b">参数移动</text>
 
-    <line x1="429" y1="162" x2="506" y2="103" stroke="#cc785c" stroke-width="3"/>
-    <polygon points="506,103 492,105 500,116" fill="#cc785c"/>
-    <line x1="429" y1="162" x2="506" y2="221" stroke="#cc785c" stroke-width="3"/>
-    <polygon points="506,221 500,208 492,219" fill="#cc785c"/>
+    <line x1="429" y1="162" x2="506" y2="103"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+    <polygon points="506,103 492,105 500,116"  class="svg-special-fill-fill-cc785c"/>
+    <line x1="429" y1="162" x2="506" y2="221"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+    <polygon points="506,221 500,208 492,219"  class="svg-special-fill-fill-cc785c"/>
 
-    <rect x="507" y="69" width="258" height="68" rx="10" fill="#f5e6df" stroke="#cc785c" stroke-width="2"/>
+    <rect x="507" y="69" width="258" height="68" rx="10"   stroke-width="2" class="svg-special-fill-fill-f5e6df svg-coral-stroke-stroke svg-special-background-fill-f5e6df"/>
     <text x="636" y="97" text-anchor="middle" font-size="18" font-weight="600">old regression</text>
-    <text x="636" y="120" text-anchor="middle" font-size="12" fill="#6d6862">loss ↑ / accuracy ↓ / behavior drift</text>
+    <text x="636" y="120" text-anchor="middle" font-size="12"  class="svg-special-text-fill-6d6862">loss ↑ / accuracy ↓ / behavior drift</text>
 
-    <rect x="507" y="187" width="258" height="68" rx="10" fill="#e7efe9" stroke="#718779" stroke-width="2"/>
+    <rect x="507" y="187" width="258" height="68" rx="10"   stroke-width="2" class="svg-special-fill-fill-e7efe9 svg-special-graphic-stroke-718779 svg-special-background-fill-e7efe9"/>
     <text x="636" y="215" text-anchor="middle" font-size="18" font-weight="600">new adaptation</text>
-    <text x="636" y="238" text-anchor="middle" font-size="12" fill="#6d6862">rehearsal / regularization / adapter</text>
+    <text x="636" y="238" text-anchor="middle" font-size="12"  class="svg-special-text-fill-6d6862">rehearsal / regularization / adapter</text>
 
-    <rect x="122" y="282" width="556" height="43" rx="9" fill="#fffaf4" stroke="#b8b2a8" stroke-width="1.5"/>
-    <text x="400" y="309" text-anchor="middle" font-size="13" fill="#6d6862">保存 base、old/new 分数、有效 token、更新合同和分组回归</text>
+    <rect x="122" y="282" width="556" height="43" rx="9"   stroke-width="1.5" class="svg-special-fill-fill-fffaf4 svg-axis-stroke svg-special-background-fill-fffaf4"/>
+    <text x="400" y="309" text-anchor="middle" font-size="13"  class="svg-special-text-fill-6d6862">保存 base、old/new 分数、有效 token、更新合同和分组回归</text>
   </g>
 </svg>

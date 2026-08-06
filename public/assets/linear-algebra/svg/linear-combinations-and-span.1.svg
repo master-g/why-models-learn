@@ -1,64 +1,96 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="lc-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="lc-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="lc-arr-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左 panel:span{u} = 一条直线 ============ -->
   <!-- 原点 (70,160),30px/单位,u=(3,1) → 步进 (90,-30) -->
-  <line x1="70" y1="160" x2="244" y2="160" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lc-arr-axis)"/>
-  <line x1="70" y1="160" x2="70" y2="14" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lc-arr-axis)"/>
-  <text x="248" y="164" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="62" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="70" y1="160" x2="244" y2="160"  stroke-width="1" marker-end="url(#lc-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="70" y1="160" x2="70" y2="14"  stroke-width="1" marker-end="url(#lc-arr-axis)" class="svg-axis-stroke"/>
+  <text x="248" y="164" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="62" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- 张成直线:沿 u 方向的虚线,贯穿原点 -->
-  <line x1="16" y1="178" x2="232" y2="106" stroke="#c9c4bb" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="16" y1="178" x2="232" y2="106"  stroke-width="1.2" stroke-dasharray="5 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- u 与 2u -->
-  <line x1="70" y1="160" x2="160" y2="130" stroke="#312f2f" stroke-width="1.8" marker-end="url(#lc-arr-ink)"/>
-  <text x="112" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">u</text>
-  <line x1="70" y1="160" x2="250" y2="100" stroke="#cc785c" stroke-width="1.4" marker-end="url(#lc-arr-coral)"/>
-  <text x="222" y="94" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#a9583e">2u</text>
+  <line x1="70" y1="160" x2="160" y2="130"  stroke-width="1.8" marker-end="url(#lc-arr-ink)" class="svg-ink-stroke"/>
+  <text x="112" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">u</text>
+  <line x1="70" y1="160" x2="250" y2="100"  stroke-width="1.4" marker-end="url(#lc-arr-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="222" y="94" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-coral-text-fill">2u</text>
 
-  <circle cx="70" cy="160" r="2.4" fill="#312f2f"/>
-  <circle cx="250" cy="100" r="2.2" fill="#cc785c"/>
+  <circle cx="70" cy="160" r="2.4"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="250" cy="100" r="2.2"  class="svg-special-fill-fill-cc785c"/>
 
-  <text x="96" y="192" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">span{u}:一条直线</text>
+  <text x="96" y="192" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">span{u}:一条直线</text>
 
   <!-- ============ 右 panel:span{u,v} = 整个平面 ============ -->
   <!-- 原点 (330,160),30px/单位,u=(3,1) → (90,-30),v=(1,2) → (30,-60) -->
-  <line x1="330" y1="160" x2="544" y2="160" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lc-arr-axis)"/>
-  <line x1="330" y1="160" x2="330" y2="14" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lc-arr-axis)"/>
-  <text x="548" y="164" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="322" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="330" y1="160" x2="544" y2="160"  stroke-width="1" marker-end="url(#lc-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="330" y1="160" x2="330" y2="14"  stroke-width="1" marker-end="url(#lc-arr-axis)" class="svg-axis-stroke"/>
+  <text x="548" y="164" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="322" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- 格线:平行四边形网格,提示平面被铺满 -->
-  <line x1="330" y1="160" x2="510" y2="100" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="360" y1="100" x2="540" y2="40" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="330" y1="160" x2="390" y2="40" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="420" y1="130" x2="480" y2="10" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="330" y1="160" x2="510" y2="100"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="360" y1="100" x2="540" y2="40"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="330" y1="160" x2="390" y2="40"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="420" y1="130" x2="480" y2="10"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- 整数系数组合格点 -->
-  <circle cx="330" cy="160" r="2.4" fill="#312f2f"/>
-  <circle cx="420" cy="130" r="2.2" fill="#6c6a64"/>
-  <circle cx="360" cy="100" r="2.2" fill="#6c6a64"/>
-  <circle cx="450" cy="70" r="2.2" fill="#6c6a64"/>
-  <circle cx="510" cy="100" r="2.2" fill="#6c6a64"/>
-  <circle cx="540" cy="40" r="2.2" fill="#6c6a64"/>
-  <circle cx="390" cy="40" r="2.2" fill="#6c6a64"/>
+  <circle cx="330" cy="160" r="2.4"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="420" cy="130" r="2.2"  class="svg-special-fill-fill-6c6a64"/>
+  <circle cx="360" cy="100" r="2.2"  class="svg-special-fill-fill-6c6a64"/>
+  <circle cx="450" cy="70" r="2.2"  class="svg-special-fill-fill-6c6a64"/>
+  <circle cx="510" cy="100" r="2.2"  class="svg-special-fill-fill-6c6a64"/>
+  <circle cx="540" cy="40" r="2.2"  class="svg-special-fill-fill-6c6a64"/>
+  <circle cx="390" cy="40" r="2.2"  class="svg-special-fill-fill-6c6a64"/>
 
   <!-- u、v 两个方向 -->
-  <line x1="330" y1="160" x2="420" y2="130" stroke="#312f2f" stroke-width="1.8" marker-end="url(#lc-arr-ink)"/>
-  <text x="372" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">u</text>
-  <line x1="330" y1="160" x2="360" y2="100" stroke="#cc785c" stroke-width="1.8" marker-end="url(#lc-arr-coral)"/>
-  <text x="336" y="122" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">v</text>
+  <line x1="330" y1="160" x2="420" y2="130"  stroke-width="1.8" marker-end="url(#lc-arr-ink)" class="svg-ink-stroke"/>
+  <text x="372" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">u</text>
+  <line x1="330" y1="160" x2="360" y2="100"  stroke-width="1.8" marker-end="url(#lc-arr-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="336" y="122" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">v</text>
 
-  <text x="368" y="192" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">span{u, v}:整个平面</text>
+  <text x="368" y="192" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">span{u, v}:整个平面</text>
 </svg>

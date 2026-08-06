@@ -1,50 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="hessian-title hessian-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="hessian-title hessian-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="hessian-title">Hessian 在两个特征方向上给出正负不同的曲率</title>
   <desc id="hessian-desc">矩阵 H 作用在两个正交方向上，一个方向被正向放大，另一个方向反向缩放，代表正负曲率。</desc>
   <defs>
     <marker id="hessian-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="hessian-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <style>
-      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif;  font-size: 13px; }
       .small { font-size: 11px; }
       .title { font-size: 15px; font-weight: 600; }
-      .matrix { font-family: Georgia, "Times New Roman", serif; fill: #312f2f; font-size: 19px; }
+      .matrix { font-family: Georgia, "Times New Roman", serif;  font-size: 19px; }
     </style>
   </defs>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <text x="22" y="29" class="label title">方向</text>
-  <text x="240" y="29" class="label title">Hessian H</text>
-  <text x="414" y="29" class="label title">H 作用后的曲率方向</text>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <text x="22" y="29" class="label title svg-special-text-fill-312f2f">方向</text>
+  <text x="240" y="29" class="label title svg-special-text-fill-312f2f">Hessian H</text>
+  <text x="414" y="29" class="label title svg-special-text-fill-312f2f">H 作用后的曲率方向</text>
 
-  <line x1="32" y1="140" x2="170" y2="140" stroke="#b8b2a8" stroke-width="1.3" marker-end="url(#hessian-arrow-ink)"/>
-  <line x1="103" y1="211" x2="103" y2="50" stroke="#b8b2a8" stroke-width="1.3" marker-end="url(#hessian-arrow-ink)"/>
-  <circle cx="103" cy="140" r="4" fill="#312f2f"/>
-  <line x1="103" y1="140" x2="166" y2="76" stroke="#cc785c" stroke-width="3" marker-end="url(#hessian-arrow-coral)"/>
-  <line x1="103" y1="140" x2="166" y2="204" stroke="#312f2f" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#hessian-arrow-ink)"/>
-  <text x="118" y="86" class="label">u₊</text>
-  <text x="118" y="202" class="label">u₋</text>
-  <text x="32" y="224" class="label small">正交主方向</text>
+  <line x1="32" y1="140" x2="170" y2="140"  stroke-width="1.3" marker-end="url(#hessian-arrow-ink)" class="svg-axis-stroke"/>
+  <line x1="103" y1="211" x2="103" y2="50"  stroke-width="1.3" marker-end="url(#hessian-arrow-ink)" class="svg-axis-stroke"/>
+  <circle cx="103" cy="140" r="4"  class="svg-special-fill-fill-312f2f"/>
+  <line x1="103" y1="140" x2="166" y2="76"  stroke-width="3" marker-end="url(#hessian-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="103" y1="140" x2="166" y2="204"  stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#hessian-arrow-ink)" class="svg-ink-stroke"/>
+  <text x="118" y="86" class="label svg-special-text-fill-312f2f">u₊</text>
+  <text x="118" y="202" class="label svg-special-text-fill-312f2f">u₋</text>
+  <text x="32" y="224" class="label small svg-special-text-fill-312f2f">正交主方向</text>
 
-  <path d="M204 85 H224 M204 175 H224 M224 85 V175 M224 85 H219 M224 175 H219" fill="none" stroke="#312f2f" stroke-width="1.5"/>
-  <path d="M335 85 H315 M335 175 H315 M315 85 V175 M315 85 H320 M315 175 H320" fill="none" stroke="#312f2f" stroke-width="1.5"/>
-  <text x="236" y="117" class="matrix">2  3</text>
-  <text x="236" y="151" class="matrix">3  2</text>
-  <text x="243" y="199" class="label small">H u₊=5u₊</text>
-  <text x="247" y="216" class="label small">H u₋=−u₋</text>
+  <path d="M204 85 H224 M204 175 H224 M224 85 V175 M224 85 H219 M224 175 H219" fill="none"  stroke-width="1.5" class="svg-ink-stroke"/>
+  <path d="M335 85 H315 M335 175 H315 M315 85 V175 M315 85 H320 M315 175 H320" fill="none"  stroke-width="1.5" class="svg-ink-stroke"/>
+  <text x="236" y="117" class="matrix svg-special-text-fill-312f2f">2  3</text>
+  <text x="236" y="151" class="matrix svg-special-text-fill-312f2f">3  2</text>
+  <text x="243" y="199" class="label small svg-special-text-fill-312f2f">H u₊=5u₊</text>
+  <text x="247" y="216" class="label small svg-special-text-fill-312f2f">H u₋=−u₋</text>
 
-  <line x1="356" y1="130" x2="406" y2="130" stroke="#cc785c" stroke-width="2.5" marker-end="url(#hessian-arrow-coral)"/>
-  <line x1="103" y1="140" x2="103" y2="140" stroke="#312f2f"/>
+  <line x1="356" y1="130" x2="406" y2="130"  stroke-width="2.5" marker-end="url(#hessian-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="103" y1="140" x2="103" y2="140"  class="svg-ink-stroke"/>
 
-  <line x1="442" y1="140" x2="535" y2="140" stroke="#b8b2a8" stroke-width="1.3" marker-end="url(#hessian-arrow-ink)"/>
-  <line x1="489" y1="211" x2="489" y2="50" stroke="#b8b2a8" stroke-width="1.3" marker-end="url(#hessian-arrow-ink)"/>
-  <circle cx="489" cy="140" r="4" fill="#312f2f"/>
-  <line x1="489" y1="140" x2="550" y2="62" stroke="#cc785c" stroke-width="3" marker-end="url(#hessian-arrow-coral)"/>
-  <line x1="489" y1="140" x2="435" y2="84" stroke="#312f2f" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#hessian-arrow-ink)"/>
-  <text x="515" y="70" class="label">5u₊</text>
-  <text x="410" y="78" class="label">−u₋</text>
-  <text x="426" y="224" class="label small">曲率：5 与 −1</text>
+  <line x1="442" y1="140" x2="535" y2="140"  stroke-width="1.3" marker-end="url(#hessian-arrow-ink)" class="svg-axis-stroke"/>
+  <line x1="489" y1="211" x2="489" y2="50"  stroke-width="1.3" marker-end="url(#hessian-arrow-ink)" class="svg-axis-stroke"/>
+  <circle cx="489" cy="140" r="4"  class="svg-special-fill-fill-312f2f"/>
+  <line x1="489" y1="140" x2="550" y2="62"  stroke-width="3" marker-end="url(#hessian-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="489" y1="140" x2="435" y2="84"  stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#hessian-arrow-ink)" class="svg-ink-stroke"/>
+  <text x="515" y="70" class="label svg-special-text-fill-312f2f">5u₊</text>
+  <text x="410" y="78" class="label svg-special-text-fill-312f2f">−u₋</text>
+  <text x="426" y="224" class="label small svg-special-text-fill-312f2f">曲率：5 与 −1</text>
 </svg>

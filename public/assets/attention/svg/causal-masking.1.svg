@@ -1,39 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-special-fill-fill-29251f { fill: #29251f; }
+  .svg-special-fill-fill-a79f95 { fill: #978f86; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-d9e4e5 { fill: #8b9293; }
+  .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+  .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+  .svg-special-fill-fill-efe1cd { fill: #988f83; }
+  .svg-special-fill-fill-efe8de { fill: #95908a; }
+  .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+  .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+  .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+  .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+  .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+  .svg-special-text-fill-6f665b { fill: #6f665b; }
+  .svg-special-text-fill-fffaf1 { fill: #75726e; }
+
+  .svg-special-background-fill-d9e4e5 { fill: #d9e4e5; }
+  .svg-special-background-fill-e5edf0 { fill: #e5edf0; }
+  .svg-special-background-fill-e8e6d9 { fill: #e8e6d9; }
+  .svg-special-background-fill-efe1cd { fill: #efe1cd; }
+  .svg-special-background-fill-efe8de { fill: #efe8de; }
+  .svg-special-background-fill-f6f0e5 { fill: #f6f0e5; }
+  .svg-special-text-fill-29251f { fill: #29251f; }
+  .svg-special-text-fill-a79f95 { fill: #78726b; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-special-fill-fill-29251f { fill: #65625d; }
+    .svg-special-fill-fill-a79f95 { fill: #978f86; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-d9e4e5 { fill: #8b9293; }
+    .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+    .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+    .svg-special-fill-fill-efe1cd { fill: #988f83; }
+    .svg-special-fill-fill-efe8de { fill: #95908a; }
+    .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+    .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+    .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+    .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+    .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+    .svg-special-text-fill-6f665b { fill: #a9a49d; }
+    .svg-special-text-fill-fffaf1 { fill: #a6a4a1; }
+    .svg-special-background-fill-d9e4e5 { fill: #303232; }
+    .svg-special-background-fill-e5edf0 { fill: #323334; }
+    .svg-special-background-fill-e8e6d9 { fill: #333230; }
+    .svg-special-background-fill-efe1cd { fill: #34322f; }
+    .svg-special-background-fill-efe8de { fill: #343331; }
+    .svg-special-background-fill-f6f0e5 { fill: #353432; }
+    .svg-special-text-fill-29251f { fill: #a6a4a1; }
+    .svg-special-text-fill-a79f95 { fill: #a7a49f; }
+
+
+
+  }
+</style>
   <title id="title">因果掩码的下三角可访问区域和 KV cache 偏移</title>
   <desc id="desc">四位置 causal attention matrix 保留下三角、屏蔽未来上三角；下方显示带三个历史 cache 位置的两个 query chunk mask。</desc>
-  <rect width="800" height="373" fill="#f6f0e5"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f6f0e5 svg-special-background-fill-f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"  class="svg-special-fill-fill-29251f svg-special-text-fill-29251f">
     <text x="32" y="34" font-size="22" font-weight="700">Causal Masking：只读取过去和当前</text>
-    <text x="32" y="57" font-size="12" fill="#6f665b">行是 query，列是 key；上三角不可用，下三角保留</text>
+    <text x="32" y="57" font-size="12"  class="svg-special-text-fill-6f665b">行是 query，列是 key；上三角不可用，下三角保留</text>
 
-    <text x="58" y="88" font-size="12" fill="#6f665b">query ↓ / key →</text>
+    <text x="58" y="88" font-size="12"  class="svg-special-text-fill-6f665b">query ↓ / key →</text>
     <text x="151" y="88" font-size="12">0</text>
     <text x="199" y="88" font-size="12">1</text>
     <text x="247" y="88" font-size="12">2</text>
     <text x="295" y="88" font-size="12">3</text>
-    <text x="325" y="112" font-size="12" fill="#6f665b">未来</text>
-    <text x="325" y="130" font-size="12" fill="#6f665b">被 mask</text>
-    <text x="325" y="203" font-size="12" fill="#6f665b">允许读取</text>
+    <text x="325" y="112" font-size="12"  class="svg-special-text-fill-6f665b">未来</text>
+    <text x="325" y="130" font-size="12"  class="svg-special-text-fill-6f665b">被 mask</text>
+    <text x="325" y="203" font-size="12"  class="svg-special-text-fill-6f665b">允许读取</text>
 
-    <rect x="132" y="96" width="192" height="192" rx="6" fill="#e5edf0" stroke="#75939d"/>
-    <path d="M180 96 V288 M228 96 V288 M276 96 V288 M132 144 H324 M132 192 H324 M132 240 H324" stroke="#b8b2a8" stroke-width="1"/>
-    <rect x="132" y="96" width="48" height="48" fill="#cc785c"/>
-    <rect x="132" y="144" width="48" height="48" fill="#cc785c"/>
-    <rect x="180" y="144" width="48" height="48" fill="#cc785c"/>
-    <rect x="132" y="192" width="48" height="48" fill="#cc785c"/>
-    <rect x="180" y="192" width="48" height="48" fill="#cc785c"/>
-    <rect x="228" y="192" width="48" height="48" fill="#cc785c"/>
-    <rect x="132" y="240" width="48" height="48" fill="#cc785c"/>
-    <rect x="180" y="240" width="48" height="48" fill="#cc785c"/>
-    <rect x="228" y="240" width="48" height="48" fill="#cc785c"/>
-    <rect x="276" y="240" width="48" height="48" fill="#cc785c"/>
+    <rect x="132" y="96" width="192" height="192" rx="6"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
+    <path d="M180 96 V288 M228 96 V288 M276 96 V288 M132 144 H324 M132 192 H324 M132 240 H324"  stroke-width="1" class="svg-axis-stroke"/>
+    <rect x="132" y="96" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="132" y="144" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="180" y="144" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="132" y="192" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="180" y="192" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="228" y="192" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="132" y="240" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="180" y="240" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="228" y="240" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="276" y="240" width="48" height="48"  class="svg-special-fill-fill-cc785c"/>
     <g font-size="15" text-anchor="middle">
-      <text x="156" y="126" fill="#fffaf1">1</text>
-      <text x="204" y="174" fill="#fffaf1">½</text>
-      <text x="252" y="222" fill="#fffaf1">⅓</text>
-      <text x="300" y="270" fill="#fffaf1">¼</text>
+      <text x="156" y="126"  class="svg-special-text-fill-fffaf1">1</text>
+      <text x="204" y="174"  class="svg-special-text-fill-fffaf1">½</text>
+      <text x="252" y="222"  class="svg-special-text-fill-fffaf1">⅓</text>
+      <text x="300" y="270"  class="svg-special-text-fill-fffaf1">¼</text>
     </g>
-    <g font-size="18" text-anchor="middle" fill="#a79f95">
+    <g font-size="18" text-anchor="middle"  class="svg-special-fill-fill-a79f95 svg-special-text-fill-a79f95">
       <text x="204" y="126">×</text>
       <text x="252" y="126">×</text>
       <text x="300" y="126">×</text>
@@ -42,25 +100,25 @@
       <text x="300" y="222">×</text>
     </g>
 
-    <path d="M373 192 H404" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M396 184 L406 192 L396 200" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <rect x="407" y="105" width="154" height="88" rx="10" fill="#efe1cd" stroke="#b58b5b"/>
+    <path d="M373 192 H404"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M396 184 L406 192 L396 200"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <rect x="407" y="105" width="154" height="88" rx="10"   class="svg-special-fill-fill-efe1cd svg-special-graphic-stroke-b58b5b svg-special-background-fill-efe1cd"/>
     <text x="425" y="131" font-size="14" font-weight="700">S + M</text>
     <text x="425" y="157" font-size="12">softmax row</text>
-    <text x="425" y="179" font-size="12" fill="#6f665b">future weight = 0</text>
-    <rect x="407" y="205" width="154" height="83" rx="10" fill="#e8e6d9" stroke="#89906c"/>
+    <text x="425" y="179" font-size="12"  class="svg-special-text-fill-6f665b">future weight = 0</text>
+    <rect x="407" y="205" width="154" height="83" rx="10"   class="svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
     <text x="425" y="231" font-size="14" font-weight="700">信息路径</text>
     <text x="425" y="257" font-size="12">t 只读 s ≤ t</text>
-    <text x="425" y="278" font-size="11" fill="#6f665b">上三角梯度为 0</text>
+    <text x="425" y="278" font-size="11"  class="svg-special-text-fill-6f665b">上三角梯度为 0</text>
 
-    <rect x="594" y="105" width="174" height="183" rx="10" fill="#efe8de" stroke="#b8b2a8"/>
+    <rect x="594" y="105" width="174" height="183" rx="10"   class="svg-special-fill-fill-efe8de svg-axis-stroke svg-special-background-fill-efe8de"/>
     <text x="612" y="131" font-size="14" font-weight="700">cache offset</text>
-    <text x="612" y="153" font-size="11" fill="#6f665b">3 个历史 + 2 个新 query</text>
-    <rect x="612" y="169" width="126" height="44" rx="5" fill="#d9e4e5" stroke="#75939d"/>
+    <text x="612" y="153" font-size="11"  class="svg-special-text-fill-6f665b">3 个历史 + 2 个新 query</text>
+    <rect x="612" y="169" width="126" height="44" rx="5"   class="svg-special-fill-fill-d9e4e5 svg-special-graphic-stroke-75939d svg-special-background-fill-d9e4e5"/>
     <text x="625" y="187" font-size="11">q₃：0 0 0 0 ×</text>
     <text x="625" y="204" font-size="11">q₄：0 0 0 0 0</text>
-    <text x="612" y="239" font-size="12" fill="#6f665b">历史前缀全可见</text>
-    <text x="612" y="260" font-size="12" fill="#6f665b">当前块内仍下三角</text>
-    <text x="612" y="280" font-size="11" fill="#6f665b">不能从位置 0 重置</text>
+    <text x="612" y="239" font-size="12"  class="svg-special-text-fill-6f665b">历史前缀全可见</text>
+    <text x="612" y="260" font-size="12"  class="svg-special-text-fill-6f665b">当前块内仍下三角</text>
+    <text x="612" y="280" font-size="11"  class="svg-special-text-fill-6f665b">不能从位置 0 重置</text>
   </g>
 </svg>

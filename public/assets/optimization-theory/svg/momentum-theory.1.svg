@@ -1,53 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-9b9890 { fill: #939089; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-f7f3ef { fill: #93908e; }
+  .svg-special-fill-fill-fbf8f5 { fill: #92908f; }
+  .svg-special-graphic-stroke-9b9890 { stroke: #939089; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-615d57 { fill: #615d57; }
+
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-f7f3ef { fill: #f7f3ef; }
+  .svg-special-background-fill-fbf8f5 { fill: #fbf8f5; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-9b9890 { fill: #939089; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-f7f3ef { fill: #93908e; }
+    .svg-special-fill-fill-fbf8f5 { fill: #92908f; }
+    .svg-special-graphic-stroke-9b9890 { stroke: #939089; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-615d57 { fill: #a6a4a0; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-f7f3ef { fill: #353434; }
+    .svg-special-background-fill-fbf8f5 { fill: #353534; }
+
+
+
+  }
+</style>
   <title id="title">动量把历史方向带进当前更新</title>
   <desc id="desc">左侧显示当前梯度和历史速度合成下一步，右侧说明动量系数控制记忆与振荡。</desc>
   <defs>
     <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9b9890"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-9b9890"/>
     </marker>
   </defs>
   <style>
-    .paper { fill: #f7f3ef; }
-    .title { fill: #312f2f; font: 600 17px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-    .body { fill: #312f2f; font: 13px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-    .small { fill: #615d57; font: 11px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-    .formula { fill: #312f2f; font: 600 15px "STIX Two Text", "Times New Roman", serif; }
-    .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-    .history { fill: none; stroke: #9b9890; stroke-width: 2; marker-end: url(#arrow-muted); }
-    .gradient { fill: none; stroke: #9b9890; stroke-width: 2; marker-end: url(#arrow-muted); }
-    .result { fill: none; stroke: #cc785c; stroke-width: 2.6; marker-end: url(#arrow-coral); }
-    .point { fill: #cc785c; }
-    .panel { fill: #fbf8f5; stroke: #c9c4bb; stroke-width: 1.2; }
-    .panel-good { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.4; }
+    .paper {}
+    .title {font: 600 17px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+    .body {font: 13px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+    .small {font: 11px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+    .formula {font: 600 15px "STIX Two Text", "Times New Roman", serif; }
+    .axis {stroke-width: 1.2; }
+    .history { fill: none;  stroke-width: 2; marker-end: url(#arrow-muted); }
+    .gradient { fill: none;  stroke-width: 2; marker-end: url(#arrow-muted); }
+    .result { fill: none;  stroke-width: 2.6; marker-end: url(#arrow-coral); }
+    .point {}
+    .panel {stroke-width: 1.2; }
+    .panel-good {stroke-width: 1.4; }
   </style>
-  <rect class="paper" x="0" y="0" width="560" height="250"/>
-  <text class="title" x="28" y="28">动量：历史方向进入当前更新</text>
-  <text class="body" x="28" y="48">速度不是当前梯度；它是带几何衰减的历史和。</text>
+  <rect class="paper svg-special-fill-fill-f7f3ef svg-special-background-fill-f7f3ef" x="0" y="0" width="560" height="250"/>
+  <text class="title svg-special-text-fill-312f2f" x="28" y="28">动量：历史方向进入当前更新</text>
+  <text class="body svg-special-text-fill-312f2f" x="28" y="48">速度不是当前梯度；它是带几何衰减的历史和。</text>
 
   <g aria-label="梯度和历史速度合成">
-    <line class="axis" x1="34" y1="205" x2="248" y2="205"/>
-    <line class="axis" x1="60" y1="221" x2="60" y2="68"/>
-    <circle class="point" cx="129" cy="145" r="4.5"/>
-    <path class="history" d="M129 145 L83 101"/>
-    <path class="gradient" d="M129 145 L188 165"/>
-    <path class="result" d="M129 145 L205 119"/>
-    <text class="small" x="67" y="96">历史速度 βvₖ</text>
-    <text class="small" x="184" y="180">当前梯度 gₖ</text>
-    <text class="formula" x="176" y="112">vₖ₊₁</text>
-    <text class="small" x="95" y="163">θₖ</text>
-    <text class="small" x="34" y="224">vₖ₊₁ = βvₖ + gₖ</text>
+    <line class="axis svg-axis-stroke" x1="34" y1="205" x2="248" y2="205"/>
+    <line class="axis svg-axis-stroke" x1="60" y1="221" x2="60" y2="68"/>
+    <circle class="point svg-special-fill-fill-cc785c" cx="129" cy="145" r="4.5"/>
+    <path class="history svg-special-graphic-stroke-9b9890" d="M129 145 L83 101"/>
+    <path class="gradient svg-special-graphic-stroke-9b9890" d="M129 145 L188 165"/>
+    <path class="result svg-coral-stroke-stroke" d="M129 145 L205 119"/>
+    <text class="small svg-special-text-fill-615d57" x="67" y="96">历史速度 βvₖ</text>
+    <text class="small svg-special-text-fill-615d57" x="184" y="180">当前梯度 gₖ</text>
+    <text class="formula svg-special-text-fill-312f2f" x="176" y="112">vₖ₊₁</text>
+    <text class="small svg-special-text-fill-615d57" x="95" y="163">θₖ</text>
+    <text class="small svg-special-text-fill-615d57" x="34" y="224">vₖ₊₁ = βvₖ + gₖ</text>
   </g>
 
   <g aria-label="动量系数作用">
-    <rect class="panel-good" x="286" y="68" width="246" height="58" rx="9"/>
-    <text class="formula" x="409" y="91" text-anchor="middle">β ↑</text>
-    <text class="body" x="409" y="112" text-anchor="middle">记忆更长，方向更平滑</text>
-    <rect class="panel" x="286" y="141" width="246" height="58" rx="9"/>
-    <text class="formula" x="409" y="164" text-anchor="middle">η 或 β 过大</text>
-    <text class="body" x="409" y="185" text-anchor="middle">谷底两侧振荡，甚至发散</text>
-    <text class="small" x="286" y="224">加速不等于每一步目标值都下降</text>
+    <rect class="panel-good svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4" x="286" y="68" width="246" height="58" rx="9"/>
+    <text class="formula svg-special-text-fill-312f2f" x="409" y="91" text-anchor="middle">β ↑</text>
+    <text class="body svg-special-text-fill-312f2f" x="409" y="112" text-anchor="middle">记忆更长，方向更平滑</text>
+    <rect class="panel svg-special-fill-fill-fbf8f5 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fbf8f5" x="286" y="141" width="246" height="58" rx="9"/>
+    <text class="formula svg-special-text-fill-312f2f" x="409" y="164" text-anchor="middle">η 或 β 过大</text>
+    <text class="body svg-special-text-fill-312f2f" x="409" y="185" text-anchor="middle">谷底两侧振荡，甚至发散</text>
+    <text class="small svg-special-text-fill-615d57" x="286" y="224">加速不等于每一步目标值都下降</text>
   </g>
 </svg>

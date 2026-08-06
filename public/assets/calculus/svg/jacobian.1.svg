@@ -1,52 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="jacobian-title jacobian-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="jacobian-title jacobian-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="jacobian-title">输入扰动经过 Jacobian 矩阵变成输出扰动</title>
   <desc id="jacobian-desc">左侧输入坐标中的扰动向量经过中间的偏导矩阵，变成右侧输出坐标中的一阶扰动。</desc>
   <defs>
     <marker id="jacobian-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="jacobian-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <style>
-      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif;  font-size: 13px; }
       .small { font-size: 11px; }
       .title { font-size: 15px; font-weight: 600; }
-      .matrix { font-family: Georgia, "Times New Roman", serif; fill: #312f2f; font-size: 18px; }
+      .matrix { font-family: Georgia, "Times New Roman", serif;  font-size: 18px; }
     </style>
   </defs>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <text x="24" y="29" class="label title">输入扰动</text>
-  <text x="222" y="29" class="label title">Jacobian</text>
-  <text x="401" y="29" class="label title">输出扰动</text>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <text x="24" y="29" class="label title svg-special-text-fill-312f2f">输入扰动</text>
+  <text x="222" y="29" class="label title svg-special-text-fill-312f2f">Jacobian</text>
+  <text x="401" y="29" class="label title svg-special-text-fill-312f2f">输出扰动</text>
 
-  <g stroke="#b8b2a8" stroke-width="1.3" fill="none">
+  <g  stroke-width="1.3" fill="none" class="svg-axis-stroke">
     <line x1="28" y1="194" x2="158" y2="194" marker-end="url(#jacobian-arrow-ink)"/>
     <line x1="48" y1="215" x2="48" y2="60" marker-end="url(#jacobian-arrow-ink)"/>
     <line x1="401" y1="194" x2="530" y2="194" marker-end="url(#jacobian-arrow-ink)"/>
     <line x1="421" y1="215" x2="421" y2="60" marker-end="url(#jacobian-arrow-ink)"/>
   </g>
-  <text x="161" y="198" class="label small">x₁</text>
-  <text x="37" y="57" class="label small">x₂</text>
-  <text x="533" y="198" class="label small">y₁</text>
-  <text x="410" y="57" class="label small">y₂</text>
+  <text x="161" y="198" class="label small svg-special-text-fill-312f2f">x₁</text>
+  <text x="37" y="57" class="label small svg-special-text-fill-312f2f">x₂</text>
+  <text x="533" y="198" class="label small svg-special-text-fill-312f2f">y₁</text>
+  <text x="410" y="57" class="label small svg-special-text-fill-312f2f">y₂</text>
 
-  <circle cx="82" cy="169" r="4.5" fill="#312f2f"/>
-  <line x1="82" y1="169" x2="139" y2="112" stroke="#cc785c" stroke-width="3" marker-end="url(#jacobian-arrow-coral)"/>
-  <text x="80" y="188" class="label small">a</text>
-  <text x="101" y="126" class="label small">h</text>
+  <circle cx="82" cy="169" r="4.5"  class="svg-special-fill-fill-312f2f"/>
+  <line x1="82" y1="169" x2="139" y2="112"  stroke-width="3" marker-end="url(#jacobian-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="80" y="188" class="label small svg-special-text-fill-312f2f">a</text>
+  <text x="101" y="126" class="label small svg-special-text-fill-312f2f">h</text>
 
-  <path d="M180 105 H201 M180 171 H201 M201 105 V171 M201 105 H196 M201 171 H196" fill="none" stroke="#312f2f" stroke-width="1.5"/>
-  <path d="M326 105 H305 M326 171 H305 M305 105 V171 M305 105 H310 M305 171 H310" fill="none" stroke="#312f2f" stroke-width="1.5"/>
-  <text x="214" y="128" class="matrix">∂Fᵢ/∂xⱼ</text>
-  <text x="214" y="151" class="label small">m×n</text>
+  <path d="M180 105 H201 M180 171 H201 M201 105 V171 M201 105 H196 M201 171 H196" fill="none"  stroke-width="1.5" class="svg-ink-stroke"/>
+  <path d="M326 105 H305 M326 171 H305 M305 105 V171 M305 105 H310 M305 171 H310" fill="none"  stroke-width="1.5" class="svg-ink-stroke"/>
+  <text x="214" y="128" class="matrix svg-special-text-fill-312f2f">∂Fᵢ/∂xⱼ</text>
+  <text x="214" y="151" class="label small svg-special-text-fill-312f2f">m×n</text>
 
-  <line x1="330" y1="138" x2="397" y2="138" stroke="#cc785c" stroke-width="2.5" marker-end="url(#jacobian-arrow-coral)"/>
-  <text x="335" y="126" class="label small">J_F(a)</text>
+  <line x1="330" y1="138" x2="397" y2="138"  stroke-width="2.5" marker-end="url(#jacobian-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="335" y="126" class="label small svg-special-text-fill-312f2f">J_F(a)</text>
 
-  <circle cx="455" cy="171" r="4.5" fill="#312f2f"/>
-  <line x1="455" y1="171" x2="510" y2="91" stroke="#cc785c" stroke-width="3" marker-end="url(#jacobian-arrow-coral)"/>
-  <text x="452" y="188" class="label small">F(a)</text>
-  <text x="479" y="112" class="label small">J_F(a)h</text>
-  <text x="185" y="215" class="label small">每列对应一个输入方向</text>
+  <circle cx="455" cy="171" r="4.5"  class="svg-special-fill-fill-312f2f"/>
+  <line x1="455" y1="171" x2="510" y2="91"  stroke-width="3" marker-end="url(#jacobian-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="452" y="188" class="label small svg-special-text-fill-312f2f">F(a)</text>
+  <text x="479" y="112" class="label small svg-special-text-fill-312f2f">J_F(a)h</text>
+  <text x="185" y="215" class="label small svg-special-text-fill-312f2f">每列对应一个输入方向</text>
 </svg>

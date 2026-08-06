@@ -1,38 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-special-fill-fill-5f827d { fill: #5f827d; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f5f1ec { fill: #93908e; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-graphic-stroke-5f827d { stroke: #5f827d; }
+  .svg-special-graphic-stroke-8e8982 { stroke: #8e8982; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-5f827d { fill: #597975; }
+  .svg-special-text-fill-6f6b65 { fill: #6f6b65; }
+
+  .svg-special-background-fill-f5f1ec { fill: #f5f1ec; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-special-fill-fill-5f827d { fill: #5f827d; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f5f1ec { fill: #93908e; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-graphic-stroke-5f827d { stroke: #5f827d; }
+    .svg-special-graphic-stroke-8e8982 { stroke: #8e8982; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-5f827d { fill: #94a9a6; }
+    .svg-special-text-fill-6f6b65 { fill: #a6a4a0; }
+    .svg-special-background-fill-f5f1ec { fill: #343433; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">tanh 的零中心曲线与导数</title>
   <desc id="desc">左侧显示经过原点、向负一和正一饱和的 tanh 曲线，右侧显示在原点达到最大值并向两端衰减的 tanh 导数。</desc>
-  <rect width="800" height="373" rx="18" fill="#fbfaf7"/>
-  <text x="34" y="38" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700">tanh：零中心，但也会饱和</text>
-  <text x="34" y="64" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14">输出保留正负方向，导数在两端逐渐消失</text>
+  <rect width="800" height="373" rx="18"  class="svg-special-fill-fill-fbfaf7 svg-special-background-fill-fbfaf7"/>
+  <text x="34" y="38"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" class="svg-special-text-fill-312f2f">tanh：零中心，但也会饱和</text>
+  <text x="34" y="64"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" class="svg-special-text-fill-6f6b65">输出保留正负方向，导数在两端逐渐消失</text>
 
-  <rect x="28" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="52" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">函数 tanh(z)</text>
-  <text x="52" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">tanh(-z)=-tanh(z)，中心在 0</text>
-  <line x1="64" y1="216" x2="342" y2="216" stroke="#8e8982" stroke-width="1.5"/>
-  <line x1="203" y1="159" x2="203" y2="291" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
-  <line x1="64" y1="159" x2="342" y2="159" stroke="#c9c4bb" stroke-width="1"/>
-  <line x1="64" y1="273" x2="342" y2="273" stroke="#c9c4bb" stroke-width="1"/>
-  <path d="M 64 272 C 98 272, 121 266, 142 252 C 168 236, 186 223, 203 216 C 220 209, 238 196, 264 180 C 285 166, 308 160, 342 160" fill="none" stroke="#cc785c" stroke-width="5"/>
-  <circle cx="203" cy="216" r="5" fill="#cc785c"/>
-  <text x="193" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">z=0</text>
-  <text x="68" y="153" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">1</text>
-  <text x="68" y="231" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
-  <text x="68" y="289" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">-1</text>
-  <text x="329" y="208" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">tanh</text>
+  <rect x="28" y="86" width="350" height="238" rx="14"   stroke-width="2" class="svg-special-fill-fill-f5f1ec svg-axis-stroke svg-special-background-fill-f5f1ec"/>
+  <text x="52" y="119"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" class="svg-special-text-fill-312f2f">函数 tanh(z)</text>
+  <text x="52" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">tanh(-z)=-tanh(z)，中心在 0</text>
+  <line x1="64" y1="216" x2="342" y2="216"  stroke-width="1.5" class="svg-special-graphic-stroke-8e8982"/>
+  <line x1="203" y1="159" x2="203" y2="291"  stroke-width="1.5" stroke-dasharray="5 5" class="svg-axis-stroke"/>
+  <line x1="64" y1="159" x2="342" y2="159"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="64" y1="273" x2="342" y2="273"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <path d="M 64 272 C 98 272, 121 266, 142 252 C 168 236, 186 223, 203 216 C 220 209, 238 196, 264 180 C 285 166, 308 160, 342 160" fill="none"  stroke-width="5" class="svg-coral-stroke-stroke"/>
+  <circle cx="203" cy="216" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="193" y="309"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">z=0</text>
+  <text x="68" y="153"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-6f6b65">1</text>
+  <text x="68" y="231"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-6f6b65">0</text>
+  <text x="68" y="289"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-6f6b65">-1</text>
+  <text x="329" y="208"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-coral-text-fill">tanh</text>
 
-  <rect x="422" y="86" width="350" height="238" rx="14" fill="#f5f1ec" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="446" y="119" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">导数 1-tanh²(z)</text>
-  <text x="446" y="142" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">中心梯度最大，两端逐渐平坦</text>
-  <line x1="458" y1="273" x2="736" y2="273" stroke="#8e8982" stroke-width="1.5"/>
-  <line x1="597" y1="159" x2="597" y2="291" stroke="#b8b2a8" stroke-width="1.5" stroke-dasharray="5 5"/>
-  <line x1="458" y1="216" x2="736" y2="216" stroke="#c9c4bb" stroke-width="1"/>
-  <path d="M 458 272 C 492 272, 514 268, 540 254 C 564 240, 583 220, 597 171 C 611 220, 630 240, 654 254 C 680 268, 702 272, 736 272" fill="none" stroke="#5f827d" stroke-width="5"/>
-  <circle cx="597" cy="171" r="5" fill="#5f827d"/>
-  <text x="586" y="309" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">z=0</text>
-  <text x="727" y="208" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">1</text>
-  <text x="728" y="289" fill="#6f6b65" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">0</text>
-  <text x="604" y="164" fill="#5f827d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">最大</text>
+  <rect x="422" y="86" width="350" height="238" rx="14"   stroke-width="2" class="svg-special-fill-fill-f5f1ec svg-axis-stroke svg-special-background-fill-f5f1ec"/>
+  <text x="446" y="119"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" class="svg-special-text-fill-312f2f">导数 1-tanh²(z)</text>
+  <text x="446" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">中心梯度最大，两端逐渐平坦</text>
+  <line x1="458" y1="273" x2="736" y2="273"  stroke-width="1.5" class="svg-special-graphic-stroke-8e8982"/>
+  <line x1="597" y1="159" x2="597" y2="291"  stroke-width="1.5" stroke-dasharray="5 5" class="svg-axis-stroke"/>
+  <line x1="458" y1="216" x2="736" y2="216"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <path d="M 458 272 C 492 272, 514 268, 540 254 C 564 240, 583 220, 597 171 C 611 220, 630 240, 654 254 C 680 268, 702 272, 736 272" fill="none"  stroke-width="5" class="svg-special-graphic-stroke-5f827d"/>
+  <circle cx="597" cy="171" r="5"  class="svg-special-fill-fill-5f827d"/>
+  <text x="586" y="309"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" class="svg-special-text-fill-6f6b65">z=0</text>
+  <text x="727" y="208"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-5f827d">1</text>
+  <text x="728" y="289"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-6f6b65">0</text>
+  <text x="604" y="164"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" class="svg-special-text-fill-5f827d">最大</text>
 
-  <path d="M 382 205 H 413" fill="none" stroke="#b8b2a8" stroke-width="2"/>
-  <path d="M 404 198 L 414 205 L 404 212" fill="none" stroke="#b8b2a8" stroke-width="2"/>
+  <path d="M 382 205 H 413" fill="none"  stroke-width="2" class="svg-axis-stroke"/>
+  <path d="M 404 198 L 414 205 L 404 212" fill="none"  stroke-width="2" class="svg-axis-stroke"/>
 </svg>

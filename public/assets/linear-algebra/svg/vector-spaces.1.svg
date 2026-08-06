@@ -1,54 +1,86 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-8a867d { fill: #8a867d; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-graphic-stroke-8a867d { stroke: #8a867d; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-8a867d { fill: #76726b; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-8a867d { fill: #8a867d; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-graphic-stroke-8a867d { stroke: #8a867d; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-8a867d { fill: #a7a49f; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="vs-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="vs-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="vs-arr-aux" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#8a867d"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-8a867d"/>
     </marker>
   </defs>
 
   <!-- ============ 左 panel:R² 平面,加法与数乘封闭 ============ -->
   <!-- 平面补丁 -->
-  <rect x="25" y="25" width="255" height="155" fill="rgba(49,47,47,0.04)" stroke="#c9c4bb" stroke-width="1"/>
+  <rect x="25" y="25" width="255" height="155"  fill-opacity="0.04"  stroke-width="1" class="svg-special-fill-fill-312f2f svg-special-graphic-stroke-c9c4bb"/>
   <!-- 加法平行四边形的补边(虚线) -->
-  <line x1="130" y1="120" x2="160" y2="60" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 3"/>
-  <line x1="100" y1="90" x2="160" y2="60" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="130" y1="120" x2="160" y2="60"  stroke-width="1" stroke-dasharray="3 3" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="100" y1="90" x2="160" y2="60"  stroke-width="1" stroke-dasharray="3 3" class="svg-special-graphic-stroke-c9c4bb"/>
   <!-- 向量:u、v 墨色,u+v 珊瑚,0.5u 辅助灰 -->
-  <line x1="70" y1="150" x2="130" y2="120" stroke="#312f2f" stroke-width="1.5" marker-end="url(#vs-arr-ink)"/>
-  <line x1="70" y1="150" x2="100" y2="90" stroke="#312f2f" stroke-width="1.5" marker-end="url(#vs-arr-ink)"/>
-  <line x1="70" y1="150" x2="160" y2="60" stroke="#cc785c" stroke-width="1.5" marker-end="url(#vs-arr-coral)"/>
-  <line x1="70" y1="150" x2="100" y2="135" stroke="#8a867d" stroke-width="1.5" marker-end="url(#vs-arr-aux)"/>
+  <line x1="70" y1="150" x2="130" y2="120"  stroke-width="1.5" marker-end="url(#vs-arr-ink)" class="svg-ink-stroke"/>
+  <line x1="70" y1="150" x2="100" y2="90"  stroke-width="1.5" marker-end="url(#vs-arr-ink)" class="svg-ink-stroke"/>
+  <line x1="70" y1="150" x2="160" y2="60"  stroke-width="1.5" marker-end="url(#vs-arr-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="70" y1="150" x2="100" y2="135"  stroke-width="1.5" marker-end="url(#vs-arr-aux)" class="svg-special-graphic-stroke-8a867d"/>
   <!-- 原点 -->
-  <circle cx="70" cy="150" r="2.5" fill="#312f2f"/>
+  <circle cx="70" cy="150" r="2.5"  class="svg-special-fill-fill-312f2f"/>
   <!-- 向量标签 -->
-  <text x="136" y="126" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">u</text>
-  <text x="80" y="84" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">v</text>
-  <text x="166" y="62" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#cc785c">u + v</text>
-  <text x="106" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#8a867d">0.5u</text>
+  <text x="136" y="126" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-312f2f">u</text>
+  <text x="80" y="84" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-312f2f">v</text>
+  <text x="166" y="62" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-coral-text-fill">u + v</text>
+  <text x="106" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-8a867d">0.5u</text>
   <!-- panel 标题 -->
-  <text x="150" y="193" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64" text-anchor="middle">相加、缩放,结果永远在面内 ⟹ 封闭</text>
+  <text x="150" y="193" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">相加、缩放,结果永远在面内 ⟹ 封闭</text>
 
   <!-- ============ 分隔虚线 ============ -->
-  <line x1="300" y1="20" x2="300" y2="180" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="300" y1="20" x2="300" y2="180"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- ============ 右 panel:第一象限,−u 逃逸 ============ -->
   <!-- 第一象限着色(x≥0 且 y≥0,原点 O2=(375,155)) -->
-  <rect x="375" y="25" width="180" height="130" fill="rgba(49,47,47,0.05)"/>
+  <rect x="375" y="25" width="180" height="130"  fill-opacity="0.05" class="svg-special-fill-fill-312f2f"/>
   <!-- 坐标轴 -->
-  <line x1="315" y1="155" x2="558" y2="155" stroke="#c9c4bb" stroke-width="1"/>
-  <line x1="375" y1="190" x2="375" y2="20" stroke="#c9c4bb" stroke-width="1"/>
+  <line x1="315" y1="155" x2="558" y2="155"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="375" y1="190" x2="375" y2="20"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
   <!-- u 墨色,−u 珊瑚虚线逃逸 -->
-  <line x1="375" y1="155" x2="420" y2="132.5" stroke="#312f2f" stroke-width="1.5" marker-end="url(#vs-arr-ink)"/>
-  <line x1="375" y1="155" x2="330" y2="177.5" stroke="#cc785c" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#vs-arr-coral)"/>
+  <line x1="375" y1="155" x2="420" y2="132.5"  stroke-width="1.5" marker-end="url(#vs-arr-ink)" class="svg-ink-stroke"/>
+  <line x1="375" y1="155" x2="330" y2="177.5"  stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#vs-arr-coral)" class="svg-coral-stroke-stroke"/>
   <!-- 原点 -->
-  <circle cx="375" cy="155" r="2.5" fill="#312f2f"/>
+  <circle cx="375" cy="155" r="2.5"  class="svg-special-fill-fill-312f2f"/>
   <!-- 向量标签 -->
-  <text x="426" y="132" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f">u</text>
-  <text x="322" y="168" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#cc785c">−u</text>
+  <text x="426" y="132" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-text-fill-312f2f">u</text>
+  <text x="322" y="168" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-coral-text-fill">−u</text>
   <!-- panel 标题 -->
-  <text x="435" y="193" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64" text-anchor="middle">−u 逃出象限 ⟹ 数乘不封闭,不是向量空间</text>
+  <text x="435" y="193" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">−u 逃出象限 ⟹ 数乘不封闭,不是向量空间</text>
 </svg>

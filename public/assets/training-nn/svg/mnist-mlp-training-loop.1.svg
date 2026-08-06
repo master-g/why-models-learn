@@ -1,76 +1,134 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-8b817b { fill: #8b817b; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-dce9df { fill: #8a938c; }
+  .svg-special-fill-fill-eee5d8 { fill: #969088; }
+  .svg-special-fill-fill-f3d8ce { fill: #9f8d87; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-f8f3ed { fill: #93908d; }
+  .svg-special-fill-fill-fffaf3 { fill: #93908c; }
+  .svg-special-graphic-stroke-75957e { stroke: #75957e; }
+  .svg-special-graphic-stroke-8b817b { stroke: #8b817b; }
+  .svg-special-graphic-stroke-9b8f88 { stroke: #9a8e88; }
+  .svg-special-graphic-stroke-b9a997 { stroke: #9c8e7f; }
+  .svg-special-graphic-stroke-d7ccc4 { stroke: #978f8a; }
+  .svg-special-graphic-stroke-e4d9d1 { stroke: #978f8a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706e6e { fill: #706e6e; }
+  .svg-special-text-fill-fffaf3 { fill: #75726f; }
+
+  .svg-special-background-fill-dce9df { fill: #dce9df; }
+  .svg-special-background-fill-eee5d8 { fill: #eee5d8; }
+  .svg-special-background-fill-f3d8ce { fill: #f3d8ce; }
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-f8f3ed { fill: #f8f3ed; }
+  .svg-special-background-fill-fffaf3 { fill: #fffaf3; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-8b817b { fill: #8b817b; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-dce9df { fill: #8a938c; }
+    .svg-special-fill-fill-eee5d8 { fill: #969088; }
+    .svg-special-fill-fill-f3d8ce { fill: #9f8d87; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-f8f3ed { fill: #93908d; }
+    .svg-special-fill-fill-fffaf3 { fill: #93908c; }
+    .svg-special-graphic-stroke-75957e { stroke: #75957e; }
+    .svg-special-graphic-stroke-8b817b { stroke: #8b817b; }
+    .svg-special-graphic-stroke-9b8f88 { stroke: #9a8e88; }
+    .svg-special-graphic-stroke-b9a997 { stroke: #9c8e7f; }
+    .svg-special-graphic-stroke-d7ccc4 { stroke: #978f8a; }
+    .svg-special-graphic-stroke-e4d9d1 { stroke: #978f8a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706e6e { fill: #a5a4a4; }
+    .svg-special-text-fill-fffaf3 { fill: #a6a4a2; }
+    .svg-special-background-fill-dce9df { fill: #313331; }
+    .svg-special-background-fill-eee5d8 { fill: #333230; }
+    .svg-special-background-fill-f3d8ce { fill: #34302f; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-f8f3ed { fill: #353433; }
+    .svg-special-background-fill-fffaf3 { fill: #363534; }
+
+
+
+  }
+</style>
   <title id="title">MNIST 加 MLP 的训练循环</title>
   <desc id="desc">批次图像经过展平、MLP 前向和交叉熵损失，再沿反向路径产生梯度并由优化器更新参数；下方记录数据、数值和状态证据。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+      <path d="M0 0 L7 3.5 L0 7 Z"  class="svg-special-fill-fill-8b817b"/>
     </marker>
     <style>
-      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .evidence { font: 600 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .evidence-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .flow { fill: #fbf7f1; stroke: #d7ccc4; stroke-width: 1.4; }
-      .data { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.6; }
-      .compute { fill: #eee5d8; stroke: #b9a997; stroke-width: 1.4; }
-      .update { fill: #dce9df; stroke: #75957e; stroke-width: 1.4; }
-      .panel { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
-      .stop { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.5; }
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .evidence { font: 600 12px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .evidence-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .flow {stroke-width: 1.4; }
+      .data {stroke-width: 1.6; }
+      .compute {stroke-width: 1.4; }
+      .update {stroke-width: 1.4; }
+      .panel {stroke-width: 1.2; }
+      .stop {stroke-width: 1.5; }
     </style>
   </defs>
 
-  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
-  <text x="38" y="44" class="title">MNIST + MLP 训练循环</text>
-  <text x="38" y="66" class="subtitle">每一批次都经过同一条可核对的边界：数据 → 前向 → 损失 → 反向 → 更新</text>
+  <rect x="14" y="14" width="772" height="345" rx="20"   class="svg-special-fill-fill-f8f3ed svg-special-graphic-stroke-e4d9d1 svg-special-background-fill-f8f3ed"/>
+  <text x="38" y="44" class="title svg-special-text-fill-312f2f">MNIST + MLP 训练循环</text>
+  <text x="38" y="66" class="subtitle svg-special-text-fill-706e6e">每一批次都经过同一条可核对的边界：数据 → 前向 → 损失 → 反向 → 更新</text>
 
-  <rect x="38" y="91" width="130" height="58" rx="10" class="data"/>
-  <text x="103" y="116" text-anchor="middle" class="label">批次数据</text>
-  <text x="103" y="136" text-anchor="middle" class="detail">B×1×28×28 / y</text>
+  <rect x="38" y="91" width="130" height="58" rx="10" class="data svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+  <text x="103" y="116" text-anchor="middle" class="label svg-special-text-fill-312f2f">批次数据</text>
+  <text x="103" y="136" text-anchor="middle" class="detail svg-special-text-fill-706e6e">B×1×28×28 / y</text>
 
-  <rect x="190" y="91" width="130" height="58" rx="10" class="compute"/>
-  <text x="255" y="116" text-anchor="middle" class="label">展平 + MLP</text>
-  <text x="255" y="136" text-anchor="middle" class="detail">B×784 → B×128</text>
+  <rect x="190" y="91" width="130" height="58" rx="10" class="compute svg-special-fill-fill-eee5d8 svg-special-graphic-stroke-b9a997 svg-special-background-fill-eee5d8"/>
+  <text x="255" y="116" text-anchor="middle" class="label svg-special-text-fill-312f2f">展平 + MLP</text>
+  <text x="255" y="136" text-anchor="middle" class="detail svg-special-text-fill-706e6e">B×784 → B×128</text>
 
-  <rect x="342" y="91" width="116" height="58" rx="10" class="compute"/>
-  <text x="400" y="116" text-anchor="middle" class="label">logits</text>
-  <text x="400" y="136" text-anchor="middle" class="detail">B×10</text>
+  <rect x="342" y="91" width="116" height="58" rx="10" class="compute svg-special-fill-fill-eee5d8 svg-special-graphic-stroke-b9a997 svg-special-background-fill-eee5d8"/>
+  <text x="400" y="116" text-anchor="middle" class="label svg-special-text-fill-312f2f">logits</text>
+  <text x="400" y="136" text-anchor="middle" class="detail svg-special-text-fill-706e6e">B×10</text>
 
-  <rect x="480" y="91" width="116" height="58" rx="10" class="compute"/>
-  <text x="538" y="116" text-anchor="middle" class="label">交叉熵</text>
-  <text x="538" y="136" text-anchor="middle" class="detail">一个标量 loss</text>
+  <rect x="480" y="91" width="116" height="58" rx="10" class="compute svg-special-fill-fill-eee5d8 svg-special-graphic-stroke-b9a997 svg-special-background-fill-eee5d8"/>
+  <text x="538" y="116" text-anchor="middle" class="label svg-special-text-fill-312f2f">交叉熵</text>
+  <text x="538" y="136" text-anchor="middle" class="detail svg-special-text-fill-706e6e">一个标量 loss</text>
 
-  <rect x="618" y="91" width="144" height="58" rx="10" class="update"/>
-  <text x="690" y="116" text-anchor="middle" class="label">反向 + 更新</text>
-  <text x="690" y="136" text-anchor="middle" class="detail">梯度 → optimizer.step</text>
+  <rect x="618" y="91" width="144" height="58" rx="10" class="update svg-special-fill-fill-dce9df svg-special-graphic-stroke-75957e svg-special-background-fill-dce9df"/>
+  <text x="690" y="116" text-anchor="middle" class="label svg-special-text-fill-312f2f">反向 + 更新</text>
+  <text x="690" y="136" text-anchor="middle" class="detail svg-special-text-fill-706e6e">梯度 → optimizer.step</text>
 
-  <path d="M168 120 H185" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M320 120 H337" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M458 120 H475" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M596 120 H613" fill="none" stroke="#8b817b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M168 120 H185" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <path d="M320 120 H337" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <path d="M458 120 H475" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
+  <path d="M596 120 H613" fill="none"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-special-graphic-stroke-8b817b"/>
 
-  <path d="M690 149 V169 H103 V158" fill="none" stroke="#9b8f88" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-  <text x="400" y="166" text-anchor="middle" class="subtitle">下一批次沿同一协议重复；评估则从更新边界旁路，不反向改参数</text>
+  <path d="M690 149 V169 H103 V158" fill="none"  stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow)" class="svg-special-graphic-stroke-9b8f88"/>
+  <text x="400" y="166" text-anchor="middle" class="subtitle svg-special-text-fill-706e6e">下一批次沿同一协议重复；评估则从更新边界旁路，不反向改参数</text>
 
-  <rect x="38" y="188" width="226" height="75" rx="10" class="panel"/>
-  <text x="55" y="212" class="evidence">数据证据</text>
-  <text x="55" y="232" class="evidence-detail">shape：B×1×28×28 → B×784</text>
-  <text x="55" y="249" class="evidence-detail">dtype：float；标签：0…9</text>
+  <rect x="38" y="188" width="226" height="75" rx="10" class="panel svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-fffaf3"/>
+  <text x="55" y="212" class="evidence svg-special-text-fill-312f2f">数据证据</text>
+  <text x="55" y="232" class="evidence-detail svg-special-text-fill-706e6e">shape：B×1×28×28 → B×784</text>
+  <text x="55" y="249" class="evidence-detail svg-special-text-fill-706e6e">dtype：float；标签：0…9</text>
 
-  <rect x="287" y="188" width="226" height="75" rx="10" class="panel"/>
-  <text x="304" y="212" class="evidence">数值证据</text>
-  <text x="304" y="232" class="evidence-detail">logits 有限；loss 是标量</text>
-  <text x="304" y="249" class="evidence-detail">梯度非零；参数差可观测</text>
+  <rect x="287" y="188" width="226" height="75" rx="10" class="panel svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-fffaf3"/>
+  <text x="304" y="212" class="evidence svg-special-text-fill-312f2f">数值证据</text>
+  <text x="304" y="232" class="evidence-detail svg-special-text-fill-706e6e">logits 有限；loss 是标量</text>
+  <text x="304" y="249" class="evidence-detail svg-special-text-fill-706e6e">梯度非零；参数差可观测</text>
 
-  <rect x="536" y="188" width="226" height="75" rx="10" class="panel"/>
-  <text x="553" y="212" class="evidence">状态证据</text>
-  <text x="553" y="232" class="evidence-detail">train / eval 模式明确</text>
-  <text x="553" y="249" class="evidence-detail">step、seed、checkpoint 可恢复</text>
+  <rect x="536" y="188" width="226" height="75" rx="10" class="panel svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-fffaf3"/>
+  <text x="553" y="212" class="evidence svg-special-text-fill-312f2f">状态证据</text>
+  <text x="553" y="232" class="evidence-detail svg-special-text-fill-706e6e">train / eval 模式明确</text>
+  <text x="553" y="249" class="evidence-detail svg-special-text-fill-706e6e">step、seed、checkpoint 可恢复</text>
 
-  <rect x="38" y="290" width="724" height="48" rx="12" class="stop"/>
-  <circle cx="63" cy="314" r="12" fill="#cc785c"/>
-  <text x="63" y="319" text-anchor="middle" style="font:600 14px Geist, sans-serif; fill:#fffaf3">!</text>
-  <text x="88" y="311" class="label">训练闭环的验收条件</text>
-  <text x="88" y="329" class="detail">loss 下降只是结果；必须同时能追溯数据、梯度、参数更新和评估边界</text>
+  <rect x="38" y="290" width="724" height="48" rx="12" class="stop svg-special-fill-fill-f3d8ce svg-coral-stroke-stroke svg-special-background-fill-f3d8ce"/>
+  <circle cx="63" cy="314" r="12"  class="svg-special-fill-fill-cc785c"/>
+  <text x="63" y="319" text-anchor="middle" style="font:600 14px Geist, sans-serif;" class="svg-special-text-fill-fffaf3">!</text>
+  <text x="88" y="311" class="label svg-special-text-fill-312f2f">训练闭环的验收条件</text>
+  <text x="88" y="329" class="detail svg-special-text-fill-706e6e">loss 下降只是结果；必须同时能追溯数据、梯度、参数更新和评估边界</text>
 </svg>

@@ -1,59 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-f5e7bc { fill: #999076; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+  .svg-special-graphic-stroke-b58128 { stroke: #b58128; }
+  .svg-special-graphic-stroke-d5c9c5 { stroke: #988f8c; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e7f0ee { fill: #e7f0ee; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-f5e7bc { fill: #999076; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+    .svg-special-graphic-stroke-b58128 { stroke: #b58128; }
+    .svg-special-graphic-stroke-d5c9c5 { stroke: #988f8c; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e7f0ee { fill: #323433; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">Residual stream 的分支读写与残差汇合</title>
   <desc id="desc">同一个 residual stream 版本沿 shortcut 传递，attention 和 FFN 读取它并产生增量，两个增量在加法节点写回得到下一层 stream。</desc>
   <style>
-    .paper { fill: #f4efee; }
-    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
-    .muted { fill: #6c6a64; font-size: 16px; }
-    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
-    .small { fill: #6c6a64; font-size: 14px; }
-    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
-    .branch { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
-    .add { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; }
-    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .shortcut { fill: none; stroke: #a9583e; stroke-width: 2.5; stroke-dasharray: 7 6; stroke-linecap: round; }
-    .arrow { fill: #312f2f; }
+    .paper {}
+    .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted {font-size: 16px; }
+    .label {font-size: 20px; font-weight: 650; }
+    .small {font-size: 14px; }
+    .box {stroke-width: 2; rx: 10; }
+    .branch {stroke-width: 2; rx: 10; }
+    .add {stroke-width: 2; }
+    .path { fill: none;  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .shortcut { fill: none;  stroke-width: 2.5; stroke-dasharray: 7 6; stroke-linecap: round; }
+    .arrow {}
   </style>
-  <rect class="paper" width="800" height="373"/>
-  <text class="ink label" x="42" y="45">Residual stream 的分支读写</text>
-  <text class="ink muted" x="42" y="72">shortcut 传递当前表示，子层只写入增量</text>
+  <rect class="paper svg-special-fill-fill-f4efee svg-special-background-fill-f4efee" width="800" height="373"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="45">Residual stream 的分支读写</text>
+  <text class="ink muted svg-special-text-fill-312f2f svg-muted-fill" x="42" y="72">shortcut 传递当前表示，子层只写入增量</text>
 
-  <rect class="box" x="58" y="136" width="96" height="48"/>
-  <text class="ink label" x="91" y="167">xₗ</text>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="58" y="136" width="96" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="91" y="167">xₗ</text>
 
-  <path class="shortcut" d="M154 160H486"/>
-  <path class="arrow" d="M486 160l-10-6v12z"/>
-  <text class="ink small" x="184" y="151">shortcut</text>
+  <path class="shortcut svg-coral-stroke-stroke" d="M154 160H486"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M486 160l-10-6v12z"/>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="184" y="151">shortcut</text>
 
-  <path class="path" d="M154 160H194V112H218"/>
-  <path class="arrow" d="M218 112l-9-6v12z"/>
-  <rect class="branch" x="218" y="88" width="136" height="48"/>
-  <text class="ink label" x="246" y="119">Attention</text>
-  <text class="ink small" x="58" y="211">两支读取 xₗ</text>
-  <path class="path" d="M354 112H454V144H486"/>
-  <path class="arrow" d="M486 144l-9-6v12z"/>
-  <text class="ink small" x="371" y="105">Δ_attn</text>
+  <path class="path svg-ink-stroke" d="M154 160H194V112H218"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M218 112l-9-6v12z"/>
+  <rect class="branch svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="218" y="88" width="136" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="246" y="119">Attention</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="58" y="211">两支读取 xₗ</text>
+  <path class="path svg-ink-stroke" d="M354 112H454V144H486"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M486 144l-9-6v12z"/>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="371" y="105">Δ_attn</text>
 
-  <path class="path" d="M194 160V208H218"/>
-  <path class="arrow" d="M218 208l-9-6v12z"/>
-  <rect class="branch" x="218" y="184" width="136" height="48"/>
-  <text class="ink label" x="262" y="215">FFN</text>
-  <text class="ink small" x="244" y="253">读取同一 stream 版本</text>
-  <path class="path" d="M354 208H454V176H486"/>
-  <path class="arrow" d="M486 176l-9-6v12z"/>
-  <text class="ink small" x="371" y="226">Δ_ffn</text>
+  <path class="path svg-ink-stroke" d="M194 160V208H218"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M218 208l-9-6v12z"/>
+  <rect class="branch svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="218" y="184" width="136" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="262" y="215">FFN</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="244" y="253">读取同一 stream 版本</text>
+  <path class="path svg-ink-stroke" d="M354 208H454V176H486"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M486 176l-9-6v12z"/>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="371" y="226">Δ_ffn</text>
 
-  <circle class="add" cx="510" cy="160" r="24"/>
-  <path class="path" d="M502 152l16 16M518 152l-16 16"/>
-  <path class="path" d="M534 160H620"/>
-  <path class="arrow" d="M620 160l-9-6v12z"/>
-  <rect class="box" x="632" y="136" width="96" height="48"/>
-  <text class="ink label" x="653" y="167">xₗ₊₁</text>
-  <text class="ink small" x="487" y="205">加法节点</text>
+  <circle class="add svg-special-fill-fill-f5e7bc svg-special-graphic-stroke-b58128" cx="510" cy="160" r="24"/>
+  <path class="path svg-ink-stroke" d="M502 152l16 16M518 152l-16 16"/>
+  <path class="path svg-ink-stroke" d="M534 160H620"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M620 160l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="632" y="136" width="96" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="653" y="167">xₗ₊₁</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="487" y="205">加法节点</text>
 
-  <path d="M42 279H758" stroke="#d5c9c5" stroke-width="1.5"/>
-  <text class="ink small" x="58" y="314">shape: (B, T, d_model)</text>
-  <text class="ink label" x="360" y="316">x<tspan baseline-shift="sub" font-size="13">L</tspan> = x<tspan baseline-shift="sub" font-size="13">0</tspan> + Σ Δ<tspan baseline-shift="sub" font-size="13">l</tspan></text>
-  <text class="ink small" x="58" y="342">同宽度传递；跨 token 的读取发生在分支内部</text>
-  <text class="ink small" x="548" y="342">Δ_l 写回前必须回到 d_model</text>
+  <path d="M42 279H758"  stroke-width="1.5" class="svg-special-graphic-stroke-d5c9c5"/>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="58" y="314">shape: (B, T, d_model)</text>
+  <text class="ink label svg-special-text-fill-312f2f" x="360" y="316">x<tspan baseline-shift="sub" font-size="13">L</tspan> = x<tspan baseline-shift="sub" font-size="13">0</tspan> + Σ Δ<tspan baseline-shift="sub" font-size="13">l</tspan></text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="58" y="342">同宽度传递；跨 token 的读取发生在分支内部</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="548" y="342">Δ_l 写回前必须回到 d_model</text>
 </svg>

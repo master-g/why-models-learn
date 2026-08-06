@@ -1,71 +1,113 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-5d7775 { fill: #5d7775; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e3eeeb { fill: #8c9291; }
+  .svg-special-fill-fill-f3e1d9 { fill: #9a8e89; }
+  .svg-special-fill-fill-f4f0ec { fill: #93908e; }
+  .svg-special-fill-fill-f7f4f0 { fill: #92908e; }
+  .svg-special-graphic-stroke-5d7775 { stroke: #5d7775; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e3eeeb { fill: #e3eeeb; }
+  .svg-special-background-fill-f3e1d9 { fill: #f3e1d9; }
+  .svg-special-background-fill-f4f0ec { fill: #f4f0ec; }
+  .svg-special-background-fill-f7f4f0 { fill: #f7f4f0; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-5d7775 { fill: #5d7775; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e3eeeb { fill: #8c9291; }
+    .svg-special-fill-fill-f3e1d9 { fill: #9a8e89; }
+    .svg-special-fill-fill-f4f0ec { fill: #93908e; }
+    .svg-special-fill-fill-f7f4f0 { fill: #92908e; }
+    .svg-special-graphic-stroke-5d7775 { stroke: #5d7775; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e3eeeb { fill: #323333; }
+    .svg-special-background-fill-f3e1d9 { fill: #343230; }
+    .svg-special-background-fill-f4f0ec { fill: #343433; }
+    .svg-special-background-fill-f7f4f0 { fill: #353434; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="forward-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="reverse-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#5d7775"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-5d7775"/>
     </marker>
     <style>
-      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .ink {font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
       .small { font-size:14px; }
       .label { font-size:16px; font-weight:600; }
-      .muted { fill:#6c6a64; font-size:13px; }
-      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
-      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
-      .reverse-box { fill:#e3eeeb; stroke:#5d7775; stroke-width:1.5; }
-      .forward-line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#forward-arrow); }
-      .reverse-line { fill:none; stroke:#5d7775; stroke-width:2; marker-end:url(#reverse-arrow); }
-      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+      .muted {font-size:13px; }
+      .box {stroke-width:1.2; }
+      .accent {stroke-width:1.5; }
+      .reverse-box {stroke-width:1.5; }
+      .forward-line { fill:none;  stroke-width:2; marker-end:url(#forward-arrow); }
+      .reverse-line { fill:none;  stroke-width:2; marker-end:url(#reverse-arrow); }
+      .guide { fill:none;  stroke-width:1; stroke-dasharray:4 4; }
     </style>
   </defs>
-  <rect width="800" height="373" fill="#f4f0ec"/>
-  <text x="36" y="34" class="ink label">单个神经元：先得到 δ，再把梯度分配给每条边</text>
-  <text x="36" y="57" class="ink muted">x = (1，−2)，w = (0.4，−0.3)，b = 0.1，y = 1</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f4f0ec svg-special-background-fill-f4f0ec"/>
+  <text x="36" y="34" class="ink label svg-special-text-fill-312f2f">单个神经元：先得到 δ，再把梯度分配给每条边</text>
+  <text x="36" y="57" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">x = (1，−2)，w = (0.4，−0.3)，b = 0.1，y = 1</text>
 
-  <rect x="28" y="88" width="154" height="76" rx="10" class="box"/>
-  <text x="105" y="117" text-anchor="middle" class="ink label">输入与参数</text>
-  <text x="105" y="143" text-anchor="middle" class="ink small">x，w，b</text>
+  <rect x="28" y="88" width="154" height="76" rx="10" class="box svg-special-fill-fill-f7f4f0 svg-axis-stroke svg-special-background-fill-f7f4f0"/>
+  <text x="105" y="117" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">输入与参数</text>
+  <text x="105" y="143" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">x，w，b</text>
 
-  <rect x="218" y="88" width="154" height="76" rx="10" class="accent"/>
-  <text x="295" y="117" text-anchor="middle" class="ink label">仿射节点</text>
-  <text x="295" y="143" text-anchor="middle" class="ink small">z = wᵀx + b = 1.1</text>
+  <rect x="218" y="88" width="154" height="76" rx="10" class="accent svg-special-fill-fill-f3e1d9 svg-coral-stroke-stroke svg-special-background-fill-f3e1d9"/>
+  <text x="295" y="117" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">仿射节点</text>
+  <text x="295" y="143" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">z = wᵀx + b = 1.1</text>
 
-  <rect x="408" y="88" width="154" height="76" rx="10" class="accent"/>
-  <text x="485" y="117" text-anchor="middle" class="ink label">sigmoid</text>
-  <text x="485" y="143" text-anchor="middle" class="ink small">a = 0.750260</text>
+  <rect x="408" y="88" width="154" height="76" rx="10" class="accent svg-special-fill-fill-f3e1d9 svg-coral-stroke-stroke svg-special-background-fill-f3e1d9"/>
+  <text x="485" y="117" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">sigmoid</text>
+  <text x="485" y="143" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">a = 0.750260</text>
 
-  <rect x="598" y="88" width="174" height="76" rx="10" class="box"/>
-  <text x="685" y="117" text-anchor="middle" class="ink label">二元交叉熵</text>
-  <text x="685" y="143" text-anchor="middle" class="ink small">L = 0.287335</text>
+  <rect x="598" y="88" width="174" height="76" rx="10" class="box svg-special-fill-fill-f7f4f0 svg-axis-stroke svg-special-background-fill-f7f4f0"/>
+  <text x="685" y="117" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">二元交叉熵</text>
+  <text x="685" y="143" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">L = 0.287335</text>
 
-  <path d="M182 126 H212" class="forward-line"/>
-  <path d="M372 126 H402" class="forward-line"/>
-  <path d="M562 126 H592" class="forward-line"/>
-  <text x="390" y="78" text-anchor="middle" class="ink muted">前向：依赖方向</text>
+  <path d="M182 126 H212" class="forward-line svg-coral-stroke-stroke"/>
+  <path d="M372 126 H402" class="forward-line svg-coral-stroke-stroke"/>
+  <path d="M562 126 H592" class="forward-line svg-coral-stroke-stroke"/>
+  <text x="390" y="78" text-anchor="middle" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">前向：依赖方向</text>
 
-  <rect x="598" y="238" width="174" height="70" rx="10" class="reverse-box"/>
-  <text x="685" y="266" text-anchor="middle" class="ink label">输出敏感度</text>
-  <text x="685" y="291" text-anchor="middle" class="ink small">L̄ = 1</text>
+  <rect x="598" y="238" width="174" height="70" rx="10" class="reverse-box svg-special-fill-fill-e3eeeb svg-special-graphic-stroke-5d7775 svg-special-background-fill-e3eeeb"/>
+  <text x="685" y="266" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">输出敏感度</text>
+  <text x="685" y="291" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">L̄ = 1</text>
 
-  <rect x="408" y="238" width="154" height="70" rx="10" class="reverse-box"/>
-  <text x="485" y="266" text-anchor="middle" class="ink label">logit 误差信号</text>
-  <text x="485" y="291" text-anchor="middle" class="ink small">δ = a − y = −0.249740</text>
+  <rect x="408" y="238" width="154" height="70" rx="10" class="reverse-box svg-special-fill-fill-e3eeeb svg-special-graphic-stroke-5d7775 svg-special-background-fill-e3eeeb"/>
+  <text x="485" y="266" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">logit 误差信号</text>
+  <text x="485" y="291" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">δ = a − y = −0.249740</text>
 
-  <rect x="218" y="238" width="154" height="70" rx="10" class="reverse-box"/>
-  <text x="295" y="266" text-anchor="middle" class="ink label">仿射反向</text>
-  <text x="295" y="291" text-anchor="middle" class="ink small">∇w = δx，b̄ = δ</text>
+  <rect x="218" y="238" width="154" height="70" rx="10" class="reverse-box svg-special-fill-fill-e3eeeb svg-special-graphic-stroke-5d7775 svg-special-background-fill-e3eeeb"/>
+  <text x="295" y="266" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">仿射反向</text>
+  <text x="295" y="291" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">∇w = δx，b̄ = δ</text>
 
-  <rect x="28" y="238" width="154" height="70" rx="10" class="reverse-box"/>
-  <text x="105" y="266" text-anchor="middle" class="ink label">输入梯度</text>
-  <text x="105" y="291" text-anchor="middle" class="ink small">∇x = δw</text>
+  <rect x="28" y="238" width="154" height="70" rx="10" class="reverse-box svg-special-fill-fill-e3eeeb svg-special-graphic-stroke-5d7775 svg-special-background-fill-e3eeeb"/>
+  <text x="105" y="266" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">输入梯度</text>
+  <text x="105" y="291" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">∇x = δw</text>
 
-  <path d="M685 174 V232" class="reverse-line"/>
-  <path d="M598 273 H568" class="reverse-line"/>
-  <path d="M408 273 H378" class="reverse-line"/>
-  <path d="M218 273 H188" class="reverse-line"/>
-  <text x="400" y="216" text-anchor="middle" class="ink muted">反向：局部导数 × 上游敏感度</text>
+  <path d="M685 174 V232" class="reverse-line svg-special-graphic-stroke-5d7775"/>
+  <path d="M598 273 H568" class="reverse-line svg-special-graphic-stroke-5d7775"/>
+  <path d="M408 273 H378" class="reverse-line svg-special-graphic-stroke-5d7775"/>
+  <path d="M218 273 H188" class="reverse-line svg-special-graphic-stroke-5d7775"/>
+  <text x="400" y="216" text-anchor="middle" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">反向：局部导数 × 上游敏感度</text>
 
-  <path d="M36 329 H764" class="guide"/>
-  <text x="400" y="353" text-anchor="middle" class="ink muted">参数更新在全部梯度算完之后进行；学习率不属于反向传播</text>
+  <path d="M36 329 H764" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="400" y="353" text-anchor="middle" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">参数更新在全部梯度算完之后进行；学习率不属于反向传播</text>
 </svg>

@@ -1,44 +1,60 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-fill { fill: #cc785c; }
+  .svg-ink-fill { fill: #312f2f; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  @media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-fill { fill: #e28466; }
+    .svg-ink-fill { fill: #f0efe8; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+  }
+</style>
   <defs>
     <marker id="lm-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-ink-fill"/>
     </marker>
     <marker id="lm-arr-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左:p = 2 − x + 0.5x² ============ -->
-  <line x1="60" y1="150" x2="172" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lm-arr-axis)"/>
-  <line x1="60" y1="150" x2="60" y2="38" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lm-arr-axis)"/>
-  <text x="176" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="52" y="32" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">p</text>
-  <polyline points="60,100 80,109.4 100,112.5 120,109.4 140,100" fill="none" stroke="#312f2f" stroke-width="1.8"/>
-  <text x="28" y="186" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">p = 2 − x + 0.5x²</text>
+  <line x1="60" y1="150" x2="172" y2="150"  stroke-width="1" marker-end="url(#lm-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="60" y1="150" x2="60" y2="38"  stroke-width="1" marker-end="url(#lm-arr-axis)" class="svg-axis-stroke"/>
+  <text x="176" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="52" y="32" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">p</text>
+  <polyline points="60,100 80,109.4 100,112.5 120,109.4 140,100" fill="none"  stroke-width="1.8" class="svg-ink-stroke"/>
+  <text x="28" y="186" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-ink-fill">p = 2 − x + 0.5x²</text>
 
   <!-- 箭头 D -->
-  <line x1="182" y1="110" x2="236" y2="110" stroke="#312f2f" stroke-width="1.4" marker-end="url(#lm-arr-ink)"/>
-  <text x="202" y="100" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">D</text>
+  <line x1="182" y1="110" x2="236" y2="110"  stroke-width="1.4" marker-end="url(#lm-arr-ink)" class="svg-ink-stroke"/>
+  <text x="202" y="100" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-ink-fill">D</text>
 
   <!-- ============ 中:矩阵 [D] 2×3 ============ -->
-  <path d="M256,82 L248,82 L248,138 L256,138" fill="none" stroke="#312f2f" stroke-width="1.4"/>
-  <path d="M324,82 L332,82 L332,138 L324,138" fill="none" stroke="#312f2f" stroke-width="1.4"/>
-  <text x="268" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#312f2f" text-anchor="middle">0</text>
-  <text x="290" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#312f2f" text-anchor="middle">1</text>
-  <text x="312" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#312f2f" text-anchor="middle">0</text>
-  <text x="268" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#312f2f" text-anchor="middle">0</text>
-  <text x="290" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#312f2f" text-anchor="middle">0</text>
-  <text x="312" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#cc785c" text-anchor="middle">2</text>
-  <text x="290" y="72" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64" text-anchor="middle">[D]</text>
+  <path d="M256,82 L248,82 L248,138 L256,138" fill="none"  stroke-width="1.4" class="svg-ink-stroke"/>
+  <path d="M324,82 L332,82 L332,138 L324,138" fill="none"  stroke-width="1.4" class="svg-ink-stroke"/>
+  <text x="268" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="12"  text-anchor="middle" class="svg-ink-fill">0</text>
+  <text x="290" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="12"  text-anchor="middle" class="svg-ink-fill">1</text>
+  <text x="312" y="104" font-family="Georgia, 'Times New Roman', serif" font-size="12"  text-anchor="middle" class="svg-ink-fill">0</text>
+  <text x="268" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="12"  text-anchor="middle" class="svg-ink-fill">0</text>
+  <text x="290" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="12"  text-anchor="middle" class="svg-ink-fill">0</text>
+  <text x="312" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="12"  text-anchor="middle" class="svg-coral-stroke-fill">2</text>
+  <text x="290" y="72" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-muted-fill">[D]</text>
 
   <!-- 箭头(无标签) -->
-  <line x1="338" y1="110" x2="392" y2="110" stroke="#312f2f" stroke-width="1.4" marker-end="url(#lm-arr-ink)"/>
+  <line x1="338" y1="110" x2="392" y2="110"  stroke-width="1.4" marker-end="url(#lm-arr-ink)" class="svg-ink-stroke"/>
 
   <!-- ============ 右:Dp = −1 + x ============ -->
-  <line x1="440" y1="130" x2="540" y2="130" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lm-arr-axis)"/>
-  <line x1="440" y1="130" x2="440" y2="60" stroke="#b8b2a8" stroke-width="1" marker-end="url(#lm-arr-axis)"/>
-  <text x="544" y="134" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="428" y="54" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">Dp</text>
-  <polyline points="440,155 480,130 520,105" fill="none" stroke="#312f2f" stroke-width="1.8"/>
-  <text x="420" y="186" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">Dp = −1 + x</text>
+  <line x1="440" y1="130" x2="540" y2="130"  stroke-width="1" marker-end="url(#lm-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="440" y1="130" x2="440" y2="60"  stroke-width="1" marker-end="url(#lm-arr-axis)" class="svg-axis-stroke"/>
+  <text x="544" y="134" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="428" y="54" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">Dp</text>
+  <polyline points="440,155 480,130 520,105" fill="none"  stroke-width="1.8" class="svg-ink-stroke"/>
+  <text x="420" y="186" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-ink-fill">Dp = −1 + x</text>
 </svg>

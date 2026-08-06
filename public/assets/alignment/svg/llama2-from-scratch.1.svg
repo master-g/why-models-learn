@@ -1,83 +1,151 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-5f554a { fill: #5f554a; }
+  .svg-special-fill-fill-a96b4b { fill: #a96b4b; }
+  .svg-special-fill-fill-e4edf0 { fill: #8c9193; }
+  .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+  .svg-special-fill-fill-e9ded4 { fill: #978f89; }
+  .svg-special-fill-fill-eee5d2 { fill: #969085; }
+  .svg-special-fill-fill-efe1cd { fill: #988f83; }
+  .svg-special-fill-fill-f1e2db { fill: #988f8b; }
+  .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+  .svg-special-fill-fill-fffaf0 { fill: #93908b; }
+  .svg-special-graphic-stroke-5f554a { stroke: #5f554a; }
+  .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+  .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+  .svg-special-graphic-stroke-a96b4b { stroke: #a96b4b; }
+  .svg-special-graphic-stroke-aa8651 { stroke: #aa8651; }
+  .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+  .svg-special-graphic-stroke-b9ad9d { stroke: #998f82; }
+  .svg-special-graphic-stroke-c5b59c { stroke: #9c8f7c; }
+  .svg-special-text-fill-29251f { fill: #29251f; }
+  .svg-special-text-fill-6f665b { fill: #6f665b; }
+
+  .svg-special-background-fill-e4edf0 { fill: #e4edf0; }
+  .svg-special-background-fill-e8e6d9 { fill: #e8e6d9; }
+  .svg-special-background-fill-e9ded4 { fill: #e9ded4; }
+  .svg-special-background-fill-eee5d2 { fill: #eee5d2; }
+  .svg-special-background-fill-efe1cd { fill: #efe1cd; }
+  .svg-special-background-fill-f1e2db { fill: #f1e2db; }
+  .svg-special-background-fill-f6f0e5 { fill: #f6f0e5; }
+  .svg-special-background-fill-fffaf0 { fill: #fffaf0; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-5f554a { fill: #6a6156; }
+    .svg-special-fill-fill-a96b4b { fill: #a96b4b; }
+    .svg-special-fill-fill-e4edf0 { fill: #8c9193; }
+    .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+    .svg-special-fill-fill-e9ded4 { fill: #978f89; }
+    .svg-special-fill-fill-eee5d2 { fill: #969085; }
+    .svg-special-fill-fill-efe1cd { fill: #988f83; }
+    .svg-special-fill-fill-f1e2db { fill: #988f8b; }
+    .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+    .svg-special-fill-fill-fffaf0 { fill: #93908b; }
+    .svg-special-graphic-stroke-5f554a { stroke: #6a6156; }
+    .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+    .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+    .svg-special-graphic-stroke-a96b4b { stroke: #a96b4b; }
+    .svg-special-graphic-stroke-aa8651 { stroke: #aa8651; }
+    .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+    .svg-special-graphic-stroke-b9ad9d { stroke: #998f82; }
+    .svg-special-graphic-stroke-c5b59c { stroke: #9c8f7c; }
+    .svg-special-text-fill-29251f { fill: #a6a4a1; }
+    .svg-special-text-fill-6f665b { fill: #a9a49d; }
+    .svg-special-background-fill-e4edf0 { fill: #323334; }
+    .svg-special-background-fill-e8e6d9 { fill: #333230; }
+    .svg-special-background-fill-e9ded4 { fill: #333130; }
+    .svg-special-background-fill-eee5d2 { fill: #33322f; }
+    .svg-special-background-fill-efe1cd { fill: #34322f; }
+    .svg-special-background-fill-f1e2db { fill: #343231; }
+    .svg-special-background-fill-f6f0e5 { fill: #353432; }
+    .svg-special-background-fill-fffaf0 { fill: #363534; }
+
+
+
+  }
+</style>
   <title id="title">LLaMA 2 风格 decoder-only Transformer 的前向合同</title>
   <desc id="desc">配置和 tokenizer 产生 token embedding，经过带 RMSNorm、GQA、RoPE 和 SwiGLU 的 pre-norm decoder block，历史 key value 写入 cache，最后经过 final RMSNorm 和输出头得到 logits。</desc>
-  <rect width="1200" height="560" fill="#f6f0e5"/>
+  <rect width="1200" height="560"  class="svg-special-fill-fill-f6f0e5 svg-special-background-fill-f6f0e5"/>
   <style>
-    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #29251f; }
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;  }
     .title { font-size: 28px; font-weight: 700; }
     .label { font-size: 20px; font-weight: 700; }
     .small { font-size: 16px; }
-    .tiny { font-size: 14px; fill: #6f665b; }
+    .tiny { font-size: 14px;  }
     .box { stroke-width: 2; rx: 14; }
-    .input { fill: #efe1cd; stroke: #b58b5b; }
-    .norm { fill: #e8e6d9; stroke: #89906c; }
-    .attn { fill: #e4edf0; stroke: #75939d; }
-    .ffn { fill: #f1e2db; stroke: #cc785c; }
-    .cache { fill: #eee5d2; stroke: #aa8651; }
-    .out { fill: #e9ded4; stroke: #a96b4b; }
-    .arrow { stroke: #5f554a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
-    .dashed { stroke: #a96b4b; stroke-width: 3; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow-coral); }
-    .guide { stroke: #b9ad9d; stroke-width: 2; stroke-dasharray: 5 7; }
+    .input {}
+    .norm {}
+    .attn {}
+    .ffn {}
+    .cache {}
+    .out {}
+    .arrow {stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .dashed {stroke-width: 3; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow-coral); }
+    .guide {stroke-width: 2; stroke-dasharray: 5 7; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 Z" fill="#5f554a"/>
+      <path d="M0,0 L12,6 L0,12 Z"  class="svg-special-fill-fill-5f554a"/>
     </marker>
     <marker id="arrow-coral" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 Z" fill="#a96b4b"/>
+      <path d="M0,0 L12,6 L0,12 Z"  class="svg-special-fill-fill-a96b4b"/>
     </marker>
   </defs>
 
-  <text x="600" y="38" text-anchor="middle" class="title">LLaMA 2 风格前向：配置 → decoder block → logits</text>
-  <text x="600" y="64" text-anchor="middle" class="tiny">同一份合同同时规定 shape、位置、权重形状、KV cache 和输出头</text>
+  <text x="600" y="38" text-anchor="middle" class="title svg-special-text-fill-29251f">LLaMA 2 风格前向：配置 → decoder block → logits</text>
+  <text x="600" y="64" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">同一份合同同时规定 shape、位置、权重形状、KV cache 和输出头</text>
 
-  <rect x="28" y="113" width="150" height="82" class="box input"/>
-  <text x="103" y="141" text-anchor="middle" class="label">tokenizer</text>
-  <text x="103" y="169" text-anchor="middle" class="small">token id (B,T)</text>
-  <path d="M178 154 H208" class="arrow"/>
+  <rect x="28" y="113" width="150" height="82" class="box input svg-special-fill-fill-efe1cd svg-special-graphic-stroke-b58b5b svg-special-background-fill-efe1cd"/>
+  <text x="103" y="141" text-anchor="middle" class="label svg-special-text-fill-29251f">tokenizer</text>
+  <text x="103" y="169" text-anchor="middle" class="small svg-special-text-fill-29251f">token id (B,T)</text>
+  <path d="M178 154 H208" class="arrow svg-special-graphic-stroke-5f554a"/>
 
-  <rect x="208" y="113" width="178" height="82" class="box input"/>
-  <text x="297" y="141" text-anchor="middle" class="label">embedding</text>
-  <text x="297" y="169" text-anchor="middle" class="small">H₀ : (B,T,D)</text>
-  <path d="M386 154 H421" class="arrow"/>
+  <rect x="208" y="113" width="178" height="82" class="box input svg-special-fill-fill-efe1cd svg-special-graphic-stroke-b58b5b svg-special-background-fill-efe1cd"/>
+  <text x="297" y="141" text-anchor="middle" class="label svg-special-text-fill-29251f">embedding</text>
+  <text x="297" y="169" text-anchor="middle" class="small svg-special-text-fill-29251f">H₀ : (B,T,D)</text>
+  <path d="M386 154 H421" class="arrow svg-special-graphic-stroke-5f554a"/>
 
-  <rect x="421" y="91" width="370" height="250" class="box norm"/>
-  <text x="606" y="119" text-anchor="middle" class="label">pre-norm decoder block × L</text>
-  <text x="606" y="142" text-anchor="middle" class="tiny">residual stream 的宽度始终为 D</text>
+  <rect x="421" y="91" width="370" height="250" class="box norm svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
+  <text x="606" y="119" text-anchor="middle" class="label svg-special-text-fill-29251f">pre-norm decoder block × L</text>
+  <text x="606" y="142" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">residual stream 的宽度始终为 D</text>
 
-  <rect x="449" y="163" width="112" height="54" class="box norm"/>
-  <text x="505" y="187" text-anchor="middle" class="small">RMSNorm</text>
-  <text x="505" y="207" text-anchor="middle" class="tiny">X : (B,T,D)</text>
-  <path d="M561 190 H583" class="arrow"/>
+  <rect x="449" y="163" width="112" height="54" class="box norm svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
+  <text x="505" y="187" text-anchor="middle" class="small svg-special-text-fill-29251f">RMSNorm</text>
+  <text x="505" y="207" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">X : (B,T,D)</text>
+  <path d="M561 190 H583" class="arrow svg-special-graphic-stroke-5f554a"/>
 
-  <rect x="583" y="151" width="174" height="78" class="box attn"/>
-  <text x="670" y="178" text-anchor="middle" class="label">GQA + RoPE</text>
-  <text x="670" y="201" text-anchor="middle" class="small">Q: hq，K/V: hkv</text>
-  <text x="670" y="220" text-anchor="middle" class="tiny">causal attention</text>
+  <rect x="583" y="151" width="174" height="78" class="box attn svg-special-fill-fill-e4edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e4edf0"/>
+  <text x="670" y="178" text-anchor="middle" class="label svg-special-text-fill-29251f">GQA + RoPE</text>
+  <text x="670" y="201" text-anchor="middle" class="small svg-special-text-fill-29251f">Q: hq，K/V: hkv</text>
+  <text x="670" y="220" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">causal attention</text>
 
-  <path d="M670 229 V253" class="arrow"/>
-  <rect x="449" y="253" width="308" height="58" class="box ffn"/>
-  <text x="603" y="278" text-anchor="middle" class="label">残差写回 + RMSNorm + SwiGLU</text>
-  <text x="603" y="299" text-anchor="middle" class="tiny">gate / up → SiLU ⊙ → down</text>
+  <path d="M670 229 V253" class="arrow svg-special-graphic-stroke-5f554a"/>
+  <rect x="449" y="253" width="308" height="58" class="box ffn svg-special-fill-fill-f1e2db svg-coral-stroke-stroke svg-special-background-fill-f1e2db"/>
+  <text x="603" y="278" text-anchor="middle" class="label svg-special-text-fill-29251f">残差写回 + RMSNorm + SwiGLU</text>
+  <text x="603" y="299" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">gate / up → SiLU ⊙ → down</text>
 
-  <path d="M791 190 H826" class="dashed"/>
-  <rect x="826" y="150" width="160" height="80" class="box cache"/>
-  <text x="906" y="178" text-anchor="middle" class="label">KV cache</text>
-  <text x="906" y="201" text-anchor="middle" class="small">(B,hkv,S,dh)</text>
-  <text x="906" y="220" text-anchor="middle" class="tiny">rotated K + raw V</text>
+  <path d="M791 190 H826" class="dashed svg-special-graphic-stroke-a96b4b"/>
+  <rect x="826" y="150" width="160" height="80" class="box cache svg-special-fill-fill-eee5d2 svg-special-graphic-stroke-aa8651 svg-special-background-fill-eee5d2"/>
+  <text x="906" y="178" text-anchor="middle" class="label svg-special-text-fill-29251f">KV cache</text>
+  <text x="906" y="201" text-anchor="middle" class="small svg-special-text-fill-29251f">(B,hkv,S,dh)</text>
+  <text x="906" y="220" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">rotated K + raw V</text>
 
-  <path d="M791 302 H1010" class="arrow"/>
-  <rect x="1010" y="256" width="154" height="84" class="box out"/>
-  <text x="1087" y="284" text-anchor="middle" class="label">final RMSNorm</text>
-  <text x="1087" y="307" text-anchor="middle" class="small">→ LM head</text>
-  <text x="1087" y="327" text-anchor="middle" class="tiny">logits (B,T,V)</text>
+  <path d="M791 302 H1010" class="arrow svg-special-graphic-stroke-5f554a"/>
+  <rect x="1010" y="256" width="154" height="84" class="box out svg-special-fill-fill-e9ded4 svg-special-graphic-stroke-a96b4b svg-special-background-fill-e9ded4"/>
+  <text x="1087" y="284" text-anchor="middle" class="label svg-special-text-fill-29251f">final RMSNorm</text>
+  <text x="1087" y="307" text-anchor="middle" class="small svg-special-text-fill-29251f">→ LM head</text>
+  <text x="1087" y="327" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">logits (B,T,V)</text>
 
-  <path d="M103 226 V401 H1092 V343" class="guide" fill="none"/>
-  <text x="103" y="425" text-anchor="middle" class="tiny">配置：D、L、hq、hkv、dh、m、ε、rope_theta</text>
-  <text x="600" y="425" text-anchor="middle" class="tiny">prefill：整段并行；decode：新 token + 读取历史 cache</text>
-  <text x="1092" y="425" text-anchor="middle" class="tiny">权重绑定或独立 output</text>
+  <path d="M103 226 V401 H1092 V343" class="guide svg-special-graphic-stroke-b9ad9d" fill="none"/>
+  <text x="103" y="425" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">配置：D、L、hq、hkv、dh、m、ε、rope_theta</text>
+  <text x="600" y="425" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">prefill：整段并行；decode：新 token + 读取历史 cache</text>
+  <text x="1092" y="425" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">权重绑定或独立 output</text>
 
-  <rect x="80" y="457" width="1035" height="58" rx="12" fill="#fffaf0" stroke="#c5b59c"/>
-  <text x="600" y="482" text-anchor="middle" class="small">核验顺序：tokenizer / position → shape → norm / residual → QKV / RoPE / mask → cache → logits</text>
-  <text x="600" y="504" text-anchor="middle" class="tiny">前向数值一致不等于 tokenizer、checkpoint、采样配置和生成结果都已一致</text>
+  <rect x="80" y="457" width="1035" height="58" rx="12"   class="svg-special-fill-fill-fffaf0 svg-special-graphic-stroke-c5b59c svg-special-background-fill-fffaf0"/>
+  <text x="600" y="482" text-anchor="middle" class="small svg-special-text-fill-29251f">核验顺序：tokenizer / position → shape → norm / residual → QKV / RoPE / mask → cache → logits</text>
+  <text x="600" y="504" text-anchor="middle" class="tiny svg-special-text-fill-29251f svg-special-text-fill-6f665b">前向数值一致不等于 tokenizer、checkpoint、采样配置和生成结果都已一致</text>
 </svg>

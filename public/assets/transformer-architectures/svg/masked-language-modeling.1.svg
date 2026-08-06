@@ -1,57 +1,105 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e7edf0 { fill: #8e9193; }
+  .svg-special-fill-fill-eee8d9 { fill: #949087; }
+  .svg-special-fill-fill-f2e4da { fill: #988f89; }
+  .svg-special-fill-fill-f8f5ee { fill: #92908c; }
+  .svg-special-fill-fill-fffdf8 { fill: #92908e; }
+  .svg-special-graphic-stroke-668692 { stroke: #668692; }
+  .svg-special-graphic-stroke-9b865c { stroke: #9b865c; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e7edf0 { fill: #e7edf0; }
+  .svg-special-background-fill-eee8d9 { fill: #eee8d9; }
+  .svg-special-background-fill-f2e4da { fill: #f2e4da; }
+  .svg-special-background-fill-f8f5ee { fill: #f8f5ee; }
+  .svg-special-background-fill-fffdf8 { fill: #fffdf8; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e7edf0 { fill: #8e9193; }
+    .svg-special-fill-fill-eee8d9 { fill: #949087; }
+    .svg-special-fill-fill-f2e4da { fill: #988f89; }
+    .svg-special-fill-fill-f8f5ee { fill: #92908c; }
+    .svg-special-fill-fill-fffdf8 { fill: #92908e; }
+    .svg-special-graphic-stroke-668692 { stroke: #668692; }
+    .svg-special-graphic-stroke-9b865c { stroke: #9b865c; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e7edf0 { fill: #323334; }
+    .svg-special-background-fill-eee8d9 { fill: #333330; }
+    .svg-special-background-fill-f2e4da { fill: #343231; }
+    .svg-special-background-fill-f8f5ee { fill: #353433; }
+    .svg-special-background-fill-fffdf8 { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">Masked Language Modeling 的数据流</title>
   <desc id="desc">原始 token 选择腐蚀策略形成输入，双向 encoder 产生 hidden，只抽取被选位置经过 MLM head 预测原 token</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;  }
     .small { font-size: 18px; }
     .label { font-size: 22px; font-weight: 600; }
     .title { font-size: 28px; font-weight: 700; }
-    .box { fill: #fffdf8; stroke: #312f2f; stroke-width: 2; rx: 14; }
-    .input { fill: #f2e4da; stroke: #cc785c; }
-    .enc { fill: #e7edf0; stroke: #668692; }
-    .out { fill: #eee8d9; stroke: #9b865c; }
-    .arrow { stroke: #312f2f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
-    .label-line { stroke: #cc785c; stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
-    .guide { stroke: #b8b2a8; stroke-width: 2; stroke-dasharray: 5 7; }
+    .box {stroke-width: 2; rx: 14; }
+    .input {}
+    .enc {}
+    .out {}
+    .arrow {stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .label-line {stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
+    .guide {stroke-width: 2; stroke-dasharray: 5 7; }
   </style>
   <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#312f2f"/></marker>
-    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/></marker>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-312f2f"/></marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-cc785c"/></marker>
   </defs>
-  <rect width="1200" height="560" fill="#f8f5ee"/>
-  <text x="600" y="45" text-anchor="middle" class="title">Masked Language Modeling：腐蚀输入、双向读取、稀疏监督</text>
+  <rect width="1200" height="560"  class="svg-special-fill-fill-f8f5ee svg-special-background-fill-f8f5ee"/>
+  <text x="600" y="45" text-anchor="middle" class="title svg-special-text-fill-312f2f">Masked Language Modeling：腐蚀输入、双向读取、稀疏监督</text>
 
-  <text x="100" y="92" text-anchor="middle" class="label">原序列</text>
-  <rect x="25" y="112" width="150" height="48" class="box"/>
-  <text x="100" y="143" text-anchor="middle" class="small">original token (B,T)</text>
-  <path d="M175 136 H225" class="arrow"/>
-  <rect x="225" y="92" width="220" height="88" class="box input"/>
-  <text x="335" y="123" text-anchor="middle" class="label">腐蚀策略</text>
-  <text x="335" y="153" text-anchor="middle" class="small">15% · mask / random / keep</text>
+  <text x="100" y="92" text-anchor="middle" class="label svg-special-text-fill-312f2f">原序列</text>
+  <rect x="25" y="112" width="150" height="48" class="box svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-background-fill-fffdf8"/>
+  <text x="100" y="143" text-anchor="middle" class="small svg-special-text-fill-312f2f">original token (B,T)</text>
+  <path d="M175 136 H225" class="arrow svg-ink-stroke"/>
+  <rect x="225" y="92" width="220" height="88" class="box input svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-f2e4da svg-coral-stroke-stroke svg-special-background-fill-fffdf8 svg-special-background-fill-f2e4da"/>
+  <text x="335" y="123" text-anchor="middle" class="label svg-special-text-fill-312f2f">腐蚀策略</text>
+  <text x="335" y="153" text-anchor="middle" class="small svg-special-text-fill-312f2f">15% · mask / random / keep</text>
 
-  <path d="M445 136 H495" class="arrow"/>
-  <rect x="495" y="92" width="190" height="88" class="box input"/>
-  <text x="590" y="123" text-anchor="middle" class="label">Corrupted</text>
-  <text x="590" y="153" text-anchor="middle" class="small">token id (B,T)</text>
+  <path d="M445 136 H495" class="arrow svg-ink-stroke"/>
+  <rect x="495" y="92" width="190" height="88" class="box input svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-f2e4da svg-coral-stroke-stroke svg-special-background-fill-fffdf8 svg-special-background-fill-f2e4da"/>
+  <text x="590" y="123" text-anchor="middle" class="label svg-special-text-fill-312f2f">Corrupted</text>
+  <text x="590" y="153" text-anchor="middle" class="small svg-special-text-fill-312f2f">token id (B,T)</text>
 
-  <path d="M685 136 H735" class="arrow"/>
-  <rect x="735" y="70" width="300" height="132" class="box enc"/>
-  <text x="885" y="106" text-anchor="middle" class="label">Bidirectional Encoder</text>
-  <text x="885" y="139" text-anchor="middle" class="small">self-attention + FFN</text>
-  <text x="885" y="171" text-anchor="middle" class="small">hidden (B,T,D)</text>
+  <path d="M685 136 H735" class="arrow svg-ink-stroke"/>
+  <rect x="735" y="70" width="300" height="132" class="box enc svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-e7edf0 svg-special-graphic-stroke-668692 svg-special-background-fill-fffdf8 svg-special-background-fill-e7edf0"/>
+  <text x="885" y="106" text-anchor="middle" class="label svg-special-text-fill-312f2f">Bidirectional Encoder</text>
+  <text x="885" y="139" text-anchor="middle" class="small svg-special-text-fill-312f2f">self-attention + FFN</text>
+  <text x="885" y="171" text-anchor="middle" class="small svg-special-text-fill-312f2f">hidden (B,T,D)</text>
 
-  <path d="M885 202 V270" class="label-line"/>
-  <text x="900" y="242" class="small" fill="#cc785c">gather selected</text>
-  <rect x="735" y="270" width="300" height="88" class="box out"/>
-  <text x="885" y="304" text-anchor="middle" class="label">MLM head</text>
-  <text x="885" y="335" text-anchor="middle" class="small">selected logits (M, V)</text>
+  <path d="M885 202 V270" class="label-line svg-coral-stroke-stroke"/>
+  <text x="900" y="242" class="small svg-special-text-fill-312f2f svg-coral-text-fill" >gather selected</text>
+  <rect x="735" y="270" width="300" height="88" class="box out svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-eee8d9 svg-special-graphic-stroke-9b865c svg-special-background-fill-fffdf8 svg-special-background-fill-eee8d9"/>
+  <text x="885" y="304" text-anchor="middle" class="label svg-special-text-fill-312f2f">MLM head</text>
+  <text x="885" y="335" text-anchor="middle" class="small svg-special-text-fill-312f2f">selected logits (M, V)</text>
 
-  <path d="M1035 314 H1080" class="arrow"/>
-  <rect x="1080" y="270" width="95" height="88" class="box out"/>
-  <text x="1128" y="304" text-anchor="middle" class="small">softmax</text>
-  <text x="1128" y="335" text-anchor="middle" class="small">loss</text>
+  <path d="M1035 314 H1080" class="arrow svg-ink-stroke"/>
+  <rect x="1080" y="270" width="95" height="88" class="box out svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-eee8d9 svg-special-graphic-stroke-9b865c svg-special-background-fill-fffdf8 svg-special-background-fill-eee8d9"/>
+  <text x="1128" y="304" text-anchor="middle" class="small svg-special-text-fill-312f2f">softmax</text>
+  <text x="1128" y="335" text-anchor="middle" class="small svg-special-text-fill-312f2f">loss</text>
 
-  <path d="M100 210 V430 H1125 V358" class="guide"/>
-  <text x="600" y="430" text-anchor="middle" class="small">label：只保留原序列在 selected positions 的 token</text>
-  <text x="600" y="475" text-anchor="middle" class="small">attention：双向读取有效 token　loss：按 selected token 数归约</text>
+  <path d="M100 210 V430 H1125 V358" class="guide svg-axis-stroke"/>
+  <text x="600" y="430" text-anchor="middle" class="small svg-special-text-fill-312f2f">label：只保留原序列在 selected positions 的 token</text>
+  <text x="600" y="475" text-anchor="middle" class="small svg-special-text-fill-312f2f">attention：双向读取有效 token　loss：按 selected token 数归约</text>
 </svg>

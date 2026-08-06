@@ -1,83 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-special-fill-fill-463b35 { fill: #463b35; }
+  .svg-special-fill-fill-dfebdc { fill: #8b938a; }
+  .svg-special-fill-fill-e6e0ef { fill: #938f99; }
+  .svg-special-fill-fill-ead3b7 { fill: #9e8e7c; }
+  .svg-special-fill-fill-eadcc9 { fill: #998f83; }
+  .svg-special-fill-fill-f7f1e8 { fill: #94908b; }
+  .svg-special-graphic-stroke-463b35 { stroke: #463b35; }
+  .svg-special-graphic-stroke-688262 { stroke: #688262; }
+  .svg-special-graphic-stroke-76658b { stroke: #76658b; }
+  .svg-special-graphic-stroke-8e7867 { stroke: #8e7867; }
+  .svg-special-graphic-stroke-a76e42 { stroke: #a76e42; }
+  .svg-special-graphic-stroke-a98f7c { stroke: #a58c79; }
+  .svg-special-graphic-stroke-b79b83 { stroke: #a68c77; }
+  .svg-special-text-fill-463b35 { fill: #463b35; }
+  .svg-special-text-fill-75685e { fill: #75685e; }
+
+  .svg-special-background-fill-dfebdc { fill: #dfebdc; }
+  .svg-special-background-fill-e6e0ef { fill: #e6e0ef; }
+  .svg-special-background-fill-ead3b7 { fill: #ead3b7; }
+  .svg-special-background-fill-eadcc9 { fill: #eadcc9; }
+  .svg-special-background-fill-f7f1e8 { fill: #f7f1e8; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-special-fill-fill-463b35 { fill: #69615c; }
+    .svg-special-fill-fill-dfebdc { fill: #8b938a; }
+    .svg-special-fill-fill-e6e0ef { fill: #938f99; }
+    .svg-special-fill-fill-ead3b7 { fill: #9e8e7c; }
+    .svg-special-fill-fill-eadcc9 { fill: #998f83; }
+    .svg-special-fill-fill-f7f1e8 { fill: #94908b; }
+    .svg-special-graphic-stroke-463b35 { stroke: #69615c; }
+    .svg-special-graphic-stroke-688262 { stroke: #688262; }
+    .svg-special-graphic-stroke-76658b { stroke: #76658b; }
+    .svg-special-graphic-stroke-8e7867 { stroke: #8e7867; }
+    .svg-special-graphic-stroke-a76e42 { stroke: #a76e42; }
+    .svg-special-graphic-stroke-a98f7c { stroke: #a58c79; }
+    .svg-special-graphic-stroke-b79b83 { stroke: #a68c77; }
+    .svg-special-text-fill-463b35 { fill: #a9a3a1; }
+    .svg-special-text-fill-75685e { fill: #aba39c; }
+    .svg-special-background-fill-dfebdc { fill: #313331; }
+    .svg-special-background-fill-e6e0ef { fill: #323134; }
+    .svg-special-background-fill-ead3b7 { fill: #33302c; }
+    .svg-special-background-fill-eadcc9 { fill: #33312e; }
+    .svg-special-background-fill-f7f1e8 { fill: #353433; }
+
+
+
+  }
+</style>
   <title id="title">残差连接的三种形状关系</title>
   <desc id="desc">左侧是没有捷径的普通堆叠，中间是同形状的恒等 shortcut，右侧是尺寸改变时使用一乘一 projection 对齐后再相加。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#463b35"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-463b35"/>
     </marker>
     <style>
-      .paper { fill: #f7f1e8; }
-      .ink { fill: #463b35; }
-      .muted { fill: #75685e; }
-      .line { stroke: #463b35; stroke-width: 2; fill: none; }
-      .soft { stroke: #a98f7c; stroke-width: 2; fill: none; }
-      .box { fill: #eadcc9; stroke: #8e7867; stroke-width: 1.5; }
-      .skip { fill: #dfebdc; stroke: #688262; stroke-width: 1.5; }
-      .proj { fill: #e6e0ef; stroke: #76658b; stroke-width: 1.5; }
-      .merge { fill: #ead3b7; stroke: #a76e42; stroke-width: 1.5; }
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; fill: #463b35; }
+      .paper {}
+      .ink {}
+      .muted {}
+      .line {stroke-width: 2; fill: none; }
+      .soft {stroke-width: 2; fill: none; }
+      .box {stroke-width: 1.5; }
+      .skip {stroke-width: 1.5; }
+      .proj {stroke-width: 1.5; }
+      .merge {stroke-width: 1.5; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif;  }
       .heading { font-size: 16px; font-weight: 700; }
       .label { font-size: 13px; }
-      .small { font-size: 11px; fill: #75685e; }
+      .small { font-size: 11px;  }
       .formula { font-family: "Times New Roman", "Noto Serif CJK SC", serif; font-size: 16px; }
     </style>
   </defs>
-  <rect class="paper" x="0" y="0" width="800" height="373" rx="16"/>
-  <text class="heading" x="32" y="34">残差 block 的三种形状关系</text>
-  <text class="small" x="32" y="54">加法保留基线表示；形状变化时先用 projection 对齐两条支路</text>
+  <rect class="paper svg-special-fill-fill-f7f1e8 svg-special-background-fill-f7f1e8" x="0" y="0" width="800" height="373" rx="16"/>
+  <text class="heading svg-special-text-fill-463b35" x="32" y="34">残差 block 的三种形状关系</text>
+  <text class="small svg-special-text-fill-463b35 svg-special-text-fill-75685e" x="32" y="54">加法保留基线表示；形状变化时先用 projection 对齐两条支路</text>
 
   <g transform="translate(25,75)">
-    <text class="heading" x="86" y="0" text-anchor="middle">普通堆叠</text>
-    <rect class="box" x="56" y="30" width="60" height="34" rx="7"/>
-    <text class="label" x="86" y="52" text-anchor="middle">x</text>
-    <line class="line" x1="86" y1="64" x2="86" y2="87" marker-end="url(#arrow)"/>
-    <rect class="box" x="45" y="88" width="82" height="38" rx="7"/>
-    <text class="label" x="86" y="112" text-anchor="middle">F₁</text>
-    <line class="line" x1="86" y1="126" x2="86" y2="149" marker-end="url(#arrow)"/>
-    <rect class="box" x="45" y="150" width="82" height="38" rx="7"/>
-    <text class="label" x="86" y="174" text-anchor="middle">F₂</text>
-    <line class="line" x1="86" y1="188" x2="86" y2="215" marker-end="url(#arrow)"/>
-    <rect class="box" x="56" y="216" width="60" height="34" rx="7"/>
-    <text class="label" x="86" y="238" text-anchor="middle">y</text>
+    <text class="heading svg-special-text-fill-463b35" x="86" y="0" text-anchor="middle">普通堆叠</text>
+    <rect class="box svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-8e7867 svg-special-background-fill-eadcc9" x="56" y="30" width="60" height="34" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="86" y="52" text-anchor="middle">x</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="86" y1="64" x2="86" y2="87" marker-end="url(#arrow)"/>
+    <rect class="box svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-8e7867 svg-special-background-fill-eadcc9" x="45" y="88" width="82" height="38" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="86" y="112" text-anchor="middle">F₁</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="86" y1="126" x2="86" y2="149" marker-end="url(#arrow)"/>
+    <rect class="box svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-8e7867 svg-special-background-fill-eadcc9" x="45" y="150" width="82" height="38" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="86" y="174" text-anchor="middle">F₂</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="86" y1="188" x2="86" y2="215" marker-end="url(#arrow)"/>
+    <rect class="box svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-8e7867 svg-special-background-fill-eadcc9" x="56" y="216" width="60" height="34" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="86" y="238" text-anchor="middle">y</text>
   </g>
 
   <g transform="translate(270,75)">
-    <text class="heading" x="100" y="0" text-anchor="middle">同形状残差</text>
-    <rect class="skip" x="70" y="30" width="60" height="34" rx="7"/>
-    <text class="label" x="100" y="52" text-anchor="middle">x</text>
-    <line class="line" x1="100" y1="64" x2="100" y2="87" marker-end="url(#arrow)"/>
-    <rect class="box" x="59" y="88" width="82" height="38" rx="7"/>
-    <text class="label" x="100" y="112" text-anchor="middle">F(x)</text>
-    <line class="line" x1="100" y1="126" x2="100" y2="173"/>
-    <circle class="merge" cx="100" cy="194" r="20"/>
-    <text class="heading" x="100" y="201" text-anchor="middle">+</text>
-    <line class="line" x1="100" y1="214" x2="100" y2="238" marker-end="url(#arrow)"/>
-    <rect class="merge" x="70" y="239" width="60" height="34" rx="7"/>
-    <text class="label" x="100" y="261" text-anchor="middle">y</text>
-    <path class="soft" d="M130,47 C188,47 188,194 121,194" marker-end="url(#arrow)"/>
-    <text class="small" x="158" y="116" text-anchor="middle">S(x)=x</text>
+    <text class="heading svg-special-text-fill-463b35" x="100" y="0" text-anchor="middle">同形状残差</text>
+    <rect class="skip svg-special-fill-fill-dfebdc svg-special-graphic-stroke-688262 svg-special-background-fill-dfebdc" x="70" y="30" width="60" height="34" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="100" y="52" text-anchor="middle">x</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="100" y1="64" x2="100" y2="87" marker-end="url(#arrow)"/>
+    <rect class="box svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-8e7867 svg-special-background-fill-eadcc9" x="59" y="88" width="82" height="38" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="100" y="112" text-anchor="middle">F(x)</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="100" y1="126" x2="100" y2="173"/>
+    <circle class="merge svg-special-fill-fill-ead3b7 svg-special-graphic-stroke-a76e42" cx="100" cy="194" r="20"/>
+    <text class="heading svg-special-text-fill-463b35" x="100" y="201" text-anchor="middle">+</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="100" y1="214" x2="100" y2="238" marker-end="url(#arrow)"/>
+    <rect class="merge svg-special-fill-fill-ead3b7 svg-special-graphic-stroke-a76e42 svg-special-background-fill-ead3b7" x="70" y="239" width="60" height="34" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="100" y="261" text-anchor="middle">y</text>
+    <path class="soft svg-special-graphic-stroke-a98f7c" d="M130,47 C188,47 188,194 121,194" marker-end="url(#arrow)"/>
+    <text class="small svg-special-text-fill-463b35 svg-special-text-fill-75685e" x="158" y="116" text-anchor="middle">S(x)=x</text>
   </g>
 
   <g transform="translate(535,75)">
-    <text class="heading" x="105" y="0" text-anchor="middle">形状改变</text>
-    <rect class="skip" x="75" y="30" width="60" height="34" rx="7"/>
-    <text class="label" x="105" y="52" text-anchor="middle">x</text>
-    <line class="line" x1="105" y1="64" x2="105" y2="86" marker-end="url(#arrow)"/>
-    <rect class="proj" x="63" y="87" width="84" height="38" rx="7"/>
-    <text class="label" x="105" y="111" text-anchor="middle">1×1, s=2</text>
-    <line class="line" x1="105" y1="125" x2="105" y2="172"/>
-    <rect class="box" x="5" y="87" width="42" height="38" rx="7"/>
-    <text class="label" x="26" y="111" text-anchor="middle">F</text>
-    <path class="line" d="M47,106 C70,106 70,194 85,194" marker-end="url(#arrow)"/>
-    <circle class="merge" cx="105" cy="194" r="20"/>
-    <text class="heading" x="105" y="201" text-anchor="middle">+</text>
-    <line class="line" x1="105" y1="214" x2="105" y2="238" marker-end="url(#arrow)"/>
-    <rect class="merge" x="75" y="239" width="60" height="34" rx="7"/>
-    <text class="label" x="105" y="261" text-anchor="middle">y</text>
+    <text class="heading svg-special-text-fill-463b35" x="105" y="0" text-anchor="middle">形状改变</text>
+    <rect class="skip svg-special-fill-fill-dfebdc svg-special-graphic-stroke-688262 svg-special-background-fill-dfebdc" x="75" y="30" width="60" height="34" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="105" y="52" text-anchor="middle">x</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="105" y1="64" x2="105" y2="86" marker-end="url(#arrow)"/>
+    <rect class="proj svg-special-fill-fill-e6e0ef svg-special-graphic-stroke-76658b svg-special-background-fill-e6e0ef" x="63" y="87" width="84" height="38" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="105" y="111" text-anchor="middle">1×1, s=2</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="105" y1="125" x2="105" y2="172"/>
+    <rect class="box svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-8e7867 svg-special-background-fill-eadcc9" x="5" y="87" width="42" height="38" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="26" y="111" text-anchor="middle">F</text>
+    <path class="line svg-special-graphic-stroke-463b35" d="M47,106 C70,106 70,194 85,194" marker-end="url(#arrow)"/>
+    <circle class="merge svg-special-fill-fill-ead3b7 svg-special-graphic-stroke-a76e42" cx="105" cy="194" r="20"/>
+    <text class="heading svg-special-text-fill-463b35" x="105" y="201" text-anchor="middle">+</text>
+    <line class="line svg-special-graphic-stroke-463b35" x1="105" y1="214" x2="105" y2="238" marker-end="url(#arrow)"/>
+    <rect class="merge svg-special-fill-fill-ead3b7 svg-special-graphic-stroke-a76e42 svg-special-background-fill-ead3b7" x="75" y="239" width="60" height="34" rx="7"/>
+    <text class="label svg-special-text-fill-463b35" x="105" y="261" text-anchor="middle">y</text>
   </g>
 
-  <rect x="25" y="330" width="750" height="28" rx="9" fill="#eadcc9" stroke="#b79b83"/>
-  <text class="formula" x="48" y="350">y = x + F(x)</text>
-  <text class="formula" x="278" y="350">∂L/∂x = g(I + J<tspan baseline-shift="sub" font-size="11">F</tspan>)</text>
-  <text class="formula" x="548" y="350">shape 改变 → 1×1 projection</text>
+  <rect x="25" y="330" width="750" height="28" rx="9"   class="svg-special-fill-fill-eadcc9 svg-special-graphic-stroke-b79b83 svg-special-background-fill-eadcc9"/>
+  <text class="formula svg-special-text-fill-463b35" x="48" y="350">y = x + F(x)</text>
+  <text class="formula svg-special-text-fill-463b35" x="278" y="350">∂L/∂x = g(I + J<tspan baseline-shift="sub" font-size="11">F</tspan>)</text>
+  <text class="formula svg-special-text-fill-463b35" x="548" y="350">shape 改变 → 1×1 projection</text>
 </svg>

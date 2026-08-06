@@ -1,34 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-ebe7e4 { fill: #ebe7e4; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-ebe7e4 { fill: #333232; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">训练验证测试三份数据分别承担拟合选择和最终评估</title>
   <desc id="desc">左侧训练集拟合参数，中间验证集选择方案，右侧冻结方案后用测试集报告最终风险。</desc>
-  <rect width="560" height="250" fill="#f4efee"/>
-  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">训练—验证—测试：保留泛化证据</text>
-  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">拟合、选择、最终报告各自使用不同证据</text>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="24" y="27"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" class="svg-special-text-fill-312f2f">训练—验证—测试：保留泛化证据</text>
+  <text x="24" y="47"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">拟合、选择、最终报告各自使用不同证据</text>
 
-  <rect x="24" y="72" width="148" height="105" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="45" y="97" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">训练集</text>
-  <text x="45" y="120" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">更新参数 θ</text>
-  <text x="45" y="142" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">拟合预处理</text>
-  <text x="45" y="164" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">只能看训练证据</text>
+  <rect x="24" y="72" width="148" height="105" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="45" y="97"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700" class="svg-special-text-fill-312f2f">训练集</text>
+  <text x="45" y="120"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">更新参数 θ</text>
+  <text x="45" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">拟合预处理</text>
+  <text x="45" y="164"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-coral-text-fill">只能看训练证据</text>
 
-  <path d="M182 124 H207" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M200 117 L209 124 L200 131" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M182 124 H207"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M200 117 L209 124 L200 131" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="214" y="72" width="148" height="105" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
-  <text x="235" y="97" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">验证集</text>
-  <text x="235" y="120" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">选 λ / 模型</text>
-  <text x="235" y="142" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">选阈值 / 停止轮次</text>
-  <text x="235" y="164" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">仍参与方案选择</text>
+  <rect x="214" y="72" width="148" height="105" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c66a4b svg-special-background-fill-fdfcfa"/>
+  <text x="235" y="97"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700" class="svg-special-text-fill-312f2f">验证集</text>
+  <text x="235" y="120"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">选 λ / 模型</text>
+  <text x="235" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">选阈值 / 停止轮次</text>
+  <text x="235" y="164"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-coral-text-fill">仍参与方案选择</text>
 
-  <path d="M372 124 H397" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M390 117 L399 124 L390 131" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M372 124 H397"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M390 117 L399 124 L390 131" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="404" y="72" width="132" height="105" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="424" y="97" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700">测试集</text>
-  <text x="424" y="120" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">冻结后读取</text>
-  <text x="424" y="142" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">报告风险</text>
-  <text x="424" y="164" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">最后一份证据</text>
+  <rect x="404" y="72" width="132" height="105" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="424" y="97"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="13" font-weight="700" class="svg-special-text-fill-312f2f">测试集</text>
+  <text x="424" y="120"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">冻结后读取</text>
+  <text x="424" y="142"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">报告风险</text>
+  <text x="424" y="164"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-coral-text-fill">最后一份证据</text>
 
-  <rect x="142" y="214" width="276" height="25" rx="9" fill="#ebe7e4"/>
-  <text x="178" y="231" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">看过测试集再改模型 = 测试集参与训练</text>
+  <rect x="142" y="214" width="276" height="25" rx="9"  class="svg-special-fill-fill-ebe7e4 svg-special-background-fill-ebe7e4"/>
+  <text x="178" y="231"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">看过测试集再改模型 = 测试集参与训练</text>
 </svg>

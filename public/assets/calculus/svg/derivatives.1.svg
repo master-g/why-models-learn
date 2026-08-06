@@ -1,49 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="derivative-title derivative-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="derivative-title derivative-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="derivative-title">割线逼近切线</title>
   <desc id="derivative-desc">左侧的割线连接曲线上两个点，步长 h 变小时靠近切线；右侧比较曲线和导数给出的局部线性近似。</desc>
   <defs>
     <marker id="derivative-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="280" y1="18" x2="280" y2="232"  class="svg-special-graphic-stroke-e2dbd3"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="22" y="26" font-size="15" font-weight="600">割线 → 切线</text>
     <text x="301" y="26" font-size="15" font-weight="600">局部线性模型</text>
-    <text x="24" y="226" font-size="11" fill="#6c6a64">h 变小，割线斜率趋近 f′(a)</text>
+    <text x="24" y="226" font-size="11"  class="svg-muted-fill">h 变小，割线斜率趋近 f′(a)</text>
   </g>
 
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="43" y1="195" x2="257" y2="195" marker-end="url(#derivative-arrow-ink)"/>
     <line x1="55" y1="205" x2="55" y2="42" marker-end="url(#derivative-arrow-ink)"/>
   </g>
-  <path d="M55 181 C83 100 119 58 153 65 C190 72 221 127 250 181" fill="none" stroke="#312f2f" stroke-width="2"/>
-  <line x1="72" y1="126" x2="226" y2="26" stroke="#cc785c" stroke-width="2"/>
-  <line x1="132" y1="71" x2="181" y2="89" stroke="#6c6a64" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <circle cx="132" cy="71" r="4" fill="#cc785c"/>
-  <circle cx="181" cy="89" r="4" fill="#312f2f"/>
+  <path d="M55 181 C83 100 119 58 153 65 C190 72 221 127 250 181" fill="none"  stroke-width="2" class="svg-ink-stroke"/>
+  <line x1="72" y1="126" x2="226" y2="26"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+  <line x1="132" y1="71" x2="181" y2="89"  stroke-width="1.5" stroke-dasharray="5 4" class="svg-special-graphic-stroke-6c6a64"/>
+  <circle cx="132" cy="71" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="181" cy="89" r="4"  class="svg-special-fill-fill-312f2f"/>
   <g font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic">
-    <text x="113" y="59" fill="#a9583e">P=(a,f(a))</text>
-    <text x="183" y="84" fill="#312f2f">Q</text>
+    <text x="113" y="59"  class="svg-coral-text-fill">P=(a,f(a))</text>
+    <text x="183" y="84"  class="svg-special-text-fill-312f2f">Q</text>
   </g>
   <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11">
-    <text x="157" y="108" fill="#6c6a64">h</text>
-    <text x="183" y="112" fill="#6c6a64">割线</text>
-    <text x="190" y="40" fill="#a9583e">切线</text>
+    <text x="157" y="108"  class="svg-muted-fill">h</text>
+    <text x="183" y="112"  class="svg-muted-fill">割线</text>
+    <text x="190" y="40"  class="svg-coral-text-fill">切线</text>
   </g>
 
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="302" y1="195" x2="542" y2="195" marker-end="url(#derivative-arrow-ink)"/>
     <line x1="315" y1="205" x2="315" y2="43" marker-end="url(#derivative-arrow-ink)"/>
   </g>
-  <path d="M324 171 C354 143 384 111 420 99 C454 88 496 103 532 143" fill="none" stroke="#312f2f" stroke-width="2"/>
-  <line x1="350" y1="139" x2="511" y2="77" stroke="#cc785c" stroke-width="2"/>
-  <circle cx="420" cy="99" r="4" fill="#cc785c"/>
-  <line x1="478" y1="90" x2="478" y2="99" stroke="#6c6a64" stroke-width="1.3" stroke-dasharray="3 3"/>
-  <text x="483" y="97" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64">误差</text>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <path d="M324 171 C354 143 384 111 420 99 C454 88 496 103 532 143" fill="none"  stroke-width="2" class="svg-ink-stroke"/>
+  <line x1="350" y1="139" x2="511" y2="77"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+  <circle cx="420" cy="99" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <line x1="478" y1="90" x2="478" y2="99"  stroke-width="1.3" stroke-dasharray="3 3" class="svg-special-graphic-stroke-6c6a64"/>
+  <text x="483" y="97" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  class="svg-muted-fill">误差</text>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="319" y="218" font-size="13">f(a+h) = f(a) + f′(a)h</text>
-    <text x="319" y="234" font-size="12" fill="#a9583e">剩余项：o(h)</text>
+    <text x="319" y="234" font-size="12"  class="svg-coral-text-fill">剩余项：o(h)</text>
   </g>
 </svg>

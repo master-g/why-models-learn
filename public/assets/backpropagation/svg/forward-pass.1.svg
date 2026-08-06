@@ -1,54 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e3eeeb { fill: #8c9291; }
+  .svg-special-fill-fill-f3e1d9 { fill: #9a8e89; }
+  .svg-special-fill-fill-f4f0ec { fill: #93908e; }
+  .svg-special-fill-fill-f7f4f0 { fill: #92908e; }
+  .svg-special-graphic-stroke-5d7775 { stroke: #5d7775; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e3eeeb { fill: #e3eeeb; }
+  .svg-special-background-fill-f3e1d9 { fill: #f3e1d9; }
+  .svg-special-background-fill-f4f0ec { fill: #f4f0ec; }
+  .svg-special-background-fill-f7f4f0 { fill: #f7f4f0; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e3eeeb { fill: #8c9291; }
+    .svg-special-fill-fill-f3e1d9 { fill: #9a8e89; }
+    .svg-special-fill-fill-f4f0ec { fill: #93908e; }
+    .svg-special-fill-fill-f7f4f0 { fill: #92908e; }
+    .svg-special-graphic-stroke-5d7775 { stroke: #5d7775; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e3eeeb { fill: #323333; }
+    .svg-special-background-fill-f3e1d9 { fill: #343230; }
+    .svg-special-background-fill-f4f0ec { fill: #343433; }
+    .svg-special-background-fill-f7f4f0 { fill: #353434; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="forward-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink { fill:#312f2f; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
+      .ink {font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif; }
       .small { font-size:14px; }
       .label { font-size:16px; font-weight:600; }
-      .muted { fill:#6c6a64; font-size:13px; }
-      .box { fill:#f7f4f0; stroke:#b8b2a8; stroke-width:1.2; }
-      .accent { fill:#f3e1d9; stroke:#cc785c; stroke-width:1.5; }
-      .output { fill:#e3eeeb; stroke:#5d7775; stroke-width:1.5; }
-      .line { fill:none; stroke:#cc785c; stroke-width:2; marker-end:url(#forward-arrow); }
-      .guide { fill:none; stroke:#c9c4bb; stroke-width:1; stroke-dasharray:4 4; }
+      .muted {font-size:13px; }
+      .box {stroke-width:1.2; }
+      .accent {stroke-width:1.5; }
+      .output {stroke-width:1.5; }
+      .line { fill:none;  stroke-width:2; marker-end:url(#forward-arrow); }
+      .guide { fill:none;  stroke-width:1; stroke-dasharray:4 4; }
     </style>
   </defs>
-  <rect width="800" height="373" fill="#f4f0ec"/>
-  <text x="36" y="34" class="ink label">前向计算：值按依赖顺序从输入走到损失</text>
-  <text x="36" y="57" class="ink muted">每个框都记录一次具体执行的值、形状和模式</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f4f0ec svg-special-background-fill-f4f0ec"/>
+  <text x="36" y="34" class="ink label svg-special-text-fill-312f2f">前向计算：值按依赖顺序从输入走到损失</text>
+  <text x="36" y="57" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">每个框都记录一次具体执行的值、形状和模式</text>
 
-  <rect x="28" y="112" width="112" height="76" rx="10" class="box"/>
-  <text x="84" y="140" text-anchor="middle" class="ink label">输入</text>
-  <text x="84" y="165" text-anchor="middle" class="ink small">x = (1，2)</text>
+  <rect x="28" y="112" width="112" height="76" rx="10" class="box svg-special-fill-fill-f7f4f0 svg-axis-stroke svg-special-background-fill-f7f4f0"/>
+  <text x="84" y="140" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">输入</text>
+  <text x="84" y="165" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">x = (1，2)</text>
 
-  <rect x="166" y="112" width="126" height="76" rx="10" class="accent"/>
-  <text x="229" y="140" text-anchor="middle" class="ink label">仿射层</text>
-  <text x="229" y="165" text-anchor="middle" class="ink small">z = Wx + b</text>
+  <rect x="166" y="112" width="126" height="76" rx="10" class="accent svg-special-fill-fill-f3e1d9 svg-coral-stroke-stroke svg-special-background-fill-f3e1d9"/>
+  <text x="229" y="140" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">仿射层</text>
+  <text x="229" y="165" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">z = Wx + b</text>
 
-  <rect x="318" y="112" width="126" height="76" rx="10" class="accent"/>
-  <text x="381" y="140" text-anchor="middle" class="ink label">隐藏激活</text>
-  <text x="381" y="165" text-anchor="middle" class="ink small">h = ReLU(z)</text>
+  <rect x="318" y="112" width="126" height="76" rx="10" class="accent svg-special-fill-fill-f3e1d9 svg-coral-stroke-stroke svg-special-background-fill-f3e1d9"/>
+  <text x="381" y="140" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">隐藏激活</text>
+  <text x="381" y="165" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">h = ReLU(z)</text>
 
-  <rect x="470" y="112" width="126" height="76" rx="10" class="accent"/>
-  <text x="533" y="140" text-anchor="middle" class="ink label">输出 logits</text>
-  <text x="533" y="165" text-anchor="middle" class="ink small">o = W₂h + b₂</text>
+  <rect x="470" y="112" width="126" height="76" rx="10" class="accent svg-special-fill-fill-f3e1d9 svg-coral-stroke-stroke svg-special-background-fill-f3e1d9"/>
+  <text x="533" y="140" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">输出 logits</text>
+  <text x="533" y="165" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">o = W₂h + b₂</text>
 
-  <rect x="622" y="112" width="150" height="76" rx="10" class="output"/>
-  <text x="697" y="140" text-anchor="middle" class="ink label">概率与损失</text>
-  <text x="697" y="165" text-anchor="middle" class="ink small">p，ℓ(p，y)</text>
+  <rect x="622" y="112" width="150" height="76" rx="10" class="output svg-special-fill-fill-e3eeeb svg-special-graphic-stroke-5d7775 svg-special-background-fill-e3eeeb"/>
+  <text x="697" y="140" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">概率与损失</text>
+  <text x="697" y="165" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">p，ℓ(p，y)</text>
 
-  <path d="M140 150 H160" class="line"/>
-  <path d="M292 150 H312" class="line"/>
-  <path d="M444 150 H464" class="line"/>
-  <path d="M596 150 H616" class="line"/>
-  <text x="400" y="91" text-anchor="middle" class="ink muted">前向拓扑顺序</text>
+  <path d="M140 150 H160" class="line svg-coral-stroke-stroke"/>
+  <path d="M292 150 H312" class="line svg-coral-stroke-stroke"/>
+  <path d="M444 150 H464" class="line svg-coral-stroke-stroke"/>
+  <path d="M596 150 H616" class="line svg-coral-stroke-stroke"/>
+  <text x="400" y="91" text-anchor="middle" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">前向拓扑顺序</text>
 
-  <rect x="116" y="250" width="568" height="54" rx="10" class="box"/>
-  <text x="400" y="274" text-anchor="middle" class="ink label">训练态：可能有 dropout mask 或 batch 统计量</text>
-  <text x="400" y="294" text-anchor="middle" class="ink small">推理态：关闭随机 mask，读取固定 running 统计量（若该层需要）</text>
+  <rect x="116" y="250" width="568" height="54" rx="10" class="box svg-special-fill-fill-f7f4f0 svg-axis-stroke svg-special-background-fill-f7f4f0"/>
+  <text x="400" y="274" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">训练态：可能有 dropout mask 或 batch 统计量</text>
+  <text x="400" y="294" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">推理态：关闭随机 mask，读取固定 running 统计量（若该层需要）</text>
 
-  <path d="M36 336 H764" class="guide"/>
-  <text x="400" y="357" text-anchor="middle" class="ink muted">前向只求值；反向读取部分缓存，优化器随后才改变参数</text>
+  <path d="M36 336 H764" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="400" y="357" text-anchor="middle" class="ink muted svg-special-text-fill-312f2f svg-muted-fill">前向只求值；反向读取部分缓存，优化器随后才改变参数</text>
 </svg>

@@ -1,16 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-ead2c7 { fill: #9e8d86; }
+  .svg-special-fill-fill-ece6dc { fill: #94908a; }
+  .svg-special-fill-fill-f0d9d0 { fill: #9c8e88; }
+  .svg-special-fill-fill-f5f1ea { fill: #93908c; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-graphic-stroke-a9563e { stroke: #a9563e; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d7d1c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6d6862 { fill: #6d6862; }
+
+  .svg-special-background-fill-ece6dc { fill: #ece6dc; }
+  .svg-special-background-fill-f0d9d0 { fill: #f0d9d0; }
+  .svg-special-background-fill-f5f1ea { fill: #f5f1ea; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-ead2c7 { fill: #9e8d86; }
+    .svg-special-fill-fill-ece6dc { fill: #94908a; }
+    .svg-special-fill-fill-f0d9d0 { fill: #9c8e88; }
+    .svg-special-fill-fill-f5f1ea { fill: #93908c; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-graphic-stroke-a9563e { stroke: #a9563e; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d7d1c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6d6862 { fill: #a7a4a0; }
+    .svg-special-background-fill-ece6dc { fill: #333231; }
+    .svg-special-background-fill-f0d9d0 { fill: #34302f; }
+    .svg-special-background-fill-f5f1ea { fill: #343433; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">稀疏注意力只保留连接集合中的 query-key 位置</title>
   <desc id="desc">三个矩阵分别展示 dense attention、局部窗口和带全局行列的稀疏 pattern；底部说明 mask 与实际 kernel 跳过位置的区别。</desc>
   <style>
-    .ink { fill: #312f2f; }
-    .muted { fill: #6d6862; }
-    .coral { fill: #cc785c; }
-    .coral-soft { fill: #f0d9d0; }
-    .coral-pale { fill: #ead2c7; }
-    .axis { stroke: #b8b2a8; stroke-width: 1.5; }
-    .grid { stroke: #c9c4bb; stroke-width: 1; }
-    .panel { fill: #fbfaf7; stroke: #d7d1c8; stroke-width: 1; }
-    .dark { fill: #a9563e; }
+    .ink {}
+    .muted {}
+    .coral {}
+    .coral-soft {}
+    .coral-pale {}
+    .axis {stroke-width: 1.5; }
+    .grid {stroke-width: 1; }
+    .panel {stroke-width: 1; }
+    .dark {}
     text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; }
     .title { font-size: 20px; font-weight: 700; }
     .head { font-size: 15px; font-weight: 700; }
@@ -18,45 +60,45 @@
     .small { font-size: 11px; }
   </style>
 
-  <rect width="800" height="373" fill="#f5f1ea"/>
-  <text x="40" y="32" class="ink title">稀疏 attention = 只保留有效 query-key 连接</text>
-  <text x="40" y="53" class="muted label">mask 定义 E；只有 kernel 跳过 E 之外的位置，逻辑稀疏才转成实际资源节省</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f5f1ea svg-special-background-fill-f5f1ea"/>
+  <text x="40" y="32" class="ink title svg-special-text-fill-312f2f">稀疏 attention = 只保留有效 query-key 连接</text>
+  <text x="40" y="53" class="muted label svg-special-text-fill-6d6862">mask 定义 E；只有 kernel 跳过 E 之外的位置，逻辑稀疏才转成实际资源节省</text>
 
-  <rect x="28" y="72" width="236" height="205" rx="10" class="panel"/>
-  <text x="46" y="99" class="ink head">dense</text>
-  <text x="46" y="118" class="muted label">每个 query 读取全部 key</text>
+  <rect x="28" y="72" width="236" height="205" rx="10" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d7d1c8 svg-special-background-fill-fbfaf7"/>
+  <text x="46" y="99" class="ink head svg-special-text-fill-312f2f">dense</text>
+  <text x="46" y="118" class="muted label svg-special-text-fill-6d6862">每个 query 读取全部 key</text>
   <g transform="translate(67 137)">
-    <rect width="128" height="128" class="coral-soft"/>
-    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid"/>
-    <rect x="0" y="0" width="128" height="128" fill="none" stroke="#cc785c" stroke-width="2"/>
-    <text x="64" y="150" text-anchor="middle" class="ink label">N = B h<tspan baseline-shift="sub" font-size="10">q</tspan> T S</text>
+    <rect width="128" height="128" class="coral-soft svg-special-fill-fill-f0d9d0 svg-special-background-fill-f0d9d0"/>
+    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid svg-special-graphic-stroke-c9c4bb"/>
+    <rect x="0" y="0" width="128" height="128" fill="none"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+    <text x="64" y="150" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">N = B h<tspan baseline-shift="sub" font-size="10">q</tspan> T S</text>
   </g>
 
-  <rect x="282" y="72" width="236" height="205" rx="10" class="panel"/>
-  <text x="300" y="99" class="ink head">local window</text>
-  <text x="300" y="118" class="muted label">每行保留邻近 key</text>
+  <rect x="282" y="72" width="236" height="205" rx="10" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d7d1c8 svg-special-background-fill-fbfaf7"/>
+  <text x="300" y="99" class="ink head svg-special-text-fill-312f2f">local window</text>
+  <text x="300" y="118" class="muted label svg-special-text-fill-6d6862">每行保留邻近 key</text>
   <g transform="translate(321 137)">
-    <rect width="128" height="128" fill="#fbfaf7"/>
-    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid"/>
-    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128H112V112H96V96H80V80H64V64H48V48H32V32H16V16H0Z" class="coral-pale"/>
-    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128" fill="none" stroke="#a9563e" stroke-width="3"/>
-    <text x="64" y="150" text-anchor="middle" class="ink label">N ≈ B h<tspan baseline-shift="sub" font-size="10">q</tspan> T w</text>
+    <rect width="128" height="128"  class="svg-special-fill-fill-fbfaf7 svg-special-background-fill-fbfaf7"/>
+    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid svg-special-graphic-stroke-c9c4bb"/>
+    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128H112V112H96V96H80V80H64V64H48V48H32V32H16V16H0Z" class="coral-pale svg-special-fill-fill-ead2c7"/>
+    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128" fill="none"  stroke-width="3" class="svg-special-graphic-stroke-a9563e"/>
+    <text x="64" y="150" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">N ≈ B h<tspan baseline-shift="sub" font-size="10">q</tspan> T w</text>
   </g>
 
-  <rect x="536" y="72" width="236" height="205" rx="10" class="panel"/>
-  <text x="554" y="99" class="ink head">global + local</text>
-  <text x="554" y="118" class="muted label">少量长程 row / column</text>
+  <rect x="536" y="72" width="236" height="205" rx="10" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d7d1c8 svg-special-background-fill-fbfaf7"/>
+  <text x="554" y="99" class="ink head svg-special-text-fill-312f2f">global + local</text>
+  <text x="554" y="118" class="muted label svg-special-text-fill-6d6862">少量长程 row / column</text>
   <g transform="translate(575 137)">
-    <rect width="128" height="128" fill="#fbfaf7"/>
-    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid"/>
-    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128H112V112H96V96H80V80H64V64H48V48H32V32H16V16H0Z" class="coral-pale"/>
-    <rect x="0" y="0" width="16" height="128" class="coral"/>
-    <rect x="112" y="0" width="16" height="128" class="coral"/>
-    <rect x="0" y="0" width="128" height="16" class="coral"/>
-    <text x="64" y="150" text-anchor="middle" class="ink label">O(Tw + Tg + gT)</text>
+    <rect width="128" height="128"  class="svg-special-fill-fill-fbfaf7 svg-special-background-fill-fbfaf7"/>
+    <path d="M0 0H128M0 16H128M0 32H128M0 48H128M0 64H128M0 80H128M0 96H128M0 112H128M16 0V128M32 0V128M48 0V128M64 0V128M80 0V128M96 0V128M112 0V128" class="grid svg-special-graphic-stroke-c9c4bb"/>
+    <path d="M0 0H16V16H32V32H48V48H64V64H80V80H96V96H112V112H128V128H112V112H96V96H80V80H64V64H48V48H32V32H16V16H0Z" class="coral-pale svg-special-fill-fill-ead2c7"/>
+    <rect x="0" y="0" width="16" height="128" class="coral svg-special-fill-fill-cc785c"/>
+    <rect x="112" y="0" width="16" height="128" class="coral svg-special-fill-fill-cc785c"/>
+    <rect x="0" y="0" width="128" height="16" class="coral svg-special-fill-fill-cc785c"/>
+    <text x="64" y="150" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">O(Tw + Tg + gT)</text>
   </g>
 
-  <rect x="28" y="296" width="744" height="53" rx="9" fill="#ece6dc"/>
-  <text x="46" y="319" class="ink label"><tspan font-weight="700">mask：</tspan>输出可以等于 masked dense attention，但 dense kernel 仍可能计算完整矩形</text>
-  <text x="46" y="338" class="ink label"><tspan font-weight="700">sparse kernel：</tspan>跳过无效位置后，MAC、map 字节和 cache 读取才接近有效边集合</text>
+  <rect x="28" y="296" width="744" height="53" rx="9"  class="svg-special-fill-fill-ece6dc svg-special-background-fill-ece6dc"/>
+  <text x="46" y="319" class="ink label svg-special-text-fill-312f2f"><tspan font-weight="700">mask：</tspan>输出可以等于 masked dense attention，但 dense kernel 仍可能计算完整矩形</text>
+  <text x="46" y="338" class="ink label svg-special-text-fill-312f2f"><tspan font-weight="700">sparse kernel：</tspan>跳过无效位置后，MAC、map 字节和 cache 读取才接近有效边集合</text>
 </svg>

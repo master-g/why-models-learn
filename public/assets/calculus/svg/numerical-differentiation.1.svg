@@ -1,47 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="numerical-title numerical-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="numerical-title numerical-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f0ebe6 { fill: #94908d; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f0ebe6 { fill: #f0ebe6; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f0ebe6 { fill: #94908d; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f0ebe6 { fill: #343332; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="numerical-title">有限差分取样与步长误差折中</title>
   <desc id="numerical-desc">在 x 的两侧取 x-h 和 x+h，用中心差分估计斜率；步长太大有截断误差，太小有舍入误差，中间存在稳定区域。</desc>
   <defs>
     <marker id="numerical-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif;  font-size: 13px; }
       .small { font-size: 11px; }
       .title { font-size: 15px; font-weight: 600; }
-      .axis { stroke: #b8b2a8; stroke-width: 1.4; }
+      .axis {stroke-width: 1.4; }
     </style>
   </defs>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
 
-  <text x="22" y="24" class="label title">两侧取样：中心差分</text>
-  <line x1="30" y1="96" x2="292" y2="96" class="axis"/>
-  <path d="M 42 88 C 92 72, 142 78, 188 60 C 222 47, 257 49, 287 31" fill="none" stroke="#cc785c" stroke-width="2.2"/>
-  <line x1="112" y1="96" x2="112" y2="69" stroke="#c9c4bb" stroke-dasharray="4 4"/>
-  <line x1="188" y1="96" x2="188" y2="60" stroke="#c9c4bb" stroke-dasharray="4 4"/>
-  <line x1="264" y1="96" x2="264" y2="41" stroke="#c9c4bb" stroke-dasharray="4 4"/>
-  <circle cx="112" cy="69" r="5" fill="#312f2f"/>
-  <circle cx="188" cy="60" r="5" fill="#cc785c"/>
-  <circle cx="264" cy="41" r="5" fill="#312f2f"/>
-  <text x="93" y="116" class="label">x−h</text>
-  <text x="181" y="116" class="label">x</text>
-  <text x="252" y="116" class="label">x+h</text>
-  <line x1="112" y1="132" x2="264" y2="132" stroke="#cc785c" stroke-width="2" marker-end="url(#numerical-arrow-coral)"/>
-  <text x="126" y="149" class="label small">斜率≈(f(x+h)−f(x−h))/(2h)</text>
+  <text x="22" y="24" class="label title svg-special-text-fill-312f2f">两侧取样：中心差分</text>
+  <line x1="30" y1="96" x2="292" y2="96" class="axis svg-axis-stroke"/>
+  <path d="M 42 88 C 92 72, 142 78, 188 60 C 222 47, 257 49, 287 31" fill="none"  stroke-width="2.2" class="svg-coral-stroke-stroke"/>
+  <line x1="112" y1="96" x2="112" y2="69"  stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="188" y1="96" x2="188" y2="60"  stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="264" y1="96" x2="264" y2="41"  stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="112" cy="69" r="5"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="188" cy="60" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="264" cy="41" r="5"  class="svg-special-fill-fill-312f2f"/>
+  <text x="93" y="116" class="label svg-special-text-fill-312f2f">x−h</text>
+  <text x="181" y="116" class="label svg-special-text-fill-312f2f">x</text>
+  <text x="252" y="116" class="label svg-special-text-fill-312f2f">x+h</text>
+  <line x1="112" y1="132" x2="264" y2="132"  stroke-width="2" marker-end="url(#numerical-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="126" y="149" class="label small svg-special-text-fill-312f2f">斜率≈(f(x+h)−f(x−h))/(2h)</text>
 
-  <text x="324" y="24" class="label title">误差来源</text>
-  <rect x="324" y="42" width="210" height="78" rx="7" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <text x="341" y="64" class="label small">h 太大 → 截断误差</text>
-  <text x="341" y="87" class="label small">h 太小 → 舍入误差</text>
-  <text x="341" y="110" class="label small">中间 → 稳定区域</text>
+  <text x="324" y="24" class="label title svg-special-text-fill-312f2f">误差来源</text>
+  <rect x="324" y="42" width="210" height="78" rx="7"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="341" y="64" class="label small svg-special-text-fill-312f2f">h 太大 → 截断误差</text>
+  <text x="341" y="87" class="label small svg-special-text-fill-312f2f">h 太小 → 舍入误差</text>
+  <text x="341" y="110" class="label small svg-special-text-fill-312f2f">中间 → 稳定区域</text>
 
-  <text x="22" y="177" class="label title">总误差随步长通常呈 U 形</text>
-  <line x1="52" y1="226" x2="515" y2="226" class="axis"/>
-  <line x1="52" y1="191" x2="52" y2="226" class="axis"/>
-  <path d="M 70 196 C 142 201, 188 218, 270 220 C 351 221, 404 202, 495 194" fill="none" stroke="#cc785c" stroke-width="2.4"/>
-  <circle cx="270" cy="220" r="5" fill="#312f2f"/>
-  <text x="61" y="242" class="label small">h 很大</text>
-  <text x="464" y="242" class="label small">h 很小</text>
-  <text x="246" y="214" class="label small">稳定区间</text>
-  <text x="20" y="190" class="label small" transform="rotate(-90 20 190)">误差</text>
+  <text x="22" y="177" class="label title svg-special-text-fill-312f2f">总误差随步长通常呈 U 形</text>
+  <line x1="52" y1="226" x2="515" y2="226" class="axis svg-axis-stroke"/>
+  <line x1="52" y1="191" x2="52" y2="226" class="axis svg-axis-stroke"/>
+  <path d="M 70 196 C 142 201, 188 218, 270 220 C 351 221, 404 202, 495 194" fill="none"  stroke-width="2.4" class="svg-coral-stroke-stroke"/>
+  <circle cx="270" cy="220" r="5"  class="svg-special-fill-fill-312f2f"/>
+  <text x="61" y="242" class="label small svg-special-text-fill-312f2f">h 很大</text>
+  <text x="464" y="242" class="label small svg-special-text-fill-312f2f">h 很小</text>
+  <text x="246" y="214" class="label small svg-special-text-fill-312f2f">稳定区间</text>
+  <text x="20" y="190" class="label small svg-special-text-fill-312f2f" transform="rotate(-90 20 190)">误差</text>
 </svg>

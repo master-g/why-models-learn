@@ -1,94 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6f6a63 { fill: #6f6a63; }
+  .svg-special-fill-fill-6f8e72 { fill: #6f8e72; }
+  .svg-special-fill-fill-8176a4 { fill: #8176a4; }
+  .svg-special-fill-fill-b26e58 { fill: #b26e58; }
+  .svg-special-fill-fill-ded8ee { fill: #928f9d; }
+  .svg-special-fill-fill-dfe9df { fill: #8c928c; }
+  .svg-special-fill-fill-e9d8c9 { fill: #9a8f85; }
+  .svg-special-fill-fill-f1ded6 { fill: #9b8e89; }
+  .svg-special-fill-fill-f7f2e9 { fill: #93908b; }
+  .svg-special-fill-fill-fbf8f2 { fill: #92908d; }
+  .svg-special-graphic-stroke-6f6a63 { stroke: #6f6a63; }
+  .svg-special-graphic-stroke-6f8e72 { stroke: #6f8e72; }
+  .svg-special-graphic-stroke-8176a4 { stroke: #8176a4; }
+  .svg-special-graphic-stroke-9db29f { stroke: #849586; }
+  .svg-special-graphic-stroke-aaa1c2 { stroke: #948da9; }
+  .svg-special-graphic-stroke-b26e58 { stroke: #b26e58; }
+  .svg-special-graphic-stroke-c99b89 { stroke: #b08878; }
+  .svg-special-graphic-stroke-d2ccc2 { stroke: #959089; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6f6a63 { fill: #6f6a63; }
+  .svg-special-text-fill-8176a4 { fill: #776d98; }
+  .svg-special-text-fill-b26e58 { fill: #a16350; }
+
+  .svg-special-background-fill-dfe9df { fill: #dfe9df; }
+  .svg-special-background-fill-e9d8c9 { fill: #e9d8c9; }
+  .svg-special-background-fill-f7f2e9 { fill: #f7f2e9; }
+  .svg-special-background-fill-fbf8f2 { fill: #fbf8f2; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-ded8ee { fill: #75717d; }
+  .svg-special-text-fill-dfe9df { fill: #6f746f; }
+  .svg-special-text-fill-f1ded6 { fill: #7b716d; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6f6a63 { fill: #6f6a63; }
+    .svg-special-fill-fill-6f8e72 { fill: #6f8e72; }
+    .svg-special-fill-fill-8176a4 { fill: #8176a4; }
+    .svg-special-fill-fill-b26e58 { fill: #b26e58; }
+    .svg-special-fill-fill-ded8ee { fill: #928f9d; }
+    .svg-special-fill-fill-dfe9df { fill: #8c928c; }
+    .svg-special-fill-fill-e9d8c9 { fill: #9a8f85; }
+    .svg-special-fill-fill-f1ded6 { fill: #9b8e89; }
+    .svg-special-fill-fill-f7f2e9 { fill: #93908b; }
+    .svg-special-fill-fill-fbf8f2 { fill: #92908d; }
+    .svg-special-graphic-stroke-6f6a63 { stroke: #6f6a63; }
+    .svg-special-graphic-stroke-6f8e72 { stroke: #6f8e72; }
+    .svg-special-graphic-stroke-8176a4 { stroke: #8176a4; }
+    .svg-special-graphic-stroke-9db29f { stroke: #849586; }
+    .svg-special-graphic-stroke-aaa1c2 { stroke: #948da9; }
+    .svg-special-graphic-stroke-b26e58 { stroke: #b26e58; }
+    .svg-special-graphic-stroke-c99b89 { stroke: #b08878; }
+    .svg-special-graphic-stroke-d2ccc2 { stroke: #959089; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6f6a63 { fill: #a7a49f; }
+    .svg-special-text-fill-8176a4 { fill: #a7a1bc; }
+    .svg-special-text-fill-b26e58 { fill: #c39c8f; }
+    .svg-special-background-fill-dfe9df { fill: #313331; }
+    .svg-special-background-fill-e9d8c9 { fill: #33302e; }
+    .svg-special-background-fill-f7f2e9 { fill: #353433; }
+    .svg-special-background-fill-fbf8f2 { fill: #353534; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-ded8ee { fill: #a6a3ab; }
+    .svg-special-text-fill-dfe9df { fill: #a2a5a2; }
+    .svg-special-text-fill-f1ded6 { fill: #aaa3a0; }
+
+
+
+  }
+</style>
   <title id="title">Bahdanau 注意力：decoder query 读取 encoder states</title>
   <desc id="desc">decoder 的 query 与每个 encoder state 计算加性 score，经 softmax 形成不同权重，再加权汇聚成当步 context 并送回 decoder。</desc>
   <defs>
     <marker id="gray-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#6f6a63"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-6f6a63"/>
     </marker>
     <marker id="green-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#6f8e72"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-6f8e72"/>
     </marker>
     <marker id="coral-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#b26e58"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-b26e58"/>
     </marker>
     <marker id="purple-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#8176a4"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-8176a4"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="800" height="373" rx="16" fill="#f7f2e9"/>
-  <text x="30" y="31" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700">Bahdanau attention：decoder 按需读取源状态</text>
-  <text x="30" y="52" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">query → additive score → softmax weight → context</text>
+  <rect x="0" y="0" width="800" height="373" rx="16"  class="svg-special-fill-fill-f7f2e9 svg-special-background-fill-f7f2e9"/>
+  <text x="30" y="31"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700" class="svg-special-text-fill-312f2f">Bahdanau attention：decoder 按需读取源状态</text>
+  <text x="30" y="52"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-6f6a63">query → additive score → softmax weight → context</text>
 
-  <rect x="22" y="70" width="756" height="239" rx="13" fill="#fbf8f2" stroke="#d2ccc2"/>
-  <text x="43" y="91" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">encoder source states：keys = values</text>
+  <rect x="22" y="70" width="756" height="239" rx="13"   class="svg-special-fill-fill-fbf8f2 svg-special-graphic-stroke-d2ccc2 svg-special-background-fill-fbf8f2"/>
+  <text x="43" y="91"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-6f6a63">encoder source states：keys = values</text>
 
-  <g fill="#dfe9df" stroke="#9db29f" stroke-width="1.2">
+  <g   stroke-width="1.2" class="svg-special-fill-fill-dfe9df svg-special-graphic-stroke-9db29f svg-special-text-fill-dfe9df">
     <rect x="65" y="103" width="100" height="34" rx="8"/>
     <rect x="225" y="103" width="100" height="34" rx="8"/>
     <rect x="385" y="103" width="100" height="34" rx="8"/>
     <rect x="545" y="103" width="100" height="34" rx="8"/>
   </g>
-  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="12" text-anchor="middle">
+  <g  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="12" text-anchor="middle" class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="115" y="125">h₁</text>
     <text x="275" y="125">h₂</text>
     <text x="435" y="125">h₃</text>
     <text x="595" y="125">h₄</text>
   </g>
 
-  <g fill="#f1ded6" stroke="#c99b89" stroke-width="1.2">
+  <g   stroke-width="1.2" class="svg-special-fill-fill-f1ded6 svg-special-graphic-stroke-c99b89 svg-special-text-fill-f1ded6">
     <rect x="65" y="157" width="100" height="31" rx="8"/>
     <rect x="225" y="157" width="100" height="31" rx="8"/>
     <rect x="385" y="157" width="100" height="31" rx="8"/>
     <rect x="545" y="157" width="100" height="31" rx="8"/>
   </g>
-  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle">
+  <g  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle" class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="115" y="177">eⱼ,₁</text>
     <text x="275" y="177">eⱼ,₂</text>
     <text x="435" y="177">eⱼ,₃</text>
     <text x="595" y="177">eⱼ,₄</text>
   </g>
-  <g stroke="#6f8e72" stroke-width="1.2" fill="none" marker-end="url(#green-arrow)">
+  <g  stroke-width="1.2" fill="none" marker-end="url(#green-arrow)" class="svg-special-graphic-stroke-6f8e72">
     <line x1="115" y1="137" x2="115" y2="157"/>
     <line x1="275" y1="137" x2="275" y2="157"/>
     <line x1="435" y1="137" x2="435" y2="157"/>
     <line x1="595" y1="137" x2="595" y2="157"/>
   </g>
-  <text x="678" y="176" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">加性 score</text>
+  <text x="678" y="176"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-b26e58">加性 score</text>
 
-  <g fill="#ded8ee" stroke="#aaa1c2" stroke-width="1.2">
+  <g   stroke-width="1.2" class="svg-special-fill-fill-ded8ee svg-special-graphic-stroke-aaa1c2 svg-special-text-fill-ded8ee">
     <rect x="65" y="205" width="100" height="31" rx="8"/>
     <rect x="225" y="205" width="100" height="31" rx="8"/>
     <rect x="385" y="205" width="100" height="31" rx="8"/>
     <rect x="545" y="205" width="100" height="31" rx="8"/>
   </g>
-  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle">
+  <g  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle" class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="115" y="225">αⱼ,₁ = .50</text>
     <text x="275" y="225">αⱼ,₂ = .28</text>
     <text x="435" y="225">αⱼ,₃ = .15</text>
     <text x="595" y="225">αⱼ,₄ = .07</text>
   </g>
-  <g stroke="#8176a4" stroke-width="1.2" fill="none" marker-end="url(#purple-arrow)">
+  <g  stroke-width="1.2" fill="none" marker-end="url(#purple-arrow)" class="svg-special-graphic-stroke-8176a4">
     <line x1="115" y1="188" x2="115" y2="205"/>
     <line x1="275" y1="188" x2="275" y2="205"/>
     <line x1="435" y1="188" x2="435" y2="205"/>
     <line x1="595" y1="188" x2="595" y2="205"/>
   </g>
-  <text x="678" y="224" fill="#8176a4" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">softmax over i</text>
+  <text x="678" y="224"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-8176a4">softmax over i</text>
 
-  <rect x="83" y="263" width="126" height="35" rx="8" fill="#f7f2e9" stroke="#d2ccc2"/>
-  <text x="146" y="278" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">decoder query</text>
-  <text x="146" y="292" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">qⱼ = dⱼ₋₁</text>
+  <rect x="83" y="263" width="126" height="35" rx="8"   class="svg-special-fill-fill-f7f2e9 svg-special-graphic-stroke-d2ccc2 svg-special-background-fill-f7f2e9"/>
+  <text x="146" y="278" text-anchor="middle"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-6f6a63">decoder query</text>
+  <text x="146" y="292" text-anchor="middle"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-312f2f">qⱼ = dⱼ₋₁</text>
 
-  <rect x="315" y="263" width="126" height="35" rx="8" fill="#e9d8c9" stroke="#b8b2a8"/>
-  <text x="378" y="278" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">weighted read</text>
-  <text x="378" y="292" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">cⱼ = Σ αⱼ,ᵢ hᵢ</text>
+  <rect x="315" y="263" width="126" height="35" rx="8"   class="svg-special-fill-fill-e9d8c9 svg-axis-stroke svg-special-background-fill-e9d8c9"/>
+  <text x="378" y="278" text-anchor="middle"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-6f6a63">weighted read</text>
+  <text x="378" y="292" text-anchor="middle"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-312f2f">cⱼ = Σ αⱼ,ᵢ hᵢ</text>
 
-  <rect x="548" y="263" width="154" height="35" rx="8" fill="#dfe9df" stroke="#9db29f"/>
-  <text x="625" y="278" text-anchor="middle" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">decoder update</text>
-  <text x="625" y="292" text-anchor="middle" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">dⱼ = f(dⱼ₋₁,[uⱼ;cⱼ])</text>
+  <rect x="548" y="263" width="154" height="35" rx="8"   class="svg-special-fill-fill-dfe9df svg-special-graphic-stroke-9db29f svg-special-background-fill-dfe9df"/>
+  <text x="625" y="278" text-anchor="middle"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-6f6a63">decoder update</text>
+  <text x="625" y="292" text-anchor="middle"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-312f2f">dⱼ = f(dⱼ₋₁,[uⱼ;cⱼ])</text>
 
-  <g stroke="#6f6a63" stroke-width="1.2" fill="none" marker-end="url(#gray-arrow)">
+  <g  stroke-width="1.2" fill="none" marker-end="url(#gray-arrow)" class="svg-special-graphic-stroke-6f6a63">
     <line x1="115" y1="236" x2="342" y2="263"/>
     <line x1="275" y1="236" x2="360" y2="263"/>
     <line x1="435" y1="236" x2="396" y2="263"/>
@@ -96,7 +170,7 @@
     <line x1="209" y1="280" x2="315" y2="280"/>
     <line x1="441" y1="280" x2="548" y2="280"/>
   </g>
-  <path d="M209,272 C270,247 315,238 360,205" fill="none" stroke="#b26e58" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#coral-arrow)"/>
-  <text x="32" y="343" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">每个目标步重新计算权重，源时间轴仍被保留</text>
-  <text x="560" y="343" fill="#b26e58" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">mask 在 softmax 前生效</text>
+  <path d="M209,272 C270,247 315,238 360,205" fill="none"  stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#coral-arrow)" class="svg-special-graphic-stroke-b26e58"/>
+  <text x="32" y="343"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-6f6a63">每个目标步重新计算权重，源时间轴仍被保留</text>
+  <text x="560" y="343"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-b26e58">mask 在 softmax 前生效</text>
 </svg>

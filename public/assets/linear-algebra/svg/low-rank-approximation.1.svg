@@ -1,57 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="lowrank-title lowrank-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="lowrank-title lowrank-desc">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-text-fill-cc785c { fill: #a5614b; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6c6a64 { fill: #a6a4a1; }
+    .svg-special-text-fill-cc785c { fill: #c69b8d; }
+
+
+
+  }
+</style>
   <title id="lowrank-title">低秩近似保留最大的奇异值</title>
   <desc id="lowrank-desc">奇异值 5、2、1 按降序排列，秩一近似保留第一条通道，剩余两条通道构成误差。</desc>
   <defs>
     <marker id="lowrank-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="20" y="25" font-size="14" font-weight="600">A = Σ σᵢuᵢvᵢᵀ：截断最大的方向</text>
-    <text x="20" y="47" font-size="12" fill="#6c6a64">示例奇异谱：σ₁ = 5，σ₂ = 2，σ₃ = 1</text>
+    <text x="20" y="47" font-size="12"  class="svg-muted-fill">示例奇异谱：σ₁ = 5，σ₂ = 2，σ₃ = 1</text>
   </g>
 
   <!-- Singular spectrum -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="28" y1="182" x2="184" y2="182" marker-end="url(#lowrank-arrow)"/>
     <line x1="39" y1="192" x2="39" y2="70" marker-end="url(#lowrank-arrow)"/>
   </g>
-  <g fill="#cc785c">
+  <g  class="svg-special-fill-fill-cc785c svg-special-text-fill-cc785c">
     <rect x="59" y="82" width="27" height="100" rx="2"/>
   </g>
-  <g fill="#b8b2a8">
+  <g  class="svg-axis-fill">
     <rect x="108" y="142" width="27" height="40" rx="2"/>
     <rect x="157" y="162" width="27" height="20" rx="2"/>
   </g>
-  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="64" y="75">5</text>
     <text x="115" y="135">2</text>
     <text x="165" y="155">1</text>
     <text x="55" y="202">σᵢ</text>
   </g>
-  <text x="54" y="224" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">保留第一条通道</text>
+  <text x="54" y="224" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-coral-text-fill">保留第一条通道</text>
 
-  <line x1="205" y1="67" x2="205" y2="226" stroke="#e2dbd3"/>
-  <g stroke="#312f2f" stroke-width="1.4" fill="none" marker-end="url(#lowrank-arrow)">
+  <line x1="205" y1="67" x2="205" y2="226"  class="svg-special-graphic-stroke-e2dbd3"/>
+  <g  stroke-width="1.4" fill="none" marker-end="url(#lowrank-arrow)" class="svg-ink-stroke">
     <line x1="220" y1="129" x2="255" y2="129"/>
   </g>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="218" y="93" font-size="13" font-weight="600">完整矩阵</text>
     <text x="218" y="113" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15">A = 5u₁v₁ᵀ + 2u₂v₂ᵀ + u₃v₃ᵀ</text>
-    <text x="258" y="119" font-size="12" fill="#6c6a64">截断</text>
+    <text x="258" y="119" font-size="12"  class="svg-muted-fill">截断</text>
     <text x="278" y="93" font-size="13" font-weight="600">秩一近似</text>
-    <text x="278" y="113" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#a9583e">A₁ = 5u₁v₁ᵀ</text>
-    <text x="278" y="147" font-size="12" fill="#6c6a64">丢弃的通道</text>
+    <text x="278" y="113" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15"  class="svg-coral-text-fill">A₁ = 5u₁v₁ᵀ</text>
+    <text x="278" y="147" font-size="12"  class="svg-muted-fill">丢弃的通道</text>
   </g>
-  <g stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4">
+  <g  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb">
     <line x1="278" y1="158" x2="520" y2="158"/>
   </g>
-  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="278" y="181">A − A₁ = 2u₂v₂ᵀ + u₃v₃ᵀ</text>
   </g>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#6c6a64" font-size="12">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  font-size="12" class="svg-special-fill-fill-6c6a64 svg-special-text-fill-6c6a64">
     <text x="278" y="207">Frobenius 误差² = 2² + 1² = 5</text>
     <text x="278" y="225">谱范数误差 = 最大被丢弃奇异值 = 2</text>
   </g>

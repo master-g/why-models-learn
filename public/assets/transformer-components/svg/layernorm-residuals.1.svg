@@ -1,70 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-f5e7bc { fill: #999076; }
+  .svg-special-fill-fill-f7dfcf { fill: #9d8e84; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+  .svg-special-graphic-stroke-b58128 { stroke: #b58128; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e7f0ee { fill: #e7f0ee; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-f7dfcf { fill: #f7dfcf; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-f5e7bc { fill: #999076; }
+    .svg-special-fill-fill-f7dfcf { fill: #9d8e84; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+    .svg-special-graphic-stroke-b58128 { stroke: #b58128; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e7f0ee { fill: #323433; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-f7dfcf { fill: #35312f; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">Pre-norm 与 post-norm 的残差顺序</title>
   <desc id="desc">上方是 pre-norm：输入经过 LayerNorm 和子层后与输入相加。下方是 post-norm：输入经过子层后与输入相加，再经过 LayerNorm。</desc>
   <style>
-    .paper { fill: #f4efee; }
-    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
-    .muted { fill: #6c6a64; font-size: 16px; }
-    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
-    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
-    .norm { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
-    .branch { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
-    .add { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; }
-    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .shortcut { fill: none; stroke: #a9583e; stroke-width: 2; stroke-dasharray: 7 6; stroke-linecap: round; }
-    .arrow { fill: #312f2f; }
-    .small { fill: #6c6a64; font-size: 14px; }
+    .paper {}
+    .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted {font-size: 16px; }
+    .label {font-size: 20px; font-weight: 650; }
+    .box {stroke-width: 2; rx: 10; }
+    .norm {stroke-width: 2; rx: 10; }
+    .branch {stroke-width: 2; rx: 10; }
+    .add {stroke-width: 2; }
+    .path { fill: none;  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .shortcut { fill: none;  stroke-width: 2; stroke-dasharray: 7 6; stroke-linecap: round; }
+    .arrow {}
+    .small {font-size: 14px; }
   </style>
-  <rect class="paper" width="800" height="373"/>
-  <text class="ink label" x="42" y="48">LayerNorm 与残差的顺序</text>
-  <text class="ink muted" x="42" y="75">同一个子层 F，改变归一化位置就改变了局部 Jacobian</text>
+  <rect class="paper svg-special-fill-fill-f4efee svg-special-background-fill-f4efee" width="800" height="373"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="48">LayerNorm 与残差的顺序</text>
+  <text class="ink muted svg-special-text-fill-312f2f svg-muted-fill" x="42" y="75">同一个子层 F，改变归一化位置就改变了局部 Jacobian</text>
 
-  <text class="ink label" x="42" y="132">pre-norm</text>
-  <text class="ink small" x="42" y="154">identity 路径直接到加法</text>
-  <rect class="box" x="148" y="108" width="78" height="48"/>
-  <text class="ink label" x="176" y="139">x</text>
-  <path class="path" d="M226 132H258"/>
-  <path class="arrow" d="M258 132l-9-6v12z"/>
-  <rect class="norm" x="270" y="108" width="110" height="48"/>
-  <text class="ink" x="294" y="139" font-size="18">LayerNorm</text>
-  <path class="path" d="M380 132H412"/>
-  <path class="arrow" d="M412 132l-9-6v12z"/>
-  <rect class="branch" x="424" y="108" width="84" height="48"/>
-  <text class="ink label" x="455" y="139">F</text>
-  <path class="path" d="M508 132H548"/>
-  <path class="arrow" d="M548 132l-9-6v12z"/>
-  <circle class="add" cx="573" cy="132" r="22"/>
-  <path class="path" d="M566 125l14 14M580 125l-14 14"/>
-  <path class="path" d="M595 132H650"/>
-  <path class="arrow" d="M650 132l-9-6v12z"/>
-  <rect class="box" x="662" y="108" width="78" height="48"/>
-  <text class="ink label" x="690" y="139">y</text>
-  <path class="shortcut" d="M187 157V190H573V157"/>
-  <path class="arrow" d="M573 157l-6 9h12z"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="132">pre-norm</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="42" y="154">identity 路径直接到加法</text>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="148" y="108" width="78" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="176" y="139">x</text>
+  <path class="path svg-ink-stroke" d="M226 132H258"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M258 132l-9-6v12z"/>
+  <rect class="norm svg-special-fill-fill-f7dfcf svg-coral-stroke-stroke svg-special-background-fill-f7dfcf" x="270" y="108" width="110" height="48"/>
+  <text class="ink svg-special-text-fill-312f2f" x="294" y="139" font-size="18">LayerNorm</text>
+  <path class="path svg-ink-stroke" d="M380 132H412"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M412 132l-9-6v12z"/>
+  <rect class="branch svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="424" y="108" width="84" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="455" y="139">F</text>
+  <path class="path svg-ink-stroke" d="M508 132H548"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M548 132l-9-6v12z"/>
+  <circle class="add svg-special-fill-fill-f5e7bc svg-special-graphic-stroke-b58128" cx="573" cy="132" r="22"/>
+  <path class="path svg-ink-stroke" d="M566 125l14 14M580 125l-14 14"/>
+  <path class="path svg-ink-stroke" d="M595 132H650"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M650 132l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="662" y="108" width="78" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="690" y="139">y</text>
+  <path class="shortcut svg-coral-stroke-stroke" d="M187 157V190H573V157"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M573 157l-6 9h12z"/>
 
-  <text class="ink label" x="42" y="256">post-norm</text>
-  <text class="ink small" x="42" y="278">identity 路径经过 LayerNorm</text>
-  <rect class="box" x="148" y="232" width="78" height="48"/>
-  <text class="ink label" x="176" y="263">x</text>
-  <path class="path" d="M226 256H306"/>
-  <path class="arrow" d="M306 256l-9-6v12z"/>
-  <rect class="branch" x="318" y="232" width="84" height="48"/>
-  <text class="ink label" x="349" y="263">F</text>
-  <path class="path" d="M402 256H450"/>
-  <path class="arrow" d="M450 256l-9-6v12z"/>
-  <circle class="add" cx="475" cy="256" r="22"/>
-  <path class="path" d="M468 249l14 14M482 249l-14 14"/>
-  <path class="shortcut" d="M187 281V314H475V281"/>
-  <path class="arrow" d="M475 281l-6 9h12z"/>
-  <path class="path" d="M497 256H530"/>
-  <path class="arrow" d="M530 256l-9-6v12z"/>
-  <rect class="norm" x="542" y="232" width="110" height="48"/>
-  <text class="ink" x="566" y="263" font-size="18">LayerNorm</text>
-  <path class="path" d="M652 256H674"/>
-  <path class="arrow" d="M674 256l-9-6v12z"/>
-  <rect class="box" x="686" y="232" width="78" height="48"/>
-  <text class="ink label" x="714" y="263">y</text>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="256">post-norm</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="42" y="278">identity 路径经过 LayerNorm</text>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="148" y="232" width="78" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="176" y="263">x</text>
+  <path class="path svg-ink-stroke" d="M226 256H306"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M306 256l-9-6v12z"/>
+  <rect class="branch svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="318" y="232" width="84" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="349" y="263">F</text>
+  <path class="path svg-ink-stroke" d="M402 256H450"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M450 256l-9-6v12z"/>
+  <circle class="add svg-special-fill-fill-f5e7bc svg-special-graphic-stroke-b58128" cx="475" cy="256" r="22"/>
+  <path class="path svg-ink-stroke" d="M468 249l14 14M482 249l-14 14"/>
+  <path class="shortcut svg-coral-stroke-stroke" d="M187 281V314H475V281"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M475 281l-6 9h12z"/>
+  <path class="path svg-ink-stroke" d="M497 256H530"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M530 256l-9-6v12z"/>
+  <rect class="norm svg-special-fill-fill-f7dfcf svg-coral-stroke-stroke svg-special-background-fill-f7dfcf" x="542" y="232" width="110" height="48"/>
+  <text class="ink svg-special-text-fill-312f2f" x="566" y="263" font-size="18">LayerNorm</text>
+  <path class="path svg-ink-stroke" d="M652 256H674"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M674 256l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="686" y="232" width="78" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="714" y="263">y</text>
 
-  <text class="ink small" x="148" y="350">pre: J = I + J<tspan baseline-shift="sub" font-size="11">F</tspan>J<tspan baseline-shift="sub" font-size="11">N</tspan></text>
-  <text class="ink small" x="542" y="350">post: J = J<tspan baseline-shift="sub" font-size="11">N</tspan>(I + J<tspan baseline-shift="sub" font-size="11">F</tspan>)</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="148" y="350">pre: J = I + J<tspan baseline-shift="sub" font-size="11">F</tspan>J<tspan baseline-shift="sub" font-size="11">N</tspan></text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="542" y="350">post: J = J<tspan baseline-shift="sub" font-size="11">N</tspan>(I + J<tspan baseline-shift="sub" font-size="11">F</tspan>)</text>
 </svg>

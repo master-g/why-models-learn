@@ -1,45 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="partial-title partial-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="partial-title partial-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="partial-title">偏导数的两个坐标切片</title>
   <desc id="partial-desc">在曲面一点固定另一个坐标，分别沿 x 和 y 方向读取切片斜率，再把两个偏导拼成局部线性变化。</desc>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="280" y1="18" x2="280" y2="232"  class="svg-special-graphic-stroke-e2dbd3"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="22" y="28" font-size="15" font-weight="600">固定一个坐标，切一条曲线</text>
     <text x="300" y="28" font-size="15" font-weight="600">两个偏导拼一阶变化</text>
   </g>
 
-  <g stroke="#b8b2a8" stroke-width="1.2" fill="none">
+  <g  stroke-width="1.2" fill="none" class="svg-axis-stroke">
     <line x1="42" y1="190" x2="253" y2="190"/>
     <line x1="65" y1="211" x2="65" y2="55"/>
-    <path d="M78 170 C112 133 145 105 186 91 C212 82 232 75 250 69" stroke="#c9c4bb" stroke-dasharray="4 4"/>
-    <path d="M78 151 C113 137 145 127 179 120 C207 114 229 111 250 110" stroke="#cc785c" stroke-width="2"/>
-    <path d="M90 177 C120 164 146 145 169 119 C186 101 204 83 224 63" stroke="#6c6a64" stroke-width="1.8"/>
+    <path d="M78 170 C112 133 145 105 186 91 C212 82 232 75 250 69"  stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+    <path d="M78 151 C113 137 145 127 179 120 C207 114 229 111 250 110"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+    <path d="M90 177 C120 164 146 145 169 119 C186 101 204 83 224 63"  stroke-width="1.8" class="svg-special-graphic-stroke-6c6a64"/>
   </g>
-  <circle cx="169" cy="119" r="4" fill="#cc785c"/>
-  <line x1="169" y1="119" x2="218" y2="119" stroke="#cc785c" stroke-width="2"/>
-  <line x1="169" y1="119" x2="169" y2="73" stroke="#6c6a64" stroke-width="2"/>
+  <circle cx="169" cy="119" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <line x1="169" y1="119" x2="218" y2="119"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+  <line x1="169" y1="119" x2="169" y2="73"  stroke-width="2" class="svg-special-graphic-stroke-6c6a64"/>
   <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11">
-    <text x="174" y="115" fill="#a9583e">点 (a,b)</text>
-    <text x="205" y="136" fill="#a9583e">∂f/∂x</text>
-    <text x="174" y="74" fill="#6c6a64">∂f/∂y</text>
-    <text x="84" y="207" fill="#6c6a64">y=b 的切片</text>
-    <text x="184" y="57" fill="#6c6a64">x=a 的切片</text>
+    <text x="174" y="115"  class="svg-coral-text-fill">点 (a,b)</text>
+    <text x="205" y="136"  class="svg-coral-text-fill">∂f/∂x</text>
+    <text x="174" y="74"  class="svg-muted-fill">∂f/∂y</text>
+    <text x="84" y="207"  class="svg-muted-fill">y=b 的切片</text>
+    <text x="184" y="57"  class="svg-muted-fill">x=a 的切片</text>
   </g>
 
-  <g stroke="#b8b2a8" stroke-width="1.3" fill="none">
+  <g  stroke-width="1.3" fill="none" class="svg-axis-stroke">
     <line x1="303" y1="191" x2="535" y2="191"/>
     <line x1="325" y1="212" x2="325" y2="53"/>
-    <line x1="425" y1="137" x2="489" y2="103" stroke="#cc785c" stroke-width="2"/>
-    <line x1="425" y1="137" x2="383" y2="110" stroke="#6c6a64" stroke-width="2"/>
-    <circle cx="425" cy="137" r="4" fill="#cc785c"/>
+    <line x1="425" y1="137" x2="489" y2="103"  stroke-width="2" class="svg-coral-stroke-stroke"/>
+    <line x1="425" y1="137" x2="383" y2="110"  stroke-width="2" class="svg-special-graphic-stroke-6c6a64"/>
+    <circle cx="425" cy="137" r="4"  class="svg-special-fill-fill-cc785c"/>
   </g>
   <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
-    <text x="425" y="83" font-size="20" fill="#312f2f">Δf ≈ fₓΔx + fᵧΔy</text>
-    <text x="425" y="109" font-size="15" fill="#6c6a64">局部线性近似</text>
+    <text x="425" y="83" font-size="20"  class="svg-special-text-fill-312f2f">Δf ≈ fₓΔx + fᵧΔy</text>
+    <text x="425" y="109" font-size="15"  class="svg-muted-fill">局部线性近似</text>
   </g>
   <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11">
-    <text x="491" y="101" fill="#a9583e">x 方向</text>
-    <text x="351" y="106" fill="#6c6a64">y 方向</text>
-    <text x="382" y="173" fill="#6c6a64">两个坐标贡献相加</text>
+    <text x="491" y="101"  class="svg-coral-text-fill">x 方向</text>
+    <text x="351" y="106"  class="svg-muted-fill">y 方向</text>
+    <text x="382" y="173"  class="svg-muted-fill">两个坐标贡献相加</text>
   </g>
 </svg>

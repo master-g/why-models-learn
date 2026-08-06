@@ -1,42 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="rules-title rules-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="rules-title rules-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-f3eee8 { fill: #94908d; }
+  .svg-special-fill-fill-f8e7df { fill: #998e8a; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f3eee8 { fill: #f3eee8; }
+  .svg-special-background-fill-f8e7df { fill: #f8e7df; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-f3eee8 { fill: #94908d; }
+    .svg-special-fill-fill-f8e7df { fill: #998e8a; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f3eee8 { fill: #343333; }
+    .svg-special-background-fill-f8e7df { fill: #353231; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="rules-title">乘积和商法则的分解</title>
   <desc id="rules-desc">左侧把乘积的变化拆成两个路径，右侧把商的变化写成上导下减上导下并除以分母平方。</desc>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="280" y1="18" x2="280" y2="232"  class="svg-special-graphic-stroke-e2dbd3"/>
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="22" y="28" font-size="15" font-weight="600">乘积：两条变化路径</text>
     <text x="300" y="28" font-size="15" font-weight="600">商：分母变化也要算</text>
   </g>
 
   <g font-family="Georgia, 'Times New Roman', serif" font-size="23" text-anchor="middle">
-    <rect x="35" y="58" width="74" height="42" rx="6" fill="#f3eee8" stroke="#d8d0c8"/>
-    <rect x="165" y="58" width="74" height="42" rx="6" fill="#f3eee8" stroke="#d8d0c8"/>
-    <text x="72" y="86" fill="#312f2f">f</text>
-    <text x="202" y="86" fill="#312f2f">g</text>
-    <text x="137" y="87" fill="#6c6a64">×</text>
+    <rect x="35" y="58" width="74" height="42" rx="6"   class="svg-special-fill-fill-f3eee8 svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-f3eee8"/>
+    <rect x="165" y="58" width="74" height="42" rx="6"   class="svg-special-fill-fill-f3eee8 svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-f3eee8"/>
+    <text x="72" y="86"  class="svg-special-text-fill-312f2f">f</text>
+    <text x="202" y="86"  class="svg-special-text-fill-312f2f">g</text>
+    <text x="137" y="87"  class="svg-muted-fill">×</text>
   </g>
-  <g stroke="#b8b2a8" stroke-width="1.5" fill="none">
+  <g  stroke-width="1.5" fill="none" class="svg-axis-stroke">
     <line x1="72" y1="101" x2="72" y2="136"/>
     <line x1="202" y1="101" x2="202" y2="136"/>
     <line x1="72" y1="136" x2="202" y2="136"/>
   </g>
   <g font-family="Georgia, 'Times New Roman', serif" font-size="22" text-anchor="middle">
-    <rect x="35" y="151" width="88" height="42" rx="6" fill="#f8e7df" stroke="#cc785c"/>
-    <rect x="157" y="151" width="88" height="42" rx="6" fill="#f3eee8" stroke="#d8d0c8"/>
-    <text x="79" y="179" fill="#a9583e">f′g</text>
-    <text x="201" y="179" fill="#312f2f">fg′</text>
-    <text x="137" y="179" fill="#6c6a64">+</text>
+    <rect x="35" y="151" width="88" height="42" rx="6"   class="svg-special-fill-fill-f8e7df svg-coral-stroke-stroke svg-special-background-fill-f8e7df"/>
+    <rect x="157" y="151" width="88" height="42" rx="6"   class="svg-special-fill-fill-f3eee8 svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-f3eee8"/>
+    <text x="79" y="179"  class="svg-coral-text-fill">f′g</text>
+    <text x="201" y="179"  class="svg-special-text-fill-312f2f">fg′</text>
+    <text x="137" y="179"  class="svg-muted-fill">+</text>
   </g>
-  <text x="46" y="218" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">每个因素各导一次，另一个保留原值</text>
+  <text x="46" y="218" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">每个因素各导一次，另一个保留原值</text>
 
   <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
-    <rect x="323" y="58" width="190" height="42" rx="6" fill="#f3eee8" stroke="#d8d0c8"/>
-    <text x="418" y="86" font-size="23" fill="#312f2f">f / g</text>
-    <line x1="418" y1="102" x2="418" y2="135" stroke="#b8b2a8" stroke-width="1.5"/>
-    <rect x="313" y="150" width="210" height="60" rx="6" fill="#f8e7df" stroke="#cc785c"/>
-    <text x="418" y="174" font-size="18" fill="#a9583e">(f′g − fg′)</text>
-    <line x1="352" y1="182" x2="484" y2="182" stroke="#a9583e" stroke-width="1.3"/>
-    <text x="418" y="203" font-size="18" fill="#a9583e">g²</text>
+    <rect x="323" y="58" width="190" height="42" rx="6"   class="svg-special-fill-fill-f3eee8 svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-f3eee8"/>
+    <text x="418" y="86" font-size="23"  class="svg-special-text-fill-312f2f">f / g</text>
+    <line x1="418" y1="102" x2="418" y2="135"  stroke-width="1.5" class="svg-axis-stroke"/>
+    <rect x="313" y="150" width="210" height="60" rx="6"   class="svg-special-fill-fill-f8e7df svg-coral-stroke-stroke svg-special-background-fill-f8e7df"/>
+    <text x="418" y="174" font-size="18"  class="svg-coral-text-fill">(f′g − fg′)</text>
+    <line x1="352" y1="182" x2="484" y2="182"  stroke-width="1.3" class="svg-coral-stroke-stroke"/>
+    <text x="418" y="203" font-size="18"  class="svg-coral-text-fill">g²</text>
   </g>
-  <text x="335" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">上导下减上导下，分母平方</text>
+  <text x="335" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">上导下减上导下，分母平方</text>
 </svg>

@@ -1,61 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-f8f7f4 { fill: #91908f; }
+  .svg-special-fill-fill-ffffff { fill: #909090; }
+  .svg-special-graphic-stroke-5f7896 { stroke: #5f7896; }
+  .svg-special-graphic-stroke-6f8f87 { stroke: #6f8f87; }
+  .svg-special-graphic-stroke-8b7a4f { stroke: #8b7a4f; }
+  .svg-special-graphic-stroke-8f8a82 { stroke: #8f8a82; }
+  .svg-special-graphic-stroke-d8d3ca { stroke: #94908a; }
+  .svg-special-graphic-stroke-e4e0d8 { stroke: #93908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6d6862 { fill: #6d6862; }
+  .svg-special-text-fill-a45e48 { fill: #a45e48; }
+
+  .svg-special-background-fill-f8f7f4 { fill: #f8f7f4; }
+  .svg-special-background-fill-ffffff { fill: #ffffff; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-f8f7f4 { fill: #91908f; }
+    .svg-special-fill-fill-ffffff { fill: #909090; }
+    .svg-special-graphic-stroke-5f7896 { stroke: #5f7896; }
+    .svg-special-graphic-stroke-6f8f87 { stroke: #6f8f87; }
+    .svg-special-graphic-stroke-8b7a4f { stroke: #8b7a4f; }
+    .svg-special-graphic-stroke-8f8a82 { stroke: #8f8a82; }
+    .svg-special-graphic-stroke-d8d3ca { stroke: #94908a; }
+    .svg-special-graphic-stroke-e4e0d8 { stroke: #93908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6d6862 { fill: #a7a4a0; }
+    .svg-special-text-fill-a45e48 { fill: #c69b8d; }
+    .svg-special-background-fill-f8f7f4 { fill: #353534; }
+    .svg-special-background-fill-ffffff { fill: #363636; }
+
+
+
+  }
+</style>
   <title id="title">回归损失的残差地形与分位数斜率</title>
   <desc id="desc">左图比较半平方、绝对值、Huber 和 log-cosh 损失，右图展示零点九、零点五和零点一分位数损失对残差两侧的不同斜率。</desc>
-  <rect width="800" height="373" fill="#f8f7f4"/>
-  <text x="40" y="32" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">回归损失把残差翻译成统计假设</text>
-  <text x="40" y="56" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="13">同一组预测，可以选择均值、中位数、稳健点或指定分位数</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f8f7f4 svg-special-background-fill-f8f7f4"/>
+  <text x="40" y="32"  font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" class="svg-special-text-fill-312f2f">回归损失把残差翻译成统计假设</text>
+  <text x="40" y="56"  font-family="system-ui, -apple-system, sans-serif" font-size="13" class="svg-special-text-fill-6d6862">同一组预测，可以选择均值、中位数、稳健点或指定分位数</text>
 
-  <rect x="40" y="78" width="430" height="218" rx="12" fill="#fff" stroke="#d8d3ca"/>
-  <text x="62" y="101" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">点损失：残差 r = 预测 − 真实</text>
-  <line x1="82" y1="250" x2="442" y2="250" stroke="#8f8a82" stroke-width="1.5"/>
-  <line x1="82" y1="112" x2="82" y2="250" stroke="#8f8a82" stroke-width="1.5"/>
-  <line x1="82" y1="217" x2="442" y2="217" stroke="#e4e0d8" stroke-width="1"/>
-  <line x1="82" y1="183" x2="442" y2="183" stroke="#e4e0d8" stroke-width="1"/>
-  <line x1="82" y1="150" x2="442" y2="150" stroke="#e4e0d8" stroke-width="1"/>
-  <line x1="82" y1="117" x2="442" y2="117" stroke="#e4e0d8" stroke-width="1"/>
-  <text x="82" y="268" text-anchor="middle" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">−3</text>
-  <text x="262" y="268" text-anchor="middle" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">0</text>
-  <text x="442" y="268" text-anchor="middle" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">3</text>
-  <text x="68" y="254" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">0</text>
-  <text x="68" y="220" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">1</text>
-  <text x="68" y="186" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">2</text>
-  <text x="68" y="153" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">3</text>
-  <text x="68" y="120" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">4</text>
-  <path d="M82 100 L142 183 L202 233 L262 250 L322 233 L382 183 L442 100" fill="none" stroke="#5f7896" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M82 150 L142 183 L202 217 L262 250 L322 217 L382 183 L442 150" fill="none" stroke="#cc785c" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M82 167 L142 200 L202 233 L262 250 L322 233 L382 200 L442 167" fill="none" stroke="#8b7a4f" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M82 174 L142 204 L202 234 L262 250 L322 234 L382 204 L442 174" fill="none" stroke="#6f8f87" stroke-width="3" stroke-linejoin="round"/>
-  <line x1="90" y1="286" x2="110" y2="286" stroke="#5f7896" stroke-width="3"/>
-  <text x="116" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">半平方</text>
-  <line x1="170" y1="286" x2="190" y2="286" stroke="#cc785c" stroke-width="3"/>
-  <text x="196" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">绝对值</text>
-  <line x1="260" y1="286" x2="280" y2="286" stroke="#8b7a4f" stroke-width="3"/>
-  <text x="286" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">Huber</text>
-  <line x1="348" y1="286" x2="368" y2="286" stroke="#6f8f87" stroke-width="3"/>
-  <text x="374" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">log-cosh</text>
+  <rect x="40" y="78" width="430" height="218" rx="12"   class="svg-special-fill-fill-ffffff svg-special-graphic-stroke-d8d3ca svg-special-background-fill-ffffff"/>
+  <text x="62" y="101"  font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">点损失：残差 r = 预测 − 真实</text>
+  <line x1="82" y1="250" x2="442" y2="250"  stroke-width="1.5" class="svg-special-graphic-stroke-8f8a82"/>
+  <line x1="82" y1="112" x2="82" y2="250"  stroke-width="1.5" class="svg-special-graphic-stroke-8f8a82"/>
+  <line x1="82" y1="217" x2="442" y2="217"  stroke-width="1" class="svg-special-graphic-stroke-e4e0d8"/>
+  <line x1="82" y1="183" x2="442" y2="183"  stroke-width="1" class="svg-special-graphic-stroke-e4e0d8"/>
+  <line x1="82" y1="150" x2="442" y2="150"  stroke-width="1" class="svg-special-graphic-stroke-e4e0d8"/>
+  <line x1="82" y1="117" x2="442" y2="117"  stroke-width="1" class="svg-special-graphic-stroke-e4e0d8"/>
+  <text x="82" y="268" text-anchor="middle"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">−3</text>
+  <text x="262" y="268" text-anchor="middle"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">0</text>
+  <text x="442" y="268" text-anchor="middle"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">3</text>
+  <text x="68" y="254" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">0</text>
+  <text x="68" y="220" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">1</text>
+  <text x="68" y="186" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">2</text>
+  <text x="68" y="153" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">3</text>
+  <text x="68" y="120" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">4</text>
+  <path d="M82 100 L142 183 L202 233 L262 250 L322 233 L382 183 L442 100" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-special-graphic-stroke-5f7896"/>
+  <path d="M82 150 L142 183 L202 217 L262 250 L322 217 L382 183 L442 150" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-coral-stroke-stroke"/>
+  <path d="M82 167 L142 200 L202 233 L262 250 L322 233 L382 200 L442 167" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-special-graphic-stroke-8b7a4f"/>
+  <path d="M82 174 L142 204 L202 234 L262 250 L322 234 L382 204 L442 174" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-special-graphic-stroke-6f8f87"/>
+  <line x1="90" y1="286" x2="110" y2="286"  stroke-width="3" class="svg-special-graphic-stroke-5f7896"/>
+  <text x="116" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">半平方</text>
+  <line x1="170" y1="286" x2="190" y2="286"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+  <text x="196" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">绝对值</text>
+  <line x1="260" y1="286" x2="280" y2="286"  stroke-width="3" class="svg-special-graphic-stroke-8b7a4f"/>
+  <text x="286" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">Huber</text>
+  <line x1="348" y1="286" x2="368" y2="286"  stroke-width="3" class="svg-special-graphic-stroke-6f8f87"/>
+  <text x="374" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">log-cosh</text>
 
-  <rect x="490" y="78" width="270" height="218" rx="12" fill="#fff" stroke="#d8d3ca"/>
-  <text x="512" y="101" fill="#312f2f" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700">分位数：高估与低估的斜率</text>
-  <line x1="526" y1="250" x2="738" y2="250" stroke="#8f8a82" stroke-width="1.5"/>
-  <line x1="526" y1="112" x2="526" y2="250" stroke="#8f8a82" stroke-width="1.5"/>
-  <line x1="526" y1="195" x2="738" y2="195" stroke="#e4e0d8" stroke-width="1"/>
-  <line x1="526" y1="140" x2="738" y2="140" stroke="#e4e0d8" stroke-width="1"/>
-  <text x="526" y="268" text-anchor="middle" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">−2</text>
-  <text x="632" y="268" text-anchor="middle" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">0</text>
-  <text x="738" y="268" text-anchor="middle" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">2</text>
-  <text x="516" y="254" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">0</text>
-  <text x="516" y="199" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">1</text>
-  <text x="516" y="144" text-anchor="end" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">2</text>
-  <path d="M526 239 L632 250 L738 151" fill="none" stroke="#cc785c" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M526 195 L632 250 L738 195" fill="none" stroke="#8b7a4f" stroke-width="3" stroke-linejoin="round"/>
-  <path d="M526 151 L632 250 L738 239" fill="none" stroke="#5f7896" stroke-width="3" stroke-linejoin="round"/>
-  <line x1="542" y1="286" x2="562" y2="286" stroke="#cc785c" stroke-width="3"/>
-  <text x="568" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">τ=0.1</text>
-  <line x1="618" y1="286" x2="638" y2="286" stroke="#8b7a4f" stroke-width="3"/>
-  <text x="644" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">τ=0.5</text>
-  <line x1="694" y1="286" x2="714" y2="286" stroke="#5f7896" stroke-width="3"/>
-  <text x="720" y="290" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="11">τ=0.9</text>
+  <rect x="490" y="78" width="270" height="218" rx="12"   class="svg-special-fill-fill-ffffff svg-special-graphic-stroke-d8d3ca svg-special-background-fill-ffffff"/>
+  <text x="512" y="101"  font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">分位数：高估与低估的斜率</text>
+  <line x1="526" y1="250" x2="738" y2="250"  stroke-width="1.5" class="svg-special-graphic-stroke-8f8a82"/>
+  <line x1="526" y1="112" x2="526" y2="250"  stroke-width="1.5" class="svg-special-graphic-stroke-8f8a82"/>
+  <line x1="526" y1="195" x2="738" y2="195"  stroke-width="1" class="svg-special-graphic-stroke-e4e0d8"/>
+  <line x1="526" y1="140" x2="738" y2="140"  stroke-width="1" class="svg-special-graphic-stroke-e4e0d8"/>
+  <text x="526" y="268" text-anchor="middle"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">−2</text>
+  <text x="632" y="268" text-anchor="middle"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">0</text>
+  <text x="738" y="268" text-anchor="middle"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">2</text>
+  <text x="516" y="254" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">0</text>
+  <text x="516" y="199" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">1</text>
+  <text x="516" y="144" text-anchor="end"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">2</text>
+  <path d="M526 239 L632 250 L738 151" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-coral-stroke-stroke"/>
+  <path d="M526 195 L632 250 L738 195" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-special-graphic-stroke-8b7a4f"/>
+  <path d="M526 151 L632 250 L738 239" fill="none"  stroke-width="3" stroke-linejoin="round" class="svg-special-graphic-stroke-5f7896"/>
+  <line x1="542" y1="286" x2="562" y2="286"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+  <text x="568" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">τ=0.1</text>
+  <line x1="618" y1="286" x2="638" y2="286"  stroke-width="3" class="svg-special-graphic-stroke-8b7a4f"/>
+  <text x="644" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">τ=0.5</text>
+  <line x1="694" y1="286" x2="714" y2="286"  stroke-width="3" class="svg-special-graphic-stroke-5f7896"/>
+  <text x="720" y="290"  font-family="system-ui, -apple-system, sans-serif" font-size="11" class="svg-special-text-fill-6d6862">τ=0.9</text>
 
-  <text x="40" y="331" fill="#6d6862" font-family="system-ui, -apple-system, sans-serif" font-size="12">稳健损失让远处梯度饱和；分位数损失把“哪一侧更贵”写进斜率。</text>
-  <text x="40" y="351" fill="#a45e48" font-family="system-ui, -apple-system, sans-serif" font-size="12">残差符号、目标变换和归约分母，都是损失定义的一部分。</text>
+  <text x="40" y="331"  font-family="system-ui, -apple-system, sans-serif" font-size="12" class="svg-special-text-fill-6d6862">稳健损失让远处梯度饱和；分位数损失把“哪一侧更贵”写进斜率。</text>
+  <text x="40" y="351"  font-family="system-ui, -apple-system, sans-serif" font-size="12" class="svg-special-text-fill-a45e48">残差符号、目标变换和归约分母，都是损失定义的一部分。</text>
 </svg>

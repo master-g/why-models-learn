@@ -1,54 +1,74 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-fill { fill: #cc785c; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-fill { fill: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-muted-stroke { stroke: #6c6a64; }
+  @media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-fill { fill: #e28466; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-fill { fill: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-muted-stroke { stroke: #aaa9a1; }
+  }
+</style>
   <defs>
     <marker id="ki-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-coral-stroke-fill"/>
     </marker>
     <marker id="ki-arr-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左:定义域,核 = y 轴 ============ -->
   <!-- 原点 (100,150),25px/单位 -->
-  <line x1="100" y1="150" x2="240" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
-  <line x1="100" y1="150" x2="100" y2="30" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
-  <text x="244" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="92" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="100" y1="150" x2="240" y2="150"  stroke-width="1" marker-end="url(#ki-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="100" y1="150" x2="100" y2="30"  stroke-width="1" marker-end="url(#ki-arr-axis)" class="svg-axis-stroke"/>
+  <text x="244" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="92" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- 核:y 轴描珊瑚 -->
-  <line x1="100" y1="150" x2="100" y2="30" stroke="#cc785c" stroke-width="1.8"/>
-  <text x="108" y="44" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">ker P = y 轴</text>
+  <line x1="100" y1="150" x2="100" y2="30"  stroke-width="1.8" class="svg-coral-stroke-stroke"/>
+  <text x="108" y="44" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-coral-text-fill">ker P = y 轴</text>
 
   <!-- 同一条竖直虚线上的两点 (2,1)、(2,3),都投到 (2,0) -->
-  <line x1="150" y1="75" x2="150" y2="148" stroke="#6c6a64" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#ki-arr-coral)"/>
-  <circle cx="150" cy="125" r="2.4" fill="#312f2f"/>
-  <text x="158" y="128" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(2, 1)</text>
-  <circle cx="150" cy="75" r="2.4" fill="#312f2f"/>
-  <text x="158" y="78" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#312f2f">(2, 3)</text>
-  <circle cx="150" cy="150" r="2.6" fill="#cc785c"/>
-  <text x="158" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">(2, 0)</text>
+  <line x1="150" y1="75" x2="150" y2="148"  stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#ki-arr-coral)" class="svg-muted-stroke"/>
+  <circle cx="150" cy="125" r="2.4"  class="svg-ink-fill"/>
+  <text x="158" y="128" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-ink-fill">(2, 1)</text>
+  <circle cx="150" cy="75" r="2.4"  class="svg-ink-fill"/>
+  <text x="158" y="78" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-ink-fill">(2, 3)</text>
+  <circle cx="150" cy="150" r="2.6"  class="svg-coral-stroke-fill"/>
+  <text x="158" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-coral-text-fill">(2, 0)</text>
 
-  <circle cx="100" cy="150" r="2.4" fill="#312f2f"/>
+  <circle cx="100" cy="150" r="2.4"  class="svg-ink-fill"/>
 
-  <text x="20" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">同一垂线上的点,映到同一点</text>
+  <text x="20" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">同一垂线上的点,映到同一点</text>
 
   <!-- ============ 右:值域,像 = x 轴 ============ -->
   <!-- 原点 (390,150),25px/单位 -->
-  <line x1="390" y1="150" x2="530" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
-  <line x1="390" y1="150" x2="390" y2="30" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ki-arr-axis)"/>
-  <text x="534" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="382" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="390" y1="150" x2="530" y2="150"  stroke-width="1" marker-end="url(#ki-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="390" y1="150" x2="390" y2="30"  stroke-width="1" marker-end="url(#ki-arr-axis)" class="svg-axis-stroke"/>
+  <text x="534" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="382" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- 像:x 轴描珊瑚 -->
-  <line x1="390" y1="150" x2="530" y2="150" stroke="#cc785c" stroke-width="1.8"/>
-  <text x="418" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#a9583e">im P = x 轴</text>
+  <line x1="390" y1="150" x2="530" y2="150"  stroke-width="1.8" class="svg-coral-stroke-stroke"/>
+  <text x="418" y="142" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-coral-text-fill">im P = x 轴</text>
 
   <!-- 像外的点 b=(1,2) -->
-  <circle cx="415" cy="100" r="2.4" fill="#6c6a64"/>
-  <text x="422" y="96" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">b = (1, 2)</text>
-  <text x="422" y="112" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#a9583e">像外,无解</text>
+  <circle cx="415" cy="100" r="2.4"  class="svg-muted-fill"/>
+  <text x="422" y="96" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">b = (1, 2)</text>
+  <text x="422" y="112" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  class="svg-coral-text-fill">像外,无解</text>
 
-  <circle cx="390" cy="150" r="2.4" fill="#312f2f"/>
+  <circle cx="390" cy="150" r="2.4"  class="svg-ink-fill"/>
 
-  <text x="332" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">像只占一条线,线外够不到</text>
+  <text x="332" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">像只占一条线,线外够不到</text>
 </svg>

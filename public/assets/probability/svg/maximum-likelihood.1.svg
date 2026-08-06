@@ -1,11 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706a67 { fill: #706a67; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706a67 { fill: #a7a4a2; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">似然峰值与对数似然求和</title>
   <desc id="desc">左侧展示固定观测数据后似然作为参数函数出现峰值，右侧展示独立样本的概率乘积通过取对数变成和。</desc>
   <defs>
     <style>
       text {
         font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-        fill: #312f2f;
       }
       .math {
         font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
@@ -13,40 +44,40 @@
       }
       .small { font-size: 11px; }
       .label { font-size: 12px; }
-      .caption { font-size: 12px; fill: #706a67; }
-      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
-      .curve { fill: none; stroke: #cc785c; stroke-width: 2.2; stroke-linecap: round; }
-      .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 1.2; }
-      .accent-box { fill: #cc785c; fill-opacity: 0.12; stroke: #cc785c; stroke-width: 1.4; }
-      .arrow { stroke: #cc785c; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+      .caption { font-size: 12px;  }
+      .axis {stroke-width: 1.2; }
+      .guide {stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .curve { fill: none;  stroke-width: 2.2; stroke-linecap: round; }
+      .box {stroke-width: 1.2; }
+      .accent-box {fill-opacity: 0.12;  stroke-width: 1.4; }
+      .arrow {stroke-width: 1.5; fill: none; stroke-linecap: round; }
     </style>
     <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#cc785c"/>
+      <path d="M0 0 L7 3.5 L0 7 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
-  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+  <rect x="0" y="0" width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234"  stroke-width="1" class="svg-special-graphic-stroke-e5dedb"/>
 
-  <text x="140" y="22" text-anchor="middle" class="label">固定数据：似然是参数的函数</text>
-  <line x1="40" y1="190" x2="245" y2="190" class="axis"/>
-  <line x1="52" y1="202" x2="52" y2="55" class="axis"/>
-  <path d="M55 185 C78 184 95 178 111 160 C126 143 137 109 151 86 C157 76 163 71 169 72 C180 74 186 91 194 113 C202 136 216 162 242 181" class="curve"/>
-  <line x1="169" y1="72" x2="169" y2="190" class="guide"/>
-  <circle cx="169" cy="72" r="4" fill="#cc785c"/>
-  <text x="169" y="61" text-anchor="middle" class="small math">L(θ;x)</text>
-  <text x="169" y="207" text-anchor="middle" class="small math">θ̂MLE</text>
-  <text x="244" y="207" class="small math">θ</text>
-  <text x="43" y="62" text-anchor="end" class="small math">大</text>
-  <text x="140" y="231" text-anchor="middle" class="caption">峰值给出最能解释观测的参数</text>
+  <text x="140" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">固定数据：似然是参数的函数</text>
+  <line x1="40" y1="190" x2="245" y2="190" class="axis svg-axis-stroke"/>
+  <line x1="52" y1="202" x2="52" y2="55" class="axis svg-axis-stroke"/>
+  <path d="M55 185 C78 184 95 178 111 160 C126 143 137 109 151 86 C157 76 163 71 169 72 C180 74 186 91 194 113 C202 136 216 162 242 181" class="curve svg-coral-stroke-stroke"/>
+  <line x1="169" y1="72" x2="169" y2="190" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="169" cy="72" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <text x="169" y="61" text-anchor="middle" class="small math svg-special-text-fill-312f2f">L(θ;x)</text>
+  <text x="169" y="207" text-anchor="middle" class="small math svg-special-text-fill-312f2f">θ̂MLE</text>
+  <text x="244" y="207" class="small math svg-special-text-fill-312f2f">θ</text>
+  <text x="43" y="62" text-anchor="end" class="small math svg-special-text-fill-312f2f">大</text>
+  <text x="140" y="231" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">峰值给出最能解释观测的参数</text>
 
-  <text x="420" y="22" text-anchor="middle" class="label">独立样本：乘积变成和</text>
-  <rect x="304" y="62" width="232" height="44" rx="4" class="box"/>
-  <text x="420" y="89" text-anchor="middle" class="small math">L(θ)=pθ(x₁) × ··· × pθ(xₙ)</text>
-  <path d="M420 111 L420 132" class="arrow" marker-end="url(#arrowhead)"/>
-  <rect x="304" y="143" width="232" height="44" rx="4" class="accent-box"/>
-  <text x="420" y="170" text-anchor="middle" class="small math">ℓ(θ)=Σᵢ log pθ(xᵢ)</text>
-  <text x="420" y="212" text-anchor="middle" class="caption">更稳定，也便于逐样本求梯度</text>
-  <text x="420" y="231" text-anchor="middle" class="caption">arg max 位置不因取 log 改变</text>
+  <text x="420" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">独立样本：乘积变成和</text>
+  <rect x="304" y="62" width="232" height="44" rx="4" class="box svg-special-fill-fill-fdfcfa svg-axis-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="420" y="89" text-anchor="middle" class="small math svg-special-text-fill-312f2f">L(θ)=pθ(x₁) × ··· × pθ(xₙ)</text>
+  <path d="M420 111 L420 132" class="arrow svg-coral-stroke-stroke" marker-end="url(#arrowhead)"/>
+  <rect x="304" y="143" width="232" height="44" rx="4" class="accent-box svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
+  <text x="420" y="170" text-anchor="middle" class="small math svg-special-text-fill-312f2f">ℓ(θ)=Σᵢ log pθ(xᵢ)</text>
+  <text x="420" y="212" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">更稳定，也便于逐样本求梯度</text>
+  <text x="420" y="231" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">arg max 位置不因取 log 改变</text>
 </svg>

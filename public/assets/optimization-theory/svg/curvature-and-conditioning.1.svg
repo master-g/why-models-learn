@@ -1,29 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-ebe7e4 { fill: #ebe7e4; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-ebe7e4 { fill: #333232; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">曲率谱把陡峭方向、平缓方向和预条件化放在一起</title>
   <desc id="desc">左侧是狭长等值线与两个曲率方向，右侧比较原始曲率谱和预条件化后的集中谱。</desc>
-  <rect width="560" height="250" fill="#f4efee"/>
-  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">条件数把时间尺度拉开</text>
-  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">同一个步长要同时面对平缓与陡峭方向</text>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="24" y="27"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" class="svg-special-text-fill-312f2f">条件数把时间尺度拉开</text>
+  <text x="24" y="47"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">同一个步长要同时面对平缓与陡峭方向</text>
 
-  <rect x="24" y="62" width="300" height="164" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <ellipse cx="169" cy="145" rx="108" ry="58" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
-  <ellipse cx="169" cy="145" rx="83" ry="44" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
-  <ellipse cx="169" cy="145" rx="58" ry="30" fill="none" stroke="#cc785c" stroke-width="1.5"/>
-  <line x1="61" y1="145" x2="277" y2="145" stroke="#c9c4bb" stroke-width="1.2" stroke-dasharray="5 5"/>
-  <line x1="169" y1="79" x2="169" y2="211" stroke="#c9c4bb" stroke-width="1.2" stroke-dasharray="5 5"/>
-  <line x1="74" y1="107" x2="264" y2="181" stroke="#cc785c" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="74" cy="107" r="4" fill="#cc785c"/>
-  <circle cx="264" cy="181" r="4" fill="#cc785c"/>
-  <text x="62" y="91" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" font-weight="600">λ_max：陡峭方向</text>
-  <text x="203" y="202" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">λ_min：平缓方向</text>
-  <text x="72" y="216" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">轴比 = √κ，迭代时间尺度约随 κ 拉开</text>
+  <rect x="24" y="62" width="300" height="164" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <ellipse cx="169" cy="145" rx="108" ry="58" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-c9c4bb"/>
+  <ellipse cx="169" cy="145" rx="83" ry="44" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-c9c4bb"/>
+  <ellipse cx="169" cy="145" rx="58" ry="30" fill="none"  stroke-width="1.5" class="svg-coral-stroke-stroke"/>
+  <line x1="61" y1="145" x2="277" y2="145"  stroke-width="1.2" stroke-dasharray="5 5" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="169" y1="79" x2="169" y2="211"  stroke-width="1.2" stroke-dasharray="5 5" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="74" y1="107" x2="264" y2="181"  stroke-width="2" stroke-linecap="round" class="svg-coral-stroke-stroke"/>
+  <circle cx="74" cy="107" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="264" cy="181" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <text x="62" y="91"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" font-weight="600" class="svg-coral-text-fill">λ_max：陡峭方向</text>
+  <text x="203" y="202"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">λ_min：平缓方向</text>
+  <text x="72" y="216"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">轴比 = √κ，迭代时间尺度约随 κ 拉开</text>
 
-  <rect x="344" y="62" width="192" height="164" rx="12" fill="#ebe7e4" stroke="#c9c4bb"/>
-  <text x="364" y="88" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="700">曲率谱</text>
-  <text x="364" y="111" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">原始：λ_min=1，λ_max=100</text>
-  <text x="364" y="131" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="600">κ = 100</text>
-  <line x1="364" y1="147" x2="516" y2="147" stroke="#c9c4bb" stroke-width="1"/>
-  <text x="364" y="169" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">M = diag(1，1/100)</text>
-  <text x="364" y="189" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">预条件后：谱更集中</text>
-  <text x="364" y="209" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">步长不再被单一方向拖住</text>
+  <rect x="344" y="62" width="192" height="164" rx="12"   class="svg-special-fill-fill-ebe7e4 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-ebe7e4"/>
+  <text x="364" y="88"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">曲率谱</text>
+  <text x="364" y="111"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">原始：λ_min=1，λ_max=100</text>
+  <text x="364" y="131"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="600" class="svg-coral-text-fill">κ = 100</text>
+  <line x1="364" y1="147" x2="516" y2="147"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="364" y="169"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">M = diag(1，1/100)</text>
+  <text x="364" y="189"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">预条件后：谱更集中</text>
+  <text x="364" y="209"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">步长不再被单一方向拖住</text>
 </svg>

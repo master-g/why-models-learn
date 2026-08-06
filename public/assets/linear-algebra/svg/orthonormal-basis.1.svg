@@ -1,61 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="ob-title ob-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="ob-title ob-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6c6a64 { fill: #6c6a64; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6c6a64 { fill: #a6a4a1; }
+
+
+
+  }
+</style>
   <title id="ob-title">Gram–Schmidt 过程</title>
   <desc id="ob-desc">先取第一个向量并归一化，再从第二个向量减去第一个方向的分量，得到正交归一的两个方向。</desc>
   <defs>
     <marker id="ob-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="ob-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="ob-arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c6a64"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-6c6a64"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="181" y1="18" x2="181" y2="224" stroke="#e2dbd3"/>
-  <line x1="382" y1="18" x2="382" y2="224" stroke="#e2dbd3"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="181" y1="18" x2="181" y2="224"  class="svg-special-graphic-stroke-e2dbd3"/>
+  <line x1="382" y1="18" x2="382" y2="224"  class="svg-special-graphic-stroke-e2dbd3"/>
 
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="18" y="24" font-size="13" font-weight="600">原向量</text>
     <text x="198" y="24" font-size="13" font-weight="600">去掉 q₁ 方向</text>
     <text x="399" y="24" font-size="13" font-weight="600">正交归一结果</text>
   </g>
 
   <!-- 左 panel: v1=(1,1), v2=(1,0) -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="35" y1="163" x2="158" y2="163" marker-end="url(#ob-arrow-muted)"/>
     <line x1="96" y1="207" x2="96" y2="55" marker-end="url(#ob-arrow-muted)"/>
   </g>
-  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-special-fill-fill-6c6a64 svg-special-text-fill-6c6a64">
     <text x="148" y="181">x</text>
     <text x="103" y="65">y</text>
   </g>
-  <line x1="96" y1="163" x2="141" y2="118" stroke="#312f2f" stroke-width="2.2" marker-end="url(#ob-arrow-ink)"/>
-  <line x1="96" y1="163" x2="141" y2="163" stroke="#6c6a64" stroke-width="2" marker-end="url(#ob-arrow-muted)"/>
-  <text x="137" y="111" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">v₁</text>
-  <text x="140" y="157" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#6c6a64">v₂</text>
+  <line x1="96" y1="163" x2="141" y2="118"  stroke-width="2.2" marker-end="url(#ob-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="96" y1="163" x2="141" y2="163"  stroke-width="2" marker-end="url(#ob-arrow-muted)" class="svg-special-graphic-stroke-6c6a64"/>
+  <text x="137" y="111" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">v₁</text>
+  <text x="140" y="157" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-muted-fill">v₂</text>
 
   <!-- 中 panel: formula -->
-  <rect x="195" y="57" width="173" height="103" rx="6" fill="#f4efee" stroke="#d8d0c8"/>
-  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" fill="#312f2f">
+  <rect x="195" y="57" width="173" height="103" rx="6"   class="svg-special-fill-fill-f4efee svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-f4efee"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="210" y="83" font-size="16">u₂ = v₂ − ⟨v₂,q₁⟩q₁</text>
     <text x="210" y="112" font-size="15">= (1/2, −1/2)</text>
     <text x="210" y="140" font-size="15">q₂ = u₂ / ‖u₂‖</text>
   </g>
-  <line x1="212" y1="181" x2="339" y2="181" stroke="#cc785c" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ob-arrow-coral)"/>
-  <text x="224" y="204" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">减掉 q₁ 分量，再归一化</text>
+  <line x1="212" y1="181" x2="339" y2="181"  stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ob-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="224" y="204" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">减掉 q₁ 分量，再归一化</text>
 
   <!-- 右 panel: q1=(1,1)/sqrt2, q2=(1,-1)/sqrt2 -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="403" y1="163" x2="544" y2="163" marker-end="url(#ob-arrow-muted)"/>
     <line x1="474" y1="210" x2="474" y2="53" marker-end="url(#ob-arrow-muted)"/>
   </g>
-  <line x1="474" y1="163" x2="519" y2="118" stroke="#cc785c" stroke-width="2.2" marker-end="url(#ob-arrow-coral)"/>
-  <line x1="474" y1="163" x2="519" y2="208" stroke="#cc785c" stroke-width="2.2" marker-end="url(#ob-arrow-coral)"/>
-  <text x="516" y="111" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">q₁</text>
-  <text x="518" y="218" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">q₂</text>
-  <path d="M 492 145 A 25 25 0 0 1 492 181" fill="none" stroke="#6c6a64" stroke-width="1.2"/>
-  <text x="399" y="235" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11.5" fill="#6c6a64">q₁=(1,1)/√2，q₂=(1,−1)/√2</text>
+  <line x1="474" y1="163" x2="519" y2="118"  stroke-width="2.2" marker-end="url(#ob-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="474" y1="163" x2="519" y2="208"  stroke-width="2.2" marker-end="url(#ob-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="516" y="111" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">q₁</text>
+  <text x="518" y="218" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">q₂</text>
+  <path d="M 492 145 A 25 25 0 0 1 492 181" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-6c6a64"/>
+  <text x="399" y="235" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11.5"  class="svg-muted-fill">q₁=(1,1)/√2，q₂=(1,−1)/√2</text>
 </svg>

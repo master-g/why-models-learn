@@ -1,38 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-ebe7e4 { fill: #ebe7e4; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-ebe7e4 { fill: #333232; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">损失景观中的等值线、梯度轨迹与平坦谷</title>
   <desc id="desc">左侧是椭圆等值线和沿平坦方向靠近谷底的梯度轨迹，右侧说明用 Hessian 特征值读取局部景观。</desc>
-  <rect width="560" height="250" fill="#f4efee"/>
-  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">损失景观的局部形状</text>
-  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">等值线、梯度轨迹和参数等价谷</text>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="24" y="27"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" class="svg-special-text-fill-312f2f">损失景观的局部形状</text>
+  <text x="24" y="47"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">等值线、梯度轨迹和参数等价谷</text>
 
-  <rect x="24" y="62" width="300" height="164" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <line x1="55" y1="181" x2="286" y2="181" stroke="#b8b2a8" stroke-width="1.2"/>
-  <line x1="165" y1="207" x2="165" y2="76" stroke="#b8b2a8" stroke-width="1.2"/>
-  <text x="278" y="198" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">参数方向</text>
-  <text x="174" y="84" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">损失</text>
+  <rect x="24" y="62" width="300" height="164" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <line x1="55" y1="181" x2="286" y2="181"  stroke-width="1.2" class="svg-axis-stroke"/>
+  <line x1="165" y1="207" x2="165" y2="76"  stroke-width="1.2" class="svg-axis-stroke"/>
+  <text x="278" y="198"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">参数方向</text>
+  <text x="174" y="84"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">损失</text>
 
-  <ellipse cx="165" cy="148" rx="108" ry="57" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
-  <ellipse cx="165" cy="148" rx="88" ry="46" fill="none" stroke="#c9c4bb" stroke-width="1.2"/>
-  <ellipse cx="165" cy="148" rx="67" ry="35" fill="none" stroke="#b8b2a8" stroke-width="1.2"/>
-  <ellipse cx="165" cy="148" rx="45" ry="23" fill="none" stroke="#cc785c" stroke-width="1.5"/>
-  <line x1="58" y1="148" x2="273" y2="148" stroke="#c9c4bb" stroke-width="1.2" stroke-dasharray="5 5"/>
-  <polyline points="270,91 243,105 217,119 193,133 175,143 165,148" fill="none" stroke="#cc785c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="270" cy="91" r="4" fill="#cc785c"/>
-  <circle cx="243" cy="105" r="3.5" fill="#cc785c"/>
-  <circle cx="217" cy="119" r="3.5" fill="#cc785c"/>
-  <circle cx="193" cy="133" r="3.5" fill="#cc785c"/>
-  <circle cx="175" cy="143" r="3.5" fill="#cc785c"/>
-  <circle cx="165" cy="148" r="4" fill="#312f2f"/>
-  <text x="232" y="83" fill="#cc785c" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" font-weight="600">陡峭方向</text>
-  <text x="205" y="169" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">平坦谷</text>
-  <text x="72" y="215" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">二维切片只是高维景观的剖面</text>
+  <ellipse cx="165" cy="148" rx="108" ry="57" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-c9c4bb"/>
+  <ellipse cx="165" cy="148" rx="88" ry="46" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-c9c4bb"/>
+  <ellipse cx="165" cy="148" rx="67" ry="35" fill="none"  stroke-width="1.2" class="svg-axis-stroke"/>
+  <ellipse cx="165" cy="148" rx="45" ry="23" fill="none"  stroke-width="1.5" class="svg-coral-stroke-stroke"/>
+  <line x1="58" y1="148" x2="273" y2="148"  stroke-width="1.2" stroke-dasharray="5 5" class="svg-special-graphic-stroke-c9c4bb"/>
+  <polyline points="270,91 243,105 217,119 193,133 175,143 165,148" fill="none"  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="svg-coral-stroke-stroke"/>
+  <circle cx="270" cy="91" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="243" cy="105" r="3.5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="217" cy="119" r="3.5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="193" cy="133" r="3.5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="175" cy="143" r="3.5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="165" cy="148" r="4"  class="svg-special-fill-fill-312f2f"/>
+  <text x="232" y="83"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" font-weight="600" class="svg-coral-text-fill">陡峭方向</text>
+  <text x="205" y="169"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">平坦谷</text>
+  <text x="72" y="215"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">二维切片只是高维景观的剖面</text>
 
-  <rect x="344" y="62" width="192" height="164" rx="12" fill="#ebe7e4" stroke="#c9c4bb"/>
-  <text x="364" y="88" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="700">局部读法</text>
-  <text x="364" y="112" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">Hessian 特征值</text>
-  <text x="364" y="132" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">λ_max 大 → 横向陡</text>
-  <text x="364" y="151" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">λ_min 小 → 沿谷慢</text>
-  <line x1="364" y1="165" x2="516" y2="165" stroke="#c9c4bb" stroke-width="1"/>
-  <text x="364" y="187" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">平坦方向 ≠ 泛化保证</text>
-  <text x="364" y="207" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">先固定参数化再比较</text>
+  <rect x="344" y="62" width="192" height="164" rx="12"   class="svg-special-fill-fill-ebe7e4 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-ebe7e4"/>
+  <text x="364" y="88"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="14" font-weight="700" class="svg-special-text-fill-312f2f">局部读法</text>
+  <text x="364" y="112"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">Hessian 特征值</text>
+  <text x="364" y="132"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">λ_max 大 → 横向陡</text>
+  <text x="364" y="151"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">λ_min 小 → 沿谷慢</text>
+  <line x1="364" y1="165" x2="516" y2="165"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="364" y="187"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">平坦方向 ≠ 泛化保证</text>
+  <text x="364" y="207"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">先固定参数化再比较</text>
 </svg>

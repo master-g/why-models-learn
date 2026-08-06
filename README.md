@@ -25,6 +25,8 @@ Transformer，再到理解预训练、微调、推理与对齐。
 写作完成后，把 vault 词条的 `status` 改为 `complete`，从 `sections.yaml` 的
 `known_absent` 移除对应 slug，再运行同步、测试、构建与视觉验收。
 
+新增或迁移插图时，遵循 [SVG 主题作者规范](docs/authoring/svg-theme.md)。
+
 ## 常用命令
 
 ```bash
@@ -42,6 +44,7 @@ npm run check:public-history  # 检查全部可达 Git 历史
 - `content-zh/<section>/<slug>.md`：同步产物。
 - `public/assets/<section>/svg/`：从 vault 同步的原创插图。
 - `scripts/sync-from-vault.mjs`：同步管道。
+- `scripts/migrate-svg-theme.mjs`：迁移与检查插图的明暗主题角色。
 - `playground/rendering.md`：渲染管线回归夹具。
 
 ## 许可

@@ -1,55 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-5b8f83 { fill: #5b8f83; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f6f3ee { fill: #92908e; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-fill-fill-fffdfa { fill: #92908f; }
+  .svg-special-graphic-stroke-5b8f83 { stroke: #5b8f83; }
+  .svg-special-graphic-stroke-6d8796 { stroke: #6d8796; }
+  .svg-special-graphic-stroke-bbb5ab { stroke: #959089; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d4cec5 { stroke: #95908a; }
+  .svg-special-graphic-stroke-d5d0c8 { stroke: #94908b; }
+  .svg-special-graphic-stroke-d7d1c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-ded9d1 { stroke: #94908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-514c46 { fill: #514c46; }
+  .svg-special-text-fill-716c65 { fill: #716c65; }
+  .svg-special-text-fill-8a847b { fill: #78726b; }
+  .svg-special-text-fill-fffdfa { fill: #737371; }
+
+  .svg-special-background-fill-f6f3ee { fill: #f6f3ee; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+  .svg-special-background-fill-fffdfa { fill: #fffdfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-5b8f83 { fill: #5b8f83; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f6f3ee { fill: #92908e; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-fill-fill-fffdfa { fill: #92908f; }
+    .svg-special-graphic-stroke-5b8f83 { stroke: #5b8f83; }
+    .svg-special-graphic-stroke-6d8796 { stroke: #6d8796; }
+    .svg-special-graphic-stroke-bbb5ab { stroke: #959089; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d4cec5 { stroke: #95908a; }
+    .svg-special-graphic-stroke-d5d0c8 { stroke: #94908b; }
+    .svg-special-graphic-stroke-d7d1c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-ded9d1 { stroke: #94908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-514c46 { fill: #a6a4a0; }
+    .svg-special-text-fill-716c65 { fill: #a7a49f; }
+    .svg-special-text-fill-8a847b { fill: #a7a49f; }
+    .svg-special-text-fill-fffdfa { fill: #a5a5a3; }
+    .svg-special-background-fill-f6f3ee { fill: #353433; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+    .svg-special-background-fill-fffdfa { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">动量与 Nesterov 的训练状态</title>
   <desc id="desc">左侧比较梯度下降、重球法与 Nesterov 在细长二次谷底中的轨迹，右侧展示梯度、缓冲区和参数更新的顺序。</desc>
-  <rect width="800" height="373" rx="18" fill="#fbfaf7"/>
-  <text x="28" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#312f2f">历史方向怎样改变轨迹</text>
-  <text x="28" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#716c65">同一学习率下，缓冲区把更新变成带记忆的状态机</text>
+  <rect width="800" height="373" rx="18"  class="svg-special-fill-fill-fbfaf7 svg-special-background-fill-fbfaf7"/>
+  <text x="28" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700"  class="svg-special-text-fill-312f2f">历史方向怎样改变轨迹</text>
+  <text x="28" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="11"  class="svg-special-text-fill-716c65">同一学习率下，缓冲区把更新变成带记忆的状态机</text>
 
-  <rect x="24" y="69" width="414" height="276" rx="14" fill="#f6f3ee" stroke="#d5d0c8"/>
-  <line x1="66" y1="303" x2="416" y2="303" stroke="#b8b2a8" stroke-width="1.5"/>
-  <line x1="94" y1="322" x2="94" y2="96" stroke="#b8b2a8" stroke-width="1.5"/>
-  <text x="398" y="322" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#8a847b">θ₁</text>
-  <text x="72" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#8a847b">θ₂</text>
+  <rect x="24" y="69" width="414" height="276" rx="14"   class="svg-special-fill-fill-f6f3ee svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-f6f3ee"/>
+  <line x1="66" y1="303" x2="416" y2="303"  stroke-width="1.5" class="svg-axis-stroke"/>
+  <line x1="94" y1="322" x2="94" y2="96"  stroke-width="1.5" class="svg-axis-stroke"/>
+  <text x="398" y="322" font-family="system-ui, -apple-system, sans-serif" font-size="10"  class="svg-special-text-fill-8a847b">θ₁</text>
+  <text x="72" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="10"  class="svg-special-text-fill-8a847b">θ₂</text>
 
-  <ellipse cx="255" cy="190" rx="142" ry="92" fill="none" stroke="#ded9d1" stroke-width="1"/>
-  <ellipse cx="255" cy="190" rx="111" ry="70" fill="none" stroke="#d4cec5" stroke-width="1"/>
-  <ellipse cx="255" cy="190" rx="78" ry="49" fill="none" stroke="#c9c4bb" stroke-width="1"/>
-  <ellipse cx="255" cy="190" rx="44" ry="27" fill="none" stroke="#bbb5ab" stroke-width="1"/>
-  <text x="268" y="187" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#8a847b">minimum</text>
+  <ellipse cx="255" cy="190" rx="142" ry="92" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-ded9d1"/>
+  <ellipse cx="255" cy="190" rx="111" ry="70" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-d4cec5"/>
+  <ellipse cx="255" cy="190" rx="78" ry="49" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <ellipse cx="255" cy="190" rx="44" ry="27" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-bbb5ab"/>
+  <text x="268" y="187" font-family="system-ui, -apple-system, sans-serif" font-size="10"  class="svg-special-text-fill-8a847b">minimum</text>
 
-  <polyline points="376,110 354,226 335,126 318,213 301,145 286,202 273,158 264,193 258,169 255,190" fill="none" stroke="#6d8796" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <polyline points="376,110 326,258 294,154 276,220 264,172 258,198 255,184 255,191" fill="none" stroke="#cc785c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <polyline points="376,110 337,231 299,177 273,207 259,188 255,193 255,190" fill="none" stroke="#5b8f83" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="376" cy="110" r="4" fill="#312f2f"/>
-  <circle cx="255" cy="190" r="4" fill="#312f2f"/>
+  <polyline points="376,110 354,226 335,126 318,213 301,145 286,202 273,158 264,193 258,169 255,190" fill="none"  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="svg-special-graphic-stroke-6d8796"/>
+  <polyline points="376,110 326,258 294,154 276,220 264,172 258,198 255,184 255,191" fill="none"  stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" class="svg-coral-stroke-stroke"/>
+  <polyline points="376,110 337,231 299,177 273,207 259,188 255,193 255,190" fill="none"  stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" class="svg-special-graphic-stroke-5b8f83"/>
+  <circle cx="376" cy="110" r="4"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="255" cy="190" r="4"  class="svg-special-fill-fill-312f2f"/>
 
-  <line x1="58" y1="337" x2="78" y2="337" stroke="#6d8796" stroke-width="2.2"/>
-  <text x="84" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#514c46">梯度下降</text>
-  <line x1="166" y1="337" x2="186" y2="337" stroke="#cc785c" stroke-width="2.8"/>
-  <text x="192" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#514c46">重球动量</text>
-  <line x1="278" y1="337" x2="298" y2="337" stroke="#5b8f83" stroke-width="2.8"/>
-  <text x="304" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#514c46">Nesterov</text>
+  <line x1="58" y1="337" x2="78" y2="337"  stroke-width="2.2" class="svg-special-graphic-stroke-6d8796"/>
+  <text x="84" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11"  class="svg-special-text-fill-514c46">梯度下降</text>
+  <line x1="166" y1="337" x2="186" y2="337"  stroke-width="2.8" class="svg-coral-stroke-stroke"/>
+  <text x="192" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11"  class="svg-special-text-fill-514c46">重球动量</text>
+  <line x1="278" y1="337" x2="298" y2="337"  stroke-width="2.8" class="svg-special-graphic-stroke-5b8f83"/>
+  <text x="304" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11"  class="svg-special-text-fill-514c46">Nesterov</text>
 
-  <rect x="458" y="69" width="318" height="276" rx="14" fill="#f6f3ee" stroke="#d5d0c8"/>
-  <text x="484" y="101" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#312f2f">一个 optimizer step</text>
-  <text x="484" y="121" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#716c65">显式记录状态读写顺序</text>
+  <rect x="458" y="69" width="318" height="276" rx="14"   class="svg-special-fill-fill-f6f3ee svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-f6f3ee"/>
+  <text x="484" y="101" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700"  class="svg-special-text-fill-312f2f">一个 optimizer step</text>
+  <text x="484" y="121" font-family="system-ui, -apple-system, sans-serif" font-size="11"  class="svg-special-text-fill-716c65">显式记录状态读写顺序</text>
 
-  <rect x="488" y="143" width="258" height="39" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
-  <circle cx="508" cy="162" r="11" fill="#cc785c"/>
-  <text x="508" y="166" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#fffdfa">1</text>
-  <text x="530" y="167" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">取得当前 batch 梯度 gₖ</text>
+  <rect x="488" y="143" width="258" height="39" rx="9"   class="svg-special-fill-fill-fffdfa svg-special-graphic-stroke-d7d1c8 svg-special-background-fill-fffdfa"/>
+  <circle cx="508" cy="162" r="11"  class="svg-special-fill-fill-cc785c"/>
+  <text x="508" y="166" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700"  class="svg-special-text-fill-fffdfa">1</text>
+  <text x="530" y="167" font-family="system-ui, -apple-system, sans-serif" font-size="12"  class="svg-special-text-fill-312f2f">取得当前 batch 梯度 gₖ</text>
 
-  <line x1="617" y1="182" x2="617" y2="197" stroke="#b8b2a8" stroke-width="1.5"/>
-  <polygon points="617,204 612,196 622,196" fill="#b8b2a8"/>
-  <rect x="488" y="205" width="258" height="39" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
-  <circle cx="508" cy="224" r="11" fill="#cc785c"/>
-  <text x="508" y="228" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#fffdfa">2</text>
-  <text x="530" y="229" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">写入 β·buffer + gₖ</text>
+  <line x1="617" y1="182" x2="617" y2="197"  stroke-width="1.5" class="svg-axis-stroke"/>
+  <polygon points="617,204 612,196 622,196"  class="svg-axis-fill"/>
+  <rect x="488" y="205" width="258" height="39" rx="9"   class="svg-special-fill-fill-fffdfa svg-special-graphic-stroke-d7d1c8 svg-special-background-fill-fffdfa"/>
+  <circle cx="508" cy="224" r="11"  class="svg-special-fill-fill-cc785c"/>
+  <text x="508" y="228" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700"  class="svg-special-text-fill-fffdfa">2</text>
+  <text x="530" y="229" font-family="system-ui, -apple-system, sans-serif" font-size="12"  class="svg-special-text-fill-312f2f">写入 β·buffer + gₖ</text>
 
-  <line x1="617" y1="244" x2="617" y2="259" stroke="#b8b2a8" stroke-width="1.5"/>
-  <polygon points="617,266 612,258 622,258" fill="#b8b2a8"/>
-  <rect x="488" y="267" width="258" height="39" rx="9" fill="#fffdfa" stroke="#d7d1c8"/>
-  <circle cx="508" cy="286" r="11" fill="#5b8f83"/>
-  <text x="508" y="290" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#fffdfa">3</text>
-  <text x="530" y="291" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#312f2f">θₖ₊₁ = θₖ − η·direction</text>
+  <line x1="617" y1="244" x2="617" y2="259"  stroke-width="1.5" class="svg-axis-stroke"/>
+  <polygon points="617,266 612,258 622,258"  class="svg-axis-fill"/>
+  <rect x="488" y="267" width="258" height="39" rx="9"   class="svg-special-fill-fill-fffdfa svg-special-graphic-stroke-d7d1c8 svg-special-background-fill-fffdfa"/>
+  <circle cx="508" cy="286" r="11"  class="svg-special-fill-fill-5b8f83"/>
+  <text x="508" y="290" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700"  class="svg-special-text-fill-fffdfa">3</text>
+  <text x="530" y="291" font-family="system-ui, -apple-system, sans-serif" font-size="12"  class="svg-special-text-fill-312f2f">θₖ₊₁ = θₖ − η·direction</text>
 </svg>

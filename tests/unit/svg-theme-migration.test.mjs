@@ -8,9 +8,10 @@ import { join } from "node:path";
 import {
 	analyzeSvgMigration,
 	applySvgMigration,
+	applySpecializedSvgMigration,
 	structuralProjection,
 } from "../../scripts/lib/svg-theme-migration.mjs";
-import { validateSvgTheme } from "../../scripts/lib/svg-theme-contract.mjs";
+import { contrastRatio, validateSvgTheme } from "../../scripts/lib/svg-theme-contract.mjs";
 
 const LEGACY_STANDARD_SVG = `
 <svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +29,34 @@ const LEGACY_AMBIGUOUS_SVG = `
 <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
   <text x="5" y="20" fill="#123456">标签</text>
   <circle cx="60" cy="40" r="12" fill="#123456"/>
+</svg>`;
+
+const LEGACY_SPECIALIZED_SVG = `
+<svg width="240" height="140" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heat" x1="0" x2="1">
+      <stop offset="0" stop-color="#315c8a"/>
+      <stop offset="1" stop-color="#e89b63"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .ink { fill: #29251f; }
+    .axis { fill: none; stroke: #8f6840; }
+    .muted { fill: #6f665b; }
+  </style>
+  <rect width="240" height="140" fill="#f6f0e5"/>
+  <rect x="20" y="35" width="180" height="70" class="ink" fill="url(#heat)"/>
+  <line x1="20" y1="115" x2="200" y2="115" class="axis"/>
+  <text x="24" y="24" class="muted">专用图</text>
+</svg>`;
+
+const LEGACY_RGBA_SVG = `
+<svg width="160" height="100" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .label { fill: rgba(20, 30, 40, 0.5); }
+  </style>
+  <text x="10" y="20" class="label">半透明标签</text>
+  <circle cx="80" cy="60" r="20" style="stroke: rgba(80, 90, 100, 0.25); fill: none;"/>
 </svg>`;
 
 describe("SVG theme migration", () => {
@@ -65,6 +94,55 @@ describe("SVG theme migration", () => {
 		assert.throws(
 			() => applySvgMigration(LEGACY_AMBIGUOUS_SVG, { asset: "ambiguous.svg" }),
 			/不能自动迁移|specialized/,
+		);
+	});
+
+	it("migrates styled and gradient assets through per-element roles", () => {
+		const result = applySpecializedSvgMigration(LEGACY_SPECIALIZED_SVG, { asset: "special.svg" });
+
+		assert.equal(result.classification, "specialized");
+		assert.deepEqual(
+			structuralProjection(LEGACY_SPECIALIZED_SVG),
+			structuralProjection(result.source),
+		);
+		assert.deepEqual(validateSvgTheme(result.source, { asset: "special.svg" }).errors, []);
+		assert.match(result.source, /prefers-color-scheme:\s*dark/);
+		assert.match(result.source, /svg-special-(?:text|graphic|fill)-/);
+		const contract = validateSvgTheme(result.source, { asset: "special.svg" });
+		const textRoles = [...contract.roles.entries()]
+			.filter(([role]) => role.startsWith("svg-special-text-"));
+		const backgroundRoles = [...contract.roles.entries()]
+			.filter(([role]) => role.startsWith("svg-special-background-"));
+		assert.ok(textRoles.length > 0 && backgroundRoles.length > 0);
+		for (const [, textRole] of textRoles) {
+			for (const [, backgroundRole] of backgroundRoles) {
+				assert.ok(contrastRatio(textRole.dark, backgroundRole.dark) >= 4.5);
+			}
+		}
+	});
+
+	it("preserves RGBA opacity in style blocks and inline styles", () => {
+		const result = applySpecializedSvgMigration(LEGACY_RGBA_SVG, { asset: "rgba.svg" });
+
+		assert.deepEqual(
+			structuralProjection(LEGACY_RGBA_SVG),
+			structuralProjection(result.source),
+		);
+		assert.deepEqual(validateSvgTheme(result.source, { asset: "rgba.svg" }).errors, []);
+		assert.match(result.source, /svg-special-text-fill-141e28-a500/);
+		assert.match(result.source, /fill-opacity: 0\.5/);
+		assert.match(result.source, /svg-special-graphic-stroke-505a64-a250/);
+		assert.match(result.source, /stroke-opacity: 0\.25/);
+		assert.doesNotMatch(result.source, /rgba\(/);
+	});
+
+	it("refreshes already-migrated roles and rejects an invalid unchanged asset", () => {
+		const migrated = applySvgMigration(LEGACY_STANDARD_SVG, { asset: "fixture.svg" }).source;
+		const invalid = migrated.replace("url(#arrow)", "url(#missing)");
+
+		assert.throws(
+			() => applySpecializedSvgMigration(invalid, { asset: "invalid.svg" }),
+			/MISSING_REFERENCE/,
 		);
 	});
 

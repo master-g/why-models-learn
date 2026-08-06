@@ -1,20 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="240" viewBox="0 0 560 240" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="240" viewBox="0 0 560 240" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-7d7773 { fill: #7d7773; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-graphic-stroke-7d7773 { stroke: #7d7773; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706a67 { fill: #706a67; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-7d7773 { fill: #7d7773; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-graphic-stroke-7d7773 { stroke: #7d7773; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706a67 { fill: #a7a4a2; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+
+
+
+  }
+</style>
   <title id="title">向量的投影、正交残差与夹角符号</title>
   <desc id="desc">左图把向量 x 分解为沿 u 的投影和垂直于 u 的残差，右图比较锐角、直角和钝角时内积的正负。</desc>
   <defs>
     <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+      <path d="M0,0 L7,3.5 L0,7 Z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="arrow-coral" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#cc785c"/>
+      <path d="M0,0 L7,3.5 L0,7 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="arrow-gray" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#7d7773"/>
+      <path d="M0,0 L7,3.5 L0,7 Z"  class="svg-special-fill-fill-7d7773"/>
     </marker>
     <style>
       text {
         font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-        fill: #312f2f;
       }
       .math {
         font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
@@ -22,56 +59,56 @@
       }
       .small { font-size: 11px; }
       .label { font-size: 12px; }
-      .caption { font-size: 12px; fill: #706a67; }
-      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+      .caption { font-size: 12px;  }
+      .axis {stroke-width: 1.2; }
+      .guide {stroke-width: 1.2; stroke-dasharray: 4 4; }
     </style>
   </defs>
 
-  <rect x="0" y="0" width="560" height="240" fill="#f4efee"/>
-  <line x1="280" y1="16" x2="280" y2="224" stroke="#e5dedb" stroke-width="1"/>
+  <rect x="0" y="0" width="560" height="240"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="224"  stroke-width="1" class="svg-special-graphic-stroke-e5dedb"/>
 
-  <text x="140" y="20" text-anchor="middle" class="label">投影与正交残差</text>
-  <line x1="52" y1="188" x2="236" y2="102" class="axis" marker-end="url(#arrow-gray)"/>
-  <text x="240" y="104" class="small math">u</text>
-  <line x1="60" y1="184" x2="173.3" y2="131.2" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow-coral)"/>
-  <line x1="60" y1="184" x2="141.2" y2="62.3" stroke="#312f2f" stroke-width="2.5" marker-end="url(#arrow-ink)"/>
-  <line x1="173.3" y1="131.2" x2="141.2" y2="62.3" class="guide"/>
-  <polyline points="164,127 160,118 169,114" fill="none" stroke="#7d7773" stroke-width="1.2"/>
-  <circle cx="60" cy="184" r="3" fill="#312f2f"/>
-  <circle cx="173.3" cy="131.2" r="3" fill="#cc785c"/>
-  <circle cx="141.2" cy="62.3" r="3" fill="#312f2f"/>
-  <text x="49" y="203" class="small math">0</text>
-  <text x="145" y="57" class="label math">x</text>
-  <text x="176" y="145" class="small" fill="#cc785c">projᵤ x</text>
-  <text x="128" y="103" class="small" fill="#706a67">e ⟂ u</text>
-  <text x="140" y="218" text-anchor="middle" class="caption math">x = projᵤ x + e</text>
+  <text x="140" y="20" text-anchor="middle" class="label svg-special-text-fill-312f2f">投影与正交残差</text>
+  <line x1="52" y1="188" x2="236" y2="102" class="axis svg-axis-stroke" marker-end="url(#arrow-gray)"/>
+  <text x="240" y="104" class="small math svg-special-text-fill-312f2f">u</text>
+  <line x1="60" y1="184" x2="173.3" y2="131.2"  stroke-width="3" marker-end="url(#arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="60" y1="184" x2="141.2" y2="62.3"  stroke-width="2.5" marker-end="url(#arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="173.3" y1="131.2" x2="141.2" y2="62.3" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <polyline points="164,127 160,118 169,114" fill="none"  stroke-width="1.2" class="svg-special-graphic-stroke-7d7773"/>
+  <circle cx="60" cy="184" r="3"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="173.3" cy="131.2" r="3"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="141.2" cy="62.3" r="3"  class="svg-special-fill-fill-312f2f"/>
+  <text x="49" y="203" class="small math svg-special-text-fill-312f2f">0</text>
+  <text x="145" y="57" class="label math svg-special-text-fill-312f2f">x</text>
+  <text x="176" y="145" class="small svg-special-text-fill-312f2f svg-coral-text-fill" >projᵤ x</text>
+  <text x="128" y="103" class="small svg-special-text-fill-312f2f svg-special-text-fill-706a67" >e ⟂ u</text>
+  <text x="140" y="218" text-anchor="middle" class="caption math svg-special-text-fill-312f2f svg-special-text-fill-706a67">x = projᵤ x + e</text>
 
-  <text x="420" y="20" text-anchor="middle" class="label">内积符号与夹角</text>
+  <text x="420" y="20" text-anchor="middle" class="label svg-special-text-fill-312f2f">内积符号与夹角</text>
 
   <g transform="translate(0,0)">
-    <line x1="318" y1="150" x2="353" y2="105" stroke="#312f2f" stroke-width="2" marker-end="url(#arrow-ink)"/>
-    <line x1="318" y1="150" x2="367" y2="135" stroke="#cc785c" stroke-width="2" marker-end="url(#arrow-coral)"/>
-    <path d="M338,124 A24,24 0 0 1 343,140" fill="none" stroke="#7d7773" stroke-width="1"/>
-    <text x="342" y="95" text-anchor="middle" class="small">锐角</text>
-    <text x="342" y="178" text-anchor="middle" class="small math">&lt;x,y&gt; &gt; 0</text>
+    <line x1="318" y1="150" x2="353" y2="105"  stroke-width="2" marker-end="url(#arrow-ink)" class="svg-ink-stroke"/>
+    <line x1="318" y1="150" x2="367" y2="135"  stroke-width="2" marker-end="url(#arrow-coral)" class="svg-coral-stroke-stroke"/>
+    <path d="M338,124 A24,24 0 0 1 343,140" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-7d7773"/>
+    <text x="342" y="95" text-anchor="middle" class="small svg-special-text-fill-312f2f">锐角</text>
+    <text x="342" y="178" text-anchor="middle" class="small math svg-special-text-fill-312f2f">&lt;x,y&gt; &gt; 0</text>
   </g>
 
   <g transform="translate(0,0)">
-    <line x1="413" y1="150" x2="413" y2="98" stroke="#312f2f" stroke-width="2" marker-end="url(#arrow-ink)"/>
-    <line x1="413" y1="150" x2="465" y2="150" stroke="#cc785c" stroke-width="2" marker-end="url(#arrow-coral)"/>
-    <path d="M413,132 L431,132 L431,150" fill="none" stroke="#7d7773" stroke-width="1"/>
-    <text x="439" y="95" text-anchor="middle" class="small">正交</text>
-    <text x="439" y="178" text-anchor="middle" class="small math">&lt;x,y&gt; = 0</text>
+    <line x1="413" y1="150" x2="413" y2="98"  stroke-width="2" marker-end="url(#arrow-ink)" class="svg-ink-stroke"/>
+    <line x1="413" y1="150" x2="465" y2="150"  stroke-width="2" marker-end="url(#arrow-coral)" class="svg-coral-stroke-stroke"/>
+    <path d="M413,132 L431,132 L431,150" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-7d7773"/>
+    <text x="439" y="95" text-anchor="middle" class="small svg-special-text-fill-312f2f">正交</text>
+    <text x="439" y="178" text-anchor="middle" class="small math svg-special-text-fill-312f2f">&lt;x,y&gt; = 0</text>
   </g>
 
   <g transform="translate(0,0)">
-    <line x1="508" y1="150" x2="474" y2="105" stroke="#312f2f" stroke-width="2" marker-end="url(#arrow-ink)"/>
-    <line x1="508" y1="150" x2="548" y2="158" stroke="#cc785c" stroke-width="2" marker-end="url(#arrow-coral)"/>
-    <path d="M488,123 A28,28 0 0 0 484,153" fill="none" stroke="#7d7773" stroke-width="1"/>
-    <text x="510" y="95" text-anchor="middle" class="small">钝角</text>
-    <text x="510" y="178" text-anchor="middle" class="small math">&lt;x,y&gt; &lt; 0</text>
+    <line x1="508" y1="150" x2="474" y2="105"  stroke-width="2" marker-end="url(#arrow-ink)" class="svg-ink-stroke"/>
+    <line x1="508" y1="150" x2="548" y2="158"  stroke-width="2" marker-end="url(#arrow-coral)" class="svg-coral-stroke-stroke"/>
+    <path d="M488,123 A28,28 0 0 0 484,153" fill="none"  stroke-width="1" class="svg-special-graphic-stroke-7d7773"/>
+    <text x="510" y="95" text-anchor="middle" class="small svg-special-text-fill-312f2f">钝角</text>
+    <text x="510" y="178" text-anchor="middle" class="small math svg-special-text-fill-312f2f">&lt;x,y&gt; &lt; 0</text>
   </g>
 
-  <text x="420" y="211" text-anchor="middle" class="caption math">cos θ = &lt;x,y&gt; / (‖x‖‖y‖)</text>
+  <text x="420" y="211" text-anchor="middle" class="caption math svg-special-text-fill-312f2f svg-special-text-fill-706a67">cos θ = &lt;x,y&gt; / (‖x‖‖y‖)</text>
 </svg>

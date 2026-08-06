@@ -1,59 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f6f1ef { fill: #93908f; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f6f1ef { fill: #f6f1ef; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f6f1ef { fill: #93908f; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f6f1ef { fill: #353434; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">线性回归把数据投影到特征列空间</title>
   <desc id="desc">左侧是带有残差的散点和拟合直线,右侧是设计矩阵经过正规方程得到参数并生成预测</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/>
+      <path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; fill: #312f2f; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif;  }
       .small { font-size: 16px; }
       .body { font-size: 18px; }
       .label { font-size: 20px; font-weight: 700; }
       .title { font-size: 24px; font-weight: 700; }
     </style>
   </defs>
-  <rect width="900" height="420" fill="#f6f1ef"/>
-  <text x="36" y="40" class="title">线性回归:用一组系数解释一组特征</text>
-  <text x="36" y="68" class="small">拟合值落在特征列空间,残差与每一列正交</text>
+  <rect width="900" height="420"  class="svg-special-fill-fill-f6f1ef svg-special-background-fill-f6f1ef"/>
+  <text x="36" y="40" class="title svg-special-text-fill-312f2f">线性回归:用一组系数解释一组特征</text>
+  <text x="36" y="68" class="small svg-special-text-fill-312f2f">拟合值落在特征列空间,残差与每一列正交</text>
 
-  <rect x="36" y="96" width="405" height="270" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="62" y="130" class="label">数据点与拟合直线</text>
-  <line x1="82" y1="325" x2="406" y2="325" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="82" y1="325" x2="82" y2="145" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="390" y="352" class="small">x</text>
-  <text x="60" y="151" class="small">y</text>
-  <line x1="105" y1="280" x2="377" y2="174" stroke="#cc785c" stroke-width="4"/>
-  <circle cx="126" cy="266" r="7" fill="#312f2f"/>
-  <circle cx="236" cy="209" r="7" fill="#312f2f"/>
-  <circle cx="346" cy="187" r="7" fill="#312f2f"/>
-  <line x1="126" y1="266" x2="126" y2="272" stroke="#312f2f" stroke-width="2" stroke-dasharray="5 5"/>
-  <line x1="236" y1="209" x2="236" y2="229" stroke="#312f2f" stroke-width="2" stroke-dasharray="5 5"/>
-  <line x1="346" y1="187" x2="346" y2="198" stroke="#312f2f" stroke-width="2" stroke-dasharray="5 5"/>
-  <circle cx="126" cy="272" r="5" fill="#cc785c"/>
-  <circle cx="236" cy="229" r="5" fill="#cc785c"/>
-  <circle cx="346" cy="198" r="5" fill="#cc785c"/>
-  <text x="101" y="305" class="small">实际 yᵢ</text>
-  <text x="300" y="160" class="small">ŷ = Xβ</text>
-  <text x="257" y="282" class="small">残差 rᵢ</text>
+  <rect x="36" y="96" width="405" height="270" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="62" y="130" class="label svg-special-text-fill-312f2f">数据点与拟合直线</text>
+  <line x1="82" y1="325" x2="406" y2="325"  stroke-width="2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <line x1="82" y1="325" x2="82" y2="145"  stroke-width="2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <text x="390" y="352" class="small svg-special-text-fill-312f2f">x</text>
+  <text x="60" y="151" class="small svg-special-text-fill-312f2f">y</text>
+  <line x1="105" y1="280" x2="377" y2="174"  stroke-width="4" class="svg-coral-stroke-stroke"/>
+  <circle cx="126" cy="266" r="7"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="236" cy="209" r="7"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="346" cy="187" r="7"  class="svg-special-fill-fill-312f2f"/>
+  <line x1="126" y1="266" x2="126" y2="272"  stroke-width="2" stroke-dasharray="5 5" class="svg-ink-stroke"/>
+  <line x1="236" y1="209" x2="236" y2="229"  stroke-width="2" stroke-dasharray="5 5" class="svg-ink-stroke"/>
+  <line x1="346" y1="187" x2="346" y2="198"  stroke-width="2" stroke-dasharray="5 5" class="svg-ink-stroke"/>
+  <circle cx="126" cy="272" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="236" cy="229" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="346" cy="198" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="101" y="305" class="small svg-special-text-fill-312f2f">实际 yᵢ</text>
+  <text x="300" y="160" class="small svg-special-text-fill-312f2f">ŷ = Xβ</text>
+  <text x="257" y="282" class="small svg-special-text-fill-312f2f">残差 rᵢ</text>
 
-  <line x1="441" y1="226" x2="486" y2="226" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="441" y1="226" x2="486" y2="226"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="500" y="104" width="160" height="102" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="526" y="138" class="label">设计矩阵</text>
-  <text x="532" y="171" class="body">X, y</text>
-  <text x="520" y="193" class="small">样本 × 特征</text>
+  <rect x="500" y="104" width="160" height="102" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="526" y="138" class="label svg-special-text-fill-312f2f">设计矩阵</text>
+  <text x="532" y="171" class="body svg-special-text-fill-312f2f">X, y</text>
+  <text x="520" y="193" class="small svg-special-text-fill-312f2f">样本 × 特征</text>
 
-  <line x1="660" y1="155" x2="698" y2="155" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="660" y1="155" x2="698" y2="155"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="710" y="104" width="160" height="102" rx="14" fill="#fffdfb" stroke="#cc785c" stroke-width="2"/>
-  <text x="731" y="138" class="label">正规方程</text>
-  <text x="720" y="172" class="body">XᵀXβ=Xᵀy</text>
-  <text x="728" y="193" class="small">残差正交</text>
+  <rect x="710" y="104" width="160" height="102" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-coral-stroke-stroke svg-special-background-fill-fffdfb"/>
+  <text x="731" y="138" class="label svg-special-text-fill-312f2f">正规方程</text>
+  <text x="720" y="172" class="body svg-special-text-fill-312f2f">XᵀXβ=Xᵀy</text>
+  <text x="728" y="193" class="small svg-special-text-fill-312f2f">残差正交</text>
 
-  <line x1="790" y1="206" x2="790" y2="248" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="790" y1="206" x2="790" y2="248"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="650" y="260" width="220" height="78" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="680" y="292" class="label">参数与预测</text>
-  <text x="684" y="320" class="body">β̂ → ŷ = Xβ̂</text>
+  <rect x="650" y="260" width="220" height="78" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="680" y="292" class="label svg-special-text-fill-312f2f">参数与预测</text>
+  <text x="684" y="320" class="body svg-special-text-fill-312f2f">β̂ → ŷ = Xβ̂</text>
 </svg>

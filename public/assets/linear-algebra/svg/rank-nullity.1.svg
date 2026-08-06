@@ -1,34 +1,50 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-fill { fill: #312f2f; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-muted-stroke { stroke: #6c6a64; }
+  @media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-fill { fill: #f0efe8; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-muted-stroke { stroke: #aaa9a1; }
+  }
+</style>
   <defs>
     <marker id="rn-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-ink-fill"/>
     </marker>
   </defs>
 
   <!-- 左:V 的基劈成两半,核基(灰)+ 补(墨) -->
-  <text x="40" y="70" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">V 的一组基(3 = 1 + 2)</text>
-  <rect x="40" y="84" width="70" height="28" fill="none" stroke="#6c6a64" stroke-width="1.4"/>
-  <rect x="110" y="84" width="140" height="28" fill="none" stroke="#312f2f" stroke-width="1.4"/>
-  <text x="75" y="102" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64" text-anchor="middle">k₁</text>
-  <text x="180" y="102" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">b₁, b₂</text>
-  <text x="75" y="128" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64" text-anchor="middle">核基(dim 1)</text>
-  <text x="180" y="128" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64" text-anchor="middle">扩充(dim 2)</text>
+  <text x="40" y="70" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">V 的一组基(3 = 1 + 2)</text>
+  <rect x="40" y="84" width="70" height="28" fill="none"  stroke-width="1.4" class="svg-muted-stroke"/>
+  <rect x="110" y="84" width="140" height="28" fill="none"  stroke-width="1.4" class="svg-ink-stroke"/>
+  <text x="75" y="102" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-muted-fill">k₁</text>
+  <text x="180" y="102" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-ink-fill">b₁, b₂</text>
+  <text x="75" y="128" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">核基(dim 1)</text>
+  <text x="180" y="128" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">扩充(dim 2)</text>
 
   <!-- 箭头 T -->
-  <line x1="258" y1="98" x2="318" y2="98" stroke="#312f2f" stroke-width="1.4" marker-end="url(#rn-arr-ink)"/>
-  <text x="282" y="88" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f" text-anchor="middle">T</text>
+  <line x1="258" y1="98" x2="318" y2="98"  stroke-width="1.4" marker-end="url(#rn-arr-ink)" class="svg-ink-stroke"/>
+  <text x="282" y="88" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  text-anchor="middle" class="svg-ink-fill">T</text>
 
   <!-- 右上:核基被压没 -->
-  <text x="330" y="48" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">dim ker = 1</text>
-  <rect x="330" y="56" width="70" height="28" fill="none" stroke="#6c6a64" stroke-width="1.4"/>
-  <text x="365" y="74" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64" text-anchor="middle">k₁</text>
-  <text x="414" y="74" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#6c6a64">→ 0</text>
+  <text x="330" y="48" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">dim ker = 1</text>
+  <rect x="330" y="56" width="70" height="28" fill="none"  stroke-width="1.4" class="svg-muted-stroke"/>
+  <text x="365" y="74" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-muted-fill">k₁</text>
+  <text x="414" y="74" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-muted-fill">→ 0</text>
 
   <!-- 右下:扩充的像成为像的基 -->
-  <text x="330" y="106" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">dim im = 2</text>
-  <rect x="330" y="112" width="140" height="28" fill="none" stroke="#cc785c" stroke-width="1.8"/>
-  <text x="400" y="130" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#a9583e" text-anchor="middle">T(b₁), T(b₂)</text>
+  <text x="330" y="106" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-coral-text-fill">dim im = 2</text>
+  <rect x="330" y="112" width="140" height="28" fill="none"  stroke-width="1.8" class="svg-coral-stroke-stroke"/>
+  <text x="400" y="130" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-coral-text-fill">T(b₁), T(b₂)</text>
 
   <!-- 底部等式 -->
-  <text x="280" y="184" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f" text-anchor="middle">dim ker + dim im = 1 + 2 = 3 = dim V</text>
+  <text x="280" y="184" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  text-anchor="middle" class="svg-ink-fill">dim ker + dim im = 1 + 2 = 3 = dim V</text>
 </svg>

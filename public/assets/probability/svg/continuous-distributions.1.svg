@@ -1,11 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706a67 { fill: #706a67; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706a67 { fill: #a7a4a2; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+
+
+
+  }
+</style>
   <title id="title">连续分布的密度面积与累积分布函数</title>
   <desc id="desc">左图在密度曲线下标出区间面积，右图显示同一均匀分布的线性累积分布函数。</desc>
   <defs>
     <style>
       text {
         font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-        fill: #312f2f;
       }
       .math {
         font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
@@ -13,45 +44,45 @@
       }
       .small { font-size: 11px; }
       .label { font-size: 12px; }
-      .caption { font-size: 12px; fill: #706a67; }
-      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-      .guide { stroke: #c9c4bb; stroke-width: 1.2; stroke-dasharray: 4 4; }
+      .caption { font-size: 12px;  }
+      .axis {stroke-width: 1.2; }
+      .guide {stroke-width: 1.2; stroke-dasharray: 4 4; }
     </style>
     <marker id="arrow-ink" markerWidth="7" markerHeight="7" refX="5.8" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#312f2f"/>
+      <path d="M0,0 L7,3.5 L0,7 Z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
-  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+  <rect x="0" y="0" width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234"  stroke-width="1" class="svg-special-graphic-stroke-e5dedb"/>
 
-  <text x="140" y="22" text-anchor="middle" class="label">密度曲线下的面积</text>
-  <line x1="38" y1="204" x2="246" y2="204" class="axis" marker-end="url(#arrow-ink)"/>
-  <line x1="38" y1="204" x2="38" y2="45" class="axis" marker-end="url(#arrow-ink)"/>
-  <text x="248" y="220" class="small math">x</text>
-  <text x="25" y="48" class="small math">f(x)</text>
+  <text x="140" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">密度曲线下的面积</text>
+  <line x1="38" y1="204" x2="246" y2="204" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
+  <line x1="38" y1="204" x2="38" y2="45" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
+  <text x="248" y="220" class="small math svg-special-text-fill-312f2f">x</text>
+  <text x="25" y="48" class="small math svg-special-text-fill-312f2f">f(x)</text>
   <path d="M54,204 C72,184 86,137 112,99 C137,62 157,59 178,90 C198,121 214,170 232,204"
-        fill="none" stroke="#312f2f" stroke-width="2.3"/>
+        fill="none"  stroke-width="2.3" class="svg-ink-stroke"/>
   <path d="M95,204 C103,172 110,107 124,83 C139,59 151,64 164,91 C175,114 182,167 187,204 Z"
-        fill="#cc785c" fill-opacity="0.3" stroke="none"/>
-  <line x1="95" y1="204" x2="95" y2="142" class="guide"/>
-  <line x1="187" y1="204" x2="187" y2="145" class="guide"/>
-  <text x="95" y="222" text-anchor="middle" class="small math">a</text>
-  <text x="187" y="222" text-anchor="middle" class="small math">b</text>
-  <text x="141" y="137" text-anchor="middle" class="small">区间概率</text>
-  <text x="140" y="239" text-anchor="middle" class="caption math">P(a ≤ X ≤ b) = ∫ₐᵇ f(x) dx</text>
+         fill-opacity="0.3" stroke="none" class="svg-special-fill-fill-cc785c"/>
+  <line x1="95" y1="204" x2="95" y2="142" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="187" y1="204" x2="187" y2="145" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="95" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">a</text>
+  <text x="187" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">b</text>
+  <text x="141" y="137" text-anchor="middle" class="small svg-special-text-fill-312f2f">区间概率</text>
+  <text x="140" y="239" text-anchor="middle" class="caption math svg-special-text-fill-312f2f svg-special-text-fill-706a67">P(a ≤ X ≤ b) = ∫ₐᵇ f(x) dx</text>
 
-  <text x="420" y="22" text-anchor="middle" class="label">CDF：累计面积</text>
-  <line x1="314" y1="204" x2="527" y2="204" class="axis" marker-end="url(#arrow-ink)"/>
-  <line x1="314" y1="204" x2="314" y2="45" class="axis" marker-end="url(#arrow-ink)"/>
-  <text x="529" y="220" class="small math">x</text>
-  <text x="302" y="48" class="small math">F(x)</text>
+  <text x="420" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">CDF：累计面积</text>
+  <line x1="314" y1="204" x2="527" y2="204" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
+  <line x1="314" y1="204" x2="314" y2="45" class="axis svg-axis-stroke" marker-end="url(#arrow-ink)"/>
+  <text x="529" y="220" class="small math svg-special-text-fill-312f2f">x</text>
+  <text x="302" y="48" class="small math svg-special-text-fill-312f2f">F(x)</text>
   <path d="M330,204 L354,204 C389,200 420,170 449,134 C475,101 492,73 516,56"
-        fill="none" stroke="#cc785c" stroke-width="2.5"/>
-  <line x1="330" y1="204" x2="516" y2="56" class="guide"/>
-  <text x="330" y="222" text-anchor="middle" class="small math">a</text>
-  <text x="516" y="222" text-anchor="middle" class="small math">b</text>
-  <circle cx="420" cy="160" r="4" fill="#cc785c"/>
-  <line x1="420" y1="160" x2="420" y2="204" class="guide"/>
-  <text x="420" y="239" text-anchor="middle" class="caption">F(x) = P(X ≤ x)</text>
+        fill="none"  stroke-width="2.5" class="svg-coral-stroke-stroke"/>
+  <line x1="330" y1="204" x2="516" y2="56" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="330" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">a</text>
+  <text x="516" y="222" text-anchor="middle" class="small math svg-special-text-fill-312f2f">b</text>
+  <circle cx="420" cy="160" r="4"  class="svg-special-fill-fill-cc785c"/>
+  <line x1="420" y1="160" x2="420" y2="204" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="420" y="239" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">F(x) = P(X ≤ x)</text>
 </svg>

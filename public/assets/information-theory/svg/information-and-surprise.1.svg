@@ -1,50 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+  .svg-special-graphic-stroke-8f8a83 { stroke: #8f8a83; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-faf8f5 { fill: #faf8f5; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+    .svg-special-graphic-stroke-8f8a83 { stroke: #8f8a83; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-faf8f5 { fill: #353534; }
+
+
+
+  }
+</style>
   <title>概率经过负对数变成惊奇度和编码长度</title>
   <desc>事件概率经过负对数映射为自信息量，概率越小，惊奇度和理想二进制编码长度越大。</desc>
   <style>
     text {
       font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      fill: #312f2f;
     }
     .title { font-size: 17px; font-weight: 600; }
     .label { font-size: 13px; font-weight: 600; }
     .body { font-size: 12px; }
     .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 13px; }
-    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
-    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.5; }
-    .line { stroke: #cc785c; stroke-width: 2; fill: none; }
-    .axis { stroke: #8f8a83; stroke-width: 1.2; fill: none; }
-    .curve { stroke: #cc785c; stroke-width: 2.2; fill: none; }
+    .box {stroke-width: 1.4; }
+    .accent {stroke-width: 1.5; }
+    .line {stroke-width: 2; fill: none; }
+    .axis {stroke-width: 1.2; fill: none; }
+    .curve {stroke-width: 2.2; fill: none; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
   </defs>
 
-  <text x="28" y="29" class="title">信息量：把概率乘法变成长度加法</text>
-  <text x="28" y="50" class="body">I₂(x) = −log₂ p(x)，稀有结果需要更长的理想描述</text>
+  <text x="28" y="29" class="title svg-special-text-fill-312f2f">信息量：把概率乘法变成长度加法</text>
+  <text x="28" y="50" class="body svg-special-text-fill-312f2f">I₂(x) = −log₂ p(x)，稀有结果需要更长的理想描述</text>
 
-  <rect x="28" y="78" width="126" height="66" rx="8" class="box"/>
-  <text x="91" y="101" text-anchor="middle" class="label">事件概率</text>
-  <text x="91" y="126" text-anchor="middle" class="formula">p(x)</text>
+  <rect x="28" y="78" width="126" height="66" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="91" y="101" text-anchor="middle" class="label svg-special-text-fill-312f2f">事件概率</text>
+  <text x="91" y="126" text-anchor="middle" class="formula svg-special-text-fill-312f2f">p(x)</text>
 
-  <path d="M154 111 H188" class="line" marker-end="url(#arrow)"/>
-  <rect x="188" y="78" width="126" height="66" rx="8" class="accent"/>
-  <text x="251" y="101" text-anchor="middle" class="label">负对数</text>
-  <text x="251" y="126" text-anchor="middle" class="formula">−log₂ p(x)</text>
+  <path d="M154 111 H188" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
+  <rect x="188" y="78" width="126" height="66" rx="8" class="accent svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+  <text x="251" y="101" text-anchor="middle" class="label svg-special-text-fill-312f2f">负对数</text>
+  <text x="251" y="126" text-anchor="middle" class="formula svg-special-text-fill-312f2f">−log₂ p(x)</text>
 
-  <path d="M314 111 H348" class="line" marker-end="url(#arrow)"/>
-  <rect x="348" y="78" width="184" height="66" rx="8" class="box"/>
-  <text x="440" y="101" text-anchor="middle" class="label">惊奇度 / 理想码长</text>
-  <text x="440" y="126" text-anchor="middle" class="formula">I₂(x) bits</text>
+  <path d="M314 111 H348" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
+  <rect x="348" y="78" width="184" height="66" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="440" y="101" text-anchor="middle" class="label svg-special-text-fill-312f2f">惊奇度 / 理想码长</text>
+  <text x="440" y="126" text-anchor="middle" class="formula svg-special-text-fill-312f2f">I₂(x) bits</text>
 
-  <path d="M54 208 H500" class="axis" marker-end="url(#arrow)"/>
-  <path d="M54 208 V162" class="axis" marker-end="url(#arrow)"/>
-  <text x="45" y="173" text-anchor="end" class="body">I</text>
-  <text x="505" y="222" class="body">p</text>
-  <path d="M82 174 C150 180 188 190 236 196 C304 202 375 205 486 207" class="curve"/>
-  <text x="92" y="169" class="body">稀有</text>
-  <text x="458" y="202" class="body">常见</text>
-  <text x="262" y="239" text-anchor="middle" class="body">概率越小，−log p 越大；独立事件的码长相加</text>
+  <path d="M54 208 H500" class="axis svg-special-graphic-stroke-8f8a83" marker-end="url(#arrow)"/>
+  <path d="M54 208 V162" class="axis svg-special-graphic-stroke-8f8a83" marker-end="url(#arrow)"/>
+  <text x="45" y="173" text-anchor="end" class="body svg-special-text-fill-312f2f">I</text>
+  <text x="505" y="222" class="body svg-special-text-fill-312f2f">p</text>
+  <path d="M82 174 C150 180 188 190 236 196 C304 202 375 205 486 207" class="curve svg-coral-stroke-stroke"/>
+  <text x="92" y="169" class="body svg-special-text-fill-312f2f">稀有</text>
+  <text x="458" y="202" class="body svg-special-text-fill-312f2f">常见</text>
+  <text x="262" y="239" text-anchor="middle" class="body svg-special-text-fill-312f2f">概率越小，−log p 越大；独立事件的码长相加</text>
 </svg>

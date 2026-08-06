@@ -1,73 +1,131 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+  .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+  .svg-special-fill-fill-e8e1eb { fill: #948f96; }
+  .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+  .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+  .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+  .svg-special-fill-fill-f5ead6 { fill: #979084; }
+  .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+  .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+  .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+  .svg-special-graphic-stroke-8a7295 { stroke: #8a7295; }
+  .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+  .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+  .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+  .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+  .svg-special-text-fill-2f2a27 { fill: #2f2a27; }
+  .svg-special-text-fill-6d625b { fill: #6d625b; }
+
+  .svg-special-background-fill-e2eadf { fill: #e2eadf; }
+  .svg-special-background-fill-e8e1eb { fill: #e8e1eb; }
+  .svg-special-background-fill-e8e4dc { fill: #e8e4dc; }
+  .svg-special-background-fill-f0dfd4 { fill: #f0dfd4; }
+  .svg-special-background-fill-f0e2e0 { fill: #f0e2e0; }
+  .svg-special-background-fill-f5ead6 { fill: #f5ead6; }
+  .svg-special-background-fill-f7f2ed { fill: #f7f2ed; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+    .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+    .svg-special-fill-fill-e8e1eb { fill: #948f96; }
+    .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+    .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+    .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+    .svg-special-fill-fill-f5ead6 { fill: #979084; }
+    .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+    .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+    .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+    .svg-special-graphic-stroke-8a7295 { stroke: #8a7295; }
+    .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+    .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+    .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+    .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+    .svg-special-text-fill-2f2a27 { fill: #a6a4a2; }
+    .svg-special-text-fill-6d625b { fill: #aaa39f; }
+    .svg-special-background-fill-e2eadf { fill: #323331; }
+    .svg-special-background-fill-e8e1eb { fill: #333233; }
+    .svg-special-background-fill-e8e4dc { fill: #333231; }
+    .svg-special-background-fill-f0dfd4 { fill: #343130; }
+    .svg-special-background-fill-f0e2e0 { fill: #343231; }
+    .svg-special-background-fill-f5ead6 { fill: #343330; }
+    .svg-special-background-fill-f7f2ed { fill: #353433; }
+
+
+
+  }
+</style>
   <title id="title">监督微调的数据、mask 与参数更新</title>
   <desc id="desc">带有 system、user 和 assistant 角色的示范经过 chat template 与 tokenizer，shift 后只在 assistant target token 上计算 loss，再更新预训练 checkpoint；模板、数据和评测合同需要同时保存</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif; fill: #2f2a27; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;  }
     .title { font-size: 22px; font-weight: 700; }
     .label { font-size: 15px; font-weight: 700; }
     .body { font-size: 13px; }
-    .small { font-size: 12px; fill: #6d625b; }
-    .data { fill: #e2eadf; stroke: #718b6c; stroke-width: 1.6; rx: 11; }
-    .format { fill: #f5ead6; stroke: #b98a4c; stroke-width: 1.6; rx: 11; }
-    .loss { fill: #f0dfd4; stroke: #bd7556; stroke-width: 1.6; rx: 11; }
-    .update { fill: #e8e1eb; stroke: #8a7295; stroke-width: 1.4; rx: 11; }
-    .contract { fill: #e8e4dc; stroke: #77746e; stroke-width: 1.4; rx: 11; }
-    .audit { fill: #f0e2e0; stroke: #a76a65; stroke-width: 1.4; rx: 11; }
-    .arrow { stroke: #bd7556; stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
-    .thin { stroke: #aaa198; stroke-width: 1; fill: none; }
-    .mask { stroke: #718b6c; stroke-width: 2.2; fill: none; stroke-dasharray: 5 4; }
+    .small { font-size: 12px;  }
+    .data {stroke-width: 1.6; rx: 11; }
+    .format {stroke-width: 1.6; rx: 11; }
+    .loss {stroke-width: 1.6; rx: 11; }
+    .update {stroke-width: 1.4; rx: 11; }
+    .contract {stroke-width: 1.4; rx: 11; }
+    .audit {stroke-width: 1.4; rx: 11; }
+    .arrow {stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
+    .thin {stroke-width: 1; fill: none; }
+    .mask {stroke-width: 2.2; fill: none; stroke-dasharray: 5 4; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#bd7556"/>
+      <polygon points="0 0, 10 3.5, 0 7"  class="svg-special-fill-fill-bd7556"/>
     </marker>
   </defs>
-  <rect width="800" height="373" fill="#f7f2ed"/>
-  <text x="40" y="38" class="title">监督微调：示范数据如何产生参数更新</text>
-  <text x="40" y="61" class="small">shift 保持 next-token 目标，loss mask 决定哪些 target token 产生梯度</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f2ed svg-special-background-fill-f7f2ed"/>
+  <text x="40" y="38" class="title svg-special-text-fill-2f2a27">监督微调：示范数据如何产生参数更新</text>
+  <text x="40" y="61" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">shift 保持 next-token 目标，loss mask 决定哪些 target token 产生梯度</text>
 
-  <rect x="40" y="94" width="154" height="105" class="data"/>
-  <text x="117" y="120" text-anchor="middle" class="label">示范数据</text>
-  <text x="117" y="145" text-anchor="middle" class="body">system</text>
-  <text x="117" y="164" text-anchor="middle" class="body">user → assistant</text>
-  <text x="117" y="185" text-anchor="middle" class="small">答案、来源、切分</text>
+  <rect x="40" y="94" width="154" height="105" class="data svg-special-fill-fill-e2eadf svg-special-graphic-stroke-718b6c svg-special-background-fill-e2eadf"/>
+  <text x="117" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">示范数据</text>
+  <text x="117" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">system</text>
+  <text x="117" y="164" text-anchor="middle" class="body svg-special-text-fill-2f2a27">user → assistant</text>
+  <text x="117" y="185" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">答案、来源、切分</text>
 
-  <rect x="232" y="94" width="154" height="105" class="format"/>
-  <text x="309" y="120" text-anchor="middle" class="label">模板与 token</text>
-  <text x="309" y="145" text-anchor="middle" class="body">role / separator</text>
-  <text x="309" y="164" text-anchor="middle" class="body">tokenizer / shift</text>
-  <text x="309" y="185" text-anchor="middle" class="small">input、label、EOS</text>
+  <rect x="232" y="94" width="154" height="105" class="format svg-special-fill-fill-f5ead6 svg-special-graphic-stroke-b98a4c svg-special-background-fill-f5ead6"/>
+  <text x="309" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">模板与 token</text>
+  <text x="309" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">role / separator</text>
+  <text x="309" y="164" text-anchor="middle" class="body svg-special-text-fill-2f2a27">tokenizer / shift</text>
+  <text x="309" y="185" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">input、label、EOS</text>
 
-  <rect x="424" y="94" width="154" height="105" class="loss"/>
-  <text x="501" y="120" text-anchor="middle" class="label">监督目标</text>
-  <text x="501" y="145" text-anchor="middle" class="body">assistant target</text>
-  <text x="501" y="164" text-anchor="middle" class="body">mask × cross-entropy</text>
-  <text x="501" y="185" text-anchor="middle" class="small">token mean / example mean</text>
+  <rect x="424" y="94" width="154" height="105" class="loss svg-special-fill-fill-f0dfd4 svg-special-graphic-stroke-bd7556 svg-special-background-fill-f0dfd4"/>
+  <text x="501" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">监督目标</text>
+  <text x="501" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">assistant target</text>
+  <text x="501" y="164" text-anchor="middle" class="body svg-special-text-fill-2f2a27">mask × cross-entropy</text>
+  <text x="501" y="185" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">token mean / example mean</text>
 
-  <rect x="616" y="94" width="144" height="105" class="update"/>
-  <text x="688" y="120" text-anchor="middle" class="label">参数更新</text>
-  <text x="688" y="145" text-anchor="middle" class="body">checkpoint θ₀</text>
-  <text x="688" y="164" text-anchor="middle" class="body">θ ← θ − η∇L</text>
-  <text x="688" y="185" text-anchor="middle" class="small">保存 optimizer 与版本</text>
+  <rect x="616" y="94" width="144" height="105" class="update svg-special-fill-fill-e8e1eb svg-special-graphic-stroke-8a7295 svg-special-background-fill-e8e1eb"/>
+  <text x="688" y="120" text-anchor="middle" class="label svg-special-text-fill-2f2a27">参数更新</text>
+  <text x="688" y="145" text-anchor="middle" class="body svg-special-text-fill-2f2a27">checkpoint θ₀</text>
+  <text x="688" y="164" text-anchor="middle" class="body svg-special-text-fill-2f2a27">θ ← θ − η∇L</text>
+  <text x="688" y="185" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">保存 optimizer 与版本</text>
 
-  <path d="M194 146 H232" class="arrow"/>
-  <path d="M386 146 H424" class="arrow"/>
-  <path d="M578 146 H616" class="arrow"/>
-  <path d="M117 207 C220 232, 580 232, 688 207" class="mask"/>
-  <text x="402" y="232" text-anchor="middle" class="small">条件 token 可以被读取，但未必进入 loss</text>
+  <path d="M194 146 H232" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M386 146 H424" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M578 146 H616" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M117 207 C220 232, 580 232, 688 207" class="mask svg-special-graphic-stroke-718b6c"/>
+  <text x="402" y="232" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">条件 token 可以被读取，但未必进入 loss</text>
 
-  <rect x="40" y="263" width="220" height="68" class="contract"/>
-  <text x="150" y="287" text-anchor="middle" class="label">数据合同</text>
-  <text x="150" y="309" text-anchor="middle" class="small">来源、去重、切分、质量、采样比例</text>
+  <rect x="40" y="263" width="220" height="68" class="contract svg-special-fill-fill-e8e4dc svg-special-graphic-stroke-77746e svg-special-background-fill-e8e4dc"/>
+  <text x="150" y="287" text-anchor="middle" class="label svg-special-text-fill-2f2a27">数据合同</text>
+  <text x="150" y="309" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">来源、去重、切分、质量、采样比例</text>
 
-  <rect x="290" y="263" width="220" height="68" class="contract"/>
-  <text x="400" y="287" text-anchor="middle" class="label">运行合同</text>
-  <text x="400" y="309" text-anchor="middle" class="small">batch、token 预算、精度、seed、checkpoint</text>
+  <rect x="290" y="263" width="220" height="68" class="contract svg-special-fill-fill-e8e4dc svg-special-graphic-stroke-77746e svg-special-background-fill-e8e4dc"/>
+  <text x="400" y="287" text-anchor="middle" class="label svg-special-text-fill-2f2a27">运行合同</text>
+  <text x="400" y="309" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">batch、token 预算、精度、seed、checkpoint</text>
 
-  <rect x="540" y="263" width="220" height="68" class="audit"/>
-  <text x="650" y="287" text-anchor="middle" class="label">评测合同</text>
-  <text x="650" y="309" text-anchor="middle" class="small">mask、模板、decode、stop、回归集</text>
+  <rect x="540" y="263" width="220" height="68" class="audit svg-special-fill-fill-f0e2e0 svg-special-graphic-stroke-a76a65 svg-special-background-fill-f0e2e0"/>
+  <text x="650" y="287" text-anchor="middle" class="label svg-special-text-fill-2f2a27">评测合同</text>
+  <text x="650" y="309" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">mask、模板、decode、stop、回归集</text>
 
-  <path d="M40 347 H760" class="thin"/>
-  <text x="40" y="365" class="small">SFT 改变参数对示范目标的概率；能力变化必须在固定数据、模板、评测和资源合同下报告</text>
+  <path d="M40 347 H760" class="thin svg-special-graphic-stroke-aaa198"/>
+  <text x="40" y="365" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">SFT 改变参数对示范目标的概率；能力变化必须在固定数据、模板、评测和资源合同下报告</text>
 </svg>

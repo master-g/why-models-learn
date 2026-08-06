@@ -1,72 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-special-fill-fill-29251f { fill: #29251f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-d9e4e5 { fill: #8b9293; }
+  .svg-special-fill-fill-e3c6a5 { fill: #a28d76; }
+  .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+  .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+  .svg-special-fill-fill-efe1cd { fill: #988f83; }
+  .svg-special-fill-fill-efe8de { fill: #95908a; }
+  .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+  .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+  .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+  .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+  .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+  .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+  .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+  .svg-special-text-fill-6f665b { fill: #6f665b; }
+
+  .svg-special-background-fill-d9e4e5 { fill: #d9e4e5; }
+  .svg-special-background-fill-e3c6a5 { fill: #e3c6a5; }
+  .svg-special-background-fill-e5edf0 { fill: #e5edf0; }
+  .svg-special-background-fill-e8e6d9 { fill: #e8e6d9; }
+  .svg-special-background-fill-efe1cd { fill: #efe1cd; }
+  .svg-special-background-fill-efe8de { fill: #efe8de; }
+  .svg-special-background-fill-f0e7ca { fill: #f0e7ca; }
+  .svg-special-background-fill-f6f0e5 { fill: #f6f0e5; }
+  .svg-special-text-fill-29251f { fill: #29251f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-special-fill-fill-29251f { fill: #65625d; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-d9e4e5 { fill: #8b9293; }
+    .svg-special-fill-fill-e3c6a5 { fill: #a28d76; }
+    .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+    .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+    .svg-special-fill-fill-efe1cd { fill: #988f83; }
+    .svg-special-fill-fill-efe8de { fill: #95908a; }
+    .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+    .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+    .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+    .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+    .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+    .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+    .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+    .svg-special-text-fill-6f665b { fill: #a9a49d; }
+    .svg-special-background-fill-d9e4e5 { fill: #303232; }
+    .svg-special-background-fill-e3c6a5 { fill: #322e29; }
+    .svg-special-background-fill-e5edf0 { fill: #323334; }
+    .svg-special-background-fill-e8e6d9 { fill: #333230; }
+    .svg-special-background-fill-efe1cd { fill: #34322f; }
+    .svg-special-background-fill-efe8de { fill: #343331; }
+    .svg-special-background-fill-f0e7ca { fill: #34322e; }
+    .svg-special-background-fill-f6f0e5 { fill: #353432; }
+    .svg-special-text-fill-29251f { fill: #a6a4a1; }
+
+
+
+  }
+</style>
   <title id="title">交叉注意力的目标 query 和源 key/value</title>
   <desc id="desc">目标序列产生 query，源序列产生 key/value，形成目标长度乘源长度的 attention matrix；下方对比静态 source KV cache 和增长的 target self cache。</desc>
-  <rect width="800" height="373" fill="#f6f0e5"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f6f0e5 svg-special-background-fill-f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"  class="svg-special-fill-fill-29251f svg-special-text-fill-29251f">
     <text x="32" y="34" font-size="22" font-weight="700">Cross-Attention：目标 query 读取源 K/V</text>
-    <text x="32" y="57" font-size="12" fill="#6f665b">两条序列 → T × S 读取矩阵 → 目标长度的 context</text>
+    <text x="32" y="57" font-size="12"  class="svg-special-text-fill-6f665b">两条序列 → T × S 读取矩阵 → 目标长度的 context</text>
 
-    <rect x="32" y="84" width="166" height="112" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <rect x="32" y="84" width="166" height="112" rx="12"   class="svg-special-fill-fill-efe1cd svg-special-graphic-stroke-b58b5b svg-special-background-fill-efe1cd"/>
     <text x="52" y="111" font-size="14" font-weight="700">目标序列 Hₜᵍₜ</text>
     <text x="52" y="140" font-size="13">T 个 query</text>
-    <text x="52" y="166" font-size="12" fill="#6f665b">decoder prefix</text>
-    <text x="52" y="185" font-size="11" fill="#6f665b">Q → 行轴</text>
+    <text x="52" y="166" font-size="12"  class="svg-special-text-fill-6f665b">decoder prefix</text>
+    <text x="52" y="185" font-size="11"  class="svg-special-text-fill-6f665b">Q → 行轴</text>
 
-    <path d="M198 122 H230" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M222 114 L232 122 L222 130" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M198 122 H230"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M222 114 L232 122 L222 130"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="230" y="84" width="151" height="112" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <rect x="230" y="84" width="151" height="112" rx="12"   class="svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
     <text x="249" y="111" font-size="14" font-weight="700">Q 投影</text>
     <text x="249" y="141" font-size="13">Q ∈ B × h × T × dₖ</text>
-    <text x="249" y="168" font-size="11" fill="#6f665b">每个 target head</text>
-    <text x="249" y="185" font-size="11" fill="#6f665b">有自己的 query</text>
+    <text x="249" y="168" font-size="11"  class="svg-special-text-fill-6f665b">每个 target head</text>
+    <text x="249" y="185" font-size="11"  class="svg-special-text-fill-6f665b">有自己的 query</text>
 
-    <rect x="32" y="218" width="166" height="112" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <rect x="32" y="218" width="166" height="112" rx="12"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
     <text x="52" y="245" font-size="14" font-weight="700">源序列 Hₛᵣc</text>
     <text x="52" y="274" font-size="13">S 个 key/value</text>
-    <text x="52" y="300" font-size="12" fill="#6f665b">encoder output</text>
-    <text x="52" y="319" font-size="11" fill="#6f665b">K/V → 列轴</text>
+    <text x="52" y="300" font-size="12"  class="svg-special-text-fill-6f665b">encoder output</text>
+    <text x="52" y="319" font-size="11"  class="svg-special-text-fill-6f665b">K/V → 列轴</text>
 
-    <path d="M198 257 H230" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M222 249 L232 257 L222 265" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M198 257 H230"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M222 249 L232 257 L222 265"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="230" y="218" width="151" height="112" rx="12" fill="#d9e4e5" stroke="#75939d"/>
+    <rect x="230" y="218" width="151" height="112" rx="12"   class="svg-special-fill-fill-d9e4e5 svg-special-graphic-stroke-75939d svg-special-background-fill-d9e4e5"/>
     <text x="249" y="245" font-size="14" font-weight="700">K/V 投影</text>
     <text x="249" y="275" font-size="13">K,V ∈ B × h × S</text>
     <text x="249" y="297" font-size="13">× dₖ / dᵥ</text>
-    <text x="249" y="319" font-size="11" fill="#6f665b">source cache 可静态保存</text>
+    <text x="249" y="319" font-size="11"  class="svg-special-text-fill-6f665b">source cache 可静态保存</text>
 
-    <path d="M381 140 H414" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M406 132 L416 140 L406 148" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M381 267 H414" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M406 259 L416 267 L406 275" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M381 140 H414"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M406 132 L416 140 L406 148"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M381 267 H414"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M406 259 L416 267 L406 275"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="414" y="92" width="178" height="193" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <rect x="414" y="92" width="178" height="193" rx="12"   class="svg-special-fill-fill-f0e7ca svg-special-graphic-stroke-b19350 svg-special-background-fill-f0e7ca"/>
     <text x="434" y="119" font-size="14" font-weight="700">Attention matrix</text>
     <text x="434" y="147" font-size="13">A ∈ B × h × T × S</text>
-    <rect x="434" y="162" width="112" height="72" fill="#e5edf0" stroke="#75939d"/>
-    <path d="M471 162 V234 M508 162 V234 M434 198 H546" stroke="#b8b2a8" stroke-width="1"/>
-    <rect x="434" y="162" width="37" height="36" fill="#cc785c"/>
-    <rect x="471" y="162" width="37" height="36" fill="#e3c6a5"/>
-    <rect x="508" y="162" width="38" height="36" fill="#e3c6a5"/>
-    <rect x="434" y="198" width="37" height="36" fill="#e3c6a5"/>
-    <rect x="471" y="198" width="37" height="36" fill="#cc785c"/>
-    <rect x="508" y="198" width="38" height="36" fill="#e3c6a5"/>
-    <text x="434" y="256" font-size="11" fill="#6f665b">row = target query</text>
-    <text x="434" y="273" font-size="11" fill="#6f665b">col = source key</text>
+    <rect x="434" y="162" width="112" height="72"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
+    <path d="M471 162 V234 M508 162 V234 M434 198 H546"  stroke-width="1" class="svg-axis-stroke"/>
+    <rect x="434" y="162" width="37" height="36"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="471" y="162" width="37" height="36"  class="svg-special-fill-fill-e3c6a5 svg-special-background-fill-e3c6a5"/>
+    <rect x="508" y="162" width="38" height="36"  class="svg-special-fill-fill-e3c6a5 svg-special-background-fill-e3c6a5"/>
+    <rect x="434" y="198" width="37" height="36"  class="svg-special-fill-fill-e3c6a5 svg-special-background-fill-e3c6a5"/>
+    <rect x="471" y="198" width="37" height="36"  class="svg-special-fill-fill-cc785c"/>
+    <rect x="508" y="198" width="38" height="36"  class="svg-special-fill-fill-e3c6a5 svg-special-background-fill-e3c6a5"/>
+    <text x="434" y="256" font-size="11"  class="svg-special-text-fill-6f665b">row = target query</text>
+    <text x="434" y="273" font-size="11"  class="svg-special-text-fill-6f665b">col = source key</text>
 
-    <path d="M592 188 H624" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M616 180 L626 188 L616 196" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M592 188 H624"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M616 180 L626 188 L616 196"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="626" y="92" width="142" height="193" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <rect x="626" y="92" width="142" height="193" rx="12"   class="svg-special-fill-fill-efe8de svg-axis-stroke svg-special-background-fill-efe8de"/>
     <text x="644" y="119" font-size="14" font-weight="700">context</text>
     <text x="644" y="148" font-size="13">C = A V</text>
     <text x="644" y="175" font-size="12">T 个输出</text>
-    <text x="644" y="202" font-size="12" fill="#6f665b">回到 decoder</text>
-    <text x="644" y="226" font-size="11" fill="#6f665b">不加 target</text>
-    <text x="644" y="243" font-size="11" fill="#6f665b">causal 下三角</text>
-    <text x="644" y="269" font-size="11" fill="#6f665b">source padding 可 mask</text>
+    <text x="644" y="202" font-size="12"  class="svg-special-text-fill-6f665b">回到 decoder</text>
+    <text x="644" y="226" font-size="11"  class="svg-special-text-fill-6f665b">不加 target</text>
+    <text x="644" y="243" font-size="11"  class="svg-special-text-fill-6f665b">causal 下三角</text>
+    <text x="644" y="269" font-size="11"  class="svg-special-text-fill-6f665b">source padding 可 mask</text>
 
-    <rect x="32" y="347" width="736" height="1" fill="#b8b2a8"/>
+    <rect x="32" y="347" width="736" height="1"  class="svg-axis-fill"/>
   </g>
 </svg>

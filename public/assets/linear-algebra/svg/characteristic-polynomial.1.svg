@@ -1,59 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="charpoly-title charpoly-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="charpoly-title charpoly-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="charpoly-title">特征多项式把矩阵变成根</title>
   <desc id="charpoly-desc">左侧的二维矩阵经过行列式构造得到二次多项式，右侧把多项式分解并在数轴上标出特征值 2 和 3。</desc>
   <defs>
     <marker id="charpoly-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="320" y1="18" x2="320" y2="232" stroke="#e2dbd3"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="320" y1="18" x2="320" y2="232"  class="svg-special-graphic-stroke-e2dbd3"/>
 
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="20" y="25" font-size="13" font-weight="600">从矩阵构造多项式</text>
     <text x="340" y="25" font-size="13" font-weight="600">因式给出特征值</text>
   </g>
 
   <!-- Left panel: matrix to polynomial -->
-  <text x="55" y="52" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#312f2f">A</text>
-  <g transform="translate(30 65)" stroke="#b8b2a8" stroke-width="1">
-    <rect x="0" y="0" width="44" height="44" fill="#fffdfb"/>
-    <rect x="44" y="0" width="44" height="44" fill="#cc785c" fill-opacity="0.16"/>
-    <rect x="0" y="44" width="44" height="44" fill="#fffdfb"/>
-    <rect x="44" y="44" width="44" height="44" fill="#fffdfb"/>
+  <text x="55" y="52" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15"  class="svg-special-text-fill-312f2f">A</text>
+  <g transform="translate(30 65)"  stroke-width="1" class="svg-axis-stroke">
+    <rect x="0" y="0" width="44" height="44"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
+    <rect x="44" y="0" width="44" height="44"  fill-opacity="0.16" class="svg-special-fill-fill-cc785c"/>
+    <rect x="0" y="44" width="44" height="44"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
+    <rect x="44" y="44" width="44" height="44"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
   </g>
-  <g font-family="Georgia, 'Times New Roman', serif" font-size="17" text-anchor="middle" fill="#312f2f">
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="17" text-anchor="middle"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="52" y="93">2</text>
     <text x="96" y="93">1</text>
     <text x="52" y="137">0</text>
     <text x="96" y="137">3</text>
   </g>
-  <line x1="135" y1="109" x2="174" y2="109" stroke="#312f2f" stroke-width="1.7" marker-end="url(#charpoly-arrow)"/>
-  <text x="154" y="94" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64" text-anchor="middle">det(tI−A)</text>
-  <rect x="184" y="65" width="116" height="88" rx="6" fill="#cc785c" fill-opacity="0.10" stroke="#cc785c"/>
-  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" text-anchor="middle" fill="#312f2f">
+  <line x1="135" y1="109" x2="174" y2="109"  stroke-width="1.7" marker-end="url(#charpoly-arrow)" class="svg-ink-stroke"/>
+  <text x="154" y="94" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  text-anchor="middle" class="svg-muted-fill">det(tI−A)</text>
+  <rect x="184" y="65" width="116" height="88" rx="6"  fill-opacity="0.10"  class="svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" text-anchor="middle"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="242" y="96" font-size="15">p<tspan font-size="11" dy="3">A</tspan><tspan dy="-3">(t)</tspan></text>
     <text x="242" y="128" font-size="16">= t² − 5t + 6</text>
   </g>
-  <text x="30" y="181" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">迹给次高项，行列式给常数项</text>
-  <text x="30" y="204" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">tr A = 5，det A = 6</text>
-  <text x="30" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">多项式次数 = 矩阵维数</text>
+  <text x="30" y="181" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">迹给次高项，行列式给常数项</text>
+  <text x="30" y="204" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">tr A = 5，det A = 6</text>
+  <text x="30" y="226" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">多项式次数 = 矩阵维数</text>
 
   <!-- Right panel: factorization and roots -->
-  <text x="340" y="58" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="16" fill="#312f2f">p<tspan font-size="11" dy="3">A</tspan><tspan dy="-3">(t) = (t−2)(t−3)</tspan></text>
-  <line x1="350" y1="138" x2="540" y2="138" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#charpoly-arrow)"/>
-  <g stroke="#b8b2a8" stroke-width="1">
+  <text x="340" y="58" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="16"  class="svg-special-text-fill-312f2f">p<tspan font-size="11" dy="3">A</tspan><tspan dy="-3">(t) = (t−2)(t−3)</tspan></text>
+  <line x1="350" y1="138" x2="540" y2="138"  stroke-width="1.2" marker-end="url(#charpoly-arrow)" class="svg-axis-stroke"/>
+  <g  stroke-width="1" class="svg-axis-stroke">
     <line x1="390" y1="132" x2="390" y2="144"/>
     <line x1="485" y1="132" x2="485" y2="144"/>
   </g>
   <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" text-anchor="middle">
-    <text x="390" y="160" fill="#312f2f">2</text>
-    <text x="485" y="160" fill="#312f2f">3</text>
+    <text x="390" y="160"  class="svg-special-text-fill-312f2f">2</text>
+    <text x="485" y="160"  class="svg-special-text-fill-312f2f">3</text>
   </g>
-  <circle cx="390" cy="138" r="5" fill="#cc785c"/>
-  <circle cx="485" cy="138" r="5" fill="#cc785c"/>
-  <text x="340" y="190" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">根 = 特征值</text>
-  <text x="340" y="213" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">重复因子 = 代数重数</text>
-  <text x="340" y="229" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#a9583e">2 + 3 = tr A</text>
+  <circle cx="390" cy="138" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <circle cx="485" cy="138" r="5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="340" y="190" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">根 = 特征值</text>
+  <text x="340" y="213" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">重复因子 = 代数重数</text>
+  <text x="340" y="229" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-coral-text-fill">2 + 3 = tr A</text>
 </svg>

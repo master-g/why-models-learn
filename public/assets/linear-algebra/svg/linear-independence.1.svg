@@ -1,57 +1,87 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="li-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="li-arr-coral" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#cc785c"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="li-arr-axis" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左 panel:相关,u 与 w=2u 平行 ============ -->
   <!-- 原点 (70,150),20px/单位,u=(3,1) → (60,-20),w=(6,2) → (120,-40) -->
-  <line x1="70" y1="150" x2="244" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#li-arr-axis)"/>
-  <line x1="70" y1="150" x2="70" y2="14" stroke="#b8b2a8" stroke-width="1" marker-end="url(#li-arr-axis)"/>
-  <text x="248" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="62" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="70" y1="150" x2="244" y2="150"  stroke-width="1" marker-end="url(#li-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="70" y1="150" x2="70" y2="14"  stroke-width="1" marker-end="url(#li-arr-axis)" class="svg-axis-stroke"/>
+  <text x="248" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="62" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- 所在直线(虚线提示) -->
-  <line x1="34" y1="162" x2="226" y2="98" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="34" y1="162" x2="226" y2="98"  stroke-width="1" stroke-dasharray="5 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- u 与 w=2u -->
-  <line x1="70" y1="150" x2="130" y2="130" stroke="#312f2f" stroke-width="1.8" marker-end="url(#li-arr-ink)"/>
-  <text x="98" y="146" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">u</text>
-  <line x1="70" y1="150" x2="190" y2="110" stroke="#cc785c" stroke-width="1.8" marker-end="url(#li-arr-coral)"/>
-  <text x="168" y="104" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">w = 2u</text>
+  <line x1="70" y1="150" x2="130" y2="130"  stroke-width="1.8" marker-end="url(#li-arr-ink)" class="svg-ink-stroke"/>
+  <text x="98" y="146" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">u</text>
+  <line x1="70" y1="150" x2="190" y2="110"  stroke-width="1.8" marker-end="url(#li-arr-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="168" y="104" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">w = 2u</text>
 
-  <circle cx="70" cy="150" r="2.4" fill="#312f2f"/>
+  <circle cx="70" cy="150" r="2.4"  class="svg-special-fill-fill-312f2f"/>
 
-  <text x="92" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">相关:2u − w = 0</text>
+  <text x="92" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">相关:2u − w = 0</text>
 
   <!-- ============ 右 panel:两两无关,整体相关 ============ -->
   <!-- 原点 (390,150),40px/单位,e1=(1,0) → (40,0),e2=(0,1) → (0,-40),d=(1,1) → (40,-40) -->
-  <line x1="390" y1="150" x2="544" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#li-arr-axis)"/>
-  <line x1="390" y1="150" x2="390" y2="14" stroke="#b8b2a8" stroke-width="1" marker-end="url(#li-arr-axis)"/>
-  <text x="548" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">x</text>
-  <text x="382" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">y</text>
+  <line x1="390" y1="150" x2="544" y2="150"  stroke-width="1" marker-end="url(#li-arr-axis)" class="svg-axis-stroke"/>
+  <line x1="390" y1="150" x2="390" y2="14"  stroke-width="1" marker-end="url(#li-arr-axis)" class="svg-axis-stroke"/>
+  <text x="548" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">x</text>
+  <text x="382" y="10" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">y</text>
 
   <!-- 平行四边形补边:e1 终点加 e2,e2 终点加 e1 -->
-  <line x1="430" y1="150" x2="430" y2="110" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="390" y1="110" x2="430" y2="110" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="430" y1="150" x2="430" y2="110"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
+  <line x1="390" y1="110" x2="430" y2="110"  stroke-width="1" stroke-dasharray="4 4" class="svg-special-graphic-stroke-c9c4bb"/>
 
   <!-- e1、e2、d -->
-  <line x1="390" y1="150" x2="430" y2="150" stroke="#312f2f" stroke-width="1.8" marker-end="url(#li-arr-ink)"/>
-  <text x="404" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">e<tspan dy="3" font-size="10">1</tspan></text>
-  <line x1="390" y1="150" x2="390" y2="110" stroke="#312f2f" stroke-width="1.8" marker-end="url(#li-arr-ink)"/>
-  <text x="372" y="128" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">e<tspan dy="3" font-size="10">2</tspan></text>
-  <line x1="390" y1="150" x2="430" y2="110" stroke="#cc785c" stroke-width="1.8" marker-end="url(#li-arr-coral)"/>
-  <text x="438" y="126" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">d</text>
+  <line x1="390" y1="150" x2="430" y2="150"  stroke-width="1.8" marker-end="url(#li-arr-ink)" class="svg-ink-stroke"/>
+  <text x="404" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">e<tspan dy="3" font-size="10">1</tspan></text>
+  <line x1="390" y1="150" x2="390" y2="110"  stroke-width="1.8" marker-end="url(#li-arr-ink)" class="svg-ink-stroke"/>
+  <text x="372" y="128" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">e<tspan dy="3" font-size="10">2</tspan></text>
+  <line x1="390" y1="150" x2="430" y2="110"  stroke-width="1.8" marker-end="url(#li-arr-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="438" y="126" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">d</text>
 
-  <circle cx="390" cy="150" r="2.4" fill="#312f2f"/>
-  <circle cx="430" cy="110" r="2.2" fill="#cc785c"/>
+  <circle cx="390" cy="150" r="2.4"  class="svg-special-fill-fill-312f2f"/>
+  <circle cx="430" cy="110" r="2.2"  class="svg-special-fill-fill-cc785c"/>
 
-  <text x="376" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">两两无关,整体相关:d = e₁ + e₂</text>
+  <text x="376" y="186" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">两两无关,整体相关:d = e₁ + e₂</text>
 </svg>

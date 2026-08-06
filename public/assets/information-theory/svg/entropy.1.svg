@@ -1,52 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-8f8a83 { fill: #8f8a83; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+  .svg-special-graphic-stroke-8f8a83 { stroke: #8f8a83; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-faf8f5 { fill: #faf8f5; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-8f8a83 { fill: #8f8a83; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+    .svg-special-graphic-stroke-8f8a83 { stroke: #8f8a83; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-faf8f5 { fill: #353534; }
+
+
+
+  }
+</style>
   <title>熵是自信息量的平均</title>
   <desc>熵把每个结果的负对数概率按概率加权平均，二元熵在公平分布处达到最大。</desc>
   <style>
     text {
       font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      fill: #312f2f;
     }
     .title { font-size: 17px; font-weight: 600; }
     .label { font-size: 13px; font-weight: 600; }
     .body { font-size: 12px; }
     .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 13px; }
-    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.4; }
-    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.5; }
-    .axis { stroke: #8f8a83; stroke-width: 1.2; fill: none; }
-    .curve { stroke: #cc785c; stroke-width: 2.3; fill: none; }
-    .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+    .box {stroke-width: 1.4; }
+    .accent {stroke-width: 1.5; }
+    .axis {stroke-width: 1.2; fill: none; }
+    .curve {stroke-width: 2.3; fill: none; }
+    .guide {stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#8f8a83"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-8f8a83"/>
     </marker>
   </defs>
 
-  <text x="28" y="29" class="title">熵：把一次惊奇度平均起来</text>
-  <text x="28" y="50" class="body">H(X) = E[−log p(X)]，描述分布的平均不确定性</text>
+  <text x="28" y="29" class="title svg-special-text-fill-312f2f">熵：把一次惊奇度平均起来</text>
+  <text x="28" y="50" class="body svg-special-text-fill-312f2f">H(X) = E[−log p(X)]，描述分布的平均不确定性</text>
 
-  <rect x="28" y="77" width="142" height="66" rx="8" class="box"/>
-  <text x="99" y="100" text-anchor="middle" class="label">每个结果</text>
-  <text x="99" y="125" text-anchor="middle" class="formula">I(x) = −log p(x)</text>
+  <rect x="28" y="77" width="142" height="66" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="99" y="100" text-anchor="middle" class="label svg-special-text-fill-312f2f">每个结果</text>
+  <text x="99" y="125" text-anchor="middle" class="formula svg-special-text-fill-312f2f">I(x) = −log p(x)</text>
 
-  <path d="M170 110 H205" class="axis" marker-end="url(#arrow)"/>
-  <rect x="205" y="77" width="142" height="66" rx="8" class="accent"/>
-  <text x="276" y="100" text-anchor="middle" class="label">按概率加权</text>
-  <text x="276" y="125" text-anchor="middle" class="formula">Σ p(x) I(x)</text>
+  <path d="M170 110 H205" class="axis svg-special-graphic-stroke-8f8a83" marker-end="url(#arrow)"/>
+  <rect x="205" y="77" width="142" height="66" rx="8" class="accent svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+  <text x="276" y="100" text-anchor="middle" class="label svg-special-text-fill-312f2f">按概率加权</text>
+  <text x="276" y="125" text-anchor="middle" class="formula svg-special-text-fill-312f2f">Σ p(x) I(x)</text>
 
-  <path d="M347 110 H382" class="axis" marker-end="url(#arrow)"/>
-  <rect x="382" y="77" width="150" height="66" rx="8" class="box"/>
-  <text x="457" y="100" text-anchor="middle" class="label">平均信息</text>
-  <text x="457" y="125" text-anchor="middle" class="formula">H(X)</text>
+  <path d="M347 110 H382" class="axis svg-special-graphic-stroke-8f8a83" marker-end="url(#arrow)"/>
+  <rect x="382" y="77" width="150" height="66" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="457" y="100" text-anchor="middle" class="label svg-special-text-fill-312f2f">平均信息</text>
+  <text x="457" y="125" text-anchor="middle" class="formula svg-special-text-fill-312f2f">H(X)</text>
 
-  <path d="M55 211 H500" class="axis" marker-end="url(#arrow)"/>
-  <path d="M55 211 V158" class="axis" marker-end="url(#arrow)"/>
-  <text x="46" y="169" text-anchor="end" class="body">H₂(p)</text>
-  <text x="500" y="225" class="body">p</text>
-  <path d="M72 207 C118 205 149 190 190 169 C226 151 265 146 299 153 C344 161 380 190 422 204 C453 214 475 211 490 208" class="curve"/>
-  <path d="M299 153 V211" class="guide"/>
-  <circle cx="299" cy="153" r="3.5" fill="#cc785c"/>
-  <text x="299" y="145" text-anchor="middle" class="body">p=0.5，最大 1 bit</text>
-  <text x="71" y="225" class="body">确定</text>
-  <text x="458" y="225" class="body">确定</text>
+  <path d="M55 211 H500" class="axis svg-special-graphic-stroke-8f8a83" marker-end="url(#arrow)"/>
+  <path d="M55 211 V158" class="axis svg-special-graphic-stroke-8f8a83" marker-end="url(#arrow)"/>
+  <text x="46" y="169" text-anchor="end" class="body svg-special-text-fill-312f2f">H₂(p)</text>
+  <text x="500" y="225" class="body svg-special-text-fill-312f2f">p</text>
+  <path d="M72 207 C118 205 149 190 190 169 C226 151 265 146 299 153 C344 161 380 190 422 204 C453 214 475 211 490 208" class="curve svg-coral-stroke-stroke"/>
+  <path d="M299 153 V211" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="299" cy="153" r="3.5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="299" y="145" text-anchor="middle" class="body svg-special-text-fill-312f2f">p=0.5，最大 1 bit</text>
+  <text x="71" y="225" class="body svg-special-text-fill-312f2f">确定</text>
+  <text x="458" y="225" class="body svg-special-text-fill-312f2f">确定</text>
 </svg>

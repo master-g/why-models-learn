@@ -1,102 +1,150 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-718878 { fill: #718878; }
+  .svg-special-fill-fill-8c8880 { fill: #8c8880; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e8eee9 { fill: #8e918e; }
+  .svg-special-fill-fill-f4e5df { fill: #988f8b; }
+  .svg-special-fill-fill-f4f1ec { fill: #92908e; }
+  .svg-special-fill-fill-f8f6f2 { fill: #92908e; }
+  .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+  .svg-special-graphic-stroke-718878 { stroke: #718878; }
+  .svg-special-graphic-stroke-8c8880 { stroke: #8c8880; }
+  .svg-special-graphic-stroke-d5d0c8 { stroke: #94908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706b65 { fill: #706b65; }
+
+  .svg-special-background-fill-e8eee9 { fill: #e8eee9; }
+  .svg-special-background-fill-f4e5df { fill: #f4e5df; }
+  .svg-special-background-fill-f4f1ec { fill: #f4f1ec; }
+  .svg-special-background-fill-f8f6f2 { fill: #f8f6f2; }
+  .svg-special-background-fill-fbfaf7 { fill: #fbfaf7; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-718878 { fill: #718878; }
+    .svg-special-fill-fill-8c8880 { fill: #8c8880; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e8eee9 { fill: #8e918e; }
+    .svg-special-fill-fill-f4e5df { fill: #988f8b; }
+    .svg-special-fill-fill-f4f1ec { fill: #92908e; }
+    .svg-special-fill-fill-f8f6f2 { fill: #92908e; }
+    .svg-special-fill-fill-fbfaf7 { fill: #91908f; }
+    .svg-special-graphic-stroke-718878 { stroke: #718878; }
+    .svg-special-graphic-stroke-8c8880 { stroke: #8c8880; }
+    .svg-special-graphic-stroke-d5d0c8 { stroke: #94908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706b65 { fill: #a7a4a0; }
+    .svg-special-background-fill-e8eee9 { fill: #333333; }
+    .svg-special-background-fill-f4e5df { fill: #343231; }
+    .svg-special-background-fill-f4f1ec { fill: #343433; }
+    .svg-special-background-fill-f8f6f2 { fill: #353534; }
+    .svg-special-background-fill-fbfaf7 { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">过程奖励：步骤评分、搜索和最终结果</title>
   <desc id="desc">轨迹由多个步骤组成，过程奖励模型给每个前缀评分，搜索器据此扩展或剪枝，最终 outcome reward 与过程分数分开记录并用于独立验收。</desc>
   <defs>
     <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#718878"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-718878"/>
     </marker>
     <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#8c8880"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-8c8880"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
-      .muted { fill: #706b65; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+      .muted {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
       .small { font-size: 12px; }
       .label { font-size: 14px; font-weight: 600; }
       .title { font-size: 16px; font-weight: 600; }
-      .panel { fill: #fbfaf7; stroke: #d5d0c8; stroke-width: 1; }
-      .coral { fill: #f4e5df; stroke: #cc785c; stroke-width: 1.7; }
-      .green { fill: #e8eee9; stroke: #718878; stroke-width: 1.7; }
-      .plain { fill: #f8f6f2; stroke: #8c8880; stroke-width: 1.4; }
-      .line-coral { fill: none; stroke: #cc785c; stroke-width: 2; marker-end: url(#arrow-coral); }
-      .line-green { fill: none; stroke: #718878; stroke-width: 2; marker-end: url(#arrow-green); }
-      .line-muted { fill: none; stroke: #8c8880; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
+      .panel {stroke-width: 1; }
+      .coral {stroke-width: 1.7; }
+      .green {stroke-width: 1.7; }
+      .plain {stroke-width: 1.4; }
+      .line-coral { fill: none;  stroke-width: 2; marker-end: url(#arrow-coral); }
+      .line-green { fill: none;  stroke-width: 2; marker-end: url(#arrow-green); }
+      .line-muted { fill: none;  stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#arrow-muted); }
     </style>
   </defs>
 
-  <rect width="800" height="373" rx="14" fill="#f4f1ec"/>
-  <text x="28" y="34" class="ink title">过程奖励：prefix score → 搜索/训练 → outcome 验收</text>
-  <text x="28" y="56" class="muted small">PRM 读取每一步；ORM 读取终止结果；step boundary、mask、聚合和版本必须固定</text>
+  <rect width="800" height="373" rx="14"  class="svg-special-fill-fill-f4f1ec svg-special-background-fill-f4f1ec"/>
+  <text x="28" y="34" class="ink title svg-special-text-fill-312f2f">过程奖励：prefix score → 搜索/训练 → outcome 验收</text>
+  <text x="28" y="56" class="muted small svg-special-text-fill-706b65">PRM 读取每一步；ORM 读取终止结果；step boundary、mask、聚合和版本必须固定</text>
 
-  <rect x="24" y="84" width="196" height="232" rx="12" class="panel"/>
-  <text x="46" y="111" class="ink label">轨迹 τ</text>
-  <rect x="45" y="128" width="50" height="43" rx="8" class="plain"/>
-  <text x="70" y="145" text-anchor="middle" class="ink small">z₁</text>
-  <text x="70" y="161" text-anchor="middle" class="muted small">r=.90</text>
-  <line x1="95" y1="149" x2="105" y2="149" class="line-muted"/>
-  <rect x="110" y="128" width="50" height="43" rx="8" class="coral"/>
-  <text x="135" y="145" text-anchor="middle" class="ink small">z₂</text>
-  <text x="135" y="161" text-anchor="middle" class="muted small">r=.85</text>
-  <line x1="160" y1="149" x2="170" y2="149" class="line-muted"/>
-  <rect x="175" y="128" width="27" height="43" rx="7" class="coral"/>
-  <text x="188" y="145" text-anchor="middle" class="ink small">z₃</text>
-  <text x="188" y="161" text-anchor="middle" class="muted small">.20</text>
-  <rect x="45" y="193" width="74" height="43" rx="8" class="plain"/>
-  <text x="82" y="210" text-anchor="middle" class="ink small">prefix h<tspan baseline-shift="sub">t</tspan></text>
-  <text x="82" y="226" text-anchor="middle" class="muted small">token span / mask</text>
-  <rect x="128" y="193" width="74" height="43" rx="8" class="green"/>
-  <text x="165" y="210" text-anchor="middle" class="ink small">终止 ORM</text>
-  <text x="165" y="226" text-anchor="middle" class="muted small">success / fail</text>
-  <text x="45" y="264" class="muted small">sum / mean / min / product</text>
-  <text x="45" y="282" class="muted small">γ、EOS、padding、截断</text>
-  <text x="45" y="300" class="muted small">保存被剪枝的前缀</text>
+  <rect x="24" y="84" width="196" height="232" rx="12" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-fbfaf7"/>
+  <text x="46" y="111" class="ink label svg-special-text-fill-312f2f">轨迹 τ</text>
+  <rect x="45" y="128" width="50" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="70" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">z₁</text>
+  <text x="70" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">r=.90</text>
+  <line x1="95" y1="149" x2="105" y2="149" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <rect x="110" y="128" width="50" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="135" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">z₂</text>
+  <text x="135" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">r=.85</text>
+  <line x1="160" y1="149" x2="170" y2="149" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <rect x="175" y="128" width="27" height="43" rx="7" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="188" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">z₃</text>
+  <text x="188" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">.20</text>
+  <rect x="45" y="193" width="74" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="82" y="210" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">prefix h<tspan baseline-shift="sub">t</tspan></text>
+  <text x="82" y="226" text-anchor="middle" class="muted small svg-special-text-fill-706b65">token span / mask</text>
+  <rect x="128" y="193" width="74" height="43" rx="8" class="green svg-special-fill-fill-e8eee9 svg-special-graphic-stroke-718878 svg-special-background-fill-e8eee9"/>
+  <text x="165" y="210" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">终止 ORM</text>
+  <text x="165" y="226" text-anchor="middle" class="muted small svg-special-text-fill-706b65">success / fail</text>
+  <text x="45" y="264" class="muted small svg-special-text-fill-706b65">sum / mean / min / product</text>
+  <text x="45" y="282" class="muted small svg-special-text-fill-706b65">γ、EOS、padding、截断</text>
+  <text x="45" y="300" class="muted small svg-special-text-fill-706b65">保存被剪枝的前缀</text>
 
-  <line x1="220" y1="151" x2="243" y2="151" class="line-coral"/>
-  <line x1="220" y1="214" x2="243" y2="214" class="line-muted"/>
+  <line x1="220" y1="151" x2="243" y2="151" class="line-coral svg-coral-stroke-stroke"/>
+  <line x1="220" y1="214" x2="243" y2="214" class="line-muted svg-special-graphic-stroke-8c8880"/>
 
-  <rect x="253" y="84" width="259" height="232" rx="12" class="panel"/>
-  <text x="275" y="111" class="ink label">PRM 与搜索</text>
-  <rect x="275" y="128" width="101" height="43" rx="8" class="coral"/>
-  <text x="325" y="145" text-anchor="middle" class="ink small">process model</text>
-  <text x="325" y="161" text-anchor="middle" class="muted small">s<tspan baseline-shift="sub">t</tspan> / prefix value</text>
-  <line x1="376" y1="149" x2="394" y2="149" class="line-coral"/>
-  <rect x="400" y="128" width="90" height="43" rx="8" class="plain"/>
-  <text x="445" y="145" text-anchor="middle" class="ink small">expand</text>
-  <text x="445" y="161" text-anchor="middle" class="muted small">beam / tree</text>
-  <rect x="275" y="198" width="101" height="43" rx="8" class="plain"/>
-  <text x="325" y="215" text-anchor="middle" class="ink small">剪枝阈值</text>
-  <text x="325" y="231" text-anchor="middle" class="muted small">prefix recall</text>
-  <line x1="376" y1="219" x2="394" y2="219" class="line-muted"/>
-  <rect x="400" y="198" width="90" height="43" rx="8" class="green"/>
-  <text x="445" y="215" text-anchor="middle" class="ink small">policy / RFT</text>
-  <text x="445" y="231" text-anchor="middle" class="muted small">advantage</text>
-  <path d="M445 187 C445 177 325 177 325 191" class="line-muted"/>
-  <text x="275" y="270" class="muted small">局部高分不等于全局成功</text>
-  <text x="275" y="288" class="muted small">保留 policy log p 和拒绝原因</text>
-  <text x="275" y="306" class="muted small">禁止读取未来答案和隐藏标签</text>
+  <rect x="253" y="84" width="259" height="232" rx="12" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-fbfaf7"/>
+  <text x="275" y="111" class="ink label svg-special-text-fill-312f2f">PRM 与搜索</text>
+  <rect x="275" y="128" width="101" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="325" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">process model</text>
+  <text x="325" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">s<tspan baseline-shift="sub">t</tspan> / prefix value</text>
+  <line x1="376" y1="149" x2="394" y2="149" class="line-coral svg-coral-stroke-stroke"/>
+  <rect x="400" y="128" width="90" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="445" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">expand</text>
+  <text x="445" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">beam / tree</text>
+  <rect x="275" y="198" width="101" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="325" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">剪枝阈值</text>
+  <text x="325" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">prefix recall</text>
+  <line x1="376" y1="219" x2="394" y2="219" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <rect x="400" y="198" width="90" height="43" rx="8" class="green svg-special-fill-fill-e8eee9 svg-special-graphic-stroke-718878 svg-special-background-fill-e8eee9"/>
+  <text x="445" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">policy / RFT</text>
+  <text x="445" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">advantage</text>
+  <path d="M445 187 C445 177 325 177 325 191" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <text x="275" y="270" class="muted small svg-special-text-fill-706b65">局部高分不等于全局成功</text>
+  <text x="275" y="288" class="muted small svg-special-text-fill-706b65">保留 policy log p 和拒绝原因</text>
+  <text x="275" y="306" class="muted small svg-special-text-fill-706b65">禁止读取未来答案和隐藏标签</text>
 
-  <line x1="512" y1="219" x2="535" y2="219" class="line-green"/>
+  <line x1="512" y1="219" x2="535" y2="219" class="line-green svg-special-graphic-stroke-718878"/>
 
-  <rect x="545" y="84" width="231" height="232" rx="12" class="panel"/>
-  <text x="567" y="111" class="ink label">独立验收</text>
-  <rect x="567" y="128" width="91" height="43" rx="8" class="green"/>
-  <text x="612" y="145" text-anchor="middle" class="ink small">outcome</text>
-  <text x="612" y="161" text-anchor="middle" class="muted small">任务结果</text>
-  <line x1="658" y1="149" x2="676" y2="149" class="line-green"/>
-  <rect x="682" y="128" width="72" height="43" rx="8" class="plain"/>
-  <text x="718" y="145" text-anchor="middle" class="ink small">U / C</text>
-  <text x="718" y="161" text-anchor="middle" class="muted small">外部状态</text>
-  <rect x="567" y="198" width="91" height="43" rx="8" class="coral"/>
-  <text x="612" y="215" text-anchor="middle" class="ink small">shape audit</text>
-  <text x="612" y="231" text-anchor="middle" class="muted small">长度 / 格式</text>
-  <line x1="658" y1="219" x2="676" y2="219" class="line-muted"/>
-  <rect x="682" y="198" width="72" height="43" rx="8" class="coral"/>
-  <text x="718" y="215" text-anchor="middle" class="ink small">回滚</text>
-  <text x="718" y="231" text-anchor="middle" class="muted small">分数分离</text>
-  <text x="567" y="270" class="muted small">PRM、ORM、verifier 分开</text>
-  <text x="567" y="288" class="muted small">报告 step / terminal / cost</text>
-  <text x="567" y="306" class="muted small">按任务、风险、长度分层</text>
+  <rect x="545" y="84" width="231" height="232" rx="12" class="panel svg-special-fill-fill-fbfaf7 svg-special-graphic-stroke-d5d0c8 svg-special-background-fill-fbfaf7"/>
+  <text x="567" y="111" class="ink label svg-special-text-fill-312f2f">独立验收</text>
+  <rect x="567" y="128" width="91" height="43" rx="8" class="green svg-special-fill-fill-e8eee9 svg-special-graphic-stroke-718878 svg-special-background-fill-e8eee9"/>
+  <text x="612" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">outcome</text>
+  <text x="612" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">任务结果</text>
+  <line x1="658" y1="149" x2="676" y2="149" class="line-green svg-special-graphic-stroke-718878"/>
+  <rect x="682" y="128" width="72" height="43" rx="8" class="plain svg-special-fill-fill-f8f6f2 svg-special-graphic-stroke-8c8880 svg-special-background-fill-f8f6f2"/>
+  <text x="718" y="145" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">U / C</text>
+  <text x="718" y="161" text-anchor="middle" class="muted small svg-special-text-fill-706b65">外部状态</text>
+  <rect x="567" y="198" width="91" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="612" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">shape audit</text>
+  <text x="612" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">长度 / 格式</text>
+  <line x1="658" y1="219" x2="676" y2="219" class="line-muted svg-special-graphic-stroke-8c8880"/>
+  <rect x="682" y="198" width="72" height="43" rx="8" class="coral svg-special-fill-fill-f4e5df svg-coral-stroke-stroke svg-special-background-fill-f4e5df"/>
+  <text x="718" y="215" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">回滚</text>
+  <text x="718" y="231" text-anchor="middle" class="muted small svg-special-text-fill-706b65">分数分离</text>
+  <text x="567" y="270" class="muted small svg-special-text-fill-706b65">PRM、ORM、verifier 分开</text>
+  <text x="567" y="288" class="muted small svg-special-text-fill-706b65">报告 step / terminal / cost</text>
+  <text x="567" y="306" class="muted small svg-special-text-fill-706b65">按任务、风险、长度分层</text>
 </svg>

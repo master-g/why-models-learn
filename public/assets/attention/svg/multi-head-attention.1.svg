@@ -1,55 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-special-fill-fill-29251f { fill: #29251f; }
+  .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+  .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+  .svg-special-fill-fill-efe1cd { fill: #988f83; }
+  .svg-special-fill-fill-efe8de { fill: #95908a; }
+  .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+  .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+  .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+  .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+  .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+  .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+  .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+  .svg-special-text-fill-6f665b { fill: #6f665b; }
+
+  .svg-special-background-fill-e5edf0 { fill: #e5edf0; }
+  .svg-special-background-fill-e8e6d9 { fill: #e8e6d9; }
+  .svg-special-background-fill-efe1cd { fill: #efe1cd; }
+  .svg-special-background-fill-efe8de { fill: #efe8de; }
+  .svg-special-background-fill-f0e7ca { fill: #f0e7ca; }
+  .svg-special-background-fill-f6f0e5 { fill: #f6f0e5; }
+  .svg-special-text-fill-29251f { fill: #29251f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-special-fill-fill-29251f { fill: #65625d; }
+    .svg-special-fill-fill-e5edf0 { fill: #8d9193; }
+    .svg-special-fill-fill-e8e6d9 { fill: #929189; }
+    .svg-special-fill-fill-efe1cd { fill: #988f83; }
+    .svg-special-fill-fill-efe8de { fill: #95908a; }
+    .svg-special-fill-fill-f0e7ca { fill: #96907e; }
+    .svg-special-fill-fill-f6f0e5 { fill: #94908a; }
+    .svg-special-graphic-stroke-75939d { stroke: #75939d; }
+    .svg-special-graphic-stroke-89906c { stroke: #89906c; }
+    .svg-special-graphic-stroke-8f6840 { stroke: #8f6840; }
+    .svg-special-graphic-stroke-b19350 { stroke: #aa8d4d; }
+    .svg-special-graphic-stroke-b58b5b { stroke: #b3895a; }
+    .svg-special-text-fill-6f665b { fill: #a9a49d; }
+    .svg-special-background-fill-e5edf0 { fill: #323334; }
+    .svg-special-background-fill-e8e6d9 { fill: #333230; }
+    .svg-special-background-fill-efe1cd { fill: #34322f; }
+    .svg-special-background-fill-efe8de { fill: #343331; }
+    .svg-special-background-fill-f0e7ca { fill: #34322e; }
+    .svg-special-background-fill-f6f0e5 { fill: #353432; }
+    .svg-special-text-fill-29251f { fill: #a6a4a1; }
+
+
+
+  }
+</style>
   <title id="title">Multi-Head Attention 的拆头、并行读取与拼接</title>
   <desc id="desc">同一输入 H 经过多个独立的 QKV 投影，每个 head 产生自己的 attention matrix 和读取结果，最后沿特征轴拼接并经过输出投影。</desc>
-  <rect width="800" height="373" fill="#f6f0e5"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#29251f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f6f0e5 svg-special-background-fill-f6f0e5"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"  class="svg-special-fill-fill-29251f svg-special-text-fill-29251f">
     <text x="32" y="34" font-size="22" font-weight="700">Multi-Head Attention：多套读取坐标系</text>
-    <text x="32" y="57" font-size="12" fill="#6f665b">同一输入 → 独立 head → 拼接通道 → 输出投影</text>
+    <text x="32" y="57" font-size="12"  class="svg-special-text-fill-6f665b">同一输入 → 独立 head → 拼接通道 → 输出投影</text>
 
-    <rect x="32" y="87" width="118" height="112" rx="12" fill="#efe1cd" stroke="#b58b5b"/>
+    <rect x="32" y="87" width="118" height="112" rx="12"   class="svg-special-fill-fill-efe1cd svg-special-graphic-stroke-b58b5b svg-special-background-fill-efe1cd"/>
     <text x="52" y="113" font-size="15" font-weight="700">输入 H</text>
     <text x="52" y="142" font-size="13">T × dₘ</text>
-    <text x="52" y="168" font-size="12" fill="#6f665b">同一序列</text>
-    <text x="52" y="187" font-size="12" fill="#6f665b">共享输入</text>
+    <text x="52" y="168" font-size="12"  class="svg-special-text-fill-6f665b">同一序列</text>
+    <text x="52" y="187" font-size="12"  class="svg-special-text-fill-6f665b">共享输入</text>
 
-    <path d="M150 143 H179" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M171 135 L181 143 L171 151" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M150 143 H179"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M171 135 L181 143 L171 151"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="181" y="72" width="202" height="142" rx="12" fill="#e8e6d9" stroke="#89906c"/>
+    <rect x="181" y="72" width="202" height="142" rx="12"   class="svg-special-fill-fill-e8e6d9 svg-special-graphic-stroke-89906c svg-special-background-fill-e8e6d9"/>
     <text x="201" y="98" font-size="14" font-weight="700">独立 attention heads</text>
-    <rect x="201" y="112" width="162" height="31" rx="6" fill="#f0e7ca" stroke="#b19350"/>
+    <rect x="201" y="112" width="162" height="31" rx="6"   class="svg-special-fill-fill-f0e7ca svg-special-graphic-stroke-b19350 svg-special-background-fill-f0e7ca"/>
     <text x="218" y="132" font-size="13">head 1：A¹ V¹</text>
-    <rect x="201" y="149" width="162" height="31" rx="6" fill="#e5edf0" stroke="#75939d"/>
+    <rect x="201" y="149" width="162" height="31" rx="6"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
     <text x="218" y="169" font-size="13">head 2：A² V²</text>
-    <text x="201" y="199" font-size="11" fill="#6f665b">每个 head 有自己的 Q/K/V</text>
+    <text x="201" y="199" font-size="11"  class="svg-special-text-fill-6f665b">每个 head 有自己的 Q/K/V</text>
 
-    <path d="M383 143 H415" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M407 135 L417 143 L407 151" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M383 143 H415"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M407 135 L417 143 L407 151"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="417" y="72" width="150" height="142" rx="12" fill="#e5edf0" stroke="#75939d"/>
+    <rect x="417" y="72" width="150" height="142" rx="12"   class="svg-special-fill-fill-e5edf0 svg-special-graphic-stroke-75939d svg-special-background-fill-e5edf0"/>
     <text x="435" y="98" font-size="14" font-weight="700">Concat</text>
     <text x="435" y="127" font-size="13">[C¹ | C² | …]</text>
-    <text x="435" y="153" font-size="12" fill="#6f665b">沿特征轴拼接</text>
+    <text x="435" y="153" font-size="12"  class="svg-special-text-fill-6f665b">沿特征轴拼接</text>
     <text x="435" y="180" font-size="13">T × h dᵥ</text>
-    <text x="435" y="200" font-size="11" fill="#6f665b">保留各 head 通道</text>
+    <text x="435" y="200" font-size="11"  class="svg-special-text-fill-6f665b">保留各 head 通道</text>
 
-    <path d="M567 143 H599" stroke="#8f6840" stroke-width="2" fill="none"/>
-    <path d="M591 135 L601 143 L591 151" stroke="#8f6840" stroke-width="2" fill="none"/>
+    <path d="M567 143 H599"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
+    <path d="M591 135 L601 143 L591 151"  stroke-width="2" fill="none" class="svg-special-graphic-stroke-8f6840"/>
 
-    <rect x="601" y="72" width="167" height="142" rx="12" fill="#f0e7ca" stroke="#b19350"/>
+    <rect x="601" y="72" width="167" height="142" rx="12"   class="svg-special-fill-fill-f0e7ca svg-special-graphic-stroke-b19350 svg-special-background-fill-f0e7ca"/>
     <text x="619" y="98" font-size="14" font-weight="700">输出投影 Wₒ</text>
     <text x="619" y="128" font-size="14">O = ZWₒ</text>
-    <text x="619" y="154" font-size="12" fill="#6f665b">跨 head 混合通道</text>
+    <text x="619" y="154" font-size="12"  class="svg-special-text-fill-6f665b">跨 head 混合通道</text>
     <text x="619" y="180" font-size="13">T × dₘ</text>
-    <text x="619" y="200" font-size="11" fill="#6f665b">回到模型宽度</text>
+    <text x="619" y="200" font-size="11"  class="svg-special-text-fill-6f665b">回到模型宽度</text>
 
-    <rect x="32" y="255" width="736" height="82" rx="12" fill="#efe8de" stroke="#b8b2a8"/>
+    <rect x="32" y="255" width="736" height="82" rx="12"   class="svg-special-fill-fill-efe8de svg-axis-stroke svg-special-background-fill-efe8de"/>
     <text x="52" y="281" font-size="13" font-weight="700">每个 head 的约束</text>
     <text x="187" y="281" font-size="14">dₖ = dₘ / h</text>
     <text x="304" y="281" font-size="14">·</text>
     <text x="326" y="281" font-size="14">scale = 1 / √dₖ</text>
     <text x="492" y="281" font-size="14">·</text>
     <text x="514" y="281" font-size="14">Aʳ 的行和 = 1</text>
-    <text x="52" y="311" font-size="12" fill="#6f665b">标准 MHA 保持独立 Q/K/V；GQA/MQA 只共享部分或全部 K/V</text>
+    <text x="52" y="311" font-size="12"  class="svg-special-text-fill-6f665b">标准 MHA 保持独立 Q/K/V；GQA/MQA 只共享部分或全部 K/V</text>
   </g>
 </svg>

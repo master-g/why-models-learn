@@ -111,6 +111,33 @@ describe("SVG theme contract", () => {
 		assert.ok(errors.some((issue) => issue.code === "CONTRAST_TOO_LOW"));
 	});
 
+	it("accepts specialized background roles without a text contrast threshold", () => {
+		const source = VALID_SVG
+			.replace(
+				".svg-coral-text { fill: #a9583e; }",
+				".svg-coral-text { fill: #a9583e; }\n      .svg-special-background-fill-panel { fill: #f3eadf; }",
+			)
+			.replace(
+				".svg-coral-text { fill: #dc896d; }",
+				".svg-coral-text { fill: #dc896d; }\n        .svg-special-background-fill-panel { fill: #403a33; }",
+			)
+			.replace(
+				'<rect class="svg-page" width="200" height="120"/>',
+				'<rect class="svg-special-background-fill-panel" width="200" height="120"/>',
+			);
+
+		assert.deepEqual(issuesFor(source), []);
+	});
+
+	it("allows safe URL paints without inventing a semantic color role", () => {
+		const source = VALID_SVG.replace(
+			'<rect class="svg-page" width="200" height="120"/>',
+			'<rect fill="url(#arrow)" width="200" height="120"/>',
+		);
+
+		assert.deepEqual(issuesFor(source), []);
+	});
+
 	it("rejects missing internal SVG references", () => {
 		const errors = issuesFor(VALID_SVG.replace("url(#arrow)", "url(#missing)"));
 

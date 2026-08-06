@@ -1,35 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f5e2d9 { fill: #9a8e89; }
+  .svg-special-fill-fill-f7f3ee { fill: #93908e; }
+  .svg-special-fill-fill-fffaf5 { fill: #93908e; }
+  .svg-special-graphic-stroke-5f7c75 { stroke: #5f7c75; }
+  .svg-special-graphic-stroke-8b857d { stroke: #8b857d; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-f7f3ee { stroke: #93908e; }
+  .svg-special-text-fill-5f7c75 { fill: #5c7872; }
+  .svg-special-text-fill-6f6a63 { fill: #6f6a63; }
+
+  .svg-special-background-fill-f5e2d9 { fill: #f5e2d9; }
+  .svg-special-background-fill-f7f3ee { fill: #f7f3ee; }
+  .svg-special-background-fill-fffaf5 { fill: #fffaf5; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f5e2d9 { fill: #9a8e89; }
+    .svg-special-fill-fill-f7f3ee { fill: #93908e; }
+    .svg-special-fill-fill-fffaf5 { fill: #93908e; }
+    .svg-special-graphic-stroke-5f7c75 { stroke: #5f7c75; }
+    .svg-special-graphic-stroke-8b857d { stroke: #8b857d; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-f7f3ee { stroke: #93908e; }
+    .svg-special-text-fill-5f7c75 { fill: #96a8a5; }
+    .svg-special-text-fill-6f6a63 { fill: #a7a49f; }
+    .svg-special-background-fill-f5e2d9 { fill: #343230; }
+    .svg-special-background-fill-f7f3ee { fill: #353433; }
+    .svg-special-background-fill-fffaf5 { fill: #363534; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="title">大规模学习率调度</title>
   <desc id="desc">学习率从 warmup 逐渐升到峰值，再沿 cosine 曲线衰减；另一条虚线显示 stable 后 decay 的 WSD 形状。</desc>
-  <rect width="800" height="373" fill="#f7f3ee"/>
-  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans CJK SC','PingFang SC',sans-serif" fill="#312f2f">
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f3ee svg-special-background-fill-f7f3ee"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Noto Sans CJK SC','PingFang SC',sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="40" y="34" font-size="20" font-weight="600">大规模学习率调度：按训练进度控制步长</text>
-    <text x="40" y="58" font-size="12" fill="#6f6a63">先 warmup，再 decay；进度可以按 optimizer step 或有效 token 计数</text>
+    <text x="40" y="58" font-size="12"  class="svg-special-text-fill-6f6a63">先 warmup，再 decay；进度可以按 optimizer step 或有效 token 计数</text>
     <g transform="translate(58 78)">
-      <line x1="0" y1="232" x2="350" y2="232" stroke="#8b857d" stroke-width="1.5"/>
-      <line x1="0" y1="232" x2="0" y2="0" stroke="#8b857d" stroke-width="1.5"/>
+      <line x1="0" y1="232" x2="350" y2="232"  stroke-width="1.5" class="svg-special-graphic-stroke-8b857d"/>
+      <line x1="0" y1="232" x2="0" y2="0"  stroke-width="1.5" class="svg-special-graphic-stroke-8b857d"/>
       <text x="143" y="260" font-size="13">训练进度 s 或 t</text>
       <text x="-2" y="-10" font-size="13">学习率 η</text>
-      <text x="-29" y="236" font-size="11" fill="#6f6a63">0</text>
-      <text x="-31" y="13" font-size="11" fill="#6f6a63">峰值</text>
-      <path d="M16 226 L75 226 L119 57 C139 62 158 80 181 107 C218 151 260 187 329 214" fill="none" stroke="#cc785c" stroke-width="3"/>
-      <circle cx="119" cy="57" r="5" fill="#cc785c" stroke="#f7f3ee" stroke-width="2"/>
-      <text x="78" y="248" font-size="11" fill="#6f6a63">warmup</text>
-      <text x="196" y="248" font-size="11" fill="#6f6a63">cosine decay</text>
-      <path d="M16 226 L75 226 L119 57 L267 57 C286 58 305 75 329 108" fill="none" stroke="#5f7c75" stroke-width="2.5" stroke-dasharray="7 5"/>
-      <text x="198" y="48" font-size="11" fill="#5f7c75">WSD stable</text>
-      <line x1="75" y1="232" x2="75" y2="57" stroke="#c9c4bb" stroke-dasharray="3 4"/>
-      <line x1="267" y1="232" x2="267" y2="57" stroke="#c9c4bb" stroke-dasharray="3 4"/>
+      <text x="-29" y="236" font-size="11"  class="svg-special-text-fill-6f6a63">0</text>
+      <text x="-31" y="13" font-size="11"  class="svg-special-text-fill-6f6a63">峰值</text>
+      <path d="M16 226 L75 226 L119 57 C139 62 158 80 181 107 C218 151 260 187 329 214" fill="none"  stroke-width="3" class="svg-coral-stroke-stroke"/>
+      <circle cx="119" cy="57" r="5"   stroke-width="2" class="svg-special-fill-fill-cc785c svg-special-graphic-stroke-f7f3ee"/>
+      <text x="78" y="248" font-size="11"  class="svg-special-text-fill-6f6a63">warmup</text>
+      <text x="196" y="248" font-size="11"  class="svg-special-text-fill-6f6a63">cosine decay</text>
+      <path d="M16 226 L75 226 L119 57 L267 57 C286 58 305 75 329 108" fill="none"  stroke-width="2.5" stroke-dasharray="7 5" class="svg-special-graphic-stroke-5f7c75"/>
+      <text x="198" y="48" font-size="11"  class="svg-special-text-fill-5f7c75">WSD stable</text>
+      <line x1="75" y1="232" x2="75" y2="57"  stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
+      <line x1="267" y1="232" x2="267" y2="57"  stroke-dasharray="3 4" class="svg-special-graphic-stroke-c9c4bb"/>
     </g>
     <g transform="translate(468 86)">
-      <rect x="0" y="0" width="286" height="222" rx="8" fill="#fffaf5" stroke="#c9c4bb"/>
-      <rect x="18" y="19" width="250" height="55" rx="6" fill="#f5e2d9" stroke="#cc785c"/>
+      <rect x="0" y="0" width="286" height="222" rx="8"   class="svg-special-fill-fill-fffaf5 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fffaf5"/>
+      <rect x="18" y="19" width="250" height="55" rx="6"   class="svg-special-fill-fill-f5e2d9 svg-coral-stroke-stroke svg-special-background-fill-f5e2d9"/>
       <text x="31" y="43" font-size="14" font-weight="600">调度状态</text>
       <text x="31" y="63" font-size="13">ηₛ = η(tₛ)</text>
       <text x="20" y="101" font-size="13">warmup：抑制早期大步长</text>
       <text x="20" y="123" font-size="13">stable：消费主要训练预算</text>
       <text x="20" y="145" font-size="13">decay：减小后段更新尺度</text>
-      <line x1="20" y1="162" x2="266" y2="162" stroke="#c9c4bb"/>
+      <line x1="20" y1="162" x2="266" y2="162"  class="svg-special-graphic-stroke-c9c4bb"/>
       <text x="20" y="185" font-size="13">恢复时同时保存 step、token</text>
       <text x="20" y="205" font-size="13">optimizer 和 scheduler state</text>
     </g>

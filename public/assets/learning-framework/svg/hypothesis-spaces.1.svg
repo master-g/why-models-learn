@@ -1,42 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-4f7775 { fill: #4f7775; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+  .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-ebe7e4 { fill: #ebe7e4; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-4f7775 { fill: #4f7775; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-ebe7e4 { fill: #93908f; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-6c6a64 { stroke: #6c6a64; }
+    .svg-special-graphic-stroke-c66a4b { stroke: #c66a4b; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-ebe7e4 { fill: #333232; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">假设空间从候选规则经过样本约束筛出可行规则</title>
   <desc id="desc">左侧展示多个候选阈值规则，中间样本标签淘汰不一致规则，右侧留下版本空间中的候选并由算法选择。</desc>
-  <rect width="560" height="250" fill="#f4efee"/>
-  <text x="24" y="27" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700">假设空间：样本约束候选规则</text>
-  <text x="24" y="47" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">训练数据淘汰不一致者，但未必留下唯一答案</text>
+  <rect width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="24" y="27"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="16" font-weight="700" class="svg-special-text-fill-312f2f">假设空间：样本约束候选规则</text>
+  <text x="24" y="47"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">训练数据淘汰不一致者，但未必留下唯一答案</text>
 
-  <rect x="24" y="70" width="142" height="116" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="43" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">候选假设 H</text>
-  <line x1="48" y1="128" x2="139" y2="128" stroke="#6c6a64" stroke-width="1.5"/>
-  <circle cx="64" cy="128" r="4" fill="#4f7775"/>
-  <circle cx="82" cy="128" r="4" fill="#4f7775"/>
-  <circle cx="101" cy="128" r="4" fill="#a9583e"/>
-  <circle cx="124" cy="128" r="4" fill="#a9583e"/>
-  <line x1="74" y1="109" x2="74" y2="148" stroke="#c66a4b" stroke-width="2"/>
-  <line x1="91" y1="109" x2="91" y2="148" stroke="#c66a4b" stroke-width="2"/>
-  <line x1="112" y1="109" x2="112" y2="148" stroke="#c66a4b" stroke-width="2"/>
-  <text x="43" y="169" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">t₁, t₂, t₃, …</text>
+  <rect x="24" y="70" width="142" height="116" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="43" y="94"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">候选假设 H</text>
+  <line x1="48" y1="128" x2="139" y2="128"  stroke-width="1.5" class="svg-special-graphic-stroke-6c6a64"/>
+  <circle cx="64" cy="128" r="4"  class="svg-special-fill-fill-4f7775"/>
+  <circle cx="82" cy="128" r="4"  class="svg-special-fill-fill-4f7775"/>
+  <circle cx="101" cy="128" r="4"  class="svg-special-fill-fill-a9583e"/>
+  <circle cx="124" cy="128" r="4"  class="svg-special-fill-fill-a9583e"/>
+  <line x1="74" y1="109" x2="74" y2="148"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <line x1="91" y1="109" x2="91" y2="148"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <line x1="112" y1="109" x2="112" y2="148"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <text x="43" y="169"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">t₁, t₂, t₃, …</text>
 
-  <path d="M176 128 H205" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M198 121 L207 128 L198 135" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M176 128 H205"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M198 121 L207 128 L198 135" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="212" y="70" width="144" height="116" rx="12" fill="#fdfcfa" stroke="#c66a4b"/>
-  <text x="231" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">带标签样本 S</text>
-  <text x="231" y="117" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">(1,0), (2,0)</text>
-  <text x="231" y="138" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">(4,1), (5,1)</text>
-  <text x="231" y="164" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">一致性约束</text>
+  <rect x="212" y="70" width="144" height="116" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c66a4b svg-special-background-fill-fdfcfa"/>
+  <text x="231" y="94"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">带标签样本 S</text>
+  <text x="231" y="117"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">(1,0), (2,0)</text>
+  <text x="231" y="138"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-muted-fill">(4,1), (5,1)</text>
+  <text x="231" y="164"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-coral-text-fill">一致性约束</text>
 
-  <path d="M366 128 H395" stroke="#c66a4b" stroke-width="2"/>
-  <path d="M388 121 L397 128 L388 135" fill="none" stroke="#c66a4b" stroke-width="2"/>
+  <path d="M366 128 H395"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
+  <path d="M388 121 L397 128 L388 135" fill="none"  stroke-width="2" class="svg-special-graphic-stroke-c66a4b"/>
 
-  <rect x="402" y="70" width="134" height="116" rx="12" fill="#fdfcfa" stroke="#c9c4bb"/>
-  <text x="421" y="94" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700">版本空间 V(S)</text>
-  <line x1="424" y1="128" x2="515" y2="128" stroke="#6c6a64" stroke-width="1.5"/>
-  <circle cx="440" cy="128" r="4" fill="#4f7775"/>
-  <circle cx="478" cy="128" r="4" fill="#4f7775"/>
-  <text x="421" y="158" fill="#6c6a64" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">2 &lt; t ≤ 4</text>
-  <text x="421" y="176" fill="#a9583e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10">算法再选一个</text>
+  <rect x="402" y="70" width="134" height="116" rx="12"   class="svg-special-fill-fill-fdfcfa svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fdfcfa"/>
+  <text x="421" y="94"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="12" font-weight="700" class="svg-special-text-fill-312f2f">版本空间 V(S)</text>
+  <line x1="424" y1="128" x2="515" y2="128"  stroke-width="1.5" class="svg-special-graphic-stroke-6c6a64"/>
+  <circle cx="440" cy="128" r="4"  class="svg-special-fill-fill-4f7775"/>
+  <circle cx="478" cy="128" r="4"  class="svg-special-fill-fill-4f7775"/>
+  <text x="421" y="158"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-muted-fill">2 &lt; t ≤ 4</text>
+  <text x="421" y="176"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="10" class="svg-coral-text-fill">算法再选一个</text>
 
-  <rect x="142" y="214" width="276" height="25" rx="9" fill="#ebe7e4"/>
-  <text x="183" y="231" fill="#312f2f" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11">同样训练误差 ≠ 同样的未见预测</text>
+  <rect x="142" y="214" width="276" height="25" rx="9"  class="svg-special-fill-fill-ebe7e4 svg-special-background-fill-ebe7e4"/>
+  <text x="183" y="231"  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="11" class="svg-special-text-fill-312f2f">同样训练误差 ≠ 同样的未见预测</text>
 </svg>

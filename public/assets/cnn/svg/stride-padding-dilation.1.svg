@@ -1,102 +1,158 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-8b817b { fill: #8b817b; }
+  .svg-special-fill-fill-dce9df { fill: #8a938c; }
+  .svg-special-fill-fill-eee8e1 { fill: #94908c; }
+  .svg-special-fill-fill-f2e8dc { fill: #969088; }
+  .svg-special-fill-fill-f3d8ce { fill: #9f8d87; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-f8f3ed { fill: #93908d; }
+  .svg-special-fill-fill-fffaf3 { fill: #93908c; }
+  .svg-special-graphic-stroke-75957e { stroke: #75957e; }
+  .svg-special-graphic-stroke-b9a997 { stroke: #9c8e7f; }
+  .svg-special-graphic-stroke-c8beb5 { stroke: #978f89; }
+  .svg-special-graphic-stroke-d7ccc4 { stroke: #978f8a; }
+  .svg-special-graphic-stroke-e4d9d1 { stroke: #978f8a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706e6e { fill: #706e6e; }
+
+  .svg-special-background-fill-dce9df { fill: #dce9df; }
+  .svg-special-background-fill-eee8e1 { fill: #eee8e1; }
+  .svg-special-background-fill-f2e8dc { fill: #f2e8dc; }
+  .svg-special-background-fill-f3d8ce { fill: #f3d8ce; }
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-f8f3ed { fill: #f8f3ed; }
+  .svg-special-background-fill-fffaf3 { fill: #fffaf3; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-8b817b { fill: #8b817b; }
+    .svg-special-fill-fill-dce9df { fill: #8a938c; }
+    .svg-special-fill-fill-eee8e1 { fill: #94908c; }
+    .svg-special-fill-fill-f2e8dc { fill: #969088; }
+    .svg-special-fill-fill-f3d8ce { fill: #9f8d87; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-f8f3ed { fill: #93908d; }
+    .svg-special-fill-fill-fffaf3 { fill: #93908c; }
+    .svg-special-graphic-stroke-75957e { stroke: #75957e; }
+    .svg-special-graphic-stroke-b9a997 { stroke: #9c8e7f; }
+    .svg-special-graphic-stroke-c8beb5 { stroke: #978f89; }
+    .svg-special-graphic-stroke-d7ccc4 { stroke: #978f8a; }
+    .svg-special-graphic-stroke-e4d9d1 { stroke: #978f8a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706e6e { fill: #a5a4a4; }
+    .svg-special-background-fill-dce9df { fill: #313331; }
+    .svg-special-background-fill-eee8e1 { fill: #333332; }
+    .svg-special-background-fill-f2e8dc { fill: #343331; }
+    .svg-special-background-fill-f3d8ce { fill: #34302f; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-f8f3ed { fill: #353433; }
+    .svg-special-background-fill-fffaf3 { fill: #363534; }
+
+
+
+  }
+</style>
   <title id="title">步幅、填充与膨胀的坐标对照</title>
   <desc id="desc">三个面板分别展示 padding 如何扩展边界、stride 如何跳过窗口起点、dilation 如何拉开核内采样点；底部给出有效核尺寸和输出长度公式。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
-      <path d="M0 0 L7 3.5 L0 7 Z" fill="#8b817b"/>
+      <path d="M0 0 L7 3.5 L0 7 Z"  class="svg-special-fill-fill-8b817b"/>
     </marker>
     <style>
-      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #312f2f; }
-      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif; fill: #706e6e; }
-      .input { fill: #fffaf3; stroke: #b9a997; stroke-width: 1.2; }
-      .pad { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
-      .highlight { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.8; }
-      .tap { fill: #dce9df; stroke: #75957e; stroke-width: 1.5; }
-      .hole { fill: #eee8e1; stroke: #c8beb5; stroke-width: 1.1; stroke-dasharray: 3 2; }
-      .card { fill: #fffaf3; stroke: #d7ccc4; stroke-width: 1.2; }
-      .assumption { fill: #f2e8dc; stroke: #d7ccc4; stroke-width: 1.2; }
-      .accept { fill: #f3d8ce; stroke: #cc785c; stroke-width: 1.4; }
+      .title { font: 600 20px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .subtitle { font: 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .label { font: 600 13px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .value { font: 600 14px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .panel-title { font: 600 15px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .panel-detail { font: 11px Geist, "Noto Sans SC", "PingFang SC", sans-serif;  }
+      .input {stroke-width: 1.2; }
+      .pad {stroke-width: 1.2; }
+      .highlight {stroke-width: 1.8; }
+      .tap {stroke-width: 1.5; }
+      .hole {stroke-width: 1.1; stroke-dasharray: 3 2; }
+      .card {stroke-width: 1.2; }
+      .assumption {stroke-width: 1.2; }
+      .accept {stroke-width: 1.4; }
     </style>
   </defs>
 
-  <rect x="14" y="14" width="772" height="345" rx="20" fill="#f8f3ed" stroke="#e4d9d1"/>
-  <text x="38" y="43" class="title">步幅、填充与膨胀：三个不同的坐标旋钮</text>
-  <text x="38" y="65" class="subtitle">padding 改边界，stride 改窗口起点，dilation 改核内采样间距</text>
+  <rect x="14" y="14" width="772" height="345" rx="20"   class="svg-special-fill-fill-f8f3ed svg-special-graphic-stroke-e4d9d1 svg-special-background-fill-f8f3ed"/>
+  <text x="38" y="43" class="title svg-special-text-fill-312f2f">步幅、填充与膨胀：三个不同的坐标旋钮</text>
+  <text x="38" y="65" class="subtitle svg-special-text-fill-706e6e">padding 改边界，stride 改窗口起点，dilation 改核内采样间距</text>
 
-  <rect x="38" y="87" width="226" height="174" rx="12" class="assumption"/>
-  <text x="56" y="113" class="panel-title">padding：扩展边界</text>
-  <text x="56" y="133" class="panel-detail">x = [1, 2, 3]，左右各补 0</text>
+  <rect x="38" y="87" width="226" height="174" rx="12" class="assumption svg-special-fill-fill-f2e8dc svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-f2e8dc"/>
+  <text x="56" y="113" class="panel-title svg-special-text-fill-312f2f">padding：扩展边界</text>
+  <text x="56" y="133" class="panel-detail svg-special-text-fill-706e6e">x = [1, 2, 3]，左右各补 0</text>
   <g transform="translate(55 151)">
-    <rect width="31" height="35" class="pad"/>
-    <rect x="31" width="31" height="35" class="input"/>
-    <rect x="62" width="31" height="35" class="input"/>
-    <rect x="93" width="31" height="35" class="input"/>
-    <rect x="124" width="31" height="35" class="pad"/>
-    <text x="15.5" y="23" text-anchor="middle" class="value">0</text>
-    <text x="46.5" y="23" text-anchor="middle" class="value">1</text>
-    <text x="77.5" y="23" text-anchor="middle" class="value">2</text>
-    <text x="108.5" y="23" text-anchor="middle" class="value">3</text>
-    <text x="139.5" y="23" text-anchor="middle" class="value">0</text>
+    <rect width="31" height="35" class="pad svg-special-fill-fill-f2e8dc svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-f2e8dc"/>
+    <rect x="31" width="31" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="62" width="31" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="93" width="31" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="124" width="31" height="35" class="pad svg-special-fill-fill-f2e8dc svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-f2e8dc"/>
+    <text x="15.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">0</text>
+    <text x="46.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">1</text>
+    <text x="77.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">2</text>
+    <text x="108.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">3</text>
+    <text x="139.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">0</text>
   </g>
-  <text x="135" y="207" text-anchor="middle" class="detail">padded 坐标</text>
-  <text x="56" y="231" class="panel-detail">Pleft = Pright = 1</text>
-  <text x="56" y="248" class="panel-detail">边界值进入窗口求和</text>
+  <text x="135" y="207" text-anchor="middle" class="detail svg-special-text-fill-706e6e">padded 坐标</text>
+  <text x="56" y="231" class="panel-detail svg-special-text-fill-706e6e">Pleft = Pright = 1</text>
+  <text x="56" y="248" class="panel-detail svg-special-text-fill-706e6e">边界值进入窗口求和</text>
 
-  <rect x="287" y="87" width="226" height="174" rx="12" class="assumption"/>
-  <text x="305" y="113" class="panel-title">stride：跳窗口起点</text>
-  <text x="305" y="133" class="panel-detail">s = 2，只访问偶数起点</text>
+  <rect x="287" y="87" width="226" height="174" rx="12" class="assumption svg-special-fill-fill-f2e8dc svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-f2e8dc"/>
+  <text x="305" y="113" class="panel-title svg-special-text-fill-312f2f">stride：跳窗口起点</text>
+  <text x="305" y="133" class="panel-detail svg-special-text-fill-706e6e">s = 2，只访问偶数起点</text>
   <g transform="translate(304 151)">
-    <rect width="25" height="35" class="highlight"/>
-    <rect x="25" width="25" height="35" class="highlight"/>
-    <rect x="50" width="25" height="35" class="highlight"/>
-    <rect x="75" width="25" height="35" class="input"/>
-    <rect x="100" width="25" height="35" class="input"/>
-    <rect x="125" width="25" height="35" class="input"/>
-    <rect x="150" width="25" height="35" class="input"/>
-    <text x="12.5" y="23" text-anchor="middle" class="value">0</text>
-    <text x="37.5" y="23" text-anchor="middle" class="value">1</text>
-    <text x="62.5" y="23" text-anchor="middle" class="value">2</text>
-    <text x="87.5" y="23" text-anchor="middle" class="value">3</text>
-    <text x="112.5" y="23" text-anchor="middle" class="value">4</text>
-    <text x="137.5" y="23" text-anchor="middle" class="value">5</text>
-    <text x="162.5" y="23" text-anchor="middle" class="value">6</text>
+    <rect width="25" height="35" class="highlight svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+    <rect x="25" width="25" height="35" class="highlight svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+    <rect x="50" width="25" height="35" class="highlight svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+    <rect x="75" width="25" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="100" width="25" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="125" width="25" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <rect x="150" width="25" height="35" class="input svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-b9a997 svg-special-background-fill-fffaf3"/>
+    <text x="12.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">0</text>
+    <text x="37.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">1</text>
+    <text x="62.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">2</text>
+    <text x="87.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">3</text>
+    <text x="112.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">4</text>
+    <text x="137.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">5</text>
+    <text x="162.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">6</text>
   </g>
-  <path d="M317 198 H367" fill="none" stroke="#cc785c" stroke-width="1.4" marker-end="url(#arrow)"/>
-  <path d="M367 198 H417" fill="none" stroke="#cc785c" stroke-width="1.4" marker-end="url(#arrow)"/>
-  <text x="413" y="219" text-anchor="middle" class="detail">起点：0 → 2 → 4</text>
-  <text x="305" y="244" class="panel-detail">减少输出位置，不是先插值缩小</text>
+  <path d="M317 198 H367" fill="none"  stroke-width="1.4" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+  <path d="M367 198 H417" fill="none"  stroke-width="1.4" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
+  <text x="413" y="219" text-anchor="middle" class="detail svg-special-text-fill-706e6e">起点：0 → 2 → 4</text>
+  <text x="305" y="244" class="panel-detail svg-special-text-fill-706e6e">减少输出位置，不是先插值缩小</text>
 
-  <rect x="536" y="87" width="226" height="174" rx="12" class="assumption"/>
-  <text x="554" y="113" class="panel-title">dilation：拉开核采样</text>
-  <text x="554" y="133" class="panel-detail">k = 3，d = 2，跳过中间位置</text>
+  <rect x="536" y="87" width="226" height="174" rx="12" class="assumption svg-special-fill-fill-f2e8dc svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-f2e8dc"/>
+  <text x="554" y="113" class="panel-title svg-special-text-fill-312f2f">dilation：拉开核采样</text>
+  <text x="554" y="133" class="panel-detail svg-special-text-fill-706e6e">k = 3，d = 2，跳过中间位置</text>
   <g transform="translate(554 151)">
-    <rect width="31" height="35" class="tap"/>
-    <rect x="31" width="31" height="35" class="hole"/>
-    <rect x="62" width="31" height="35" class="tap"/>
-    <rect x="93" width="31" height="35" class="hole"/>
-    <rect x="124" width="31" height="35" class="tap"/>
-    <text x="15.5" y="23" text-anchor="middle" class="value">w₀</text>
-    <text x="46.5" y="23" text-anchor="middle" class="detail">·</text>
-    <text x="77.5" y="23" text-anchor="middle" class="value">w₁</text>
-    <text x="108.5" y="23" text-anchor="middle" class="detail">·</text>
-    <text x="139.5" y="23" text-anchor="middle" class="value">w₂</text>
+    <rect width="31" height="35" class="tap svg-special-fill-fill-dce9df svg-special-graphic-stroke-75957e svg-special-background-fill-dce9df"/>
+    <rect x="31" width="31" height="35" class="hole svg-special-fill-fill-eee8e1 svg-special-graphic-stroke-c8beb5 svg-special-background-fill-eee8e1"/>
+    <rect x="62" width="31" height="35" class="tap svg-special-fill-fill-dce9df svg-special-graphic-stroke-75957e svg-special-background-fill-dce9df"/>
+    <rect x="93" width="31" height="35" class="hole svg-special-fill-fill-eee8e1 svg-special-graphic-stroke-c8beb5 svg-special-background-fill-eee8e1"/>
+    <rect x="124" width="31" height="35" class="tap svg-special-fill-fill-dce9df svg-special-graphic-stroke-75957e svg-special-background-fill-dce9df"/>
+    <text x="15.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">w₀</text>
+    <text x="46.5" y="23" text-anchor="middle" class="detail svg-special-text-fill-706e6e">·</text>
+    <text x="77.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">w₁</text>
+    <text x="108.5" y="23" text-anchor="middle" class="detail svg-special-text-fill-706e6e">·</text>
+    <text x="139.5" y="23" text-anchor="middle" class="value svg-special-text-fill-312f2f">w₂</text>
   </g>
-  <text x="631" y="207" text-anchor="middle" class="detail">采样坐标：0、2、4</text>
-  <text x="554" y="231" class="panel-detail">有效核尺寸：d(k − 1) + 1 = 5</text>
-  <text x="554" y="248" class="panel-detail">参数仍只有三个</text>
+  <text x="631" y="207" text-anchor="middle" class="detail svg-special-text-fill-706e6e">采样坐标：0、2、4</text>
+  <text x="554" y="231" class="panel-detail svg-special-text-fill-706e6e">有效核尺寸：d(k − 1) + 1 = 5</text>
+  <text x="554" y="248" class="panel-detail svg-special-text-fill-706e6e">参数仍只有三个</text>
 
-  <rect x="38" y="278" width="724" height="43" rx="9" class="card"/>
-  <text x="54" y="298" class="label">统一坐标</text>
-  <text x="135" y="298" class="value">q = r·s + a·d</text>
-  <text x="255" y="298" class="detail">；输出长度：</text>
-  <text x="324" y="298" class="value">floor((N + Pleft + Pright − keff) / s) + 1</text>
-  <text x="54" y="314" class="detail">先确定边界值，再确定窗口起点，最后确定核内每个权重读取的坐标。</text>
+  <rect x="38" y="278" width="724" height="43" rx="9" class="card svg-special-fill-fill-fffaf3 svg-special-graphic-stroke-d7ccc4 svg-special-background-fill-fffaf3"/>
+  <text x="54" y="298" class="label svg-special-text-fill-312f2f">统一坐标</text>
+  <text x="135" y="298" class="value svg-special-text-fill-312f2f">q = r·s + a·d</text>
+  <text x="255" y="298" class="detail svg-special-text-fill-706e6e">；输出长度：</text>
+  <text x="324" y="298" class="value svg-special-text-fill-312f2f">floor((N + Pleft + Pright − keff) / s) + 1</text>
+  <text x="54" y="314" class="detail svg-special-text-fill-706e6e">先确定边界值，再确定窗口起点，最后确定核内每个权重读取的坐标。</text>
 
-  <rect x="38" y="335" width="724" height="24" rx="8" class="accept"/>
-  <text x="400" y="351" text-anchor="middle" class="detail">验收：列出最后一个完整窗口，检查 same 的四侧 padding 和输出相位</text>
+  <rect x="38" y="335" width="724" height="24" rx="8" class="accept svg-special-fill-fill-f3d8ce svg-coral-stroke-stroke svg-special-background-fill-f3d8ce"/>
+  <text x="400" y="351" text-anchor="middle" class="detail svg-special-text-fill-706e6e">验收：列出最后一个完整窗口，检查 same 的四侧 padding 和输出相位</text>
 </svg>

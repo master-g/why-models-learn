@@ -1,34 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f7f5f2 { fill: #92908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f7f5f2 { fill: #f7f5f2; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f7f5f2 { fill: #92908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f7f5f2 { fill: #353434; }
+
+
+
+  }
+</style>
   <title id="title">梯度垂直等高线并指向上升方向</title>
   <desc id="desc">一组同心等高线上的点 P，梯度箭头垂直向外，切向量沿等高线。</desc>
   <defs>
     <marker id="arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <style>
-      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif;  font-size: 13px; }
       .small { font-size: 11px; }
     </style>
   </defs>
-  <rect width="560" height="250" rx="8" fill="#f7f5f2"/>
-  <line x1="62" y1="216" x2="510" y2="216" stroke="#b8b2a8" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
-  <line x1="62" y1="216" x2="62" y2="25" stroke="#b8b2a8" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
-  <text x="516" y="220" class="label small">x</text>
-  <text x="52" y="24" class="label small">y</text>
-  <circle cx="260" cy="130" r="35" fill="none" stroke="#c9c4bb" stroke-width="1.5"/>
-  <circle cx="260" cy="130" r="65" fill="none" stroke="#b8b2a8" stroke-width="1.5"/>
-  <circle cx="260" cy="130" r="105" fill="none" stroke="#b8b2a8" stroke-width="1.5"/>
-  <circle cx="260" cy="130" r="140" fill="none" stroke="#c9c4bb" stroke-width="1.5"/>
-  <text x="236" y="134" class="label small">f 较小</text>
-  <text x="100" y="78" class="label small">等高线 f=c</text>
-  <circle cx="355" cy="80" r="4.5" fill="#cc785c"/>
-  <text x="365" y="77" class="label">P</text>
-  <line x1="355" y1="80" x2="465" y2="22" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow-coral)"/>
-  <text x="445" y="42" class="label">∇f</text>
-  <line x1="355" y1="80" x2="410" y2="183" stroke="#312f2f" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-ink)"/>
-  <text x="393" y="198" class="label small">切向量 v</text>
-  <text x="432" y="64" class="label small">函数增大</text>
+  <rect width="560" height="250" rx="8"  class="svg-special-fill-fill-f7f5f2 svg-special-background-fill-f7f5f2"/>
+  <line x1="62" y1="216" x2="510" y2="216"  stroke-width="1.5" marker-end="url(#arrow-ink)" class="svg-axis-stroke"/>
+  <line x1="62" y1="216" x2="62" y2="25"  stroke-width="1.5" marker-end="url(#arrow-ink)" class="svg-axis-stroke"/>
+  <text x="516" y="220" class="label small svg-special-text-fill-312f2f">x</text>
+  <text x="52" y="24" class="label small svg-special-text-fill-312f2f">y</text>
+  <circle cx="260" cy="130" r="35" fill="none"  stroke-width="1.5" class="svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="260" cy="130" r="65" fill="none"  stroke-width="1.5" class="svg-axis-stroke"/>
+  <circle cx="260" cy="130" r="105" fill="none"  stroke-width="1.5" class="svg-axis-stroke"/>
+  <circle cx="260" cy="130" r="140" fill="none"  stroke-width="1.5" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="236" y="134" class="label small svg-special-text-fill-312f2f">f 较小</text>
+  <text x="100" y="78" class="label small svg-special-text-fill-312f2f">等高线 f=c</text>
+  <circle cx="355" cy="80" r="4.5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="365" y="77" class="label svg-special-text-fill-312f2f">P</text>
+  <line x1="355" y1="80" x2="465" y2="22"  stroke-width="3" marker-end="url(#arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="445" y="42" class="label svg-special-text-fill-312f2f">∇f</text>
+  <line x1="355" y1="80" x2="410" y2="183"  stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-ink)" class="svg-ink-stroke"/>
+  <text x="393" y="198" class="label small svg-special-text-fill-312f2f">切向量 v</text>
+  <text x="432" y="64" class="label small svg-special-text-fill-312f2f">函数增大</text>
 </svg>

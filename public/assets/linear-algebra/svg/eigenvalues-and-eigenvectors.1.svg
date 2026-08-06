@@ -1,61 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="eigen-title eigen-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="eigen-title eigen-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="eigen-title">特征方向与特征基下的独立缩放</title>
   <desc id="eigen-desc">左侧显示矩阵 A 保持水平和对角两条特征方向，分别缩放 2 倍和 3 倍；右侧显示换到特征基后一般矩阵变成对角矩阵。</desc>
   <defs>
     <marker id="eigen-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="eigen-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="280" y1="18" x2="280" y2="232" stroke="#e2dbd3"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="280" y1="18" x2="280" y2="232"  class="svg-special-graphic-stroke-e2dbd3"/>
 
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="20" y="25" font-size="13" font-weight="600">不变的特征方向</text>
     <text x="300" y="25" font-size="13" font-weight="600">换到特征基后独立缩放</text>
   </g>
 
   <!-- 左 panel: two invariant lines -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="35" y1="188" x2="255" y2="188" marker-end="url(#eigen-arrow-ink)"/>
     <line x1="65" y1="220" x2="65" y2="42" marker-end="url(#eigen-arrow-ink)"/>
-    <line x1="65" y1="188" x2="215" y2="38" stroke="#c9c4bb" stroke-dasharray="5 4"/>
+    <line x1="65" y1="188" x2="215" y2="38"  stroke-dasharray="5 4" class="svg-special-graphic-stroke-c9c4bb"/>
   </g>
-  <text x="202" y="52" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">E₃</text>
-  <text x="228" y="181" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#6c6a64">E₂</text>
+  <text x="202" y="52" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">E₃</text>
+  <text x="228" y="181" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  class="svg-muted-fill">E₂</text>
 
-  <line x1="65" y1="188" x2="122" y2="188" stroke="#312f2f" stroke-width="2" marker-end="url(#eigen-arrow-ink)"/>
-  <line x1="65" y1="188" x2="181" y2="188" stroke="#cc785c" stroke-width="2.2" marker-end="url(#eigen-arrow-coral)"/>
-  <text x="92" y="178" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">v₁</text>
-  <text x="145" y="205" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">2v₁</text>
+  <line x1="65" y1="188" x2="122" y2="188"  stroke-width="2" marker-end="url(#eigen-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="65" y1="188" x2="181" y2="188"  stroke-width="2.2" marker-end="url(#eigen-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="92" y="178" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">v₁</text>
+  <text x="145" y="205" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">2v₁</text>
 
-  <line x1="65" y1="188" x2="106" y2="147" stroke="#312f2f" stroke-width="2" marker-end="url(#eigen-arrow-ink)"/>
-  <line x1="65" y1="188" x2="188" y2="65" stroke="#cc785c" stroke-width="2.2" marker-end="url(#eigen-arrow-coral)"/>
-  <text x="106" y="157" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">v₂</text>
-  <text x="190" y="63" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">3v₂</text>
-  <text x="30" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">Av₁=2v₁，Av₂=3v₂</text>
+  <line x1="65" y1="188" x2="106" y2="147"  stroke-width="2" marker-end="url(#eigen-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="65" y1="188" x2="188" y2="65"  stroke-width="2.2" marker-end="url(#eigen-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="106" y="157" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">v₂</text>
+  <text x="190" y="63" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">3v₂</text>
+  <text x="30" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">Av₁=2v₁，Av₂=3v₂</text>
 
   <!-- 右 panel: A becomes diagonal in eigenbasis -->
-  <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" fill="#312f2f">
+  <g font-family="Georgia, 'Times New Roman', serif" text-anchor="middle"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="327" y="57" font-style="italic" font-size="15">A</text>
     <text x="489" y="57" font-style="italic" font-size="15">D</text>
   </g>
-  <g transform="translate(299 72)" stroke="#b8b2a8" stroke-width="1">
-    <rect x="0" y="0" width="42" height="42" fill="#fffdfb"/>
-    <rect x="42" y="0" width="42" height="42" fill="#cc785c" fill-opacity="0.16"/>
-    <rect x="0" y="42" width="42" height="42" fill="#fffdfb"/>
-    <rect x="42" y="42" width="42" height="42" fill="#fffdfb"/>
+  <g transform="translate(299 72)"  stroke-width="1" class="svg-axis-stroke">
+    <rect x="0" y="0" width="42" height="42"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
+    <rect x="42" y="0" width="42" height="42"  fill-opacity="0.16" class="svg-special-fill-fill-cc785c"/>
+    <rect x="0" y="42" width="42" height="42"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
+    <rect x="42" y="42" width="42" height="42"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
   </g>
-  <g transform="translate(463 72)" stroke="#b8b2a8" stroke-width="1">
-    <rect x="0" y="0" width="42" height="42" fill="#cc785c" fill-opacity="0.16"/>
-    <rect x="42" y="0" width="42" height="42" fill="#fffdfb"/>
-    <rect x="0" y="42" width="42" height="42" fill="#fffdfb"/>
-    <rect x="42" y="42" width="42" height="42" fill="#cc785c" fill-opacity="0.16"/>
+  <g transform="translate(463 72)"  stroke-width="1" class="svg-axis-stroke">
+    <rect x="0" y="0" width="42" height="42"  fill-opacity="0.16" class="svg-special-fill-fill-cc785c"/>
+    <rect x="42" y="0" width="42" height="42"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
+    <rect x="0" y="42" width="42" height="42"  class="svg-special-fill-fill-fffdfb svg-special-background-fill-fffdfb"/>
+    <rect x="42" y="42" width="42" height="42"  fill-opacity="0.16" class="svg-special-fill-fill-cc785c"/>
   </g>
-  <g font-family="Georgia, 'Times New Roman', serif" font-size="17" text-anchor="middle" fill="#312f2f">
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="17" text-anchor="middle"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="320" y="99">2</text>
     <text x="362" y="99">1</text>
     <text x="320" y="141">0</text>
@@ -65,9 +103,9 @@
     <text x="484" y="141">0</text>
     <text x="526" y="141">3</text>
   </g>
-  <line x1="389" y1="115" x2="445" y2="115" stroke="#312f2f" stroke-width="1.7" marker-end="url(#eigen-arrow-ink)"/>
-  <text x="417" y="101" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64" text-anchor="middle">P⁻¹(·)P</text>
-  <text x="300" y="181" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">A=PDP⁻¹</text>
-  <text x="300" y="204" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">特征坐标：c₁→2c₁，c₂→3c₂</text>
-  <text x="300" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">混合变换变成两条独立缩放</text>
+  <line x1="389" y1="115" x2="445" y2="115"  stroke-width="1.7" marker-end="url(#eigen-arrow-ink)" class="svg-ink-stroke"/>
+  <text x="417" y="101" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  text-anchor="middle" class="svg-muted-fill">P⁻¹(·)P</text>
+  <text x="300" y="181" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">A=PDP⁻¹</text>
+  <text x="300" y="204" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">特征坐标：c₁→2c₁，c₂→3c₂</text>
+  <text x="300" y="222" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">混合变换变成两条独立缩放</text>
 </svg>

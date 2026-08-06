@@ -1,70 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-f5e7bc { fill: #999076; }
+  .svg-special-fill-fill-f7dfcf { fill: #9d8e84; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+  .svg-special-graphic-stroke-b58128 { stroke: #b58128; }
+  .svg-special-graphic-stroke-d5c9c5 { stroke: #988f8c; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e7f0ee { fill: #e7f0ee; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-f7dfcf { fill: #f7dfcf; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-e7f0ee { fill: #8c9291; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-f5e7bc { fill: #999076; }
+    .svg-special-fill-fill-f7dfcf { fill: #9d8e84; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-4f8f83 { stroke: #4f8f83; }
+    .svg-special-graphic-stroke-b58128 { stroke: #b58128; }
+    .svg-special-graphic-stroke-d5c9c5 { stroke: #988f8c; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e7f0ee { fill: #323433; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-f7dfcf { fill: #35312f; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">SwiGLU 的 gate 与 value 分支</title>
   <desc id="desc">同一个 token 的输入分别经过 gate projection 和 up projection，gate 分支经过 SiLU 后与 value 分支逐坐标相乘，再通过 down projection 回到 residual stream 的宽度。</desc>
   <style>
-    .paper { fill: #f4efee; }
-    .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
-    .muted { fill: #6c6a64; font-size: 16px; }
-    .label { fill: #312f2f; font-size: 20px; font-weight: 650; }
-    .small { fill: #6c6a64; font-size: 14px; }
-    .box { fill: #fffdfb; stroke: #312f2f; stroke-width: 2; rx: 10; }
-    .linear { fill: #e7f0ee; stroke: #4f8f83; stroke-width: 2; rx: 10; }
-    .activation { fill: #f7dfcf; stroke: #a9583e; stroke-width: 2; rx: 10; }
-    .merge { fill: #f5e7bc; stroke: #b58128; stroke-width: 2; }
-    .path { fill: none; stroke: #312f2f; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .arrow { fill: #312f2f; }
+    .paper {}
+    .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+    .muted {font-size: 16px; }
+    .label {font-size: 20px; font-weight: 650; }
+    .small {font-size: 14px; }
+    .box {stroke-width: 2; rx: 10; }
+    .linear {stroke-width: 2; rx: 10; }
+    .activation {stroke-width: 2; rx: 10; }
+    .merge {stroke-width: 2; }
+    .path { fill: none;  stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .arrow {}
   </style>
-  <rect class="paper" width="800" height="373"/>
-  <text class="ink label" x="42" y="42">SwiGLU 的两条中间分支</text>
-  <text class="ink muted" x="42" y="69">同一个 token 产生 gate 与 value，逐坐标相乘后压回 d 维</text>
+  <rect class="paper svg-special-fill-fill-f4efee svg-special-background-fill-f4efee" width="800" height="373"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="42">SwiGLU 的两条中间分支</text>
+  <text class="ink muted svg-special-text-fill-312f2f svg-muted-fill" x="42" y="69">同一个 token 产生 gate 与 value，逐坐标相乘后压回 d 维</text>
 
-  <rect class="box" x="42" y="126" width="74" height="50"/>
-  <text class="ink label" x="70" y="158">h</text>
-  <text class="ink small" x="70" y="198">d</text>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="42" y="126" width="74" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="70" y="158">h</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="70" y="198">d</text>
 
-  <path class="path" d="M116 151H136V96H154"/>
-  <path class="arrow" d="M154 96l-9-6v12z"/>
-  <path class="path" d="M116 151H136V212H154"/>
-  <path class="arrow" d="M154 212l-9-6v12z"/>
+  <path class="path svg-ink-stroke" d="M116 151H136V96H154"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M154 96l-9-6v12z"/>
+  <path class="path svg-ink-stroke" d="M116 151H136V212H154"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M154 212l-9-6v12z"/>
 
-  <rect class="linear" x="166" y="72" width="104" height="48"/>
-  <text class="ink label" x="199" y="103">W<tspan baseline-shift="sub" font-size="13">g</tspan>h</text>
-  <text class="ink small" x="197" y="143">g ∈ Rᵐ</text>
+  <rect class="linear svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="166" y="72" width="104" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="199" y="103">W<tspan baseline-shift="sub" font-size="13">g</tspan>h</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="197" y="143">g ∈ Rᵐ</text>
 
-  <path class="path" d="M270 96H292"/>
-  <path class="arrow" d="M292 96l-9-6v12z"/>
-  <rect class="activation" x="304" y="72" width="112" height="48"/>
-  <text class="ink label" x="325" y="103">SiLU(g)</text>
-  <text class="ink small" x="331" y="143">gate s</text>
+  <path class="path svg-ink-stroke" d="M270 96H292"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M292 96l-9-6v12z"/>
+  <rect class="activation svg-special-fill-fill-f7dfcf svg-coral-stroke-stroke svg-special-background-fill-f7dfcf" x="304" y="72" width="112" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="325" y="103">SiLU(g)</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="331" y="143">gate s</text>
 
-  <rect class="linear" x="166" y="188" width="104" height="48"/>
-  <text class="ink label" x="199" y="219">W<tspan baseline-shift="sub" font-size="13">u</tspan>h</text>
-  <text class="ink small" x="197" y="259">u ∈ Rᵐ</text>
+  <rect class="linear svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="166" y="188" width="104" height="48"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="199" y="219">W<tspan baseline-shift="sub" font-size="13">u</tspan>h</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="197" y="259">u ∈ Rᵐ</text>
 
-  <path class="path" d="M270 212H416V175H431"/>
-  <path class="arrow" d="M431 175l-9-6v12z"/>
-  <path class="path" d="M416 96V127H431"/>
-  <path class="arrow" d="M431 127l-9-6v12z"/>
+  <path class="path svg-ink-stroke" d="M270 212H416V175H431"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M431 175l-9-6v12z"/>
+  <path class="path svg-ink-stroke" d="M416 96V127H431"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M431 127l-9-6v12z"/>
 
-  <circle class="merge" cx="455" cy="151" r="24"/>
-  <text class="ink label" x="445" y="158">⊙</text>
-  <text class="ink small" x="421" y="198">a = s ⊙ u</text>
+  <circle class="merge svg-special-fill-fill-f5e7bc svg-special-graphic-stroke-b58128" cx="455" cy="151" r="24"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="445" y="158">⊙</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="421" y="198">a = s ⊙ u</text>
 
-  <path class="path" d="M479 151H508"/>
-  <path class="arrow" d="M508 151l-9-6v12z"/>
-  <rect class="linear" x="520" y="126" width="104" height="50"/>
-  <text class="ink label" x="553" y="158">W<tspan baseline-shift="sub" font-size="13">d</tspan>a</text>
-  <text class="ink small" x="560" y="198">m → d</text>
+  <path class="path svg-ink-stroke" d="M479 151H508"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M508 151l-9-6v12z"/>
+  <rect class="linear svg-special-fill-fill-e7f0ee svg-special-graphic-stroke-4f8f83 svg-special-background-fill-e7f0ee" x="520" y="126" width="104" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="553" y="158">W<tspan baseline-shift="sub" font-size="13">d</tspan>a</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="560" y="198">m → d</text>
 
-  <path class="path" d="M624 151H664"/>
-  <path class="arrow" d="M664 151l-9-6v12z"/>
-  <rect class="box" x="676" y="126" width="78" height="50"/>
-  <text class="ink label" x="706" y="158">y</text>
-  <text class="ink small" x="705" y="198">d</text>
+  <path class="path svg-ink-stroke" d="M624 151H664"/>
+  <path class="arrow svg-special-fill-fill-312f2f" d="M664 151l-9-6v12z"/>
+  <rect class="box svg-special-fill-fill-fffdfb svg-ink-stroke svg-special-background-fill-fffdfb" x="676" y="126" width="78" height="50"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="706" y="158">y</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="705" y="198">d</text>
 
-  <path d="M42 278H758" stroke="#d5c9c5" stroke-width="1.5"/>
-  <text class="ink label" x="42" y="315">逐 token 独立</text>
-  <text class="ink small" x="42" y="341">两条上投影读取同一个 h，不跨 token 相乘</text>
-  <text class="ink label" x="474" y="315">d → m → d</text>
-  <text class="ink small" x="474" y="341">a = SiLU(g) ⊙ u</text>
+  <path d="M42 278H758"  stroke-width="1.5" class="svg-special-graphic-stroke-d5c9c5"/>
+  <text class="ink label svg-special-text-fill-312f2f" x="42" y="315">逐 token 独立</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="42" y="341">两条上投影读取同一个 h，不跨 token 相乘</text>
+  <text class="ink label svg-special-text-fill-312f2f" x="474" y="315">d → m → d</text>
+  <text class="ink small svg-special-text-fill-312f2f svg-muted-fill" x="474" y="341">a = SiLU(g) ⊙ u</text>
 </svg>

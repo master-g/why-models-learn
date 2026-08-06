@@ -1,11 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-8d837b { stroke: #8d837b; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-706a67 { fill: #706a67; }
+
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-8d837b { stroke: #8d837b; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-e5dedb { stroke: #94908e; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-706a67 { fill: #a7a4a2; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">似然与先验共同形成后验峰</title>
   <desc id="desc">左侧展示似然曲线和先验曲线相乘后形成后验曲线，右侧展示 MAP 的后验乘法和对数加法形式。</desc>
   <defs>
     <style>
       text {
         font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-        fill: #312f2f;
       }
       .math {
         font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
@@ -13,44 +46,44 @@
       }
       .small { font-size: 11px; }
       .label { font-size: 12px; }
-      .caption { font-size: 12px; fill: #706a67; }
-      .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-      .guide { stroke: #c9c4bb; stroke-width: 1.1; stroke-dasharray: 4 4; }
-      .likelihood { fill: none; stroke: #b8b2a8; stroke-width: 1.7; stroke-linecap: round; }
-      .prior { fill: none; stroke: #8d837b; stroke-width: 1.7; stroke-linecap: round; }
-      .posterior { fill: none; stroke: #cc785c; stroke-width: 2.2; stroke-linecap: round; }
-      .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 1.2; }
-      .accent-box { fill: #cc785c; fill-opacity: 0.12; stroke: #cc785c; stroke-width: 1.4; }
+      .caption { font-size: 12px;  }
+      .axis {stroke-width: 1.2; }
+      .guide {stroke-width: 1.1; stroke-dasharray: 4 4; }
+      .likelihood { fill: none;  stroke-width: 1.7; stroke-linecap: round; }
+      .prior { fill: none;  stroke-width: 1.7; stroke-linecap: round; }
+      .posterior { fill: none;  stroke-width: 2.2; stroke-linecap: round; }
+      .box {stroke-width: 1.2; }
+      .accent-box {fill-opacity: 0.12;  stroke-width: 1.4; }
     </style>
   </defs>
 
-  <rect x="0" y="0" width="560" height="250" fill="#f4efee"/>
-  <line x1="280" y1="16" x2="280" y2="234" stroke="#e5dedb" stroke-width="1"/>
+  <rect x="0" y="0" width="560" height="250"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <line x1="280" y1="16" x2="280" y2="234"  stroke-width="1" class="svg-special-graphic-stroke-e5dedb"/>
 
-  <text x="140" y="22" text-anchor="middle" class="label">似然 × 先验 = 后验</text>
-  <line x1="40" y1="190" x2="248" y2="190" class="axis"/>
-  <line x1="52" y1="199" x2="52" y2="59" class="axis"/>
-  <path d="M56 184 C81 181 102 168 119 143 C134 121 144 91 158 77 C169 66 180 65 192 75 C207 87 218 119 226 145 C233 167 242 179 246 184" class="likelihood"/>
-  <path d="M56 188 C75 180 91 156 105 123 C118 91 128 75 140 72 C152 69 165 86 175 116 C185 146 197 176 221 187" class="prior"/>
-  <path d="M56 187 C80 185 102 177 119 159 C137 140 149 112 162 99 C172 89 183 89 193 99 C207 112 216 141 228 160 C236 173 242 182 246 186" class="posterior"/>
-  <line x1="178" y1="89" x2="178" y2="190" class="guide"/>
-  <circle cx="178" cy="89" r="3.5" fill="#cc785c"/>
-  <text x="178" y="79" text-anchor="middle" class="small math">θ̂MAP</text>
-  <text x="240" y="207" class="small math">θ</text>
-  <line x1="63" y1="53" x2="79" y2="53" class="likelihood"/>
-  <text x="84" y="57" class="small">似然</text>
-  <line x1="124" y1="53" x2="140" y2="53" class="prior"/>
-  <text x="145" y="57" class="small">先验</text>
-  <line x1="181" y1="53" x2="197" y2="53" class="posterior"/>
-  <text x="202" y="57" class="small">后验</text>
-  <text x="140" y="231" text-anchor="middle" class="caption">先验会把峰值向偏好区域收缩</text>
+  <text x="140" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">似然 × 先验 = 后验</text>
+  <line x1="40" y1="190" x2="248" y2="190" class="axis svg-axis-stroke"/>
+  <line x1="52" y1="199" x2="52" y2="59" class="axis svg-axis-stroke"/>
+  <path d="M56 184 C81 181 102 168 119 143 C134 121 144 91 158 77 C169 66 180 65 192 75 C207 87 218 119 226 145 C233 167 242 179 246 184" class="likelihood svg-axis-stroke"/>
+  <path d="M56 188 C75 180 91 156 105 123 C118 91 128 75 140 72 C152 69 165 86 175 116 C185 146 197 176 221 187" class="prior svg-special-graphic-stroke-8d837b"/>
+  <path d="M56 187 C80 185 102 177 119 159 C137 140 149 112 162 99 C172 89 183 89 193 99 C207 112 216 141 228 160 C236 173 242 182 246 186" class="posterior svg-coral-stroke-stroke"/>
+  <line x1="178" y1="89" x2="178" y2="190" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <circle cx="178" cy="89" r="3.5"  class="svg-special-fill-fill-cc785c"/>
+  <text x="178" y="79" text-anchor="middle" class="small math svg-special-text-fill-312f2f">θ̂MAP</text>
+  <text x="240" y="207" class="small math svg-special-text-fill-312f2f">θ</text>
+  <line x1="63" y1="53" x2="79" y2="53" class="likelihood svg-axis-stroke"/>
+  <text x="84" y="57" class="small svg-special-text-fill-312f2f">似然</text>
+  <line x1="124" y1="53" x2="140" y2="53" class="prior svg-special-graphic-stroke-8d837b"/>
+  <text x="145" y="57" class="small svg-special-text-fill-312f2f">先验</text>
+  <line x1="181" y1="53" x2="197" y2="53" class="posterior svg-coral-stroke-stroke"/>
+  <text x="202" y="57" class="small svg-special-text-fill-312f2f">后验</text>
+  <text x="140" y="231" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">先验会把峰值向偏好区域收缩</text>
 
-  <text x="420" y="22" text-anchor="middle" class="label">MAP 的优化形式</text>
-  <rect x="304" y="57" width="232" height="43" rx="4" class="box"/>
-  <text x="420" y="83" text-anchor="middle" class="small math">p(θ|D) ∝ p(D|θ)π(θ)</text>
-  <text x="420" y="121" text-anchor="middle" class="small">取 log 后，乘法变加法</text>
-  <rect x="304" y="139" width="232" height="43" rx="4" class="accent-box"/>
-  <text x="420" y="165" text-anchor="middle" class="small math">log L(θ)+log π(θ)</text>
-  <text x="420" y="207" text-anchor="middle" class="caption">峰值保留，证据是归一化常数</text>
-  <text x="420" y="231" text-anchor="middle" class="caption">点估计 ≠ 完整后验</text>
+  <text x="420" y="22" text-anchor="middle" class="label svg-special-text-fill-312f2f">MAP 的优化形式</text>
+  <rect x="304" y="57" width="232" height="43" rx="4" class="box svg-special-fill-fill-fdfcfa svg-axis-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="420" y="83" text-anchor="middle" class="small math svg-special-text-fill-312f2f">p(θ|D) ∝ p(D|θ)π(θ)</text>
+  <text x="420" y="121" text-anchor="middle" class="small svg-special-text-fill-312f2f">取 log 后，乘法变加法</text>
+  <rect x="304" y="139" width="232" height="43" rx="4" class="accent-box svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
+  <text x="420" y="165" text-anchor="middle" class="small math svg-special-text-fill-312f2f">log L(θ)+log π(θ)</text>
+  <text x="420" y="207" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">峰值保留，证据是归一化常数</text>
+  <text x="420" y="231" text-anchor="middle" class="caption svg-special-text-fill-312f2f svg-special-text-fill-706a67">点估计 ≠ 完整后验</text>
 </svg>

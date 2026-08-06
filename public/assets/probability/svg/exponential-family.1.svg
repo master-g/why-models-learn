@@ -1,53 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-faf8f5 { fill: #faf8f5; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-faf8f5 { fill: #353534; }
+
+
+
+  }
+</style>
   <title>指数族的统一结构</title>
   <desc>观测先经过充分统计量，与自然参数形成内积，再由对数配分函数归一化，得到概率密度。</desc>
   <style>
     text {
       font-family: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      fill: #312f2f;
     }
     .title { font-size: 17px; font-weight: 600; }
     .label { font-size: 13px; font-weight: 600; }
     .body { font-size: 12px; }
     .formula { font-family: "SFMono-Regular", "Cascadia Code", "Noto Sans Mono", monospace; font-size: 13px; }
-    .box { fill: #faf8f5; stroke: #b8b2a8; stroke-width: 1.5; }
-    .accent { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.5; }
-    .line { stroke: #cc785c; stroke-width: 2; fill: none; }
-    .soft { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
+    .box {stroke-width: 1.5; }
+    .accent {stroke-width: 1.5; }
+    .line {stroke-width: 2; fill: none; }
+    .soft {stroke-width: 1; stroke-dasharray: 4 4; fill: none; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
   </defs>
 
-  <text x="28" y="30" class="title">指数族：同一条概率结构</text>
-  <text x="28" y="52" class="body">充分统计量与自然参数配对，对数配分函数负责归一化</text>
+  <text x="28" y="30" class="title svg-special-text-fill-312f2f">指数族：同一条概率结构</text>
+  <text x="28" y="52" class="body svg-special-text-fill-312f2f">充分统计量与自然参数配对，对数配分函数负责归一化</text>
 
-  <rect x="28" y="82" width="108" height="64" rx="8" class="box"/>
-  <text x="82" y="105" text-anchor="middle" class="label">观测</text>
-  <text x="82" y="128" text-anchor="middle" class="formula">x</text>
+  <rect x="28" y="82" width="108" height="64" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="82" y="105" text-anchor="middle" class="label svg-special-text-fill-312f2f">观测</text>
+  <text x="82" y="128" text-anchor="middle" class="formula svg-special-text-fill-312f2f">x</text>
 
-  <path d="M136 114 H170" class="line" marker-end="url(#arrow)"/>
-  <rect x="170" y="82" width="116" height="64" rx="8" class="accent"/>
-  <text x="228" y="104" text-anchor="middle" class="label">充分统计量</text>
-  <text x="228" y="129" text-anchor="middle" class="formula">T(x)</text>
+  <path d="M136 114 H170" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
+  <rect x="170" y="82" width="116" height="64" rx="8" class="accent svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+  <text x="228" y="104" text-anchor="middle" class="label svg-special-text-fill-312f2f">充分统计量</text>
+  <text x="228" y="129" text-anchor="middle" class="formula svg-special-text-fill-312f2f">T(x)</text>
 
-  <path d="M286 114 H320" class="line" marker-end="url(#arrow)"/>
-  <rect x="320" y="73" width="112" height="82" rx="8" class="box"/>
-  <text x="376" y="96" text-anchor="middle" class="label">自然参数配对</text>
-  <text x="376" y="121" text-anchor="middle" class="formula">ηᵀT(x)</text>
-  <text x="376" y="141" text-anchor="middle" class="body">指数化</text>
+  <path d="M286 114 H320" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
+  <rect x="320" y="73" width="112" height="82" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="376" y="96" text-anchor="middle" class="label svg-special-text-fill-312f2f">自然参数配对</text>
+  <text x="376" y="121" text-anchor="middle" class="formula svg-special-text-fill-312f2f">ηᵀT(x)</text>
+  <text x="376" y="141" text-anchor="middle" class="body svg-special-text-fill-312f2f">指数化</text>
 
-  <path d="M432 114 H466" class="line" marker-end="url(#arrow)"/>
-  <rect x="466" y="73" width="66" height="82" rx="8" class="accent"/>
-  <text x="499" y="96" text-anchor="middle" class="label">密度</text>
-  <text x="499" y="119" text-anchor="middle" class="formula">pη(x)</text>
-  <text x="499" y="141" text-anchor="middle" class="body">已归一化</text>
+  <path d="M432 114 H466" class="line svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
+  <rect x="466" y="73" width="66" height="82" rx="8" class="accent svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4"/>
+  <text x="499" y="96" text-anchor="middle" class="label svg-special-text-fill-312f2f">密度</text>
+  <text x="499" y="119" text-anchor="middle" class="formula svg-special-text-fill-312f2f">pη(x)</text>
+  <text x="499" y="141" text-anchor="middle" class="body svg-special-text-fill-312f2f">已归一化</text>
 
-  <path d="M376 155 V184 H228 V146" class="soft"/>
-  <path d="M499 155 V184 H376" class="soft"/>
-  <rect x="116" y="184" width="310" height="42" rx="8" class="box"/>
-  <text x="271" y="202" text-anchor="middle" class="formula">A(η)=log ∫ h(x) exp(ηᵀT(x)) dμ(x)</text>
-  <text x="271" y="218" text-anchor="middle" class="body">对数配分函数：导数给出期望与协方差</text>
+  <path d="M376 155 V184 H228 V146" class="soft svg-special-graphic-stroke-c9c4bb"/>
+  <path d="M499 155 V184 H376" class="soft svg-special-graphic-stroke-c9c4bb"/>
+  <rect x="116" y="184" width="310" height="42" rx="8" class="box svg-special-fill-fill-faf8f5 svg-axis-stroke svg-special-background-fill-faf8f5"/>
+  <text x="271" y="202" text-anchor="middle" class="formula svg-special-text-fill-312f2f">A(η)=log ∫ h(x) exp(ηᵀT(x)) dμ(x)</text>
+  <text x="271" y="218" text-anchor="middle" class="body svg-special-text-fill-312f2f">对数配分函数：导数给出期望与协方差</text>
 </svg>

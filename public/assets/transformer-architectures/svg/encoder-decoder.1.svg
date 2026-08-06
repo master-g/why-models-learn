@@ -1,61 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-e7edf0 { fill: #8e9193; }
+  .svg-special-fill-fill-eee8d9 { fill: #949087; }
+  .svg-special-fill-fill-f2e4da { fill: #988f89; }
+  .svg-special-fill-fill-f8f5ee { fill: #92908c; }
+  .svg-special-fill-fill-fffdf8 { fill: #92908e; }
+  .svg-special-graphic-stroke-668692 { stroke: #668692; }
+  .svg-special-graphic-stroke-9b865c { stroke: #9b865c; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e7edf0 { fill: #e7edf0; }
+  .svg-special-background-fill-eee8d9 { fill: #eee8d9; }
+  .svg-special-background-fill-f2e4da { fill: #f2e4da; }
+  .svg-special-background-fill-f8f5ee { fill: #f8f5ee; }
+  .svg-special-background-fill-fffdf8 { fill: #fffdf8; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-e7edf0 { fill: #8e9193; }
+    .svg-special-fill-fill-eee8d9 { fill: #949087; }
+    .svg-special-fill-fill-f2e4da { fill: #988f89; }
+    .svg-special-fill-fill-f8f5ee { fill: #92908c; }
+    .svg-special-fill-fill-fffdf8 { fill: #92908e; }
+    .svg-special-graphic-stroke-668692 { stroke: #668692; }
+    .svg-special-graphic-stroke-9b865c { stroke: #9b865c; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e7edf0 { fill: #323334; }
+    .svg-special-background-fill-eee8d9 { fill: #333330; }
+    .svg-special-background-fill-f2e4da { fill: #343231; }
+    .svg-special-background-fill-f8f5ee { fill: #353433; }
+    .svg-special-background-fill-fffdf8 { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">Encoder-Decoder 的条件序列计算链</title>
   <desc id="desc">源序列经过 encoder 形成 memory，目标前缀经过 masked decoder，通过 cross-attention 读取源 memory 后输出目标 logits</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #312f2f; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;  }
     .small { font-size: 18px; }
     .label { font-size: 22px; font-weight: 600; }
     .title { font-size: 28px; font-weight: 700; }
-    .box { fill: #fffdf8; stroke: #312f2f; stroke-width: 2; rx: 14; }
-    .enc { fill: #f2e4da; stroke: #cc785c; }
-    .dec { fill: #e7edf0; stroke: #668692; }
-    .out { fill: #eee8d9; stroke: #9b865c; }
-    .arrow { stroke: #312f2f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
-    .cross { stroke: #cc785c; stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
-    .guide { stroke: #b8b2a8; stroke-width: 2; stroke-dasharray: 5 7; }
+    .box {stroke-width: 2; rx: 14; }
+    .enc {}
+    .dec {}
+    .out {}
+    .arrow {stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .cross {stroke-width: 3; fill: none; stroke-dasharray: 9 7; marker-end: url(#arrow-coral); }
+    .guide {stroke-width: 2; stroke-dasharray: 5 7; }
   </style>
   <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#312f2f"/></marker>
-    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/></marker>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-312f2f"/></marker>
+    <marker id="arrow-coral" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-cc785c"/></marker>
   </defs>
-  <rect width="1200" height="560" fill="#f8f5ee"/>
-  <text x="600" y="45" text-anchor="middle" class="title">Encoder-Decoder：两条序列、三种 attention、一个条件输出</text>
+  <rect width="1200" height="560"  class="svg-special-fill-fill-f8f5ee svg-special-background-fill-f8f5ee"/>
+  <text x="600" y="45" text-anchor="middle" class="title svg-special-text-fill-312f2f">Encoder-Decoder：两条序列、三种 attention、一个条件输出</text>
 
-  <text x="95" y="92" text-anchor="middle" class="label">源序列</text>
-  <rect x="25" y="112" width="140" height="48" class="box"/>
-  <text x="95" y="143" text-anchor="middle" class="small">token id (B,S)</text>
-  <path d="M165 136 H205" class="arrow"/>
-  <rect x="205" y="112" width="150" height="48" class="box"/>
-  <text x="280" y="143" text-anchor="middle" class="small">embedding + 位置</text>
-  <path d="M355 136 H395" class="arrow"/>
-  <rect x="395" y="82" width="300" height="108" class="box enc"/>
-  <text x="545" y="117" text-anchor="middle" class="label">Encoder</text>
-  <text x="545" y="151" text-anchor="middle" class="small">双向 self-attention + FFN</text>
-  <text x="545" y="177" text-anchor="middle" class="small">memory (B,S,D)</text>
+  <text x="95" y="92" text-anchor="middle" class="label svg-special-text-fill-312f2f">源序列</text>
+  <rect x="25" y="112" width="140" height="48" class="box svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-background-fill-fffdf8"/>
+  <text x="95" y="143" text-anchor="middle" class="small svg-special-text-fill-312f2f">token id (B,S)</text>
+  <path d="M165 136 H205" class="arrow svg-ink-stroke"/>
+  <rect x="205" y="112" width="150" height="48" class="box svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-background-fill-fffdf8"/>
+  <text x="280" y="143" text-anchor="middle" class="small svg-special-text-fill-312f2f">embedding + 位置</text>
+  <path d="M355 136 H395" class="arrow svg-ink-stroke"/>
+  <rect x="395" y="82" width="300" height="108" class="box enc svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-f2e4da svg-coral-stroke-stroke svg-special-background-fill-fffdf8 svg-special-background-fill-f2e4da"/>
+  <text x="545" y="117" text-anchor="middle" class="label svg-special-text-fill-312f2f">Encoder</text>
+  <text x="545" y="151" text-anchor="middle" class="small svg-special-text-fill-312f2f">双向 self-attention + FFN</text>
+  <text x="545" y="177" text-anchor="middle" class="small svg-special-text-fill-312f2f">memory (B,S,D)</text>
 
-  <text x="95" y="278" text-anchor="middle" class="label">目标前缀</text>
-  <rect x="25" y="298" width="140" height="48" class="box"/>
-  <text x="95" y="329" text-anchor="middle" class="small">右移 token (B,U)</text>
-  <path d="M165 322 H205" class="arrow"/>
-  <rect x="205" y="298" width="150" height="48" class="box"/>
-  <text x="280" y="329" text-anchor="middle" class="small">embedding + 位置</text>
-  <path d="M355 322 H395" class="arrow"/>
-  <rect x="395" y="245" width="300" height="154" class="box dec"/>
-  <text x="545" y="280" text-anchor="middle" class="label">Decoder</text>
-  <text x="545" y="314" text-anchor="middle" class="small">causal self-attention</text>
-  <text x="545" y="340" text-anchor="middle" class="small">cross-attention → source memory</text>
-  <text x="545" y="366" text-anchor="middle" class="small">FFN · hidden (B,U,D)</text>
+  <text x="95" y="278" text-anchor="middle" class="label svg-special-text-fill-312f2f">目标前缀</text>
+  <rect x="25" y="298" width="140" height="48" class="box svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-background-fill-fffdf8"/>
+  <text x="95" y="329" text-anchor="middle" class="small svg-special-text-fill-312f2f">右移 token (B,U)</text>
+  <path d="M165 322 H205" class="arrow svg-ink-stroke"/>
+  <rect x="205" y="298" width="150" height="48" class="box svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-background-fill-fffdf8"/>
+  <text x="280" y="329" text-anchor="middle" class="small svg-special-text-fill-312f2f">embedding + 位置</text>
+  <path d="M355 322 H395" class="arrow svg-ink-stroke"/>
+  <rect x="395" y="245" width="300" height="154" class="box dec svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-e7edf0 svg-special-graphic-stroke-668692 svg-special-background-fill-fffdf8 svg-special-background-fill-e7edf0"/>
+  <text x="545" y="280" text-anchor="middle" class="label svg-special-text-fill-312f2f">Decoder</text>
+  <text x="545" y="314" text-anchor="middle" class="small svg-special-text-fill-312f2f">causal self-attention</text>
+  <text x="545" y="340" text-anchor="middle" class="small svg-special-text-fill-312f2f">cross-attention → source memory</text>
+  <text x="545" y="366" text-anchor="middle" class="small svg-special-text-fill-312f2f">FFN · hidden (B,U,D)</text>
 
-  <path d="M545 190 V245" class="cross"/>
-  <text x="718" y="222" class="small" fill="#cc785c">K/V source memory</text>
-  <path d="M695 322 H775" class="arrow"/>
-  <rect x="775" y="298" width="170" height="48" class="box out"/>
-  <text x="860" y="329" text-anchor="middle" class="small">LM head (B,U,Vt)</text>
-  <path d="M945 322 H1010" class="arrow"/>
-  <rect x="1010" y="298" width="155" height="48" class="box out"/>
-  <text x="1087" y="329" text-anchor="middle" class="small">softmax / token</text>
+  <path d="M545 190 V245" class="cross svg-coral-stroke-stroke"/>
+  <text x="718" y="222" class="small svg-special-text-fill-312f2f svg-coral-text-fill" >K/V source memory</text>
+  <path d="M695 322 H775" class="arrow svg-ink-stroke"/>
+  <rect x="775" y="298" width="170" height="48" class="box out svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-eee8d9 svg-special-graphic-stroke-9b865c svg-special-background-fill-fffdf8 svg-special-background-fill-eee8d9"/>
+  <text x="860" y="329" text-anchor="middle" class="small svg-special-text-fill-312f2f">LM head (B,U,Vt)</text>
+  <path d="M945 322 H1010" class="arrow svg-ink-stroke"/>
+  <rect x="1010" y="298" width="155" height="48" class="box out svg-special-fill-fill-fffdf8 svg-ink-stroke svg-special-fill-fill-eee8d9 svg-special-graphic-stroke-9b865c svg-special-background-fill-fffdf8 svg-special-background-fill-eee8d9"/>
+  <text x="1087" y="329" text-anchor="middle" class="small svg-special-text-fill-312f2f">softmax / token</text>
 
-  <path d="M395 210 H1135" class="guide"/>
-  <text x="600" y="455" text-anchor="middle" class="small">encoder self (B,h,S,S)　decoder self (B,h,U,U)　cross (B,h,U,S)</text>
-  <text x="600" y="493" text-anchor="middle" class="small">训练：右移目标 + causal mask　推理：固定 source cache，逐 token decode</text>
+  <path d="M395 210 H1135" class="guide svg-axis-stroke"/>
+  <text x="600" y="455" text-anchor="middle" class="small svg-special-text-fill-312f2f">encoder self (B,h,S,S)　decoder self (B,h,U,U)　cross (B,h,U,S)</text>
+  <text x="600" y="493" text-anchor="middle" class="small svg-special-text-fill-312f2f">训练：右移目标 + causal mask　推理：固定 source cache，逐 token decode</text>
 </svg>

@@ -1,46 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="autodiff-title autodiff-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="autodiff-title autodiff-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f0ebe6 { fill: #94908d; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f0ebe6 { fill: #f0ebe6; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f0ebe6 { fill: #94908d; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f0ebe6 { fill: #343332; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="autodiff-title">自动微分的前向 JVP 与反向 VJP</title>
   <desc id="autodiff-desc">前向模式把输入方向沿计算节点送到输出，反向模式把输出敏感度沿相反方向拉回输入。</desc>
   <defs>
     <marker id="autodiff-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="autodiff-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <style>
-      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif;  font-size: 13px; }
       .small { font-size: 11px; }
       .title { font-size: 15px; font-weight: 600; }
-      .box { fill: #f0ebe6; stroke: #b8b2a8; }
+      .box {}
     </style>
   </defs>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="20" y1="126" x2="540" y2="126" stroke="#d8d0c8"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="20" y1="126" x2="540" y2="126"  class="svg-special-graphic-stroke-d8d0c8"/>
 
-  <text x="22" y="24" class="label title">前向模式：输入方向 → JVP</text>
-  <rect x="28" y="48" width="112" height="36" rx="6" class="box"/>
-  <text x="54" y="71" class="label">x，v</text>
-  <rect x="208" y="48" width="126" height="36" rx="6" class="box"/>
-  <text x="246" y="71" class="label">计算节点</text>
-  <rect x="402" y="48" width="124" height="36" rx="6" class="box"/>
-  <text x="427" y="71" class="label">y，Jv</text>
-  <line x1="146" y1="66" x2="202" y2="66" stroke="#cc785c" stroke-width="2" marker-end="url(#autodiff-arrow-coral)"/>
-  <line x1="340" y1="66" x2="396" y2="66" stroke="#cc785c" stroke-width="2" marker-end="url(#autodiff-arrow-coral)"/>
-  <text x="43" y="104" class="label small">值 + 切向量</text>
-  <text x="218" y="104" class="label small">局部乘积法则</text>
-  <text x="413" y="104" class="label small">JVP = Jv</text>
+  <text x="22" y="24" class="label title svg-special-text-fill-312f2f">前向模式：输入方向 → JVP</text>
+  <rect x="28" y="48" width="112" height="36" rx="6" class="box svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="54" y="71" class="label svg-special-text-fill-312f2f">x，v</text>
+  <rect x="208" y="48" width="126" height="36" rx="6" class="box svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="246" y="71" class="label svg-special-text-fill-312f2f">计算节点</text>
+  <rect x="402" y="48" width="124" height="36" rx="6" class="box svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="427" y="71" class="label svg-special-text-fill-312f2f">y，Jv</text>
+  <line x1="146" y1="66" x2="202" y2="66"  stroke-width="2" marker-end="url(#autodiff-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="340" y1="66" x2="396" y2="66"  stroke-width="2" marker-end="url(#autodiff-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="43" y="104" class="label small svg-special-text-fill-312f2f">值 + 切向量</text>
+  <text x="218" y="104" class="label small svg-special-text-fill-312f2f">局部乘积法则</text>
+  <text x="413" y="104" class="label small svg-special-text-fill-312f2f">JVP = Jv</text>
 
-  <text x="22" y="150" class="label title">反向模式：VJP ← 输出敏感度</text>
-  <rect x="28" y="176" width="112" height="36" rx="6" class="box"/>
-  <text x="59" y="199" class="label">x，gₓ</text>
-  <rect x="208" y="176" width="126" height="36" rx="6" class="box"/>
-  <text x="246" y="199" class="label">计算节点</text>
-  <rect x="402" y="176" width="124" height="36" rx="6" class="box"/>
-  <text x="431" y="199" class="label">L，gᵧ</text>
-  <line x1="396" y1="194" x2="340" y2="194" stroke="#312f2f" stroke-width="2" marker-end="url(#autodiff-arrow-ink)"/>
-  <line x1="202" y1="194" x2="146" y2="194" stroke="#312f2f" stroke-width="2" marker-end="url(#autodiff-arrow-ink)"/>
-  <text x="48" y="231" class="label small">累加所有路径</text>
-  <text x="218" y="231" class="label small">局部导数的伴随</text>
-  <text x="410" y="231" class="label small">VJP = gᵀJ</text>
+  <text x="22" y="150" class="label title svg-special-text-fill-312f2f">反向模式：VJP ← 输出敏感度</text>
+  <rect x="28" y="176" width="112" height="36" rx="6" class="box svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="59" y="199" class="label svg-special-text-fill-312f2f">x，gₓ</text>
+  <rect x="208" y="176" width="126" height="36" rx="6" class="box svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="246" y="199" class="label svg-special-text-fill-312f2f">计算节点</text>
+  <rect x="402" y="176" width="124" height="36" rx="6" class="box svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="431" y="199" class="label svg-special-text-fill-312f2f">L，gᵧ</text>
+  <line x1="396" y1="194" x2="340" y2="194"  stroke-width="2" marker-end="url(#autodiff-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="202" y1="194" x2="146" y2="194"  stroke-width="2" marker-end="url(#autodiff-arrow-ink)" class="svg-ink-stroke"/>
+  <text x="48" y="231" class="label small svg-special-text-fill-312f2f">累加所有路径</text>
+  <text x="218" y="231" class="label small svg-special-text-fill-312f2f">局部导数的伴随</text>
+  <text x="410" y="231" class="label small svg-special-text-fill-312f2f">VJP = gᵀJ</text>
 </svg>

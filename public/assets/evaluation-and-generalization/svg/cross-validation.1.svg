@@ -1,91 +1,135 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-6e8f8a { fill: #6e8f8a; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-d9e7e4 { fill: #8a9291; }
+  .svg-special-fill-fill-f2d6cd { fill: #9f8d87; }
+  .svg-special-fill-fill-f4efee { fill: #939090; }
+  .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+  .svg-special-graphic-stroke-6e8f8a { stroke: #6e8f8a; }
+  .svg-special-graphic-stroke-8f8a81 { stroke: #8f8a81; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-d9e7e4 { fill: #d9e7e4; }
+  .svg-special-background-fill-f2d6cd { fill: #f2d6cd; }
+  .svg-special-background-fill-f4efee { fill: #f4efee; }
+  .svg-special-background-fill-fdfcfa { fill: #fdfcfa; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-6e8f8a { fill: #6e8f8a; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-d9e7e4 { fill: #8a9291; }
+    .svg-special-fill-fill-f2d6cd { fill: #9f8d87; }
+    .svg-special-fill-fill-f4efee { fill: #939090; }
+    .svg-special-fill-fill-fdfcfa { fill: #91908f; }
+    .svg-special-graphic-stroke-6e8f8a { stroke: #6e8f8a; }
+    .svg-special-graphic-stroke-8f8a81 { stroke: #8f8a81; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-d9e7e4 { fill: #303232; }
+    .svg-special-background-fill-f2d6cd { fill: #34302f; }
+    .svg-special-background-fill-f4efee { fill: #343433; }
+    .svg-special-background-fill-fdfcfa { fill: #353535; }
+
+
+
+  }
+</style>
   <title id="title">交叉验证：轮流留出、内层选择与 OOF 预测</title>
   <desc id="desc">左侧展示五折中训练和验证角色轮换，中间展示每个样本由没有见过它的模型生成 OOF 预测，右侧展示外层评估包住内层超参数选择。</desc>
   <style>
-    .ink { fill: #312f2f; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
-    .muted { fill: #6c6a64; font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
-    .box { fill: #fdfcfa; stroke: #b8b2a8; stroke-width: 2; }
-    .accent-box { fill: #fdfcfa; stroke: #cc785c; stroke-width: 2.5; }
-    .train { fill: #d9e7e4; stroke: #6e8f8a; stroke-width: 1.5; }
-    .valid { fill: #f2d6cd; stroke: #cc785c; stroke-width: 1.5; }
-    .axis { fill: none; stroke: #8f8a81; stroke-width: 2; stroke-linecap: round; }
-    .guide { fill: none; stroke: #c9c4bb; stroke-width: 2; stroke-dasharray: 6 6; }
-    .accent { fill: #cc785c; }
-    .teal { fill: #6e8f8a; }
-    .arrow { fill: none; stroke: #cc785c; stroke-width: 3; stroke-linecap: round; }
+    .ink {font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .muted {font-family: "Noto Sans CJK SC", "PingFang SC", "Sarasa Gothic SC", system-ui, sans-serif; }
+    .box {stroke-width: 2; }
+    .accent-box {stroke-width: 2.5; }
+    .train {stroke-width: 1.5; }
+    .valid {stroke-width: 1.5; }
+    .axis { fill: none;  stroke-width: 2; stroke-linecap: round; }
+    .guide { fill: none;  stroke-width: 2; stroke-dasharray: 6 6; }
+    .accent {}
+    .teal {}
+    .arrow { fill: none;  stroke-width: 3; stroke-linecap: round; }
   </style>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
   </defs>
 
-  <rect x="24" y="24" width="752" height="325" rx="18" fill="#f4efee"/>
-  <text x="52" y="61" class="ink" font-size="22" font-weight="700">交叉验证：留出、选择与 OOF</text>
-  <text x="52" y="87" class="muted" font-size="14">每个样本轮流验证，折内训练边界始终不越界</text>
+  <rect x="24" y="24" width="752" height="325" rx="18"  class="svg-special-fill-fill-f4efee svg-special-background-fill-f4efee"/>
+  <text x="52" y="61" class="ink svg-special-text-fill-312f2f" font-size="22" font-weight="700">交叉验证：留出、选择与 OOF</text>
+  <text x="52" y="87" class="muted svg-muted-fill" font-size="14">每个样本轮流验证，折内训练边界始终不越界</text>
 
-  <rect x="52" y="111" width="220" height="205" rx="14" class="box"/>
-  <text x="74" y="141" class="ink" font-size="16" font-weight="700">K 折角色轮换</text>
-  <text x="74" y="163" class="muted" font-size="12">同一批样本，不同验证折</text>
-  <text x="74" y="188" class="muted" font-size="11">折 1</text>
-  <rect x="112" y="176" width="24" height="18" rx="4" class="valid"/>
-  <rect x="140" y="176" width="24" height="18" rx="4" class="train"/>
-  <rect x="168" y="176" width="24" height="18" rx="4" class="train"/>
-  <rect x="196" y="176" width="24" height="18" rx="4" class="train"/>
-  <rect x="224" y="176" width="24" height="18" rx="4" class="train"/>
-  <text x="74" y="215" class="muted" font-size="11">折 2</text>
-  <rect x="112" y="203" width="24" height="18" rx="4" class="train"/>
-  <rect x="140" y="203" width="24" height="18" rx="4" class="valid"/>
-  <rect x="168" y="203" width="24" height="18" rx="4" class="train"/>
-  <rect x="196" y="203" width="24" height="18" rx="4" class="train"/>
-  <rect x="224" y="203" width="24" height="18" rx="4" class="train"/>
-  <text x="74" y="242" class="muted" font-size="11">折 3</text>
-  <rect x="112" y="230" width="24" height="18" rx="4" class="train"/>
-  <rect x="140" y="230" width="24" height="18" rx="4" class="train"/>
-  <rect x="168" y="230" width="24" height="18" rx="4" class="valid"/>
-  <rect x="196" y="230" width="24" height="18" rx="4" class="train"/>
-  <rect x="224" y="230" width="24" height="18" rx="4" class="train"/>
-  <text x="74" y="269" class="muted" font-size="11">每折</text>
-  <rect x="112" y="257" width="24" height="18" rx="4" class="train"/>
-  <rect x="140" y="257" width="24" height="18" rx="4" class="train"/>
-  <rect x="168" y="257" width="24" height="18" rx="4" class="train"/>
-  <rect x="196" y="257" width="24" height="18" rx="4" class="train"/>
-  <rect x="224" y="257" width="24" height="18" rx="4" class="valid"/>
-  <text x="74" y="299" class="muted" font-size="11">● 训练　● 验证</text>
+  <rect x="52" y="111" width="220" height="205" rx="14" class="box svg-special-fill-fill-fdfcfa svg-axis-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="74" y="141" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="700">K 折角色轮换</text>
+  <text x="74" y="163" class="muted svg-muted-fill" font-size="12">同一批样本，不同验证折</text>
+  <text x="74" y="188" class="muted svg-muted-fill" font-size="11">折 1</text>
+  <rect x="112" y="176" width="24" height="18" rx="4" class="valid svg-special-fill-fill-f2d6cd svg-coral-stroke-stroke svg-special-background-fill-f2d6cd"/>
+  <rect x="140" y="176" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="168" y="176" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="196" y="176" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="224" y="176" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <text x="74" y="215" class="muted svg-muted-fill" font-size="11">折 2</text>
+  <rect x="112" y="203" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="140" y="203" width="24" height="18" rx="4" class="valid svg-special-fill-fill-f2d6cd svg-coral-stroke-stroke svg-special-background-fill-f2d6cd"/>
+  <rect x="168" y="203" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="196" y="203" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="224" y="203" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <text x="74" y="242" class="muted svg-muted-fill" font-size="11">折 3</text>
+  <rect x="112" y="230" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="140" y="230" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="168" y="230" width="24" height="18" rx="4" class="valid svg-special-fill-fill-f2d6cd svg-coral-stroke-stroke svg-special-background-fill-f2d6cd"/>
+  <rect x="196" y="230" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="224" y="230" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <text x="74" y="269" class="muted svg-muted-fill" font-size="11">每折</text>
+  <rect x="112" y="257" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="140" y="257" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="168" y="257" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="196" y="257" width="24" height="18" rx="4" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <rect x="224" y="257" width="24" height="18" rx="4" class="valid svg-special-fill-fill-f2d6cd svg-coral-stroke-stroke svg-special-background-fill-f2d6cd"/>
+  <text x="74" y="299" class="muted svg-muted-fill" font-size="11">● 训练　● 验证</text>
 
-  <path d="M 288 214 L 322 214" class="arrow" marker-end="url(#arrow)"/>
+  <path d="M 288 214 L 322 214" class="arrow svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
 
-  <rect x="332" y="111" width="200" height="205" rx="14" class="accent-box"/>
-  <text x="355" y="141" class="ink" font-size="16" font-weight="700">OOF 预测</text>
-  <text x="355" y="163" class="muted" font-size="12">每个样本由未见模型预测</text>
-  <line x1="365" y1="203" x2="507" y2="203" class="axis"/>
-  <circle cx="376" cy="203" r="5" class="teal"/>
-  <circle cx="405" cy="203" r="5" class="teal"/>
-  <circle cx="434" cy="203" r="5" class="teal"/>
-  <circle cx="463" cy="203" r="5" class="teal"/>
-  <circle cx="492" cy="203" r="5" class="teal"/>
-  <path d="M 376 203 L 376 235" class="arrow"/>
-  <path d="M 405 203 L 405 235" class="arrow"/>
-  <path d="M 434 203 L 434 235" class="arrow"/>
-  <path d="M 463 203 L 463 235" class="arrow"/>
-  <path d="M 492 203 L 492 235" class="arrow"/>
-  <circle cx="376" cy="244" r="5" class="accent"/>
-  <circle cx="405" cy="244" r="5" class="accent"/>
-  <circle cx="434" cy="244" r="5" class="accent"/>
-  <circle cx="463" cy="244" r="5" class="accent"/>
-  <circle cx="492" cy="244" r="5" class="accent"/>
-  <text x="355" y="275" class="muted" font-size="12">保存预测，再算总体指标</text>
-  <text x="355" y="297" class="muted" font-size="12">不能使用训练内预测</text>
+  <rect x="332" y="111" width="200" height="205" rx="14" class="accent-box svg-special-fill-fill-fdfcfa svg-coral-stroke-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="355" y="141" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="700">OOF 预测</text>
+  <text x="355" y="163" class="muted svg-muted-fill" font-size="12">每个样本由未见模型预测</text>
+  <line x1="365" y1="203" x2="507" y2="203" class="axis svg-special-graphic-stroke-8f8a81"/>
+  <circle cx="376" cy="203" r="5" class="teal svg-special-fill-fill-6e8f8a"/>
+  <circle cx="405" cy="203" r="5" class="teal svg-special-fill-fill-6e8f8a"/>
+  <circle cx="434" cy="203" r="5" class="teal svg-special-fill-fill-6e8f8a"/>
+  <circle cx="463" cy="203" r="5" class="teal svg-special-fill-fill-6e8f8a"/>
+  <circle cx="492" cy="203" r="5" class="teal svg-special-fill-fill-6e8f8a"/>
+  <path d="M 376 203 L 376 235" class="arrow svg-coral-stroke-stroke"/>
+  <path d="M 405 203 L 405 235" class="arrow svg-coral-stroke-stroke"/>
+  <path d="M 434 203 L 434 235" class="arrow svg-coral-stroke-stroke"/>
+  <path d="M 463 203 L 463 235" class="arrow svg-coral-stroke-stroke"/>
+  <path d="M 492 203 L 492 235" class="arrow svg-coral-stroke-stroke"/>
+  <circle cx="376" cy="244" r="5" class="accent svg-special-fill-fill-cc785c"/>
+  <circle cx="405" cy="244" r="5" class="accent svg-special-fill-fill-cc785c"/>
+  <circle cx="434" cy="244" r="5" class="accent svg-special-fill-fill-cc785c"/>
+  <circle cx="463" cy="244" r="5" class="accent svg-special-fill-fill-cc785c"/>
+  <circle cx="492" cy="244" r="5" class="accent svg-special-fill-fill-cc785c"/>
+  <text x="355" y="275" class="muted svg-muted-fill" font-size="12">保存预测，再算总体指标</text>
+  <text x="355" y="297" class="muted svg-muted-fill" font-size="12">不能使用训练内预测</text>
 
-  <path d="M 548 214 L 582 214" class="arrow" marker-end="url(#arrow)"/>
+  <path d="M 548 214 L 582 214" class="arrow svg-coral-stroke-stroke" marker-end="url(#arrow)"/>
 
-  <rect x="592" y="111" width="156" height="205" rx="14" class="box"/>
-  <text x="614" y="141" class="ink" font-size="16" font-weight="700">嵌套选择</text>
-  <rect x="614" y="160" width="112" height="67" rx="9" class="accent-box"/>
-  <text x="670" y="181" class="ink" font-size="12" text-anchor="middle">外层：只评估</text>
-  <rect x="630" y="190" width="80" height="25" rx="6" class="train"/>
-  <text x="670" y="207" class="muted" font-size="11" text-anchor="middle">内层：选 λ</text>
-  <path d="M 614 242 L 726 242" class="guide"/>
-  <text x="670" y="263" class="muted" font-size="12" text-anchor="middle">外层折不参与选择</text>
-  <text x="614" y="294" class="muted" font-size="11">选择偏差 ↓</text>
+  <rect x="592" y="111" width="156" height="205" rx="14" class="box svg-special-fill-fill-fdfcfa svg-axis-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="614" y="141" class="ink svg-special-text-fill-312f2f" font-size="16" font-weight="700">嵌套选择</text>
+  <rect x="614" y="160" width="112" height="67" rx="9" class="accent-box svg-special-fill-fill-fdfcfa svg-coral-stroke-stroke svg-special-background-fill-fdfcfa"/>
+  <text x="670" y="181" class="ink svg-special-text-fill-312f2f" font-size="12" text-anchor="middle">外层：只评估</text>
+  <rect x="630" y="190" width="80" height="25" rx="6" class="train svg-special-fill-fill-d9e7e4 svg-special-graphic-stroke-6e8f8a svg-special-background-fill-d9e7e4"/>
+  <text x="670" y="207" class="muted svg-muted-fill" font-size="11" text-anchor="middle">内层：选 λ</text>
+  <path d="M 614 242 L 726 242" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="670" y="263" class="muted svg-muted-fill" font-size="12" text-anchor="middle">外层折不参与选择</text>
+  <text x="614" y="294" class="muted svg-muted-fill" font-size="11">选择偏差 ↓</text>
 </svg>

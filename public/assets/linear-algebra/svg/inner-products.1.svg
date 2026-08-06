@@ -1,49 +1,69 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-axis-fill { fill: #b8b2a8; }
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-fill { fill: #cc785c; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-fill { fill: #312f2f; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  @media (prefers-color-scheme: dark) {
+    .svg-axis-fill { fill: #8b8a83; }
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-fill { fill: #e28466; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-fill { fill: #f0efe8; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+  }
+</style>
   <defs>
     <marker id="ip-arr-gray" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#b8b2a8"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-axis-fill"/>
     </marker>
   </defs>
 
   <!-- ============ 左:Cauchy–Schwarz 证明的抛物线 ============ -->
   <!-- t 轴 y=150;f 轴不画(正文说明);f 缩放 5px/单位 -->
-  <line x1="30" y1="150" x2="205" y2="150" stroke="#b8b2a8" stroke-width="1" marker-end="url(#ip-arr-gray)"/>
-  <text x="209" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12" fill="#6c6a64">t</text>
+  <line x1="30" y1="150" x2="205" y2="150"  stroke-width="1" marker-end="url(#ip-arr-gray)" class="svg-axis-stroke"/>
+  <text x="209" y="154" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="12"  class="svg-muted-fill">t</text>
 
-  <text x="110" y="28" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">f(t) = 5t² + 22t + 25</text>
+  <text x="110" y="28" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-ink-fill">f(t) = 5t² + 22t + 25</text>
 
   <!-- 抛物线:顶点 (110,146),过 (56,65) 与 (164,65),二次贝塞尔控制点 (110,227) -->
-  <path d="M 56,65 Q 110,227 164,65" fill="none" stroke="#312f2f" stroke-width="1.8"/>
+  <path d="M 56,65 Q 110,227 164,65" fill="none"  stroke-width="1.8" class="svg-ink-stroke"/>
 
   <!-- 顶点 -->
-  <circle cx="110" cy="146" r="2.6" fill="#cc785c"/>
-  <line x1="110" y1="148" x2="110" y2="150" stroke="#cc785c" stroke-width="1.2"/>
+  <circle cx="110" cy="146" r="2.6"  class="svg-coral-stroke-fill"/>
+  <line x1="110" y1="148" x2="110" y2="150"  stroke-width="1.2" class="svg-coral-stroke-stroke"/>
 
-  <text x="110" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11" fill="#6c6a64" text-anchor="middle">t* = −2.2,f(t*) = 0.8 &gt; 0</text>
+  <text x="110" y="166" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="11"  text-anchor="middle" class="svg-muted-fill">t* = −2.2,f(t*) = 0.8 &gt; 0</text>
 
-  <text x="110" y="194" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">⟨x+ty, x+ty⟩ 是 t 的二次函数,恒非负</text>
+  <text x="110" y="194" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-muted-fill">⟨x+ty, x+ty⟩ 是 t 的二次函数,恒非负</text>
 
   <!-- ============ 右:CS 柱图两情形 ============ -->
-  <text x="420" y="16" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">左柱 |⟨x,y⟩|,右柱 ‖x‖·‖y‖</text>
+  <text x="420" y="16" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-muted-fill">左柱 |⟨x,y⟩|,右柱 ‖x‖·‖y‖</text>
 
   <!-- 基线 y=150,2.2px/单位 -->
-  <line x1="280" y1="150" x2="540" y2="150" stroke="#b8b2a8" stroke-width="1"/>
+  <line x1="280" y1="150" x2="540" y2="150"  stroke-width="1" class="svg-axis-stroke"/>
 
   <!-- 情形一:不共线 (3,4)·(1,2):11 < 11.18 -->
-  <rect x="316" y="125.8" width="22" height="24.2" fill="#cc785c"/>
-  <rect x="344" y="125.4" width="22" height="24.6" fill="#b8b2a8"/>
-  <text x="327" y="117" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#a9583e" text-anchor="middle">11</text>
-  <text x="355" y="117" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#6c6a64" text-anchor="middle">11.18</text>
-  <text x="338" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#312f2f" text-anchor="middle">&lt;</text>
-  <text x="341" y="168" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64" text-anchor="middle">(3, 4)·(1, 2) 不共线</text>
+  <rect x="316" y="125.8" width="22" height="24.2"  class="svg-coral-stroke-fill"/>
+  <rect x="344" y="125.4" width="22" height="24.6"  class="svg-axis-fill"/>
+  <text x="327" y="117" font-family="Georgia, 'Times New Roman', serif" font-size="11"  text-anchor="middle" class="svg-coral-text-fill">11</text>
+  <text x="355" y="117" font-family="Georgia, 'Times New Roman', serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">11.18</text>
+  <text x="338" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="14"  text-anchor="middle" class="svg-ink-fill">&lt;</text>
+  <text x="341" y="168" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">(3, 4)·(1, 2) 不共线</text>
 
   <!-- 情形二:共线 (3,4)·(6,8):50 = 50 -->
-  <rect x="436" y="40" width="22" height="110" fill="#cc785c"/>
-  <rect x="464" y="40" width="22" height="110" fill="#b8b2a8"/>
-  <text x="447" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#a9583e" text-anchor="middle">50</text>
-  <text x="475" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#6c6a64" text-anchor="middle">50</text>
-  <text x="461" y="95" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#312f2f" text-anchor="middle">=</text>
-  <text x="461" y="168" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11" fill="#6c6a64" text-anchor="middle">(3, 4)·(6, 8) 共线</text>
+  <rect x="436" y="40" width="22" height="110"  class="svg-coral-stroke-fill"/>
+  <rect x="464" y="40" width="22" height="110"  class="svg-axis-fill"/>
+  <text x="447" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="11"  text-anchor="middle" class="svg-coral-text-fill">50</text>
+  <text x="475" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">50</text>
+  <text x="461" y="95" font-family="Georgia, 'Times New Roman', serif" font-size="14"  text-anchor="middle" class="svg-ink-fill">=</text>
+  <text x="461" y="168" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="11"  text-anchor="middle" class="svg-muted-fill">(3, 4)·(6, 8) 共线</text>
 
-  <text x="420" y="196" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">Cauchy–Schwarz:共线时取等号</text>
+  <text x="420" y="196" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-muted-fill">Cauchy–Schwarz:共线时取等号</text>
 </svg>

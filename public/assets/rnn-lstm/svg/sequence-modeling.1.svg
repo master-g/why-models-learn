@@ -1,32 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6f6a63 { fill: #6f6a63; }
+  .svg-special-fill-fill-9a9288 { fill: #978f86; }
+  .svg-special-fill-fill-b98974 { fill: #b68672; }
+  .svg-special-fill-fill-ded8ee { fill: #928f9d; }
+  .svg-special-fill-fill-dfe9df { fill: #8c928c; }
+  .svg-special-fill-fill-e9d8c9 { fill: #9a8f85; }
+  .svg-special-fill-fill-f7f2e9 { fill: #93908b; }
+  .svg-special-graphic-stroke-6f6a63 { stroke: #6f6a63; }
+  .svg-special-graphic-stroke-b98974 { stroke: #b68672; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6f6a63 { fill: #6f6a63; }
+  .svg-special-text-fill-9a9288 { fill: #79726a; }
+
+  .svg-special-background-fill-ded8ee { fill: #ded8ee; }
+  .svg-special-background-fill-dfe9df { fill: #dfe9df; }
+  .svg-special-background-fill-e9d8c9 { fill: #e9d8c9; }
+  .svg-special-background-fill-f7f2e9 { fill: #f7f2e9; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6f6a63 { fill: #6f6a63; }
+  .svg-special-text-fill-9a9288 { fill: #79726a; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6f6a63 { fill: #6f6a63; }
+    .svg-special-fill-fill-9a9288 { fill: #978f86; }
+    .svg-special-fill-fill-b98974 { fill: #b68672; }
+    .svg-special-fill-fill-ded8ee { fill: #928f9d; }
+    .svg-special-fill-fill-dfe9df { fill: #8c928c; }
+    .svg-special-fill-fill-e9d8c9 { fill: #9a8f85; }
+    .svg-special-fill-fill-f7f2e9 { fill: #93908b; }
+    .svg-special-graphic-stroke-6f6a63 { stroke: #6f6a63; }
+    .svg-special-graphic-stroke-b98974 { stroke: #b68672; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6f6a63 { fill: #a7a49f; }
+    .svg-special-text-fill-9a9288 { fill: #a8a49e; }
+    .svg-special-background-fill-ded8ee { fill: #313033; }
+    .svg-special-background-fill-dfe9df { fill: #313331; }
+    .svg-special-background-fill-e9d8c9 { fill: #33302e; }
+    .svg-special-background-fill-f7f2e9 { fill: #353433; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6f6a63 { fill: #a7a49f; }
+    .svg-special-text-fill-9a9288 { fill: #a8a49e; }
+
+
+
+  }
+</style>
   <title id="title">序列经过循环状态逐步传递</title>
   <desc id="desc">四个时间步各自读取输入、上一步隐藏状态并产生当前状态和输出，隐藏状态沿时间方向传递。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#6f6a63"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-6f6a63"/>
     </marker>
     <marker id="soft-arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#b98974"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-b98974"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="800" height="373" rx="16" fill="#f7f2e9"/>
-  <text x="32" y="31" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700">序列经过同一个状态更新</text>
-  <text x="32" y="52" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11">参数 θ 在每个时间步共享；隐藏状态把过去带到下一步</text>
+  <rect x="0" y="0" width="800" height="373" rx="16"  class="svg-special-fill-fill-f7f2e9 svg-special-background-fill-f7f2e9"/>
+  <text x="32" y="31"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="17" font-weight="700" class="svg-special-text-fill-312f2f">序列经过同一个状态更新</text>
+  <text x="32" y="52"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" class="svg-special-text-fill-6f6a63">参数 θ 在每个时间步共享；隐藏状态把过去带到下一步</text>
 
-  <line x1="78" y1="79" x2="722" y2="79" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="4 5"/>
-  <text x="75" y="73" fill="#9a9288" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">输入序列</text>
-  <text x="75" y="164" fill="#9a9288" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">状态序列</text>
-  <text x="75" y="258" fill="#9a9288" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10">输出序列</text>
+  <line x1="78" y1="79" x2="722" y2="79"  stroke-width="1" stroke-dasharray="4 5" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="75" y="73"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-9a9288">输入序列</text>
+  <text x="75" y="164"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-9a9288">状态序列</text>
+  <text x="75" y="258"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" class="svg-special-text-fill-9a9288">输出序列</text>
 
-  <g fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="12" text-anchor="middle">
+  <g  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="12" text-anchor="middle" class="svg-special-fill-fill-6f6a63 svg-special-text-fill-6f6a63">
     <text x="150" y="75">t=1</text>
     <text x="317" y="75">t=2</text>
     <text x="484" y="75">t=3</text>
     <text x="651" y="75">t=4</text>
   </g>
 
-  <g stroke="#6f6a63" stroke-width="1.4" fill="none" marker-end="url(#arrow)">
+  <g  stroke-width="1.4" fill="none" marker-end="url(#arrow)" class="svg-special-graphic-stroke-6f6a63">
     <line x1="150" y1="131" x2="150" y2="175"/>
     <line x1="317" y1="131" x2="317" y2="175"/>
     <line x1="484" y1="131" x2="484" y2="175"/>
@@ -37,33 +91,33 @@
     <line x1="651" y1="220" x2="651" y2="266"/>
   </g>
 
-  <g stroke="#b98974" stroke-width="2" fill="none" marker-end="url(#soft-arrow)">
+  <g  stroke-width="2" fill="none" marker-end="url(#soft-arrow)" class="svg-special-graphic-stroke-b98974">
     <line x1="197" y1="198" x2="270" y2="198"/>
     <line x1="364" y1="198" x2="437" y2="198"/>
     <line x1="531" y1="198" x2="604" y2="198"/>
   </g>
-  <g fill="#9a9288" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" text-anchor="middle">
+  <g  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="10" text-anchor="middle" class="svg-special-fill-fill-9a9288 svg-special-text-fill-9a9288">
     <text x="234" y="190">hₜ₋₁</text>
     <text x="401" y="190">hₜ₋₁</text>
     <text x="568" y="190">hₜ₋₁</text>
   </g>
 
-  <g stroke="#b8b2a8" stroke-width="1.2">
-    <rect x="108" y="92" width="84" height="39" rx="9" fill="#dfe9df"/>
-    <rect x="275" y="92" width="84" height="39" rx="9" fill="#dfe9df"/>
-    <rect x="442" y="92" width="84" height="39" rx="9" fill="#dfe9df"/>
-    <rect x="609" y="92" width="84" height="39" rx="9" fill="#dfe9df"/>
-    <rect x="103" y="175" width="94" height="45" rx="10" fill="#e9d8c9"/>
-    <rect x="270" y="175" width="94" height="45" rx="10" fill="#e9d8c9"/>
-    <rect x="437" y="175" width="94" height="45" rx="10" fill="#e9d8c9"/>
-    <rect x="604" y="175" width="94" height="45" rx="10" fill="#e9d8c9"/>
-    <rect x="108" y="266" width="84" height="39" rx="9" fill="#ded8ee"/>
-    <rect x="275" y="266" width="84" height="39" rx="9" fill="#ded8ee"/>
-    <rect x="442" y="266" width="84" height="39" rx="9" fill="#ded8ee"/>
-    <rect x="609" y="266" width="84" height="39" rx="9" fill="#ded8ee"/>
+  <g  stroke-width="1.2" class="svg-axis-stroke">
+    <rect x="108" y="92" width="84" height="39" rx="9"  class="svg-special-fill-fill-dfe9df svg-special-background-fill-dfe9df"/>
+    <rect x="275" y="92" width="84" height="39" rx="9"  class="svg-special-fill-fill-dfe9df svg-special-background-fill-dfe9df"/>
+    <rect x="442" y="92" width="84" height="39" rx="9"  class="svg-special-fill-fill-dfe9df svg-special-background-fill-dfe9df"/>
+    <rect x="609" y="92" width="84" height="39" rx="9"  class="svg-special-fill-fill-dfe9df svg-special-background-fill-dfe9df"/>
+    <rect x="103" y="175" width="94" height="45" rx="10"  class="svg-special-fill-fill-e9d8c9 svg-special-background-fill-e9d8c9"/>
+    <rect x="270" y="175" width="94" height="45" rx="10"  class="svg-special-fill-fill-e9d8c9 svg-special-background-fill-e9d8c9"/>
+    <rect x="437" y="175" width="94" height="45" rx="10"  class="svg-special-fill-fill-e9d8c9 svg-special-background-fill-e9d8c9"/>
+    <rect x="604" y="175" width="94" height="45" rx="10"  class="svg-special-fill-fill-e9d8c9 svg-special-background-fill-e9d8c9"/>
+    <rect x="108" y="266" width="84" height="39" rx="9"  class="svg-special-fill-fill-ded8ee svg-special-background-fill-ded8ee"/>
+    <rect x="275" y="266" width="84" height="39" rx="9"  class="svg-special-fill-fill-ded8ee svg-special-background-fill-ded8ee"/>
+    <rect x="442" y="266" width="84" height="39" rx="9"  class="svg-special-fill-fill-ded8ee svg-special-background-fill-ded8ee"/>
+    <rect x="609" y="266" width="84" height="39" rx="9"  class="svg-special-fill-fill-ded8ee svg-special-background-fill-ded8ee"/>
   </g>
 
-  <g fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="14" text-anchor="middle">
+  <g  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="14" text-anchor="middle" class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="150" y="117">x₁</text>
     <text x="317" y="117">x₂</text>
     <text x="484" y="117">x₃</text>
@@ -78,7 +132,7 @@
     <text x="651" y="291">ŷ₄</text>
   </g>
 
-  <text x="400" y="331" fill="#312f2f" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="13" text-anchor="middle">hₜ = fθ(hₜ₋₁, xₜ)　　ŷₜ = gθ(hₜ)</text>
-  <line x1="72" y1="346" x2="728" y2="346" stroke="#c9c4bb" stroke-width="1"/>
-  <text x="400" y="363" fill="#6f6a63" font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle">同一组参数在每个时间步复用；只有状态沿横向携带历史</text>
+  <text x="400" y="331"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="13" text-anchor="middle" class="svg-special-text-fill-312f2f">hₜ = fθ(hₜ₋₁, xₜ)　　ŷₜ = gθ(hₜ)</text>
+  <line x1="72" y1="346" x2="728" y2="346"  stroke-width="1" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="400" y="363"  font-family="'Avenir Next','Noto Sans CJK SC','PingFang SC',sans-serif" font-size="11" text-anchor="middle" class="svg-special-text-fill-6f6a63">同一组参数在每个时间步复用；只有状态沿横向携带历史</text>
 </svg>

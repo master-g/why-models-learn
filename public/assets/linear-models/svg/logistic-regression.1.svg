@@ -1,53 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f6f1ef { fill: #93908f; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f6f1ef { fill: #f6f1ef; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f6f1ef { fill: #93908f; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f6f1ef { fill: #353434; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="title">逻辑回归把线性分数映射为概率</title>
   <desc id="desc">左侧是 sigmoid 曲线和阈值,右侧是线性分数经过概率模型到分类决策的流程</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#cc785c"/>
+      <path d="M0,0 L10,5 L0,10 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; fill: #312f2f; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif;  }
       .small { font-size: 16px; }
       .body { font-size: 18px; }
       .label { font-size: 20px; font-weight: 700; }
       .title { font-size: 24px; font-weight: 700; }
     </style>
   </defs>
-  <rect width="900" height="420" fill="#f6f1ef"/>
-  <text x="36" y="40" class="title">逻辑回归:从线性分数到概率与决策</text>
-  <text x="36" y="68" class="small">训练概率,部署时再选择阈值</text>
+  <rect width="900" height="420"  class="svg-special-fill-fill-f6f1ef svg-special-background-fill-f6f1ef"/>
+  <text x="36" y="40" class="title svg-special-text-fill-312f2f">逻辑回归:从线性分数到概率与决策</text>
+  <text x="36" y="68" class="small svg-special-text-fill-312f2f">训练概率,部署时再选择阈值</text>
 
-  <rect x="36" y="96" width="405" height="270" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="62" y="130" class="label">Sigmoid 与阈值</text>
-  <line x1="82" y1="315" x2="406" y2="315" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="82" y1="315" x2="82" y2="145" stroke="#b8b2a8" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="391" y="341" class="small">z</text>
-  <text x="54" y="151" class="small">p</text>
-  <line x1="82" y1="230" x2="406" y2="230" stroke="#b8b2a8" stroke-width="2" stroke-dasharray="6 5"/>
-  <text x="92" y="222" class="small">τ=1/2</text>
-  <path d="M100 300 C150 299 165 294 190 278 C222 258 230 239 248 225 C269 209 286 192 310 175 C336 157 356 153 398 150" fill="none" stroke="#cc785c" stroke-width="4"/>
-  <circle cx="248" cy="225" r="6" fill="#cc785c"/>
-  <text x="258" y="216" class="small">p=1/2</text>
-  <text x="103" y="330" class="small">低分数</text>
-  <text x="337" y="330" class="small">高分数</text>
+  <rect x="36" y="96" width="405" height="270" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="62" y="130" class="label svg-special-text-fill-312f2f">Sigmoid 与阈值</text>
+  <line x1="82" y1="315" x2="406" y2="315"  stroke-width="2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <line x1="82" y1="315" x2="82" y2="145"  stroke-width="2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <text x="391" y="341" class="small svg-special-text-fill-312f2f">z</text>
+  <text x="54" y="151" class="small svg-special-text-fill-312f2f">p</text>
+  <line x1="82" y1="230" x2="406" y2="230"  stroke-width="2" stroke-dasharray="6 5" class="svg-axis-stroke"/>
+  <text x="92" y="222" class="small svg-special-text-fill-312f2f">τ=1/2</text>
+  <path d="M100 300 C150 299 165 294 190 278 C222 258 230 239 248 225 C269 209 286 192 310 175 C336 157 356 153 398 150" fill="none"  stroke-width="4" class="svg-coral-stroke-stroke"/>
+  <circle cx="248" cy="225" r="6"  class="svg-special-fill-fill-cc785c"/>
+  <text x="258" y="216" class="small svg-special-text-fill-312f2f">p=1/2</text>
+  <text x="103" y="330" class="small svg-special-text-fill-312f2f">低分数</text>
+  <text x="337" y="330" class="small svg-special-text-fill-312f2f">高分数</text>
 
-  <line x1="441" y1="226" x2="486" y2="226" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="441" y1="226" x2="486" y2="226"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="500" y="104" width="160" height="102" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="538" y="138" class="label">线性分数</text>
-  <text x="524" y="171" class="body">z=β₀+xᵀβ</text>
-  <text x="531" y="193" class="small">特征加权</text>
+  <rect x="500" y="104" width="160" height="102" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="538" y="138" class="label svg-special-text-fill-312f2f">线性分数</text>
+  <text x="524" y="171" class="body svg-special-text-fill-312f2f">z=β₀+xᵀβ</text>
+  <text x="531" y="193" class="small svg-special-text-fill-312f2f">特征加权</text>
 
-  <line x1="660" y1="155" x2="698" y2="155" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="660" y1="155" x2="698" y2="155"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="710" y="104" width="160" height="102" rx="14" fill="#fffdfb" stroke="#cc785c" stroke-width="2"/>
-  <text x="742" y="138" class="label">概率模型</text>
-  <text x="734" y="172" class="body">p=σ(z)</text>
-  <text x="727" y="193" class="small">交叉熵训练</text>
+  <rect x="710" y="104" width="160" height="102" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-coral-stroke-stroke svg-special-background-fill-fffdfb"/>
+  <text x="742" y="138" class="label svg-special-text-fill-312f2f">概率模型</text>
+  <text x="734" y="172" class="body svg-special-text-fill-312f2f">p=σ(z)</text>
+  <text x="727" y="193" class="small svg-special-text-fill-312f2f">交叉熵训练</text>
 
-  <line x1="790" y1="206" x2="790" y2="248" stroke="#cc785c" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="790" y1="206" x2="790" y2="248"  stroke-width="3" marker-end="url(#arrow)" class="svg-coral-stroke-stroke"/>
 
-  <rect x="650" y="260" width="220" height="78" rx="14" fill="#fffdfb" stroke="#b8b2a8" stroke-width="2"/>
-  <text x="713" y="292" class="label">阈值决策</text>
-  <text x="680" y="320" class="body">p≥τ → 类别 1</text>
+  <rect x="650" y="260" width="220" height="78" rx="14"   stroke-width="2" class="svg-special-fill-fill-fffdfb svg-axis-stroke svg-special-background-fill-fffdfb"/>
+  <text x="713" y="292" class="label svg-special-text-fill-312f2f">阈值决策</text>
+  <text x="680" y="320" class="body svg-special-text-fill-312f2f">p≥τ → 类别 1</text>
 </svg>

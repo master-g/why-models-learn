@@ -1,54 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-9b9890 { fill: #939089; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+  .svg-special-fill-fill-f7f3ef { fill: #93908e; }
+  .svg-special-fill-fill-fbf8f5 { fill: #92908f; }
+  .svg-special-graphic-stroke-9b9890 { stroke: #939089; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-615d57 { fill: #615d57; }
+
+  .svg-special-background-fill-f4ddd4 { fill: #f4ddd4; }
+  .svg-special-background-fill-f7f3ef { fill: #f7f3ef; }
+  .svg-special-background-fill-fbf8f5 { fill: #fbf8f5; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-9b9890 { fill: #939089; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f4ddd4 { fill: #9c8e88; }
+    .svg-special-fill-fill-f7f3ef { fill: #93908e; }
+    .svg-special-fill-fill-fbf8f5 { fill: #92908f; }
+    .svg-special-graphic-stroke-9b9890 { stroke: #939089; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-615d57 { fill: #a6a4a0; }
+    .svg-special-background-fill-f4ddd4 { fill: #343130; }
+    .svg-special-background-fill-f7f3ef { fill: #353434; }
+    .svg-special-background-fill-fbf8f5 { fill: #353534; }
+
+
+
+  }
+</style>
   <title id="title">随机梯度的平均方向与噪声地板</title>
   <desc id="desc">左侧比较多个样本梯度和它们的平均方向，右侧说明批次大小与学习率如何影响噪声。</desc>
   <defs>
     <marker id="arrow-coral" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#cc785c"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#9b9890"/>
+      <path d="M0,0 L6,3 L0,6 Z"  class="svg-special-fill-fill-9b9890"/>
     </marker>
   </defs>
   <style>
-    .paper { fill: #f7f3ef; }
-    .title { fill: #312f2f; font: 600 17px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-    .body { fill: #312f2f; font: 13px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-    .small { fill: #615d57; font: 11px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-    .formula { fill: #312f2f; font: 600 15px "STIX Two Text", "Times New Roman", serif; }
-    .axis { stroke: #b8b2a8; stroke-width: 1.2; }
-    .sample { fill: none; stroke: #9b9890; stroke-width: 1.8; marker-end: url(#arrow-muted); }
-    .mean { fill: none; stroke: #cc785c; stroke-width: 2.6; marker-end: url(#arrow-coral); }
-    .point { fill: #cc785c; }
-    .panel { fill: #fbf8f5; stroke: #c9c4bb; stroke-width: 1.2; }
-    .panel-good { fill: #f4ddd4; stroke: #cc785c; stroke-width: 1.4; }
+    .paper {}
+    .title {font: 600 17px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+    .body {font: 13px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+    .small {font: 11px system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+    .formula {font: 600 15px "STIX Two Text", "Times New Roman", serif; }
+    .axis {stroke-width: 1.2; }
+    .sample { fill: none;  stroke-width: 1.8; marker-end: url(#arrow-muted); }
+    .mean { fill: none;  stroke-width: 2.6; marker-end: url(#arrow-coral); }
+    .point {}
+    .panel {stroke-width: 1.2; }
+    .panel-good {stroke-width: 1.4; }
   </style>
-  <rect class="paper" x="0" y="0" width="560" height="250"/>
-  <text class="title" x="28" y="28">随机梯度：平均方向正确，每步仍有噪声</text>
-  <text class="body" x="28" y="48">批次平均减小方差，但不会让单步完全确定。</text>
+  <rect class="paper svg-special-fill-fill-f7f3ef svg-special-background-fill-f7f3ef" x="0" y="0" width="560" height="250"/>
+  <text class="title svg-special-text-fill-312f2f" x="28" y="28">随机梯度：平均方向正确，每步仍有噪声</text>
+  <text class="body svg-special-text-fill-312f2f" x="28" y="48">批次平均减小方差，但不会让单步完全确定。</text>
 
   <g aria-label="样本梯度平均">
-    <line class="axis" x1="35" y1="205" x2="250" y2="205"/>
-    <line class="axis" x1="62" y1="220" x2="62" y2="67"/>
-    <circle class="point" cx="130" cy="145" r="4.5"/>
-    <path class="sample" d="M130 145 L211 91"/>
-    <path class="sample" d="M130 145 L215 126"/>
-    <path class="sample" d="M130 145 L198 174"/>
-    <path class="mean" d="M130 145 L213 124"/>
-    <text class="small" x="207" y="87">g₁</text>
-    <text class="small" x="216" y="122">g₂</text>
-    <text class="small" x="199" y="188">g₃</text>
-    <text class="formula" x="145" y="119">ḡ</text>
-    <text class="small" x="96" y="163">当前参数</text>
-    <text class="small" x="35" y="224">B 小：方向分散</text>
+    <line class="axis svg-axis-stroke" x1="35" y1="205" x2="250" y2="205"/>
+    <line class="axis svg-axis-stroke" x1="62" y1="220" x2="62" y2="67"/>
+    <circle class="point svg-special-fill-fill-cc785c" cx="130" cy="145" r="4.5"/>
+    <path class="sample svg-special-graphic-stroke-9b9890" d="M130 145 L211 91"/>
+    <path class="sample svg-special-graphic-stroke-9b9890" d="M130 145 L215 126"/>
+    <path class="sample svg-special-graphic-stroke-9b9890" d="M130 145 L198 174"/>
+    <path class="mean svg-coral-stroke-stroke" d="M130 145 L213 124"/>
+    <text class="small svg-special-text-fill-615d57" x="207" y="87">g₁</text>
+    <text class="small svg-special-text-fill-615d57" x="216" y="122">g₂</text>
+    <text class="small svg-special-text-fill-615d57" x="199" y="188">g₃</text>
+    <text class="formula svg-special-text-fill-312f2f" x="145" y="119">ḡ</text>
+    <text class="small svg-special-text-fill-615d57" x="96" y="163">当前参数</text>
+    <text class="small svg-special-text-fill-615d57" x="35" y="224">B 小：方向分散</text>
   </g>
 
   <g aria-label="随机梯度的统计量">
-    <rect class="panel-good" x="286" y="68" width="246" height="57" rx="9"/>
-    <text class="formula" x="409" y="91" text-anchor="middle">E[g_B | θ] = ∇F(θ)</text>
-    <text class="body" x="409" y="111" text-anchor="middle">平均方向无偏</text>
-    <rect class="panel" x="286" y="140" width="246" height="57" rx="9"/>
-    <text class="formula" x="409" y="163" text-anchor="middle">Var(g_B) = σ² / B</text>
-    <text class="body" x="409" y="183" text-anchor="middle">批次越大，方向越稳</text>
-    <text class="small" x="286" y="224">η 固定：噪声地板；ηₖ 下降：误差继续降低</text>
+    <rect class="panel-good svg-special-fill-fill-f4ddd4 svg-coral-stroke-stroke svg-special-background-fill-f4ddd4" x="286" y="68" width="246" height="57" rx="9"/>
+    <text class="formula svg-special-text-fill-312f2f" x="409" y="91" text-anchor="middle">E[g_B | θ] = ∇F(θ)</text>
+    <text class="body svg-special-text-fill-312f2f" x="409" y="111" text-anchor="middle">平均方向无偏</text>
+    <rect class="panel svg-special-fill-fill-fbf8f5 svg-special-graphic-stroke-c9c4bb svg-special-background-fill-fbf8f5" x="286" y="140" width="246" height="57" rx="9"/>
+    <text class="formula svg-special-text-fill-312f2f" x="409" y="163" text-anchor="middle">Var(g_B) = σ² / B</text>
+    <text class="body svg-special-text-fill-312f2f" x="409" y="183" text-anchor="middle">批次越大，方向越稳</text>
+    <text class="small svg-special-text-fill-615d57" x="286" y="224">η 固定：噪声地板；ηₖ 下降：误差继续降低</text>
   </g>
 </svg>

@@ -1,69 +1,125 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+  .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+  .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+  .svg-special-fill-fill-ece7df { fill: #94908b; }
+  .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+  .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+  .svg-special-fill-fill-f5ead6 { fill: #979084; }
+  .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+  .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+  .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+  .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+  .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+  .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+  .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+  .svg-special-text-fill-2f2a27 { fill: #2f2a27; }
+  .svg-special-text-fill-6d625b { fill: #6d625b; }
+
+  .svg-special-background-fill-e2eadf { fill: #e2eadf; }
+  .svg-special-background-fill-e8e4dc { fill: #e8e4dc; }
+  .svg-special-background-fill-ece7df { fill: #ece7df; }
+  .svg-special-background-fill-f0dfd4 { fill: #f0dfd4; }
+  .svg-special-background-fill-f0e2e0 { fill: #f0e2e0; }
+  .svg-special-background-fill-f5ead6 { fill: #f5ead6; }
+  .svg-special-background-fill-f7f2ed { fill: #f7f2ed; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-special-fill-fill-bd7556 { fill: #bd7556; }
+    .svg-special-fill-fill-e2eadf { fill: #8d928c; }
+    .svg-special-fill-fill-e8e4dc { fill: #93908b; }
+    .svg-special-fill-fill-ece7df { fill: #94908b; }
+    .svg-special-fill-fill-f0dfd4 { fill: #998f88; }
+    .svg-special-fill-fill-f0e2e0 { fill: #978f8d; }
+    .svg-special-fill-fill-f5ead6 { fill: #979084; }
+    .svg-special-fill-fill-f7f2ed { fill: #93908e; }
+    .svg-special-graphic-stroke-718b6c { stroke: #718b6c; }
+    .svg-special-graphic-stroke-77746e { stroke: #77746e; }
+    .svg-special-graphic-stroke-a76a65 { stroke: #a76a65; }
+    .svg-special-graphic-stroke-aaa198 { stroke: #988f87; }
+    .svg-special-graphic-stroke-b98a4c { stroke: #b7884b; }
+    .svg-special-graphic-stroke-bd7556 { stroke: #bd7556; }
+    .svg-special-text-fill-2f2a27 { fill: #a6a4a2; }
+    .svg-special-text-fill-6d625b { fill: #aaa39f; }
+    .svg-special-background-fill-e2eadf { fill: #323331; }
+    .svg-special-background-fill-e8e4dc { fill: #333231; }
+    .svg-special-background-fill-ece7df { fill: #333231; }
+    .svg-special-background-fill-f0dfd4 { fill: #343130; }
+    .svg-special-background-fill-f0e2e0 { fill: #343231; }
+    .svg-special-background-fill-f5ead6 { fill: #343330; }
+    .svg-special-background-fill-f7f2ed { fill: #353433; }
+
+
+
+  }
+</style>
   <title id="title">长上下文中的位置、读取和资源</title>
   <desc id="desc">长 token 序列包含开头、中间证据和结尾 query，局部窗口、远距离读取、二次 attention 成本和线性 KV cache 共同决定有效上下文</desc>
   <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif; fill: #2f2a27; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;  }
     .title { font-size: 22px; font-weight: 700; }
     .label { font-size: 15px; font-weight: 700; }
     .body { font-size: 13px; }
-    .small { font-size: 12px; fill: #6d625b; }
-    .seq { fill: #ece7df; stroke: #77746e; stroke-width: 1.4; rx: 9; }
-    .evidence { fill: #f0dfd4; stroke: #bd7556; stroke-width: 1.6; rx: 9; }
-    .query { fill: #e2eadf; stroke: #718b6c; stroke-width: 1.6; rx: 9; }
-    .cost { fill: #f5ead6; stroke: #b98a4c; stroke-width: 1.4; rx: 11; }
-    .read { fill: #e8e4dc; stroke: #77746e; stroke-width: 1.4; rx: 11; }
-    .risk { fill: #f0e2e0; stroke: #a76a65; stroke-width: 1.4; rx: 11; }
-    .arrow { stroke: #bd7556; stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
-    .thin { stroke: #aaa198; stroke-width: 1; fill: none; }
-    .dash { stroke: #bd7556; stroke-width: 1.6; stroke-dasharray: 5 4; fill: none; }
+    .small { font-size: 12px;  }
+    .seq {stroke-width: 1.4; rx: 9; }
+    .evidence {stroke-width: 1.6; rx: 9; }
+    .query {stroke-width: 1.6; rx: 9; }
+    .cost {stroke-width: 1.4; rx: 11; }
+    .read {stroke-width: 1.4; rx: 11; }
+    .risk {stroke-width: 1.4; rx: 11; }
+    .arrow {stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
+    .thin {stroke-width: 1; fill: none; }
+    .dash {stroke-width: 1.6; stroke-dasharray: 5 4; fill: none; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#bd7556"/>
+      <polygon points="0 0, 10 3.5, 0 7"  class="svg-special-fill-fill-bd7556"/>
     </marker>
   </defs>
-  <rect width="800" height="373" fill="#f7f2ed"/>
-  <text x="40" y="38" class="title">长上下文：长度、位置与可达路径</text>
-  <text x="40" y="61" class="small">窗口上限定义可处理 token 数，effective context 还要按位置和任务测量</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-f7f2ed svg-special-background-fill-f7f2ed"/>
+  <text x="40" y="38" class="title svg-special-text-fill-2f2a27">长上下文：长度、位置与可达路径</text>
+  <text x="40" y="61" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">窗口上限定义可处理 token 数，effective context 还要按位置和任务测量</text>
 
-  <text x="40" y="96" class="label">token 序列</text>
-  <rect x="40" y="111" width="145" height="58" class="seq"/>
-  <text x="112.5" y="137" text-anchor="middle" class="label">开头 0%</text>
-  <text x="112.5" y="157" text-anchor="middle" class="small">system / prefix</text>
+  <text x="40" y="96" class="label svg-special-text-fill-2f2a27">token 序列</text>
+  <rect x="40" y="111" width="145" height="58" class="seq svg-special-fill-fill-ece7df svg-special-graphic-stroke-77746e svg-special-background-fill-ece7df"/>
+  <text x="112.5" y="137" text-anchor="middle" class="label svg-special-text-fill-2f2a27">开头 0%</text>
+  <text x="112.5" y="157" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">system / prefix</text>
 
-  <rect x="205" y="111" width="145" height="58" class="evidence"/>
-  <text x="277.5" y="137" text-anchor="middle" class="label">中间 50%</text>
-  <text x="277.5" y="157" text-anchor="middle" class="small">evidence / distractor</text>
+  <rect x="205" y="111" width="145" height="58" class="evidence svg-special-fill-fill-f0dfd4 svg-special-graphic-stroke-bd7556 svg-special-background-fill-f0dfd4"/>
+  <text x="277.5" y="137" text-anchor="middle" class="label svg-special-text-fill-2f2a27">中间 50%</text>
+  <text x="277.5" y="157" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">evidence / distractor</text>
 
-  <rect x="370" y="111" width="145" height="58" class="seq"/>
-  <text x="442.5" y="137" text-anchor="middle" class="label">后中 75%</text>
-  <text x="442.5" y="157" text-anchor="middle" class="small">documents / history</text>
+  <rect x="370" y="111" width="145" height="58" class="seq svg-special-fill-fill-ece7df svg-special-graphic-stroke-77746e svg-special-background-fill-ece7df"/>
+  <text x="442.5" y="137" text-anchor="middle" class="label svg-special-text-fill-2f2a27">后中 75%</text>
+  <text x="442.5" y="157" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">documents / history</text>
 
-  <rect x="535" y="111" width="145" height="58" class="query"/>
-  <text x="607.5" y="137" text-anchor="middle" class="label">结尾 100%</text>
-  <text x="607.5" y="157" text-anchor="middle" class="small">query / next token</text>
+  <rect x="535" y="111" width="145" height="58" class="query svg-special-fill-fill-e2eadf svg-special-graphic-stroke-718b6c svg-special-background-fill-e2eadf"/>
+  <text x="607.5" y="137" text-anchor="middle" class="label svg-special-text-fill-2f2a27">结尾 100%</text>
+  <text x="607.5" y="157" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">query / next token</text>
 
-  <path d="M277 177 C360 205, 520 205, 608 177" class="dash"/>
-  <text x="440" y="203" text-anchor="middle" class="small">远距离读取：位置、mask、注意力竞争</text>
-  <path d="M607 177 C582 207, 330 218, 277 177" class="arrow"/>
+  <path d="M277 177 C360 205, 520 205, 608 177" class="dash svg-special-graphic-stroke-bd7556"/>
+  <text x="440" y="203" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">远距离读取：位置、mask、注意力竞争</text>
+  <path d="M607 177 C582 207, 330 218, 277 177" class="arrow svg-special-graphic-stroke-bd7556"/>
 
-  <rect x="40" y="239" width="215" height="83" class="cost"/>
-  <text x="147.5" y="264" text-anchor="middle" class="label">长度成本</text>
-  <text x="147.5" y="287" text-anchor="middle" class="body">dense attention ∝ T²</text>
-  <text x="147.5" y="307" text-anchor="middle" class="small">prefill MAC 与 workspace</text>
+  <rect x="40" y="239" width="215" height="83" class="cost svg-special-fill-fill-f5ead6 svg-special-graphic-stroke-b98a4c svg-special-background-fill-f5ead6"/>
+  <text x="147.5" y="264" text-anchor="middle" class="label svg-special-text-fill-2f2a27">长度成本</text>
+  <text x="147.5" y="287" text-anchor="middle" class="body svg-special-text-fill-2f2a27">dense attention ∝ T²</text>
+  <text x="147.5" y="307" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">prefill MAC 与 workspace</text>
 
-  <rect x="293" y="239" width="215" height="83" class="read"/>
-  <text x="400.5" y="264" text-anchor="middle" class="label">历史状态</text>
-  <text x="400.5" y="287" text-anchor="middle" class="body">KV cache ∝ P</text>
-  <text x="400.5" y="307" text-anchor="middle" class="small">GQA width、dtype、page</text>
+  <rect x="293" y="239" width="215" height="83" class="read svg-special-fill-fill-e8e4dc svg-special-graphic-stroke-77746e svg-special-background-fill-e8e4dc"/>
+  <text x="400.5" y="264" text-anchor="middle" class="label svg-special-text-fill-2f2a27">历史状态</text>
+  <text x="400.5" y="287" text-anchor="middle" class="body svg-special-text-fill-2f2a27">KV cache ∝ P</text>
+  <text x="400.5" y="307" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">GQA width、dtype、page</text>
 
-  <rect x="546" y="239" width="214" height="83" class="risk"/>
-  <text x="653" y="264" text-anchor="middle" class="label">有效上下文</text>
-  <text x="653" y="287" text-anchor="middle" class="body">长度 × 位置 × 任务</text>
-  <text x="653" y="307" text-anchor="middle" class="small">检索、干扰、多跳、PPL</text>
+  <rect x="546" y="239" width="214" height="83" class="risk svg-special-fill-fill-f0e2e0 svg-special-graphic-stroke-a76a65 svg-special-background-fill-f0e2e0"/>
+  <text x="653" y="264" text-anchor="middle" class="label svg-special-text-fill-2f2a27">有效上下文</text>
+  <text x="653" y="287" text-anchor="middle" class="body svg-special-text-fill-2f2a27">长度 × 位置 × 任务</text>
+  <text x="653" y="307" text-anchor="middle" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">检索、干扰、多跳、PPL</text>
 
-  <path d="M255 280 H293" class="arrow"/>
-  <path d="M508 280 H546" class="arrow"/>
-  <path d="M40 342 H760" class="thin"/>
-  <text x="40" y="362" class="small">局部、全局、稀疏、摘要和检索改变可达路径，也改变评测和复现合同</text>
+  <path d="M255 280 H293" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M508 280 H546" class="arrow svg-special-graphic-stroke-bd7556"/>
+  <path d="M40 342 H760" class="thin svg-special-graphic-stroke-aaa198"/>
+  <text x="40" y="362" class="small svg-special-text-fill-2f2a27 svg-special-text-fill-6d625b">局部、全局、稀疏、摘要和检索改变可达路径，也改变评测和复现合同</text>
 </svg>

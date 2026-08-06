@@ -1,68 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+  .svg-special-fill-fill-fcfaf7 { fill: #92908f; }
+  .svg-special-fill-fill-fff3ed { fill: #978f8c; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+  .svg-special-text-fill-6e6965 { fill: #6e6965; }
+
+  .svg-special-background-fill-f7f4ef { fill: #f7f4ef; }
+  .svg-special-background-fill-fcfaf7 { fill: #fcfaf7; }
+  .svg-special-background-fill-fff3ed { fill: #fff3ed; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f7f4ef { fill: #92908e; }
+    .svg-special-fill-fill-fcfaf7 { fill: #92908f; }
+    .svg-special-fill-fill-fff3ed { fill: #978f8c; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-text-fill-6e6965 { fill: #a7a4a1; }
+    .svg-special-background-fill-f7f4ef { fill: #353434; }
+    .svg-special-background-fill-fcfaf7 { fill: #353535; }
+    .svg-special-background-fill-fff3ed { fill: #363433; }
+
+
+
+  }
+</style>
   <title id="title">训练数据的可审计流水线</title>
   <desc id="desc">原始文档经过 provenance、规范化、过滤去重、切分与 tokenizer 统计，形成带 manifest 的训练 shard</desc>
   <defs>
     <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-      <path d="M0,0 L9,4.5 L0,9 Z" fill="#cc785c"/>
+      <path d="M0,0 L9,4.5 L0,9 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-      .muted { fill: #6e6965; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .ink {font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .muted {font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       .small { font-size: 13px; }
       .label { font-size: 15px; font-weight: 650; }
       .formula { font-size: 16px; font-weight: 650; }
-      .card { fill: #f7f4ef; stroke: #b8b2a8; stroke-width: 1.4; }
-      .accent { fill: #fff3ed; stroke: #cc785c; stroke-width: 1.6; }
-      .line { fill: none; stroke: #cc785c; stroke-width: 2.1; marker-end: url(#arrow); }
-      .dash { fill: none; stroke: #c9c4bb; stroke-width: 1.3; stroke-dasharray: 5 5; }
+      .card {stroke-width: 1.4; }
+      .accent {stroke-width: 1.6; }
+      .line { fill: none;  stroke-width: 2.1; marker-end: url(#arrow); }
+      .dash { fill: none;  stroke-width: 1.3; stroke-dasharray: 5 5; }
     </style>
   </defs>
 
-  <rect width="800" height="373" fill="#fcfaf7"/>
-  <text x="38" y="32" class="ink" font-size="22" font-weight="700">训练数据 = 可追踪的变换链</text>
-  <text x="38" y="56" class="muted small">每一步都记录来源、版本、计数与排除原因</text>
+  <rect width="800" height="373"  class="svg-special-fill-fill-fcfaf7 svg-special-background-fill-fcfaf7"/>
+  <text x="38" y="32" class="ink svg-special-text-fill-312f2f" font-size="22" font-weight="700">训练数据 = 可追踪的变换链</text>
+  <text x="38" y="56" class="muted small svg-special-text-fill-6e6965">每一步都记录来源、版本、计数与排除原因</text>
 
-  <rect x="28" y="88" width="132" height="126" rx="11" class="card"/>
-  <text x="43" y="114" class="ink label">原始记录</text>
-  <text x="43" y="143" class="ink formula">raw bytes</text>
-  <text x="43" y="168" class="muted small">source ID</text>
-  <text x="43" y="190" class="muted small">时间 / 许可</text>
+  <rect x="28" y="88" width="132" height="126" rx="11" class="card svg-special-fill-fill-f7f4ef svg-axis-stroke svg-special-background-fill-f7f4ef"/>
+  <text x="43" y="114" class="ink label svg-special-text-fill-312f2f">原始记录</text>
+  <text x="43" y="143" class="ink formula svg-special-text-fill-312f2f">raw bytes</text>
+  <text x="43" y="168" class="muted small svg-special-text-fill-6e6965">source ID</text>
+  <text x="43" y="190" class="muted small svg-special-text-fill-6e6965">时间 / 许可</text>
 
-  <path d="M162 151 H192" class="line"/>
+  <path d="M162 151 H192" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="195" y="88" width="132" height="126" rx="11" class="accent"/>
-  <text x="210" y="114" class="ink label">规范化</text>
-  <text x="210" y="143" class="ink formula">canonical text</text>
-  <text x="210" y="168" class="muted small">content hash</text>
-  <text x="210" y="190" class="muted small">record ID</text>
+  <rect x="195" y="88" width="132" height="126" rx="11" class="accent svg-special-fill-fill-fff3ed svg-coral-stroke-stroke svg-special-background-fill-fff3ed"/>
+  <text x="210" y="114" class="ink label svg-special-text-fill-312f2f">规范化</text>
+  <text x="210" y="143" class="ink formula svg-special-text-fill-312f2f">canonical text</text>
+  <text x="210" y="168" class="muted small svg-special-text-fill-6e6965">content hash</text>
+  <text x="210" y="190" class="muted small svg-special-text-fill-6e6965">record ID</text>
 
-  <path d="M329 151 H359" class="line"/>
+  <path d="M329 151 H359" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="362" y="88" width="132" height="126" rx="11" class="card"/>
-  <text x="377" y="114" class="ink label">过滤与去重</text>
-  <text x="377" y="143" class="ink formula">filter flags</text>
-  <text x="377" y="168" class="muted small">exact / near</text>
-  <text x="377" y="190" class="muted small">duplicate cluster</text>
+  <rect x="362" y="88" width="132" height="126" rx="11" class="card svg-special-fill-fill-f7f4ef svg-axis-stroke svg-special-background-fill-f7f4ef"/>
+  <text x="377" y="114" class="ink label svg-special-text-fill-312f2f">过滤与去重</text>
+  <text x="377" y="143" class="ink formula svg-special-text-fill-312f2f">filter flags</text>
+  <text x="377" y="168" class="muted small svg-special-text-fill-6e6965">exact / near</text>
+  <text x="377" y="190" class="muted small svg-special-text-fill-6e6965">duplicate cluster</text>
 
-  <path d="M496 151 H526" class="line"/>
+  <path d="M496 151 H526" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="529" y="88" width="112" height="126" rx="11" class="accent"/>
-  <text x="544" y="114" class="ink label">切分</text>
-  <text x="544" y="143" class="ink formula">split</text>
-  <text x="544" y="168" class="muted small">group ID</text>
-  <text x="544" y="190" class="muted small">manifest</text>
+  <rect x="529" y="88" width="112" height="126" rx="11" class="accent svg-special-fill-fill-fff3ed svg-coral-stroke-stroke svg-special-background-fill-fff3ed"/>
+  <text x="544" y="114" class="ink label svg-special-text-fill-312f2f">切分</text>
+  <text x="544" y="143" class="ink formula svg-special-text-fill-312f2f">split</text>
+  <text x="544" y="168" class="muted small svg-special-text-fill-6e6965">group ID</text>
+  <text x="544" y="190" class="muted small svg-special-text-fill-6e6965">manifest</text>
 
-  <path d="M643 151 H673" class="line"/>
+  <path d="M643 151 H673" class="line svg-coral-stroke-stroke"/>
 
-  <rect x="676" y="88" width="96" height="126" rx="11" class="card"/>
-  <text x="689" y="114" class="ink label">训练 shard</text>
-  <text x="689" y="143" class="ink formula">tokens</text>
-  <text x="689" y="168" class="muted small">offset</text>
-  <text x="689" y="190" class="muted small">token stats</text>
+  <rect x="676" y="88" width="96" height="126" rx="11" class="card svg-special-fill-fill-f7f4ef svg-axis-stroke svg-special-background-fill-f7f4ef"/>
+  <text x="689" y="114" class="ink label svg-special-text-fill-312f2f">训练 shard</text>
+  <text x="689" y="143" class="ink formula svg-special-text-fill-312f2f">tokens</text>
+  <text x="689" y="168" class="muted small svg-special-text-fill-6e6965">offset</text>
+  <text x="689" y="190" class="muted small svg-special-text-fill-6e6965">token stats</text>
 
-  <path d="M94 238 V282 H706 V238" class="dash"/>
-  <text x="38" y="310" class="ink label">审计字段</text>
-  <text x="38" y="336" class="muted small">来源与许可　内容哈希　过滤计数　重复簇　split　tokenizer　shard hash　版本 diff</text>
-  <circle cx="706" cy="282" r="5" fill="#cc785c"/>
+  <path d="M94 238 V282 H706 V238" class="dash svg-special-graphic-stroke-c9c4bb"/>
+  <text x="38" y="310" class="ink label svg-special-text-fill-312f2f">审计字段</text>
+  <text x="38" y="336" class="muted small svg-special-text-fill-6e6965">来源与许可　内容哈希　过滤计数　重复簇　split　tokenizer　shard hash　版本 diff</text>
+  <circle cx="706" cy="282" r="5"  class="svg-special-fill-fill-cc785c"/>
 </svg>

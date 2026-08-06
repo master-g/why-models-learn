@@ -1,47 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="vcr-title vcr-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="vcr-title vcr-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-f0ebe6 { fill: #94908d; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-f0ebe6 { fill: #f0ebe6; }
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-f0ebe6 { fill: #94908d; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-f0ebe6 { fill: #343332; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+
+
+
+  }
+</style>
   <title id="vcr-title">向量链式法则中的前向矩阵乘法与反向敏感度</title>
   <desc id="vcr-desc">输入向量经过两层 Jacobian 向右传播，输出端的行向量敏感度沿同一矩阵乘积向左传播。</desc>
   <defs>
     <marker id="vcr-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="vcr-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <style>
-      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; fill: #312f2f; font-size: 13px; }
+      .label { font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif;  font-size: 13px; }
       .small { font-size: 11px; }
       .title { font-size: 15px; font-weight: 600; }
-      .math { font-family: Georgia, "Times New Roman", serif; fill: #312f2f; font-size: 16px; }
+      .math { font-family: Georgia, "Times New Roman", serif;  font-size: 16px; }
     </style>
   </defs>
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <text x="22" y="29" class="label title">前向：输入方向向右传播</text>
-  <text x="22" y="143" class="label title">反向：输出敏感度向左传播</text>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <text x="22" y="29" class="label title svg-special-text-fill-312f2f">前向：输入方向向右传播</text>
+  <text x="22" y="143" class="label title svg-special-text-fill-312f2f">反向：输出敏感度向左传播</text>
 
-  <rect x="28" y="50" width="88" height="42" rx="6" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <rect x="226" y="50" width="108" height="42" rx="6" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <rect x="444" y="50" width="88" height="42" rx="6" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <text x="54" y="76" class="label">x∈ℝᵖ</text>
-  <text x="253" y="76" class="label">y∈ℝⁿ</text>
-  <text x="470" y="76" class="label">z∈ℝᵐ</text>
-  <line x1="118" y1="71" x2="220" y2="71" stroke="#cc785c" stroke-width="2.5" marker-end="url(#vcr-arrow-coral)"/>
-  <line x1="340" y1="71" x2="438" y2="71" stroke="#cc785c" stroke-width="2.5" marker-end="url(#vcr-arrow-coral)"/>
-  <text x="144" y="62" class="math">J_G</text>
-  <text x="369" y="62" class="math">J_F</text>
-  <text x="143" y="88" class="label small">δy=J_Gδx</text>
-  <text x="357" y="88" class="label small">δz=J_Fδy</text>
+  <rect x="28" y="50" width="88" height="42" rx="6"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <rect x="226" y="50" width="108" height="42" rx="6"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <rect x="444" y="50" width="88" height="42" rx="6"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="54" y="76" class="label svg-special-text-fill-312f2f">x∈ℝᵖ</text>
+  <text x="253" y="76" class="label svg-special-text-fill-312f2f">y∈ℝⁿ</text>
+  <text x="470" y="76" class="label svg-special-text-fill-312f2f">z∈ℝᵐ</text>
+  <line x1="118" y1="71" x2="220" y2="71"  stroke-width="2.5" marker-end="url(#vcr-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <line x1="340" y1="71" x2="438" y2="71"  stroke-width="2.5" marker-end="url(#vcr-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="144" y="62" class="math svg-special-text-fill-312f2f">J_G</text>
+  <text x="369" y="62" class="math svg-special-text-fill-312f2f">J_F</text>
+  <text x="143" y="88" class="label small svg-special-text-fill-312f2f">δy=J_Gδx</text>
+  <text x="357" y="88" class="label small svg-special-text-fill-312f2f">δz=J_Fδy</text>
 
-  <rect x="28" y="168" width="88" height="42" rx="6" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <rect x="226" y="168" width="108" height="42" rx="6" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <rect x="444" y="168" width="88" height="42" rx="6" fill="#f0ebe6" stroke="#b8b2a8"/>
-  <text x="50" y="194" class="label">λₓᵀ</text>
-  <text x="247" y="194" class="label">λᵧᵀ=λ_zᵀJ_F</text>
-  <text x="466" y="194" class="label">λ_zᵀ</text>
-  <line x1="220" y1="189" x2="118" y2="189" stroke="#312f2f" stroke-width="2" marker-end="url(#vcr-arrow-ink)"/>
-  <line x1="438" y1="189" x2="340" y2="189" stroke="#312f2f" stroke-width="2" marker-end="url(#vcr-arrow-ink)"/>
-  <text x="145" y="180" class="math">J_G</text>
-  <text x="366" y="180" class="math">J_F</text>
-  <text x="141" y="220" class="label small">λₓᵀ=λ_zᵀJ_FJ_G</text>
-  <text x="362" y="220" class="label small">沿同一乘积反向</text>
+  <rect x="28" y="168" width="88" height="42" rx="6"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <rect x="226" y="168" width="108" height="42" rx="6"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <rect x="444" y="168" width="88" height="42" rx="6"   class="svg-special-fill-fill-f0ebe6 svg-axis-stroke svg-special-background-fill-f0ebe6"/>
+  <text x="50" y="194" class="label svg-special-text-fill-312f2f">λₓᵀ</text>
+  <text x="247" y="194" class="label svg-special-text-fill-312f2f">λᵧᵀ=λ_zᵀJ_F</text>
+  <text x="466" y="194" class="label svg-special-text-fill-312f2f">λ_zᵀ</text>
+  <line x1="220" y1="189" x2="118" y2="189"  stroke-width="2" marker-end="url(#vcr-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="438" y1="189" x2="340" y2="189"  stroke-width="2" marker-end="url(#vcr-arrow-ink)" class="svg-ink-stroke"/>
+  <text x="145" y="180" class="math svg-special-text-fill-312f2f">J_G</text>
+  <text x="366" y="180" class="math svg-special-text-fill-312f2f">J_F</text>
+  <text x="141" y="220" class="label small svg-special-text-fill-312f2f">λₓᵀ=λ_zᵀJ_FJ_G</text>
+  <text x="362" y="220" class="label small svg-special-text-fill-312f2f">沿同一乘积反向</text>
 </svg>

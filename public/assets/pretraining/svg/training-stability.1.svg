@@ -1,90 +1,128 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-eee9e2 { fill: #94908c; }
+  .svg-special-fill-fill-f5f1eb { fill: #93908d; }
+  .svg-special-fill-fill-f8e6df { fill: #9a8e8a; }
+  .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-eee9e2 { fill: #eee9e2; }
+  .svg-special-background-fill-f5f1eb { fill: #f5f1eb; }
+  .svg-special-background-fill-f8e6df { fill: #f8e6df; }
+  .svg-special-background-fill-faf8f5 { fill: #faf8f5; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-eee9e2 { fill: #94908c; }
+    .svg-special-fill-fill-f5f1eb { fill: #93908d; }
+    .svg-special-fill-fill-f8e6df { fill: #9a8e8a; }
+    .svg-special-fill-fill-faf8f5 { fill: #92908f; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-eee9e2 { fill: #333332; }
+    .svg-special-background-fill-f5f1eb { fill: #343433; }
+    .svg-special-background-fill-f8e6df { fill: #353231; }
+    .svg-special-background-fill-faf8f5 { fill: #353534; }
+
+
+
+  }
+</style>
   <title id="title">训练稳定性检查路径</title>
   <desc id="desc">数据经过前向、损失、反向、梯度处理和参数更新。每个边界都有有限性和尺度检查。损失处标出首个失败位置，底部显示 checkpoint 恢复路径。</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#312f2f"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#cc785c"/>
+      <path d="M0,0 L8,4 L0,8 Z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <style>
-      .ink { fill: #312f2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif; }
+      .ink {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif; }
       .small { font-size: 13px; }
       .label { font-size: 16px; font-weight: 600; }
       .note { font-size: 12px; }
-      .box { fill: #faf8f5; stroke: #312f2f; stroke-width: 1.5; }
-      .check { fill: #eee9e2; stroke: #b8b2a8; stroke-width: 1.2; }
+      .box {stroke-width: 1.5; }
+      .check {stroke-width: 1.2; }
     </style>
   </defs>
 
-  <rect x="0" y="0" width="800" height="373" rx="12" fill="#f5f1eb"/>
-  <text x="40" y="34" class="ink label">训练稳定性：沿更新路径记录证据</text>
-  <text x="40" y="57" class="ink small">finite、尺度、进展与恢复合同同时约束一次 optimizer step</text>
+  <rect x="0" y="0" width="800" height="373" rx="12"  class="svg-special-fill-fill-f5f1eb svg-special-background-fill-f5f1eb"/>
+  <text x="40" y="34" class="ink label svg-special-text-fill-312f2f">训练稳定性：沿更新路径记录证据</text>
+  <text x="40" y="57" class="ink small svg-special-text-fill-312f2f">finite、尺度、进展与恢复合同同时约束一次 optimizer step</text>
 
-  <rect x="35" y="92" width="125" height="64" rx="8" class="box"/>
-  <text x="97.5" y="119" text-anchor="middle" class="ink label">数据</text>
-  <text x="97.5" y="141" text-anchor="middle" class="ink small">shape · mask · dtype</text>
+  <rect x="35" y="92" width="125" height="64" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="97.5" y="119" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">数据</text>
+  <text x="97.5" y="141" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">shape · mask · dtype</text>
 
-  <rect x="185" y="92" width="125" height="64" rx="8" class="box"/>
-  <text x="247.5" y="119" text-anchor="middle" class="ink label">前向</text>
-  <text x="247.5" y="141" text-anchor="middle" class="ink small">激活 · logits</text>
+  <rect x="185" y="92" width="125" height="64" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="247.5" y="119" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">前向</text>
+  <text x="247.5" y="141" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">激活 · logits</text>
 
-  <rect x="335" y="92" width="125" height="64" rx="8" class="box"/>
-  <text x="397.5" y="119" text-anchor="middle" class="ink label">损失</text>
-  <text x="397.5" y="141" text-anchor="middle" class="ink small">reduction · finite</text>
+  <rect x="335" y="92" width="125" height="64" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="397.5" y="119" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">损失</text>
+  <text x="397.5" y="141" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">reduction · finite</text>
 
-  <rect x="485" y="92" width="125" height="64" rx="8" class="box"/>
-  <text x="547.5" y="119" text-anchor="middle" class="ink label">反向</text>
-  <text x="547.5" y="141" text-anchor="middle" class="ink small">梯度 · unscale</text>
+  <rect x="485" y="92" width="125" height="64" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="547.5" y="119" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">反向</text>
+  <text x="547.5" y="141" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">梯度 · unscale</text>
 
-  <rect x="635" y="92" width="125" height="64" rx="8" class="box"/>
-  <text x="697.5" y="119" text-anchor="middle" class="ink label">更新</text>
-  <text x="697.5" y="141" text-anchor="middle" class="ink small">clip · Adam · θ</text>
+  <rect x="635" y="92" width="125" height="64" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="697.5" y="119" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">更新</text>
+  <text x="697.5" y="141" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">clip · Adam · θ</text>
 
-  <path d="M160 124 L185 124" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M310 124 L335 124" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M460 124 L485 124" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M610 124 L635 124" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M160 124 L185 124"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-ink-stroke"/>
+  <path d="M310 124 L335 124"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-ink-stroke"/>
+  <path d="M460 124 L485 124"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-ink-stroke"/>
+  <path d="M610 124 L635 124"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-ink-stroke"/>
 
-  <rect x="35" y="184" width="125" height="52" rx="7" class="check"/>
-  <text x="97.5" y="207" text-anchor="middle" class="ink small">finite + 范围</text>
-  <text x="97.5" y="225" text-anchor="middle" class="ink note">首个异常边界</text>
+  <rect x="35" y="184" width="125" height="52" rx="7" class="check svg-special-fill-fill-eee9e2 svg-axis-stroke svg-special-background-fill-eee9e2"/>
+  <text x="97.5" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">finite + 范围</text>
+  <text x="97.5" y="225" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">首个异常边界</text>
 
-  <rect x="185" y="184" width="125" height="52" rx="7" class="check"/>
-  <text x="247.5" y="207" text-anchor="middle" class="ink small">范数 + 分位数</text>
-  <text x="247.5" y="225" text-anchor="middle" class="ink note">按层记录</text>
+  <rect x="185" y="184" width="125" height="52" rx="7" class="check svg-special-fill-fill-eee9e2 svg-axis-stroke svg-special-background-fill-eee9e2"/>
+  <text x="247.5" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">范数 + 分位数</text>
+  <text x="247.5" y="225" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">按层记录</text>
 
-  <rect x="335" y="184" width="125" height="52" rx="7" fill="#f8e6df" stroke="#cc785c" stroke-width="1.5"/>
-  <text x="397.5" y="207" text-anchor="middle" class="ink small">首个失败？</text>
-  <text x="397.5" y="225" text-anchor="middle" class="ink note">停止传播并定位</text>
+  <rect x="335" y="184" width="125" height="52" rx="7"   stroke-width="1.5" class="svg-special-fill-fill-f8e6df svg-coral-stroke-stroke svg-special-background-fill-f8e6df"/>
+  <text x="397.5" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">首个失败？</text>
+  <text x="397.5" y="225" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">停止传播并定位</text>
 
-  <rect x="485" y="184" width="125" height="52" rx="7" class="check"/>
-  <text x="547.5" y="207" text-anchor="middle" class="ink small">global norm</text>
-  <text x="547.5" y="225" text-anchor="middle" class="ink note">同步 skip</text>
+  <rect x="485" y="184" width="125" height="52" rx="7" class="check svg-special-fill-fill-eee9e2 svg-axis-stroke svg-special-background-fill-eee9e2"/>
+  <text x="547.5" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">global norm</text>
+  <text x="547.5" y="225" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">同步 skip</text>
 
-  <rect x="635" y="184" width="125" height="52" rx="7" class="check"/>
-  <text x="697.5" y="207" text-anchor="middle" class="ink small">update ratio</text>
-  <text x="697.5" y="225" text-anchor="middle" class="ink note">保存状态</text>
+  <rect x="635" y="184" width="125" height="52" rx="7" class="check svg-special-fill-fill-eee9e2 svg-axis-stroke svg-special-background-fill-eee9e2"/>
+  <text x="697.5" y="207" text-anchor="middle" class="ink small svg-special-text-fill-312f2f">update ratio</text>
+  <text x="697.5" y="225" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">保存状态</text>
 
-  <path d="M97.5 156 L97.5 184" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
-  <path d="M247.5 156 L247.5 184" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
-  <path d="M397.5 156 L397.5 184" stroke="#cc785c" stroke-width="1.6" marker-end="url(#red-arrow)"/>
-  <path d="M547.5 156 L547.5 184" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
-  <path d="M697.5 156 L697.5 184" stroke="#b8b2a8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M97.5 156 L97.5 184"  stroke-width="1.2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <path d="M247.5 156 L247.5 184"  stroke-width="1.2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <path d="M397.5 156 L397.5 184"  stroke-width="1.6" marker-end="url(#red-arrow)" class="svg-coral-stroke-stroke"/>
+  <path d="M547.5 156 L547.5 184"  stroke-width="1.2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
+  <path d="M697.5 156 L697.5 184"  stroke-width="1.2" marker-end="url(#arrow)" class="svg-axis-stroke"/>
 
-  <rect x="115" y="287" width="215" height="50" rx="8" class="box"/>
-  <text x="222.5" y="309" text-anchor="middle" class="ink label">最近成功 checkpoint</text>
-  <text x="222.5" y="327" text-anchor="middle" class="ink note">参数 · optimizer · 数据游标 · RNG</text>
+  <rect x="115" y="287" width="215" height="50" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="222.5" y="309" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">最近成功 checkpoint</text>
+  <text x="222.5" y="327" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">参数 · optimizer · 数据游标 · RNG</text>
 
-  <rect x="470" y="287" width="215" height="50" rx="8" class="box"/>
-  <text x="577.5" y="309" text-anchor="middle" class="ink label">恢复对照</text>
-  <text x="577.5" y="327" text-anchor="middle" class="ink note">二分首个失败 step · 重新验证</text>
+  <rect x="470" y="287" width="215" height="50" rx="8" class="box svg-special-fill-fill-faf8f5 svg-ink-stroke svg-special-background-fill-faf8f5"/>
+  <text x="577.5" y="309" text-anchor="middle" class="ink label svg-special-text-fill-312f2f">恢复对照</text>
+  <text x="577.5" y="327" text-anchor="middle" class="ink note svg-special-text-fill-312f2f">二分首个失败 step · 重新验证</text>
 
-  <path d="M397.5 236 C397.5 270 285 270 222.5 287" fill="none" stroke="#cc785c" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#red-arrow)"/>
-  <path d="M330 312 L470 312" stroke="#312f2f" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M685 287 C748 250 748 190 697.5 156" fill="none" stroke="#b8b2a8" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <path d="M397.5 236 C397.5 270 285 270 222.5 287" fill="none"  stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#red-arrow)" class="svg-coral-stroke-stroke"/>
+  <path d="M330 312 L470 312"  stroke-width="1.5" marker-end="url(#arrow)" class="svg-ink-stroke"/>
+  <path d="M685 287 C748 250 748 190 697.5 156" fill="none"  stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arrow)" class="svg-axis-stroke"/>
 
-  <text x="42" y="269" class="ink note">每步：finite 标志、尺度统计、成功更新数</text>
-  <text x="42" y="351" class="ink note">红线：首个非有限值触发恢复路径；虚线：稳定运行保存并继续</text>
+  <text x="42" y="269" class="ink note svg-special-text-fill-312f2f">每步：finite 标志、尺度统计、成功更新数</text>
+  <text x="42" y="351" class="ink note svg-special-text-fill-312f2f">红线：首个非有限值触发恢复路径；虚线：稳定运行保存并继续</text>
 </svg>

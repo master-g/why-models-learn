@@ -1,47 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="det-title det-desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="560" height="250" viewBox="0 0 560 250" role="img" aria-labelledby="det-title det-desc">
+<style>
+  .svg-axis-stroke { stroke: #b8b2a8; }
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+  .svg-special-fill-fill-cc785c { fill: #cc785c; }
+  .svg-special-fill-fill-fffdfb { fill: #92908f; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-fffdfb { fill: #fffdfb; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-axis-stroke { stroke: #8b8a83; }
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-fill-fill-6c6a64 { fill: #6c6a64; }
+    .svg-special-fill-fill-cc785c { fill: #cc785c; }
+    .svg-special-fill-fill-fffdfb { fill: #92908f; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-graphic-stroke-e2dbd3 { stroke: #95908b; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-fffdfb { fill: #363535; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <title id="det-title">行列式对应的有向面积</title>
   <desc id="det-desc">左侧两列张成非零面积的平行四边形，右侧两列共线，平行四边形塌成一条线。</desc>
   <defs>
     <marker id="det-arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#312f2f"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
     <marker id="det-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc785c"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-cc785c"/>
     </marker>
     <marker id="det-arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c6a64"/>
+      <path d="M 0 0 L 10 5 L 0 10 z"  class="svg-special-fill-fill-6c6a64"/>
     </marker>
   </defs>
 
-  <rect x="0.5" y="0.5" width="559" height="249" rx="8" fill="#fffdfb" stroke="#d8d0c8"/>
-  <line x1="280" y1="18" x2="280" y2="224" stroke="#e2dbd3"/>
+  <rect x="0.5" y="0.5" width="559" height="249" rx="8"   class="svg-special-fill-fill-fffdfb svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fffdfb"/>
+  <line x1="280" y1="18" x2="280" y2="224"  class="svg-special-graphic-stroke-e2dbd3"/>
 
-  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" fill="#312f2f">
+  <g font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif"  class="svg-special-fill-fill-312f2f svg-special-text-fill-312f2f">
     <text x="18" y="24" font-size="13" font-weight="600">det A = 3</text>
     <text x="300" y="24" font-size="13" font-weight="600">det A = 0</text>
   </g>
 
   <!-- 左 panel: u=(2,1), v=(1,2), det=3 -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="28" y1="178" x2="252" y2="178" marker-end="url(#det-arrow-muted)"/>
     <line x1="78" y1="222" x2="78" y2="43" marker-end="url(#det-arrow-muted)"/>
   </g>
-  <polygon points="78,178 148,143 183,73 113,108" fill="#cc785c" fill-opacity="0.16" stroke="#cc785c" stroke-width="1.4"/>
-  <line x1="78" y1="178" x2="148" y2="143" stroke="#312f2f" stroke-width="2.2" marker-end="url(#det-arrow-ink)"/>
-  <line x1="78" y1="178" x2="113" y2="108" stroke="#cc785c" stroke-width="2.2" marker-end="url(#det-arrow-coral)"/>
-  <text x="150" y="141" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">u</text>
-  <text x="114" y="105" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">v</text>
-  <text x="31" y="219" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">面积 = |ad−bc| = 3</text>
+  <polygon points="78,178 148,143 183,73 113,108"  fill-opacity="0.16"  stroke-width="1.4" class="svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
+  <line x1="78" y1="178" x2="148" y2="143"  stroke-width="2.2" marker-end="url(#det-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="78" y1="178" x2="113" y2="108"  stroke-width="2.2" marker-end="url(#det-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="150" y="141" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">u</text>
+  <text x="114" y="105" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">v</text>
+  <text x="31" y="219" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">面积 = |ad−bc| = 3</text>
 
   <!-- 右 panel: v=2u, det=0 -->
-  <g stroke="#b8b2a8" stroke-width="1" fill="none">
+  <g  stroke-width="1" fill="none" class="svg-axis-stroke">
     <line x1="302" y1="178" x2="548" y2="178" marker-end="url(#det-arrow-muted)"/>
     <line x1="382" y1="222" x2="382" y2="43" marker-end="url(#det-arrow-muted)"/>
   </g>
-  <polygon points="382,178 427,133 472,88 427,133" fill="#cc785c" fill-opacity="0.12" stroke="#cc785c" stroke-width="1.4" stroke-dasharray="4 3"/>
-  <line x1="382" y1="178" x2="427" y2="133" stroke="#312f2f" stroke-width="2.2" marker-end="url(#det-arrow-ink)"/>
-  <line x1="382" y1="178" x2="472" y2="88" stroke="#cc785c" stroke-width="2.2" marker-end="url(#det-arrow-coral)"/>
-  <text x="429" y="130" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#312f2f">u</text>
-  <text x="475" y="86" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#a9583e">v=2u</text>
-  <text x="318" y="219" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64">共线，面积塌成 0</text>
+  <polygon points="382,178 427,133 472,88 427,133"  fill-opacity="0.12"  stroke-width="1.4" stroke-dasharray="4 3" class="svg-special-fill-fill-cc785c svg-coral-stroke-stroke"/>
+  <line x1="382" y1="178" x2="427" y2="133"  stroke-width="2.2" marker-end="url(#det-arrow-ink)" class="svg-ink-stroke"/>
+  <line x1="382" y1="178" x2="472" y2="88"  stroke-width="2.2" marker-end="url(#det-arrow-coral)" class="svg-coral-stroke-stroke"/>
+  <text x="429" y="130" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-special-text-fill-312f2f">u</text>
+  <text x="475" y="86" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14"  class="svg-coral-text-fill">v=2u</text>
+  <text x="318" y="219" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  class="svg-muted-fill">共线，面积塌成 0</text>
 </svg>

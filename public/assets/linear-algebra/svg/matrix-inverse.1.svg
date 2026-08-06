@@ -1,42 +1,64 @@
-<svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<svg data-svg-theme="paper-ink-v1" width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .svg-coral-text-fill { fill: #a9583e; }
+  .svg-ink-stroke { stroke: #312f2f; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-312f2f { fill: #312f2f; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-text-fill { fill: #dc896d; }
+    .svg-ink-stroke { stroke: #f0efe8; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-312f2f { fill: #636262; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+
+
+
+  }
+</style>
   <defs>
     <marker id="mi-arr-ink" markerWidth="7" markerHeight="7" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L7,3 z" fill="#312f2f"/>
+      <path d="M0,0 L0,6 L7,3 z"  class="svg-special-fill-fill-312f2f"/>
     </marker>
   </defs>
 
   <!-- 左:[B | I] -->
-  <polyline points="60,42 50,42 50,110 60,110" fill="none" stroke="#312f2f" stroke-width="1.2"/>
-  <polyline points="204,42 214,42 214,110 204,110" fill="none" stroke="#312f2f" stroke-width="1.2"/>
-  <line x1="131" y1="44" x2="131" y2="108" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 3"/>
-  <text x="76" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#312f2f" text-anchor="middle">3</text>
-  <text x="110" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#312f2f" text-anchor="middle">1</text>
-  <text x="152" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">1</text>
-  <text x="186" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">0</text>
-  <text x="76" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#312f2f" text-anchor="middle">1</text>
-  <text x="110" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#312f2f" text-anchor="middle">2</text>
-  <text x="152" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">0</text>
-  <text x="186" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">1</text>
-  <text x="132" y="136" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">[B | I]</text>
+  <polyline points="60,42 50,42 50,110 60,110" fill="none"  stroke-width="1.2" class="svg-ink-stroke"/>
+  <polyline points="204,42 214,42 214,110 204,110" fill="none"  stroke-width="1.2" class="svg-ink-stroke"/>
+  <line x1="131" y1="44" x2="131" y2="108"  stroke-width="1" stroke-dasharray="3 3" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="76" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-special-text-fill-312f2f">3</text>
+  <text x="110" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-special-text-fill-312f2f">1</text>
+  <text x="152" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">1</text>
+  <text x="186" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">0</text>
+  <text x="76" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-special-text-fill-312f2f">1</text>
+  <text x="110" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-special-text-fill-312f2f">2</text>
+  <text x="152" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">0</text>
+  <text x="186" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">1</text>
+  <text x="132" y="136" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-special-text-fill-312f2f">[B | I]</text>
 
   <!-- 箭头 -->
-  <line x1="228" y1="76" x2="288" y2="76" stroke="#312f2f" stroke-width="1.4" marker-end="url(#mi-arr-ink)"/>
-  <text x="258" y="64" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#312f2f" text-anchor="middle">消元</text>
+  <line x1="228" y1="76" x2="288" y2="76"  stroke-width="1.4" marker-end="url(#mi-arr-ink)" class="svg-ink-stroke"/>
+  <text x="258" y="64" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-special-text-fill-312f2f">消元</text>
 
   <!-- 右:[I | B⁻¹] -->
-  <polyline points="300,42 290,42 290,110 300,110" fill="none" stroke="#312f2f" stroke-width="1.2"/>
-  <polyline points="470,42 480,42 480,110 470,110" fill="none" stroke="#312f2f" stroke-width="1.2"/>
-  <line x1="373" y1="44" x2="373" y2="108" stroke="#c9c4bb" stroke-width="1" stroke-dasharray="3 3"/>
-  <text x="316" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">1</text>
-  <text x="350" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">0</text>
-  <text x="398" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#a9583e" text-anchor="middle">2/5</text>
-  <text x="446" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#a9583e" text-anchor="middle">−1/5</text>
-  <text x="316" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">0</text>
-  <text x="350" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#6c6a64" text-anchor="middle">1</text>
-  <text x="398" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#a9583e" text-anchor="middle">−1/5</text>
-  <text x="446" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#a9583e" text-anchor="middle">3/5</text>
-  <text x="385" y="136" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13" fill="#312f2f" text-anchor="middle">[I | B⁻¹]</text>
+  <polyline points="300,42 290,42 290,110 300,110" fill="none"  stroke-width="1.2" class="svg-ink-stroke"/>
+  <polyline points="470,42 480,42 480,110 470,110" fill="none"  stroke-width="1.2" class="svg-ink-stroke"/>
+  <line x1="373" y1="44" x2="373" y2="108"  stroke-width="1" stroke-dasharray="3 3" class="svg-special-graphic-stroke-c9c4bb"/>
+  <text x="316" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">1</text>
+  <text x="350" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">0</text>
+  <text x="398" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-coral-text-fill">2/5</text>
+  <text x="446" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-coral-text-fill">−1/5</text>
+  <text x="316" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">0</text>
+  <text x="350" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-muted-fill">1</text>
+  <text x="398" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-coral-text-fill">−1/5</text>
+  <text x="446" y="102" font-family="Georgia, 'Times New Roman', serif" font-size="13"  text-anchor="middle" class="svg-coral-text-fill">3/5</text>
+  <text x="385" y="136" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="13"  text-anchor="middle" class="svg-special-text-fill-312f2f">[I | B⁻¹]</text>
 
   <!-- 底部说明 -->
-  <text x="280" y="172" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12" fill="#6c6a64" text-anchor="middle">同一轮消元:左手单位阵,右手逆矩阵</text>
+  <text x="280" y="172" font-family="system-ui, -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" font-size="12"  text-anchor="middle" class="svg-muted-fill">同一轮消元:左手单位阵,右手逆矩阵</text>
 </svg>

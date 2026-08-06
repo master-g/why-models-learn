@@ -1,64 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<svg data-svg-theme="paper-ink-v1" xmlns="http://www.w3.org/2000/svg" width="800" height="373" viewBox="0 0 800 373" role="img" aria-labelledby="title desc">
+<style>
+  .svg-coral-stroke-stroke { stroke: #cc785c; }
+  .svg-muted-fill { fill: #6c6a64; }
+  .svg-special-fill-fill-a9583e { fill: #a9583e; }
+  .svg-special-fill-fill-e1ece8 { fill: #8c9290; }
+  .svg-special-fill-fill-eee5de { fill: #95908b; }
+  .svg-special-fill-fill-f1e0d8 { fill: #998e89; }
+  .svg-special-fill-fill-f7f3ee { fill: #93908e; }
+  .svg-special-fill-fill-fbf8f4 { fill: #92908e; }
+  .svg-special-graphic-stroke-6b8f8b { stroke: #6b8f8b; }
+  .svg-special-graphic-stroke-9e9890 { stroke: #969088; }
+  .svg-special-graphic-stroke-c48a3a { stroke: #be8538; }
+  .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+  .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+  .svg-special-text-fill-312f2f { fill: #312f2f; }
+
+  .svg-special-background-fill-e1ece8 { fill: #e1ece8; }
+  .svg-special-background-fill-eee5de { fill: #eee5de; }
+  .svg-special-background-fill-f1e0d8 { fill: #f1e0d8; }
+  .svg-special-background-fill-f7f3ee { fill: #f7f3ee; }
+  .svg-special-background-fill-fbf8f4 { fill: #fbf8f4; }
+
+
+@media (prefers-color-scheme: dark) {
+    .svg-coral-stroke-stroke { stroke: #e28466; }
+    .svg-muted-fill { fill: #aaa9a1; }
+    .svg-special-fill-fill-a9583e { fill: #a9583e; }
+    .svg-special-fill-fill-e1ece8 { fill: #8c9290; }
+    .svg-special-fill-fill-eee5de { fill: #95908b; }
+    .svg-special-fill-fill-f1e0d8 { fill: #998e89; }
+    .svg-special-fill-fill-f7f3ee { fill: #93908e; }
+    .svg-special-fill-fill-fbf8f4 { fill: #92908e; }
+    .svg-special-graphic-stroke-6b8f8b { stroke: #6b8f8b; }
+    .svg-special-graphic-stroke-9e9890 { stroke: #969088; }
+    .svg-special-graphic-stroke-c48a3a { stroke: #be8538; }
+    .svg-special-graphic-stroke-c9c4bb { stroke: #94908a; }
+    .svg-special-graphic-stroke-d8d0c8 { stroke: #95908a; }
+    .svg-special-text-fill-312f2f { fill: #a5a4a4; }
+    .svg-special-background-fill-e1ece8 { fill: #323333; }
+    .svg-special-background-fill-eee5de { fill: #333231; }
+    .svg-special-background-fill-f1e0d8 { fill: #343130; }
+    .svg-special-background-fill-f7f3ee { fill: #353433; }
+    .svg-special-background-fill-fbf8f4 { fill: #353534; }
+
+
+
+  }
+</style>
   <title id="title">权重初始化如何控制深度信号</title>
   <desc id="desc">左侧是一层的输入、仿射变换和 ReLU；右侧用三条曲线比较 Xavier、He 和过大方差在深度方向上的激活二阶矩。</desc>
   <defs>
     <style>
-      .paper { fill: #f7f3ee; stroke: #d8d0c8; stroke-width: 1.5; }
-      .panel { fill: #fbf8f4; stroke: #d8d0c8; stroke-width: 1.2; }
-      .ink { fill: #312f2f; font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-      .muted { fill: #6c6a64; font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
-      .mono { fill: #312f2f; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-      .accent { fill: #a9583e; }
-      .line { stroke: #a9583e; stroke-width: 2.4; fill: none; }
-      .softline { stroke: #6b8f8b; stroke-width: 2.4; fill: none; }
-      .warnline { stroke: #c48a3a; stroke-width: 2.4; fill: none; }
-      .axis { stroke: #9e9890; stroke-width: 1.2; }
-      .guide { stroke: #c9c4bb; stroke-width: 1; stroke-dasharray: 4 5; }
-      .arrow { stroke: #a9583e; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+      .paper {stroke-width: 1.5; }
+      .panel {stroke-width: 1.2; }
+      .ink {font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+      .muted {font-family: system-ui, -apple-system, "Noto Sans CJK SC", sans-serif; }
+      .mono {font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .accent {}
+      .line {stroke-width: 2.4; fill: none; }
+      .softline {stroke-width: 2.4; fill: none; }
+      .warnline {stroke-width: 2.4; fill: none; }
+      .axis {stroke-width: 1.2; }
+      .guide {stroke-width: 1; stroke-dasharray: 4 5; }
+      .arrow {stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
     </style>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0 0L8 4L0 8Z" fill="#a9583e"/>
+      <path d="M0 0L8 4L0 8Z"  class="svg-special-fill-fill-a9583e"/>
     </marker>
   </defs>
 
-  <rect x="24" y="20" width="752" height="329" rx="18" class="paper"/>
-  <text x="48" y="53" class="ink" font-size="20" font-weight="600">初始化决定信号如何穿过深度</text>
-  <text x="48" y="75" class="muted" font-size="12">同一个输入，权重方差会把每层的激活二阶矩乘上不同的比例</text>
+  <rect x="24" y="20" width="752" height="329" rx="18" class="paper svg-special-fill-fill-f7f3ee svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-f7f3ee"/>
+  <text x="48" y="53" class="ink svg-special-text-fill-312f2f" font-size="20" font-weight="600">初始化决定信号如何穿过深度</text>
+  <text x="48" y="75" class="muted svg-muted-fill" font-size="12">同一个输入，权重方差会把每层的激活二阶矩乘上不同的比例</text>
 
-  <rect x="48" y="96" width="296" height="166" rx="12" class="panel"/>
-  <text x="68" y="121" class="ink" font-size="14" font-weight="600">一层的尺度</text>
-  <rect x="68" y="145" width="62" height="38" rx="8" fill="#f1e0d8" stroke="#cc785c"/>
-  <text x="99" y="169" text-anchor="middle" class="mono" font-size="14">qₓ</text>
-  <path d="M130 164L157 164" class="arrow"/>
-  <rect x="157" y="137" width="92" height="54" rx="8" fill="#f1e0d8" stroke="#cc785c"/>
-  <text x="203" y="159" text-anchor="middle" class="mono" font-size="13">z = Wx+b</text>
-  <text x="203" y="178" text-anchor="middle" class="muted" font-size="10">nᵢₙ σᵥ² qₓ</text>
-  <path d="M249 164L275 164" class="arrow"/>
-  <rect x="275" y="145" width="52" height="38" rx="8" fill="#e1ece8" stroke="#6b8f8b"/>
-  <text x="301" y="169" text-anchor="middle" class="mono" font-size="14">f(z)</text>
-  <text x="68" y="218" class="muted" font-size="11">ReLU 还会保留约一半的平方能量</text>
-  <text x="68" y="241" class="mono" font-size="12">qₕ ≈ ½ nᵢₙ σᵥ² qₓ</text>
+  <rect x="48" y="96" width="296" height="166" rx="12" class="panel svg-special-fill-fill-fbf8f4 svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fbf8f4"/>
+  <text x="68" y="121" class="ink svg-special-text-fill-312f2f" font-size="14" font-weight="600">一层的尺度</text>
+  <rect x="68" y="145" width="62" height="38" rx="8"   class="svg-special-fill-fill-f1e0d8 svg-coral-stroke-stroke svg-special-background-fill-f1e0d8"/>
+  <text x="99" y="169" text-anchor="middle" class="mono svg-special-text-fill-312f2f" font-size="14">qₓ</text>
+  <path d="M130 164L157 164" class="arrow svg-coral-stroke-stroke"/>
+  <rect x="157" y="137" width="92" height="54" rx="8"   class="svg-special-fill-fill-f1e0d8 svg-coral-stroke-stroke svg-special-background-fill-f1e0d8"/>
+  <text x="203" y="159" text-anchor="middle" class="mono svg-special-text-fill-312f2f" font-size="13">z = Wx+b</text>
+  <text x="203" y="178" text-anchor="middle" class="muted svg-muted-fill" font-size="10">nᵢₙ σᵥ² qₓ</text>
+  <path d="M249 164L275 164" class="arrow svg-coral-stroke-stroke"/>
+  <rect x="275" y="145" width="52" height="38" rx="8"   class="svg-special-fill-fill-e1ece8 svg-special-graphic-stroke-6b8f8b svg-special-background-fill-e1ece8"/>
+  <text x="301" y="169" text-anchor="middle" class="mono svg-special-text-fill-312f2f" font-size="14">f(z)</text>
+  <text x="68" y="218" class="muted svg-muted-fill" font-size="11">ReLU 还会保留约一半的平方能量</text>
+  <text x="68" y="241" class="mono svg-special-text-fill-312f2f" font-size="12">qₕ ≈ ½ nᵢₙ σᵥ² qₓ</text>
 
-  <rect x="370" y="96" width="360" height="166" rx="12" class="panel"/>
-  <text x="390" y="121" class="ink" font-size="14" font-weight="600">深度方向的激活二阶矩 qₗ</text>
-  <path d="M404 150H704" class="guide"/>
-  <text x="392" y="154" class="muted" font-size="10">q=1</text>
-  <path d="M404 124V230H704" class="axis" fill="none"/>
-  <text x="700" y="247" text-anchor="end" class="muted" font-size="10">层数</text>
-  <text x="392" y="119" class="muted" font-size="10">大</text>
-  <text x="392" y="232" class="muted" font-size="10">小</text>
-  <path d="M410 150L434 165L458 178L482 188L506 197L530 204L554 210L578 215L602 219L626 223L650 226L674 228" class="line" fill="none"/>
-  <path d="M410 150L434 150L458 151L482 150L506 151L530 150L554 151L578 150L602 151L626 150L650 151L674 150" class="softline" fill="none"/>
-  <path d="M410 150L434 146L458 142L482 138L506 134L530 131L554 129L578 127L602 126L626 125L650 124L674 124" class="warnline" fill="none"/>
-  <line x1="410" y1="251" x2="426" y2="251" class="line"/>
-  <text x="431" y="255" class="muted" font-size="10">Xavier</text>
-  <line x1="490" y1="251" x2="506" y2="251" class="softline"/>
-  <text x="511" y="255" class="muted" font-size="10">He</text>
-  <line x1="551" y1="251" x2="567" y2="251" class="warnline"/>
-  <text x="572" y="255" class="muted" font-size="10">过大方差</text>
+  <rect x="370" y="96" width="360" height="166" rx="12" class="panel svg-special-fill-fill-fbf8f4 svg-special-graphic-stroke-d8d0c8 svg-special-background-fill-fbf8f4"/>
+  <text x="390" y="121" class="ink svg-special-text-fill-312f2f" font-size="14" font-weight="600">深度方向的激活二阶矩 qₗ</text>
+  <path d="M404 150H704" class="guide svg-special-graphic-stroke-c9c4bb"/>
+  <text x="392" y="154" class="muted svg-muted-fill" font-size="10">q=1</text>
+  <path d="M404 124V230H704" class="axis svg-special-graphic-stroke-9e9890" fill="none"/>
+  <text x="700" y="247" text-anchor="end" class="muted svg-muted-fill" font-size="10">层数</text>
+  <text x="392" y="119" class="muted svg-muted-fill" font-size="10">大</text>
+  <text x="392" y="232" class="muted svg-muted-fill" font-size="10">小</text>
+  <path d="M410 150L434 165L458 178L482 188L506 197L530 204L554 210L578 215L602 219L626 223L650 226L674 228" class="line svg-coral-stroke-stroke" fill="none"/>
+  <path d="M410 150L434 150L458 151L482 150L506 151L530 150L554 151L578 150L602 151L626 150L650 151L674 150" class="softline svg-special-graphic-stroke-6b8f8b" fill="none"/>
+  <path d="M410 150L434 146L458 142L482 138L506 134L530 131L554 129L578 127L602 126L626 125L650 124L674 124" class="warnline svg-special-graphic-stroke-c48a3a" fill="none"/>
+  <line x1="410" y1="251" x2="426" y2="251" class="line svg-coral-stroke-stroke"/>
+  <text x="431" y="255" class="muted svg-muted-fill" font-size="10">Xavier</text>
+  <line x1="490" y1="251" x2="506" y2="251" class="softline svg-special-graphic-stroke-6b8f8b"/>
+  <text x="511" y="255" class="muted svg-muted-fill" font-size="10">He</text>
+  <line x1="551" y1="251" x2="567" y2="251" class="warnline svg-special-graphic-stroke-c48a3a"/>
+  <text x="572" y="255" class="muted svg-muted-fill" font-size="10">过大方差</text>
 
-  <rect x="48" y="286" width="682" height="45" rx="10" fill="#eee5de"/>
-  <text x="68" y="313" class="ink" font-size="12">Xavier：ReLU 约 ×0.5</text>
-  <text x="287" y="313" class="ink" font-size="12">He：ReLU 约 ×1</text>
-  <text x="493" y="313" class="ink" font-size="12">过大方差：约 ×1.28</text>
+  <rect x="48" y="286" width="682" height="45" rx="10"  class="svg-special-fill-fill-eee5de svg-special-background-fill-eee5de"/>
+  <text x="68" y="313" class="ink svg-special-text-fill-312f2f" font-size="12">Xavier：ReLU 约 ×0.5</text>
+  <text x="287" y="313" class="ink svg-special-text-fill-312f2f" font-size="12">He：ReLU 约 ×1</text>
+  <text x="493" y="313" class="ink svg-special-text-fill-312f2f" font-size="12">过大方差：约 ×1.28</text>
 </svg>
