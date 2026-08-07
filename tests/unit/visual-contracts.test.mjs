@@ -57,6 +57,15 @@ describe('independent visual contracts', () => {
     assert.match(categoryPage, /backfillGroups\.length > 0/);
   });
 
+  it('separates math chapter entries by reader action', () => {
+    assert.match(categoryPage, /mathGroups\.length > 0/);
+    assert.match(categoryPage, /现在读/);
+    assert.match(categoryPage, /按需回补/);
+    assert.match(categoryPage, /形式参考/);
+    assert.match(categoryPage, /class="chapter-list-group/);
+    assert.match(siteCss, /\.chapter-list-group/);
+  });
+
   it('keeps article navigation path-aware and server-generated', () => {
     assert.match(articlePage, /getArticleNavigation/);
     assert.match(articlePage, /class="[^"]*\bpath-nav\b/);
@@ -87,6 +96,10 @@ describe('independent visual contracts', () => {
     assert.match(
       siteCss,
       /\.article-section li > mjx-container:not\(\[display="true"\]\)\s*\{[^}]*max-width:\s*100%;[^}]*overflow-x:\s*auto;/s,
+    );
+    assert.match(
+      siteCss,
+      /@media \(max-width:\s*760px\)[\s\S]*\.article-section p > mjx-container:not\(\[display="true"\]\)\s*\{[^}]*display:\s*inline-block;[^}]*max-width:\s*100%;[^}]*overflow-x:\s*auto;/s,
     );
   });
 

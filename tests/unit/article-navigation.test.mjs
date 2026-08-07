@@ -91,4 +91,64 @@ describe('article navigation', () => {
     assert.equal(glossary.mainlineStage, undefined);
     assert.deepEqual(glossary.backfillGroups, []);
   });
+
+  it('groups every math chapter by the reader action without changing outline order', () => {
+    const paths = getLearningPaths();
+    const probability = getSectionPathContext(paths, 'probability');
+
+    assert.deepEqual(
+      probability.mathGroups.map((group) => ({
+        layer: group.layer,
+        actionLabel: group.actionLabel,
+        slugs: group.entries.map((entry) => entry.slug),
+      })),
+      [
+        {
+          layer: 'core',
+          actionLabel: '现在读',
+          slugs: ['random-variables', 'expectation', 'variance-and-covariance'],
+        },
+        {
+          layer: 'backfill',
+          actionLabel: '按需回补',
+          slugs: [
+            'gaussian-distribution',
+            'joint-distributions',
+            'marginal-and-conditional',
+            'bayes-theorem',
+            'independence',
+            'covariance-matrix',
+            'maximum-likelihood',
+            'maximum-a-posteriori',
+          ],
+        },
+        {
+          layer: 'reference',
+          actionLabel: '形式参考',
+          slugs: [
+            'probability-spaces',
+            'discrete-distributions',
+            'continuous-distributions',
+            'law-of-large-numbers',
+            'central-limit-theorem',
+            'sampling',
+            'change-of-variables',
+            'exponential-family',
+            'concentration-inequalities',
+          ],
+        },
+      ],
+    );
+    assert.deepEqual(
+      probability.mathGroups[2].entries.map((entry) => entry.indexInSection),
+      [0, 2, 3, 12, 13, 14, 15, 18, 19],
+    );
+  });
+
+  it('does not invent math groups for a non-math chapter', () => {
+    const paths = getLearningPaths();
+    const backprop = getSectionPathContext(paths, 'backpropagation');
+
+    assert.deepEqual(backprop.mathGroups, []);
+  });
 });

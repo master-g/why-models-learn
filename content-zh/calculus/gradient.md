@@ -72,6 +72,15 @@ $$
 =(a+tu_1,b+tu_2)
 $$
 
+点积的计算规则是把对应坐标相乘后求和。对两个同维向量 $\boldsymbol a=(a_1,\ldots,a_n)$ 与 $\boldsymbol b=(b_1,\ldots,b_n)$，
+
+$$
+\boldsymbol a\cdot\boldsymbol b
+=a_1b_1+\cdots+a_nb_n
+$$
+
+点积把两个向量的对应分量相乘后相加。下面用它汇总「每个坐标的变化率 × 沿该坐标移动的速度」。几何性质与柯西–施瓦茨不等式在 [内积](../linear-algebra/inner-products/) 中展开。
+
 令一元函数 $g(t)=f(\boldsymbol r(t))$。在 $t=0$ 对它使用 [链式法则](../calculus/chain-rule/)：
 
 $$

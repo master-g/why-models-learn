@@ -186,7 +186,7 @@ sections:
       - exponential-family
       - concentration-inequalities
     description_zh: |
-      概率空间到 MLE/MAP:期望、方差、常见分布、大数定律与中心极限,终点是极大似然——所有损失函数的娘家。
+      完整理论地图从概率空间延伸到 MLE/MAP；第一遍从随机变量、期望和方差开始，其余内容按需要回补或参考。
 
   - dir: information-theory
     part: math-foundations

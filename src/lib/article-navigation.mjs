@@ -49,6 +49,40 @@ function branchReturnSlug(paths, branch) {
   return stage?.entries.find((entry) => entry.available)?.slug;
 }
 
+const MATH_GROUPS = [
+  {
+    layer: 'core',
+    actionLabel: '现在读',
+    descriptionZh: '第一遍只读这些词条。目标是掌握定义、数字例子和第一次机器学习用途。',
+  },
+  {
+    layer: 'backfill',
+    actionLabel: '按需回补',
+    descriptionZh: '遇到当前推导困难时再读。这些词条不构成进入下一阶段的条件。',
+  },
+  {
+    layer: 'reference',
+    actionLabel: '形式参考',
+    descriptionZh: '用于补全严格定义、证明和理论边界。第一遍可以跳过。',
+  },
+];
+
+function getSectionMathGroups(paths, sectionId) {
+  const section = paths.sections.get(sectionId);
+  if (!section) return [];
+
+  const entriesByLayer = new Map(MATH_GROUPS.map(({ layer }) => [layer, []]));
+  for (const slug of section.entries) {
+    const entry = paths.entryIndex.get(slug);
+    const mathRole = entry?.roles.find((role) => role.type === 'math');
+    if (mathRole) entriesByLayer.get(mathRole.layer)?.push(entry);
+  }
+
+  return MATH_GROUPS
+    .map((group) => ({ ...group, entries: entriesByLayer.get(group.layer) || [] }))
+    .filter((group) => group.entries.length > 0);
+}
+
 export function getArticleNavigation(paths, {
   slug,
   sectionEntries = [],
@@ -106,5 +140,6 @@ export function getSectionPathContext(paths, sectionId) {
     mainlineStage,
     optionalBranch,
     backfillGroups: paths.path.backfillForSections.get(sectionId) || [],
+    mathGroups: getSectionMathGroups(paths, sectionId),
   };
 }
